@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>A Complete Guide on Writing and Building C&#43;&#43; Programs in Sublime Text - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="In this post, I will show how to write and run simple C&#43;&#43; programs in Sublime Text 3.
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="A Complete Guide on Writing and Building C&#43;&#43; Programs in Sublime Text" />
+<meta property="og:description" content="In this post, I will show how to write and run simple C&#43;&#43; programs in Sublime
+Text 3." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/" />
+<meta property="article:published_time" content="2018-03-28T21:54:23+08:00" />
+<meta property="article:modified_time" content="2020-03-11T23:29:05+08:00" />
+<meta itemprop="name" content="A Complete Guide on Writing and Building C&#43;&#43; Programs in Sublime Text">
+<meta itemprop="description" content="In this post, I will show how to write and run simple C&#43;&#43; programs in Sublime
+Text 3.">
+<meta itemprop="datePublished" content="2018-03-28T21:54:23&#43;08:00" />
+<meta itemprop="dateModified" content="2020-03-11T23:29:05&#43;08:00" />
+<meta itemprop="wordCount" content="1007">
+
+
+
+<meta itemprop="keywords" content="C&#43;&#43;,Sublime-Text," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A Complete Guide on Writing and Building C&#43;&#43; Programs in Sublime Text"/>
+<meta name="twitter:description" content="In this post, I will show how to write and run simple C&#43;&#43; programs in Sublime
+Text 3."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">A Complete Guide on Writing and Building C&#43;&#43; Programs in Sublime Text</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-03-28 </span>
+        <div class="post-category">
+            <a href="/categories/technique/"> technique </a>
+            </div>
+          <span class="more-meta"> 1007 words </span>
+          <span class="more-meta"> 5 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#writing-source-files">Writing source files</a>
+      <ul>
+        <li><a href="#code-snippet">Code snippet</a></li>
+        <li><a href="#auto-completion">Auto-completion</a></li>
+      </ul>
+    </li>
+    <li><a href="#compile-and-run-c-code">Compile and run C++ code</a>
+      <ul>
+        <li><a href="#simple-build-system-to-compile-and-run-source-code">Simple build system to compile and run source code</a></li>
+        <li><a href="#how-to-run-the-executable-right-in-the-system-terminal-or-console">How to run the executable right in the system terminal or console</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>In this post, I will show how to write and run simple C++ programs in <a href="https://www.sublimetext.com/">Sublime
+Text 3</a>.</p>
+<h1 id="writing-source-files">Writing source files</h1>
+<p>The following two part are optional. They are intended to increase your speed
+of writing C++ programs. If you do not need them, just skip and read how to
+build and run C++ source code.</p>
+<h2 id="code-snippet">Code snippet</h2>
+<p>When you are writing code, you may want to create a snippet so that your
+keywords will be expanded to a template to reduce your typing. For example, we
+often need to write codes that output something and then output a new line
+character. Writing this boiler-plate code over and over again is boring. We can
+create snippet for it.</p>
+<p>It is easy to create a code snippet in Sublime Text. Go to <code>Tools -&gt; Developer</code>
+and click <code>New Snippet...</code> (see image below)</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/18-3-28/95195253.jpg" width="600">
+</p>
+<p>In the created tab, use the following settings:</p>
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;snippet&gt;</span>
+    <span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[
+</span><span class="cp">cout &lt;&lt;  &lt;&lt; &#39;\n&#39;;
+</span><span class="cp">]]&gt;</span><span class="nt">&lt;/content&gt;</span>
+    <span class="c">&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</span>
+    <span class="nt">&lt;tabTrigger&gt;</span>cout<span class="nt">&lt;/tabTrigger&gt;</span>
+    <span class="c">&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>source.c++<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;decription&gt;</span>Insert a cout with newline<span class="nt">&lt;/decription&gt;</span>
+<span class="nt">&lt;/snippet&gt;</span>
+</code></pre></div><p>Save this snippet and give it a name, e.g., <code>cout_oneline.sublime-snippet</code>. All
+snippets in Sublime Text end with the extension <code>sublime-snippet</code>.</p>
+<p>When you have created this snippet, you can just type <code>cout</code> in the C++ source
+file and press <kbd>Tab</kbd> key to trigger the snippet (see the below image).</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/18-3-28/2638028.jpg" width="600">
+</p>
+<h2 id="auto-completion">Auto-completion</h2>
+<p>If you want to auto-complete your code, you can use <a href="https://github.com/niosus/EasyClangComplete">EasyClangComplete</a>.
+You can install this package via <a href="https://packagecontrol.io/installation">Package Control</a>.
+Then you need to <a href="https://github.com/niosus/EasyClangComplete#2-install-clang">install <code>clang</code> for your system</a>.</p>
+<p>The package offers several ways to configure it. I will just demonstrate one
+way: configure it via setting file. Open the setting file of <code>EasyClangComplete</code>
+(see image below):</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/18-3-28/17294862.jpg" width="400">
+</p>
+<p>Example settings are shown below:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">{<span class="w">
+</span><span class="w"> </span><span class="s2">&#34;common_flags&#34;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="w">    </span>//<span class="w"> </span>some<span class="w"> </span>example<span class="w"> </span>includes<span class="w">
+</span><span class="w">    </span><span class="s2">&#34;-I/usr/include&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="s2">&#34;-I$project_base_path/src&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">
+</span><span class="w">    </span>//include<span class="w"> </span>search<span class="w"> </span>path<span class="w"> </span>of<span class="w"> </span>gcc<span class="w">
+</span><span class="w">    </span><span class="s2">&#34;-I/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="s2">&#34;-I/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="s2">&#34;-I/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="s2">&#34;-I/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="s2">&#34;-I/usr/local/include&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">
+</span><span class="w">    </span>//<span class="w"> </span>this<span class="w"> </span>is<span class="w"> </span>needed<span class="w"> </span>to<span class="w"> </span>include<span class="w"> </span>the<span class="w"> </span>correct<span class="w"> </span>headers<span class="w"> </span>for<span class="w"> </span>clang<span class="w">
+</span><span class="w">    </span><span class="s2">&#34;-I/usr/local/lib/clang/4.0.1/include&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="p">],</span><span class="w">
+</span><span class="w">  </span><span class="s2">&#34;cpp_flags&#34;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="w">    </span><span class="s2">&#34;-std=c++11&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="s2">&#34;-Wall&#34;</span><span class="w">
+</span><span class="w">  </span><span class="p">],</span><span class="w">
+</span><span class="w">  </span><span class="k">&#34;errors_style&#34;: </span><span class="s2">&#34;phantoms&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">&#34;hide_default_completions&#34;: </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">&#34;progress_style&#34;: </span><span class="s2">&#34;ColorSublime&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">  </span><span class="k">&#34;show_type_info&#34;: </span><span class="kc">false</span><span class="p">,</span><span class="w">
+</span><span class="w"></span>}<span class="w">
+</span></code></pre></div><p>In the above settings, the include search paths of gcc can be found using the
+following command:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="sb">`</span>gcc -print-prog-name<span class="o">=</span>cc1plus<span class="sb">`</span> -v
+</code></pre></div><p>The output is something like the following (use the paths in the green box):</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/18-3-28/87002887.jpg" width="600">
+</p>
+<p>Now you should see that the auto-completion works.</p>
+<h1 id="compile-and-run-c-code">Compile and run C++ code</h1>
+<p>In order to compile C++ source files. You have to make sure that a C++ compiler
+is installed in your system. For Linux system, <a href="https://gcc.gnu.org/"><code>GCC</code></a> is
+often installed by default. So further configuration is not needed. For
+Windows, there is a port of GCC named
+<a href="https://sourceforge.net/projects/mingw-w64/">MinGW-w64</a>. Download the on-line
+installer and install it. It will install all the component necessary to
+compile C++ source. After installation, you should add the directory of
+executables to the Windows <code>PATH</code>. On my Windows system, the executable
+directory is</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">C:\Program Files\mingw-w64\x86_64-7.3.0-posix-seh-rt_v5-rev0\mingw64\bin
+</code></pre></div><p>You may need to reboot your system to make the PATH change take effect.</p>
+<p>Sublime Text has its own build system for C++. Unfortunately, it has at least
+one drawback: it can not run the executables in the system console (so if you
+want to run C++ program that need standard input from terminal, you will fail).
+We can write our own build system fairly easily.</p>
+<h2 id="simple-build-system-to-compile-and-run-source-code">Simple build system to compile and run source code</h2>
+<p>After finishing writing the code, we now compile the code. We can build our own
+custom build system. Go to <code>Tools –&gt; Build System –&gt; New Build System...</code>. Use
+the following settings (I assume that you are using GCC to compile your code):</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">{<span class="w">
+</span><span class="w"></span><span class="s2">&#34;cmd&#34;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;g++ -std=c++11 -Wall ${file_name} -o ${file_base_name} &amp;&amp; ./${file_base_name}&#34;</span><span class="p">],</span><span class="w">
+</span><span class="w"></span><span class="s2">&#34;selector&#34;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;source.c&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w"></span><span class="k">&#34;shell&#34;: </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="w"></span><span class="s2">&#34;working_dir&#34;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;$file_path&#34;</span><span class="w">
+</span><span class="w"></span>}<span class="w">
+</span></code></pre></div><p>Save it and name it <code>C++.sublime-build</code> (build systems in Sublime Text all end
+with the extention <code>sublime-build</code>). Press
+<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> to select the build system.</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/18-3-28/32186424.jpg" width="600">
+</p>
+<p>Select the <code>C++</code> build system we have just created and press <kbd>Enter</kbd>.
+Then the source file will be compiled and run. If everything goes well, you
+will see the output of this program in the bottom of Sublime Text window.</p>
+<h2 id="how-to-run-the-executable-right-in-the-system-terminal-or-console">How to run the executable right in the system terminal or console</h2>
+<p>If you are executing a program which needs input from the standard input (often
+it is just the console), the program can not receive input due to the limit of
+Sublime Text. How to solve this issue? It is easy. We can add a
+<a href="http://docs.sublimetext.info/en/latest/reference/build_systems/configuration.html#variants"><code>variants</code></a>
+to the build system we just created and run the executable file in the system
+GUI terminal. Different systems differ in their specific settings.</p>
+<p>Here is an example setting:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">{<span class="w">
+</span><span class="w">    </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;g++ -std=c++11 -Wall \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}\&#34; &amp;&amp; \&#34;${file_path}/${file_base_name}\&#34;&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="k">&#34;file_regex&#34;: </span><span class="s2">&#34;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="k">&#34;working_dir&#34;: </span><span class="s2">&#34;${file_path}&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="k">&#34;selector&#34;: </span><span class="s2">&#34;source.c++, source.cpp, source.cc, source.cxx&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">
+</span><span class="w">    </span><span class="s2">&#34;variants&#34;</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="p">[</span><span class="w">
+</span><span class="w">        </span>{<span class="w">
+</span><span class="w">            </span><span class="k">&#34;name&#34;: </span><span class="s2">&#34;Run in Terminal&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">
+</span><span class="w">            </span><span class="k">&#34;linux&#34;: </span>{<span class="w">
+</span><span class="w">                </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;g++ -std=c++11 -Wall \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}\&#34; &amp;&amp; xterm -e &#39;${file_path}/${file_base_name} &amp;&amp; echo &amp;&amp; echo Press ENTER to continue &amp;&amp; read line &amp;&amp; exit&#39;&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">                </span>//<span class="w"> </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;g++ -std=c++11 -Wall \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}\&#34; &amp;&amp; gnome-terminal -e &#39;bash -c \&#34;${file_path}/${file_base_name}&amp;&amp; echo &amp;&amp; echo Press ENTER to continue &amp;&amp; read line &amp;&amp; exit\&#34;&#39;&#34;</span><span class="p">,</span><span class="w"> </span>//<span class="w"> </span>for<span class="w"> </span>gnome-terminal<span class="w">
+</span><span class="w">                </span>//<span class="w"> </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;g++ -std=c++11 -Wall \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}\&#34; &amp;&amp; xterm -e &#39;${file_path}/${file_base_name}; bash&#39;&#34;</span><span class="p">,</span><span class="w"> </span>//<span class="w"> </span>for<span class="w"> </span>xterm<span class="w">
+</span><span class="w">                </span>//<span class="w"> </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;g++ -std=c++11 -Wall \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}\&#34; &amp;&amp; xterm -hold -e ${file_path}/${file_base_name}&#34;</span><span class="p">,</span><span class="w"> </span>//<span class="w"> </span>for<span class="w"> </span>xterm<span class="w">
+</span><span class="w">                </span>//<span class="w"> </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;g++ -std=c++11 -Wall \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}\&#34; &amp;&amp; konsole --hold -e ${file_path}/./${file_base_name}&#34;</span><span class="p">,</span><span class="w"> </span>//<span class="w"> </span>for<span class="w"> </span>konsole<span class="w">
+</span><span class="w">
+</span><span class="w">            </span>}<span class="p">,</span><span class="w">
+</span><span class="w">
+</span><span class="w">            </span><span class="s2">&#34;windows&#34;</span><span class="p">:</span>{<span class="w">
+</span><span class="w">                </span><span class="k">&#34;shell_cmd&#34;: </span><span class="w">  </span><span class="s2">&#34;g++ -std=c++11 -Wall \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}\&#34; &amp;&amp; start cmd /k  $file_base_name &#34;</span><span class="w">
+</span><span class="w">                </span>//<span class="w"> </span><span class="k">&#34;shell_cmd&#34;: </span><span class="w">  </span><span class="s2">&#34;g++ -std=c++11 -Wall \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}\&#34; &amp;&amp; start \&#34;$file_base_name\&#34; call $file_base_name&#34;</span><span class="w">
+</span><span class="w">            </span>}<span class="p">,</span><span class="w">
+</span><span class="w">
+</span><span class="w">            </span><span class="s2">&#34;osx&#34;</span><span class="p">:</span>{<span class="w">
+</span><span class="w">                </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;g++ -std=c++11 -Wall \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}\&#34; &amp;&amp; xterm -e &#39;${file_path}/${file_base_name} &amp;&amp; echo &amp;&amp; echo Press ENTER to continue &amp;&amp; read line &amp;&amp; exit&#39;&#34;</span><span class="p">,</span><span class="w">
+</span><span class="w">            </span>}<span class="p">,</span><span class="w">
+</span><span class="w">
+</span><span class="w">            </span><span class="k">&#34;shell&#34;: </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="w">        </span>}<span class="p">,</span><span class="w">
+</span><span class="w">    </span><span class="p">]</span><span class="w">
+</span><span class="w"></span>}<span class="w">
+</span></code></pre></div><p>The above setting file provides settings for different systems. For Linux,
+options for GUI terminals such as <em>genome-terminal</em>, <em>xterm</em> and <em>Konsole</em> are
+provided. You can uncomment corresponding line to set up for your
+currently-used GUI terminal. The above settings will ensure that the GUI
+terminal window will not be closed immediately after running your program (so
+that you can examine the result of the program). For Windows, we use the
+default CMD. For OSX, we use the <code>xterm</code>.</p>
+<p>When you want to compile and run files which need input from the console, you
+can use the build variants <code>Run in Terminal</code>. To use it, press
+<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> to bring up the command plate,
+and choose option <code>Run in Terminal</code> (see image below).</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/18-3-28/8942560.jpg" width="600">
+</p>
+<hr>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="http://docs.sublimetext.info/en/latest/reference/build_systems/configuration.html#overview">Sublime Text build system overview</a></li>
+<li><a href="http://docs.sublimetext.info/en/latest/extensibility/snippets.html">Sublime Text snippet documentation</a></li>
+<li><a href="https://superuser.com/a/1012167/736190">Windows, prevent the window from closing after program execution, solution 1</a></li>
+<li><a href="https://stackoverflow.com/a/39882361/6064933">Same as above, another solution</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-03-11
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/C&#43;&#43;/">C&#43;&#43;</a>
+          <a href="/tags/Sublime-Text/">Sublime-Text</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2018/03/29/latex-chinese.zh/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">全面总结如何在 LaTeX 中使用中文 (2020 最新版)</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2018/03/24/separate-reference-with-endnote/">
+            <span class="next-text nav-default">使用 Endnote 为论文每个章节制作单独的参考文献列表</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

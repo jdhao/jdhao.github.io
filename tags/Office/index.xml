@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Office on jdhao&#39;s blog</title>
+    <link>https://jdhao.github.io/tags/Office/</link>
+    <description>Recent content in Office on jdhao&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>jdhao</copyright>
+    <lastBuildDate>Mon, 30 Mar 2020 22:30:20 +0800</lastBuildDate>
+    
+	<atom:link href="https://jdhao.github.io/tags/Office/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Convert PPTX File to Image on Ubuntu</title>
+      <link>https://jdhao.github.io/2020/03/30/pptx_to_image/</link>
+      <pubDate>Mon, 30 Mar 2020 22:30:20 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/03/30/pptx_to_image/</guid>
+      <description>&lt;p&gt;A short post on how to convert PPTX file to images.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>利用母版视图在 PowerPoint 中制作个性化页脚页眉</title>
+      <link>https://jdhao.github.io/2018/05/19/powerpoint-header-footer-master-view/</link>
+      <pubDate>Sat, 19 May 2018 18:28:40 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/05/19/powerpoint-header-footer-master-view/</guid>
+      <description>本文简要总结一下如何在 PowerPoint 中使用母版视图制作个性化的页脚页眉1，先上效果图： 背景介绍 假如张三是哈佛（哈尔滨佛学院，简称「哈佛」）的一个学生，他</description>
+    </item>
+    
+    <item>
+      <title>使用 Microsoft Word 撰写论文常见问题总结</title>
+      <link>https://jdhao.github.io/2018/05/10/write-paper-word-issues/</link>
+      <pubDate>Thu, 10 May 2018 21:04:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/05/10/write-paper-word-issues/</guid>
+      <description>本文总结一些使用 Microsoft Word 2016 撰写论文时遇到的一些问题以及解决办法。 Word 如何插入分节符？ 「分节符」是 Word 中一个非常重要概念，很多设置都会涉及到分节符。分</description>
+    </item>
+    
+    <item>
+      <title>使用 Endnote 为论文每个章节制作单独的参考文献列表</title>
+      <link>https://jdhao.github.io/2018/03/24/separate-reference-with-endnote/</link>
+      <pubDate>Sat, 24 Mar 2018 15:18:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/03/24/separate-reference-with-endnote/</guid>
+      <description>&lt;p&gt;毕业季到了，如果使用 Word 来写毕业论文，论文写作中的参考文献处理也是一个非常重要的问题，在 Word 管理参考的比较好的方式是通过 &lt;a href=&#34;http://www.ioa.cas.cn/xwzx/zhxw/201410/P020141013364219434960.pdf&#34;&gt;Endnote&lt;/a&gt;。Endnote 是一个非常方便的可视化管理参考文献的工具，本文介绍如何使用 Endnote 结合 Microsoft Word 给每个章节分别设置参考文献列表。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>如何从 PowerPoint 幻灯片导出没有多余白边的图像或者 PDF 文件</title>
+      <link>https://jdhao.github.io/2018/02/06/export-borderless-img-pdf-from-powerpoint/</link>
+      <pubDate>Tue, 06 Feb 2018 16:20:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/02/06/export-borderless-img-pdf-from-powerpoint/</guid>
+      <description>&lt;p&gt;PowerPoint 是一个方便的绘图工具，可以完成一些简单的绘图工作，并且支持将 slide
+导出为图片或者 PDF 格式，方便插入到其他文档中，但是默认导出的图片或者 PDF 文件
+通常会有大量冗余的白边。如何设置，才能使得导出的文件中的白边尽可能少呢？本文将
+给出一种办法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to Insert LaTeX Equations in Microsoft Office Word and PowerPoint</title>
+      <link>https://jdhao.github.io/2015/10/13/ms-office-latex-equation/</link>
+      <pubDate>Tue, 13 Oct 2015 20:04:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2015/10/13/ms-office-latex-equation/</guid>
+      <description>&lt;p&gt;In this post, I would like to share how to insert beautiful latex equations
+into Microsoft Office Word and PowerPoint.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

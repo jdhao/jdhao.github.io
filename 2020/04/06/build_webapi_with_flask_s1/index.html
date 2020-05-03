@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Build A Web API Service Using Flask -- The Basics - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="The Python Flask package can be used to build web applications. Web API is a kind of web application. Simply put, web APIs are built for other applications to query info from the web server.
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2020/04/06/build_webapi_with_flask_s1/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Build A Web API Service Using Flask -- The Basics" />
+<meta property="og:description" content="The Python Flask package can be used to build web applications. Web API is a
+kind of web application. Simply put, web APIs are built for other applications
+to query info from the web server." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2020/04/06/build_webapi_with_flask_s1/" />
+<meta property="article:published_time" content="2020-04-06T22:05:07+08:00" />
+<meta property="article:modified_time" content="2020-04-13T22:18:29+08:00" />
+<meta itemprop="name" content="Build A Web API Service Using Flask -- The Basics">
+<meta itemprop="description" content="The Python Flask package can be used to build web applications. Web API is a
+kind of web application. Simply put, web APIs are built for other applications
+to query info from the web server.">
+<meta itemprop="datePublished" content="2020-04-06T22:05:07&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-13T22:18:29&#43;08:00" />
+<meta itemprop="wordCount" content="947">
+
+
+
+<meta itemprop="keywords" content="Flask,HTTP,request," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Build A Web API Service Using Flask -- The Basics"/>
+<meta name="twitter:description" content="The Python Flask package can be used to build web applications. Web API is a
+kind of web application. Simply put, web APIs are built for other applications
+to query info from the web server."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Build A Web API Service Using Flask -- The Basics</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-06 </span>
+        <div class="post-category">
+            <a href="/categories/Python/"> Python </a>
+            </div>
+          <span class="more-meta"> 947 words </span>
+          <span class="more-meta"> 5 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#a-simple-web-api">A simple web API</a></li>
+    <li><a href="#running-the-development-server">Running the development server</a>
+      <ul>
+        <li><a href="#run-the-http-server-via-apprun">Run the HTTP server via <code>app.run()</code></a></li>
+        <li><a href="#run-the-server-via-flask-command-line-interface">Run the server via flask command line interface</a></li>
+        <li><a href="#auto-reloading-on-code-changes">Auto reloading on code changes</a></li>
+      </ul>
+    </li>
+    <li><a href="#test-the-web-api">Test the web API</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>The Python Flask package can be used to build web applications. Web API is a
+kind of web application. Simply put, web APIs are built for other applications
+to query info from the web server.</p>
+<h1 id="a-simple-web-api">A simple web API</h1>
+<p>Suppose that we want to build a simple web API which can calculate the square
+root a number we request. The following code shows how we can do that:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/sqrt&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;POST&#34;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">sqrt</span><span class="p">():</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;num&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">),</span> <span class="s1">&#39;msg&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">})</span>
+</code></pre></div><p>In the above code, we first create a flask application using <code>Flask(__name__)</code>
+which lets flask know that we building an application inside this Python
+module. We then use the <code>@app.route()</code> decorator to define a URL that we can
+later use to access our web API. The <code>methods</code> parameter is used to specify
+which kinds of <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">HTTP requests</a>
+the client can use to access our API.</p>
+<p>Below the app decorator, we define a function to process the client request,
+the actual name of the function does not matter here.</p>
+<p>To get the client requests in the web server side, Flask provides the <code>request</code>
+module to handle the requests. When the client is using a <code>POST</code> request, the
+requested data will be available in <code>request.form</code> which is like a Python
+dictionary. Note that by default, the posted form data are all python str type.
+You have to specify the <code>type</code> parameter to convert the value to desired type.</p>
+<p>Flask provides the <a href="https://flask.palletsprojects.com/en/1.1.x/api/#flask.json.jsonify"><code>jsonify</code></a>
+method to serialize any compatible Python data type to JSON format. Finally, we
+return the result in JSON format.</p>
+<h1 id="running-the-development-server">Running the development server</h1>
+<p>After we build the simple web API, we would like to test it. We need to first
+set up the web server. Flask also ships with a simple web server for testing
+purposes. There are two ways that we can run the web server: via <code>app.run()</code>
+or via the flask command line interface.</p>
+<h2 id="run-the-http-server-via-apprun">Run the HTTP server via <code>app.run()</code></h2>
+<p>Add the following code to your Flask application module:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="c1"># the server will listen on port 1234. Default is port 5000.</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
+</code></pre></div><p>To use the IP address of your machine, you can specify the <code>host</code> parameter in
+<code>app.run</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&#34;0.0.0.0&#34;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">1234</span><span class="p">)</span>
+</code></pre></div><p>Then other machines in the same network can access your web service. If you do
+not specify the host address, the default will be <code>127.0.0.1</code>, which means that
+your can only access the service in your machine.</p>
+<p>Finally, your can activate the HTTP server with <code>python application.py</code>
+(suppose that your module is named <code>application.py</code>). You will see the
+following message on command line:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"> * Serving Flask app &#34;application&#34; (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:1234/ (Press CTRL+C to quit)
+</code></pre></div><h2 id="run-the-server-via-flask-command-line-interface">Run the server via flask command line interface</h2>
+<p>The second and officially-recommended way to run Flask application is via the
+flask command line interface (<code>flask run</code>).</p>
+<p>When you run your application using <code>flask run</code>, the following settings does
+not work:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="c1"># when debug is True, flask will reload app once code changes.</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&#34;0.0.0.0&#34;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8081</span><span class="p">)</span>
+</code></pre></div><p>The correct way to run the application is to run the following command:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">FLASK_APP</span><span class="o">=</span>application
+<span class="nv">FLASK_ENV</span><span class="o">=</span>development flask run --host<span class="o">=</span>0.0.0.0 --port <span class="m">1234</span>
+</code></pre></div><p><code>FLASK_APP</code> variable is used to specify which file your flask application
+resides. <code>FLASK_ENV</code> is used to specify the flask running environment. The
+default is <code>production</code>. If you use <code>development</code>, Flask will activate debug
+mode, i.e., it will reload the application once the code changes.</p>
+<p><code>--host</code> is used to specify the host address. <code>--port</code> is used to specify the
+listening port. You can also change the port number via <code>FLASK_RUN_PORT</code> env
+variable:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">FLASK_APP</span><span class="o">=</span>application
+<span class="nb">export</span> <span class="nv">FLASK_RUN_PORT</span><span class="o">=</span><span class="m">1234</span>
+<span class="nv">FLASK_ENV</span><span class="o">=</span>development flask run --host<span class="o">=</span>0.0.0.0
+</code></pre></div><h2 id="auto-reloading-on-code-changes">Auto reloading on code changes</h2>
+<p>Flask provides a debug mode where the app will be reloaded once the code
+changes, so you do not need to manually stop the server and run it again.</p>
+<p>If you run the server via <code>app.run()</code>, you can activate debug mode via
+<code>debug=True</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="c1"># when debug is True, flask will reload app once code changes.</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&#34;0.0.0.0&#34;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">1234</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div><p>You may encounter following errors when you run <code>python application.py</code>:</p>
+<blockquote>
+<p>OSError: [Errno 8] Exec format error</p>
+</blockquote>
+<p>The reason for this error can be found
+<a href="https://github.com/pallets/werkzeug/issues/1482">here</a>. To put it simply, if
+<code>application.py</code> has execution right, then Flaks assumes that the script can be
+run via <code>./application.py</code>. So you must add
+<a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">shebang</a> at the beginning of the module:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">!#/usr/bin/env python
+</code></pre></div><p>Or you must disable the execution right of this module. When the application is reloaded,
+it will be run via <code>python application.py</code>.</p>
+<p>Another way is to run the app via Flask command line interface, as we have
+mentioned earlier. Set the <code>FLASK_ENV</code> variable to <code>development</code> or set <code>FLASK_DEBUG</code>
+to <code>1</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">FLASK_APP</span><span class="o">=</span>application
+<span class="nv">FLASK_ENV</span><span class="o">=</span>development flask run --host<span class="o">=</span>0.0.0.0 --port <span class="m">1234</span>
+
+<span class="c1"># or the following</span>
+<span class="c1"># FLASK_DEBUG=1 flask run --host=0.0.0.0 --port 1234</span>
+</code></pre></div><h1 id="test-the-web-api">Test the web API</h1>
+<p>The full URL for the web API is: <code>http://127.0.0.1:1234/sqrt</code>.</p>
+<p>We can test the web API via curl:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">curl -XPOST -d <span class="nv">num</span><span class="o">=</span><span class="m">4</span> <span class="s2">&#34;http://127.0.0.1:1234/sqrt&#34;</span>
+</code></pre></div><p>It is more convenient to test the API via
+<a href="https://requests.readthedocs.io/en/master/">requests</a> package using the
+following code:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+
+
+<span class="k">def</span> <span class="nf">post_data</span><span class="p">():</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;http://127.0.0.1:1234/sqrt&#34;</span>
+
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;num&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">post_data</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div><p>If everything is OK, you will see the following output:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">{&#39;msg&#39;: &#39;success&#39;, &#39;result&#39;: 2.0}
+</code></pre></div><h1 id="references">References</h1>
+<ul>
+<li><a href="https://flask.palletsprojects.com/en/1.1.x/quickstart/#quickstart">Flask quickstart guide</a>.</li>
+<li><a href="https://flask.palletsprojects.com/en/1.1.x/server/">Run flask server</a>.</li>
+<li><a href="https://stackoverflow.com/q/41940663/6064933">change host and port</a>.</li>
+<li><a href="https://stackoverflow.com/q/7023052/6064933">configure flask server to be visible across the network</a>.</li>
+<li><a href="https://github.com/pallets/flask/issues/2661">flask run: configure port</a>.</li>
+<li><a href="https://stackoverflow.com/q/10434599/6064933">Get data received in Flask</a>.</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-04-13
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Flask/">Flask</a>
+          <a href="/tags/HTTP/">HTTP</a>
+          <a href="/tags/request/">request</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2020/04/12/build_webapi_with_flask_s2/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Build Web API with Flask -- Post and Receive Image</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2020/03/30/pptx_to_image/">
+            <span class="next-text nav-default">Convert PPTX File to Image on Ubuntu</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

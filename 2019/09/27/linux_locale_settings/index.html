@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Setting Up Locale in Linux - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="Introduction When I logged into a Ubuntu server, the system interface and messages are shown all shown in Chinese. I want them to be displayed in English. After some searching, I found out that we can change the locale settings.
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2019/09/27/linux_locale_settings/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Setting Up Locale in Linux" />
+<meta property="og:description" content="Introduction
+When I logged into a Ubuntu server, the system interface and messages are shown
+all shown in Chinese. I want them to be displayed in English. After some
+searching, I found out that we can change the
+locale settings." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2019/09/27/linux_locale_settings/" />
+<meta property="article:published_time" content="2019-09-27T23:56:47+08:00" />
+<meta property="article:modified_time" content="2020-05-03T22:37:24+08:00" />
+<meta itemprop="name" content="Setting Up Locale in Linux">
+<meta itemprop="description" content="Introduction
+When I logged into a Ubuntu server, the system interface and messages are shown
+all shown in Chinese. I want them to be displayed in English. After some
+searching, I found out that we can change the
+locale settings.">
+<meta itemprop="datePublished" content="2019-09-27T23:56:47&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-03T22:37:24&#43;08:00" />
+<meta itemprop="wordCount" content="704">
+
+
+
+<meta itemprop="keywords" content="CentOS,Ubuntu,locale,Docker," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Setting Up Locale in Linux"/>
+<meta name="twitter:description" content="Introduction
+When I logged into a Ubuntu server, the system interface and messages are shown
+all shown in Chinese. I want them to be displayed in English. After some
+searching, I found out that we can change the
+locale settings."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Setting Up Locale in Linux</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-09-27 </span>
+        <div class="post-category">
+            <a href="/categories/Linux/"> Linux </a>
+            </div>
+          <span class="more-meta"> 704 words </span>
+          <span class="more-meta"> 4 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction-">Introduction</a></li>
+    <li><a href="#set-up-locale-for-normal-linux-system-">Set up locale for normal Linux system</a></li>
+    <li><a href="#set-up-locale-for-docker-container-">Set up locale for docker container</a>
+      <ul>
+        <li><a href="#ubuntu-docker">Ubuntu docker</a></li>
+        <li><a href="#centos-docker">CentOS docker</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="introduction-">Introduction</h1>
+<p>When I logged into a Ubuntu server, the system interface and messages are shown
+all shown in Chinese. I want them to be displayed in English. After some
+searching, I found out that we can change the
+<a href="https://en.wikipedia.org/wiki/Locale_(computer_software)">locale</a> settings.</p>
+<p>The definition of locale is:</p>
+<blockquote>
+<p>In <a href="https://en.wikipedia.org/wiki/Computing" title="Computing">computing</a>, a
+<strong>locale</strong> is a set of <a href="https://en.wikipedia.org/wiki/Parameter" title="Parameter">parameters</a> that defines the user&rsquo;s language, region and any special variant
+preferences that the user wants to see in their <a href="https://en.wikipedia.org/wiki/User_interface">user
+interface</a></p>
+</blockquote>
+<h1 id="set-up-locale-for-normal-linux-system-">Set up locale for normal Linux system</h1>
+<p>In Linux systems, there are several environment variables related to the locale
+settings, such as <code>LANG</code>, <code>LC_COLLATE</code>, <code>LC_TIME</code>, <code>LC_ALL</code> etc. A valid locale
+is like <code>en_US.UTF-8</code>. You can check
+<a href="https://wiki.archlinux.org/index.php/locale#Generating_locales">this documentation</a>
+on how locale is formed.</p>
+<p>To see your default settings, use the <code>locale</code> command without any option. The
+output looks like:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+<span class="nv">LANGUAGE</span><span class="o">=</span>zh_CN:zh
+<span class="nv">LC_CTYPE</span><span class="o">=</span><span class="s2">&#34;en_US.UTF-8&#34;</span>
+<span class="nv">LC_NUMERIC</span><span class="o">=</span><span class="s2">&#34;en_US.UTF-8&#34;</span>
+<span class="nv">LC_TIME</span><span class="o">=</span><span class="s2">&#34;en_US.UTF-8&#34;</span>
+<span class="nv">LC_COLLATE</span><span class="o">=</span><span class="s2">&#34;en_US.UTF-8&#34;</span>
+<span class="nv">LC_MONETARY</span><span class="o">=</span><span class="s2">&#34;en_US.UTF-8&#34;</span>
+<span class="nv">LC_MESSAGES</span><span class="o">=</span><span class="s2">&#34;en_US.UTF-8&#34;</span>
+<span class="nv">LC_PAPER</span><span class="o">=</span><span class="s2">&#34;en_US.UTF-8&#34;</span>
+<span class="nv">LC_NAME</span><span class="o">=</span><span class="s2">&#34;en_US.UTF-8&#34;</span>
+<span class="nv">LC_ADDRESS</span><span class="o">=</span><span class="s2">&#34;en_US.UTF-8&#34;</span>
+<span class="nv">LC_TELEPHONE</span><span class="o">=</span><span class="s2">&#34;en_US.UTF-8&#34;</span>
+<span class="nv">LC_MEASUREMENT</span><span class="o">=</span><span class="s2">&#34;en_US.UTF-8&#34;</span>
+<span class="nv">LC_IDENTIFICATION</span><span class="o">=</span><span class="s2">&#34;en_US.UTF-8&#34;</span>
+<span class="nv">LC_ALL</span><span class="o">=</span>
+</code></pre></div><p>These settings are often pre-set by the system root. On CentOS, the system-wide
+default locale settings are stored in <code>/ect/locale.conf</code>. On Ubuntu, the system
+locale settings are store in <code>/etc/default/locale</code>.</p>
+<p>Among the locale env variables, <code>LC_xxx</code> variables except <code>LC_ALL</code> are ordinary
+environment variables which can be set individually.</p>
+<p>Special variables are <code>LANG</code>, <code>LANGUAGE</code>  and <code>LC_ALL</code>. Their priority are
+listed
+<a href="https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables.html#Locale-Environment-Variables">here</a>:</p>
+<ol>
+<li><code>LANGUAGE</code></li>
+<li><code>LC_ALL</code></li>
+<li><code>LC_xxx</code>, according to selected locale category:  <code>LC_CTYPE</code>,  <code>LC_NUMERIC</code>,  <code>LC_TIME</code>,  <code>LC_COLLATE</code>,  <code>LC_MONETARY</code>,  <code>LC_MESSAGES</code>, &hellip;</li>
+<li><code>LANG</code></li>
+</ol>
+<p><code>LANG</code> is special variable which will set the <code>LC_*</code> variable if it is not set.
+<code>LC_ALL</code> will set all other <code>LC_XXX</code> variables to the same value. Usually, you
+do not need to set up <code>LC_ALL</code> in your bash_profile. <code>LANGUAGE</code> is a variable
+used for message handling, which has a higher priority than <code>LC_ALL</code>, <code>LC_xxx</code>
+and <code>LANG</code> for messages (see the link
+<a href="https://www.gnu.org/software/gettext/manual/html_node/The-LANGUAGE-variable.html#The-LANGUAGE-variable">here</a>).
+To verify this, suppose that we have the following settings inside
+<code>.bash_profile</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>en_US.utf8
+<span class="nb">export</span> <span class="nv">LANGUAGE</span><span class="o">=</span>zh_CN.utf8
+</code></pre></div><p>After sourcing the file, you will find that the messages given for command
+output will be in Chinese (i.e., <code>LANG</code> is overridden.)</p>
+<h1 id="set-up-locale-for-docker-container-">Set up locale for docker container</h1>
+<h2 id="ubuntu-docker">Ubuntu docker</h2>
+<p>I try to build a Ubuntu container. I want to set my locale to <code>en_US.UTF-8</code>
+inside the container by simply adding the following ENV instruction:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ENV LC_ALL=en_US.UTF-8
+</code></pre></div><p>When I run the built image, I get the following warning:</p>
+<blockquote>
+<p>bash: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)</p>
+</blockquote>
+<p>The <code>locale</code> command inside container gives the following message:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_MESSAGES to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory
+LANG=
+LANGUAGE=
+LC_CTYPE=&#34;en_US.UTF-8&#34;
+LC_NUMERIC=&#34;en_US.UTF-8&#34;
+LC_TIME=&#34;en_US.UTF-8&#34;
+LC_COLLATE=&#34;en_US.UTF-8&#34;
+LC_MONETARY=&#34;en_US.UTF-8&#34;
+LC_MESSAGES=&#34;en_US.UTF-8&#34;
+LC_PAPER=&#34;en_US.UTF-8&#34;
+LC_NAME=&#34;en_US.UTF-8&#34;
+LC_ADDRESS=&#34;en_US.UTF-8&#34;
+LC_TELEPHONE=&#34;en_US.UTF-8&#34;
+LC_MEASUREMENT=&#34;en_US.UTF-8&#34;
+LC_IDENTIFICATION=&#34;en_US.UTF-8&#34;
+LC_ALL=en_US.UTF-8
+</code></pre></div><p>It seems that the locale file <code>en_US.UTF-8</code> does not exist inside container.
+After some searching, I found the correct way to set up locales inside the
+Ubuntu container. First, we need to install the <code>locales</code> package which
+provides the <code>locale-gen</code> command:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">RUN apt-get update &amp;&amp; apt-get install -y locales
+</code></pre></div><p>After installing the <code>locales</code> packages, a file named <code>local.gen</code> will be
+created under <code>/etc</code>. According to the documentation of <code>locale-gen</code>:</p>
+<blockquote>
+<p>locale-gen is a program that reads the file /etc/locale.gen and invokes
+localedef for the chosen localisation profiles.  Run locale-gen after you
+have modified the /etc/locale.gen file.</p>
+</blockquote>
+<p>We should uncomment the line <code># en_US.UTF-8 UTF-8</code> in <code>locale.gen</code> and run
+<code>locale-gen</code> command to generate the needed locale file. After that we can set
+related settings to <code>en_US.UTF-8</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">RUN sed -i -e &#39;s/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/&#39; /etc/locale.gen &amp;&amp; \
+    locale-gen
+ENV LC_ALL en_US.UTF-8
+</code></pre></div><p>We can also directly generate the locale file by appending the locale as the
+argument to <code>locale-gen</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">RUN locale-gen en_US.UTF-8
+</code></pre></div><p>Putting this all together, we may use the following instructions inside
+Dockerfile:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">RUN apt-get update &amp;&amp; apt-get install -y locales &amp;&amp; locale-gen en_US.UTF-8
+</code></pre></div><h2 id="centos-docker">CentOS docker</h2>
+<p>If you tried to build an image based on a CentOS image. You need to use
+<code>localedef</code> to generate locale files instead of <code>locale-gen</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># -i: specify the locale definition file
+# -f: specify the character set
+RUN localedef -i en_US -f UTF-8 en_US.UTF-8
+</code></pre></div><p>Other settings are similar to that of Ubuntu.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://www.osetc.com/en/centos-7-rhel-7-change-the-system-locale.html">Change locale in CentOS 7</a></li>
+<li><a href="https://help.ubuntu.com/community/Locale">https://help.ubuntu.com/community/Locale</a></li>
+<li><a href="https://superuser.com/questions/412288/locale-what-is-the-language-variable-used-for-and-when">The meaning of LANGUAGE variable</a></li>
+</ul>
+<ul>
+<li><a href="https://stackoverflow.com/a/28406007/6064933">Set up locale inside Ubuntu docker</a>.</li>
+<li><a href="https://unix.stackexchange.com/a/247019/221410">Set up locale in Debian and Ubuntu</a>.</li>
+<li><a href="https://unix.stackexchange.com/questions/140299/locale-gen-command-in-centos6">CentOS: set up locale</a>.</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-05-03
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/CentOS/">CentOS</a>
+          <a href="/tags/Ubuntu/">Ubuntu</a>
+          <a href="/tags/locale/">locale</a>
+          <a href="/tags/Docker/">Docker</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2019/09/29/linux_login_setup/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Set Up Your Login Shell Properly in Linux</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2019/09/22/google_adsense_hugo_config/">
+            <span class="next-text nav-default">谷歌 Adsense 申请及在 Hugo 中的配置</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

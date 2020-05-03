@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>从二分搜索实现中的一个 bug 说起 - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="一道二分搜索问题 下午做了一道 Leetcode 的编程题目，牵扯出了二分搜索实现中需要特别注意的一个问题，题目如下
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2017/08/27/binary-search-overflow-issue/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="从二分搜索实现中的一个 bug 说起" />
+<meta property="og:description" content="一道二分搜索问题
+下午做了一道 Leetcode 的编程题目，牵扯出了二分搜索实现中需要特别注意的一个问题，题目如下" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2017/08/27/binary-search-overflow-issue/" />
+<meta property="article:published_time" content="2017-08-27T22:01:50+08:00" />
+<meta property="article:modified_time" content="2020-03-01T01:15:20+08:00" />
+<meta itemprop="name" content="从二分搜索实现中的一个 bug 说起">
+<meta itemprop="description" content="一道二分搜索问题
+下午做了一道 Leetcode 的编程题目，牵扯出了二分搜索实现中需要特别注意的一个问题，题目如下">
+<meta itemprop="datePublished" content="2017-08-27T22:01:50&#43;08:00" />
+<meta itemprop="dateModified" content="2020-03-01T01:15:20&#43;08:00" />
+<meta itemprop="wordCount" content="1325">
+
+
+
+<meta itemprop="keywords" content="C&#43;&#43;,algorithms,search," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="从二分搜索实现中的一个 bug 说起"/>
+<meta name="twitter:description" content="一道二分搜索问题
+下午做了一道 Leetcode 的编程题目，牵扯出了二分搜索实现中需要特别注意的一个问题，题目如下"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">从二分搜索实现中的一个 bug 说起</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-08-27 </span>
+        <div class="post-category">
+            <a href="/categories/Programming/"> Programming </a>
+            </div>
+          <span class="more-meta"> 1325 words </span>
+          <span class="more-meta"> 3 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一道二分搜索问题">一道二分搜索问题</a></li>
+    <li><a href="#当溢出发生到底会发生什么">当溢出发生，到底会发生什么？</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="一道二分搜索问题">一道二分搜索问题</h1>
+<p>下午做了<a href="https://leetcode.com/problems/first-bad-version/description/">一道 Leetcode 的编程题目</a>，牵扯出了二分搜索实现中需要特别注意的一个问题，题目如下</p>
+<blockquote>
+<p>You are a product manager and currently leading a team to develop a new
+product. Unfortunately, the latest version of your product fails the quality
+check. Since each version is developed based on the previous version, all the
+versions after a bad version are also bad.</p>
+<p>Suppose you have n versions [1, 2, &hellip;, n] and you want to find out the first
+bad one, which causes all the following ones to be bad.</p>
+<p>You are given an API bool isBadVersion(version) which will return whether
+version is bad. Implement a function to find the first bad version. You should
+minimize the number of calls to the API.</p>
+</blockquote>
+<p>这道题可以使用二分搜索来解决，我写出了自认为正确的算法，运行的时候却总是提示 “Time Limit Exceeded”，最初的完整代码如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">firstBadVersion</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">head</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">head</span> <span class="o">!=</span> <span class="n">tail</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">head</span> <span class="o">+</span> <span class="n">tail</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">isBadVersion</span><span class="p">(</span><span class="n">mid</span><span class="p">))</span> <span class="p">{</span>
+      <span class="n">tail</span> <span class="o">=</span> <span class="n">mid</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="n">head</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>看了一下这道题目的讨论，有人也遇到了同样的问题，解决办法出奇简单。问题的关键就在下面这行看似正确实则错误的代码：</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">head</span> <span class="o">+</span> <span class="n">tail</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+</code></pre></div><p>改正这个错误也很简单，只需要将上述的写法换成另外一种「形式上等价」的写法：</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">head</span> <span class="o">+</span> <span class="p">(</span><span class="n">tail</span> <span class="o">-</span> <span class="n">head</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+</code></pre></div><p>之所以说是「形式上等价」是因为，仅从数学推导上来说，上面两种写法结果是一样的，但是计算机科学并不是仅仅是理论，实际中，每种基本数据类型所能表达的数字都是有范围的，如果超过了范围，我们必须考虑整形溢出 (overflow) 问题。假设 <code>head</code> 与<code>tail</code> 都不超过 <code>int</code> 所能表示的最大正整数（用 <code>INT_MAX</code> 表示），我们并不能保证<code>head + tail</code> 不超过 <code>INT_MAX</code>，如果两者之和大于 <code>int</code> 类型所能表达的最大的正整数时(该数为 $2^{31}-1$)，就会发生溢出；采用第二种写法，由于每一步的计算都没有溢出的可能，最终的结果也不会溢出，因此是更安全的写法。</p>
+<p>根据<a href="https://en.wikipedia.org/wiki/Binary_search_algorithm#Implementation_issues">Wiki</a>上的说法，市面上流传的很多二分搜索的实现都存在溢出问题。就连大名鼎鼎的《Programming Pearls》这本书在 1986 年版本上提供的也是第一种写法，直到二十多年后才改为第二种写法；Java 语言中的二分搜索实现起初也存在这个溢出 bug，这个 bug 存在了长达九年才被更正。在计算机发展早期可能谁也没有预料到，未来的数据量会如此庞大，以至于数组的 index 相加会造成溢出。 Google Research Blog 也曾发布过<a href="https://research.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html">一篇关于二分搜索实现的博文</a>。</p>
+<h1 id="当溢出发生到底会发生什么">当溢出发生，到底会发生什么？</h1>
+<p>你可能会好奇，如果发生溢出，到底会有什么后果呢？例如，如果一个 <code>int</code> 类型的数<code>num</code> 等于 <code>INT_MAX</code>，那么 <code>num</code> 再加上一个正数，会发生什么？C++ 标准对此有明确规定，</p>
+<blockquote>
+<p>If during the evaluation of an expression, the result is not mathematically
+defined or not in the range of representable values for its type, the behavior
+is undefined, unless such an expression is a constant expression, in which case
+the program is ill-formed. [Note: most existing implementations of C++ ignore
+integer overflows].</p>
+</blockquote>
+<p>也就是说，<code>num</code> 再加上一个正数，这是 &ldquo;Undefined behaviour&rdquo;，任何结果都有可能出现。</p>
+<p>上述结果是对于有符号类型 (signed type) 来说的，对于无符号类型 (unsigned type)，C++ 标准有如下规定：</p>
+<blockquote>
+<p>This implies that unsigned arithmetic does not overflow because a result that
+cannot be represented by the resulting unsigned integer type is reduced
+modulo the number that is one greater than the largest value that can be
+represented by the resulting unsigned integer type.</p>
+</blockquote>
+<p>翻译过来就是：无符号类型不会发生溢出。如果一个无符号类型的数加上一个正数产生的结果大于该无符号类型所能表示的最大数，那么最终结果就是原结果与最大数加1取余的结果。</p>
+<p>举个例子，假设 <code>num</code> 是 <code>unsigned int</code> 所能表达的最大的数，那么 <code>num + 1 =  0</code>， <code>num + 2 = 1</code>，以此类推。一个示例程序如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;limits&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">numeric_limits</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">max</span><span class="p">();</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="kt">unsigned</span> <span class="n">result</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="n">i</span><span class="p">;</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="mi">3</span><span class="o">?</span><span class="sc">&#39;\n&#39;</span><span class="o">:</span><span class="sc">&#39; &#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>该程序运行输出结果为：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">0</span> <span class="m">1</span> <span class="m">2</span>
+</code></pre></div><p>(全文完)</p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://stackoverflow.com/questions/12275248/what-happens-when-i-causes-an-integer-overflow">当溢出产生，到底会发生什么？Stackoverflow 上的一个讨论。</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-03-01
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/C&#43;&#43;/">C&#43;&#43;</a>
+          <a href="/tags/algorithms/">algorithms</a>
+          <a href="/tags/search/">search</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2017/09/01/longest-subarray-modulo-K/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Find Longest Subarray Whose Sum Is Divisible by K</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2017/08/06/vps-ss-issue-solution/">
+            <span class="next-text nav-default">CentOS 7 系统安装 Shadowsocks 并且开启多用户模式指南</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

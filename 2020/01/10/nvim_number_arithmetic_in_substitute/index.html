@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Vim/Nvim Number Arithmetic in Substitution - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="In this post, I want to share how to do number arithmetic quickly and get what you want in specified format. More specifically, the topic is:
+ How do we add, subtract, multiply or divide a value to each number in a range?
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2020/01/10/nvim_number_arithmetic_in_substitute/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Vim/Nvim Number Arithmetic in Substitution" />
+<meta property="og:description" content="In this post, I want to share how to do number arithmetic quickly and get what
+you want in specified format. More specifically, the topic is:
+
+How do we add, subtract, multiply or divide a value to each number in a
+range?
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2020/01/10/nvim_number_arithmetic_in_substitute/" />
+<meta property="article:published_time" content="2020-01-10T23:48:25+08:00" />
+<meta property="article:modified_time" content="2020-01-11T01:04:52+08:00" />
+<meta itemprop="name" content="Vim/Nvim Number Arithmetic in Substitution">
+<meta itemprop="description" content="In this post, I want to share how to do number arithmetic quickly and get what
+you want in specified format. More specifically, the topic is:
+
+How do we add, subtract, multiply or divide a value to each number in a
+range?
+">
+<meta itemprop="datePublished" content="2020-01-10T23:48:25&#43;08:00" />
+<meta itemprop="dateModified" content="2020-01-11T01:04:52&#43;08:00" />
+<meta itemprop="wordCount" content="387">
+
+
+
+<meta itemprop="keywords" content="Vim," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vim/Nvim Number Arithmetic in Substitution"/>
+<meta name="twitter:description" content="In this post, I want to share how to do number arithmetic quickly and get what
+you want in specified format. More specifically, the topic is:
+
+How do we add, subtract, multiply or divide a value to each number in a
+range?
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Vim/Nvim Number Arithmetic in Substitution</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-01-10 </span>
+        <div class="post-category">
+            <a href="/categories/Nvim/"> Nvim </a>
+            </div>
+          <span class="more-meta"> 387 words </span>
+          <span class="more-meta"> 2 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>In this post, I want to share how to do number arithmetic quickly and get what
+you want in specified format. More specifically, the topic is:</p>
+<blockquote>
+<p>How do we add, subtract, multiply or divide a value to each number in a
+range?</p>
+</blockquote>
+<p>Suppose that we have the following numbers at the end of each line:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">line 1: 10
+line 2: 20
+line 3: 30
+line 4: 40
+line 5: 50
+</code></pre></div><p>How to we do arithmetic operation to those numbers at the end of each line
+quickly?</p>
+<p>We can use expression in substitution command to do this task, for details, see
+<code>:h sub-replace-expression</code> inside Vim. The idea is that instead of substitute
+what you search with a string, we will evaluate an expression and use the
+evaluated result as the substitution string. The general syntax for
+substitution is:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="nx">s</span><span class="sr">/PATTERN/</span><span class="nx">REPLACE</span>/[<span class="nx">flag</span>]<span class="err">
+</span></code></pre></div><p>To use an expression in REPLACE string, you can start the replacement string
+with <code>\=</code>, and the following string will be interpreted as an expression by
+Vim. If you have used capture groups in <code>PATTERN</code>, you can retrieve the
+captured text in the corresponding capture group with <code>submatch()</code> function.
+For example, <code>submatch(1)</code> will return the text in the 1st capture group.</p>
+<p>With all this knowledge, we can easily solve the above problem. For example, to
+add 2 to the number at the end of each line, do:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="m">1</span><span class="p">,</span><span class="m">5</span>s<span class="sr">/\v(\d+)$/</span>\<span class="p">=</span><span class="nx">submatch</span><span class="p">(</span><span class="m">1</span><span class="p">)+</span><span class="m">2</span><span class="err">
+</span></code></pre></div><p>Similarly, to minus or multiply by 2:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="m">1</span><span class="p">,</span><span class="m">5</span>s<span class="sr">/\v(\d+)$/</span>\<span class="p">=</span><span class="nx">submatch</span><span class="p">(</span><span class="m">1</span><span class="p">)</span><span class="m">-2</span><span class="err">
+</span><span class="err"></span><span class="p">:</span><span class="m">1</span><span class="p">,</span><span class="m">5</span>s<span class="sr">/\v(\d+)$/</span>\<span class="p">=</span><span class="nx">submatch</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>*<span class="m">2</span><span class="err">
+</span></code></pre></div><p>For division, things are a little different here, because the division
+character <code>/</code> is the same as the substitute delimiter. In order to use division
+character in substitute expression, we can <a href="https://stackoverflow.com/q/11823616/6064933">change the delimiter to other
+characters</a>, for example, to <code>#</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="m">1</span><span class="p">,</span><span class="m">5</span>s#\<span class="nx">v</span><span class="p">(</span>\<span class="nx">d</span><span class="p">+)</span>$#\<span class="p">=</span><span class="nx">submatch</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>/<span class="m">2</span>.<span class="m">0</span><span class="err">
+</span></code></pre></div><p>Note that for division, we need to divide those numbers by 2.0, not by 2. If
+you use two integers, Vim will use integer division, not float division<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<p>One minor issue with the division result is that the result may have many
+decimal digits. You may want to round it to fixed digit, e.g., 3 digit. This
+can be easily accomplished with the <code>printf()</code> function, and the whole command
+looks like:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="m">1</span><span class="p">,</span><span class="m">5</span>s#\<span class="nx">v</span><span class="p">(</span>\<span class="nx">d</span><span class="p">+)</span>$#\<span class="p">=</span><span class="nx">printf</span><span class="p">(</span><span class="s1">&#39;%.3f&#39;</span><span class="p">,</span> <span class="nx">submatch</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>/<span class="m">2</span>.<span class="m">3</span><span class="p">)</span><span class="err">
+</span></code></pre></div><h2 id="references">References</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/3807464/number-manipulation-within-vim">Number manipulation within Vim.</a></li>
+<li><a href="https://stackoverflow.com/questions/1684628/in-vi-search-and-replace">Change delimiter in search and replace command.</a></li>
+<li><a href="https://vi.stackexchange.com/q/22469/15292">Increment a specific number in csv file.</a></li>
+<li><a href="https://stackoverflow.com/q/5199302/6064933">Rounding number in Vim.</a></li>
+<li><a href="https://stackoverflow.com/questions/32041982/vim-round-floats-to-one-decimal-place">Round floats to one decimal.</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>For example, if we do <code>:echo 5/2</code>, we will get <code>2</code> instead of <code>2.5</code>. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-01-11
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Vim/">Vim</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2020/01/11/my_reading_list_2019/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">我的 2019 阅读清单</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2020/01/05/ultisnips_python_interpolation/">
+            <span class="next-text nav-default">Regex Keyword and Python Interpolation in Ultisnips</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

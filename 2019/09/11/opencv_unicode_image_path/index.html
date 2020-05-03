@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>How to Read and Write Images with Unicode Paths in OpenCV - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="The other day, when I was using OpenCV to read some images and print the image shape, I got an error:
+ &amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;.
+ I was confused and do not know why since the image path is valid. It tooks me a while to understand the cause.
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2019/09/11/opencv_unicode_image_path/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="How to Read and Write Images with Unicode Paths in OpenCV" />
+<meta property="og:description" content="The other day, when I was using OpenCV to read some images and print the image
+shape, I got an error:
+
+&lsquo;NoneType&rsquo; object has no attribute &lsquo;shape&rsquo;.
+
+I was confused and do not know why since the image path is valid. It tooks me a
+while to understand the cause." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2019/09/11/opencv_unicode_image_path/" />
+<meta property="article:published_time" content="2019-09-11T00:23:41+08:00" />
+<meta property="article:modified_time" content="2020-02-21T14:18:16+08:00" />
+<meta itemprop="name" content="How to Read and Write Images with Unicode Paths in OpenCV">
+<meta itemprop="description" content="The other day, when I was using OpenCV to read some images and print the image
+shape, I got an error:
+
+&lsquo;NoneType&rsquo; object has no attribute &lsquo;shape&rsquo;.
+
+I was confused and do not know why since the image path is valid. It tooks me a
+while to understand the cause.">
+<meta itemprop="datePublished" content="2019-09-11T00:23:41&#43;08:00" />
+<meta itemprop="dateModified" content="2020-02-21T14:18:16&#43;08:00" />
+<meta itemprop="wordCount" content="380">
+
+
+
+<meta itemprop="keywords" content="OpenCV,Unicode," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Read and Write Images with Unicode Paths in OpenCV"/>
+<meta name="twitter:description" content="The other day, when I was using OpenCV to read some images and print the image
+shape, I got an error:
+
+&lsquo;NoneType&rsquo; object has no attribute &lsquo;shape&rsquo;.
+
+I was confused and do not know why since the image path is valid. It tooks me a
+while to understand the cause."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">How to Read and Write Images with Unicode Paths in OpenCV</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-09-11 </span>
+        <div class="post-category">
+            <a href="/categories/Python/"> Python </a>
+            </div>
+          <span class="more-meta"> 380 words </span>
+          <span class="more-meta"> 1 min read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#read-images-with-unicode-paths">Read images with unicode paths</a></li>
+    <li><a href="#write-images-with-unicode-paths">Write images with unicode paths</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>The other day, when I was using OpenCV to read some images and print the image
+shape, I got an error:</p>
+<blockquote>
+<p>&lsquo;NoneType&rsquo; object has no attribute &lsquo;shape&rsquo;.</p>
+</blockquote>
+<p>I was confused and do not know why since the image path is valid. It tooks me a
+while to understand the cause.</p>
+<p>The reason is that OpenCV only accepts ASCII characters for image paths when
+reading and writing images. There is an <a href="https://github.com/opencv/opencv/pull/13368">open
+PR</a> to add Unicode path support,
+but it has not been merged. However, there are ways to work around this issue.</p>
+<!--more-->
+<h1 id="read-images-with-unicode-paths">Read images with unicode paths</h1>
+<p>First, we can read the image with the help of Numpy <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.fromfile.html"><code>fromfile()</code></a>
+method, and then use <a href="https://docs.opencv.org/3.4/d4/da8/group__imgcodecs.html#ga5a0acefe5cbe0a81e904e452ec7ca733">cv2.imdecode()</a>
+to read the image. Here is a sample code:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+
+<span class="c1"># img with unicode path</span>
+<span class="n">im_path</span> <span class="o">=</span> <span class="s2">&#34;测试目录/test.jpg&#34;</span>
+<span class="c1"># img is in BGR format if the underlying image is a color image</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imdecode</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">im_path</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span>
+                   <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_UNCHANGED</span><span class="p">)</span>
+</code></pre></div><p>In the above script, the image is read with numpy and converted to a
+one-dimensional numpy ndarray of type <code>np.uint8</code>. Then we use <code>imdecode()</code> to
+decode the ndarray to OpenCV image format. <code>cv2.IMREAD_UNCHANGED</code> is a flag for
+<code>imdecode</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<h1 id="write-images-with-unicode-paths">Write images with unicode paths</h1>
+<p>To write images with unicode paths, we can first encode the image in OpenCV
+format to one dimension numpy ndarray format. Then we convert this numpy
+ndarray to image on disk with the <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.tofile.html"><code>tofile()</code></a>
+method.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&#34;test.jpg&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">im_resize</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">h</span><span class="o">//</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">im_save_path</span> <span class="o">=</span> <span class="s2">&#34;测试目录/small_img.jpg&#34;</span>
+<span class="c1"># encode the im_resize into the im_buf_arr, which is a one-dimensional ndarray</span>
+<span class="n">is_success</span><span class="p">,</span> <span class="n">im_buf_arr</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imencode</span><span class="p">(</span><span class="s2">&#34;.jpg&#34;</span><span class="p">,</span> <span class="n">im_resize</span><span class="p">)</span>
+<span class="n">im_buf_arr</span><span class="o">.</span><span class="n">tofile</span><span class="p">(</span><span class="n">im_save_path</span><span class="p">)</span>
+</code></pre></div><p>In the above code, <code>cv2.imencode()</code> will encode the image as a one-dimension
+numpy array and <code>tofile()</code> will save this array into disk.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://stackoverflow.com/q/43185605/6064933">How to read image with unicode path in OpenCV</a>.</li>
+<li><a href="https://github.com/opencv/opencv/issues/4292">https://github.com/opencv/opencv/issues/4292</a></li>
+<li><a href="https://jdhao.github.io/2019/07/06/python_opencv_pil_image_to_bytes/#opencv">Encode image using OpenCV</a>.</li>
+<li><a href="https://stackoverflow.com/a/60332806/6064933">OpenCV: none type has attribute shape</a>.</li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>The complete list of flags available and their description can be found <a href="https://docs.opencv.org/3.4.4/d4/da8/group__imgcodecs.html#ga61d9b0126a3e57d9277ac48327799c80">here</a>. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-02-21
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/OpenCV/">OpenCV</a>
+          <a href="/tags/Unicode/">Unicode</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2019/09/17/writing_grammar_s1/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">A Few Grammar Questions in Writing</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2019/08/28/latex_writing_tips_s1/">
+            <span class="next-text nav-default">Tips on Writing Papers in LaTeX</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

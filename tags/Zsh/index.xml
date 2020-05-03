@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zsh on jdhao&#39;s blog</title>
+    <link>https://jdhao.github.io/tags/Zsh/</link>
+    <description>Recent content in Zsh on jdhao&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>jdhao</copyright>
+    <lastBuildDate>Thu, 13 Jun 2019 22:55:06 +0800</lastBuildDate>
+    
+	<atom:link href="https://jdhao.github.io/tags/Zsh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Binding Keys in Zsh</title>
+      <link>https://jdhao.github.io/2019/06/13/zsh_bind_keys/</link>
+      <pubDate>Thu, 13 Jun 2019 22:55:06 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/06/13/zsh_bind_keys/</guid>
+      <description>&lt;p&gt;In this post, I want to share how to use &lt;code&gt;bindkeys&lt;/code&gt; command to solve a few
+issues when using Zsh.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Boosting Your Productivity on Terminal with Zsh and Plugins</title>
+      <link>https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/</link>
+      <pubDate>Tue, 19 Feb 2019 00:27:53 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/</guid>
+      <description>&lt;p&gt;In my &lt;a href=&#34;https://jdhao.github.io/2018/10/13/centos_zsh_install_use/&#34;&gt;previous
+post&lt;/a&gt;, I have
+introduced how to build Zsh from source and install
+&lt;a href=&#34;https://github.com/robbyrussell/oh-my-zsh&#34;&gt;oh-my-zsh&lt;/a&gt; to enhance your terminal
+experience. In this post, I&amp;rsquo;d like to show you how to manage plugins with
+&lt;a href=&#34;https://github.com/zplug/zplug&#34;&gt;zplug&lt;/a&gt; and a few more plugins to boost your
+productivity.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Faster Directory Navigation with z.lua</title>
+      <link>https://jdhao.github.io/2019/02/14/fast_dir_navigation_zlua/</link>
+      <pubDate>Thu, 14 Feb 2019 18:35:05 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/02/14/fast_dir_navigation_zlua/</guid>
+      <description>&lt;p&gt;If you work with terminals extensively, you may be tired of typing &lt;code&gt;cd&lt;/code&gt; to go
+to directories, especially when directory names are very long.
+&lt;a href=&#34;https://github.com/skywind3000/z.lua&#34;&gt;z.lua&lt;/a&gt; is such a tool to make your life
+easier by jumping to the desired directory &lt;em&gt;smartly&lt;/em&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Fzf Installation and Usage</title>
+      <link>https://jdhao.github.io/2018/11/05/fzf_install_use/</link>
+      <pubDate>Mon, 05 Nov 2018 23:54:29 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/11/05/fzf_install_use/</guid>
+      <description>&lt;script id=&#34;asciicast-218493&#34; src=&#34;https://asciinema.org/a/218493.js&#34; async&gt;&lt;/script&gt;</description>
+    </item>
+    
+    <item>
+      <title>Building Zsh from Source and Configuring It on CentOS</title>
+      <link>https://jdhao.github.io/2018/10/13/centos_zsh_install_use/</link>
+      <pubDate>Sat, 13 Oct 2018 18:29:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/10/13/centos_zsh_install_use/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: this is my first post on Zsh install and configuration. For a list
+of useful plugins I use to boost my productivity, see &lt;a href=&#34;https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/&#34;&gt;this
+post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.zsh.org/&#34;&gt;Zsh&lt;/a&gt; is a powerful shell with better auto-completion and
+richer functions. There are also various plugins to enrich your experience of
+using shell. In this post, I will introduce the installation and simple
+configurations for zsh.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

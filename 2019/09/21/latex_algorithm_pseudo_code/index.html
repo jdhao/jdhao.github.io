@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>How to Write Algorithm Pseudo Code in LaTeX - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="In this post, I want to summarize what I have learned about creating algorithmic pseudo code in LaTeX.
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2019/09/21/latex_algorithm_pseudo_code/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="How to Write Algorithm Pseudo Code in LaTeX" />
+<meta property="og:description" content="
+
+
+In this post, I want to summarize what I have learned about creating
+algorithmic pseudo code in LaTeX." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2019/09/21/latex_algorithm_pseudo_code/" />
+<meta property="article:published_time" content="2019-09-21T22:44:19+08:00" />
+<meta property="article:modified_time" content="2020-03-11T23:28:04+08:00" />
+<meta itemprop="name" content="How to Write Algorithm Pseudo Code in LaTeX">
+<meta itemprop="description" content="
+
+
+In this post, I want to summarize what I have learned about creating
+algorithmic pseudo code in LaTeX.">
+<meta itemprop="datePublished" content="2019-09-21T22:44:19&#43;08:00" />
+<meta itemprop="dateModified" content="2020-03-11T23:28:04&#43;08:00" />
+<meta itemprop="wordCount" content="640">
+
+
+
+<meta itemprop="keywords" content="algorithms," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Write Algorithm Pseudo Code in LaTeX"/>
+<meta name="twitter:description" content="
+
+
+In this post, I want to summarize what I have learned about creating
+algorithmic pseudo code in LaTeX."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">How to Write Algorithm Pseudo Code in LaTeX</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-09-21 </span>
+        <div class="post-category">
+            <a href="/categories/LaTeX/"> LaTeX </a>
+            </div>
+          <span class="more-meta"> 640 words </span>
+          <span class="more-meta"> 4 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#controlling-the-algorithm-style">Controlling the algorithm style</a></li>
+    <li><a href="#keyword-input-output-and-function">Keyword input, output and function</a>
+      <ul>
+        <li><a href="#define-keyword-input-and-output">Define keyword input and output</a></li>
+        <li><a href="#define-keyword-function">Define keyword function</a></li>
+      </ul>
+    </li>
+    <li><a href="#comment">Comment</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20190921212617.png">
+</p>
+<p>In this post, I want to summarize what I have learned about creating
+algorithmic pseudo code in LaTeX.</p>
+<p>In LaTeX, there are several packages which can help you to write pseudo code,
+notably <a href="https://ctan.org/pkg/algorithmicx?lang=en">algorithmicx</a> and
+<a href="https://ctan.org/pkg/algorithm2e">algorithm2e</a>. It seems that algorithm2e is
+more actively maintained<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. I decided to give algorithm2e a try. The end
+result is shown in the title image. The code to create the title image is:</p>
+<details>
+<summary><font color="red">Click to see the code.</font></summary>
+<div class="highlight"><pre class="chroma"><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+
+<span class="k">\usepackage</span><span class="na">[ruled, lined, linesnumbered, commentsnumbered, longend]</span><span class="nb">{</span>algorithm2e<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>xcolor<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+
+<span class="k">\newcommand\mycommfont</span><span class="na">[1]</span><span class="nb">{</span><span class="k">\small\ttfamily\textcolor</span><span class="nb">{</span>blue<span class="nb">}{</span>#1<span class="nb">}}</span>
+<span class="k">\SetCommentSty</span><span class="nb">{</span>mycommfont<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>algorithm<span class="nb">}</span>
+    <span class="k">\SetKwFunction</span><span class="nb">{</span>isOddNumber<span class="nb">}{</span>isOddNumber<span class="nb">}</span>
+    <span class="c">% \SetKwInput{Input}{Input}
+</span><span class="c"></span>    <span class="c">% \SetKwInput{Output}{Output}
+</span><span class="c"></span>    <span class="k">\SetKwInOut</span><span class="nb">{</span>KwIn<span class="nb">}{</span>Input<span class="nb">}</span>
+    <span class="k">\SetKwInOut</span><span class="nb">{</span>KwOut<span class="nb">}{</span>Output<span class="nb">}</span>
+
+    <span class="k">\KwIn</span><span class="nb">{</span>A list <span class="s">$</span><span class="o">[</span><span class="nb">a_i</span><span class="o">]</span><span class="s">$</span>, <span class="s">$</span><span class="nb">i</span><span class="o">=</span><span class="m">1</span><span class="nb">, </span><span class="m">2</span><span class="nb">, </span><span class="nv">\cdots</span><span class="nb">, n</span><span class="s">$</span>, where each element is an
+    integer.<span class="nb">}</span>
+    <span class="k">\KwOut</span><span class="nb">{</span>Processed list.<span class="nb">}</span>
+
+    <span class="s">$</span><span class="nb">newList </span><span class="o">=</span><span class="nb"> </span><span class="o">[</span><span class="nv">\ </span><span class="o">]</span><span class="s">$</span>
+
+    <span class="k">\tcc</span><span class="nb">{</span>For odd elements in the list, we add 1, and for even elements, we add 2.
+    After the loop, all elements are even.<span class="nb">}</span>
+    <span class="k">\For</span><span class="nb">{</span><span class="s">$</span><span class="nb">i </span><span class="nv">\leftarrow</span><span class="nb"> </span><span class="m">0</span><span class="s">$</span> <span class="k">\KwTo</span> <span class="s">$</span><span class="nb">n</span><span class="o">-</span><span class="m">1</span><span class="s">$</span><span class="nb">}{</span>
+        <span class="k">\eIf</span><span class="nb">{</span><span class="s">$</span><span class="nv">\isOddNumber</span><span class="o">(</span><span class="nb">a_i</span><span class="o">)</span><span class="s">$</span><span class="nb">}{</span>
+
+            <span class="s">$</span><span class="nb">newList.append</span><span class="o">(</span><span class="nb">a_i </span><span class="o">+</span><span class="nb"> </span><span class="m">1</span><span class="o">)</span><span class="s">$</span> <span class="k">\tcp*</span><span class="na">[f]</span><span class="nb">{</span>Some thought-provoking comment.<span class="nb">}</span>
+         <span class="nb">}{</span>
+            <span class="k">\tcp</span><span class="nb">{</span>Another comment<span class="nb">}</span>
+            <span class="s">$</span><span class="nb">newList.append</span><span class="o">(</span><span class="nb">a_i </span><span class="o">+</span><span class="nb"> </span><span class="m">2</span><span class="o">)</span><span class="s">$</span>
+         <span class="nb">}</span>
+    <span class="nb">}</span>
+
+    <span class="k">\KwRet</span><span class="nb">{</span><span class="s">$</span><span class="nb">newList</span><span class="s">$</span><span class="nb">}</span>
+    <span class="k">\caption</span><span class="nb">{</span>A plain algorithm<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>algorithm<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</code></pre></div></details>
+<p>Now I am going to explain the code in detail.</p>
+<h1 id="controlling-the-algorithm-style">Controlling the algorithm style</h1>
+<p>There are certain options for the algorithm2e package which control the
+algorithm style. They can be specified when you import the package:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\usepackage[ruled, lined, linesnumbered, commentsnumbered, longend]{algorithm2e}
+</code></pre></div><p>The meaning of these options are list below:</p>
+<ul>
+<li><code>ruled</code>: display algorithm like three-line table.</li>
+<li><code>lined</code>: display indentation line so that you can clearly see the indentation
+level.</li>
+<li><code>linenumbered</code>: number the statement line.</li>
+<li><code>commentnumbered</code>: number the comment line.</li>
+<li><code>longend</code>: used <code>end for</code> to end for loop and use <code>end if</code> to end if
+condition.</li>
+</ul>
+<h1 id="keyword-input-output-and-function">Keyword input, output and function</h1>
+<h2 id="define-keyword-input-and-output">Define keyword input and output</h2>
+<p>First we need to specify the input and output of the algorithm. algorithm2e
+provides <code>\KwIn</code> and <code>\KwOut</code> command for input and output respectively:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\KwIn{A list $[a_i]$, $i=1, 2, \cdots, n$, where each element is an integer.}
+\KwOut{Processed list.}
+</code></pre></div><p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20190921213415.png">
+</p>
+<p>These keyword parameters are not aligned in its <code>:</code> symbol. If you prefer an
+aligned keyword, you need to define the input and output keyword yourself like
+the following code:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\SetKwInOut{KwIn}{Input}
+\SetKwInOut{KwOut}{Output}
+
+\KwIn{A list $[a_i]$, $i=1, 2, \cdots, n$, where each element is an
+integer.}
+\KwOut{Processed list.}
+</code></pre></div><p>In the above code, we redefine the <code>\KwIn</code> and <code>\KwOut</code> command with
+<code>\SetKwInOut</code>. <code>\SetKwInOut</code> will make sure that the defined keyword command
+will algin at the <code>:</code> character.</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20190921213710.png">
+</p>
+<h2 id="define-keyword-function">Define keyword function</h2>
+<p>You can define a keyword function via <code>\SetKwFunction{COMMAND}{TEXT}</code> command.</p>
+<p><code>COMMAND</code> is used to define the keyword function command, and <code>TEXT</code> is the
+text that will be shown when you invoke the command, for example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\SetKwFunction{isOddNumber}{isOddNumber}
+</code></pre></div><p>Then you can invoke the command via <code>\isOddNumber</code>.</p>
+<h1 id="comment">Comment</h1>
+<p>By default, the comment used by algorithm2e has its default style (font size,
+character color, etc.). If you are not satisfied with comment style, you can
+change it via <code>\SetCommentSty{}</code> command. For example, the following code, we
+change the comment font size, font style and color:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\usepackage{xcolor}
+\newcommand\mycommfont[1]{\small\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+</code></pre></div><p>Algorithm2e provides <code>\tcc</code> and <code>\tcp</code> command to create multi-line and single
+line C-style comments respectively.</p>
+<p>For example, you can use <code>\tcc</code> to create a multi-line comment:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\tcc{For odd elments in the list, we add 1, and for even elments, we add 2.
+After the loop, all elements are even.}
+</code></pre></div><p>The created comment looks like:</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20190921213913.png">
+</p>
+<p>You can use <code>\tcp</code> to create single line comment. You can put <code>\tcp{}</code> command
+on a separate line to the statement you want to comment:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\tcp{Another comment}
+$newList.append(a_i + 2)$
+</code></pre></div><p>The produced comment is like:</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20190921215351.png">
+</p>
+<p>When you want to put <code>\tcp</code> in the same line with the statement, there is also
+a stared version <code>\tcp*[OPTION] {}</code> with options. The options is used to change
+the comment style slightly. For example, the following code:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">$newList.append(a_i + 1)$ \tcp*[f]{Some thought-provoking comment.}
+</code></pre></div><p>will create inline comment shown below.</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20190921214452.png">
+</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="http://shantoroy.com/latex/how-to-write-algorithm-in-latex/">Create pseudo code in LaTeX</a>.</li>
+<li><a href="https://tex.stackexchange.com/q/367274/114857">How to un-align keyword commands</a>.</li>
+<li><a href="https://tex.stackexchange.com/q/185356/114857">Remove end in if block</a>.</li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>More discussions about different packages to produce pseudo in LaTeX can be found <a href="https://tex.stackexchange.com/q/229355/114857">here</a> and <a href="https://en.wikibooks.org/wiki/LaTeX/Algorithms">here</a>. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-03-11
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/algorithms/">algorithms</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2019/09/22/google_adsense_hugo_config/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">谷歌 Adsense 申请及在 Hugo 中的配置</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2019/09/17/nifty_nvim_techniques_s4/">
+            <span class="next-text nav-default">Nifty Nvim Techniques That Make My Life Easier -- Series 4</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

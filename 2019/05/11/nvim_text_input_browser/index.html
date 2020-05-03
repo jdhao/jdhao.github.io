@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Vim-like Editing inside Browser - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="Vim/Nvim has powerful ability in editing texts. But if you are in a browser and want to input some text, can we somehow utilize the editing power of Vim? In this post, I would like to share several ways to use Vim or Vim-like editing when you are working inside a browser.
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2019/05/11/nvim_text_input_browser/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Vim-like Editing inside Browser" />
+<meta property="og:description" content="Vim/Nvim has powerful ability in editing texts. But if you are in a browser and
+want to input some text, can we somehow utilize the editing power of Vim? In
+this post, I would like to share several ways to use Vim or Vim-like editing
+when you are working inside a browser." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2019/05/11/nvim_text_input_browser/" />
+<meta property="article:published_time" content="2019-05-11T12:14:06+08:00" />
+<meta property="article:modified_time" content="2020-03-11T23:28:35+08:00" />
+<meta itemprop="name" content="Vim-like Editing inside Browser">
+<meta itemprop="description" content="Vim/Nvim has powerful ability in editing texts. But if you are in a browser and
+want to input some text, can we somehow utilize the editing power of Vim? In
+this post, I would like to share several ways to use Vim or Vim-like editing
+when you are working inside a browser.">
+<meta itemprop="datePublished" content="2019-05-11T12:14:06&#43;08:00" />
+<meta itemprop="dateModified" content="2020-03-11T23:28:35&#43;08:00" />
+<meta itemprop="wordCount" content="621">
+
+
+
+<meta itemprop="keywords" content="Vim,Nvim," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vim-like Editing inside Browser"/>
+<meta name="twitter:description" content="Vim/Nvim has powerful ability in editing texts. But if you are in a browser and
+want to input some text, can we somehow utilize the editing power of Vim? In
+this post, I would like to share several ways to use Vim or Vim-like editing
+when you are working inside a browser."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Vim-like Editing inside Browser</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-05-11 </span>
+        <div class="post-category">
+            <a href="/categories/tools/"> tools </a>
+            </div>
+          <span class="more-meta"> 621 words </span>
+          <span class="more-meta"> 3 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ghosttext-">GhostText (★★★)</a>
+      <ul>
+        <li><a href="#how-to-use">How to use</a></li>
+        <li><a href="#shortcomings">Shortcomings</a></li>
+      </ul>
+    </li>
+    <li><a href="#text-editor-anywhere-">Text Editor Anywhere (★★★☆)</a></li>
+    <li><a href="#surfingkeys-">Surfingkeys (★★★★)</a></li>
+    <li><a href="#wasavi-">wasavi (★★★★)</a></li>
+    <li><a href="#firenvim--">Firenvim (★★★★★)</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#update">Update</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Vim/Nvim has powerful ability in editing texts. But if you are in a browser and
+want to input some text, can we somehow utilize the editing power of Vim? In
+this post, I would like to share several ways to use Vim or Vim-like editing
+when you are working inside a browser.</p>
+<h1 id="ghosttext-">GhostText (★★★)</h1>
+<p>There is also a browser plugin called
+<a href="https://github.com/GhostText/GhostText">GhostText</a> which lets you write in the
+text area using your favorite editor. It supports several popular editors such
+as Atom, VS Code and Neovim.</p>
+<p>For Neovim, you need to install <a href="https://github.com/raghur/vim-ghost">vim-ghost</a>.</p>
+<h2 id="how-to-use">How to use</h2>
+<ul>
+<li>Open nvim-qt and run <code>:GhostStart</code> to start the server</li>
+<li>Put your cursor in text area in the browser and click the GhostText plugin. A
+temp file will be opened in nvim-qt.</li>
+<li>Start editing the file and the text will be synced to the text ares in your
+browser in real time.</li>
+<li><code>:bd!</code> will stop the server and delete the buffer.</li>
+</ul>
+<h2 id="shortcomings">Shortcomings</h2>
+<p>Current vim-ghost has no way to customize the extensions of the temp file
+created, thus limiting its usefulness. The biggest disadvantage is that you
+need to perform two steps in order to actually start typing texts.</p>
+<h1 id="text-editor-anywhere-">Text Editor Anywhere (★★★☆)</h1>
+<p><a href="https://www.listary.com/text-editor-anywhere">Text Editor Anywhere</a> is a tool
+to invoke the editors on your system to edit the text areas in your browser.
+You can add custom file extensions. When you activate this tool, it lets you
+select the file extension to use and create a temp file of that extension so
+you can utilize the full power of the various plugins you have installed.</p>
+<p>Currently, it is only available on the Windows platform.</p>
+<h1 id="surfingkeys-">Surfingkeys (★★★★)</h1>
+<p><a href="https://github.com/brookhong/Surfingkeys">Surfingkeys</a> is a Chrome plugin
+which serves the same purpose as <a href="https://github.com/philc/vimium">Vimium</a>, if
+you know what that is. Basically, it lets you use your browser mouseless by
+providing Vim-like key bindings for various operations you may perform inside
+the browser.</p>
+<p>Surfingkeys can open up <a href="https://github.com/brookhong/Surfingkeys#vim-editor-and-emacs-editor">a Vim
+editor</a>
+for various text areas inside the browser. You can activate the editor using
+<kbd>Ctrl</kbd>+ <kbd>i</kbd>. After you have finished writing, use
+<kbd>Ctrl</kbd> + <kbd>Enter</kbd> (in insert mode) or <kbd>Enter</kbd> (in
+normal mode) to write the text.</p>
+<h1 id="wasavi-">wasavi (★★★★)</h1>
+<p>From the <a href="http://appsweets.net/wasavi/">doc of wasavi</a>:</p>
+<blockquote>
+<p>wasavi is an extension for Chrome, Opera and Firefox. wasavi transforms
+TEXTAREA element of any page into a VI editor, so you can edit the text in VI.
+wasavi supports almost all VI commands and some ex commands.</p>
+</blockquote>
+<p>So you can see that wasavi is pretty powerful.</p>
+<p><img src="https://blog-resource-1257868508.file.myqcloud.com/20190513233309.png" alt="wasavi"></p>
+<p>You can press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to activate wasavi when the
+cursor is focused in a text area. Then you can use almost all your familiar Vim
+command inside it. To write the text into the text area, use <code>ZZ</code> or <code>:wq</code> as
+you would probably do in normal Vim.</p>
+<h1 id="firenvim--">Firenvim (★★★★★)</h1>
+<p>Since Neovim support external UIs. This year (2019), another project named
+<a href="https://github.com/glacambre/firenvim">firenvim</a> starts to build an external
+UI in the textarea of web browsers, which is really amazing. So what does that
+really mean? It means that you can use your favorite Nvim plugins inside the
+browser without any compromise. It is a true neovim running inside the browser!</p>
+<p>Check the firenvim homepage on how to install it for FireFox or Chrome. You can
+also check
+<a href="https://jdhao.github.io/2020/01/01/firenvim_nvim_inside_browser/">here</a> on how
+to install firenvim on different platforms.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>In this post, I introduced several tools to help you input text using Vim-like
+command or actually using Vim/Nvim. If you work mostly on the Windows platform,
+Text Editor Anywhere is also a good choice since it can directly invoke the
+editor installed on your computer. If you work cross platform and want powerful
+editing ability of Nvim without compromise, then firenvim will definitely be
+your choice.</p>
+<h1 id="update">Update</h1>
+<ul>
+<li>2020-01-01: Add description about firenvim.</li>
+</ul>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://news.ycombinator.com/item?id=11023428">https://news.ycombinator.com/item?id=11023428</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-03-11
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Vim/">Vim</a>
+          <a href="/tags/Nvim/">Nvim</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2019/05/13/jedi_autocomplete_type_hints/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Why Doesn&#39;t Jedi Autocompletion Work for Some Methods</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2019/05/04/markdown_extra_space/">
+            <span class="next-text nav-default">Markdown 生成 HTML 时汉字之间多出空格的问题</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

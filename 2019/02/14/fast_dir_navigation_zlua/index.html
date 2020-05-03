@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Faster Directory Navigation with z.lua - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="If you work with terminals extensively, you may be tired of typing cd to go to directories, especially when directory names are very long. z.lua is such a tool to make your life easier by jumping to the desired directory smartly.
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2019/02/14/fast_dir_navigation_zlua/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Faster Directory Navigation with z.lua" />
+<meta property="og:description" content="If you work with terminals extensively, you may be tired of typing cd to go
+to directories, especially when directory names are very long.
+z.lua is such a tool to make your life
+easier by jumping to the desired directory smartly." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2019/02/14/fast_dir_navigation_zlua/" />
+<meta property="article:published_time" content="2019-02-14T18:35:05+08:00" />
+<meta property="article:modified_time" content="2019-06-13T22:43:40+08:00" />
+<meta itemprop="name" content="Faster Directory Navigation with z.lua">
+<meta itemprop="description" content="If you work with terminals extensively, you may be tired of typing cd to go
+to directories, especially when directory names are very long.
+z.lua is such a tool to make your life
+easier by jumping to the desired directory smartly.">
+<meta itemprop="datePublished" content="2019-02-14T18:35:05&#43;08:00" />
+<meta itemprop="dateModified" content="2019-06-13T22:43:40&#43;08:00" />
+<meta itemprop="wordCount" content="377">
+
+
+
+<meta itemprop="keywords" content="Cmder,shell,Bash,Zsh,Windows," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Faster Directory Navigation with z.lua"/>
+<meta name="twitter:description" content="If you work with terminals extensively, you may be tired of typing cd to go
+to directories, especially when directory names are very long.
+z.lua is such a tool to make your life
+easier by jumping to the desired directory smartly."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Faster Directory Navigation with z.lua</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-02-14 </span>
+        <div class="post-category">
+            <a href="/categories/tools/"> tools </a>
+            </div>
+          <span class="more-meta"> 377 words </span>
+          <span class="more-meta"> 2 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#install">Install</a>
+      <ul>
+        <li><a href="#linux-bash">Linux (bash)</a></li>
+        <li><a href="#linux-zsh">Linux (zsh)</a></li>
+        <li><a href="#windows-cmder">Windows (Cmder)</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-use">How to use</a>
+      <ul>
+        <li><a href="#command-completion">Command completion</a></li>
+        <li><a href="#interactive-selection">Interactive selection</a></li>
+        <li><a href="#jump-backward-to-parent-folder">Jump backward to parent folder</a></li>
+        <li><a href="#other-settings">other settings</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>If you work with terminals extensively, you may be tired of typing <code>cd</code> to go
+to directories, especially when directory names are very long.
+<a href="https://github.com/skywind3000/z.lua">z.lua</a> is such a tool to make your life
+easier by jumping to the desired directory <em>smartly</em>.</p>
+<h1 id="install">Install</h1>
+<h2 id="linux-bash">Linux (bash)</h2>
+<p>If you are using bash shell, you need to download the plugin manually. Down and
+<a href="https://github.com/skywind3000/z.lua/blob/master/z.lua">z.lua</a> file and add
+the following setting to your <code>.bashrc</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># change /path/to/z.lua to the actual path of z.lua file</span>
+<span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>lua /path/to/z.lua --init bash enhanced once<span class="k">)</span><span class="s2">&#34;</span>
+</code></pre></div><h2 id="linux-zsh">Linux (zsh)</h2>
+<p>If you are using <a href="https://en.wikipedia.org/wiki/Z_shell">zsh</a>, you can install
+this plugin with <a href="http://antigen.sharats.me/">antigen</a>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">antigen bundle skywind3000/z.lua
+</code></pre></div><h2 id="windows-cmder">Windows (Cmder)</h2>
+<p>z.lua requires that the <a href="">lua</a> binary is in your PATH. The easiest way to
+install lua binary is to install <a href="http://luadist.org/">LuaDist</a>. Just extract
+it to somewhere on your system and add the path the <code>lua.exe</code> to your system
+PATH.</p>
+<p>Then, copy file <code>z.lua</code> and <code>z.cmd</code> to <code>$CMDERROOT/vendor</code> folder and add
+<code>$CMDERROOT/vendor</code> to your system PATH.</p>
+<p>Make sure to reboot your computer after you have updated the system PATH to
+make the change take effect.</p>
+<h1 id="how-to-use">How to use</h1>
+<p>First, you need to <code>cd</code> to a few directories after installing z.lua to build
+the cd history. After that, to go a directory containing keyword <code>foo</code>, use the
+following command:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">z foo
+</code></pre></div><h2 id="command-completion">Command completion</h2>
+<p>z.lua supports command completion. To start completion, press <code>&lt;Tab&gt;</code> after the
+keyword, for example,</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">z foo&lt;Tab&gt;
+</code></pre></div><h2 id="interactive-selection">Interactive selection</h2>
+<p>Sometimes, several directories may contain the same keywords. You can use <code>z</code>
+with <code>-i</code> option to start interactive path selection:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">z -i foo
+</code></pre></div><p>All directories containing <code>foo</code> will be listed with its index, you can then
+type a index to go to a specific directory.</p>
+<h2 id="jump-backward-to-parent-folder">Jump backward to parent folder</h2>
+<p>To jump backward to parent directories, use <code>z -b</code> command. Suppose that you
+are in directory <code>~/github/foo/bar/util</code>, to go to <code>foo</code> directory, simply use
+the following command:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">z -b foo
+</code></pre></div><h2 id="other-settings">other settings</h2>
+<p>Other useful settings are:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">_ZL_MATCH_MODE</span><span class="o">=</span><span class="m">1</span>  <span class="c1"># enhanced matching mode</span>
+<span class="nb">export</span> <span class="nv">_ZL_ECHO</span><span class="o">=</span><span class="m">1</span>  <span class="c1"># display the path after cd</span>
+<span class="nb">export</span> <span class="nv">_ZL_ADD_ONCE</span><span class="o">=</span><span class="m">1</span>  <span class="c1"># only add path if the $PWD is changed</span>
+</code></pre></div><p>We can also create alias for commonly-used command:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># alias for z.lua</span>
+<span class="nb">alias</span> <span class="nv">zi</span><span class="o">=</span><span class="s2">&#34;z -i&#34;</span>  <span class="c1"># interactive selection</span>
+<span class="nb">alias</span> <span class="nv">zb</span><span class="o">=</span><span class="s2">&#34;z -b&#34;</span>  <span class="c1"># jump backward</span>
+</code></pre></div><h1 id="references">References</h1>
+<ul>
+<li><a href="https://github.com/skywind3000/z.lua/issues/20">Install z.lua under zsh</a></li>
+<li><a href="https://news.ycombinator.com/item?id=19077891">Discussion on HN</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-06-13
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Cmder/">Cmder</a>
+          <a href="/tags/shell/">shell</a>
+          <a href="/tags/Bash/">Bash</a>
+          <a href="/tags/Zsh/">Zsh</a>
+          <a href="/tags/Windows/">Windows</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2019/02/16/pillow_show_image_on_wls/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Display Image with Pillow inside Ubuntu on Windows</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2019/02/03/cmder_advanced_configuration/">
+            <span class="next-text nav-default">Cmder Advanced Configurations</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

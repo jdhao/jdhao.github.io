@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vim on jdhao&#39;s blog</title>
+    <link>https://jdhao.github.io/tags/Vim/</link>
+    <description>Recent content in Vim on jdhao&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>jdhao</copyright>
+    <lastBuildDate>Sat, 14 Mar 2020 23:20:06 +0800</lastBuildDate>
+    
+	<atom:link href="https://jdhao.github.io/tags/Vim/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Search and Replace in Multiple Files in Vim/Neovim</title>
+      <link>https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/</link>
+      <pubDate>Sat, 14 Mar 2020 23:20:06 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/</guid>
+      <description>In Sublime-Text and other editors, we can press Ctrl-Shift-F to invoke the search and replace UI. We can also accomplish this task easily in Vim or Neovim with the builtin features. Here is how.
+There are two steps involved in this task. The first step is to find the files containing the search pattern under the current project or directory. The second step is to perform replacement for each file found in 1st step.</description>
+    </item>
+    
+    <item>
+      <title>Vim 和 Neovim 的前世今生</title>
+      <link>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</link>
+      <pubDate>Sun, 12 Jan 2020 11:48:43 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</guid>
+      <description>&lt;h1 id=&#34;引子&#34;&gt;引子&lt;/h1&gt;
+&lt;p&gt;从开始完全使用 &lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; 进行日常&lt;a href=&#34;https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/&#34;&gt;代码开发&lt;/a&gt;与&lt;a href=&#34;https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/&#34;&gt;文档编写&lt;/a&gt;到现在，已经过去了大约一年半的时间，一年半以前，我对 Vim 的了解还处在非常初级的阶段，经过长时间的&lt;a href=&#34;https://jdhao.github.io/categories/Nvim/&#34;&gt;使用与学习&lt;/a&gt;，已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。&lt;/p&gt;
+&lt;p&gt;在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的恩怨情仇也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Vim/Nvim Number Arithmetic in Substitution</title>
+      <link>https://jdhao.github.io/2020/01/10/nvim_number_arithmetic_in_substitute/</link>
+      <pubDate>Fri, 10 Jan 2020 23:48:25 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/01/10/nvim_number_arithmetic_in_substitute/</guid>
+      <description>&lt;p&gt;In this post, I want to share how to do number arithmetic quickly and get what
+you want in specified format. More specifically, the topic is:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;How do we add, subtract, multiply or divide a value to each number in a
+range?&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>Creating Markdown Front Matter with Ultisnips</title>
+      <link>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</link>
+      <pubDate>Sun, 22 Dec 2019 13:45:25 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</guid>
+      <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;I write my blog posts in Markdown and build the blog using
+&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;. Hugo supports &lt;a href=&#34;https://gohugo.io/content-management/front-matter/&#34;&gt;front matter&lt;/a&gt;
+for Markdown so that you can attach some metadata with a post, such as title,
+date, tags, categories, etc.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nifty Nvim Techniques That Make My Life Easier -- Series 6</title>
+      <link>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</link>
+      <pubDate>Sat, 21 Dec 2019 23:18:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</guid>
+      <description>&lt;p&gt;This post continues my &lt;a href=&#34;https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/&#34;&gt;previous post&lt;/a&gt; on nifty Nvim/Vim techniques.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MacOS 下如何为视频制作字幕</title>
+      <link>https://jdhao.github.io/2019/12/15/mac_video_subtitle_make/</link>
+      <pubDate>Sun, 15 Dec 2019 18:24:34 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/12/15/mac_video_subtitle_make/</guid>
+      <description>&lt;p&gt;几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 &lt;a href=&#34;https://vimconf.org/2018/&#34;&gt;Vim Conf 2018&lt;/a&gt; 上的&lt;a href=&#34;https://www.youtube.com/watch?v=ES1L2SPgIDI&#34;&gt;主题报告&lt;/a&gt;，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Running Command Asynchronously inside Neovim</title>
+      <link>https://jdhao.github.io/2019/12/09/vim_asynchronous_command_run/</link>
+      <pubDate>Mon, 09 Dec 2019 23:27:10 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/12/09/vim_asynchronous_command_run/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;When I am writing some prototyping code inside Neovim, I want to run the script
+without going to the terminal and typing &lt;code&gt;python toy_script.py&lt;/code&gt;. Of course, we
+can use &lt;code&gt;:!python %&lt;/code&gt; in the command line to run the script (see &lt;code&gt;:h :!&lt;/code&gt;). The
+problem is that running external command will block Nvim/Vim, and we can not
+move the cursor until the script finishes running.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Building A Custom Vim Statusline</title>
+      <link>https://jdhao.github.io/2019/11/03/vim_custom_statusline/</link>
+      <pubDate>Sun, 03 Nov 2019 14:22:20 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/11/03/vim_custom_statusline/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img
+src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20191103144006.png&#34;&gt;
+&lt;/p&gt;
+&lt;p&gt;I have been using &lt;a href=&#34;https://github.com/vim-airline/vim-airline&#34;&gt;vim-airline&lt;/a&gt; to
+customize my Nvim statusline ever since I first started using Neovim. It works
+great. Recently, I started &lt;a href=&#34;https://github.com/jdhao/minimal_vim&#34;&gt;a repo&lt;/a&gt; to
+create a minimal configuration without external plugins for both Vim
+and Neovim. During the process, I learned how to build the Vim statusline from
+scratch.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Generating Table of Contents for Markdown with Tagbar</title>
+      <link>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</link>
+      <pubDate>Tue, 15 Oct 2019 01:01:01 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20191015001602.png&#34;&gt;
+&lt;/p&gt;
+&lt;p&gt;I have been using Vim plugin Tagbar for viewing and navigating tags inside my
+source file. However, for Markdown files, there is no support out of the box.
+In this post, I would like to share how to set up tagbar to show tags for
+Markdown.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nifty Nvim Techniques That Make My Life Easier -- Series 4</title>
+      <link>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</link>
+      <pubDate>Tue, 17 Sep 2019 23:04:55 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</guid>
+      <description>&lt;p&gt;This is the series 4 of my blog posts about some nifty techniques of using
+Nvim, which continue my previous series
+&lt;a href=&#34;https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to Create Proper Folding for Vim/Nvim Configuration</title>
+      <link>https://jdhao.github.io/2019/08/16/nvim_config_folding/</link>
+      <pubDate>Fri, 16 Aug 2019 22:56:20 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/08/16/nvim_config_folding/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20190817223054.png&#34; alt=&#34;Folded config&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How Do I Show the Current File Path In Neovim?</title>
+      <link>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</link>
+      <pubDate>Wed, 31 Jul 2019 23:10:27 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</guid>
+      <description>&lt;p&gt;I saw on &lt;a href=&#34;https://vi.stackexchange.com/questions/104/how-can-i-see-the-full-path-of-the-current-file/20768#20768&#34;&gt;StackExchange&lt;/a&gt;
+that someone asked about how to see the full path of current file in Vim. I
+think it would be helpful to write about how I do it.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Exclusive and Inclusive Motion in Neovim/Vim</title>
+      <link>https://jdhao.github.io/2019/05/18/nvim_exclusive_inclusive_motion/</link>
+      <pubDate>Sat, 18 May 2019 01:18:28 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/05/18/nvim_exclusive_inclusive_motion/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Suppose that we have the following text in normal mode (cursor is indicated by
+&lt;code&gt;^&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;hello world
+^
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;if we use &lt;code&gt;dw&lt;/code&gt;, we delete &lt;code&gt;hello&amp;lt;Space&amp;gt;&lt;/code&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; and only &lt;code&gt;world&lt;/code&gt; is left; if we
+use &lt;code&gt;de&lt;/code&gt;, &lt;code&gt;hello&lt;/code&gt; is deleted and &lt;code&gt;&amp;lt;Space&amp;gt;world&lt;/code&gt; is left. Have you ever wondered
+about why &lt;code&gt;dw&lt;/code&gt; do not delete &lt;code&gt;w&lt;/code&gt; while &lt;code&gt;de&lt;/code&gt; will delete the &lt;code&gt;o&lt;/code&gt; in &lt;code&gt;hello&lt;/code&gt;? It
+seems that motion &lt;code&gt;e&lt;/code&gt; and &lt;code&gt;w&lt;/code&gt; are somewhat inconsistent in their behaviours. It
+turns out that it has something to do with the exclusivity of motions in Vim.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nifty Nvim Techniques Which Make My Life Easier -- Series 3</title>
+      <link>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</link>
+      <pubDate>Tue, 14 May 2019 22:37:04 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</guid>
+      <description>&lt;p&gt;This is the 3rd of my blog post series about some nifty techniques of using
+Nvim. For other posts, see&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/&#34;&gt;Series 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/&#34;&gt;Series 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Vim-like Editing inside Browser</title>
+      <link>https://jdhao.github.io/2019/05/11/nvim_text_input_browser/</link>
+      <pubDate>Sat, 11 May 2019 12:14:06 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/05/11/nvim_text_input_browser/</guid>
+      <description>&lt;p&gt;Vim/Nvim has powerful ability in editing texts. But if you are in a browser and
+want to input some text, can we somehow utilize the editing power of Vim? In
+this post, I would like to share several ways to use Vim or Vim-like editing
+when you are working inside a browser.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Spell Check in Nvim</title>
+      <link>https://jdhao.github.io/2019/04/29/nvim_spell_check/</link>
+      <pubDate>Mon, 29 Apr 2019 22:35:54 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/04/29/nvim_spell_check/</guid>
+      <description>&lt;p&gt;In this post, I want to talk about how to enable built-in spell check
+functionality in Nvim.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>English Words Completion inside Neovim/Vim</title>
+      <link>https://jdhao.github.io/2019/04/26/words_completion_nvim/</link>
+      <pubDate>Fri, 26 Apr 2019 02:15:05 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/04/26/words_completion_nvim/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;
+   &lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20190430093054.png&#34; alt=&#34;&#34;&gt;
+&lt;/p&gt;
+&lt;p&gt;Some words are hard to type, it is handy if Neovim can provide auto-completion
+for the words we are typing. We can achieve word completion in Neovim in two
+ways.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 2</title>
+      <link>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</link>
+      <pubDate>Wed, 17 Apr 2019 00:49:06 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</guid>
+      <description>&lt;p&gt;This is the series 2 of the nifty Nvim techniques.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For series 1, see &lt;a href=&#34;https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 1</title>
+      <link>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</link>
+      <pubDate>Thu, 28 Mar 2019 00:24:33 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</guid>
+      <description>&lt;p&gt;In this post, I summarize some nifty little techniques which make my experience
+of editing in &lt;a href=&#34;https://github.com/neovim/neovim&#34;&gt;Nvim&lt;/a&gt; smoother.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>An Introduction to Lookaround Regular Expression in Neovim/Vim</title>
+      <link>https://jdhao.github.io/2018/10/18/regular_expression_nvim/</link>
+      <pubDate>Thu, 18 Oct 2018 19:34:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/10/18/regular_expression_nvim/</guid>
+      <description>&lt;p&gt;Today I want to use some regular expressions for searching and replacing in my
+files. But I found that Nvim/Vim regular expression engine has its own flavor,
+which is different from the regex engine used by Sublime Text&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;. I ended up
+learning some of the basics of Nvim-style regex. In this post, I want to share
+about how to use lookaround&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; in Nvim.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Fixing the nerdtree Window Problem with `bd` Command in Nvim</title>
+      <link>https://jdhao.github.io/2018/10/09/nerdtree_windows_issue_bd_vim/</link>
+      <pubDate>Tue, 09 Oct 2018 12:19:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/10/09/nerdtree_windows_issue_bd_vim/</guid>
+      <description>&lt;p&gt;If you have a nerdtree file navigation window on the left of the current buffer
+and use &lt;code&gt;:bd&lt;/code&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, you will find that the nerdtree window will occupy the whole
+window.  When you open another buffer, you have to manually resize the nerdtree
+window to a smaller size, which is super annoying.&lt;/p&gt;
+&lt;p&gt;How to prevent this behaviour?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Vim-like Settings for Tmux</title>
+      <link>https://jdhao.github.io/2018/09/30/tmux_settings_for_vim_users/</link>
+      <pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/09/30/tmux_settings_for_vim_users/</guid>
+      <description>&lt;p&gt;I am a &lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; (or Nvim in abbreviation) user. In Nvim, we
+use &lt;code&gt;Ctrl-W&lt;/code&gt; as prefix for window-related operations. However, the default
+prefix is &lt;code&gt;Ctrl-B&lt;/code&gt; in Tmux. As a result, I often mistakenly press &lt;code&gt;Ctrl-W&lt;/code&gt; when
+trying to change panes inside Tmux, which is annoying. Why not change tmux
+prefix to be more vim-like?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to Switch to A Buffer Quickly in Neovim/Vim</title>
+      <link>https://jdhao.github.io/2018/09/29/Switching_buffers_quickly_Neovim/</link>
+      <pubDate>Sat, 29 Sep 2018 16:41:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/09/29/Switching_buffers_quickly_Neovim/</guid>
+      <description>&lt;p&gt;When we are using Neovim, we often open several files in a window. Each file
+corresponds to a buffer. How to switch to a buffer quickly?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Intro to Nvim File Explorer Plugin Nerdtree</title>
+      <link>https://jdhao.github.io/2018/09/10/nerdtree_usage/</link>
+      <pubDate>Mon, 10 Sep 2018 11:44:43 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/09/10/nerdtree_usage/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/scrooloose/nerdtree&#34;&gt;Nerdtree&lt;/a&gt; is a file explorer for
+Vim/Neovim. It will generate a file navigation window just like an IDE. We can
+operate on files easily in the nerdtree window. In this post, I will summarize
+some of its configurations and usages.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on jdhao&#39;s blog</title>
+    <link>https://jdhao.github.io/tags/Git/</link>
+    <description>Recent content in Git on jdhao&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>jdhao</copyright>
+    <lastBuildDate>Thu, 23 Apr 2020 00:05:20 +0800</lastBuildDate>
+    
+	<atom:link href="https://jdhao.github.io/tags/Git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git Learning Notes (1)</title>
+      <link>https://jdhao.github.io/2020/04/23/git_learning_notes_s1/</link>
+      <pubDate>Thu, 23 Apr 2020 00:05:20 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/04/23/git_learning_notes_s1/</guid>
+      <description>&lt;p&gt;This is my personal note of learning Git.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Handling Merge Conflict after Git Stash</title>
+      <link>https://jdhao.github.io/2019/12/03/git_stash_merge_conflict_handling/</link>
+      <pubDate>Tue, 03 Dec 2019 00:57:11 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/12/03/git_stash_merge_conflict_handling/</guid>
+      <description>&lt;p&gt;Sometimes, when you are working with your local changes, you may want to pull
+the latest updates from the remote Git repository. You can use &lt;code&gt;git stash&lt;/code&gt; to
+store the unfinished work temporarily.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to Push Local Git Repo to Remote Repo in GitHub</title>
+      <link>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</link>
+      <pubDate>Wed, 16 May 2018 16:22:54 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</guid>
+      <description>There are two basic cases when we push our local repo to remote repo. These two cases differ in their settings. But sometimes, we are easily confused.
+First scenario The first case is that you have created a local repo and want to store it on GitHub later. In this case, your usual work flow for local repo is:
+ Initialize the local repo (git init) Write you code and document, etc.</description>
+    </item>
+    
+    <item>
+      <title>A Tutorial on Creating GitHub Pull Requests</title>
+      <link>https://jdhao.github.io/2018/05/06/first-github-pull-request/</link>
+      <pubDate>Sun, 06 May 2018 15:23:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/05/06/first-github-pull-request/</guid>
+      <description>Today I make my first ever GitHub pull request to the great Hexo theme NexT. I will summarize how to make a pull request in following post.
+Creating a fork According to GitHub documentation:
+ If you don&amp;rsquo;t have write access to the repository where you&amp;rsquo;d like to create a pull request, you must create a fork, or copy, of the repository first.
+ If you do not have write access to the repository you want to contribute to, the first step is to fork it.</description>
+    </item>
+    
+  </channel>
+</rss>

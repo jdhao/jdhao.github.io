@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LSP on jdhao&#39;s blog</title>
+    <link>https://jdhao.github.io/tags/LSP/</link>
+    <description>Recent content in LSP on jdhao&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>jdhao</copyright>
+    <lastBuildDate>Wed, 20 Nov 2019 22:41:16 +0800</lastBuildDate>
+    
+	<atom:link href="https://jdhao.github.io/tags/LSP/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Hands-on Experience with Neovim&#39;s Builtin LSP Support</title>
+      <link>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</link>
+      <pubDate>Wed, 20 Nov 2019 22:41:16 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</guid>
+      <description>&lt;p&gt;Just a few days ago, the builtin &lt;a href=&#34;https://microsoft.github.io/language-server-protocol/&#34;&gt;Language Server Protocol&lt;/a&gt;
+support &lt;a href=&#34;https://github.com/neovim/neovim/pull/11336&#34;&gt;has been merged&lt;/a&gt; into Neovim master.&lt;/p&gt;
+&lt;p&gt;This post is a hands-on experience of setting up LSP support for Python with
+the &lt;a href=&#34;https://github.com/palantir/python-language-server&#34;&gt;python-language-server&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

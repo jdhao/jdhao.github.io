@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on jdhao&#39;s blog</title>
+    <link>https://jdhao.github.io/tags/Hugo/</link>
+    <description>Recent content in Hugo on jdhao&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>jdhao</copyright>
+    <lastBuildDate>Sun, 19 Jan 2020 21:56:34 +0800</lastBuildDate>
+    
+	<atom:link href="https://jdhao.github.io/tags/Hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Missing Level 1 Header in TOC in Latest Hugo</title>
+      <link>https://jdhao.github.io/2020/01/19/hugo_toc_header_missing/</link>
+      <pubDate>Sun, 19 Jan 2020 21:56:34 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/01/19/hugo_toc_header_missing/</guid>
+      <description>&lt;p&gt;After updating Hugo to the latest version (v 0.62), apart from the issue of
+&lt;a href=&#34;https://jdhao.github.io/2019/12/29/hugo_html_not_shown/&#34;&gt;missing HTML code&lt;/a&gt;, I
+have also observed that level 1 header written in Markdown is not rendered in
+the generated &lt;abbr title=&#34;Table of Content&#34;&gt;TOC&lt;/abbr&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hugo 生成的博客文章缺失问题</title>
+      <link>https://jdhao.github.io/2020/01/11/hugo_post_missing/</link>
+      <pubDate>Sat, 11 Jan 2020 22:04:56 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/01/11/hugo_post_missing/</guid>
+      <description>&lt;p&gt;最近在使用 Hugo 生成博客文章的时候，发现有一篇新写的文章无法生成，而其他博文都可以成功渲染，非常奇怪。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Content inside HTML tags missing in Latest Hugo?</title>
+      <link>https://jdhao.github.io/2019/12/29/hugo_html_not_shown/</link>
+      <pubDate>Sun, 29 Dec 2019 17:57:05 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/12/29/hugo_html_not_shown/</guid>
+      <description>&lt;p&gt;Due to Markdown&amp;rsquo;s inablity to center and resize image properly, I use the raw
+HTML tags inside markdown file to include images:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;align&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;center&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;img&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;xxx.xx.xx/test.jpg&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>谷歌 Adsense 申请及在 Hugo 中的配置</title>
+      <link>https://jdhao.github.io/2019/09/22/google_adsense_hugo_config/</link>
+      <pubDate>Sun, 22 Sep 2019 12:11:18 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/09/22/google_adsense_hugo_config/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/GA-L.jpg&#34;, width=&#34;600&#34;&gt;
+&lt;/p&gt;
+&lt;p&gt;我的博客目前利用 GitHub pages 服务托管，不需要付费，但是博客的图床选用了腾讯云的对象存储，每个月还需要付一笔流量费用。为了保持收支平衡，也为了好玩，决定申请谷歌的 Adsense 一试。本文记录申请 Adsense 以及在 Hugo 博客中配置 Adsense 的过程。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Markdown 生成 HTML 时汉字之间多出空格的问题</title>
+      <link>https://jdhao.github.io/2019/05/04/markdown_extra_space/</link>
+      <pubDate>Sat, 04 May 2019 23:26:14 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/05/04/markdown_extra_space/</guid>
+      <description>&lt;p&gt;在过去很长一段时间，我都在&lt;a href=&#34;https://jdhao.github.io/2017/03/04/Sublime-Windows-Markdown/&#34;&gt;使用 Sublime Text 来编辑 Markdown 文件&lt;/a&gt;，Sublime Text有一个非常实用的功能，&lt;a href=&#34;https://stackoverflow.com/q/25900954/6064933&#34;&gt;可以设定 &lt;code&gt;wrap_width&lt;/code&gt;  和 &lt;code&gt;word_wrap&lt;/code&gt; 选项&lt;/a&gt;，自动在设定的 80个字符长度处 softwrap 文本。所以即使一个段落写成一行，编辑起来或者看起来都不违和。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>把博客从 Hexo 迁移到 Hugo</title>
+      <link>https://jdhao.github.io/2018/10/10/hexo_to_hugo/</link>
+      <pubDate>Wed, 10 Oct 2018 23:09:57 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/10/10/hexo_to_hugo/</guid>
+      <description>&lt;p&gt;这个博客于 2017 年 2 月开始搭建运行，最初使用的是&lt;a href=&#34;https://hexo.io/zh-cn/&#34;&gt;Hexo&lt;/a&gt; 搭建，配合精美的&lt;a href=&#34;https://github.com/theme-next/hexo-theme-next&#34;&gt;NexT&lt;/a&gt; 主题，经过&lt;a href=&#34;https://jdhao.github.io/tags/Hexo/&#34;&gt;鼓捣&lt;/a&gt;，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

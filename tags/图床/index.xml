@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>图床 on jdhao&#39;s blog</title>
+    <link>https://jdhao.github.io/tags/%E5%9B%BE%E5%BA%8A/</link>
+    <description>Recent content in 图床 on jdhao&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>jdhao</copyright>
+    <lastBuildDate>Mon, 16 Mar 2020 00:48:59 +0800</lastBuildDate>
+    
+	<atom:link href="https://jdhao.github.io/tags/%E5%9B%BE%E5%BA%8A/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>腾讯云对象存储博客图床开启 CDN 加速</title>
+      <link>https://jdhao.github.io/2020/03/16/tencent_cos_cdn_setup/</link>
+      <pubDate>Mon, 16 Mar 2020 00:48:59 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/03/16/tencent_cos_cdn_setup/</guid>
+      <description>&lt;p&gt;之前记录过把博客的图床从七牛&lt;a href=&#34;https://jdhao.github.io/2018/10/20/qiuniu_migrate_to_tencent_cos/&#34;&gt;迁移到了腾讯云对象存储&lt;/a&gt;，刚开始用觉得花费不算很贵，一个月不超过 10 元。直到有一次发了&lt;a href=&#34;https://jdhao.github.io/2019/06/10/mechanical_keyboard_try/&#34;&gt;一篇关于机械键盘的文章&lt;/a&gt;，放了两张没有经过压缩的图片，由于访问人数稍微过大，几天时间就消耗了将近 40 元的流量费用。当时也在 V2ex 发了&lt;a href=&#34;https://www.v2ex.com/t/579567&#34;&gt;帖子&lt;/a&gt;，有人建议套个 CDN，因为 CDN 的流量相对于对象存储的流量更便宜，由于当时对 CDN 怎么使用不了解，以为还要自己再买一个域名，所以就没有深入了解下去。最近，趁着有时间，研究了一下博客的图床怎么使用 CDN，才发现原来设置很简单，也不需要购买域名。本文主要分享腾讯云对象存储开启 CDN 的方法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>博客图床从七牛云存储迁移到腾讯云存储</title>
+      <link>https://jdhao.github.io/2018/10/20/qiuniu_migrate_to_tencent_cos/</link>
+      <pubDate>Sat, 20 Oct 2018 20:57:35 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/10/20/qiuniu_migrate_to_tencent_cos/</guid>
+      <description>&lt;p&gt;去年建立博客的时候，选择了&lt;a href=&#34;https://www.qiniu.com/&#34;&gt;七牛&lt;/a&gt;对象存储来存放博客的图片，最近收到了七牛的邮件，之前一直在用的域名只是一个测试域名，再过一阵就要回收了，到时必须使用自己的域名。大概看了一下，申请自己的域名还要涉及注册和备案，我仅仅是需要存储图片，这样太费周章，所以决定把博客的图片从七牛迁移出来。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hexo 使用，博客写作相关问题及解决方法</title>
+      <link>https://jdhao.github.io/2017/02/26/hexo-use-markdown-writing-issue/</link>
+      <pubDate>Sun, 26 Feb 2017 15:52:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2017/02/26/hexo-use-markdown-writing-issue/</guid>
+      <description>&lt;p&gt;本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考&lt;a href=&#34;https://jdhao.github.io/2017/02/26/hexo-install-use-issue/&#34;&gt;这篇文章&lt;/a&gt;。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

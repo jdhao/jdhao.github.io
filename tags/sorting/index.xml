@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sorting on jdhao&#39;s blog</title>
+    <link>https://jdhao.github.io/tags/sorting/</link>
+    <description>Recent content in sorting on jdhao&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>jdhao</copyright>
+    <lastBuildDate>Wed, 06 Nov 2019 22:43:59 +0800</lastBuildDate>
+    
+	<atom:link href="https://jdhao.github.io/tags/sorting/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to sort a list of tuple or list in Python -- lambda or itemgetter?</title>
+      <link>https://jdhao.github.io/2019/11/06/python_sort_list_of_list/</link>
+      <pubDate>Wed, 06 Nov 2019 22:43:59 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/11/06/python_sort_list_of_list/</guid>
+      <description>&lt;p&gt;In Python, when we want to sort a list of tuples or lists, we may want to sort
+it based on certain element in each sub-list, for example, sort the list based
+on the first element in each sub-list.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>堆排序是如何工作的？</title>
+      <link>https://jdhao.github.io/2017/10/06/heap-sort-explained/</link>
+      <pubDate>Fri, 06 Oct 2017 16:25:03 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2017/10/06/heap-sort-explained/</guid>
+      <description>&lt;p&gt;本文将介绍堆 (heap)的概念，进一步介绍如何把普通数组变成最大堆，并在此基础上进行 堆排序。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>When Does the Stability of Sorting Algorithms Matter?</title>
+      <link>https://jdhao.github.io/2017/09/30/sorting-algorithms-stability/</link>
+      <pubDate>Sat, 30 Sep 2017 15:34:55 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2017/09/30/sorting-algorithms-stability/</guid>
+      <description>&lt;p&gt;In this post, I will write about the stability of sorting algorithms and why it
+is important.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

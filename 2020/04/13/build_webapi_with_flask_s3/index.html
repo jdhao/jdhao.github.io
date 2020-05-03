@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Build Web API with Flask --- Work with JSON-like Dict - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="This is a simple post about how to send JSON-like Dict data to a Flask server via requests package.
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2020/04/13/build_webapi_with_flask_s3/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Build Web API with Flask --- Work with JSON-like Dict" />
+<meta property="og:description" content="This is a simple post about how to send JSON-like Dict data to a Flask server
+via requests package." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2020/04/13/build_webapi_with_flask_s3/" />
+<meta property="article:published_time" content="2020-04-13T22:29:23+08:00" />
+<meta property="article:modified_time" content="2020-04-16T23:05:20+08:00" />
+<meta itemprop="name" content="Build Web API with Flask --- Work with JSON-like Dict">
+<meta itemprop="description" content="This is a simple post about how to send JSON-like Dict data to a Flask server
+via requests package.">
+<meta itemprop="datePublished" content="2020-04-13T22:29:23&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-16T23:05:20&#43;08:00" />
+<meta itemprop="wordCount" content="430">
+
+
+
+<meta itemprop="keywords" content="Flask,HTTP,request," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Build Web API with Flask --- Work with JSON-like Dict"/>
+<meta name="twitter:description" content="This is a simple post about how to send JSON-like Dict data to a Flask server
+via requests package."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Build Web API with Flask --- Work with JSON-like Dict</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-13 </span>
+        <div class="post-category">
+            <a href="/categories/Python/"> Python </a>
+            </div>
+          <span class="more-meta"> 430 words </span>
+          <span class="more-meta"> 3 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#post-dict-to-flask-server">Post dict to Flask server</a>
+      <ul>
+        <li><a href="#post-and-receive-dict-with-value-of-list-type">Post and receive dict with value of list type</a></li>
+      </ul>
+    </li>
+    <li><a href="#directly-posting-json-data">Directly posting JSON data</a>
+      <ul>
+        <li><a href="#post-or-return-base64-encoded-image-in-dict">Post or return base64 encoded image in dict</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>This is a simple post about how to send JSON-like Dict data to a Flask server
+via <a href="https://requests.readthedocs.io/en/master/">requests</a> package.</p>
+<h1 id="post-dict-to-flask-server">Post dict to Flask server</h1>
+<p>To post Python dict using requests package, we can use the <code>data</code> parameter:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+</code></pre></div><p>In the above example, the
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type"><code>Content-Type</code></a>
+for posted data is <code>application/x-www-form-urlencoded</code>, you can get the posted
+data in the Flask server side via <code>request.form</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</code></pre></div><h2 id="post-and-receive-dict-with-value-of-list-type">Post and receive dict with value of list type</h2>
+<p>One caveat when we use <code>request.form.to_dict()</code> is that we only get the first
+element for a dict value of list type. For example, if <code>payload</code> is the
+following dict:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;123&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;box&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
+</code></pre></div><p>On the Flask server side, after <code>request.form.to_dict()</code>, you only get the
+following:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">{&#39;id&#39;: &#39;123&#39;, &#39;type&#39;: &#39;jpg&#39;, &#39;box&#39;: &#39;0&#39;}
+</code></pre></div><p>which is completely non-obvious for Flask beginners. To get the full list
+instead, we have two ways:</p>
+<ul>
+<li>Use <code>requests.form.to_dict(flat=False)</code> (see <a href="https://werkzeug.palletsprojects.com/en/0.16.x/datastructures/#werkzeug.datastructures.MultiDict.to_dict">here</a> on
+the description about <code>to_dict()</code>). One drawback is that values that are non-list
+originally are converted to list. So now you get:
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">{&#39;id&#39;: [&#39;123&#39;], &#39;type&#39;: [&#39;jpg&#39;], &#39;box&#39;: [&#39;0&#39;, &#39;0&#39;, &#39;100&#39;, &#39;100&#39;]}
+</code></pre></div></li>
+<li>Use <code>request.form.getlist('key')</code> to get the list corresponding to <code>key</code>, more
+about this <a href="https://werkzeug.palletsprojects.com/en/0.16.x/datastructures/#werkzeug.datastructures.MultiDict.getlist">here</a>.</li>
+</ul>
+<h1 id="directly-posting-json-data">Directly posting JSON data</h1>
+<p>Another way to post Python dict is to directly post and receive JSON data. When
+making requests, we can use the <code>json</code> parameter of <code>requests.post()</code> method:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+</code></pre></div><p>In this way, requests package will serialize your dict into JSON format. The
+<code>Content-Type</code> in HTTP header will be set to <code>application/json</code>. In the Flask
+side, we need to use
+<a href="https://stackoverflow.com/q/20001229/6064933"><code>request.get_json()</code></a> to get the
+posted JSON data.</p>
+<h2 id="post-or-return-base64-encoded-image-in-dict">Post or return base64 encoded image in dict</h2>
+<p>When you post base64 encoded image in dict via requests package, you may see
+the following error:</p>
+<blockquote>
+<p>TypeError: Object of type bytes is not JSON serializable</p>
+</blockquote>
+<p>This is because the Python JSON library cannot serialize byte type. You can
+convert the base64 encoded image as string via <code>decode()</code> method:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">im_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;image&#39;</span><span class="p">:</span> <span class="n">im_b64</span><span class="o">.</span><span class="n">decode</span><span class="p">()}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+</code></pre></div><p>Similarly, when you want to return base64 encoded image in the Flask server
+side via <code>jsonify()</code> method, you need also to convert bytes type to str before
+JSON library can serialize it.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://stackoverflow.com/a/50728523/6064933">Flask: get request.form as normal dict</a>.</li>
+<li><a href="https://stackoverflow.com/a/35625509/6064933">Convert form to dict in Flask</a>.</li>
+<li><a href="https://stackoverflow.com/q/53362322/6064933">Flask: post a list</a>.</li>
+<li><a href="https://stackoverflow.com/q/51481755/6064933">Flask: objects of bytes type not JSON serializable</a>.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST">Content-Type in POST request</a>.</li>
+<li><a href="https://stackoverflow.com/q/9733638/6064933">Post JSON via Python requests package</a>.</li>
+<li><a href="https://stackoverflow.com/q/12385179/6064933">Send multipart/form-data request in Python</a>.</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-04-16
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Flask/">Flask</a>
+          <a href="/tags/HTTP/">HTTP</a>
+          <a href="/tags/request/">request</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2020/04/17/python_datetime_timezone/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Get Current Time with Time Zone Info in Python</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2020/04/12/build_webapi_with_flask_s2/">
+            <span class="next-text nav-default">Build Web API with Flask -- Post and Receive Image</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Set up for C&#43;&#43;/C Development in Neovim - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="This post summarizes how to set up various plugins needed for C&#43;&#43;/C code editing, linting and formatting.
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2020/04/19/nvim_cpp_and_c_completion/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Set up for C&#43;&#43;/C Development in Neovim" />
+<meta property="og:description" content="This post summarizes how to set up various plugins needed for C&#43;&#43;/C code
+editing, linting and formatting." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2020/04/19/nvim_cpp_and_c_completion/" />
+<meta property="article:published_time" content="2020-04-19T18:17:56+08:00" />
+<meta property="article:modified_time" content="2020-04-19T23:42:17+08:00" />
+<meta itemprop="name" content="Set up for C&#43;&#43;/C Development in Neovim">
+<meta itemprop="description" content="This post summarizes how to set up various plugins needed for C&#43;&#43;/C code
+editing, linting and formatting.">
+<meta itemprop="datePublished" content="2020-04-19T18:17:56&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-19T23:42:17&#43;08:00" />
+<meta itemprop="wordCount" content="472">
+
+
+
+<meta itemprop="keywords" content="C&#43;&#43;,C," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Set up for C&#43;&#43;/C Development in Neovim"/>
+<meta name="twitter:description" content="This post summarizes how to set up various plugins needed for C&#43;&#43;/C code
+editing, linting and formatting."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Set up for C&#43;&#43;/C Development in Neovim</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-19 </span>
+        <div class="post-category">
+            <a href="/categories/Nvim/"> Nvim </a>
+            </div>
+          <span class="more-meta"> 472 words </span>
+          <span class="more-meta"> 3 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#pre-requisite">Pre-requisite</a></li>
+    <li><a href="#install-clang-and-llvm">Install clang and llvm</a>
+      <ul>
+        <li><a href="#linux">Linux</a></li>
+        <li><a href="#macos">MacOS</a></li>
+      </ul>
+    </li>
+    <li><a href="#auto-completion">Auto-completion</a></li>
+    <li><a href="#linting">Linting</a></li>
+    <li><a href="#code-formatting">Code formatting</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>This post summarizes how to set up various plugins needed for C++/C code
+editing, linting and formatting.</p>
+<h1 id="pre-requisite">Pre-requisite</h1>
+<p>This post assumes that <a href="https://github.com/Shougo/deoplete.nvim">deoplete</a> has
+been installed and set up properly on your system. If that is not the case, you
+may refer to <a href="https://jdhao.github.io/2019/06/06/nvim_deoplete_settings/">this post</a>
+on how to do it.</p>
+<h1 id="install-clang-and-llvm">Install clang and llvm</h1>
+<p>To enable C++/C code auto-completion, we need to install <a href="https://clang.llvm.org/">clang</a> first.</p>
+<h2 id="linux">Linux</h2>
+<p>On Linux, we can build the latest clang from source using the following
+command:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/llvm/llvm-project.git
+<span class="nb">cd</span> llvm-project
+mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+cmake -DLLVM_ENABLE_PROJECTS<span class="o">=</span>clang -G <span class="s2">&#34;Unix Makefiles&#34;</span> -DCMAKE_BUILD_TYPE<span class="o">=</span>Release  ../llvm
+make -j<span class="k">$(</span>nproc<span class="k">)</span>
+</code></pre></div><p>The flag <code>-DCMAKE_BUILD_TYPE=Release</code> will build a release version of clang,
+which is much smaller than the default one (<code>Debug</code> type).</p>
+<p>The build process will take about half of an hour on our 12-core server, and
+the time may vary depending on your hardware.</p>
+<p>After that, we need to add the clang binary path to the <code>PATH</code> variable, and
+add the directory containing <code>libclang.so</code> to env variable <code>LD_LIBRARY_PATH</code>.
+Edit <code>~/.bash_profile</code> and add following settings:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/tools/llvm-project/build/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/tools/llvm-project/build/lib:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">&#34;</span>
+</code></pre></div><p>Under directory <code>$HOME/tools/llvm-project/build/bin</code>, there are a lot of
+executables, including <code>clang</code>, <code>clang++</code>, and <code>clang-format</code> (which we will
+use to format C++/C code later).</p>
+<p><strong>Do not forget to source the file</strong> to refresh the env variables.</p>
+<h2 id="macos">MacOS</h2>
+<p>For MacOS, clang is shipped with it so we do not need to install clang. We need
+to install <code>clang-format</code> though since <code>clang-format</code> is not shipped with clang
+by default (source <a href="https://stackoverflow.com/a/21192263/6064933">here</a>).</p>
+<p>The easiest way to install clang-format is via Homebrew:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">brew install clang-format
+</code></pre></div><p>On Mac, the name of the clang share library is <code>libclang.dylib</code>, and we should
+add its parent directory to env variable <code>LD_LIBRARY_PATH</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">&#34;/Library/Developer/CommandLineTools/usr/lib/:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">&#34;</span>
+</code></pre></div><h1 id="auto-completion">Auto-completion</h1>
+<p>To provide C++/C code autocompletion, we can use
+<a href="https://github.com/deoplete-plugins/deoplete-clang">deoplete-clang</a>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="c">&#34; Install using vim-plug</span><span class="err">
+</span><span class="err"></span><span class="nx">Plug</span> <span class="s1">&#39;deoplete-plugins/deoplete-clang&#39;</span><span class="err">
+</span></code></pre></div><p>If you have set up the libclang path properly, then auto-completion should work
+when you start editing C++/C source files.</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/clang_autocompletion_cpp.jpg" width="800">
+</p>
+<h1 id="linting">Linting</h1>
+<p>For code linting, we can use <a href="https://github.com/dense-analysis/ale">ale</a>. Add
+the following setting to Neovim config:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="k">let</span> <span class="nx">g</span>:<span class="nx">ale_linters</span> <span class="p">=</span> {<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;python&#39;</span>: [<span class="s1">&#39;pylint&#39;</span>]<span class="p">,</span><span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;vim&#39;</span>: [<span class="s1">&#39;vint&#39;</span>]<span class="p">,</span><span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;cpp&#39;</span>: [<span class="s1">&#39;clang&#39;</span>]<span class="p">,</span><span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;c&#39;</span>: [<span class="s1">&#39;clang&#39;</span>]<span class="err">
+</span><span class="err"></span>\}<span class="err">
+</span></code></pre></div><h1 id="code-formatting">Code formatting</h1>
+<p>We can use the command line tool <code>clang-format</code> shipped with clang for code
+formatting, with the help of pluign
+<a href="https://github.com/sbdchd/neoformat">Neoformat</a> to format our code. Make sure
+that <code>clang-format</code> is on your <code>PATH</code>. Add the following settings to Neovim
+config:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="c">&#34; custom setting for clangformat</span><span class="err">
+</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">neoformat_cpp_clangformat</span> <span class="p">=</span> {<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;exe&#39;</span>: <span class="s1">&#39;clang-format&#39;</span><span class="p">,</span><span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;args&#39;</span>: [<span class="s1">&#39;--style=&#34;{IndentWidth: 4}&#34;&#39;</span>]<span class="err">
+</span><span class="err"></span>\}<span class="err">
+</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">neoformat_enabled_cpp</span> <span class="p">=</span> [<span class="s1">&#39;clangformat&#39;</span>]<span class="err">
+</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">neoformat_enabled_c</span> <span class="p">=</span> [<span class="s1">&#39;clangformat&#39;</span>]<span class="err">
+</span></code></pre></div><p>Notice that the linter name for <code>clang-format</code> is <code>clangformat</code>, not
+<code>clang-format</code>. I have wasted ten minutes trying to find why <code>clang-format</code>
+does not with Neoformat until I found <a href="https://github.com/sbdchd/neoformat/issues/234">here</a>
+that we should use <code>clangformat</code> as the linter name.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://clang.llvm.org/get_started.html">Build and run clang &ndash; official guide</a>.</li>
+<li><a href="https://shaharmike.com/cpp/build-clang/">Build clang</a>.</li>
+<li><a href="https://github.com/dense-analysis/ale/blob/master/supported-tools.md">ALE: supported tools</a>.</li>
+<li><a href="https://clang.llvm.org/docs/ClangFormat.html">clang-format doc</a>.</li>
+<li><a href="https://clang.llvm.org/docs/ClangFormatStyleOptions.html#">clang-format style options</a>.</li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>you can find its path via command <code>mdfind -name libclang.dylib</code>. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-04-19
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/C&#43;&#43;/">C&#43;&#43;</a>
+          <a href="/tags/C/">C</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2020/04/23/git_learning_notes_s1/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Git Learning Notes (1)</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2020/04/17/python_datetime_timezone/">
+            <span class="next-text nav-default">Get Current Time with Time Zone Info in Python</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

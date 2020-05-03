@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>logging on jdhao&#39;s blog</title>
+    <link>https://jdhao.github.io/tags/logging/</link>
+    <description>Recent content in logging on jdhao&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>jdhao</copyright>
+    <lastBuildDate>Fri, 24 Apr 2020 01:12:43 +0800</lastBuildDate>
+    
+	<atom:link href="https://jdhao.github.io/tags/logging/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to Use Unified Logging Config Across the Project</title>
+      <link>https://jdhao.github.io/2020/04/24/python_logging_for_multiple_modules/</link>
+      <pubDate>Fri, 24 Apr 2020 01:12:43 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/04/24/python_logging_for_multiple_modules/</guid>
+      <description>&lt;p&gt;When we are working on a project, we often need to log some message for easier
+debugging. How do we configure the logging settings once and use it across the
+project?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A Simple Guide on How to Use the Python Logging Module</title>
+      <link>https://jdhao.github.io/2018/10/12/python_logging_module/</link>
+      <pubDate>Fri, 12 Oct 2018 22:13:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/10/12/python_logging_module/</guid>
+      <description>&lt;p&gt;In the past, I often use plain &lt;code&gt;print()&lt;/code&gt; to display some statistics during
+training process of my models. However, it is not convenient to save the
+statistics in a file for later inspection. Once the program is finished, we do
+not have an overview of the training process. I am aware that there are
+packages such as &lt;a href=&#34;https://github.com/lanpa/tensorboardX&#34;&gt;tensorboardX&lt;/a&gt; and
+&lt;a href=&#34;https://github.com/facebookresearch/visdom&#34;&gt;visdom&lt;/a&gt;, which are specifically
+designed for inspecting the various statistics during training. Right now, I
+would rather keep the program plain simple and usable. So I decided to give
+&lt;a href=&#34;https://docs.python.org/3/library/logging.html&#34;&gt;Python logging pacakge&lt;/a&gt; a try.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

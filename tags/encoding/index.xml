@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>encoding on jdhao&#39;s blog</title>
+    <link>https://jdhao.github.io/tags/encoding/</link>
+    <description>Recent content in encoding on jdhao&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>jdhao</copyright>
+    <lastBuildDate>Sat, 22 Feb 2020 11:41:09 +0800</lastBuildDate>
+    
+	<atom:link href="https://jdhao.github.io/tags/encoding/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>解决 Matplotlib 使用中文乱码问题</title>
+      <link>https://jdhao.github.io/2020/02/22/guide-on-how-to-use-chinese-with-matplotlib_zh/</link>
+      <pubDate>Sat, 22 Feb 2020 11:41:09 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/02/22/guide-on-how-to-use-chinese-with-matplotlib_zh/</guid>
+      <description>&lt;p&gt;注：这是一篇&lt;a href=&#34;https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/&#34;&gt;旧文&lt;/a&gt;的中文翻译版本。&lt;/p&gt;
+&lt;p&gt;前不久，我在使用 Matplotlib 画图的时候，发现一些 Unicode 字符(例如，汉字) 无法正常显示：在生成的图片中，汉字是乱码的，显示为一个方框。经过大量的查找和阅读，我终于明白了如何在使用 Matplotlib 时，正确渲染 Unicode 字符&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Reading and Writing Text Files on Windows</title>
+      <link>https://jdhao.github.io/2018/12/03/text_file_read_write_on_windows/</link>
+      <pubDate>Mon, 03 Dec 2018 13:06:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/12/03/text_file_read_write_on_windows/</guid>
+      <description>&lt;p&gt;If you are using Python 3 on Windows, you may have seen a Unicode decoding
+error when opening files in UTF-8 format:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;UnicodeDecodeError: &amp;lsquo;gbk&amp;rsquo; codec can&amp;rsquo;t decode byte 0xaf in position 5: illegal multibyte sequence&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you read the same file on Linux or MacOS, you will find that this file can
+be opened without any error. Why is there a difference? It has something to do
+with the default encoding Python chooses to use on different platforms.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Character set, Encoding, Locale, Font and More...</title>
+      <link>https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/</link>
+      <pubDate>Sun, 28 Jan 2018 16:39:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/</guid>
+      <description>&lt;p&gt;It is almost destined that at some point of our programming years, we will meet
+the issue of character set, encoding and all the related stuff. There are tons
+of articles which explains the meaning of &lt;code&gt;Unicode&lt;/code&gt;,  &lt;code&gt;UTF-8&lt;/code&gt;, &lt;code&gt;UTF-16&lt;/code&gt; etc. I
+am not going to repeat that here. In this post, I will write about what
+confused me when I tried to understand all this stuff.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cmder --- The Ultimate Command Line Tool for Windows</title>
+      <link>https://jdhao.github.io/2017/12/29/cmder-usage/</link>
+      <pubDate>Fri, 29 Dec 2017 20:04:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2017/12/29/cmder-usage/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/18-1-1/79824514.jpg&#34;
+         title=&#34;A glimpse of Cmder&#34;&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A Guide on Using Unicode Characters in Matplotlib</title>
+      <link>https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/</link>
+      <pubDate>Sat, 13 May 2017 21:36:26 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/</guid>
+      <description>&lt;p&gt;A few days ago, I found that Matplotlib can not show some Unicode characters
+(some Chinese characters) using its default settings. In the rendered output
+image, Chinese characters are shown as blank boxes. After reading a lot of
+posts on this issue, I am finally clear about how to use Unicode characters
+properly in Matplotlib.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Sublime Text 3 使用相关问题及解决办法</title>
+      <link>https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/</link>
+      <pubDate>Sun, 19 Mar 2017 19:01:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/</guid>
+      <description>&lt;p&gt;这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
+同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

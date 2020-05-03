@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Character set, Encoding, Locale, Font and More... - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="It is almost destined that at some point of our programming years, we will meet the issue of character set, encoding and all the related stuff. There are tons of articles which explains the meaning of Unicode, UTF-8, UTF-16 etc. I am not going to repeat that here. In this post, I will write about what confused me when I tried to understand all this stuff.
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Character set, Encoding, Locale, Font and More..." />
+<meta property="og:description" content="It is almost destined that at some point of our programming years, we will meet
+the issue of character set, encoding and all the related stuff. There are tons
+of articles which explains the meaning of Unicode,  UTF-8, UTF-16 etc. I
+am not going to repeat that here. In this post, I will write about what
+confused me when I tried to understand all this stuff." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/" />
+<meta property="article:published_time" content="2018-01-28T16:39:00+08:00" />
+<meta property="article:modified_time" content="2020-03-11T23:29:19+08:00" />
+<meta itemprop="name" content="Character set, Encoding, Locale, Font and More...">
+<meta itemprop="description" content="It is almost destined that at some point of our programming years, we will meet
+the issue of character set, encoding and all the related stuff. There are tons
+of articles which explains the meaning of Unicode,  UTF-8, UTF-16 etc. I
+am not going to repeat that here. In this post, I will write about what
+confused me when I tried to understand all this stuff.">
+<meta itemprop="datePublished" content="2018-01-28T16:39:00&#43;08:00" />
+<meta itemprop="dateModified" content="2020-03-11T23:29:19&#43;08:00" />
+<meta itemprop="wordCount" content="1701">
+
+
+
+<meta itemprop="keywords" content="Unicode,encoding,locale,font,Sublime-Text," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Character set, Encoding, Locale, Font and More..."/>
+<meta name="twitter:description" content="It is almost destined that at some point of our programming years, we will meet
+the issue of character set, encoding and all the related stuff. There are tons
+of articles which explains the meaning of Unicode,  UTF-8, UTF-16 etc. I
+am not going to repeat that here. In this post, I will write about what
+confused me when I tried to understand all this stuff."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Character set, Encoding, Locale, Font and More...</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-01-28 </span>
+        <div class="post-category">
+            <a href="/categories/technique/"> technique </a>
+            </div>
+          <span class="more-meta"> 1701 words </span>
+          <span class="more-meta"> 4 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#character-character-set-code-point-and-encoding">Character, character set, code point and encoding</a>
+      <ul>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+    <li><a href="#sbcs-dbcs-and-mbcs">SBCS, DBCS and MBCS</a></li>
+    <li><a href="#unicode">Unicode</a>
+      <ul>
+        <li><a href="#references-1">References</a></li>
+      </ul>
+    </li>
+    <li><a href="#relationship-between-unicode-and-utf-8-utf-16-utf-32-etc">Relationship between Unicode and UTF-8, UTF-16, UTF-32 etc.</a>
+      <ul>
+        <li><a href="#references-2">References</a></li>
+      </ul>
+    </li>
+    <li><a href="#gb2312-gbk-gb18030-big5">GB2312, GBK, GB18030, Big5</a>
+      <ul>
+        <li><a href="#references-3">References</a></li>
+      </ul>
+    </li>
+    <li><a href="#microsoft-windows-code-page">Microsoft Windows Code page</a>
+      <ul>
+        <li><a href="#references-4">References</a></li>
+      </ul>
+    </li>
+    <li><a href="#character-set-and-typeface-or-font">Character set and typeface (or font)</a>
+      <ul>
+        <li><a href="#references-5">References</a></li>
+      </ul>
+    </li>
+    <li><a href="#similar-character-may-have-different-code-point">Similar character may have different code point</a></li>
+    <li><a href="#locale-and-difference-between-various-utf-8-locales">Locale and difference between various UTF-8 locales</a>
+      <ul>
+        <li><a href="#references-6">References</a></li>
+      </ul>
+    </li>
+    <li><a href="#search-a-unicode-character-in-sublime-text-using-its-code-point">Search a Unicode character in Sublime Text using its code point</a></li>
+    <li><a href="#references-7">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>It is almost destined that at some point of our programming years, we will meet
+the issue of character set, encoding and all the related stuff. There are tons
+of articles which explains the meaning of <code>Unicode</code>,  <code>UTF-8</code>, <code>UTF-16</code> etc. I
+am not going to repeat that here. In this post, I will write about what
+confused me when I tried to understand all this stuff.</p>
+<h1 id="character-character-set-code-point-and-encoding">Character, character set, code point and encoding</h1>
+<p>We use characters every day. They are huge number of them, e.g., English
+characters (<code>A</code>,  <code>B</code>, <code>C</code>), punctuations (<code>,</code>, <code>.</code>, <code>!</code>), Chinese characters
+(<code>你</code>, <code>好</code>), Japanese characters (<code>の</code>, <code>た</code>).</p>
+<p>In order to represent all these characters or part of them, we give each
+character a unique number (you can think of this number as an ID). In other
+words, when we refer to a number, the corresponding character will be uniquely
+determined. We call this number <a href="https://en.wikipedia.org/wiki/Code_point"><code>code point</code></a>.</p>
+<p>Simply said, a <strong><em>character set</em></strong> is table which list the correspondence
+between code points and characters. One of the most simple character set is
+<a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a>, in which characters are
+represented as code points in the range $[0, 127]$. For example, the code point
+of letter <code>A</code> is 65 (<code>0x41</code> in hex format) and the code point of <code>!</code> is 33
+(<code>0x21</code> in hex format). There are a lot of other character sets available,
+e.g., Unicode, GB18030, GBK, etc.</p>
+<p>Now, let&rsquo;s talk about encoding. Since we have character set, where each
+character gets its own code point. But how to represent these code points so
+that characters can be actually saved in the hard disk (encode issue), and how
+to read from the hard disk and know which character we are reading (decode
+issue)?  That is what encodings deal with. With proper encoding of character
+set, we can save characters in disk and read characters from disk without any
+error. Since encoding is just a way to represent code points in memory, it is
+natural that various encodings exist for the same character set. Character set
+and encoding are different concept. Do not confuse them. Take Unicode for an
+example, Unicode is a character set, and several encodings such as UTF-8,
+UTF-16 and UTF-32 designed for it exist.</p>
+<p>It should be noted that for simple character set such as <code>ASCII</code> and <code>Latin 1</code>,
+the code point of a character and its binary representation in memory are the
+same. That is because all the code point can be expressed in just one byte.
+That is why sometimes character set and encoding are use interchangeably. But
+for Unicode, the code point of a character does not necessarily equal to its
+binary representation due to encoding issues of several bytes.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.w3.org/International/questions/qa-what-is-encoding">https://www.w3.org/International/questions/qa-what-is-encoding</a></li>
+<li><a href="http://ergoemacs.org/emacs/unicode_basics.html">http://ergoemacs.org/emacs/unicode_basics.html</a></li>
+</ul>
+<h1 id="sbcs-dbcs-and-mbcs">SBCS, DBCS and MBCS</h1>
+<p>SBCS denotes single-byte character set, where all characters are represented
+using a single byte. Thus, the maximum characters which can be represented are
+256. DBCS denotes double-byte character set, where all characters are
+represented using two bytes. It is easy to see that both SBCS and DBCS can
+represent only a limited number of characters. In contrast, a multi-byte
+character set (MBCS) can represent a character using single byte, two bytes,
+three bytes or even more bytes. This gives it much more flexibility to
+represent more characters. Table below lists some representative character
+sets,</p>
+<table>
+<thead>
+<tr>
+<th>character set</th>
+<th>representatives</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SBCS</td>
+<td>ASCII, Latin 1</td>
+</tr>
+<tr>
+<td>DBCS</td>
+<td>GB2312</td>
+</tr>
+<tr>
+<td>MBCS</td>
+<td>Unicode</td>
+</tr>
+</tbody>
+</table>
+<h1 id="unicode">Unicode</h1>
+<p>Unicode is a combined efforts from different organizations to try to
+standardize the representation of all existing characters in the world. It is
+the most comprehensive character set in the world, and it is updated regularly.
+Each character in Unicode is represented using a code point. The Unicode
+representation for code point starts with <code>U+</code>. For example, the code point for
+my name is <a href="http://unicode.scarfboy.com/?s=%E9%83%9D"><code>U+90DD</code></a>,
+<a href="http://unicode.scarfboy.com/?s=%E6%9D%B0"><code>U+6770</code></a> and
+<a href="http://unicode.scarfboy.com/?s=%E4%B8%9C"><code>U+4E1C</code></a>. It is one of the most
+widely used character set in today&rsquo;s world.</p>
+<h2 id="references-1">References</h2>
+<ul>
+<li><a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/</a></li>
+</ul>
+<h1 id="relationship-between-unicode-and-utf-8-utf-16-utf-32-etc">Relationship between Unicode and UTF-8, UTF-16, UTF-32 etc.</h1>
+<p>Unicode is just a comprehensive character set, which assign a code point to
+each character. In contrast, UTF-8, UTF-16 and UTF-32 are encodings which
+implement the Unicode. For example, UTF-8 decrees how the different characters
+in Unicode character set are actually represented in memory. In UTF-8 encoding,
+code point does not necessarily equal to the actual memory representation of a
+character. Take the character <code>东</code> for an example, its code point is <code>U+4E1C</code>,
+and the byte representation in memory is <code>E4B89C</code>.</p>
+<h2 id="references-2">References</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/643694/what-is-the-difference-between-utf-8-and-unicode">https://stackoverflow.com/questions/643694/what-is-the-difference-between-utf-8-and-unicode</a></li>
+<li><a href="http://www.polylab.dk/utf8-vs-unicode.html">http://www.polylab.dk/utf8-vs-unicode.html</a></li>
+<li><a href="https://stackoverflow.com/questions/700187/unicode-utf-ascii-ansi-format-differences">https://stackoverflow.com/questions/700187/unicode-utf-ascii-ansi-format-differences</a></li>
+<li><a href="https://stackoverflow.com/questions/19212306/whats-the-difference-between-ascii-and-unicode">https://stackoverflow.com/questions/19212306/whats-the-difference-between-ascii-and-unicode</a></li>
+</ul>
+<h1 id="gb2312-gbk-gb18030-big5">GB2312, GBK, GB18030, Big5</h1>
+<p>Like Unicode, both the above names denote different character sets related to
+Chinese (simplified or traditional).</p>
+<p>GB2312 is an early character set for simplified Chinese, which contains 6763
+Chinese characters (simplified) and 682 other signs. From
+<a href="https://en.wikipedia.org/wiki/GB_2312">WikiPedia</a>,</p>
+<blockquote>
+<p>GB2312 includes 6,763 Chinese characters (on two levels: the first is arranged by reading, the second by radical then number of strokes), along with symbols and punctuation, Japanese kana, the Greek and Cyrillic alphabets, Zhuyin, and a double-byte set of Pinyin letters with tone marks</p>
+</blockquote>
+<p>Big5 is the character set for traditional Chinese characters used in Taiwan,
+HongKong etc. It is developed by 5 biggest IT companies in Taiwan in the 1980s.</p>
+<p>GBK is an extended character set of the early GB2312 (<code>k</code> denotes <code>Kuozhan</code> in
+Chinese, which means <code>extend</code>). From
+<a href="https://en.wikipedia.org/wiki/GBK_(character_encoding)">WikipPedia</a>,</p>
+<blockquote>
+<p>GBK not only extended the old standard GB2312 with Traditional Chinese characters, but also with Chinese characters that were simplified after the establishment of GB2312 in 1981. With the arrival of GBK, certain names with characters formerly unrepresentable, like the &ldquo;róng&rdquo;(镕) character in former Chinese Premier Zhu Rongji&rsquo;s name, are now representable.</p>
+</blockquote>
+<p><a href="https://en.wikipedia.org/wiki/GB_18030">GB18030</a> is a further improvement over
+GB2312 and GBK and is backward compatible with GB2312 and GBK. It encodes all
+the code points in the Unicode 3.0 standard. So we can convert between Unicode
+and GB18030.</p>
+<h2 id="references-3">References</h2>
+<ul>
+<li><a href="https://www.pinyinjoe.com/pinyin/encoding.htm">https://www.pinyinjoe.com/pinyin/encoding.htm</a></li>
+</ul>
+<h1 id="microsoft-windows-code-page">Microsoft Windows Code page</h1>
+<p>In the old days before Unicode becomes popular. Microsoft use code pages to
+deal with different characters used by different regions in the world. The name
+<em>code page</em> has somewhat combined meanings. Sometimes, it refers to character
+sets, and other times, it means character encoding.</p>
+<p>For computers sold in mainland China, the default code page for command line is
+<a href="https://en.wikipedia.org/wiki/Code_page_936_(Microsoft_Windows)"><code>code page 936</code></a> (or
+<code>cp936</code> in short form). In the Windows command line, you can check the current
+code page by using <code>chcp</code> without any argument. If the error message from some
+executable are in Unicode format and you are using <code>cp936</code>, <a href="https://jdhao.github.io/2017/12/29/cmder-usage/">the error message
+will be shown as gibberish</a>.
+The way to fix is to change your code page to UTF-8. The Windows code page for
+UTF-8 is 65001. You can use <code>chcp 65001</code> or <code>chcp utf-8</code> to change your code
+page to UTF-8.</p>
+<h2 id="references-4">References</h2>
+<ul>
+<li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd317756">https://msdn.microsoft.com/en-us/library/windows/desktop/dd317756</a>(v=vs.85).aspx</li>
+<li><a href="https://stackoverflow.com/questions/1629437/is-codepage-65001-and-utf-8-the-same-thing">https://stackoverflow.com/questions/1629437/is-codepage-65001-and-utf-8-the-same-thing</a></li>
+</ul>
+<h1 id="character-set-and-typeface-or-font">Character set and typeface (or font)</h1>
+<p>Now that we have character set and encoding. How to display these characters in
+certain form (fontsize, bold or italic)? This is what the typeface or font (the
+two terms are often used interchangeably) do:</p>
+<blockquote>
+<p>A font is a set of printable or displayable text characters in a specific style and size. The type design for a set of fonts is the typeface and variations of this design form the typeface family .</p>
+</blockquote>
+<p>You may have already noticed that for a particular character, there are several
+font which can display it. See the image below for the display of the character
+<code>东</code> in different fonts.</p>
+<p><img src="https://blog-resource-1257868508.file.myqcloud.com/18-1-30/10105248.jpg"
+title="Different font, same character"
+style="float: middle;"></p>
+<p>A font has many glyphs for different characters. But no font contains all the
+characters in the Unicode standard. According to discussion
+<a href="https://stackoverflow.com/questions/34732718/why-isnt-there-a-font-that-contains-all-unicode-glyphs">here</a>,
+a maximum of 65536 glyphs are allowed for OpenType font. If you want to display
+a Unicode character in a certain font, you have to make sure the font has the
+glyph for that character. If the chosen font does not have a glyph for the
+character, the character may be displayed as a square box. See reference below
+on how to check if a character is included in a certain font.</p>
+<h2 id="references-5">References</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/43834362/python-unicode-rendering-how-to-know-if-a-unicode-character-is-missing-from-the">https://stackoverflow.com/questions/43834362/python-unicode-rendering-how-to-know-if-a-unicode-character-is-missing-from-the</a></li>
+</ul>
+<h1 id="similar-character-may-have-different-code-point">Similar character may have different code point</h1>
+<p>The other day, I encounter a <em>strange</em> problem. Two characters looking similar
+are actually different. The two characters are shown below (enlarged in order
+to show their subtle difference):</p>
+<p><img src="https://blog-resource-1257868508.file.myqcloud.com/18-3-24/1523291.jpg" alt=""></p>
+<h1 id="locale-and-difference-between-various-utf-8-locales">Locale and difference between various UTF-8 locales</h1>
+<p>In Linux system, we often see the term <code>locale</code>. What does that mean? According
+to <a href="https://docs.oracle.com/cd/E23824_01/html/E26033/glmbx.html">oracle
+documentation</a>:</p>
+<blockquote>
+<p>A locale consists of a number of categories for which country-dependent formatting or other specifications exist. A program&rsquo;s locale defines its code sets, date and time formatting conventions, monetary conventions, decimal formatting conventions, and collation (sort) order.</p>
+<p>A locale name can be composed of a base language, country (territory) of use, and codeset. For example, German language is de, an abbreviation for Deutsch, while Swiss German is de_CH, CH being an abbreviation for Confederation Helvetica. This convention allows for specific differences by country, such as currency unit notation. In Oracle Solaris 11 the default locale codeset is UTF-8, an ASCII compatible 8-bit encoding form of Unicode. The fully defined locale name for Swiss German would thus be de_CH.UTF-8.</p>
+<p>More than one locale can be associated with a particular language, which allows for regional differences. For example, an English-speaking user in the United States can select the en_US.UTF-8 locale (English for the United States), while an English-speaking user in Great Britain can select en_GB.UTF-8 (English for Great Britain).</p>
+</blockquote>
+<p>Thus, different locales can share the same encoding <code>UTF-8</code>, which is why you
+see locales such as <code>en_US.UTF-8</code> and <code>zh_CN.UTF-8</code>. In these locales, the
+characters use the same encoding <code>UTF-8</code>. Their differences reside in
+region-specific format, e.g., date format and monetary sign (<code>$</code> or <code>￥</code>).</p>
+<h2 id="references-6">References</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/21153485/what-is-the-different-of-zh-cn-utf-8-and-en-us-utf-8-in-nix-locale-setting/48493433#48493433">https://stackoverflow.com/questions/21153485/what-is-the-different-of-zh-cn-utf-8-and-en-us-utf-8-in-nix-locale-setting/48493433#48493433</a></li>
+<li><a href="https://stackoverflow.com/questions/29751218/difference-between-utf-8-and-en-au-utf-8">https://stackoverflow.com/questions/29751218/difference-between-utf-8-and-en-au-utf-8</a></li>
+<li><a href="https://unix.stackexchange.com/questions/149111/what-should-i-set-my-locale-to-and-what-are-the-implications-of-doing-so">https://unix.stackexchange.com/questions/149111/what-should-i-set-my-locale-to-and-what-are-the-implications-of-doing-so</a></li>
+</ul>
+<h1 id="search-a-unicode-character-in-sublime-text-using-its-code-point">Search a Unicode character in Sublime Text using its code point</h1>
+<p>We usually search a character using the character itself. But certain
+characters, such as the <a href="https://en.wikipedia.org/wiki/Zero-width_space">zero-width space
+character</a> are hard to type. In
+that situation, it is easier to search such characters using their code points.
+In Sublime Text, you can use <code>\x{CODE_POINT}</code> to search a character with code
+point <code>CODE_POINT</code>. For example, for zero-width space, you can use <code>\x{200b}</code>
+to search it.</p>
+<h1 id="references-7">References</h1>
+<ul>
+<li><a href="https://stackoverflow.com/questions/23979669/character-sets-locales-fonts-and-code-pages">https://stackoverflow.com/questions/23979669/character-sets-locales-fonts-and-code-pages</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-03-11
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Unicode/">Unicode</a>
+          <a href="/tags/encoding/">encoding</a>
+          <a href="/tags/locale/">locale</a>
+          <a href="/tags/font/">font</a>
+          <a href="/tags/Sublime-Text/">Sublime-Text</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2018/02/01/hexo-comment-gitment-config/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">把 Hexo 的评论系统切换为 gitment</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2018/01/25/hexo-mathjax-equation-number/">
+            <span class="next-text nav-default">LaTeX Equation Numbering Done Right in Hexo</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

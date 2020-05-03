@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>字体 on jdhao&#39;s blog</title>
+    <link>https://jdhao.github.io/tags/%E5%AD%97%E4%BD%93/</link>
+    <description>Recent content in 字体 on jdhao&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>jdhao</copyright>
+    <lastBuildDate>Tue, 22 Oct 2019 22:06:14 +0800</lastBuildDate>
+    
+	<atom:link href="https://jdhao.github.io/tags/%E5%AD%97%E4%BD%93/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nifty LaTeX Techniques -- Series 1</title>
+      <link>https://jdhao.github.io/2019/10/22/latex_techniques_s1/</link>
+      <pubDate>Tue, 22 Oct 2019 22:06:14 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/10/22/latex_techniques_s1/</guid>
+      <description>&lt;h1 id=&#34;change-font-size&#34;&gt;Change font size&lt;/h1&gt;
+&lt;p&gt;By default, LaTeX provides several command to change the font size to
+predefined size. Those command include &lt;code&gt;\scriptsize&lt;/code&gt;, &lt;code&gt;\large&lt;/code&gt;, &lt;code&gt;\Huge&lt;/code&gt; etc.
+However, even the font size provided by the &lt;code&gt;\Huge&lt;/code&gt; command may not be large
+enough.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Nvim-qt Settings on Windows 10</title>
+      <link>https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/</link>
+      <pubDate>Thu, 17 Jan 2019 22:04:05 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/</guid>
+      <description>&lt;p&gt;To run Neovim on Windows, you can either &lt;a href=&#34;https://jdhao.github.io/2018/11/15/neovim_configuration_windows/&#34;&gt;use the terminal
+Neovim&lt;/a&gt; or
+use a GUI for Neovim. If you use terminal Nvim, you may encounter various
+annoying issues. Based on my experience, I recommend you using a GUI client for
+Nvim instead of the terminal one.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Two Issues Related to ImageFont Module in PIL</title>
+      <link>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</link>
+      <pubDate>Tue, 04 Dec 2018 22:48:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</guid>
+      <description>&lt;p&gt;In this post, I want to write about two issues related to the
+&lt;a href=&#34;https://pillow.readthedocs.io/en/5.1.x/reference/ImageFont.html&#34;&gt;ImageFont&lt;/a&gt;
+module in the &lt;a href=&#34;https://github.com/python-pillow/Pillow&#34;&gt;PIL&lt;/a&gt; package.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>快速识别图片字体：字体识别工具介绍</title>
+      <link>https://jdhao.github.io/2018/11/22/online_font_recognition_tool/</link>
+      <pubDate>Thu, 22 Nov 2018 19:57:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/11/22/online_font_recognition_tool/</guid>
+      <description>&lt;p&gt;在日常工作中，有时候，我们可能需要知道图片中的文字用的是哪种字体，本文介绍几种在线字体识别工具（从图片识别所用的字体），并且给出一些提高字体识别准确率的方法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux 下 Neovim 配置 Python 开发环境指南</title>
+      <link>https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/</link>
+      <pubDate>Wed, 05 Sep 2018 20:34:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-39-49.jpg&#34; width=&#34;800&#34;&gt;
+&lt;/p&gt;
+&lt;p&gt;Vim 是一款主要流行于 *nix 系统上的强大的编辑器，另外一款可以与之媲美的编辑器是 Emacs，这两款编辑器广泛流行于程序员群体，&lt;a href=&#34;https://en.wikipedia.org/wiki/Editor_war&#34;&gt;关于谁是编辑器之王的争论经久不息&lt;/a&gt;。Vim 的功能虽然强大，但是作为一款「古老」的编辑器&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，也不是没有缺点：随着 Vim 代码量的增加，维护变得日益困难，不利于快速增加新功能；另外，它的主要开发者目前只有一个人，&lt;a href=&#34;https://en.wikipedia.org/wiki/Bram_Moolenaar&#34;&gt;Bram Moolenaar&lt;/a&gt;，也不符合当今开源社区多人协作的习惯。为了克服 Vim 的这些缺点，保留 Vim 的优点（最大程度兼容 Vim），让 Vim 的开发能有更快的迭代速度，&lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; 项目诞生了。本文介绍如何安装 Neovim 并配置 Python 开发环境(在以下叙述中，Neovim 和 Nvim 含义相同，不再加以区分)。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;我的完整 Neovim 配置可以在 &lt;a href=&#34;https://github.com/jdhao/nvim-config&#34;&gt;这里&lt;/a&gt; 查看。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to Plot Unicode Characters with Matplotlib</title>
+      <link>https://jdhao.github.io/2018/04/08/matplotlib-unicode-character/</link>
+      <pubDate>Sun, 08 Apr 2018 22:33:46 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/04/08/matplotlib-unicode-character/</guid>
+      <description>&lt;p&gt;This is a post which follows up my previous post on &lt;a href=&#34;https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/&#34;&gt;how to use Chinese
+characters with
+Matplotlib&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>全面总结如何在 LaTeX 中使用中文 (2020 最新版)</title>
+      <link>https://jdhao.github.io/2018/03/29/latex-chinese.zh/</link>
+      <pubDate>Thu, 29 Mar 2018 17:54:13 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/03/29/latex-chinese.zh/</guid>
+      <description>&lt;p&gt;LaTeX 最初对中文的支持并不友好，只支持 ASCII 字符，后来才逐渐变得好起来，加入了对 Unicode 字符的支持。本文总结一下几种在 LaTeX 中使用中文的方法，以期能够帮助读者快速使用 LaTeX 对中文内容进行排版。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Working with Fonts in Matplotlib</title>
+      <link>https://jdhao.github.io/2018/01/18/mpl-plotting-notes-201801/</link>
+      <pubDate>Thu, 18 Jan 2018 21:13:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/01/18/mpl-plotting-notes-201801/</guid>
+      <description>&lt;p&gt;This post continues my &lt;a href=&#34;https://jdhao.github.io/2017/11/16/matplotlib-plotting-notes/&#34;&gt;previous post&lt;/a&gt;
+on various tips and tricks collected during the process of using Matplotlib.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/18-1-18/39303776.jpg&#34;
+title=&#34;Different math symbols produced by Matplotlib and LaTeX&#34;
+style=&#34;float: middle;&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件</title>
+      <link>https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/</link>
+      <pubDate>Sun, 10 Dec 2017 00:10:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/18-1-7/731510.jpg&#34;
+title=&#34;生成的 PDF 截图&#34;
+style=&#34;float: middle;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;For English version of this post, click &lt;a href=&#34;https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;更新时间：2019-11-18&lt;/p&gt;
+&lt;p&gt;本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Sublime Text 3 Markdown 写作设置</title>
+      <link>https://jdhao.github.io/2017/03/04/Sublime-Windows-Markdown/</link>
+      <pubDate>Sat, 04 Mar 2017 14:35:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2017/03/04/Sublime-Windows-Markdown/</guid>
+      <description>&lt;h1 id=&#34;引子&#34;&gt;引子&lt;/h1&gt;
+&lt;p&gt;由于受不了 VSCode 打开文件的龟速，我决定换一个编辑器，以前就大致了解有三款评价不错的编辑器，分别是 &lt;a href=&#34;https://atom.io/&#34;&gt;GitHub Atom&lt;/a&gt;, &lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;Sublime Text 3&lt;/a&gt; 以及微软的 &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;VSCode&lt;/a&gt;。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

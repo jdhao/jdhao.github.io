@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>search on jdhao&#39;s blog</title>
+    <link>https://jdhao.github.io/tags/search/</link>
+    <description>Recent content in search on jdhao&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>jdhao</copyright>
+    <lastBuildDate>Tue, 14 May 2019 22:37:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://jdhao.github.io/tags/search/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nifty Nvim Techniques Which Make My Life Easier -- Series 3</title>
+      <link>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</link>
+      <pubDate>Tue, 14 May 2019 22:37:04 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</guid>
+      <description>&lt;p&gt;This is the 3rd of my blog post series about some nifty techniques of using
+Nvim. For other posts, see&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/&#34;&gt;Series 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/&#34;&gt;Series 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Windows 系统下几款程序员不可不用的神器</title>
+      <link>https://jdhao.github.io/2019/01/07/windows_tools_for_programmers/</link>
+      <pubDate>Mon, 07 Jan 2019 10:08:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/01/07/windows_tools_for_programmers/</guid>
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/listary_search_file_apps.gif&#34; width=&#34;800&#34;&gt;
+&lt;/p&gt;
+&lt;p&gt;工欲善其事，必先利其器，好的工具能使人效率倍增，这篇博客介绍本人常用的一些提升效率的工具，希望能够帮到读者。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Fastest Way to Search A Keyword across the Project in Neovim</title>
+      <link>https://jdhao.github.io/2018/10/07/nvim_fast_keyword_search/</link>
+      <pubDate>Sun, 07 Oct 2018 17:34:01 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2018/10/07/nvim_fast_keyword_search/</guid>
+      <description>&lt;p&gt;When we want to find out where a method is used across the whole project, how
+do we do that in Nvim? Various tools are available, for example, &lt;a href=&#34;https://beyondgrep.com/documentation/&#34;&gt;ack&lt;/a&gt;,
+&lt;a href=&#34;https://github.com/ggreer/the_silver_searcher&#34;&gt;ag&lt;/a&gt; or &lt;a href=&#34;https://github.com/BurntSushi/ripgrep&#34;&gt;rg&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;These are the 3 most popular tools to use. In the following post, I will
+introduce how to install and use these packages in Neovim (Nvim).&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>从二分搜索实现中的一个 bug 说起</title>
+      <link>https://jdhao.github.io/2017/08/27/binary-search-overflow-issue/</link>
+      <pubDate>Sun, 27 Aug 2017 22:01:50 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2017/08/27/binary-search-overflow-issue/</guid>
+      <description>&lt;h1 id=&#34;一道二分搜索问题&#34;&gt;一道二分搜索问题&lt;/h1&gt;
+&lt;p&gt;下午做了&lt;a href=&#34;https://leetcode.com/problems/first-bad-version/description/&#34;&gt;一道 Leetcode 的编程题目&lt;/a&gt;，牵扯出了二分搜索实现中需要特别注意的一个问题，题目如下&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>An Introduction to Listary: A Blazing Fast Search Tool</title>
+      <link>https://jdhao.github.io/2017/03/01/Listary_intro/</link>
+      <pubDate>Wed, 01 Mar 2017 20:58:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2017/03/01/Listary_intro/</guid>
+      <description>&lt;p&gt;I came across this amazing tool called &lt;a href=&#34;http://www.listary.com/&#34;&gt;Listary&lt;/a&gt;
+yesterday and found that it is just an amazing piece of software that will
+change my experience on Windows fundamentally!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

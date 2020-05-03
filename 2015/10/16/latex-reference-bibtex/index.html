@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>LaTeX 中参考文献管理以及注意事项 - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="LaTeX 写作中，参考文献一般单独放在一个 *.bib 文件中，每个文章对应该文件的一个 条目，每个文章有一个独一无二的 Key，在文章中使用 key 来引用对应的文章。 bibtex 可以根据 *.bib 文件产生 LaTeX 可以识别的引用条目，然后我们才可以在 LaTeX 中引用相关的文献。 本文主要写一些和文献管理以及引用相关的注意事项。
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2015/10/16/latex-reference-bibtex/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="LaTeX 中参考文献管理以及注意事项" />
+<meta property="og:description" content="LaTeX 写作中，参考文献一般单独放在一个 *.bib 文件中，每个文章对应该文件的一个
+条目，每个文章有一个独一无二的 Key，在文章中使用 key 来引用对应的文章。
+bibtex 可以根据 *.bib 文件产生 LaTeX 可以识别的引用条目，然后我们才可以在
+LaTeX 中引用相关的文献。 本文主要写一些和文献管理以及引用相关的注意事项。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2015/10/16/latex-reference-bibtex/" />
+<meta property="article:published_time" content="2015-10-16T14:56:00+08:00" />
+<meta property="article:modified_time" content="2019-04-20T16:34:56+08:00" />
+<meta itemprop="name" content="LaTeX 中参考文献管理以及注意事项">
+<meta itemprop="description" content="LaTeX 写作中，参考文献一般单独放在一个 *.bib 文件中，每个文章对应该文件的一个
+条目，每个文章有一个独一无二的 Key，在文章中使用 key 来引用对应的文章。
+bibtex 可以根据 *.bib 文件产生 LaTeX 可以识别的引用条目，然后我们才可以在
+LaTeX 中引用相关的文献。 本文主要写一些和文献管理以及引用相关的注意事项。">
+<meta itemprop="datePublished" content="2015-10-16T14:56:00&#43;08:00" />
+<meta itemprop="dateModified" content="2019-04-20T16:34:56&#43;08:00" />
+<meta itemprop="wordCount" content="1345">
+
+
+
+<meta itemprop="keywords" content="bibliography,LaTeX," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="LaTeX 中参考文献管理以及注意事项"/>
+<meta name="twitter:description" content="LaTeX 写作中，参考文献一般单独放在一个 *.bib 文件中，每个文章对应该文件的一个
+条目，每个文章有一个独一无二的 Key，在文章中使用 key 来引用对应的文章。
+bibtex 可以根据 *.bib 文件产生 LaTeX 可以识别的引用条目，然后我们才可以在
+LaTeX 中引用相关的文献。 本文主要写一些和文献管理以及引用相关的注意事项。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">LaTeX 中参考文献管理以及注意事项</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-10-16 </span>
+        <div class="post-category">
+            <a href="/categories/LaTeX/"> LaTeX </a>
+            </div>
+          <span class="more-meta"> 1345 words </span>
+          <span class="more-meta"> 3 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#关于多个作者的姓名如何正确分开">关于多个作者的姓名如何正确分开</a></li>
+    <li><a href="#引用的文字与文献之间用--tilde-连接">引用的文字与文献之间用 ~ (tilde) 连接</a></li>
+    <li><a href="#为引用的文献选择正确的-entry-type-以及-field-名称">为引用的文献选择正确的 entry type 以及 field 名称</a>
+      <ul>
+        <li><a href="#常用的参考文献的类型以及含义">常用的参考文献的类型以及含义</a></li>
+        <li><a href="#field-类型">field 类型</a></li>
+        <li><a href="#field-与-entry-的名称都是-case-insensitive">field 与 entry 的名称都是 case insensitive</a></li>
+      </ul>
+    </li>
+    <li><a href="#title-中保持某些字符的大小写状态">title 中保持某些字符的大小写状态</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>LaTeX 写作中，参考文献一般单独放在一个 <code>*.bib</code> 文件中，每个文章对应该文件的一个
+条目，每个文章有一个独一无二的 Key，在文章中使用 key 来引用对应的文章。
+<code>bibtex</code> 可以根据 <code>*.bib</code> 文件产生 LaTeX 可以识别的引用条目，然后我们才可以在
+LaTeX 中引用相关的文献。 本文主要写一些和文献管理以及引用相关的注意事项。</p>
+<h1 id="关于多个作者的姓名如何正确分开">关于多个作者的姓名如何正确分开</h1>
+<p>一般来说，如果一篇文章有多个作者，作者姓名之间直接用 <code>and</code> 连接，作者姓名按照
+<code>first_name last_name</code> 或者 <code>first_name middle_name last_name</code> 来写即可，如果一
+个作者名字不是这种形式，那么需要用花括号把作者的 <code>last_name</code>括起来，以便 bibtex
+程序能够正确识别作者姓名。例如，</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">San Zhang and Si Li and Ma Zi Wang
+G{\”o}del
+Jose {Dos Santos}
+</code></pre></div><h1 id="引用的文字与文献之间用--tilde-连接">引用的文字与文献之间用 ~ (tilde) 连接</h1>
+<p>为了防止 LaTeX 把文字和对应的引文编号排版在两行，文字和对应的引文之间要使用 <code>~</code>
+符号，这在 LaTeX 中被称为 <a href="https://tex.stackexchange.com/questions/15547/when-should-i-use-non-breaking-space">unbreakable
+space</a>
+，举例如下，</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Zhang et al.~\cite{zhangsan2010cvpr}
+</code></pre></div><p>另外，在引用 Figure，table，equation 等内容是也要使用 unbreakable space，例如</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Fig.~\ref{fig:foo1}
+Table~\ref{tab:bar1}
+Eqn.~\ref{eq:foo1}
+</code></pre></div><h1 id="为引用的文献选择正确的-entry-type-以及-field-名称">为引用的文献选择正确的 entry type 以及 field 名称</h1>
+<p>不同的参考文献有不同的类型，我们必须为参考文献指定正确的类型，例如 <code>article</code>,
+<code>conference</code> 等。同时，不同类型可能需要不同的域（field）。</p>
+<h2 id="常用的参考文献的类型以及含义">常用的参考文献的类型以及含义</h2>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">@article :An article from a journal or magazine
+@inproceedings: An article in a conference proceedings
+@conference: The same as inproceedings
+@book: A book with an explicit publisher
+@booklet: A work that is printed and bound, but without a named publisher or sponsoring institution
+@inbook: A part of a book, which may be a chapter (or section or whatever) and/or a range of pages
+@incollection: A part of a book having its own title
+@manual: Technical documentation
+@mastersthesis: A Master&#39;s thesis
+@misc: Use this type when nothing else fits
+@phdthesis: A PhD thesis
+@proceedings: The proceedings of a conference
+@techreport: A report published by a school or other institution, usually numbered within a series
+@unpublished: A document having an author and title, but not formally published
+</code></pre></div><h2 id="field-类型">field 类型</h2>
+<p>常用的 field 类型以及说明如下</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">author
+The name(s) of the author(s), in the format described in the LaTeX book.
+
+title
+The work&#39;s title, typed as explained in the LaTeX book.
+
+booktitle
+Title of a book, part of which is being cited. See the LaTeX book for how to type titles. For book entries, use the title field instead.
+
+chapter
+A chapter (or section or whatever) number.
+
+journal
+A journal name. Abbreviations are provided for many journals.
+
+year
+The year of publication or, for an unpublished work, the year it was written. Generally it should consist of four numerals, such as 1984, although the standard styles can handle any year whose last four nonpunctuation characters are numerals, such as `\hbox{(about 1984)}&#39;.
+
+volume
+The volume of a journal or multi-volume book.
+
+howpublished
+How something strange has been published. The first word should be capitalized.
+
+edition
+The edition of a book---for example, ``Second&#39;&#39;. This should be an ordinal, and should have the first letter capitalized, as shown here; the standard styles convert to lower case when necessary.
+
+institution
+The sponsoring institution of a technical report.
+
+key
+Used for alphabetizing, cross referencing, and creating a label when the ``author&#39;&#39; information is missing. This field should not be confused with the key that appears in the cite command and at the beginning of the database entry.
+
+month
+The month in which the work was published or, for an unpublished work, in which it was written. You should use the standard three-letter abbreviation, as described in Appendix B.1.3 of the LaTeX book.
+
+number
+The number of a journal, magazine, technical report, or of a work in a series. An issue of a journal or magazine is usually identified by its volume and number; the organization that issues a technical report usually gives it a number; and sometimes books are given numbers in a named series.
+organization
+The organization that sponsors a conference or that publishes a manual.
+
+pages
+One or more page numbers or range of numbers, such as 42--111 or 7,41,73--97 or 43+ (the `+&#39; in this last example indicates pages following that don&#39;t form a simple range). To make it easier to maintain Scribe-compatible databases, the standard styles convert a single dash (as in 7-33) to the double dash used in TeX to denote number ranges (as in 7--33).
+
+school
+The name of the school where a thesis was written.
+
+series
+The name of a series or set of books. When citing an entire book, the the title field gives its title and an optional series field gives the name of a series or multi-volume set in which the book is published.
+</code></pre></div><h2 id="field-与-entry-的名称都是-case-insensitive">field 与 entry 的名称都是 case insensitive</h2>
+<p>field 与 entry 的名称都是 case insensitive，因此 <code>author</code>，<code>Author</code>，<code>AUTHOR</code>之
+间没有区别。</p>
+<h1 id="title-中保持某些字符的大小写状态">title 中保持某些字符的大小写状态</h1>
+<p>title 中的字母大小写对最终输出是没有影响的，大小写等格式由参考文献的风格来决定
+<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>，因此如果想要保持 title 中某些字母的大写，需要用花括号把字母括起来。如：</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">title = &#34;Proof of the {R}iemann {H}ypothesis&#34;
+</code></pre></div><hr>
+<h1 id="参考">参考</h1>
+<ul>
+<li>书写作者姓名，<a href="http://nwalsh.com/tex/texhelp/bibtx-23.html">http://nwalsh.com/tex/texhelp/bibtx-23.html</a></li>
+<li><a href="https://faculty.math.illinois.edu/~hildebr/tex/bibliographies0.html">https://faculty.math.illinois.edu/~hildebr/tex/bibliographies0.html</a></li>
+<li><a href="https://faculty.math.illinois.edu/~hildebr/tex/bibliographies.html">https://faculty.math.illinois.edu/~hildebr/tex/bibliographies.html</a></li>
+<li>LaTeX primer, section IV, <a href="https://www.tug.org/twg/mactex/tutorials/ltxprimer-1.0.pdf">https://www.tug.org/twg/mactex/tutorials/ltxprimer-1.0.pdf</a></li>
+<li>Entry type 的含义，<a href="https://nwalsh.com/tex/texhelp/bibtx-7.html">https://nwalsh.com/tex/texhelp/bibtx-7.html</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>在 LaTeX 中通过 <code>\bibliographystyle{}</code> 命令来设定具体使用哪种参考文献风格。 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-04-20
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/bibliography/">bibliography</a>
+          <a href="/tags/LaTeX/">LaTeX</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2015/10/21/python-pip-install/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Windows 系统下 Python 以及 Pip 的安装和使用</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2015/10/13/ms-office-latex-equation/">
+            <span class="next-text nav-default">How to Insert LaTeX Equations in Microsoft Office Word and PowerPoint</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

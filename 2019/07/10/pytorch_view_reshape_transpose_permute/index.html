@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Difference between view, reshape, transpose and permute in PyTorch - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="PyTorch provides a lot of methods for the Tensor type. Some of these methods may be confusing for new users. Here, I would like to talk about view() vs reshape(), transpose() vs permute().
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2019/07/10/pytorch_view_reshape_transpose_permute/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Difference between view, reshape, transpose and permute in PyTorch" />
+<meta property="og:description" content="PyTorch provides a lot of methods for the Tensor type. Some of these methods
+may be confusing for new users. Here, I would like to talk about
+view()  vs
+reshape(),
+transpose() vs
+permute()." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2019/07/10/pytorch_view_reshape_transpose_permute/" />
+<meta property="article:published_time" content="2019-07-10T23:21:48+08:00" />
+<meta property="article:modified_time" content="2019-07-10T23:46:22+08:00" />
+<meta itemprop="name" content="Difference between view, reshape, transpose and permute in PyTorch">
+<meta itemprop="description" content="PyTorch provides a lot of methods for the Tensor type. Some of these methods
+may be confusing for new users. Here, I would like to talk about
+view()  vs
+reshape(),
+transpose() vs
+permute().">
+<meta itemprop="datePublished" content="2019-07-10T23:21:48&#43;08:00" />
+<meta itemprop="dateModified" content="2019-07-10T23:46:22&#43;08:00" />
+<meta itemprop="wordCount" content="785">
+
+
+
+<meta itemprop="keywords" content="PyTorch," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Difference between view, reshape, transpose and permute in PyTorch"/>
+<meta name="twitter:description" content="PyTorch provides a lot of methods for the Tensor type. Some of these methods
+may be confusing for new users. Here, I would like to talk about
+view()  vs
+reshape(),
+transpose() vs
+permute()."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Difference between view, reshape, transpose and permute in PyTorch</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-07-10 </span>
+        <div class="post-category">
+            <a href="/categories/Deep-Learning/"> Deep-Learning </a>
+            </div>
+          <span class="more-meta"> 785 words </span>
+          <span class="more-meta"> 4 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#view-vs-reshape-and-transpose">view() vs reshape() and transpose()</a>
+      <ul>
+        <li><a href="#view-vs-transpose">view() vs transpose()</a></li>
+        <li><a href="#view-vs-transpose-1">view() vs transpose()</a>
+          <ul>
+            <li><a href="#but-what-does-contiguous-mean">But what does contiguous mean?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#transpose-and-permute">transpose() and permute()</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>PyTorch provides a lot of methods for the Tensor type. Some of these methods
+may be confusing for new users. Here, I would like to talk about
+<a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor.view"><code>view()</code></a>  vs
+<a href="https://pytorch.org/docs/stable/torch.html#torch.reshape"><code>reshape()</code></a>,
+<a href="https://pytorch.org/docs/stable/torch.html#torch.transpose"><code>transpose()</code></a> vs
+<a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor.permute"><code>permute()</code></a>.</p>
+<h1 id="view-vs-reshape-and-transpose">view() vs reshape() and transpose()</h1>
+<h2 id="view-vs-transpose">view() vs transpose()</h2>
+<p>Both <code>view()</code> and <code>reshape()</code> can be used to change the size or shape of
+tensors. But they are slightly different.</p>
+<p>The <code>view()</code> has existed for a long time. It will return a tensor with the new
+shape. The returned tensor shares the underling data with the original tensor.
+If you change the tensor value in the returned tensor, the corresponding value
+in the viewed tensor also changes.</p>
+<p>On the other hand, it seems that <code>reshape()</code> <a href="https://github.com/pytorch/pytorch/pull/5575">has been introduced in version
+0.4</a>. According to the
+<a href="http://pytorch.org/docs/master/torch.html#torch.reshape">document</a>, this
+method will</p>
+<blockquote>
+<p>Returns a tensor with the same data and number of elements as input, but with the specified shape. When possible, the returned tensor will be a view of input. Otherwise, it will be a copy. Contiguous inputs and inputs with compatible strides can be reshaped without copying, but you should not depend on the copying vs. viewing behavior.</p>
+</blockquote>
+<p>It means that <code>torch.reshape</code> may return a copy or a view of the original
+tensor. You can not count on that to return a view or a copy. According to the
+developer:</p>
+<blockquote>
+<p>if you need a copy use clone() if you need the same storage use view(). The semantics of reshape() are that it may or may not share the storage and you don&rsquo;t know beforehand.</p>
+</blockquote>
+<p>As a side note, I found that torch version 0.4.1 and 1.0.1 behaves differently
+when you print the <code>id</code> of original tensor and viewing tensor:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">In [1]: import torch
+
+In [2]: a = torch.rand(3, 4)
+
+In [3]: id(a), id(a.storage())
+Out[3]: (2236511690472, 2236511611848)
+
+In [4]: b = a.view(2, 6)
+
+In [5]: id(b), id(b.storage())
+Out[5]: (2236523527984, 2236470501128)
+</code></pre></div><p>You see that <code>id</code> of <code>a.storage()</code> and <code>b.storage()</code> is not the same. Isn&rsquo;t
+that their underlying data the same? Why this difference?</p>
+<p>I filed <a href="https://github.com/pytorch/pytorch/issues/22614">an issue</a> in the
+PyTorch repo and got answers from the developer. It turns out that to find the
+data pointer, we have to use the <code>data_ptr()</code> method. You will find that their
+data pointers are the same.</p>
+<h2 id="view-vs-transpose-1">view() vs transpose()</h2>
+<p><code>transpose()</code>, like <code>view()</code> can also be used to change the shape of a tensor
+and it also returns a new tensor sharing the data with the original tensor:</p>
+<blockquote>
+<p>Returns a tensor that is a transposed version of input. The given dimensions dim0 and dim1 are swapped.</p>
+<p>The resulting out tensor shares it’s underlying storage with the input tensor, so changing the content of one would change the content of the other.</p>
+</blockquote>
+<p>One difference is that <code>view()</code> can only operate on contiguous tensor and the
+returned tensor is still contiguous. <code>transpose()</code> can operate both on
+contiguous and non-contiguous tensor. Unlike <code>view()</code>, the returned tensor may
+be not contiguous any more.</p>
+<h3 id="but-what-does-contiguous-mean">But what does contiguous mean?</h3>
+<p>There is <a href="https://stackoverflow.com/a/26999092/6064933">a good answer</a> on SO
+which discusses the meaning of <code>contiguous</code> in Numpy. It also applies to
+PyTorch.</p>
+<p>As I understand, <code>contiguous</code> in PyTorch means if the neighboring elements in
+the tensor are actually next to each other in memory. Let&rsquo;s take a simple
+example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">x = torch.tensor([[1, 2, 3], [4, 5, 6]]) # x is contiguous
+y = torch.transpose(0, 1) # y is non-contiguous
+</code></pre></div><p>Tensor <code>x</code> and <code>y</code> in the above example share the same memory space<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">print(x.data_ptr()) # 94018404758288
+print(y.data_ptr()) # 94018404758288
+</code></pre></div><p>If you check their contiguity with
+<a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor.is_contiguous"><code>is_contiguous()</code></a>,
+you will find that <code>x</code> is contiguous but <code>y</code> is not.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">print(x.is_contiguous()) # True
+print(y.is_contiguous()) # False
+</code></pre></div><p>Since x is contiguous, x[0][0] and x[0][1] are next to each other in memory.
+But y[0][0] and y[0][1] is not.</p>
+<p>A lot of tensor operations requires that the tensor should be contiguous,
+otherwise, an error will be thrown. To make a non-contiguous tensor become
+contiguous, use call the
+<a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor.contiguous"><code>contiguous()</code></a>,
+which will return a new contiguous tensor. In plain words, it will create a new
+memory space for the new tensor and copy the value from the non-contiguous
+tensor to the new tensor.</p>
+<h1 id="transpose-and-permute">transpose() and permute()</h1>
+<p><code>permute()</code> and <code>tranpose()</code> are similar. <code>transpose()</code> can only swap two
+dimension. But <code>permute()</code> can swap all the dimensions. For example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">x = torch.rand(16, 32, 3)
+y = x.tranpose(0, 2)
+
+z = x.permute(2, 1, 0)
+</code></pre></div><p>Note that, in <code>permute()</code>, you must provide the new order of all the
+dimensions. In <code>transpose()</code>, you can only provide two dimensions. <code>tranpose()</code>
+can be thought as a special case of <code>permute()</code> method in for 2D tensors.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://discuss.pytorch.org/t/in-pytorch-0-4-is-it-recommended-to-use-reshape-than-view-when-it-is-possible/17034">https://discuss.pytorch.org/t/in-pytorch-0-4-is-it-recommended-to-use-reshape-than-view-when-it-is-possible/17034</a></li>
+<li><a href="https://github.com/pytorch/pytorch/issues/1649">tensor data pointers</a>.</li>
+<li><a href="https://github.com/pytorch/pytorch/issues/764">view after transpose raises non-contiguous error</a>.</li>
+<li><a href="https://discuss.pytorch.org/t/different-between-permute-transpose-view-which-should-i-use/32916">When to use which, permute, view, transpose</a>.</li>
+<li><a href="https://stackoverflow.com/a/49644300/6064933">Difference between reshape() and view()</a>.</li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>To show a tensor&rsquo;s memory address, use <code>tensor.data_ptr()</code>. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-07-10
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/PyTorch/">PyTorch</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2019/07/20/pil_jpeg_image_quality/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">JPEG Image Quality in PIL</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2019/07/06/python_opencv_pil_image_to_bytes/">
+            <span class="next-text nav-default">Convert PIL or OpenCV Image to Bytes without Saving to Disk</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

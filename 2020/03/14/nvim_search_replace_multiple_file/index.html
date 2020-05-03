@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Search and Replace in Multiple Files in Vim/Neovim - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="In Sublime-Text and other editors, we can press Ctrl-Shift-F to invoke the search and replace UI. We can also accomplish this task easily in Vim or Neovim with the builtin features. Here is how.
+There are two steps involved in this task. The first step is to find the files containing the search pattern under the current project or directory. The second step is to perform replacement for each file found in 1st step." /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Search and Replace in Multiple Files in Vim/Neovim" />
+<meta property="og:description" content="In Sublime-Text and other editors, we can press Ctrl-Shift-F to invoke the search and replace UI. We can also accomplish this task easily in Vim or Neovim with the builtin features. Here is how.
+There are two steps involved in this task. The first step is to find the files containing the search pattern under the current project or directory. The second step is to perform replacement for each file found in 1st step." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/" />
+<meta property="article:published_time" content="2020-03-14T23:20:06+08:00" />
+<meta property="article:modified_time" content="2020-04-18T00:32:06+08:00" />
+<meta itemprop="name" content="Search and Replace in Multiple Files in Vim/Neovim">
+<meta itemprop="description" content="In Sublime-Text and other editors, we can press Ctrl-Shift-F to invoke the search and replace UI. We can also accomplish this task easily in Vim or Neovim with the builtin features. Here is how.
+There are two steps involved in this task. The first step is to find the files containing the search pattern under the current project or directory. The second step is to perform replacement for each file found in 1st step.">
+<meta itemprop="datePublished" content="2020-03-14T23:20:06&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-18T00:32:06&#43;08:00" />
+<meta itemprop="wordCount" content="630">
+
+
+
+<meta itemprop="keywords" content="Vim," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Search and Replace in Multiple Files in Vim/Neovim"/>
+<meta name="twitter:description" content="In Sublime-Text and other editors, we can press Ctrl-Shift-F to invoke the search and replace UI. We can also accomplish this task easily in Vim or Neovim with the builtin features. Here is how.
+There are two steps involved in this task. The first step is to find the files containing the search pattern under the current project or directory. The second step is to perform replacement for each file found in 1st step."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Search and Replace in Multiple Files in Vim/Neovim</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-03-14 </span>
+        <div class="post-category">
+            <a href="/categories/Nvim/"> Nvim </a>
+            </div>
+          <span class="more-meta"> 630 words </span>
+          <span class="more-meta"> 3 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#use-vimgrep-or-grep-with-cfdo">Use <code>vimgrep</code> or <code>grep</code> with <code>cfdo</code></a>
+      <ul>
+        <li><a href="#vimgrep">vimgrep</a></li>
+        <li><a href="#grep">grep</a></li>
+        <li><a href="#cfdo"><code>cfdo</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#use-args-and-argdo">Use <code>args</code> and <code>argdo</code></a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>In Sublime-Text and other editors, we can press <code>Ctrl-Shift-F</code> to invoke the
+search and replace UI. We can also accomplish this task easily in Vim or Neovim
+with the builtin features. Here is how.</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/8KSiBq.png" width="800">
+</p>
+<p>There are two steps involved in this task. The first step is to find the files
+containing the search pattern under the current project or directory. The
+second step is to perform replacement for each file found in 1st step.</p>
+<p>Depending on which Vim command to use, there are basically two ways to do this
+task. For illustrating purposes, we will try to replace all <code>Neovim</code>
+occurrences in <a href="https://github.com/jdhao/nvim-config">my nvim config repo</a> to
+<code>Nvim</code>.</p>
+<h1 id="use-vimgrep-or-grep-with-cfdo">Use <code>vimgrep</code> or <code>grep</code> with <code>cfdo</code></h1>
+<p>We can use <code>vimgrep</code> or <code>grep</code> command to populate the Vim quickfix list with
+files matching our specific pattern. The <code>cfdo</code> command can then be utilized to
+perform replacement operation for each file in the quickfix list<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</p>
+<p>The difference between <code>vimgrep</code> and <code>grep</code> command is that <code>vimgrep</code> is
+internal and provided by Vim, while <code>grep</code> command uses external programs to
+search files depending on the platform (see <code>:h grepprg</code>).</p>
+<h2 id="vimgrep">vimgrep</h2>
+<p>To find all files containing <code>Neovim</code> under current directory using <code>vimgrep</code>,
+we can use the following the command:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="nx">vimgrep</span> <span class="sr">/Neovim/</span><span class="nx">gj</span> **/*<span class="err">
+</span></code></pre></div><p>In the above command, <code>Neovim</code> is our search pattern. The meanings of <code>g</code> and
+<code>j</code> flags are as follows:</p>
+<ul>
+<li>g: Add all matches in a line to the quickfix list.</li>
+<li>j: Do not jump the cursor to the location of first pattern match.</li>
+</ul>
+<p>The <code>**/*</code> specify the files to search for the pattern. In this case, it means
+to search recursively under the current directory and for all files types<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.
+You can also search only in certain files types, for example, in Vim script:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="nx">vimgrep</span> <span class="sr">/Neovim/</span><span class="nx">gj</span> **/*.<span class="nx">vim</span><span class="err">
+</span></code></pre></div><p>After this step, the quickfix will be populated with the matching files, lines
+and column number (use <code>copen</code> to open the quickfix list):</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/8QoPCn.png" width="800">
+</p>
+<h2 id="grep">grep</h2>
+<p>If we use <code>grep</code> command, it often useful to specify the external grep program
+that we want to use via the <code>grepprg</code> option. For this, I highly recommend
+<a href="https://github.com/BurntSushi/ripgrep">ripgrep</a>, which is one of the fastest
+command line search tools. We need to add the following settings to Neovim or
+Vim config:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">set</span> <span class="nx">grepprg</span><span class="p">=</span><span class="nx">rg</span>\ <span class="p">--</span><span class="nx">vimgrep</span>\ <span class="p">--</span><span class="nx">no</span><span class="p">-</span><span class="nx">heading</span>\ <span class="p">--</span><span class="nx">smart</span><span class="p">-</span><span class="nx">case</span><span class="err">
+</span><span class="err"></span><span class="nx">set</span> <span class="nx">grepformat</span><span class="p">=</span>%<span class="nx">f</span>:%<span class="nx">l</span>:%<span class="nx">c</span>:%<span class="nx">m</span><span class="err">
+</span></code></pre></div><p>To search <code>Neovim</code> under current directory using <code>grep</code>, just use <code>grep Neovim</code>.</p>
+<h2 id="cfdo"><code>cfdo</code></h2>
+<p>After the quickfix list is filled with files containing the search pattern, we
+now use <code>cfdo</code> command to perform replace operation on each file:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="nx">cfdo</span> %<span class="nx">s</span><span class="sr">/Neovim/</span><span class="nx">Nvim</span>/<span class="nx">ge</span> <span class="p">|</span> <span class="nx">update</span><span class="err">
+</span></code></pre></div><p>The <code>cfdo</code> command can be followed by one command or a series of commands
+(separated by <code>|</code>). In the above example, we first perform substitution, then
+followed by <code>update</code> command so that the replace change is saved.</p>
+<h1 id="use-args-and-argdo">Use <code>args</code> and <code>argdo</code></h1>
+<p>Another way to perform search and replace is to use <code>args</code> and <code>argdo</code> command.
+The <code>args</code> command is used to build a list of files that we would like to
+perform an action. <code>argdo</code> command is then used to perform this action on each
+file in the argument list.</p>
+<p>To add files to the argument list, we can use external tools like <code>grep</code> or
+<code>ripgrep</code> to search files with backtick. For example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="nx">args</span> `<span class="nx">grep</span> <span class="nx">Neovim</span> <span class="p">-</span><span class="nx">l</span> <span class="p">-</span><span class="nx">r</span> .`<span class="err">
+</span></code></pre></div><p>or</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="nx">args</span> `<span class="nx">rg</span> <span class="nx">Neovim</span> <span class="p">-</span><span class="nx">l</span>`<span class="err">
+</span></code></pre></div><p>One issue with backtick is that it does not work on Windows. You can only use
+the above command on Linux or MacOS.</p>
+<p>After adding all files containing the pattern to argument list, we then use
+<code>argdo</code> to perform replacement (works similarly to <code>cfdo</code> command):</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="p">:</span><span class="nx">argdo</span> %<span class="nx">s</span><span class="sr">/Neovim/</span><span class="nx">Nvim</span>/<span class="nx">ge</span> <span class="p">|</span> <span class="nx">update</span><span class="err">
+</span></code></pre></div><h1 id="references">References</h1>
+<ul>
+<li><a href="https://vi.stackexchange.com/q/2776/15292">Search and replace all files in current folder</a>.</li>
+<li><a href="https://github.com/BurntSushi/ripgrep/issues/425#issuecomment-381446152">set up grepprg for ripgrep</a>.</li>
+<li><a href="https://gabri.me/blog/multiple-files-search-and-replace-in-vim">https://gabri.me/blog/multiple-files-search-and-replace-in-vim</a></li>
+<li><a href="https://chrisarcand.com/vims-new-cdo-command/">https://chrisarcand.com/vims-new-cdo-command/</a></li>
+<li><a href="https://thoughtbot.com/blog/lists-vim-and-you">https://thoughtbot.com/blog/lists-vim-and-you</a></li>
+<li><a href="https://jdhao.github.io/2020/02/16/ripgrep_cheat_sheet/">Ripgrep cheatsheet</a>.</li>
+<li><a href="http://vimcasts.org/episodes/using-argdo-to-change-multiple-files/">http://vimcasts.org/episodes/using-argdo-to-change-multiple-files/</a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>The <code>cfdo</code> command was added in <a href="https://github.com/vim/vim/commit/aa23b379421aa214e6543b06c974594a25799b09">Vim 7.4.858</a>. Your Vim version should be newer than that. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>For more info on the glob pattern, see <code>:h starstar-wildcard</code> inside Vim. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-04-18
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Vim/">Vim</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2020/03/16/tencent_cos_cdn_setup/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">腾讯云对象存储博客图床开启 CDN 加速</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2020/03/08/change_table_column_width_latex/">
+            <span class="next-text nav-default">Change Table Column Width in LaTeX</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

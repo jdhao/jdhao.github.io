@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EXIF on jdhao&#39;s blog</title>
+    <link>https://jdhao.github.io/tags/EXIF/</link>
+    <description>Recent content in EXIF on jdhao&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>jdhao</copyright>
+    <lastBuildDate>Wed, 31 Jul 2019 23:19:35 +0800</lastBuildDate>
+    
+	<atom:link href="https://jdhao.github.io/tags/EXIF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JPEG Image Orientation and Exif</title>
+      <link>https://jdhao.github.io/2019/07/31/image_rotation_exif_info/</link>
+      <pubDate>Wed, 31 Jul 2019 23:19:35 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/07/31/image_rotation_exif_info/</guid>
+      <description>&lt;p&gt;The other day I came across a strange bug during work. My colleagues gave me
+some photographs taken with a smartphone. On their machines (Windows 7), all
+the photos were shown correctly in landscape mode. However, when I checked
+those photos, I found that some of those photos were shown in portrait mode
+(rotated 90 or 270 degrees) or upside-down (rotated 180 degrees).&lt;/p&gt;
+&lt;p&gt;I was curious what happened and learned about
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Exif&#34;&gt;Exif&lt;/a&gt; and all its related stuff.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

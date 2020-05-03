@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>string on jdhao&#39;s blog</title>
+    <link>https://jdhao.github.io/tags/string/</link>
+    <description>Recent content in string on jdhao&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>jdhao</copyright>
+    <lastBuildDate>Thu, 21 Sep 2017 22:07:03 +0800</lastBuildDate>
+    
+	<atom:link href="https://jdhao.github.io/tags/string/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>小米 2018 校招算法工程师编程之字符串匹配</title>
+      <link>https://jdhao.github.io/2017/09/21/xiaomi201818-pattern-match/</link>
+      <pubDate>Thu, 21 Sep 2017 22:07:03 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2017/09/21/xiaomi201818-pattern-match/</guid>
+      <description>&lt;p&gt;这是一道小米 2018 校园招聘算法工程师的编程题目，类似与正则表达式匹配，但是该题
+不能使用 Python，因此需要自己实现这个简单的匹配，题目如下：&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Some Programming Questions Related to Operations with Big Integers</title>
+      <link>https://jdhao.github.io/2017/09/21/big-integer-operations-cpp/</link>
+      <pubDate>Thu, 21 Sep 2017 10:23:46 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2017/09/21/big-integer-operations-cpp/</guid>
+      <description>&lt;p&gt;The C++ standard library doesn&amp;rsquo;t support big integer operations such as
+addition and multiplication. In this post, I will show how to solve such
+problems in C++.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

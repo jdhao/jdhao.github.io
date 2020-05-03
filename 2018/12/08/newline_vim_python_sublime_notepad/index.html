@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>How Is Newline Handled in Python and Various Editors? - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="Every programmer knows newline character, but maybe not so familiar. In this post, I want to write what I have learned about newline handling in various cases.
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="How Is Newline Handled in Python and Various Editors?" />
+<meta property="og:description" content="
+Every programmer knows newline character, but maybe not so familiar. In this
+post, I want to write what I have learned about newline handling in various
+cases." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/" />
+<meta property="article:published_time" content="2018-12-08T22:30:50+08:00" />
+<meta property="article:modified_time" content="2020-03-11T23:28:25+08:00" />
+<meta itemprop="name" content="How Is Newline Handled in Python and Various Editors?">
+<meta itemprop="description" content="
+Every programmer knows newline character, but maybe not so familiar. In this
+post, I want to write what I have learned about newline handling in various
+cases.">
+<meta itemprop="datePublished" content="2018-12-08T22:30:50&#43;08:00" />
+<meta itemprop="dateModified" content="2020-03-11T23:28:25&#43;08:00" />
+<meta itemprop="wordCount" content="1016">
+
+
+
+<meta itemprop="keywords" content="Nvim,Windows,Mac,Sublime-Text," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How Is Newline Handled in Python and Various Editors?"/>
+<meta name="twitter:description" content="
+Every programmer knows newline character, but maybe not so familiar. In this
+post, I want to write what I have learned about newline handling in various
+cases."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">How Is Newline Handled in Python and Various Editors?</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-12-08 </span>
+        <div class="post-category">
+            <a href="/categories/technique/"> technique </a>
+            </div>
+          <span class="more-meta"> 1016 words </span>
+          <span class="more-meta"> 5 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#newline-characters-on-different-platforms">Newline characters on different platforms</a></li>
+    <li><a href="#newline-handling-in-python">Newline handling in Python</a></li>
+    <li><a href="#newline-handling-in-different-editors">Newline handling in different editors</a>
+      <ul>
+        <li><a href="#vim">Vim</a>
+          <ul>
+            <li><a href="#how-do-i-show-the-cr-characters-in-vim-then">How do I show the <code>&lt;CR&gt;</code> characters in Vim then?</a></li>
+            <li><a href="#a-pitfall-in-searching-and-replacing-newlines">A pitfall in searching and replacing newlines</a></li>
+          </ul>
+        </li>
+        <li><a href="#sublime-text">Sublime Text</a></li>
+        <li><a href="#notepad">Notepad++</a></li>
+      </ul>
+    </li>
+    <li><a href="#conversion-between-different-file-formats">Conversion between different file formats?</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223253.png" alt=""></p>
+<p>Every programmer knows newline character, but maybe not so familiar. In this
+post, I want to write what I have learned about newline handling in various
+cases.</p>
+<h1 id="newline-characters-on-different-platforms">Newline characters on different platforms</h1>
+<p>Due to historical reasons, different platforms use different characters to
+signify a new line. On Windows, <code>&lt;CR&gt;&lt;LF&gt;</code> (byte code <code>0x0D0x0A</code>) is used to
+represent newline. On Linux, <code>&lt;LF&gt;</code>(byte code <code>0x0A</code>) is used to represent
+newline. On older Mac<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, <code>&lt;CR&gt;</code>(byte code <code>0x0D</code>) is used.</p>
+<p><code>&lt;CR&gt;</code> and <code>&lt;LF&gt;</code> date back to the old time when typewriters is used for
+printing texts on paper. <code>&lt;CR&gt;</code> represents <em>carriage return</em>, which means to
+put the carriage to its left-most position. <code>&lt;LF&gt;</code> represents <em>line feed</em>,
+which means to move the paper a little higher so that you can type on a new
+line. You can see that these two actions combined will start a new line ready
+for typing.</p>
+<h1 id="newline-handling-in-python">Newline handling in Python</h1>
+<p>Python 2 and Python 3 have different way of handling newlines. In Python 2,
+there is a <a href="https://docs.python.org/3/glossary.html#term-universal-newlines">universal newline
+mode</a>, which
+means that no matter what the file line ending is, it will all be translated to
+<code>\n</code> when reading files with mode specifier <code>rU</code>.</p>
+<p>In Python 3, things have changed. The old <code>U</code> mode specifier has been
+deprecated in favor of a <code>newline</code> parameter in the <code>open()</code> method.  According
+to the <a href="https://docs.python.org/3/library/functions.html#open">documentation</a>:</p>
+<blockquote>
+<p>newline controls how universal newlines mode works (it only applies to text mode). It can be None, &lsquo;', &lsquo;\n&rsquo;, &lsquo;\r&rsquo;, and &lsquo;\r\n&rsquo;. It works as follows:</p>
+<ul>
+<li>When reading input from the stream, if newline is None, universal newlines mode is enabled. Lines in the input can end in &lsquo;\n&rsquo;, &lsquo;\r&rsquo;, or &lsquo;\r\n&rsquo;, and these are translated into &lsquo;\n&rsquo; before being returned to the caller. If it is &lsquo;', universal newlines mode is enabled, but line endings are returned to the caller untranslated.</li>
+<li>When writing output to the stream, if newline is None, any &lsquo;\n&rsquo; characters written are translated to the system default line separator, <a href="https://docs.python.org/3/library/os.html#os.linesep"><code>os.linesep</code></a>. If newline is '&rsquo; or &lsquo;\n&rsquo;, no translation takes place.</li>
+</ul>
+</blockquote>
+<p>when reading text files, <code>newline</code> is <code>None</code> by default, which means that
+system-dependent newline will be quietly replaced by <code>\n</code>. If you are not aware
+of this behavior, you may get into trouble. For example, when you read a file
+with <code>\r\n</code> line ending and want to split the text into lines on Windows
+platform, if you use the following snippet:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;some_file.txt&#34;</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">linesep</span><span class="p">)</span>
+</code></pre></div><p>you will not be able to split the text into lines. That is because on Windows
+platform, <code>os.linesep</code> is <code>\r\n</code>. But Python has secretly translated the <code>\r\n</code>
+in the file to <code>\n</code>!</p>
+<p>When writing files, you should also be aware that <code>\n</code> will be translated to
+platform-dependent line endings.</p>
+<h1 id="newline-handling-in-different-editors">Newline handling in different editors</h1>
+<h2 id="vim">Vim</h2>
+<p>When reading a file into the buffer, Vim will automatically detect the file
+format<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. Then Vim will replace the platform-dependent newline characters
+with a special mark to mark the end of each line. When writing the buffer
+content back into the file, Vim will write the actual newline characters based
+on the detected file format.</p>
+<p>For example, if you open a file with Windows-style line ending, Vim will
+replace all <code>&lt;CR&gt;&lt;LF&gt;</code> with its own newline mark. If you try to search these
+two characters using their byte code (<code>\%x0A</code> for <code>&lt;CR&gt;</code> and <code>\%x0D</code> for <code>&lt;LF&gt;</code>
+), you will find nothing. Neither can you find <code>&lt;CR&gt;</code> characters using <code>\r</code> in
+Windows file in Vim (suppose <code>fileformats</code> include <code>dos</code>). When searching in
+Vim, <code>\n</code> is used to specify end of line, no matter what the actual newline
+character is for this file. So you can search the line end with <code>\n</code>.</p>
+<h3 id="how-do-i-show-the-cr-characters-in-vim-then">How do I show the <code>&lt;CR&gt;</code> characters in Vim then?</h3>
+<p>You can open a Windows file in Vim and use <code>e ++ff=unix</code><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup> to force Vim to
+treat this file as a unix file. Vim will then treat the <code>\n</code> characters as
+newline, thus removing it from the buffer. But the <code>\r</code> characters in the file
+will now be treated as normal characters and will be shown as <code>^M</code>. You will
+see it now.</p>
+<p><img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223336.png" alt=""></p>
+<p>You can also press <code>&lt;Ctrl-V&gt;</code> and then press <code>&lt;Enter&gt;</code> to type a carriage
+return character. Then you can search this character using <code>\r</code>.</p>
+<h3 id="a-pitfall-in-searching-and-replacing-newlines">A pitfall in searching and replacing newlines</h3>
+<p>In Vim, <code>\n</code> is used to represent newline only when you are searching it. If
+you want to represent a newline in replacement, use <code>\r</code> instead<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. This
+makes no sense, but that is how Vim handles newlines in search and replace.</p>
+<h2 id="sublime-text">Sublime Text</h2>
+<p>According to discussions
+<a href="https://forum.sublimetext.com/t/all-line-endings-are-converted-on-file-save/5507/20?u=flying_cat">here</a>,
+Sublime Text will also convert platform-dependent newline to <code>\n</code> in memory.
+When writing to files, it will write newlines based on the detected file type
+(Windows, Unix or Mac).</p>
+<h2 id="notepad">Notepad++</h2>
+<p><a href="https://notepad-plus-plus.org/">Notepad++</a> is also a popular code editor. It
+can detect your line endings, but it will not replace the newline with <code>\n</code>. To
+show the newline characters in a file, go to <code>View --&gt; Show Symbol</code> and toggle
+on option <code>Show End of Line</code>, you will be able to see the newline characters.</p>
+<p><img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223415.png" alt=""></p>
+<h1 id="conversion-between-different-file-formats">Conversion between different file formats?</h1>
+<p>In Vim, you can use <code>set ff=&lt;Format&gt;</code> to covert the current file to desired
+format, where <code>&lt;Format&gt;</code> can be <code>unix</code>, <code>dos</code> or <code>mac</code>.</p>
+<p>In Sublime Text, just choose the desired format from the bottom right status
+bar.</p>
+<p><img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223435.png" alt=""></p>
+<p>In Notepad++, go to <code>Edit --&gt; EOL Conversion</code> and choose the desired file
+format.</p>
+<p>There are also tools such as <a href="https://waterlan.home.xs4all.nl/dos2unix.html"><code>dos2unix</code> and
+<code>unix2dos</code></a> which convert
+between different file formats.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://stackoverflow.com/questions/4599936/handling-r-n-vs-n-newlines-in-python-on-mac-vs-windows/53679203#53679203">https://stackoverflow.com/questions/4599936/handling-r-n-vs-n-newlines-in-python-on-mac-vs-windows/53679203#53679203</a></li>
+<li><a href="https://stackoverflow.com/questions/1552749/difference-between-cr-lf-lf-and-cr-line-break-types#comment34031425_1552749">Discussions of newline characters on StackOverflow</a></li>
+<li><a href="https://www.explainthatstuff.com/typewriter.html">Different parts of a typewriters explained</a>.</li>
+<li><a href="https://groups.google.com/d/msg/vim_use/s0HF9GJyCo8/I0VKA2Z32BIJ">https://groups.google.com/d/msg/vim_use/s0HF9GJyCo8/I0VKA2Z32BIJ</a></li>
+<li><a href="https://stackoverflow.com/questions/34939473/why-is-vim-stripping-the-carriage-return-when-i-copy-a-line-to-another-file">https://stackoverflow.com/questions/34939473/why-is-vim-stripping-the-carriage-return-when-i-copy-a-line-to-another-file</a></li>
+<li><a href="https://stackoverflow.com/a/45459733/6064933">https://stackoverflow.com/a/45459733/6064933</a></li>
+<li><a href="https://unix.stackexchange.com/questions/32001/what-is-m-and-how-do-i-get-rid-of-it">https://unix.stackexchange.com/questions/32001/what-is-m-and-how-do-i-get-rid-of-it</a></li>
+<li><a href="https://stackoverflow.com/questions/21228946/why-does-vim-sometimes-show-m-and-sometimes-not-even-if-they-are-there">https://stackoverflow.com/questions/21228946/why-does-vim-sometimes-show-m-and-sometimes-not-even-if-they-are-there</a></li>
+<li><a href="https://blogs.msdn.microsoft.com/oldnewthing/20040318-00/?p=40193">https://blogs.msdn.microsoft.com/oldnewthing/20040318-00/?p=40193</a></li>
+</ul>
+<hr>
+<p>Title image is taken from <a href="https://www.iclarified.com/48838/microsoft-releases-new-visual-studio-code-editor-for-mac-os-x-windows-linux-video">here</a>.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Newer Mac system also use the unix-style newline character, see discussion <a href="https://superuser.com/questions/439440/did-mac-os-lion-switch-to-using-line-feeds-lf-n-for-line-breaks-instead-of">here</a>. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>In vim, use <code>:h fileformats</code>, <code>:h file-read</code> and <code>:h file-formats</code> for more info about how Vim detects and file format and reads files. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>Use <code>:h ++ff</code> to find more information about what this command means. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p>In replace, <code>\n</code> is used to mean null character <code>\0</code>, which is show as <code>^@</code> in Vim. See <a href="https://unix.stackexchange.com/questions/247329/vim-how-to-replace-one-new-line-n-with-two-ns/247331">here</a> for more discussions. <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-03-11
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Nvim/">Nvim</a>
+          <a href="/tags/Windows/">Windows</a>
+          <a href="/tags/Mac/">Mac</a>
+          <a href="/tags/Sublime-Text/">Sublime-Text</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2018/12/24/centos_nvim_install_use_guide_en/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">A Complete Guide to Setting up Neovim for Python Development on Linux</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2018/12/04/two_issues_related_to_imagefont_pillow/">
+            <span class="next-text nav-default">Two Issues Related to ImageFont Module in PIL</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>
