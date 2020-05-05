@@ -54,7 +54,7 @@ easier by jumping to the desired directory &lt;em&gt;smartly&lt;/em&gt;.&lt;/p&g
     </item>
     
     <item>
-      <title>为什么 `.bash_profile` 里面的设置没有生效？</title>
+      <title>为什么 .bash_profile 里面的设置不生效？</title>
       <link>https://jdhao.github.io/2018/09/06/login_interactive_shell_bash/</link>
       <pubDate>Thu, 06 Sep 2018 00:12:53 +0800</pubDate>
       
