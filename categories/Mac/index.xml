@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Sun, 09 Feb 2020 21:43:35 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 05 May 2020 20:52:40 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/categories/Mac/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kitty Terminal Config on Mac</title>
+      <link>https://jdhao.github.io/2020/05/05/kitty_config_mac/</link>
+      <pubDate>Tue, 05 May 2020 20:52:40 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/05/05/kitty_config_mac/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/kovidgoyal/kitty&#34;&gt;Kitty&lt;/a&gt; is a fast and lightweight terminal
+emulator for Mac and Linux. In this post, I will summarize some of its
+settings.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Mac 系统如何远程连接控制 Windows 电脑</title>

@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Sat, 02 May 2020 16:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 05 May 2020 20:52:40 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>terminal</title>
+      <link>https://jdhao.github.io/tags/terminal/</link>
+      <pubDate>Tue, 05 May 2020 20:52:40 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/tags/terminal/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Docker</title>
@@ -612,15 +621,6 @@
       <pubDate>Wed, 16 Jan 2019 10:21:12 +0800</pubDate>
       
       <guid>https://jdhao.github.io/tags/debug/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>terminal</title>
-      <link>https://jdhao.github.io/tags/terminal/</link>
-      <pubDate>Wed, 16 Jan 2019 10:21:12 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/tags/terminal/</guid>
       <description></description>
     </item>
     

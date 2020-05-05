@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Kitty Terminal Config on Mac - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="Kitty is a fast and lightweight terminal emulator for Mac and Linux. In this post, I will summarize some of its settings.
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2020/05/05/kitty_config_mac/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+<link href="/dist/even.6f2326ae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Kitty Terminal Config on Mac" />
+<meta property="og:description" content="Kitty is a fast and lightweight terminal
+emulator for Mac and Linux. In this post, I will summarize some of its
+settings." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2020/05/05/kitty_config_mac/" />
+<meta property="article:published_time" content="2020-05-05T20:52:40+08:00" />
+<meta property="article:modified_time" content="2020-05-06T00:11:39+08:00" />
+<meta itemprop="name" content="Kitty Terminal Config on Mac">
+<meta itemprop="description" content="Kitty is a fast and lightweight terminal
+emulator for Mac and Linux. In this post, I will summarize some of its
+settings.">
+<meta itemprop="datePublished" content="2020-05-05T20:52:40&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-06T00:11:39&#43;08:00" />
+<meta itemprop="wordCount" content="347">
+
+
+
+<meta itemprop="keywords" content="terminal," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kitty Terminal Config on Mac"/>
+<meta name="twitter:description" content="Kitty is a fast and lightweight terminal
+emulator for Mac and Linux. In this post, I will summarize some of its
+settings."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Kitty Terminal Config on Mac</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-05-05 </span>
+        <div class="post-category">
+            <a href="/categories/Mac/"> Mac </a>
+            </div>
+          <span class="more-meta"> 347 words </span>
+          <span class="more-meta"> 2 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#how-to-copy-and-paste-in-kitty-termial">How to copy and paste in Kitty termial?</a></li>
+    <li><a href="#how-to-open-urls">How to open URLs?</a></li>
+    <li><a href="#tab-configuration">Tab configuration</a></li>
+    <li><a href="#use-option-as-alt-key-">Use option as alt key</a></li>
+    <li><a href="#how-to-change-color-schemes">How to change color schemes?</a></li>
+    <li><a href="#references-">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><a href="https://github.com/kovidgoyal/kitty">Kitty</a> is a fast and lightweight terminal
+emulator for Mac and Linux. In this post, I will summarize some of its
+settings.</p>
+<p>We can download the kitty binary release from its <a href="https://github.com/kovidgoyal/kitty/releases">GitHub release
+page</a>. After installation, its
+config file is located at <code>$HOME/.config/kitty/kitty.conf</code>.</p>
+<h1 id="how-to-copy-and-paste-in-kitty-termial">How to copy and paste in Kitty termial?</h1>
+<p>By default, to copy selected text to clipboard in Kitty, we can use the
+shortcut <kbd>Ctrl</kbd>+ <kbd>Shift</kbd> + <kbd>C</kbd>. To paste the
+selected text, we can use the mouse middle click.</p>
+<p>We can also edit the Kitty config file to add more copy and paste shortcut:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">map cmd+c        copy_to_clipboard
+map cmd+v        paste_from_clipboard
+map shift+insert paste_from_clipboard
+</code></pre></div><p>Most terminal emulators have this nice feature to copy the selected text to
+clipboard by default. In Kitty, we can also do this. Just enable the following
+option:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">copy_on_select yes
+</code></pre></div><h1 id="how-to-open-urls">How to open URLs?</h1>
+<p>Iterm2 has the feature to open a URL in default browser if you press
+<kbd>Ctrl</kbd> and click the URL link. In Kitty, we can achieve the same
+behavior with the following settings:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># show single underline when hovering the mouse over URL
+url_style single
+open_url_modifiers ctrl
+</code></pre></div><h1 id="tab-configuration">Tab configuration</h1>
+<p>By default, Kitty will show tab when tab number is above 1. The tab will be
+shown at the bottom of Kitty window. To change this behaviour, use the
+following setting:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">tab_bar_edge top
+</code></pre></div><h1 id="use-option-as-alt-key-">Use option as alt key</h1>
+<p>By default, <code>Option + LETTER</code> will input the corresponding Unicode characters
+on MacOS. So any shortcut starting with <kbd>Option</kbd> can not work
+properly. To use <kbd>Option</kbd> as <kbd>Alt</kbd>, use the following config:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">macos_option_as_alt yes
+</code></pre></div><p>More documentation <a href="https://sw.kovidgoyal.net/kitty/conf.html#opt-kitty.macos_option_as_alt">here</a>.</p>
+<h1 id="how-to-change-color-schemes">How to change color schemes?</h1>
+<p>Kitty uses a list of colors for setting the color scheme. Unlike iterm2, we
+need to manually change the color config inside <code>kitty.conf</code>.</p>
+<p>We can find <a href="https://github.com/search?q=kitty+theme">a lot of color schemes or themes</a>
+for Kitty on GitHub. To use these color themes, just copy the color definition
+to your Kitty config.</p>
+<p><a href="https://github.com/dexpota/kitty-themes/tree/master/themes">This repo</a> also
+has a lot of Kitty themes for you to choose.</p>
+<h1 id="references-">References</h1>
+<ul>
+<li><a href="https://github.com/kovidgoyal/kitty/issues/125">Copy text on select</a>.</li>
+<li><a href="https://unix.stackexchange.com/q/500072/221410">Copy and paste in Kitty</a>.</li>
+<li><a href="https://github.com/kovidgoyal/kitty/issues/123#issuecomment-342702282">Use option as meta key</a>.</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-05-06
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">打赏</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>微信</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>支付宝</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/terminal/">terminal</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/2020/05/02/docker_knowledge_s2/">
+            <span class="next-text nav-default">Docker 学习系列 --- 2</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

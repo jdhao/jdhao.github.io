@@ -10,7 +10,42 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-05-05T17:45:59+08:00</lastmod>
+    <lastmod>2020-05-06T00:11:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/2020/05/05/kitty_config_mac/</loc>
+    <lastmod>2020-05-06T00:11:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/Mac/</loc>
+    <lastmod>2020-05-06T00:11:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/post/</loc>
+    <lastmod>2020-05-06T00:11:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/</loc>
+    <lastmod>2020-05-06T00:11:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/terminal/</loc>
+    <lastmod>2020-05-06T00:11:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -32,20 +67,6 @@
   <url>
     <loc>https://jdhao.github.io/categories/Note/</loc>
     <lastmod>2020-05-04T22:51:55+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-05-05T17:45:59+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-05-05T17:45:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -438,13 +459,6 @@
   <url>
     <loc>https://jdhao.github.io/categories/tools/</loc>
     <lastmod>2020-05-05T14:01:31+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/categories/Mac/</loc>
-    <lastmod>2020-03-11T23:29:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1383,13 +1397,6 @@
   <url>
     <loc>https://jdhao.github.io/2019/01/16/debug_python_in_terminal/</loc>
     <lastmod>2020-03-11T23:27:59+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/terminal/</loc>
-    <lastmod>2020-05-05T14:01:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
