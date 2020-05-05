@@ -10,7 +10,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-05-04T22:51:55+08:00</lastmod>
+    <lastmod>2020-05-05T14:32:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,14 +38,14 @@
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-05-04T22:51:55+08:00</lastmod>
+    <lastmod>2020-05-05T14:32:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-05-03T22:37:32+08:00</lastmod>
+    <lastmod>2020-05-05T14:32:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -59,7 +59,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Bash/</loc>
-    <lastmod>2020-04-29T00:33:42+08:00</lastmod>
+    <lastmod>2020-05-05T14:32:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -73,21 +73,21 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/Linux/</loc>
-    <lastmod>2020-05-03T22:37:32+08:00</lastmod>
+    <lastmod>2020-05-05T14:32:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/categories/technique/</loc>
-    <lastmod>2020-04-30T00:41:46+08:00</lastmod>
+    <lastmod>2020-05-05T14:07:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/Windows/</loc>
-    <lastmod>2020-04-30T13:59:04+08:00</lastmod>
+    <lastmod>2020-05-05T14:01:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -143,14 +143,14 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/C/</loc>
-    <lastmod>2020-05-03T22:37:24+08:00</lastmod>
+    <lastmod>2020-05-05T14:01:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/C&#43;&#43;/</loc>
-    <lastmod>2020-04-19T23:42:17+08:00</lastmod>
+    <lastmod>2020-05-05T13:50:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -374,7 +374,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/encoding/</loc>
-    <lastmod>2020-03-11T23:29:25+08:00</lastmod>
+    <lastmod>2020-05-05T14:01:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -402,7 +402,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Unicode/</loc>
-    <lastmod>2020-03-19T00:54:58+08:00</lastmod>
+    <lastmod>2020-05-05T14:01:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -416,7 +416,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/life/</loc>
-    <lastmod>2020-04-20T23:46:12+08:00</lastmod>
+    <lastmod>2020-05-05T14:03:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -437,7 +437,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/tools/</loc>
-    <lastmod>2020-04-30T13:59:04+08:00</lastmod>
+    <lastmod>2020-05-05T14:01:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -871,7 +871,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/shell/</loc>
-    <lastmod>2020-05-03T22:37:32+08:00</lastmod>
+    <lastmod>2020-05-05T14:32:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -885,7 +885,14 @@
   
   <url>
     <loc>https://jdhao.github.io/2019/10/08/zsh_plugin_managers_compare/</loc>
-    <lastmod>2019-10-08T00:37:09+08:00</lastmod>
+    <lastmod>2020-05-05T14:09:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/Zsh/</loc>
+    <lastmod>2020-05-05T14:09:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -913,7 +920,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2019/09/29/linux_login_setup/</loc>
-    <lastmod>2019-09-29T22:02:34+08:00</lastmod>
+    <lastmod>2020-05-05T14:32:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1081,14 +1088,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2019/06/13/zsh_bind_keys/</loc>
-    <lastmod>2020-03-11T23:29:32+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/Zsh/</loc>
-    <lastmod>2020-03-11T23:29:32+08:00</lastmod>
+    <lastmod>2020-05-05T14:07:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1130,7 +1130,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Sublime-Text/</loc>
-    <lastmod>2020-03-21T00:00:00+08:00</lastmod>
+    <lastmod>2020-05-05T13:50:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1151,7 +1151,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/search/</loc>
-    <lastmod>2020-04-26T23:38:47+08:00</lastmod>
+    <lastmod>2020-05-05T13:55:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1333,7 +1333,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Cmder/</loc>
-    <lastmod>2020-04-26T23:38:47+08:00</lastmod>
+    <lastmod>2020-05-05T14:01:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1389,7 +1389,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/terminal/</loc>
-    <lastmod>2020-04-26T23:38:47+08:00</lastmod>
+    <lastmod>2020-05-05T14:01:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1417,7 +1417,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Listary/</loc>
-    <lastmod>2020-04-26T23:38:47+08:00</lastmod>
+    <lastmod>2020-05-05T13:55:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1865,7 +1865,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/</loc>
-    <lastmod>2020-03-11T23:29:05+08:00</lastmod>
+    <lastmod>2020-05-05T13:50:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1956,7 +1956,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2017/12/29/cmder-usage/</loc>
-    <lastmod>2020-03-11T23:27:58+08:00</lastmod>
+    <lastmod>2020-05-05T14:01:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2040,7 +2040,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2017/10/21/useful-sublime-shortcut-and-plugin/</loc>
-    <lastmod>2020-03-11T23:29:20+08:00</lastmod>
+    <lastmod>2020-05-05T13:44:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2250,7 +2250,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2017/03/01/Listary_intro/</loc>
-    <lastmod>2020-03-11T23:27:57+08:00</lastmod>
+    <lastmod>2020-05-05T13:55:10+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2523,7 +2523,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2010/09/20/entering_college/</loc>
-    <lastmod>2019-04-27T01:34:28+08:00</lastmod>
+    <lastmod>2020-05-05T14:03:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

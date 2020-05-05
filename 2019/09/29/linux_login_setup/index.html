@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Set Up Your Login Shell Properly in Linux - jdhao&#39;s blog</title>
+  <title>Why don&#39;t settings inside bashrc or bash_profile take effect? - jdhao&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -47,24 +47,24 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Set Up Your Login Shell Properly in Linux" />
+<meta property="og:title" content="Why don&#39;t settings inside bashrc or bash_profile take effect?" />
 <meta property="og:description" content="In this post, I would like to share causes and solutions to a few issues
 related to login shell." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2019/09/29/linux_login_setup/" />
 <meta property="article:published_time" content="2019-09-29T21:40:28+08:00" />
-<meta property="article:modified_time" content="2019-09-29T22:02:34+08:00" />
-<meta itemprop="name" content="Set Up Your Login Shell Properly in Linux">
+<meta property="article:modified_time" content="2020-05-05T14:32:54+08:00" />
+<meta itemprop="name" content="Why don&#39;t settings inside bashrc or bash_profile take effect?">
 <meta itemprop="description" content="In this post, I would like to share causes and solutions to a few issues
 related to login shell.">
 <meta itemprop="datePublished" content="2019-09-29T21:40:28&#43;08:00" />
-<meta itemprop="dateModified" content="2019-09-29T22:02:34&#43;08:00" />
-<meta itemprop="wordCount" content="833">
+<meta itemprop="dateModified" content="2020-05-05T14:32:54&#43;08:00" />
+<meta itemprop="wordCount" content="859">
 
 
 
-<meta itemprop="keywords" content="shell," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Set Up Your Login Shell Properly in Linux"/>
+<meta itemprop="keywords" content="shell,Bash," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Why don&#39;t settings inside bashrc or bash_profile take effect?"/>
 <meta name="twitter:description" content="In this post, I would like to share causes and solutions to a few issues
 related to login shell."/>
 
@@ -133,15 +133,15 @@ related to login shell."/>
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Set Up Your Login Shell Properly in Linux</h1>
+      <h1 class="post-title">Why don&#39;t settings inside bashrc or bash_profile take effect?</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-09-29 </span>
         <div class="post-category">
             <a href="/categories/Linux/"> Linux </a>
             </div>
-          <span class="more-meta"> 833 words </span>
-          <span class="more-meta"> 4 mins read </span>
+          <span class="more-meta"> 859 words </span>
+          <span class="more-meta"> 5 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -151,12 +151,18 @@ related to login shell."/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#default-shell-is-not-bash">Default shell is not bash</a></li>
-    <li><a href="#bashrc-or-bash_profile-not-sourced-after-login">bashrc or bash_profile not sourced after login</a>
+    <li><a href="#how-to-change-default-shell-to-bash">How to change default shell to Bash</a></li>
+    <li><a href="#settings-in-bashrc-or-bash_profile-do-not-take-effect-after-login">Settings in <code>bashrc</code> or <code>bash_profile</code> do not take effect after login</a>
       <ul>
-        <li><a href="#login-and-interactive-shell">Login and interactive shell</a></li>
-        <li><a href="#bashrc-not-sourced"><code>.bashrc</code> not sourced</a></li>
-        <li><a href="#bash_profile-not-sourced"><code>.bash_profile</code> not sourced</a></li>
+        <li><a href="#login-and-interactive-shell">Login and interactive shell</a>
+          <ul>
+            <li><a href="#login-shell-">login shell</a></li>
+            <li><a href="#interactive-shell-">Interactive shell</a></li>
+            <li><a href="#different-types-of-shell-">Different types of shell</a></li>
+          </ul>
+        </li>
+        <li><a href="#why-isnt-bashrc-sourced">Why isn&rsquo;t <code>.bashrc</code> sourced?</a></li>
+        <li><a href="#why-isnt-bash_profile-sourced">Why isn&rsquo;t <code>.bash_profile</code> sourced?</a></li>
       </ul>
     </li>
     <li><a href="#references">References</a></li>
@@ -167,19 +173,19 @@ related to login shell."/>
     <div class="post-content">
       <p>In this post, I would like to share causes and solutions to a few issues
 related to login shell.</p>
-<h1 id="default-shell-is-not-bash">Default shell is not bash</h1>
-<p>When I logged in, I found that somehow my default shell (<code>echo $SHELL</code>) is
-<code>/bin/sh</code> instead of <code>/bin/bash</code>. We can change the default shell with <code>chsh</code>
-command like this:</p>
+<h1 id="how-to-change-default-shell-to-bash">How to change default shell to Bash</h1>
+<p>When I logged into a new server, I found that somehow my default shell (<code>echo $SHELL</code>) is <code>/bin/sh</code> instead of <code>/bin/bash</code>. We can change the default shell
+with <code>chsh</code> command like this:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">chsh -s /bin/bash
 </code></pre></div><p>Make sure that the shell you want to switch are set in <code>/etc/shells</code>. Otherwise
 you will fail.</p>
-<h1 id="bashrc-or-bash_profile-not-sourced-after-login">bashrc or bash_profile not sourced after login</h1>
+<h1 id="settings-in-bashrc-or-bash_profile-do-not-take-effect-after-login">Settings in <code>bashrc</code> or <code>bash_profile</code> do not take effect after login</h1>
 <p>Another issue is that when I sshed to the server, I found that only settings
 inside <code>.bash_profile</code> is sourced. Settings inside <code>.bashrc</code> didn&rsquo;t take
-effect. Before we delve into this problem, we need first to understand the
-basic concept of login shell and interactive shell.</p>
+effect. Before we delve into this problem, we first need to understand the
+basic concept of a login shell and an interactive shell.</p>
 <h2 id="login-and-interactive-shell">Login and interactive shell</h2>
+<h3 id="login-shell-">login shell</h3>
 <p>A login shell is usually the shell when the user first log in to the
 system. If the user start another shell or use <code>bash</code> inside the current
 shell, then the user will probably start a non-login shell<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. To
@@ -187,17 +193,17 @@ check whether the bash shell is a login shell, use the following
 command:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># only works for bash</span>
 <span class="nb">shopt</span> -q login_shell <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s1">&#39;Login shell&#39;</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s1">&#39;Not login shell&#39;</span>
-</code></pre></div><p>Roughly speaking, an interactive shell is a shell that the user can
-interact with via the terminal, i.e., typing some command, sending it to
-the shell and getting output. If you run a script <code>test.sh</code> inside the
-shell instead by using <code>bash test.sh</code>. In fact, a non-interactive bash
-shell is started to execute the command inside <code>test.sh</code>. Now, you get a
-sense of what <em>interactive</em> means. To check if a bash shell is
-interactive, you can see if <code>i</code> is present in the variable <code>$-</code>:</p>
+</code></pre></div><h3 id="interactive-shell-">Interactive shell</h3>
+<p>Roughly speaking, an interactive shell is a shell that the user can interact
+with via the terminal, i.e., typing a command, sending it to the shell and
+getting output. If you run a script <code>test.sh</code> inside the shell by using <code>bash test.sh</code>, what actually happens is that a non-interactive bash shell is started
+to execute the commands inside <code>test.sh</code>. Now, you get a sense of what
+<em>interactive</em> means. To check if a bash shell is interactive, you can see if
+<code>i</code> is present in the variable <code>$-</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="nv">$-</span>
 <span class="c1"># output may be: himBHs</span>
-</code></pre></div><p>According to the above statements, we now have four different types of
-shell:</p>
+</code></pre></div><h3 id="different-types-of-shell-">Different types of shell</h3>
+<p>According to the above statements, we now have four different types of a shell:</p>
 <ul>
 <li>interactive login shell</li>
 <li>interactive non-login shell</li>
@@ -236,9 +242,8 @@ following the command inside <code>test.sh</code>:</p>
 </code></pre></div><p>The output of remote server will be:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">hBs
 Login shell
-</code></pre></div><h2 id="bashrc-not-sourced"><code>.bashrc</code> not sourced</h2>
-<p>After looking up the bash manual, the section on
-<a href="https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Bash-Startup-Files">startup file</a>
+</code></pre></div><h2 id="why-isnt-bashrc-sourced">Why isn&rsquo;t <code>.bashrc</code> sourced?</h2>
+<p>After looking up the bash manual, the section on <a href="https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Bash-Startup-Files">startup file</a>
 explains this behaviour:</p>
 <blockquote>
 <p>When Bash is invoked as an interactive login shell, or as a
@@ -250,26 +255,24 @@ executes commands from the first one that exists and is readable. The
 –noprofile option may be used when the shell is started to inhibit
 this behavior.</p>
 </blockquote>
-<p>According to the above description, when you log into the server (bash
-is interactive login shell), bash will first source <code>/etc/profile</code>, then
-it will source <code>~/.bash_profile</code>, <code>~/.bash_login</code> and <code>~/.profile</code> in
-the order given. The first one which exists and is readable is sourced.
-So <code>~/.bashrc</code> is sourced during the login process.</p>
+<p>According to the above description, when you log into the server (bash is
+interactive login shell), bash will first source <code>/etc/profile</code>, then it will
+source <code>~/.bash_profile</code>, <code>~/.bash_login</code> and <code>~/.profile</code> in the order given.
+The first one that exists and is readable is sourced. So <code>~/.bashrc</code> is not
+sourced during the login process.</p>
 <p>If you need to source <code>.bashrc</code> during login process, you can add the
 following setting to <code>.bash_profile</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.bashrc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
     <span class="nb">source</span> <span class="nv">$HOME</span>/.bashrc
 <span class="k">fi</span>
-</code></pre></div><h2 id="bash_profile-not-sourced"><code>.bash_profile</code> not sourced</h2>
-<p>Another case I met with another server is that <code>~/.bash_profile</code> is not
-executed during login. A little background here: for this destination
-server, I need to log into a <a href="https://en.wikipedia.org/wiki/Jump_server">jump
-server</a>, and choose the
-destination server. All users are initially log in with the same user
-name. Then each user will have to switch to his/her own account via <code>su</code>
-command: <code>su USERNAME</code>.</p>
-<p>That is problem here. The shell started by mere <code>su USERNAME</code> is an
-interactive non-login shell. In this case, according to the bash manual:</p>
+</code></pre></div><h2 id="why-isnt-bash_profile-sourced">Why isn&rsquo;t <code>.bash_profile</code> sourced?</h2>
+<p>Another case I met with a new server is that <code>~/.bash_profile</code> is not executed
+during login. A little background here: for this destination server, I need to
+log into a <a href="https://en.wikipedia.org/wiki/Jump_server">jump server</a>, and choose
+the destination server. All users are initially log in with the same user name.
+Then each user will have to switch to his/her own account via <code>su</code> command: <code>su USERNAME</code>.</p>
+<p>That is cause of the problem. The shell started by mere <code>su USERNAME</code> is an
+interactive <strong>non-login</strong> shell. The bash manual says that:</p>
 <blockquote>
 <p>When an interactive shell that is not a login shell is started, Bash
 reads and executes commands from ~/.bashrc, if that file exists. This
@@ -277,19 +280,18 @@ may be inhibited by using the –norc option. The –rcfile file option
 will force Bash to read and execute commands from file instead of
 ~/.bashrc.</p>
 </blockquote>
-<p>It means that only settings inside <code>~/.bashrc</code> is sourced. The
-solution to this issue is simple: <a href="https://unix.stackexchange.com/questions/7013/why-do-we-use-su-and-not-just-su">invoke <code>su</code> command with <code>-</code> or <code>-l</code>
-option</a>
-to specify that we want a login shell.</p>
+<p>It means that only settings inside <code>~/.bashrc</code> is sourced. The solution to this
+issue is simple: <a href="https://unix.stackexchange.com/q/7013/221410">invoke <code>su</code> command with <code>-</code> or <code>-l</code> option</a>
+to tell Bash that we want a login shell.</p>
 <h1 id="references">References</h1>
 <ul>
-<li><a href="https://askubuntu.com/questions/596538/shouldnt-bashrc-run-every-time-i-log-in">Bashrc isn’t always run when I log in</a>.</li>
-<li><a href="https://unix.stackexchange.com/questions/271858/changing-shell-to-bin-bash-without-root-access-via-file">Change shell in Ubuntu</a>.</li>
+<li><a href="https://askubuntu.com/q/596538/768311">Bashrc isn’t always run when I log in</a>.</li>
+<li><a href="https://unix.stackexchange.com/q/271858/221410">Change shell in Ubuntu</a>.</li>
 <li><a href="https://unix.stackexchange.com/a/398105/221410">How to get non-interactive login shell</a>.</li>
-<li><a href="https://unix.stackexchange.com/questions/26676/how-to-check-if-a-shell-is-login-interactive-batch">How to check if a shell’s type: login or interactive</a>.</li>
-<li><a href="https://askubuntu.com/questions/879364/differentiate-interactive-login-and-non-interactive-non-login-shell">Difference between login, non-login, interactive and non-interactive shells</a>.</li>
+<li><a href="https://unix.stackexchange.com/q/26676/221410">How to check if a shell’s type: login or interactive</a>.</li>
+<li><a href="https://askubuntu.com/q/879364/768311">Difference between login, non-login, interactive and non-interactive shells</a>.</li>
 <li><a href="http://zsh.sourceforge.net/Guide/zshguide02.html#l7">Zsh doc on login and interactive shells</a>.</li>
-<li><a href="https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile">Difference between bashrc and bash_profile</a>.</li>
+<li><a href="https://superuser.com/q/183870/736190">Difference between bashrc and bash_profile</a>.</li>
 </ul>
 <section class="footnotes" role="doc-endnotes">
 <hr>
@@ -309,7 +311,7 @@ to specify that we want a login shell.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2019-09-29
+        2020-05-05
         
     </span>
   </p>
@@ -336,6 +338,7 @@ to specify that we want a login shell.</p>
 </div><footer class="post-footer">
       <div class="post-tags">
           <a href="/tags/shell/">shell</a>
+          <a href="/tags/Bash/">Bash</a>
           </div>
       <nav class="post-nav">
         <a class="prev" href="/2019/10/01/zplug_install_docker_container/">

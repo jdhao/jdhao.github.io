@@ -23,6 +23,16 @@
     </item>
     
     <item>
+      <title>Why don&#39;t settings inside bashrc or bash_profile take effect?</title>
+      <link>https://jdhao.github.io/2019/09/29/linux_login_setup/</link>
+      <pubDate>Sun, 29 Sep 2019 21:40:28 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2019/09/29/linux_login_setup/</guid>
+      <description>&lt;p&gt;In this post, I would like to share causes and solutions to a few issues
+related to login shell.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Faster Directory Navigation with z.lua</title>
       <link>https://jdhao.github.io/2019/02/14/fast_dir_navigation_zlua/</link>
       <pubDate>Thu, 14 Feb 2019 18:35:05 +0800</pubDate>

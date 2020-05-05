@@ -53,13 +53,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2017/12/29/cmder-usage/" />
 <meta property="article:published_time" content="2017-12-29T20:04:00+08:00" />
-<meta property="article:modified_time" content="2020-03-11T23:27:58+08:00" />
+<meta property="article:modified_time" content="2020-05-05T14:01:31+08:00" />
 <meta itemprop="name" content="Cmder --- The Ultimate Command Line Tool for Windows">
 <meta itemprop="description" content="
 
 ">
 <meta itemprop="datePublished" content="2017-12-29T20:04:00&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-11T23:27:58&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-05T14:01:31&#43;08:00" />
 <meta itemprop="wordCount" content="726">
 
 
@@ -197,9 +197,8 @@ than windows CMD.</p>
 <a href="https://conemu.github.io/">Conemu</a>, <a href="https://mridgers.github.io/clink/">clink</a>
 and <a href="https://git-for-windows.github.io/">git for Windows</a>. In order to use its
 full functionality, it is better to install the full version. After download,
-just extract the zip package into your program folder. Then you can lauch cmder
-using launch tools such as
-<a href="https://jdhao.github.io/2017/03/01/Listary_intro/">Listary</a>.</p>
+just extract the zip package into your program folder. Then you can launch cmder
+using launch tools such as <a href="https://jdhao.github.io/2017/03/01/Listary_intro/">Listary</a>.</p>
 <p align="center">
 <img src="https://blog-resource-1257868508.file.myqcloud.com/17-12-29/30167064.jpg"
          title="Launch cmder using Listary">
@@ -209,7 +208,7 @@ using launch tools such as
 <p>Sometimes, we want to start cmder in current directory. We can configure this
 easily:</p>
 <ol>
-<li>Open the cmder exectuable as an Administrator</li>
+<li>Open the cmder executable as an Administrator</li>
 <li>Go the directory where cmder is extracted, e.g., <code>D:\Program Files\cmder</code></li>
 <li>Execute <code>.\cmder.exe /REGISTER ALL</code> command</li>
 </ol>
@@ -247,7 +246,7 @@ easily:</p>
 </tr>
 </tbody>
 </table>
-<p>Fore more keyborad shortcut, see
+<p>Fore more keyboard shortcut, see
 <a href="https://github.com/cmderdev/cmder#keyboard-shortcuts">here</a>.</p>
 <h2 id="utf-8-decoding-related-issue">UTF-8 decoding related issue</h2>
 <p>In order to show Chinese characters properly, we need to set up console to use
@@ -255,23 +254,20 @@ UTF-8 decoding. Also the font used should support Chinese characters. First we
 need to set up the font options, as shown below:</p>
 <p align="center">
 <img src="https://blog-resource-1257868508.file.myqcloud.com/17-12-29/49776200.jpg"
-         title="Setting for English and Chinese characters"
-         >
+         title="Setting for English and Chinese characters">
 </p>
 <h3 id="show-directories-with-chinese-characters-in-their-names">Show directories with Chinese characters in their names</h3>
 <p>In its default setting, cmder can not display directories with Chinese
 characters in their names as shown below.</p>
 <p align="center">
 <img src="https://blog-resource-1257868508.file.myqcloud.com/17-12-29/98979673.jpg"
-         title="Directory names are not properly shown"
-         >
+         title="Directory names are not properly shown">
 </p>
 <p>This can be easily fixed. Open the setting page, and go to <code>Startup -&gt; Environment</code>, in the text box, use the following setting:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">set LANG=zh_CN.utf8
 </code></pre></div><p align="center">
 <img src="https://blog-resource-1257868508.file.myqcloud.com/17-12-29/7774197.jpg"
-         title="Environemtn settings"
-         >
+         title="Environemtn settings">
 </p>
 <h3 id="error-message-containing-chinese-characters">Error message containing Chinese characters</h3>
 <p>When we are executing some command, the error message from the command may
@@ -295,10 +291,8 @@ l.67 &hellip;��度有问题，应该把\textwidth换成</p>
 <h2 id="spurious-character-is-inserted-in-command-prompt-when-we-press-up-arrow">Spurious character is inserted in command prompt when we press up arrow</h2>
 <p>When we press up arrow &ldquo;↑&rdquo; to bring up the history command, then delete the
 command, we may find that spurious character is inserted at command prompt.
-This issue is explained more thoroughly
-<a href="https://github.com/cmderdev/cmder/issues/1351">here</a>,
-<a href="https://github.com/cmderdev/cmder/issues/553">here</a> and
-<a href="https://github.com/cmderdev/cmder/issues/506">here</a>.</p>
+This issue is explained more thoroughly <a href="https://github.com/cmderdev/cmder/issues/1351">here</a>,
+<a href="https://github.com/cmderdev/cmder/issues/553">here</a> and <a href="https://github.com/cmderdev/cmder/issues/506">here</a>.</p>
 <p>In order to fix it, go to the cmder installation folder, the edit the file
 <code>vendor\clink.lua</code>.</p>
 <h3 id="for-older-versions-of-cmder">For older versions of Cmder</h3>
@@ -338,7 +332,7 @@ still persists. The <code>clink.lua</code> file have changed. Find the line</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-03-11
+        2020-05-05
         
     </span>
   </p>

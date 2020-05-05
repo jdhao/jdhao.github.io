@@ -28,7 +28,7 @@
       <pubDate>Tue, 08 Oct 2019 00:02:01 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/10/08/zsh_plugin_managers_compare/</guid>
-      <description>&lt;p&gt;My experience and opinions about several popular Zsh plugin managers.&lt;/p&gt;</description>
+      <description>&lt;p&gt;My experience and opinions on several popular Zsh plugin managers.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -46,7 +46,7 @@ plugins inside the Docker container.&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Set Up Your Login Shell Properly in Linux</title>
+      <title>Why don&#39;t settings inside bashrc or bash_profile take effect?</title>
       <link>https://jdhao.github.io/2019/09/29/linux_login_setup/</link>
       <pubDate>Sun, 29 Sep 2019 21:40:28 +0800</pubDate>
       

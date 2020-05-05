@@ -53,13 +53,13 @@ issues when using Zsh." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2019/06/13/zsh_bind_keys/" />
 <meta property="article:published_time" content="2019-06-13T22:55:06+08:00" />
-<meta property="article:modified_time" content="2020-03-11T23:29:32+08:00" />
+<meta property="article:modified_time" content="2020-05-05T14:07:04+08:00" />
 <meta itemprop="name" content="Binding Keys in Zsh">
 <meta itemprop="description" content="In this post, I want to share how to use bindkeys command to solve a few
 issues when using Zsh.">
 <meta itemprop="datePublished" content="2019-06-13T22:55:06&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-11T23:29:32&#43;08:00" />
-<meta itemprop="wordCount" content="305">
+<meta itemprop="dateModified" content="2020-05-05T14:07:04&#43;08:00" />
+<meta itemprop="wordCount" content="304">
 
 
 
@@ -140,7 +140,7 @@ issues when using Zsh."/>
         <div class="post-category">
             <a href="/categories/technique/"> technique </a>
             </div>
-          <span class="more-meta"> 305 words </span>
+          <span class="more-meta"> 304 words </span>
           <span class="more-meta"> 2 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -166,17 +166,19 @@ issues when using Zsh."/>
 issues when using Zsh.</p>
 <h1 id="can-not-use-home-and-end-keys-normally">Can not use HOME and END keys normally</h1>
 <p>After using Zsh, I found that some terminals can not understand <kbd>Home</kbd>
-and <kbd>End</kbd> keys correctly, i.e., I can not go to the begining or end of
-the a line by pressing <kbd>Home</kbd> or <kbd>End</kbd> key.</p>
+and <kbd>End</kbd> keys correctly, i.e., I can not go to the beginning or end of
+a line by pressing <kbd>Home</kbd> or <kbd>End</kbd> key.</p>
 <p>This is because the key codes that terminal recognizes when you press certain
-keys can not be recognized by zsh. You can manually find which key code is sent
+keys can not be recognized by Zsh. You can manually find which key code is sent
 when you press a key. You can use <code>showkey -a</code> to print the key codes. Here is
 what it shows when I press <kbd>Home</kbd> and <kbd>End</kbd> keys.</p>
-<p><img src="https://blog-resource-1257868508.file.myqcloud.com/20190613235841.png" alt=""></p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20190613235841.png" width="400">
+</p>
 <p>After we know the key codes for these two keys, we can bind the codes to the
 operation we want to perform, that is <code>begin-of-line</code> and <code>end-of-line</code>.  Add
 the following settings to your <code>.zshrc</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">bindkey <span class="s1">&#39;^[[H&#39;</span> beginning-of-line
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">bindkey <span class="s1">&#39;^[[H&#39;</span> beginning-of-line
 bindkey <span class="s1">&#39;^[[F&#39;</span> end-of-line
 </code></pre></div><h1 id="bind-key-to-run-a-custom-command">Bind key to run a custom command</h1>
 <p>One reader of <a href="https://jdhao.github.io/2018/11/05/fzf_install_use/">this post</a>
@@ -185,9 +187,9 @@ asked a question on how to use shortcut keys to run the following command:</p>
 </code></pre></div><p>I searched the web and found a solution. Suppose that we want to bind
 <kbd>Ctrl</kbd> + <kbd>O</kbd> to the above command, we can add the following
 setting to <code>.zshrc</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">bindkey -s &#39;^o&#39; &#39;nvim $(fzf)^M&#39;
-# you may also use the following one
-# bindkey -s &#39;^o&#39; &#39;nvim $(fzf)\n&#39;
+<div class="highlight"><pre class="chroma"><code class="language-zsh" data-lang="zsh">bindkey -s <span class="s1">&#39;^o&#39;</span> <span class="s1">&#39;nvim $(fzf)^M&#39;</span>
+<span class="c1"># you may also use the following one</span>
+<span class="c1"># bindkey -s &#39;^o&#39; &#39;nvim $(fzf)\n&#39;</span>
 </code></pre></div><p>In the above setting, <code>-s</code> option is used to translate the input string to
 output string so that when you press the shortcut, it is replaced with the
 command you want to run. <code>^M</code> or <code>\n</code> is used to represent the <kbd>Enter</kbd>
@@ -221,7 +223,7 @@ key so that the command is run automatically.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-03-11
+        2020-05-05
         
     </span>
   </p>
