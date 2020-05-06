@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="Git learning notes series 2.
+<meta name="author" content="jdhao" /><meta name="description" content="My Git learning notes.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -48,22 +48,22 @@
 
 
 <meta property="og:title" content="Git Learning Notes (2)" />
-<meta property="og:description" content="Git learning notes series 2." />
+<meta property="og:description" content="My Git learning notes." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2020/05/07/git_learning_notes_s2/" />
 <meta property="article:published_time" content="2020-05-07T00:35:45+08:00" />
-<meta property="article:modified_time" content="2020-05-07T00:37:55+08:00" />
+<meta property="article:modified_time" content="2020-05-07T00:56:45+08:00" />
 <meta itemprop="name" content="Git Learning Notes (2)">
-<meta itemprop="description" content="Git learning notes series 2.">
+<meta itemprop="description" content="My Git learning notes.">
 <meta itemprop="datePublished" content="2020-05-07T00:35:45&#43;08:00" />
-<meta itemprop="dateModified" content="2020-05-07T00:37:55&#43;08:00" />
-<meta itemprop="wordCount" content="401">
+<meta itemprop="dateModified" content="2020-05-07T00:56:45&#43;08:00" />
+<meta itemprop="wordCount" content="404">
 
 
 
-<meta itemprop="keywords" content="Git," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Git,Vim," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Git Learning Notes (2)"/>
-<meta name="twitter:description" content="Git learning notes series 2."/>
+<meta name="twitter:description" content="My Git learning notes."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -137,7 +137,7 @@
         <div class="post-category">
             <a href="/categories/Note/"> Note </a>
             </div>
-          <span class="more-meta"> 401 words </span>
+          <span class="more-meta"> 404 words </span>
           <span class="more-meta"> 2 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -148,12 +148,12 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#change-most-recent-commit-message">Change most recent commit message</a>
+    <li><a href="#how-to-change-most-recent-commit-message">How to change most recent commit message</a>
       <ul>
         <li><a href="#references">References</a></li>
       </ul>
     </li>
-    <li><a href="#show-changes-for-a-specific-file">Show changes for a specific file</a>
+    <li><a href="#how-to-show-changes-for-a-specific-file">How to show changes for a specific file</a>
       <ul>
         <li><a href="#references-1">References</a></li>
       </ul>
@@ -168,8 +168,8 @@
   </div>
 </div>
     <div class="post-content">
-      <p>Git learning notes series 2.</p>
-<h1 id="change-most-recent-commit-message">Change most recent commit message</h1>
+      <p>My Git learning notes.</p>
+<h1 id="how-to-change-most-recent-commit-message">How to change most recent commit message</h1>
 <p>After we have added a local commit, we may find that we need to do some updates
 before pushing to remote repo. We can use <code>git commit --ammend</code> to change last
 commit.</p>
@@ -181,7 +181,7 @@ replaced with the new commit.</p>
 <li><a href="https://stackoverflow.com/q/179123/6064933">https://stackoverflow.com/q/179123/6064933</a></li>
 <li><a href="https://help.github.com/en/github/committing-changes-to-your-project/changing-a-commit-message">https://help.github.com/en/github/committing-changes-to-your-project/changing-a-commit-message</a></li>
 </ul>
-<h1 id="show-changes-for-a-specific-file">Show changes for a specific file</h1>
+<h1 id="how-to-show-changes-for-a-specific-file">How to show changes for a specific file</h1>
 <p>Sometimes, we want to show the changes for a particular file across commits.
 This can be achieved by <code>git log</code> command:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git log -p &lt;file_path&gt;
@@ -226,7 +226,9 @@ to do it in a text editor, e.g., in Vim or Neovim.</p>
 </code></pre></div></li>
 </ul>
 <p>After that, when you want to commit, just type <code>git commit</code> in the command line.</p>
-<p><img src="https://s1.ax1x.com/2020/05/06/YEIxUO.png" alt="YEIxUO.png"></p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20200507005506.png" width="800">
+</p>
 <p>Neovim will be opened with a file named <code>COMMIT_EDITMSG</code>, you can edit this
 file. Anything not starting with <code>#</code> will be treated as your commit message.
 After you have done writing the commit message, exit the insert mode, save the
@@ -273,6 +275,7 @@ file and quilt. This commit will be done.</p>
 </div><footer class="post-footer">
       <div class="post-tags">
           <a href="/tags/Git/">Git</a>
+          <a href="/tags/Vim/">Vim</a>
           </div>
       <nav class="post-nav">
         
