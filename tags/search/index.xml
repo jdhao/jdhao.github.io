@@ -22,6 +22,16 @@
     </item>
     
     <item>
+      <title>Search and Replace in Multiple Files in Vim/Neovim</title>
+      <link>https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/</link>
+      <pubDate>Sat, 14 Mar 2020 23:20:06 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/</guid>
+      <description>In Sublime-Text and other editors, we can press Ctrl-Shift-F to invoke the search and replace UI. We can also accomplish this task easily in Vim or Neovim with the builtin features. Here is how.
+There are two steps involved in this task. The first step is to find the files containing the search pattern under the current project or directory. The second step is to perform replacement for each file found in 1st step.</description>
+    </item>
+    
+    <item>
       <title>Nifty Nvim Techniques Which Make My Life Easier -- Series 3</title>
       <link>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</link>
       <pubDate>Tue, 14 May 2019 22:37:04 +0800</pubDate>
