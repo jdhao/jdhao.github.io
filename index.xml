@@ -95,7 +95,7 @@ settings.&lt;/p&gt;</description>
       <pubDate>Sat, 25 Apr 2020 00:44:29 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2020/04/25/shadowsocks_obfs_setup/</guid>
-      <description>&lt;p&gt;最近几个月在手机上使用 justmysocks，感觉速度很慢，经常断流，连接不上。通过搜索，发现原因是使用的线路问题。为了学习之用，我们可以通过配置 obfs 增强服务稳定性。&lt;/p&gt;</description>
+      <description>&lt;p&gt;最近几个月在手机上使用 justmysocks，感觉速度很慢，经常断流，连接不上。通过搜索，发现原因是使用的线路问题。为了学习之用，我们可以通过配置 &lt;a href=&#34;https://github.com/shadowsocks/simple-obfs&#34;&gt;obfs&lt;/a&gt; 增强服务稳定性。&lt;/p&gt;</description>
     </item>
     
     <item>
