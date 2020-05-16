@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Thu, 07 May 2020 00:35:45 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2020 22:04:23 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/categories/Note/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Space for CJK Languages</title>
+      <link>https://jdhao.github.io/2020/05/16/space_for_cjk/</link>
+      <pubDate>Sat, 16 May 2020 22:04:23 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/05/16/space_for_cjk/</guid>
+      <description>&lt;p&gt;I was doing some typograph for Chinese text and want to insert a space equal to
+the width of a Chinese character.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Git Learning Notes (2)</title>
