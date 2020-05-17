@@ -25,12 +25,13 @@ the generated &lt;abbr title=&#34;Table of Content&#34;&gt;TOC&lt;/abbr&gt;.&lt;
     </item>
     
     <item>
-      <title>Hugo 生成的博客文章缺失问题</title>
+      <title>Hugo Post Missing (Hugo 博客文章缺失问题)</title>
       <link>https://jdhao.github.io/2020/01/11/hugo_post_missing/</link>
       <pubDate>Sat, 11 Jan 2020 22:04:56 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2020/01/11/hugo_post_missing/</guid>
-      <description>&lt;p&gt;最近在使用 Hugo 生成博客文章的时候，发现有一篇新写的文章无法生成，而其他博文都可以成功渲染，非常奇怪。&lt;/p&gt;</description>
+      <description>&lt;p&gt;Recently, when I was trying to generate my blog site uisng &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;, I found that all my posts were successfully rendered, except for one new post. This was rather strange.&lt;/p&gt;
+&lt;p&gt;&lt;font color=&#34;red&#34;&gt;最近在使用 &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; 生成博客文章的时候，发现有一篇新写的文章无法生成，而其他博文都可以成功渲染，非常奇怪。&lt;/font&gt;&lt;/p&gt;</description>
     </item>
     
     <item>

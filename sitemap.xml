@@ -10,7 +10,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-05-17T23:10:21+08:00</lastmod>
+    <lastmod>2020-05-17T23:43:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -24,7 +24,7 @@
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-05-17T23:10:21+08:00</lastmod>
+    <lastmod>2020-05-17T23:43:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,7 +38,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-05-17T23:10:21+08:00</lastmod>
+    <lastmod>2020-05-17T23:43:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -332,7 +332,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/Blog/</loc>
-    <lastmod>2020-03-20T00:15:52+08:00</lastmod>
+    <lastmod>2020-05-17T23:43:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -514,7 +514,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Hugo/</loc>
-    <lastmod>2020-03-19T00:36:13+08:00</lastmod>
+    <lastmod>2020-05-17T23:43:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -542,7 +542,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2020/01/11/hugo_post_missing/</loc>
-    <lastmod>2020-03-16T10:37:57+08:00</lastmod>
+    <lastmod>2020-05-17T23:43:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
