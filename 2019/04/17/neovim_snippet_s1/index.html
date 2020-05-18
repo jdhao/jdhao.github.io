@@ -56,7 +56,7 @@ efficiency dramatically with the help of snippets." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2019/04/17/neovim_snippet_s1/" />
 <meta property="article:published_time" content="2019-04-17T00:28:45+08:00" />
-<meta property="article:modified_time" content="2020-05-19T00:50:00+08:00" />
+<meta property="article:modified_time" content="2020-05-19T00:58:36+08:00" />
 <meta itemprop="name" content="Configuring Ultisnips for Neovim">
 <meta itemprop="description" content="If you have used Sublime Text before, you may be familiar with the
 snippet
@@ -64,8 +64,8 @@ function. Snippets let us type a trigger word and expand it to some boilerplate
 code or string that we do not want to repeat typing. We will increase our
 efficiency dramatically with the help of snippets.">
 <meta itemprop="datePublished" content="2019-04-17T00:28:45&#43;08:00" />
-<meta itemprop="dateModified" content="2020-05-19T00:50:00&#43;08:00" />
-<meta itemprop="wordCount" content="868">
+<meta itemprop="dateModified" content="2020-05-19T00:58:36&#43;08:00" />
+<meta itemprop="wordCount" content="882">
 
 
 
@@ -149,7 +149,7 @@ efficiency dramatically with the help of snippets."/>
         <div class="post-category">
             <a href="/categories/Nvim/"> Nvim </a>
             </div>
-          <span class="more-meta"> 868 words </span>
+          <span class="more-meta"> 882 words </span>
           <span class="more-meta"> 5 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -279,8 +279,10 @@ part, I will only focus on Linux since it is more popular.</p>
 <p>One of the runtime paths on Linux is <code>/home/jdhao/.config/nvim</code>. This directory
 is also where we store the neovim config file <code>init.vim</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. We choose this
 directory and create a folder named <code>my_snippets</code> under it. Then move the
-<code>markdown.snippets</code> file into this folder.</p>
-<p>In the third step, we add the following setting to <code>init.vim</code>:</p>
+<code>markdown.snippets</code> file into this folder<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p <span class="nv">$HOME</span>/.config/nvim/my_snippets
+mv markdown.snippets <span class="nv">$HOME</span>/.config/nvim/my_snippets
+</code></pre></div><p>In the third step, we add the following setting to <code>init.vim</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="c">&#34; `my_snippets` is the directory we created before</span><span class="err">
 </span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">UltiSnipsSnippetDirectories</span><span class="p">=</span>[<span class="s2">&#34;UltiSnips&#34;</span><span class="p">,</span> <span class="s2">&#34;my_snippets&#34;</span>]<span class="err">
 </span></code></pre></div><p>Now, open a Markdown file and start typing <code>kbd</code> and you should be able to see
@@ -301,6 +303,9 @@ completion item is from UltiSnips.</p>
 <ol>
 <li id="fn:1" role="doc-endnote">
 <p>To check the location of this directory for your computer, use command <code>:echo stdpath('config')</code> inside Neovim. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>You can find all my snippets <a href="https://github.com/jdhao/nvim-config/tree/master/my_snippets">here</a>. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
