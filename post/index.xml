@@ -1159,16 +1159,16 @@ for Neovim and certainly your aesthetics.&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Setting up Ultisnips for Neovim</title>
+      <title>Configuring Ultisnips for Neovim</title>
       <link>https://jdhao.github.io/2019/04/17/neovim_snippet_s1/</link>
       <pubDate>Wed, 17 Apr 2019 00:28:45 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/04/17/neovim_snippet_s1/</guid>
       <description>&lt;p&gt;If you have used Sublime Text before, you may be familiar with the
 &lt;a href=&#34;http://sublimetext.info/docs/en/extensibility/snippets.html&#34;&gt;snippet&lt;/a&gt;
-function. Snippets let you input a trigger word and expand the trigger to some
-boilerplate code or string you do not want to repeat each time. You will
-increase your efficiency dramatically with the help of snippets.&lt;/p&gt;</description>
+function. Snippets let us type a trigger word and expand it to some boilerplate
+code or string that we do not want to repeat typing. We will increase our
+efficiency dramatically with the help of snippets.&lt;/p&gt;</description>
     </item>
     
     <item>
