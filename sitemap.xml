@@ -10,7 +10,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-05-19T00:58:36+08:00</lastmod>
+    <lastmod>2020-05-19T22:28:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -24,7 +24,7 @@
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-05-19T00:58:36+08:00</lastmod>
+    <lastmod>2020-05-19T22:28:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,7 +38,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-05-19T00:58:36+08:00</lastmod>
+    <lastmod>2020-05-19T22:28:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -157,14 +157,14 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/technique/</loc>
-    <lastmod>2020-05-05T14:07:04+08:00</lastmod>
+    <lastmod>2020-05-19T22:28:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/Windows/</loc>
-    <lastmod>2020-05-05T14:01:31+08:00</lastmod>
+    <lastmod>2020-05-19T22:28:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -878,7 +878,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Nvim/</loc>
-    <lastmod>2020-03-30T00:02:25+08:00</lastmod>
+    <lastmod>2020-05-19T22:28:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1172,7 +1172,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Sublime-Text/</loc>
-    <lastmod>2020-05-05T13:50:45+08:00</lastmod>
+    <lastmod>2020-05-19T22:28:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1340,7 +1340,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Mac/</loc>
-    <lastmod>2020-04-30T13:59:04+08:00</lastmod>
+    <lastmod>2020-05-19T22:28:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1480,7 +1480,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</loc>
-    <lastmod>2020-03-11T23:28:25+08:00</lastmod>
+    <lastmod>2020-05-19T22:28:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

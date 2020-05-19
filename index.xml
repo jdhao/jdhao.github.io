@@ -1416,9 +1416,11 @@ cursor more efficiently.&lt;/p&gt;</description>
       <pubDate>Sat, 08 Dec 2018 22:30:50 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20181208223253.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Every programmer knows newline character, but maybe not so familiar. In this
-post, I want to write what I have learned about newline handling in various
+      <description>&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20181208223253.png&#34; width=&#34;800&#34;&gt;
+&lt;/p&gt;
+&lt;p&gt;Every programmer knows newline character, but may be not so familiar. In this
+post, I want to share what I have learned about newline handling in various
 cases.&lt;/p&gt;</description>
     </item>
     

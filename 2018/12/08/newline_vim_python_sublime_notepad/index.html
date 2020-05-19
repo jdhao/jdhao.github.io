@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="Every programmer knows newline character, but maybe not so familiar. In this post, I want to write what I have learned about newline handling in various cases.
+<meta name="author" content="jdhao" /><meta name="description" content="Every programmer knows newline character, but may be not so familiar. In this post, I want to share what I have learned about newline handling in various cases.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -49,29 +49,35 @@
 
 <meta property="og:title" content="How Is Newline Handled in Python and Various Editors?" />
 <meta property="og:description" content="
-Every programmer knows newline character, but maybe not so familiar. In this
-post, I want to write what I have learned about newline handling in various
+
+
+Every programmer knows newline character, but may be not so familiar. In this
+post, I want to share what I have learned about newline handling in various
 cases." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/" />
 <meta property="article:published_time" content="2018-12-08T22:30:50+08:00" />
-<meta property="article:modified_time" content="2020-03-11T23:28:25+08:00" />
+<meta property="article:modified_time" content="2020-05-19T22:28:44+08:00" />
 <meta itemprop="name" content="How Is Newline Handled in Python and Various Editors?">
 <meta itemprop="description" content="
-Every programmer knows newline character, but maybe not so familiar. In this
-post, I want to write what I have learned about newline handling in various
+
+
+Every programmer knows newline character, but may be not so familiar. In this
+post, I want to share what I have learned about newline handling in various
 cases.">
 <meta itemprop="datePublished" content="2018-12-08T22:30:50&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-11T23:28:25&#43;08:00" />
-<meta itemprop="wordCount" content="1016">
+<meta itemprop="dateModified" content="2020-05-19T22:28:44&#43;08:00" />
+<meta itemprop="wordCount" content="1029">
 
 
 
 <meta itemprop="keywords" content="Nvim,Windows,Mac,Sublime-Text," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How Is Newline Handled in Python and Various Editors?"/>
 <meta name="twitter:description" content="
-Every programmer knows newline character, but maybe not so familiar. In this
-post, I want to write what I have learned about newline handling in various
+
+
+Every programmer knows newline character, but may be not so familiar. In this
+post, I want to share what I have learned about newline handling in various
 cases."/>
 
 <!--[if lte IE 9]>
@@ -146,7 +152,7 @@ cases."/>
         <div class="post-category">
             <a href="/categories/technique/"> technique </a>
             </div>
-          <span class="more-meta"> 1016 words </span>
+          <span class="more-meta"> 1029 words </span>
           <span class="more-meta"> 5 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -178,9 +184,11 @@ cases."/>
   </div>
 </div>
     <div class="post-content">
-      <p><img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223253.png" alt=""></p>
-<p>Every programmer knows newline character, but maybe not so familiar. In this
-post, I want to write what I have learned about newline handling in various
+      <p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223253.png" width="800">
+</p>
+<p>Every programmer knows newline character, but may be not so familiar. In this
+post, I want to share what I have learned about newline handling in various
 cases.</p>
 <h1 id="newline-characters-on-different-platforms">Newline characters on different platforms</h1>
 <p>Due to historical reasons, different platforms use different characters to
@@ -242,13 +250,15 @@ treat this file as a unix file. Vim will then treat the <code>\n</code> characte
 newline, thus removing it from the buffer. But the <code>\r</code> characters in the file
 will now be treated as normal characters and will be shown as <code>^M</code>. You will
 see it now.</p>
-<p><img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223336.png" alt=""></p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223336.png" width="400">
+</p>
 <p>You can also press <code>&lt;Ctrl-V&gt;</code> and then press <code>&lt;Enter&gt;</code> to type a carriage
 return character. Then you can search this character using <code>\r</code>.</p>
 <h3 id="a-pitfall-in-searching-and-replacing-newlines">A pitfall in searching and replacing newlines</h3>
 <p>In Vim, <code>\n</code> is used to represent newline only when you are searching it. If
 you want to represent a newline in replacement, use <code>\r</code> instead<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>. This
-makes no sense, but that is how Vim handles newlines in search and replace.</p>
+makes no sense, but that is how Vim works.</p>
 <h2 id="sublime-text">Sublime Text</h2>
 <p>According to discussions
 <a href="https://forum.sublimetext.com/t/all-line-endings-are-converted-on-file-save/5507/20?u=flying_cat">here</a>,
@@ -260,13 +270,17 @@ When writing to files, it will write newlines based on the detected file type
 can detect your line endings, but it will not replace the newline with <code>\n</code>. To
 show the newline characters in a file, go to <code>View --&gt; Show Symbol</code> and toggle
 on option <code>Show End of Line</code>, you will be able to see the newline characters.</p>
-<p><img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223415.png" alt=""></p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223415.png" width="400">
+</p>
 <h1 id="conversion-between-different-file-formats">Conversion between different file formats?</h1>
 <p>In Vim, you can use <code>set ff=&lt;Format&gt;</code> to covert the current file to desired
 format, where <code>&lt;Format&gt;</code> can be <code>unix</code>, <code>dos</code> or <code>mac</code>.</p>
 <p>In Sublime Text, just choose the desired format from the bottom right status
 bar.</p>
-<p><img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223435.png" alt=""></p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223435.png" width="400">
+</p>
 <p>In Notepad++, go to <code>Edit --&gt; EOL Conversion</code> and choose the desired file
 format.</p>
 <p>There are also tools such as <a href="https://waterlan.home.xs4all.nl/dos2unix.html"><code>dos2unix</code> and
@@ -274,14 +288,14 @@ format.</p>
 between different file formats.</p>
 <h1 id="references">References</h1>
 <ul>
-<li><a href="https://stackoverflow.com/questions/4599936/handling-r-n-vs-n-newlines-in-python-on-mac-vs-windows/53679203#53679203">https://stackoverflow.com/questions/4599936/handling-r-n-vs-n-newlines-in-python-on-mac-vs-windows/53679203#53679203</a></li>
-<li><a href="https://stackoverflow.com/questions/1552749/difference-between-cr-lf-lf-and-cr-line-break-types#comment34031425_1552749">Discussions of newline characters on StackOverflow</a></li>
+<li><a href="https://stackoverflow.com/a/53679203/6064933">Newline handling in Python3</a>.</li>
+<li><a href="https://stackoverflow.com/q/1552749/6064933">Discussions of newline characters on StackOverflow</a>.</li>
 <li><a href="https://www.explainthatstuff.com/typewriter.html">Different parts of a typewriters explained</a>.</li>
 <li><a href="https://groups.google.com/d/msg/vim_use/s0HF9GJyCo8/I0VKA2Z32BIJ">https://groups.google.com/d/msg/vim_use/s0HF9GJyCo8/I0VKA2Z32BIJ</a></li>
-<li><a href="https://stackoverflow.com/questions/34939473/why-is-vim-stripping-the-carriage-return-when-i-copy-a-line-to-another-file">https://stackoverflow.com/questions/34939473/why-is-vim-stripping-the-carriage-return-when-i-copy-a-line-to-another-file</a></li>
-<li><a href="https://stackoverflow.com/a/45459733/6064933">https://stackoverflow.com/a/45459733/6064933</a></li>
-<li><a href="https://unix.stackexchange.com/questions/32001/what-is-m-and-how-do-i-get-rid-of-it">https://unix.stackexchange.com/questions/32001/what-is-m-and-how-do-i-get-rid-of-it</a></li>
-<li><a href="https://stackoverflow.com/questions/21228946/why-does-vim-sometimes-show-m-and-sometimes-not-even-if-they-are-there">https://stackoverflow.com/questions/21228946/why-does-vim-sometimes-show-m-and-sometimes-not-even-if-they-are-there</a></li>
+<li><a href="https://stackoverflow.com/q/34939473/6064933">https://stackoverflow.com/q/34939473/6064933</a></li>
+<li><a href="https://stackoverflow.com/a/45459733/6064933">See line breaks and carriage returns in editor</a>.</li>
+<li><a href="https://unix.stackexchange.com/q/32001/221410">How to get rid of ^M</a>.</li>
+<li><a href="https://stackoverflow.com/q/21228946/6064933">Why does Vim sometimes shows ^M</a>.</li>
 <li><a href="https://blogs.msdn.microsoft.com/oldnewthing/20040318-00/?p=40193">https://blogs.msdn.microsoft.com/oldnewthing/20040318-00/?p=40193</a></li>
 </ul>
 <hr>
@@ -290,7 +304,7 @@ between different file formats.</p>
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p>Newer Mac system also use the unix-style newline character, see discussion <a href="https://superuser.com/questions/439440/did-mac-os-lion-switch-to-using-line-feeds-lf-n-for-line-breaks-instead-of">here</a>. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>Newer Mac system also use the unix-style newline character, see discussion <a href="https://superuser.com/q/439440/736190">here</a>. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:2" role="doc-endnote">
 <p>In vim, use <code>:h fileformats</code>, <code>:h file-read</code> and <code>:h file-formats</code> for more info about how Vim detects and file format and reads files. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
@@ -299,7 +313,7 @@ between different file formats.</p>
 <p>Use <code>:h ++ff</code> to find more information about what this command means. <a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 <li id="fn:4" role="doc-endnote">
-<p>In replace, <code>\n</code> is used to mean null character <code>\0</code>, which is show as <code>^@</code> in Vim. See <a href="https://unix.stackexchange.com/questions/247329/vim-how-to-replace-one-new-line-n-with-two-ns/247331">here</a> for more discussions. <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+<p>In replace, <code>\n</code> means null character <code>\0</code>, which is show as <code>^@</code> in Vim. See <a href="https://unix.stackexchange.com/q/247329/221410">here</a> for more discussions. <a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
@@ -313,7 +327,7 @@ between different file formats.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-03-11
+        2020-05-19
         
     </span>
   </p>
