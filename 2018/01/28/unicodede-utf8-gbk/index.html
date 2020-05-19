@@ -56,7 +56,7 @@ confused me when I tried to understand all this stuff." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/" />
 <meta property="article:published_time" content="2018-01-28T16:39:00+08:00" />
-<meta property="article:modified_time" content="2020-03-11T23:29:19+08:00" />
+<meta property="article:modified_time" content="2020-05-19T23:07:18+08:00" />
 <meta itemprop="name" content="Character set, Encoding, Locale, Font and More...">
 <meta itemprop="description" content="It is almost destined that at some point of our programming years, we will meet
 the issue of character set, encoding and all the related stuff. There are tons
@@ -64,8 +64,8 @@ of articles which explains the meaning of Unicode,  UTF-8, UTF-16 etc. I
 am not going to repeat that here. In this post, I will write about what
 confused me when I tried to understand all this stuff.">
 <meta itemprop="datePublished" content="2018-01-28T16:39:00&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-11T23:29:19&#43;08:00" />
-<meta itemprop="wordCount" content="1701">
+<meta itemprop="dateModified" content="2020-05-19T23:07:18&#43;08:00" />
+<meta itemprop="wordCount" content="1755">
 
 
 
@@ -149,7 +149,7 @@ confused me when I tried to understand all this stuff."/>
         <div class="post-category">
             <a href="/categories/technique/"> technique </a>
             </div>
-          <span class="more-meta"> 1701 words </span>
+          <span class="more-meta"> 1755 words </span>
           <span class="more-meta"> 4 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -290,7 +290,7 @@ my name is <a href="http://unicode.scarfboy.com/?s=%E9%83%9D"><code>U+90DD</code
 widely used character set in today&rsquo;s world.</p>
 <h2 id="references-1">References</h2>
 <ul>
-<li><a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/">https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/</a></li>
+<li><a href="https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses">Joel Spolsky&rsquo;s Unicode article</a>.</li>
 </ul>
 <h1 id="relationship-between-unicode-and-utf-8-utf-16-utf-32-etc">Relationship between Unicode and UTF-8, UTF-16, UTF-32 etc.</h1>
 <p>Unicode is just a comprehensive character set, which assign a code point to
@@ -302,10 +302,10 @@ character. Take the character <code>东</code> for an example, its code point is
 and the byte representation in memory is <code>E4B89C</code>.</p>
 <h2 id="references-2">References</h2>
 <ul>
-<li><a href="https://stackoverflow.com/questions/643694/what-is-the-difference-between-utf-8-and-unicode">https://stackoverflow.com/questions/643694/what-is-the-difference-between-utf-8-and-unicode</a></li>
+<li><a href="https://stackoverflow.com/q/643694/6064933">Difference between Unicode and UTF-8</a>.</li>
 <li><a href="http://www.polylab.dk/utf8-vs-unicode.html">http://www.polylab.dk/utf8-vs-unicode.html</a></li>
-<li><a href="https://stackoverflow.com/questions/700187/unicode-utf-ascii-ansi-format-differences">https://stackoverflow.com/questions/700187/unicode-utf-ascii-ansi-format-differences</a></li>
-<li><a href="https://stackoverflow.com/questions/19212306/whats-the-difference-between-ascii-and-unicode">https://stackoverflow.com/questions/19212306/whats-the-difference-between-ascii-and-unicode</a></li>
+<li><a href="https://stackoverflow.com/q/700187/6064933">Difference between Unicode, UTF8, ANSI etc.</a></li>
+<li><a href="https://stackoverflow.com/q/19212306/6064933">Difference between Unicode and ASCII</a>.</li>
 </ul>
 <h1 id="gb2312-gbk-gb18030-big5">GB2312, GBK, GB18030, Big5</h1>
 <p>Like Unicode, both the above names denote different character sets related to
@@ -314,7 +314,10 @@ Chinese (simplified or traditional).</p>
 Chinese characters (simplified) and 682 other signs. From
 <a href="https://en.wikipedia.org/wiki/GB_2312">WikiPedia</a>,</p>
 <blockquote>
-<p>GB2312 includes 6,763 Chinese characters (on two levels: the first is arranged by reading, the second by radical then number of strokes), along with symbols and punctuation, Japanese kana, the Greek and Cyrillic alphabets, Zhuyin, and a double-byte set of Pinyin letters with tone marks</p>
+<p>GB2312 includes 6,763 Chinese characters (on two levels: the first is arranged
+by reading, the second by radical then number of strokes), along with symbols
+and punctuation, Japanese kana, the Greek and Cyrillic alphabets, Zhuyin, and a
+double-byte set of Pinyin letters with tone marks</p>
 </blockquote>
 <p>Big5 is the character set for traditional Chinese characters used in Taiwan,
 HongKong etc. It is developed by 5 biggest IT companies in Taiwan in the 1980s.</p>
@@ -322,7 +325,11 @@ HongKong etc. It is developed by 5 biggest IT companies in Taiwan in the 1980s.<
 Chinese, which means <code>extend</code>). From
 <a href="https://en.wikipedia.org/wiki/GBK_(character_encoding)">WikipPedia</a>,</p>
 <blockquote>
-<p>GBK not only extended the old standard GB2312 with Traditional Chinese characters, but also with Chinese characters that were simplified after the establishment of GB2312 in 1981. With the arrival of GBK, certain names with characters formerly unrepresentable, like the &ldquo;róng&rdquo;(镕) character in former Chinese Premier Zhu Rongji&rsquo;s name, are now representable.</p>
+<p>GBK not only extended the old standard GB2312 with Traditional Chinese
+characters, but also with Chinese characters that were simplified after the
+establishment of GB2312 in 1981. With the arrival of GBK, certain names with
+characters formerly unrepresentable, like the &ldquo;róng&rdquo;(镕) character in former
+Chinese Premier Zhu Rongji&rsquo;s name, are now representable.</p>
 </blockquote>
 <p><a href="https://en.wikipedia.org/wiki/GB_18030">GB18030</a> is a further improvement over
 GB2312 and GBK and is backward compatible with GB2312 and GBK. It encodes all
@@ -349,14 +356,16 @@ page to UTF-8.</p>
 <h2 id="references-4">References</h2>
 <ul>
 <li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd317756">https://msdn.microsoft.com/en-us/library/windows/desktop/dd317756</a>(v=vs.85).aspx</li>
-<li><a href="https://stackoverflow.com/questions/1629437/is-codepage-65001-and-utf-8-the-same-thing">https://stackoverflow.com/questions/1629437/is-codepage-65001-and-utf-8-the-same-thing</a></li>
+<li><a href="https://stackoverflow.com/q/1629437/6064933">Is codepage 65001 and UTF-8 the same</a>?</li>
 </ul>
 <h1 id="character-set-and-typeface-or-font">Character set and typeface (or font)</h1>
 <p>Now that we have character set and encoding. How to display these characters in
 certain form (fontsize, bold or italic)? This is what the typeface or font (the
 two terms are often used interchangeably) do:</p>
 <blockquote>
-<p>A font is a set of printable or displayable text characters in a specific style and size. The type design for a set of fonts is the typeface and variations of this design form the typeface family .</p>
+<p>A font is a set of printable or displayable text characters in a specific
+style and size. The type design for a set of fonts is the typeface and
+variations of this design form the typeface family .</p>
 </blockquote>
 <p>You may have already noticed that for a particular character, there are several
 font which can display it. See the image below for the display of the character
@@ -374,21 +383,35 @@ character, the character may be displayed as a square box. See reference below
 on how to check if a character is included in a certain font.</p>
 <h2 id="references-5">References</h2>
 <ul>
-<li><a href="https://stackoverflow.com/questions/43834362/python-unicode-rendering-how-to-know-if-a-unicode-character-is-missing-from-the">https://stackoverflow.com/questions/43834362/python-unicode-rendering-how-to-know-if-a-unicode-character-is-missing-from-the</a></li>
+<li><a href="https://stackoverflow.com/q/43834362/6064933">How to know if a Unicode character is missing from a font</a>.</li>
 </ul>
 <h1 id="similar-character-may-have-different-code-point">Similar character may have different code point</h1>
 <p>The other day, I encounter a <em>strange</em> problem. Two characters looking similar
 are actually different. The two characters are shown below (enlarged in order
 to show their subtle difference):</p>
-<p><img src="https://blog-resource-1257868508.file.myqcloud.com/18-3-24/1523291.jpg" alt=""></p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/18-3-24/1523291.jpg" width="400">
+</p>
 <h1 id="locale-and-difference-between-various-utf-8-locales">Locale and difference between various UTF-8 locales</h1>
 <p>In Linux system, we often see the term <code>locale</code>. What does that mean? According
-to <a href="https://docs.oracle.com/cd/E23824_01/html/E26033/glmbx.html">oracle
-documentation</a>:</p>
+to <a href="https://docs.oracle.com/cd/E23824_01/html/E26033/glmbx.html">oracle documentation</a>:</p>
 <blockquote>
-<p>A locale consists of a number of categories for which country-dependent formatting or other specifications exist. A program&rsquo;s locale defines its code sets, date and time formatting conventions, monetary conventions, decimal formatting conventions, and collation (sort) order.</p>
-<p>A locale name can be composed of a base language, country (territory) of use, and codeset. For example, German language is de, an abbreviation for Deutsch, while Swiss German is de_CH, CH being an abbreviation for Confederation Helvetica. This convention allows for specific differences by country, such as currency unit notation. In Oracle Solaris 11 the default locale codeset is UTF-8, an ASCII compatible 8-bit encoding form of Unicode. The fully defined locale name for Swiss German would thus be de_CH.UTF-8.</p>
-<p>More than one locale can be associated with a particular language, which allows for regional differences. For example, an English-speaking user in the United States can select the en_US.UTF-8 locale (English for the United States), while an English-speaking user in Great Britain can select en_GB.UTF-8 (English for Great Britain).</p>
+<p>A locale consists of a number of categories for which country-dependent
+formatting or other specifications exist. A program&rsquo;s locale defines its code
+sets, date and time formatting conventions, monetary conventions, decimal
+formatting conventions, and collation (sort) order.</p>
+<p>A locale name can be composed of a base language, country (territory) of use,
+and codeset. For example, German language is de, an abbreviation for Deutsch,
+while Swiss German is de_CH, CH being an abbreviation for Confederation
+Helvetica. This convention allows for specific differences by country, such as
+currency unit notation. In Oracle Solaris 11 the default locale codeset is
+UTF-8, an ASCII compatible 8-bit encoding form of Unicode. The fully defined
+locale name for Swiss German would thus be de_CH.UTF-8.</p>
+<p>More than one locale can be associated with a particular language, which
+allows for regional differences. For example, an English-speaking user in the
+United States can select the en_US.UTF-8 locale (English for the United
+States), while an English-speaking user in Great Britain can select en_GB.UTF-8
+(English for Great Britain).</p>
 </blockquote>
 <p>Thus, different locales can share the same encoding <code>UTF-8</code>, which is why you
 see locales such as <code>en_US.UTF-8</code> and <code>zh_CN.UTF-8</code>. In these locales, the
@@ -396,9 +419,9 @@ characters use the same encoding <code>UTF-8</code>. Their differences reside in
 region-specific format, e.g., date format and monetary sign (<code>$</code> or <code>￥</code>).</p>
 <h2 id="references-6">References</h2>
 <ul>
-<li><a href="https://stackoverflow.com/questions/21153485/what-is-the-different-of-zh-cn-utf-8-and-en-us-utf-8-in-nix-locale-setting/48493433#48493433">https://stackoverflow.com/questions/21153485/what-is-the-different-of-zh-cn-utf-8-and-en-us-utf-8-in-nix-locale-setting/48493433#48493433</a></li>
-<li><a href="https://stackoverflow.com/questions/29751218/difference-between-utf-8-and-en-au-utf-8">https://stackoverflow.com/questions/29751218/difference-between-utf-8-and-en-au-utf-8</a></li>
-<li><a href="https://unix.stackexchange.com/questions/149111/what-should-i-set-my-locale-to-and-what-are-the-implications-of-doing-so">https://unix.stackexchange.com/questions/149111/what-should-i-set-my-locale-to-and-what-are-the-implications-of-doing-so</a></li>
+<li><a href="https://stackoverflow.com/q/21153485/6064933">Difference between zh_CN.UTF-8 and en_US.UTF-8</a>.</li>
+<li><a href="https://stackoverflow.com/q/29751218/6064933">Difference between UTF-8 and en_AU.UTF-8</a>.</li>
+<li><a href="https://unix.stackexchange.com/q/149111/221410">What should I set my locale to</a>.</li>
 </ul>
 <h1 id="search-a-unicode-character-in-sublime-text-using-its-code-point">Search a Unicode character in Sublime Text using its code point</h1>
 <p>We usually search a character using the character itself. But certain
@@ -410,7 +433,7 @@ point <code>CODE_POINT</code>. For example, for zero-width space, you can use <c
 to search it.</p>
 <h1 id="references-7">References</h1>
 <ul>
-<li><a href="https://stackoverflow.com/questions/23979669/character-sets-locales-fonts-and-code-pages">https://stackoverflow.com/questions/23979669/character-sets-locales-fonts-and-code-pages</a></li>
+<li><a href="https://stackoverflow.com/q/23979669/6064933">Character sets, locales, fonts and code page relationship</a>.</li>
 </ul>
     </div>
 
@@ -422,7 +445,7 @@ to search it.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-03-11
+        2020-05-19
         
     </span>
   </p>
