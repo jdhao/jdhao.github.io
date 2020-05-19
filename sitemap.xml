@@ -10,7 +10,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-05-19T22:28:44+08:00</lastmod>
+    <lastmod>2020-05-19T22:42:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -24,7 +24,7 @@
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-05-19T22:28:44+08:00</lastmod>
+    <lastmod>2020-05-19T22:42:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,7 +38,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-05-19T22:28:44+08:00</lastmod>
+    <lastmod>2020-05-19T22:42:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -164,7 +164,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Windows/</loc>
-    <lastmod>2020-05-19T22:28:44+08:00</lastmod>
+    <lastmod>2020-05-19T22:42:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -213,7 +213,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/C/</loc>
-    <lastmod>2020-05-18T00:10:12+08:00</lastmod>
+    <lastmod>2020-05-19T22:42:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -227,7 +227,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/Nvim/</loc>
-    <lastmod>2020-05-19T00:58:36+08:00</lastmod>
+    <lastmod>2020-05-19T22:42:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1368,7 +1368,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Cmder/</loc>
-    <lastmod>2020-05-05T14:01:31+08:00</lastmod>
+    <lastmod>2020-05-19T22:42:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1564,7 +1564,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2018/11/15/neovim_configuration_windows/</loc>
-    <lastmod>2020-03-11T23:28:22+08:00</lastmod>
+    <lastmod>2020-05-19T22:42:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

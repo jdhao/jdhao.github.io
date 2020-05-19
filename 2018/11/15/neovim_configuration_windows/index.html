@@ -17,7 +17,7 @@
 
 
 <meta name="author" content="jdhao" /><meta name="description" content="Updated: 2020-01-18
-In this post, I will write about how to install and configure terminal Neovim on Windows 101. For configurations of nvim-qt on Windows, check this post.
+In this post, I want to share how to install and configure terminal Neovim on Windows 101. For configurations of nvim-qt on Windows, check this post.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -53,24 +53,24 @@ In this post, I will write about how to install and configure terminal Neovim on
 
 
 Updated: 2020-01-18
-In this post, I will write about how to install and configure terminal Neovim
-on Windows 101. For configurations of
+In this post, I want to share how to install and configure terminal Neovim on
+Windows 101. For configurations of
 nvim-qt on Windows, check this post." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2018/11/15/neovim_configuration_windows/" />
 <meta property="article:published_time" content="2018-11-15T18:08:00+08:00" />
-<meta property="article:modified_time" content="2020-03-11T23:28:22+08:00" />
+<meta property="article:modified_time" content="2020-05-19T22:42:32+08:00" />
 <meta itemprop="name" content="Neovim configuration on Windows 10">
 <meta itemprop="description" content="
 
 
 Updated: 2020-01-18
-In this post, I will write about how to install and configure terminal Neovim
-on Windows 101. For configurations of
+In this post, I want to share how to install and configure terminal Neovim on
+Windows 101. For configurations of
 nvim-qt on Windows, check this post.">
 <meta itemprop="datePublished" content="2018-11-15T18:08:00&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-11T23:28:22&#43;08:00" />
-<meta itemprop="wordCount" content="576">
+<meta itemprop="dateModified" content="2020-05-19T22:42:32&#43;08:00" />
+<meta itemprop="wordCount" content="578">
 
 
 
@@ -80,8 +80,8 @@ nvim-qt on Windows, check this post.">
 
 
 Updated: 2020-01-18
-In this post, I will write about how to install and configure terminal Neovim
-on Windows 101. For configurations of
+In this post, I want to share how to install and configure terminal Neovim on
+Windows 101. For configurations of
 nvim-qt on Windows, check this post."/>
 
 <!--[if lte IE 9]>
@@ -156,7 +156,7 @@ nvim-qt on Windows, check this post."/>
         <div class="post-category">
             <a href="/categories/Nvim/"> Nvim </a>
             </div>
-          <span class="more-meta"> 576 words </span>
+          <span class="more-meta"> 578 words </span>
           <span class="more-meta"> 3 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -197,11 +197,11 @@ nvim-qt on Windows, check this post."/>
 <img src="https://blog-resource-1257868508.file.myqcloud.com/20190119221237.png" width="600">
 </p>
 <p><strong>Updated: 2020-01-18</strong></p>
-<p>In this post, I will write about how to install and configure terminal Neovim
-on Windows 10<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. For configurations of
+<p>In this post, I want to share how to install and configure terminal Neovim on
+Windows 10<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. For configurations of
 <a href="https://github.com/equalsraf/neovim-qt">nvim-qt</a> on Windows, check <a href="https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/">this post</a>.</p>
 <p><strong>TL;DR</strong>: After nearly one year of using Neovim on Windows, I find that the
-best experience you can get is to use GUI Neovim client such as
+best experience one can get on Windows is to use GUI Neovim client such as
 <a href="https://github.com/equalsraf/neovim-qt">Nvim-qt</a> or
 <a href="https://github.com/yatli/fvim">fvim</a>, not the terminal Nvim.</p>
 <h1 id="before-we-begin">Before we begin</h1>
@@ -213,24 +213,25 @@ utilities for you.</p>
 <h1 id="install">Install</h1>
 <p>You can download the <a href="https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip">latest binary release</a>
 from Neovim GitHub repo. Then extract the package and add the extracted folder
-to your PATH so that you can invoke <code>nvim</code> on your command line.</p>
+to your PATH so that you can invoke <code>nvim</code> on the command line.</p>
 <p>See <a href="https://github.com/neovim/neovim/wiki/Installing-Neovim#windows">here</a> on
 other ways to install Neovim on Windows.</p>
 <h1 id="configuration">Configuration</h1>
 <h2 id="where-to-put-the-configuration-file">Where to put the configuration file?</h2>
 <p>According to Neovim <a href="https://neovim.io/doc/user/starting.html#base-directories">official documentation</a>,
-you should put neovim config file <code>init.vim</code> under the directory <code>~/AppData/Local/nvim</code>.</p>
+you should put neovim config file <code>init.vim</code> under the directory
+<code>~/AppData/Local/nvim</code>.</p>
 <h2 id="install-plugin-manager-vim-plug">Install plugin-manager vim-plug</h2>
 <p>To install vim-plug on Windows, open a <strong>PowerShell</strong> terminal (<strong>not Windows
 CMD</strong>), and execute the following command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">md ~\AppData\Local\nvim\autoload
-$uri = &#39;https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim&#39;
-(New-Object Net.WebClient).DownloadFile(
-  $uri,
-  $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath(
-    &#34;~\AppData\Local\nvim\autoload\plug.vim&#34;
-  )
-)
+<div class="highlight"><pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="nb">md </span><span class="p">~\</span><span class="n">AppData</span><span class="p">\</span><span class="n">Local</span><span class="p">\</span><span class="n">nvim</span><span class="p">\</span><span class="n">autoload</span>
+<span class="nv">$uri</span> <span class="p">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim&#39;</span>
+<span class="p">(</span><span class="nb">New-Object</span> <span class="n">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="n">DownloadFile</span><span class="p">(</span>
+  <span class="nv">$uri</span><span class="p">,</span>
+  <span class="nv">$ExecutionContext</span><span class="p">.</span><span class="n">SessionState</span><span class="p">.</span><span class="n">Path</span><span class="p">.</span><span class="n">GetUnresolvedProviderPathFromPSPath</span><span class="p">(</span>
+    <span class="s2">&#34;~\AppData\Local\nvim\autoload\plug.vim&#34;</span>
+  <span class="p">)</span>
+<span class="p">)</span>
 </code></pre></div><p>In Neovim config file, use the following settings for vim-plug:</p>
 <div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">call</span> <span class="nx">plug</span>#<span class="nx">begin</span><span class="p">(</span><span class="s1">&#39;~/AppData/Local/nvim/plugged&#39;</span><span class="p">)</span><span class="err">
 </span><span class="err"></span><span class="c">&#34; below are some vim plugin for demonstration purpose</span><span class="err">
@@ -240,28 +241,27 @@ $uri = &#39;https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim&
 </span><span class="err"></span><span class="nx">Plug</span> <span class="s1">&#39;vim-airline/vim-airline&#39;</span><span class="err">
 </span><span class="err"></span><span class="nx">Plug</span> <span class="s1">&#39;vim-airline/vim-airline-themes&#39;</span><span class="err">
 </span><span class="err"></span><span class="nx">call</span> <span class="nx">plug</span>#<span class="nx">end</span><span class="p">()</span><span class="err">
-</span></code></pre></div><p>When you run command <code>:PlugInstall</code>, all the plugins will be installed under
-<code>~/AppData/Local/nvim/plugged</code>. You can change this directory to where you
+</span></code></pre></div><p>When we run command <code>:PlugInstall</code>, all the plugins will be installed under
+<code>~/AppData/Local/nvim/plugged</code>. We can also change this directory to where we
 want.</p>
 <h1 id="issues">Issues</h1>
 <h2 id="the-neovim-window-content-is-not-cleared-when-i-exit">The Neovim window content is not cleared when I exit</h2>
-<p>When I exit Neovim, the window content in Neovim is still shown in the command
-line, wasting a lot of space. How do we clear the Neovim window content after
-quit?</p>
-<p>After some research, I have finally found a solution which works for Cmder.
-Open Cmder settings and go to <code>Startup -&gt; Environment</code>, add the following
-settings:</p>
+<p>When I exit Neovim, the text content in Neovim is still shown in the command
+line, wasting a lot of spaces. How do we clear the Neovim window content after
+exit?</p>
+<p>After some research, I have finally found a solution that works for Cmder. Open
+Cmder settings and go to <code>Startup -&gt; Environment</code>, add the following settings:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">set TERM=xterm-256color
 </code></pre></div><p>Restart Cmder and the issue should disappear. More discussions
-<a href="https://vi.stackexchange.com/questions/17968/how-do-i-clear-neovim-window-after-exiting-neovim-on-window-10/17971#17971">here</a>.</p>
+<a href="https://vi.stackexchange.com/a/17971/15292">here</a>.</p>
 <h2 id="can-not-enter-neovim-if-there-are-errors-in-config-file">Can not enter Neovim if there are errors in config file</h2>
 <p>If there are errors in your Neovim config file, during start up, Neovim will
 prompt you:</p>
 <blockquote>
 <p>Press ENTER or type command to continue</p>
 </blockquote>
-<p>However, pressing <code>Enter</code> key has no effect. Neovim will stuck here unless you
-press <code>Ctrl-C</code> to terminate this process.</p>
+<p>However, pressing <kbd>Enter</kbd> key has no effect. Neovim will stuck unless
+you press <code>Ctrl-C</code> to terminate this process.</p>
 <p>To circumvent this issue, according to
 <a href="https://github.com/neovim/neovim/issues/8133">here</a>, try to open Neovim with
 the following option:</p>
@@ -316,7 +316,7 @@ post</a>.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-03-11
+        2020-05-19
         
     </span>
   </p>
