@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Sat, 16 May 2020 22:04:23 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2020 00:40:58 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Justmysocks 支持 v2ray 协议了！</title>
+      <link>https://jdhao.github.io/2020/05/22/v2ray_justmysocks/</link>
+      <pubDate>Fri, 22 May 2020 00:40:58 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/05/22/v2ray_justmysocks/</guid>
+      <description>&lt;p&gt;two meetings 即将或者正在召开，上个谷歌也越来越难，最近墙对各种工具的阻断非常严重，连之前&lt;a href=&#34;https://jdhao.github.io/2020/04/25/shadowsocks_obfs_setup/&#34;&gt;使用了 obfs 的 ss&lt;/a&gt; 都不行了，最近一段时间也处于时断时续的状态。&lt;/p&gt;
+&lt;p&gt;Justmysocks 之前一直用的都是 shadowsocks 协议，对墙的反制能力不行，每到关键时候就显露疲态。好消息是，justmysocks 终于在最近推出了基于 &lt;a href=&#34;https://www.v2ray.com/en/&#34;&gt;v2ray&lt;/a&gt; 协议的线路。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Space for CJK Languages (CJK 语言中的空格)</title>
