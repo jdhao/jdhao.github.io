@@ -13,12 +13,12 @@
     
     
     <item>
-      <title>腾讯云对象存储博客图床开启 CDN 加速</title>
+      <title>腾讯云对象存储博客图床开启 CDN 加速(不需要购买额外域名)</title>
       <link>https://jdhao.github.io/2020/03/16/tencent_cos_cdn_setup/</link>
       <pubDate>Mon, 16 Mar 2020 00:48:59 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2020/03/16/tencent_cos_cdn_setup/</guid>
-      <description>&lt;p&gt;之前记录过把博客的图床从七牛&lt;a href=&#34;https://jdhao.github.io/2018/10/20/qiuniu_migrate_to_tencent_cos/&#34;&gt;迁移到了腾讯云对象存储&lt;/a&gt;，刚开始用觉得花费不算很贵，一个月不超过 10 元。直到有一次发了&lt;a href=&#34;https://jdhao.github.io/2019/06/10/mechanical_keyboard_try/&#34;&gt;一篇关于机械键盘的文章&lt;/a&gt;，放了两张没有经过压缩的图片，由于访问人数稍微过大，几天时间就消耗了将近 40 元的流量费用。当时也在 V2ex 发了&lt;a href=&#34;https://www.v2ex.com/t/579567&#34;&gt;帖子&lt;/a&gt;，有人建议套个 CDN，因为 CDN 的流量相对于对象存储的流量更便宜，由于当时对 CDN 怎么使用不了解，以为还要自己再买一个域名，所以就没有深入了解下去。最近，趁着有时间，研究了一下博客的图床怎么使用 CDN，才发现原来设置很简单，也不需要购买域名。本文主要分享腾讯云对象存储开启 CDN 的方法。&lt;/p&gt;</description>
+      <description>&lt;p&gt;本文主要分享腾讯云对象存储开启 CDN 的方法，不需要购买额外的域名。&lt;/p&gt;</description>
     </item>
     
     <item>
