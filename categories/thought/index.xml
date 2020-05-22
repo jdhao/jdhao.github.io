@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Sat, 09 May 2020 01:07:09 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2020 20:41:01 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/categories/thought/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AI 的噱头</title>
+      <link>https://jdhao.github.io/2020/05/22/the_AI_hype/</link>
+      <pubDate>Fri, 22 May 2020 20:41:01 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/05/22/the_AI_hype/</guid>
+      <description>&lt;p&gt;人工智能 (AI)甚嚣尘上，动则称颠覆，各家公司纷纷推出了自己的 AI 产品，但是这些产品真的有那么多人用吗？&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>如何使用搜索引擎找到技术问题的答案</title>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Justmysocks 支持 v2ray 协议了！ - jdhao&#39;s blog</title>
+  <title>Highlight Yanked Region in Nvim/Vim - jdhao&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,8 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="two meetings 即将或者正在召开，上个谷歌也越来越难，最近墙对各种工具的阻断非常严重，连之前使用了 obfs 的 ss 都不行了，最近一段时间也处于时断时续的状态。
-Justmysocks 之前一直用的都是 shadowsocks 协议，对墙的反制能力不行，每到关键时候就显露疲态。好消息是，justmysocks 终于在最近推出了基于 v2ray 协议的线路。
+<meta name="author" content="jdhao" /><meta name="description" content="In Vim or Neovim, showing the yanked region in color gives use visual feedback on what we have copied. Here is how you can highlight yanked region in Vim or Neovim.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -28,7 +27,7 @@ Justmysocks 之前一直用的都是 shadowsocks 协议，对墙的反制能力�
 <meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
-<link rel="canonical" href="https://jdhao.github.io/2020/05/22/v2ray_justmysocks/" />
+<link rel="canonical" href="https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -48,26 +47,29 @@ Justmysocks 之前一直用的都是 shadowsocks 协议，对墙的反制能力�
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Justmysocks 支持 v2ray 协议了！" />
-<meta property="og:description" content="two meetings 即将或者正在召开，上个谷歌也越来越难，最近墙对各种工具的阻断非常严重，连之前使用了 obfs 的 ss 都不行了，最近一段时间也处于时断时续的状态。
-Justmysocks 之前一直用的都是 shadowsocks 协议，对墙的反制能力不行，每到关键时候就显露疲态。好消息是，justmysocks 终于在最近推出了基于 v2ray 协议的线路。" />
+<meta property="og:title" content="Highlight Yanked Region in Nvim/Vim" />
+<meta property="og:description" content="In Vim or Neovim, showing the yanked region in color gives use visual feedback
+on what we have copied. Here is how you can highlight yanked region in Vim or
+Neovim." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2020/05/22/v2ray_justmysocks/" />
-<meta property="article:published_time" content="2020-05-22T00:40:58+08:00" />
-<meta property="article:modified_time" content="2020-05-22T20:33:47+08:00" />
-<meta itemprop="name" content="Justmysocks 支持 v2ray 协议了！">
-<meta itemprop="description" content="two meetings 即将或者正在召开，上个谷歌也越来越难，最近墙对各种工具的阻断非常严重，连之前使用了 obfs 的 ss 都不行了，最近一段时间也处于时断时续的状态。
-Justmysocks 之前一直用的都是 shadowsocks 协议，对墙的反制能力不行，每到关键时候就显露疲态。好消息是，justmysocks 终于在最近推出了基于 v2ray 协议的线路。">
-<meta itemprop="datePublished" content="2020-05-22T00:40:58&#43;08:00" />
-<meta itemprop="dateModified" content="2020-05-22T20:33:47&#43;08:00" />
-<meta itemprop="wordCount" content="244">
+<meta property="og:url" content="https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/" />
+<meta property="article:published_time" content="2020-05-22T20:48:26+08:00" />
+<meta property="article:modified_time" content="2020-05-22T20:51:50+08:00" />
+<meta itemprop="name" content="Highlight Yanked Region in Nvim/Vim">
+<meta itemprop="description" content="In Vim or Neovim, showing the yanked region in color gives use visual feedback
+on what we have copied. Here is how you can highlight yanked region in Vim or
+Neovim.">
+<meta itemprop="datePublished" content="2020-05-22T20:48:26&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-22T20:51:50&#43;08:00" />
+<meta itemprop="wordCount" content="154">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Justmysocks 支持 v2ray 协议了！"/>
-<meta name="twitter:description" content="two meetings 即将或者正在召开，上个谷歌也越来越难，最近墙对各种工具的阻断非常严重，连之前使用了 obfs 的 ss 都不行了，最近一段时间也处于时断时续的状态。
-Justmysocks 之前一直用的都是 shadowsocks 协议，对墙的反制能力不行，每到关键时候就显露疲态。好消息是，justmysocks 终于在最近推出了基于 v2ray 协议的线路。"/>
+<meta itemprop="keywords" content="Vim," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Highlight Yanked Region in Nvim/Vim"/>
+<meta name="twitter:description" content="In Vim or Neovim, showing the yanked region in color gives use visual feedback
+on what we have copied. Here is how you can highlight yanked region in Vim or
+Neovim."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -134,14 +136,14 @@ Justmysocks 之前一直用的都是 shadowsocks 协议，对墙的反制能力�
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Justmysocks 支持 v2ray 协议了！</h1>
+      <h1 class="post-title">Highlight Yanked Region in Nvim/Vim</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2020-05-22 </span>
         <div class="post-category">
-            <a href="/categories/Note/"> Note </a>
+            <a href="/categories/Nvim/"> Nvim </a>
             </div>
-          <span class="more-meta"> 244 words </span>
+          <span class="more-meta"> 154 words </span>
           <span class="more-meta"> 1 min read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -152,29 +154,37 @@ Justmysocks 之前一直用的都是 shadowsocks 协议，对墙的反制能力�
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#参考">参考</a></li>
+    <li><a href="#for-neovim-and-vim">For Neovim and vim</a></li>
+    <li><a href="#neovim-only">Neovim only</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p>two meetings 即将或者正在召开，上个谷歌也越来越难，最近墙对各种工具的阻断非常严重，连之前<a href="https://jdhao.github.io/2020/04/25/shadowsocks_obfs_setup/">使用了 obfs 的 ss</a> 都不行了，最近一段时间也处于时断时续的状态。</p>
-<p>Justmysocks 之前一直用的都是 shadowsocks 协议，对墙的反制能力不行，每到关键时候就显露疲态。好消息是，justmysocks 终于在最近推出了基于 <a href="https://www.v2ray.com/en/">v2ray</a> 协议的线路。</p>
-<p>v2ray 相对于 shadowsocks，隐蔽性更好，所以也更加稳定。由于 justmysocks 的 v2ray 目前刚推出，只能手动设置，具体如何设置，可以搜索 v2ray 设置教程。</p>
-<p align="center">
-<img src="https://blog-resource-1257868508.file.myqcloud.com/20200522012607.png" width="800">
-</p>
-<p>v2ray 的客户端也很多选择，完整列表见<a href="https://www.v2ray.com/awesome/tools.html">这里</a>。列举一些常见的客户端：</p>
-<ul>
-<li>Windows: <a href="https://github.com/2dust/v2rayN">V2rayN</a></li>
-<li>Mac: <a href="https://github.com/yanue/V2rayU">v2rayU</a>, <a href="https://github.com/yichengchen/clashX">ClashX</a>, <a href="https://github.com/lhy0403/Qv2ray">Qv2ray</a>.</li>
-<li>Android: <a href="https://github.com/2dust/v2rayNG/releases">v2rayNG</a>, <a href="https://apkpure.com/bifrostv/com.github.dawndiy.bifrostv">BifrostV</a>.</li>
-</ul>
-<h1 id="参考">参考</h1>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=A3R7j_dpGLc">https://www.youtube.com/watch?v=A3R7j_dpGLc</a></li>
-<li><a href="https://medium.com/@kissmk3515/2020%E6%9C%80%E5%A5%BD%E7%9A%84v2ray%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B-b76a075e4f26">https://medium.com/@kissmk3515/2020%E6%9C%80%E5%A5%BD%E7%9A%84v2ray%E6%9C%BA%E5%9C%BA%E8%AF%84%E6%B5%8B-b76a075e4f26</a></li>
-</ul>
+      <p>In Vim or Neovim, showing the yanked region in color gives use visual feedback
+on what we have copied. Here is how you can highlight yanked region in Vim or
+Neovim.</p>
+<h1 id="for-neovim-and-vim">For Neovim and vim</h1>
+<p>There is a plugin
+<a href="https://github.com/machakann/vim-highlightedyank">vim-highlightedyank</a> for
+this, which works both for vim and Neovim. Install it with your favorite plugin
+manager and it just works. You can also adjust highlight duration by adding the
+following config:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="c">&#34; set highlight to 1000 ms</span><span class="err">
+</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">highlightedyank_highlight_duration</span> <span class="p">=</span> <span class="m">1000</span><span class="err">
+</span></code></pre></div><h1 id="neovim-only">Neovim only</h1>
+<p>If you are using the <a href="https://github.com/neovim/neovim/releases/tag/nightly">latest
+version</a> of Neovim. They
+have make this little feature builtin in <a href="https://github.com/neovim/neovim/pull/12279">this pull request</a>.</p>
+<p>Install the latest version of Neovim and add the following config to your
+<code>init.vim</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">augroup</span> <span class="nx">highlight_yank</span><span class="err">
+</span><span class="err"></span>    <span class="nx">autocmd</span><span class="p">!</span><span class="err">
+</span><span class="err"></span>    <span class="nx">autocmd</span> <span class="nx">TextYankPost</span> * <span class="nx">silent</span><span class="p">!</span> <span class="nx">lua</span> <span class="nx">require</span><span class="s1">&#39;vim.highlight&#39;</span>.<span class="nx">on_yank</span><span class="p">(</span><span class="s2">&#34;IncSearch&#34;</span><span class="p">,</span> <span class="m">1000</span><span class="p">)</span><span class="err">
+</span><span class="err"></span><span class="nx">augroup</span> <span class="nx">END</span><span class="err">
+</span></code></pre></div><p>The first parameter is the highlight group to use, and the second parameter is
+the highlight duration time measured in milliseconds.</p>
+<p>Enjoy it. One more plugin to remove :)</p>
     </div>
 
     <div class="post-copyright">
@@ -210,15 +220,13 @@ Justmysocks 之前一直用的都是 shadowsocks 协议，对墙的反制能力�
       </label>
   </div>
 </div><footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/Vim/">Vim</a>
+          </div>
       <nav class="post-nav">
-        <a class="prev" href="/2020/05/22/the_AI_hype/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">AI 的噱头</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2020/05/16/space_for_cjk/">
-            <span class="next-text nav-default">Space for CJK Languages (CJK 语言中的空格)</span>
+        
+        <a class="next" href="/2020/05/22/the_AI_hype/">
+            <span class="next-text nav-default">AI 的噱头</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

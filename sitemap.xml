@@ -10,28 +10,70 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-05-22T01:51:58+08:00</lastmod>
+    <lastmod>2020-05-22T21:02:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/2020/05/22/v2ray_justmysocks/</loc>
-    <lastmod>2020-05-22T01:51:58+08:00</lastmod>
+    <loc>https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/</loc>
+    <lastmod>2020-05-22T20:51:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/categories/Note/</loc>
-    <lastmod>2020-05-22T01:51:58+08:00</lastmod>
+    <loc>https://jdhao.github.io/categories/Nvim/</loc>
+    <lastmod>2020-05-22T20:51:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-05-22T01:51:58+08:00</lastmod>
+    <lastmod>2020-05-22T21:02:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/</loc>
+    <lastmod>2020-05-22T20:51:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/Vim/</loc>
+    <lastmod>2020-05-22T20:51:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/2020/05/22/the_AI_hype/</loc>
+    <lastmod>2020-05-22T21:02:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/thought/</loc>
+    <lastmod>2020-05-22T21:02:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/2020/05/22/v2ray_justmysocks/</loc>
+    <lastmod>2020-05-22T20:33:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/Note/</loc>
+    <lastmod>2020-05-22T20:33:47+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -39,13 +81,6 @@
   <url>
     <loc>https://jdhao.github.io/2020/05/16/space_for_cjk/</loc>
     <lastmod>2020-05-19T00:33:52+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-05-22T00:39:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -59,13 +94,6 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/search/</loc>
-    <lastmod>2020-05-11T23:02:08+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/categories/thought/</loc>
     <lastmod>2020-05-11T23:02:08+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -87,13 +115,6 @@
   
   <url>
     <loc>https://jdhao.github.io/2020/05/07/git_learning_notes_s2/</loc>
-    <lastmod>2020-05-10T23:40:50+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/Vim/</loc>
     <lastmod>2020-05-10T23:40:50+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -228,13 +249,6 @@
   <url>
     <loc>https://jdhao.github.io/tags/C&#43;&#43;/</loc>
     <lastmod>2020-05-19T23:39:21+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/categories/Nvim/</loc>
-    <lastmod>2020-05-19T22:42:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Sun, 19 Apr 2020 18:17:56 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 22 May 2020 20:48:26 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/categories/Nvim/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Highlight Yanked Region in Nvim/Vim</title>
+      <link>https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/</link>
+      <pubDate>Fri, 22 May 2020 20:48:26 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/</guid>
+      <description>&lt;p&gt;In Vim or Neovim, showing the yanked region in color gives use visual feedback
+on what we have copied. Here is how you can highlight yanked region in Vim or
+Neovim.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Set up for C&#43;&#43;/C Development in Neovim</title>

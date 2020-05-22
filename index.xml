@@ -23,6 +23,26 @@ I enjoy programming. I am most familiar with Python and fairly proficient in usi
     </item>
     
     <item>
+      <title>Highlight Yanked Region in Nvim/Vim</title>
+      <link>https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/</link>
+      <pubDate>Fri, 22 May 2020 20:48:26 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/</guid>
+      <description>&lt;p&gt;In Vim or Neovim, showing the yanked region in color gives use visual feedback
+on what we have copied. Here is how you can highlight yanked region in Vim or
+Neovim.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AI 的噱头</title>
+      <link>https://jdhao.github.io/2020/05/22/the_AI_hype/</link>
+      <pubDate>Fri, 22 May 2020 20:41:01 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/05/22/the_AI_hype/</guid>
+      <description>&lt;p&gt;人工智能 (AI)甚嚣尘上，动则称颠覆，各家公司纷纷推出了自己的 AI 产品，但是这些产品真的有那么多人用吗？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Justmysocks 支持 v2ray 协议了！</title>
       <link>https://jdhao.github.io/2020/05/22/v2ray_justmysocks/</link>
       <pubDate>Fri, 22 May 2020 00:40:58 +0800</pubDate>
