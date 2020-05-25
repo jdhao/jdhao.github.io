@@ -53,14 +53,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/" />
 <meta property="article:published_time" content="2019-01-15T15:27:57+08:00" />
-<meta property="article:modified_time" content="2020-03-11T23:28:06+08:00" />
+<meta property="article:modified_time" content="2020-05-25T22:57:18+08:00" />
 <meta itemprop="name" content="Markdown Writing and Previewing in Neovim -- A Complete Guide">
 <meta itemprop="description" content="
 
 ">
 <meta itemprop="datePublished" content="2019-01-15T15:27:57&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-11T23:28:06&#43;08:00" />
-<meta itemprop="wordCount" content="955">
+<meta itemprop="dateModified" content="2020-05-25T22:57:18&#43;08:00" />
+<meta itemprop="wordCount" content="998">
 
 
 
@@ -142,7 +142,7 @@
         <div class="post-category">
             <a href="/categories/Nvim/"> Nvim </a>
             </div>
-          <span class="more-meta"> 955 words </span>
+          <span class="more-meta"> 998 words </span>
           <span class="more-meta"> 5 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -171,45 +171,47 @@
 <img src="https://blog-resource-1257868508.file.myqcloud.com/20200214144759.png" width="800">
 </p>
 <h1 id="introduction">Introduction</h1>
-<p>As a Neovim user who has used Sublime Text for code editing for some time, I
-miss the experience I get when dealing with Markdown files with the help
-plugins such as
+<p>As a Neovim user who has been using Sublime Text for code editing for some
+time, I miss the experience I get when dealing with Markdown files with the
+help plugins such as
 <a href="https://github.com/SublimeText-Markdown/MarkdownEditing">MarkdownEditing</a> and
 <a href="https://github.com/facelessuser/MarkdownPreview">MarkdownPreview</a>. In this
-post, I would like to share my settings for Markdown writing inside Neovim to
-get similar writing experience, even better!</p>
+post, I would like to share my settings for Markdown editing inside Neovim to
+get similar experience, even better!</p>
 <h1 id="markdown-editing">Markdown editing</h1>
-<p>When we are editing Markdown source files, it is nice to have some code
-snippets to promote efficiency. Fortunately,
+<p>When we are editing Markdown files, it is nice to have some code snippets to
+improve efficiency. Fortunately,
 <a href="https://github.com/SirVer/ultisnips">UltiSnips</a> combined with
-<a href="https://github.com/honza/vim-snippets">vim-snippets</a> <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> provides a lot of
+<a href="https://github.com/honza/vim-snippets">vim-snippets</a><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> provides a lot of
 useful snippets for Markdown files.</p>
 <p>The two plugins can be install by <a href="https://github.com/junegunn/vim-plug">vim-plug</a>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Plug &#39;SirVer/ultisnips&#39;
-Plug &#39;honza/vim-snippets&#39;
-</code></pre></div><p>We need to set up UltiSnips to use it. The following is an example setting:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&#34; Trigger configuration. Do not use &lt;tab&gt; if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger=&#34;&lt;tab&gt;&#34;  &#34; use &lt;Tab&gt; trigger autocompletion
-let g:UltiSnipsJumpForwardTrigger=&#34;&lt;c-f&gt;&#34;
-let g:UltiSnipsJumpBackwardTrigger=&#34;&lt;c-b&gt;&#34;
-</code></pre></div><p>In the above setting, we use <code>&lt;Tab&gt;</code> to trigger the snippet auto-completion,
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">Plug</span> <span class="s1">&#39;SirVer/ultisnips&#39;</span><span class="err">
+</span><span class="err"></span><span class="nx">Plug</span> <span class="s1">&#39;honza/vim-snippets&#39;</span><span class="err">
+</span></code></pre></div><p>We need to set up UltiSnips to use it. The following is an example setting:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="c">&#34; Trigger configuration. Do not use &lt;tab&gt; if you use https://github.com/Valloric/YouCompleteMe.</span><span class="err">
+</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">UltiSnipsExpandTrigger</span><span class="p">=</span><span class="s2">&#34;&lt;tab&gt;&#34;</span>  <span class="c">&#34; use &lt;Tab&gt; to trigger autocompletion</span><span class="err">
+</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">UltiSnipsJumpForwardTrigger</span><span class="p">=</span><span class="s2">&#34;&lt;c-j&gt;&#34;</span><span class="err">
+</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">UltiSnipsJumpBackwardTrigger</span><span class="p">=</span><span class="s2">&#34;&lt;c-k&gt;&#34;</span><span class="err">
+</span></code></pre></div><p>In the above setting, we use <kbd>Tab</kbd> to trigger snippet expansion,
 which means that after entering the snippet keyword for a particular snippet,
-using <code>&lt;Tab&gt;</code> will expand the keyword to the full snippet template. For
-example, if we type <code>link</code> and then press <code>&lt;Tab&gt;</code>, it will be expanded to the
-following form:</p>
+using <code>&lt;Tab&gt;</code> will expand the keyword to the full snippet template. If you have used <kbd>Tab</kbd> for other
+mappings, you can set other snippet trigger, e.g., <kbd>Ctrl</kbd> + <kbd>J</kbd>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="k">let</span> <span class="nx">g</span>:<span class="nx">UltiSnipsExpandTrigger</span><span class="p">=</span><span class="s2">&#34;&lt;C-J&gt;&#34;</span><span class="err">
+</span></code></pre></div><p>For example, if we type <code>link</code> and then press <code>&lt;Tab&gt;</code>, it will be expanded to
+the following text:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">[Text](http://www.url.com)
-</code></pre></div><p>the cursor will be placed at <code>Text</code>, with <code>Text</code> being selected and waiting for
-you to enter the real link text. The setting <code>UltiSnipsJumpForwardTrigger</code> and
-<code>UltiSnipsJumpBackTrigger</code> set up the shortcut key to go to next and previous
-text area of a snippet, making the snippet editting more convenient. Take the
-above inline link snippet for an example. Suppose we want to add an inline link
-to Neovim offical website (the address is <a href="https://neovim.io/),">https://neovim.io/),</a> we can follow
-the steps below:</p>
+</code></pre></div><p>the cursor will be placed at <code>Text</code>, with <code>Text</code> being in selection mode and
+waiting for you to enter the real link text. The setting
+<code>UltiSnipsJumpForwardTrigger</code> and <code>UltiSnipsJumpBackTrigger</code> set up the
+shortcut key to go to next and previous text area of a snippet, making the
+snippet editting more convenient. Take the above inline link snippet for an
+example. Suppose we want to add an inline link to Neovim offical website (the
+address is <a href="https://neovim.io/),">https://neovim.io/),</a> we can follow the steps below:</p>
 <ol>
 <li>Enter <code>link</code> and press <code>&lt;Tab&gt;</code> to get the link template.</li>
-<li>Start typing <code>Google</code> and <code>Text</code> will be replaced by <code>Google</code>.</li>
+<li>Start typing <code>Neovim</code> and <code>Text</code> will be replaced by <code>Neovim</code>.</li>
 <li>Press <code>&lt;Ctrl-F&gt;</code>. <code>www.url.com</code> will be selected.</li>
-<li>Start typeing <code>www.google.com</code>.</li>
+<li>Start typeing <code>https://neovim.io/</code>.</li>
 </ol>
 <p>There are many more snippets you can use. Some of the commonly used snippet
 keywords are listed below:</p>
@@ -252,54 +254,60 @@ keywords are listed below:</p>
 </ul>
 </li>
 </ul>
+<p>Often times, you will find you want to more snippets to cover your use cases.
+For example, I have set up a snippet <code>meta</code> which can generate the Markdown
+front matter fore me, see <a href="https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/">here</a>
+for more details.</p>
+<p>For how to set up Ultisnips and writing your own snippets, see <a href="https://jdhao.github.io/2019/04/17/neovim_snippet_s1/">this
+post</a>.</p>
 <h2 id="distraction-free-writing-">Distraction-free writing</h2>
 <p>When we are writing Markdown files, we may wish to focus on the task and
 temporarily disable the distraction elements in Neovim. The plugin
-<a href="https://github.com/junegunn/goyo.vim">goyo</a> is designed specifically for that
-purpose. You can install it with vim-plug:</p>
+<a href="https://github.com/junegunn/goyo.vim">goyo</a> is designed specifically for this
+purpose. We can install it via vim-plug:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Plug &#39;junegunn/goyo.vim&#39;
-</code></pre></div><p>After installing this plugin, you can use <code>Goyo</code> command toggle between the
+</code></pre></div><p>After installing this plugin, we can use <code>Goyo</code> command to toggle between the
 normal mode and distraction-free mode.</p>
 <p>The author also suggests installing
 <a href="https://github.com/junegunn/limelight.vim">limelight</a>, which will dim all
 lines except the current line when turned on.</p>
 <p>First, install it with vim-plug:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Plug &#39;junegunn/limelight.vim&#39;
-</code></pre></div><p>After install, you can use <code>Limelight</code> to activate it. To deactivate, use
+</code></pre></div><p>After install, we can use <code>Limelight</code> to activate it. To deactivate, use
 <code>Limelight!</code>.</p>
-<p>You can also integrate goyo and limelight together with the following setting:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-</code></pre></div><p>when you turn on/off goyo, limelight will also be turn on/off.</p>
+<p>We can also integrate goyo and limelight together with the following setting:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">autocmd</span><span class="p">!</span> <span class="nx">User</span> <span class="nx">GoyoEnter</span> <span class="nx">Limelight</span><span class="err">
+</span><span class="err"></span><span class="nx">autocmd</span><span class="p">!</span> <span class="nx">User</span> <span class="nx">GoyoLeave</span> <span class="nx">Limelight</span><span class="p">!</span><span class="err">
+</span></code></pre></div><p>when you turn on/off goyo, limelight will also be turn on/off.</p>
 <h1 id="markdown-syntax-highlighting">Markdown syntax highlighting</h1>
 <p>Code highlighting is also important, which helps us to see the structure of the
-source code. The first plugin we should install is
-<a href="https://github.com/plasticboy/vim-markdown">vim-markdown</a>. You can install it
-with vim-plug:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&#34; tabular plugin is used to format tables
-Plug &#39;godlygeek/tabular&#39;
-&#34; JSON front matter highlight plugin
-Plug &#39;elzr/vim-json&#39;
-Plug &#39;plasticboy/vim-markdown&#39;
-</code></pre></div><p>Vim-markdown provides a lot of functionalities such as folding,
+source code more clearly. The first plugin we should install is
+<a href="https://github.com/plasticboy/vim-markdown">vim-markdown</a>. We can install it
+via vim-plug:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="c">&#34; tabular plugin is used to format tables</span><span class="err">
+</span><span class="err"></span><span class="nx">Plug</span> <span class="s1">&#39;godlygeek/tabular&#39;</span><span class="err">
+</span><span class="err"></span><span class="c">&#34; JSON front matter highlight plugin</span><span class="err">
+</span><span class="err"></span><span class="nx">Plug</span> <span class="s1">&#39;elzr/vim-json&#39;</span><span class="err">
+</span><span class="err"></span><span class="nx">Plug</span> <span class="s1">&#39;plasticboy/vim-markdown&#39;</span><span class="err">
+</span></code></pre></div><p>Vim-markdown provides a lot of functionalities such as folding,
 <a href="http://vimdoc.sourceforge.net/htmldoc/syntax.html#conceal">conceal</a> etc. Here,
 we mainly use its syntax highlighting feature. Below are some settings for
 vim-markdown:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&#34; disable header folding
-let g:vim_markdown_folding_disabled = 1
-
-&#34; do not use conceal feature, the implementation is not so good
-let g:vim_markdown_conceal = 0
-
-&#34; disable math tex conceal feature
-let g:tex_conceal = &#34;&#34;
-let g:vim_markdown_math = 1
-
-&#34; support front matter of various format
-let g:vim_markdown_frontmatter = 1  &#34; for YAML format
-let g:vim_markdown_toml_frontmatter = 1  &#34; for TOML format
-let g:vim_markdown_json_frontmatter = 1  &#34; for JSON format
-</code></pre></div><p>This plugin also provides a few shortcut and command:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="c">&#34; disable header folding</span><span class="err">
+</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">vim_markdown_folding_disabled</span> <span class="p">=</span> <span class="m">1</span><span class="err">
+</span><span class="err"></span><span class="c">
+</span><span class="c">&#34; do not use conceal feature, the implementation is not so good</span><span class="err">
+</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">vim_markdown_conceal</span> <span class="p">=</span> <span class="m">0</span><span class="err">
+</span><span class="err"></span><span class="c">
+</span><span class="c">&#34; disable math tex conceal feature</span><span class="err">
+</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">tex_conceal</span> <span class="p">=</span> <span class="s2">&#34;&#34;</span><span class="err">
+</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">vim_markdown_math</span> <span class="p">=</span> <span class="m">1</span><span class="err">
+</span><span class="err"></span><span class="c">
+</span><span class="c">&#34; support front matter of various format</span><span class="err">
+</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">vim_markdown_frontmatter</span> <span class="p">=</span> <span class="m">1</span>  <span class="c">&#34; for YAML format</span><span class="err">
+</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">vim_markdown_toml_frontmatter</span> <span class="p">=</span> <span class="m">1</span>  <span class="c">&#34; for TOML format</span><span class="err">
+</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">vim_markdown_json_frontmatter</span> <span class="p">=</span> <span class="m">1</span>  <span class="c">&#34; for JSON format</span><span class="err">
+</span></code></pre></div><p>This plugin also provides a few shortcuts and commands:</p>
 <ul>
 <li>Shortcut:
 <ul>
@@ -318,36 +326,38 @@ let g:vim_markdown_json_frontmatter = 1  &#34; for JSON format
 <p>Another good Markdown syntax plugin I recommend is
 <a href="https://github.com/vim-pandoc/vim-pandoc-syntax">vim-pandoc-syntax</a>. It
 provides more syntax highlight and better conceal features. First, install it
-with vim-plug:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Plug &#39;vim-pandoc/vim-pandoc-syntax&#39;
-</code></pre></div><p>It is designed to work with
+via vim-plug:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">Plug</span> <span class="s1">&#39;vim-pandoc/vim-pandoc-syntax&#39;</span><span class="err">
+</span></code></pre></div><p>It is designed to work with
 <a href="https://github.com/vim-pandoc/vim-pandoc">vim-pandoc</a>. To use it as a
 standalone plugin, we should add the following settings in our Neovim
 configuration file:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">augroup pandoc_syntax
-    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
-augroup END
-</code></pre></div><p>After all this settings, you Markdown file will be like what is shown in the
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">augroup</span> <span class="nx">pandoc_syntax</span><span class="err">
+</span><span class="err"></span>    <span class="nx">au</span><span class="p">!</span> <span class="nx">BufNewFile</span><span class="p">,</span><span class="nx">BufFilePre</span><span class="p">,</span><span class="nx">BufRead</span> *.<span class="nx">md</span> <span class="nx">set</span> <span class="nx">filetype</span><span class="p">=</span><span class="nx">markdown</span>.<span class="nx">pandoc</span><span class="err">
+</span><span class="err"></span><span class="nx">augroup</span> <span class="nx">END</span><span class="err">
+</span></code></pre></div><p>After all this settings, your Markdown file will be like what is shown in the
 following image:</p>
-<p><img src="https://blog-resource-1257868508.file.myqcloud.com/20190115233114.png" alt="Final effect after configuration"></p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20190115233114.png" width="600">
+</p>
 <h1 id="markdown-previewing">Markdown previewing</h1>
 <p>There are several Markdown previewer for Neovim on GitHub. I have tried
 <a href="https://github.com/previm/previm">previm</a> and
 <a href="https://github.com/iamcco/markdown-preview.nvim">markdown-preview.nvim</a>, both
-which have cross-platform support for Nvim (Windows, Linux and MacOS are
+of which have cross-platform support for Nvim (Windows, Linux and MacOS are
 supported). After some trail, I think markdown-preview is superior in terms of
 speed, functionality provided and rendering result. It is easy to install with
 vim-plug:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&#34; if you don&#39;t have nodejs and yarn, use pre build
-Plug &#39;iamcco/markdown-preview.nvim&#39;, { &#39;do&#39;: { -&gt; mkdp#util#install() }}
-</code></pre></div><p>Here is my setting for this plugin:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&#34; do not close the preview tab when switching to other buffers
-let g:mkdp_auto_close = 0
-</code></pre></div><p>To start previewing a markdown file, use <code>MarkdowPreview</code> command. Your default
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="c">&#34; if you don&#39;t have nodejs and yarn, use pre build</span><span class="err">
+</span><span class="err"></span><span class="nx">Plug</span> <span class="s1">&#39;iamcco/markdown-preview.nvim&#39;</span><span class="p">,</span> { <span class="s1">&#39;do&#39;</span>: { <span class="p">-&gt;</span> <span class="nx">mkdp</span>#<span class="nx">util</span>#<span class="nx">install</span><span class="p">()</span> }}<span class="err">
+</span></code></pre></div><p>Here is my setting for this plugin:</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="c">&#34; do not close the preview tab when switching to other buffers</span><span class="err">
+</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">mkdp_auto_close</span> <span class="p">=</span> <span class="m">0</span><span class="err">
+</span></code></pre></div><p>To start previewing a markdown file, use <code>MarkdowPreview</code> command. Your default
 browser will be opened automatically. You can also add a custom key mapping for
 this command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">nnoremap &lt;M-m&gt; :MarkdownPreview&lt;CR&gt;
-</code></pre></div><p>For other custom settings, see <a href="https://github.com/iamcco/markdown-preview.nvim#install--usage">its
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">nnoremap</span> <span class="p">&lt;</span><span class="nx">M</span><span class="p">-</span><span class="nx">m</span><span class="p">&gt;</span> :<span class="nx">MarkdownPreview</span><span class="p">&lt;</span><span class="nx">CR</span><span class="p">&gt;</span><span class="err">
+</span></code></pre></div><p>For other custom settings, see <a href="https://github.com/iamcco/markdown-preview.nvim#install--usage">its
 documentation</a>.</p>
 <h1 id="summary-">Summary</h1>
 <p>In this blog post, I introduced the plugins and settings I use for Markdown
@@ -371,7 +381,7 @@ writing experience I get.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-03-11
+        2020-05-25
         
     </span>
   </p>
