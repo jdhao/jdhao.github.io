@@ -7,15 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Fri, 22 May 2020 20:48:26 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2020 22:46:19 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>snippet</title>
+      <link>https://jdhao.github.io/tags/snippet/</link>
+      <pubDate>Wed, 27 May 2020 22:46:19 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/tags/snippet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Vim</title>
       <link>https://jdhao.github.io/tags/Vim/</link>
-      <pubDate>Fri, 22 May 2020 20:48:26 +0800</pubDate>
+      <pubDate>Wed, 27 May 2020 22:46:19 +0800</pubDate>
       
       <guid>https://jdhao.github.io/tags/Vim/</guid>
       <description></description>
@@ -297,15 +306,6 @@
       <pubDate>Sat, 11 Jan 2020 20:04:27 +0800</pubDate>
       
       <guid>https://jdhao.github.io/tags/non-fiction/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>snippet</title>
-      <link>https://jdhao.github.io/tags/snippet/</link>
-      <pubDate>Sun, 05 Jan 2020 18:52:03 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/tags/snippet/</guid>
       <description></description>
     </item>
     

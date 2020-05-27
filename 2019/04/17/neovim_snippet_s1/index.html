@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="If you have used Sublime Text before, you may be familiar with the snippet function. Snippets let us type a trigger word and expand it to some boilerplate code or string that we do not want to repeat typing. We will increase our efficiency dramatically with the help of snippets.
+<meta name="author" content="jdhao" /><meta name="description" content="If you have used Sublime Text before, you may be familiar with its snippet feature. Snippets let us type a trigger word and expand it to some boilerplate code or texts that we do not want to repeat typing. We will increase our efficiency dramatically with the help of snippets.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -48,34 +48,37 @@
 
 
 <meta property="og:title" content="Configuring Ultisnips for Neovim" />
-<meta property="og:description" content="If you have used Sublime Text before, you may be familiar with the
-snippet
-function. Snippets let us type a trigger word and expand it to some boilerplate
-code or string that we do not want to repeat typing. We will increase our
-efficiency dramatically with the help of snippets." />
+<meta property="og:description" content="If you have used Sublime Text before, you may be familiar with its
+snippet feature.
+Snippets let us type a
+trigger word and expand it to some boilerplate code or texts that we do not
+want to repeat typing. We will increase our efficiency dramatically with the
+help of snippets." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2019/04/17/neovim_snippet_s1/" />
 <meta property="article:published_time" content="2019-04-17T00:28:45+08:00" />
-<meta property="article:modified_time" content="2020-05-19T00:58:36+08:00" />
+<meta property="article:modified_time" content="2020-05-28T00:21:56+08:00" />
 <meta itemprop="name" content="Configuring Ultisnips for Neovim">
-<meta itemprop="description" content="If you have used Sublime Text before, you may be familiar with the
-snippet
-function. Snippets let us type a trigger word and expand it to some boilerplate
-code or string that we do not want to repeat typing. We will increase our
-efficiency dramatically with the help of snippets.">
+<meta itemprop="description" content="If you have used Sublime Text before, you may be familiar with its
+snippet feature.
+Snippets let us type a
+trigger word and expand it to some boilerplate code or texts that we do not
+want to repeat typing. We will increase our efficiency dramatically with the
+help of snippets.">
 <meta itemprop="datePublished" content="2019-04-17T00:28:45&#43;08:00" />
-<meta itemprop="dateModified" content="2020-05-19T00:58:36&#43;08:00" />
-<meta itemprop="wordCount" content="882">
+<meta itemprop="dateModified" content="2020-05-28T00:21:56&#43;08:00" />
+<meta itemprop="wordCount" content="958">
 
 
 
 <meta itemprop="keywords" content="snippet," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Configuring Ultisnips for Neovim"/>
-<meta name="twitter:description" content="If you have used Sublime Text before, you may be familiar with the
-snippet
-function. Snippets let us type a trigger word and expand it to some boilerplate
-code or string that we do not want to repeat typing. We will increase our
-efficiency dramatically with the help of snippets."/>
+<meta name="twitter:description" content="If you have used Sublime Text before, you may be familiar with its
+snippet feature.
+Snippets let us type a
+trigger word and expand it to some boilerplate code or texts that we do not
+want to repeat typing. We will increase our efficiency dramatically with the
+help of snippets."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -149,7 +152,7 @@ efficiency dramatically with the help of snippets."/>
         <div class="post-category">
             <a href="/categories/Nvim/"> Nvim </a>
             </div>
-          <span class="more-meta"> 882 words </span>
+          <span class="more-meta"> 958 words </span>
           <span class="more-meta"> 5 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -165,6 +168,7 @@ efficiency dramatically with the help of snippets."/>
     <li><a href="#how-to-use-your-own-snippets">How to use your own snippets</a>
       <ul>
         <li><a href="#where-to-store-my-custom-snippets">Where to store my custom snippets?</a></li>
+        <li><a href="#a-common-error-to-avoid-">A common error to avoid</a></li>
       </ul>
     </li>
     <li><a href="#references">References</a></li>
@@ -173,14 +177,14 @@ efficiency dramatically with the help of snippets."/>
   </div>
 </div>
     <div class="post-content">
-      <p>If you have used Sublime Text before, you may be familiar with the
-<a href="http://sublimetext.info/docs/en/extensibility/snippets.html">snippet</a>
-function. Snippets let us type a trigger word and expand it to some boilerplate
-code or string that we do not want to repeat typing. We will increase our
-efficiency dramatically with the help of snippets.</p>
+      <p>If you have used Sublime Text before, you may be familiar with its
+<a href="http://sublimetext.info/docs/en/extensibility/snippets.html">snippet</a> feature.
+<a href="https://en.wikipedia.org/wiki/Snippet_(programming)">Snippets</a> let us type a
+trigger word and expand it to some boilerplate code or texts that we do not
+want to repeat typing. We will increase our efficiency dramatically with the
+help of snippets.</p>
 <p>Several snippet plugins are available for Vim/Neovim:
-<a href="https://github.com/garbas/vim-snipmate">snipmate</a>,
-<a href="https://github.com/Shougo/neosnippet.vim">neosnippet</a> and
+<a href="https://github.com/garbas/vim-snipmate">snipmate</a>, <a href="https://github.com/Shougo/neosnippet.vim">neosnippet</a> and
 <a href="https://github.com/SirVer/ultisnips">ultisnips</a> etc. All these plugins are
 good enough for simple use cases. If you don&rsquo;t know which one to use, just try
 ultisnips. In this post, I would like to share how to configure ultisnips and
@@ -208,16 +212,16 @@ without any settings.</p>
 typing the trigger word for a snippet, we can then press <kbd>Tab</kbd> to
 trigger snippet expansion. We may define several positions (these positions may
 optionally contains placeholder texts) in a snippet, which are called tabstops
-by Ultisnips. In the above settings, <code>Ctrl-J</code> and <code>Ctrl-K</code> is used to jump
-forward and backward in these positions.</p>
+by Ultisnips. In the above settings, <code>Ctrl-J</code> and <code>Ctrl-K</code> are used to jump
+forward and backward in these tabstops.</p>
 <h1 id="how-to-use">How to use</h1>
 <p>All the snippets provided by vim-snippets can be found
 <a href="https://github.com/honza/vim-snippets/tree/master/UltiSnips">here</a>. The
 snippet file for filetype <code>FOO</code> has name <code>FOO.snippets</code>, e.g., for python, the
 snippet file is <code>python.snippets</code>. Filetype snippets are only available for the
-specific file types. There is also a file named <code>all.snippets</code>, which means
-that snippets inside it are available for all file types.</p>
-<p>A snippet looks like the following form:</p>
+specific file types. There is also a special snippet file named <code>all.snippets</code>,
+which means that snippets inside are available for all file types.</p>
+<p>A snippet has the following form:</p>
 <div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">snippet</span> <span class="nx">KEYWORD</span> <span class="s2">&#34;some description&#34;</span> [<span class="nx">FLAG</span>]<span class="err">
 </span><span class="err">
 </span><span class="err"></span><span class="nx">snippet</span> <span class="nx">body</span>...<span class="err">
@@ -226,8 +230,7 @@ that snippets inside it are available for all file types.</p>
 </span></code></pre></div><p>, where <code>KEYWORD</code> is the trigger for the snippet. If you type <code>KEYWORD</code> and
 press the trigger key, it will be expanded to the snippet body.</p>
 <p>For example, there is a <code>date</code> keyword in <code>all.snippets</code>, if you type <code>date</code>,
-you will see an auto-completion item for it. If you press <kbd>Tab</kbd>, it
-will be expanded to the current date.</p>
+and then press <kbd>Tab</kbd>, it will be expanded to the current date.</p>
 <p align="center">
 <img src="https://blog-resource-1257868508.file.myqcloud.com/date_snippet.gif">
 </p>
@@ -241,8 +244,8 @@ how to do it.</p>
 endsnippet
 </code></pre></div><p>This will create a snippet named <code>kbd</code> for filetype markdown.</p>
 <h2 id="where-to-store-my-custom-snippets">Where to store my custom snippets?</h2>
-<p>After creating the snippet files, we should put it in a directory where
-ultisnips can find them. This issue is a little tricky for Neovim.</p>
+<p>After creating the snippet file, we should put it in a directory where
+ultisnips can find it. This is a little tricky for Neovim.</p>
 <p>The documentation of UltiSnips has explained how the snippet files are searched
 (see <code>:h UltiSnips-how-snippets-are-loaded</code>). However, it is still not crystal
 clear how to configure so that our custom snippets can be found by UltiSnips.</p>
@@ -257,9 +260,12 @@ following to your vimrc file.</p>
 <p>let g:UltiSnipsSnippetDirectories=[&ldquo;UltiSnips&rdquo;, &ldquo;mycoolsnippets&rdquo;]</p>
 </blockquote>
 </blockquote>
-<p>The description above is both informative and confusing in that it is written
-for Vim users, not Neovim users. As a result, if you follow the above example,
-you will find that your custom snippets are not available for auto-completion.</p>
+<p>The description above is both informative and confusing since it is written for
+Vim users, not Neovim users. Because the Neovim config file follows the <a href="https://wiki.archlinux.org/index.php/XDG_Base_Directory">XDG
+Base Directory specification</a>
+and is stored under <code>$HOME/.config/nvim</code>, not <code>$HOME/.vim</code>! As a result, if you
+follow the above example, you will find that your custom snippets are not
+available.</p>
 <p>In the following, I will summarize what is working for <strong>Neovim</strong>.</p>
 <p>First, open nvim and use the command <code>:echo &amp;runtimepath</code>. This command will
 print all the runtime paths that Neovim will search. According to the
@@ -277,7 +283,7 @@ omitted for brevity):</p>
 custom snippets are the same for both Windows and Linux. So in the following
 part, I will only focus on Linux since it is more popular.</p>
 <p>One of the runtime paths on Linux is <code>/home/jdhao/.config/nvim</code>. This directory
-is also where we store the neovim config file <code>init.vim</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. We choose this
+is where the neovim config file <code>init.vim</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> is stored. We choose this
 directory and create a folder named <code>my_snippets</code> under it. Then move the
 <code>markdown.snippets</code> file into this folder<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">mkdir -p <span class="nv">$HOME</span>/.config/nvim/my_snippets
@@ -292,6 +298,13 @@ the <code>kbd</code> auto-complete item:</p>
 </p>
 <p>The completion engine I am using is deoplete and <code>US</code> means that this
 completion item is from UltiSnips.</p>
+<h2 id="a-common-error-to-avoid-">A common error to avoid</h2>
+<p>You may have write your own snippet for a filetype and put it under the custom
+snippet directory. However, the snippet does not seem to work.</p>
+<p>One reason for this is that <strong>you have used the wrong name</strong> for the filetype.
+For example, for LaTeX, the filetype is actually <code>tex</code>. So you need to create a
+file named <code>tex.snippets</code>, <strong>not</strong> <code>latex.snippets</code> under your custom snippet
+directory.</p>
 <h1 id="references">References</h1>
 <ul>
 <li><a href="https://castel.dev/post/lecture-notes-1/">https://castel.dev/post/lecture-notes-1/</a></li>
@@ -319,7 +332,7 @@ completion item is from UltiSnips.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-05-19
+        2020-05-28
         
     </span>
   </p>

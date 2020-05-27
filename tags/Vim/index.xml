@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Fri, 22 May 2020 20:48:26 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2020 22:46:19 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/Vim/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Why You Should Learn to Use Snippets in Vim/Neovim</title>
+      <link>https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/</link>
+      <pubDate>Wed, 27 May 2020 22:46:19 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/</guid>
+      <description>&lt;p&gt;If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
+you need to ask yourself if there is a better way to do it.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Highlight Yanked Region in Nvim/Vim</title>

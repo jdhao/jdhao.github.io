@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Highlight Yanked Region in Nvim/Vim - jdhao&#39;s blog</title>
+  <title>Why You Should Learn to Use Snippets in Vim/Neovim - jdhao&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="In Vim or Neovim, showing the yanked region in color gives use visual feedback on what we have copied. Here is how you can highlight yanked region in Vim or Neovim.
+<meta name="author" content="jdhao" /><meta name="description" content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim, you need to ask yourself if there is a better way to do it.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -27,7 +27,7 @@
 <meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
-<link rel="canonical" href="https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/" />
+<link rel="canonical" href="https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -47,29 +47,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Highlight Yanked Region in Nvim/Vim" />
-<meta property="og:description" content="In Vim or Neovim, showing the yanked region in color gives use visual feedback
-on what we have copied. Here is how you can highlight yanked region in Vim or
-Neovim." />
+<meta property="og:title" content="Why You Should Learn to Use Snippets in Vim/Neovim" />
+<meta property="og:description" content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
+you need to ask yourself if there is a better way to do it." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/" />
-<meta property="article:published_time" content="2020-05-22T20:48:26+08:00" />
-<meta property="article:modified_time" content="2020-05-22T20:51:50+08:00" />
-<meta itemprop="name" content="Highlight Yanked Region in Nvim/Vim">
-<meta itemprop="description" content="In Vim or Neovim, showing the yanked region in color gives use visual feedback
-on what we have copied. Here is how you can highlight yanked region in Vim or
-Neovim.">
-<meta itemprop="datePublished" content="2020-05-22T20:48:26&#43;08:00" />
-<meta itemprop="dateModified" content="2020-05-22T20:51:50&#43;08:00" />
-<meta itemprop="wordCount" content="154">
+<meta property="og:url" content="https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/" />
+<meta property="article:published_time" content="2020-05-27T22:46:19+08:00" />
+<meta property="article:modified_time" content="2020-05-28T00:23:17+08:00" />
+<meta itemprop="name" content="Why You Should Learn to Use Snippets in Vim/Neovim">
+<meta itemprop="description" content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
+you need to ask yourself if there is a better way to do it.">
+<meta itemprop="datePublished" content="2020-05-27T22:46:19&#43;08:00" />
+<meta itemprop="dateModified" content="2020-05-28T00:23:17&#43;08:00" />
+<meta itemprop="wordCount" content="532">
 
 
 
-<meta itemprop="keywords" content="Vim," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Highlight Yanked Region in Nvim/Vim"/>
-<meta name="twitter:description" content="In Vim or Neovim, showing the yanked region in color gives use visual feedback
-on what we have copied. Here is how you can highlight yanked region in Vim or
-Neovim."/>
+<meta itemprop="keywords" content="snippet,Vim," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Why You Should Learn to Use Snippets in Vim/Neovim"/>
+<meta name="twitter:description" content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
+you need to ask yourself if there is a better way to do it."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -136,15 +133,15 @@ Neovim."/>
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Highlight Yanked Region in Nvim/Vim</h1>
+      <h1 class="post-title">Why You Should Learn to Use Snippets in Vim/Neovim</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2020-05-22 </span>
+        <span class="post-time"> 2020-05-27 </span>
         <div class="post-category">
             <a href="/categories/Nvim/"> Nvim </a>
             </div>
-          <span class="more-meta"> 154 words </span>
-          <span class="more-meta"> 1 min read </span>
+          <span class="more-meta"> 532 words </span>
+          <span class="more-meta"> 3 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -154,37 +151,98 @@ Neovim."/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#for-neovim-and-vim">For Neovim and vim</a></li>
-    <li><a href="#neovim-only">Neovim only</a></li>
+    <li><a href="#generate-debian-change-log-file-signature">Generate debian change log file signature</a></li>
+    <li><a href="#generate-main-function-template-for-python">Generate main function template for Python</a></li>
+    <li><a href="#insert-center-aligned-image-in-markdown">Insert center-aligned image in Markdown</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p>In Vim or Neovim, showing the yanked region in color gives use visual feedback
-on what we have copied. Here is how you can highlight yanked region in Vim or
-Neovim.</p>
-<h1 id="for-neovim-and-vim">For Neovim and vim</h1>
-<p>There is a plugin
-<a href="https://github.com/machakann/vim-highlightedyank">vim-highlightedyank</a> for
-this, which works both for vim and Neovim. Install it with your favorite plugin
-manager and it just works. You can also adjust highlight duration by adding the
-following config:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="c">&#34; set highlight to 1000 ms</span><span class="err">
-</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">highlightedyank_highlight_duration</span> <span class="p">=</span> <span class="m">1000</span><span class="err">
-</span></code></pre></div><h1 id="neovim-only">Neovim only</h1>
-<p>If you are using the <a href="https://github.com/neovim/neovim/releases/tag/nightly">latest
-version</a> of Neovim. They
-have make this little feature builtin in <a href="https://github.com/neovim/neovim/pull/12279">this pull request</a>.</p>
-<p>Install the latest version of Neovim and add the following config to your
-<code>init.vim</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">augroup</span> <span class="nx">highlight_yank</span><span class="err">
-</span><span class="err"></span>    <span class="nx">autocmd</span><span class="p">!</span><span class="err">
-</span><span class="err"></span>    <span class="nx">autocmd</span> <span class="nx">TextYankPost</span> * <span class="nx">silent</span><span class="p">!</span> <span class="nx">lua</span> <span class="nx">require</span><span class="s1">&#39;vim.highlight&#39;</span>.<span class="nx">on_yank</span><span class="p">(</span><span class="s2">&#34;IncSearch&#34;</span><span class="p">,</span> <span class="m">1000</span><span class="p">)</span><span class="err">
-</span><span class="err"></span><span class="nx">augroup</span> <span class="nx">END</span><span class="err">
-</span></code></pre></div><p>The first parameter is the highlight group to use, and the second parameter is
-the highlight duration time measured in milliseconds.</p>
-<p>Enjoy it. One more plugin to remove :)</p>
+      <p>If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
+you need to ask yourself if there is a better way to do it.</p>
+<p>Snippet is a good way to insert structured text: you just need to type the
+trigger word and press the trigger key, then you have the whole text ready for
+you to edit. For example, when I am writing my blog post, I use <code>meta</code> as the
+trigger to generate the post front matter info.</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20200527234607.gif" width="800">
+</p>
+<p><a href="https://github.com/SirVer/ultisnips">Ultisnips</a> is a good tool to automate
+text insertion, an it can increase your efficiency dramatically. For how to
+configure ultisnips for Neovim, refer to <a href="https://jdhao.github.io/2019/04/17/neovim_snippet_s1/">this
+post</a>. In the following,
+I would like to show several cases of using snippet to improve your efficiency.</p>
+<h1 id="generate-debian-change-log-file-signature">Generate debian change log file signature</h1>
+<p>I saw <a href="https://vi.stackexchange.com/q/25550/15292">a post on stackExchange</a>
+that some one want to insert <a href="https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#changelog">debian change file</a>
+signature of the format:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- Alexis Wilke &lt;alexis@example.com&gt;  Tue, 26 May 2020 18:00:09 -0800
+</code></pre></div><p>Each time when he writes this signature, only the date changes. The date is
+also in standard format. This is good case to show how we can save our time
+with snippet.</p>
+<p>We need create a file named <code>debchangelog.snippets</code> in our custom snippet
+directory and add the following snippet into it:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">snippet debsig &#34;debian change log signature&#34; w
+-- Alexis Wilke &lt;alexis@example.com&gt;  `!v strftime(&#39;%a, %d %b %Y %X %z&#39;)`
+endsnippet
+</code></pre></div><p>The backticked text use the interpolation feature of Ultisnips. <code>!v</code> means to
+use Vim language interpolation, and it should be followed by valid Vim script
+expressions, like the one given above.</p>
+<p>After adding this snippet, when you open a debian changelog file<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, type
+<code>debsig</code> and press the trigger key, it will be expanded to the signature
+automatically.</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20200527233636.gif" width="600">
+</p>
+<h1 id="generate-main-function-template-for-python">Generate main function template for Python</h1>
+<p>If a Python module can be imported and run as standard alone script, it is often
+a good practice to use the following template:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># the main function logic here</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div><p>It is cumbersome and time-wasting to type this every time we create a file.
+Let&rsquo;s create a snippet for it. In the file <code>python.snippet</code> under your custom
+snippet directory, add the following snippet:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">snippet main &#34;Main function boilerplate&#34; b
+def main():
+    $0
+
+
+if __name__ == &#34;__main__&#34;:
+    main()
+endsnippet
+</code></pre></div><p>When you create a Python source file, type <code>main</code> and press trigger, the file
+template will be created automatically for you.</p>
+<h1 id="insert-center-aligned-image-in-markdown">Insert center-aligned image in Markdown</h1>
+<p>The default Markdown syntax for image can not align the image or set the image
+display size. We can use the raw HTML tag to achieve this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">align</span><span class="o">=</span><span class="s">&#34;center&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;image_url&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;800&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div><p>To avoid typing these HTML tags every time, we can add the following image
+snippet to the file <code>markdown.snippet</code> under our custom snippet directory:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">snippet img &#34;Aligned image using HTML tag&#34;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;${1:URL}&#34; width=&#34;${2:800}&#34;&gt;
+&lt;/p&gt;
+$0
+endsnippet
+</code></pre></div><p>Then we can use <code>img</code> to trigger the image snippet. You can then press the
+forward jump and backward jump shortcut for Ultisnips to jump back and forth
+between the predefined stop positions to insert URL and adjust the image
+display size.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Make sure that the filetype is <code>debchangelog</code>, otherwise set the filetype to <code>debchangelog</code> manually. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
     </div>
 
     <div class="post-copyright">
@@ -195,7 +253,7 @@ the highlight duration time measured in milliseconds.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-05-22
+        2020-05-28
         
     </span>
   </p>
@@ -221,16 +279,13 @@ the highlight duration time measured in milliseconds.</p>
   </div>
 </div><footer class="post-footer">
       <div class="post-tags">
+          <a href="/tags/snippet/">snippet</a>
           <a href="/tags/Vim/">Vim</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/2020/05/27/why_you_should_use_snippets_in_vim/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Why You Should Learn to Use Snippets in Vim/Neovim</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2020/05/22/the_AI_hype/">
-            <span class="next-text nav-default">AI 的噱头</span>
+        
+        <a class="next" href="/2020/05/22/highlight_yank_region_nvim/">
+            <span class="next-text nav-default">Highlight Yanked Region in Nvim/Vim</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Sun, 05 Jan 2020 18:52:03 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2020 22:46:19 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/snippet/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Why You Should Learn to Use Snippets in Vim/Neovim</title>
+      <link>https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/</link>
+      <pubDate>Wed, 27 May 2020 22:46:19 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/</guid>
+      <description>&lt;p&gt;If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
+you need to ask yourself if there is a better way to do it.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Regex Keyword and Python Interpolation in Ultisnips</title>
@@ -44,11 +54,12 @@ date, tags, categories, etc.&lt;/p&gt;</description>
       <pubDate>Wed, 17 Apr 2019 00:28:45 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/04/17/neovim_snippet_s1/</guid>
-      <description>&lt;p&gt;If you have used Sublime Text before, you may be familiar with the
-&lt;a href=&#34;http://sublimetext.info/docs/en/extensibility/snippets.html&#34;&gt;snippet&lt;/a&gt;
-function. Snippets let us type a trigger word and expand it to some boilerplate
-code or string that we do not want to repeat typing. We will increase our
-efficiency dramatically with the help of snippets.&lt;/p&gt;</description>
+      <description>&lt;p&gt;If you have used Sublime Text before, you may be familiar with its
+&lt;a href=&#34;http://sublimetext.info/docs/en/extensibility/snippets.html&#34;&gt;snippet&lt;/a&gt; feature.
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Snippet_(programming)&#34;&gt;Snippets&lt;/a&gt; let us type a
+trigger word and expand it to some boilerplate code or texts that we do not
+want to repeat typing. We will increase our efficiency dramatically with the
+help of snippets.&lt;/p&gt;</description>
     </item>
     
     <item>
