@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Fri, 22 May 2020 00:40:58 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2020 22:44:14 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/categories/Note/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Markdown Writing Tricks</title>
+      <link>https://jdhao.github.io/2020/06/01/markdown_writing_tricks/</link>
+      <pubDate>Mon, 01 Jun 2020 22:44:14 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/06/01/markdown_writing_tricks/</guid>
+      <description>&lt;p&gt;Some of the tricks when writing Markdown files.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Justmysocks 支持 v2ray 协议了！</title>

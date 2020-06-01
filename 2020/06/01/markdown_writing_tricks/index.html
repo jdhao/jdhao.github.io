@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Why You Should Use Snippets in Vim/Neovim - jdhao&#39;s blog</title>
+  <title>Markdown Writing Tricks - jdhao&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim, you need to ask yourself if there is a better way to do it.
+<meta name="author" content="jdhao" /><meta name="description" content="Some of the tricks when writing Markdown files.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -27,7 +27,7 @@
 <meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
-<link rel="canonical" href="https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/" />
+<link rel="canonical" href="https://jdhao.github.io/2020/06/01/markdown_writing_tricks/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -47,26 +47,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Why You Should Use Snippets in Vim/Neovim" />
-<meta property="og:description" content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
-you need to ask yourself if there is a better way to do it." />
+<meta property="og:title" content="Markdown Writing Tricks" />
+<meta property="og:description" content="Some of the tricks when writing Markdown files." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/" />
-<meta property="article:published_time" content="2020-05-27T22:46:19+08:00" />
-<meta property="article:modified_time" content="2020-05-28T22:27:44+08:00" />
-<meta itemprop="name" content="Why You Should Use Snippets in Vim/Neovim">
-<meta itemprop="description" content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
-you need to ask yourself if there is a better way to do it.">
-<meta itemprop="datePublished" content="2020-05-27T22:46:19&#43;08:00" />
-<meta itemprop="dateModified" content="2020-05-28T22:27:44&#43;08:00" />
-<meta itemprop="wordCount" content="532">
+<meta property="og:url" content="https://jdhao.github.io/2020/06/01/markdown_writing_tricks/" />
+<meta property="article:published_time" content="2020-06-01T22:44:14+08:00" />
+<meta property="article:modified_time" content="2020-06-02T00:10:44+08:00" />
+<meta itemprop="name" content="Markdown Writing Tricks">
+<meta itemprop="description" content="Some of the tricks when writing Markdown files.">
+<meta itemprop="datePublished" content="2020-06-01T22:44:14&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-02T00:10:44&#43;08:00" />
+<meta itemprop="wordCount" content="257">
 
 
 
-<meta itemprop="keywords" content="snippet,Vim," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Why You Should Use Snippets in Vim/Neovim"/>
-<meta name="twitter:description" content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
-you need to ask yourself if there is a better way to do it."/>
+<meta itemprop="keywords" content="Markdown," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Markdown Writing Tricks"/>
+<meta name="twitter:description" content="Some of the tricks when writing Markdown files."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -133,15 +130,15 @@ you need to ask yourself if there is a better way to do it."/>
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Why You Should Use Snippets in Vim/Neovim</h1>
+      <h1 class="post-title">Markdown Writing Tricks</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2020-05-27 </span>
+        <span class="post-time"> 2020-06-01 </span>
         <div class="post-category">
-            <a href="/categories/Nvim/"> Nvim </a>
+            <a href="/categories/Note/"> Note </a>
             </div>
-          <span class="more-meta"> 532 words </span>
-          <span class="more-meta"> 3 mins read </span>
+          <span class="more-meta"> 257 words </span>
+          <span class="more-meta"> 2 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -151,98 +148,71 @@ you need to ask yourself if there is a better way to do it."/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#generate-debian-change-log-file-signature">Generate debian change log file signature</a></li>
-    <li><a href="#generate-main-function-template-for-python">Generate main function template for Python</a></li>
-    <li><a href="#insert-center-aligned-image-in-markdown">Insert center-aligned image in Markdown</a></li>
+    <li><a href="#a-namecolor_textahow-to-color-text"><a name="color_text"></a>How to color text?</a></li>
+    <li><a href="#how-to-center-align-image-and-set-image-size">How to center align image and set image size</a></li>
+    <li><a href="#create-collapsible-content">Create collapsible content</a></li>
+    <li><a href="#create-anchor-for-text">Create anchor for text</a></li>
+    <li><a href="#references-">References</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p>If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
-you need to ask yourself if there is a better way to do it.</p>
-<p>Snippet is a good way to insert structured text: you just need to type the
-trigger word and press the trigger key, then you have the whole text ready for
-you to edit. For example, when I am writing my blog post, I use <code>meta</code> as the
-trigger to generate the post front matter info.</p>
-<p align="center">
-<img src="https://blog-resource-1257868508.file.myqcloud.com/20200527234607.gif" width="600">
-</p>
-<p><a href="https://github.com/SirVer/ultisnips">Ultisnips</a> is a good tool to automate
-text insertion, an it can increase your efficiency dramatically. For how to
-configure ultisnips for Neovim, refer to <a href="https://jdhao.github.io/2019/04/17/neovim_snippet_s1/">this
-post</a>. In the following,
-I would like to show several cases of using snippet to improve my efficiency.</p>
-<h1 id="generate-debian-change-log-file-signature">Generate debian change log file signature</h1>
-<p>I saw <a href="https://vi.stackexchange.com/q/25550/15292">a post on stackExchange</a>
-that some one want to insert <a href="https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#changelog">debian change file</a>
-signature of the format:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- Alexis Wilke &lt;alexis@example.com&gt;  Tue, 26 May 2020 18:00:09 -0800
-</code></pre></div><p>Each time when he writes this signature, only the date changes. The date is
-also in standard format. This is good case to show how we can save our time
-with snippet.</p>
-<p>We need create a file named <code>debchangelog.snippets</code> in our custom snippet
-directory and add the following snippet into it:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">snippet debsig &#34;debian change log signature&#34; w
--- Alexis Wilke &lt;alexis@example.com&gt;  `!v strftime(&#39;%a, %d %b %Y %X %z&#39;)`
-endsnippet
-</code></pre></div><p>The backticked text use the interpolation feature of Ultisnips. <code>!v</code> means to
-use Vim language interpolation, and it should be followed by valid Vim script
-expressions, like the one given above.</p>
-<p>After adding this snippet, when you open a debian changelog file<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, type
-<code>debsig</code> and press the trigger key, it will be expanded to the signature
-automatically.</p>
-<p align="center">
-<img src="https://blog-resource-1257868508.file.myqcloud.com/20200527233636.gif" width="600">
-</p>
-<h1 id="generate-main-function-template-for-python">Generate main function template for Python</h1>
-<p>If a Python module can be imported and run as standard alone script, it is often
-a good practice to use the following template:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="c1"># the main function logic here</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
-</code></pre></div><p>It is cumbersome and time-wasting to type this every time we create a file.
-Let&rsquo;s create a snippet for it. In the file <code>python.snippet</code> under your custom
-snippet directory, add the following snippet:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">snippet main &#34;Main function boilerplate&#34; b
-def main():
-    $0
-
-
-if __name__ == &#34;__main__&#34;:
-    main()
-endsnippet
-</code></pre></div><p>When you create a Python source file, type <code>main</code> and press trigger, the file
-template will be created automatically for you.</p>
-<h1 id="insert-center-aligned-image-in-markdown">Insert center-aligned image in Markdown</h1>
-<p>The default Markdown syntax for image can not align the image or set the image
-display size. We can use the raw HTML tag to achieve this:</p>
+      <p>Some of the tricks when writing Markdown files.</p>
+<h1 id="a-namecolor_textahow-to-color-text"><a name="color_text"></a>How to color text?</h1>
+<p>To color some text, we can use the <a href="https://www.w3schools.com/tags/tag_font.asp">font
+tag</a>, which is deprecated in HTML5.</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">font</span> <span class="na">color</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">&gt;</span>red text<span class="p">&lt;/</span><span class="nt">font</span><span class="p">&gt;</span>
+</code></pre></div><p>We can also use the <a href="https://www.w3schools.com/tags/tag_span.asp">span tag</a>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;color:blue&#34;</span><span class="p">&gt;</span>this is blue text<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>.
+</code></pre></div><p>To color entire paragraph, the <a href="https://www.w3schools.com/tags/tag_p.asp">p tag</a> can
+be used:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;color:red&#34;</span><span class="p">&gt;</span>This is a paragraph.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div><h1 id="how-to-center-align-image-and-set-image-size">How to center align image and set image size</h1>
+<p>To center align image and set image size, we can combine the p tag and <a href="https://www.w3schools.com/tags/tag_img.asp">img tag</a>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">align</span><span class="o">=</span><span class="s">&#34;center&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;image_url&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;800&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;URL&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;800&#34;</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></div><p>To avoid typing these HTML tags every time, we can add the following image
-snippet to the file <code>markdown.snippet</code> under our custom snippet directory:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">snippet img &#34;Aligned image using HTML tag&#34;
-&lt;p align=&#34;center&#34;&gt;
-&lt;img src=&#34;${1:URL}&#34; width=&#34;${2:800}&#34;&gt;
-&lt;/p&gt;
-$0
-endsnippet
-</code></pre></div><p>Then we can use <code>img</code> to trigger the image snippet. You can then press the
-forward jump and backward jump shortcut for Ultisnips to jump back and forth
-between the predefined stop positions to insert URL and adjust the image
-display size.</p>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p>Make sure that the filetype is <code>debchangelog</code>, otherwise set the filetype to <code>debchangelog</code> manually. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
+</code></pre></div><p>The above HTML code will center the image and also set its width to 800 pixels.</p>
+<h1 id="create-collapsible-content">Create collapsible content</h1>
+<p>Sometimes, it is handy to create some collapsible content to make the post
+concise. Like what is shown below.</p>
+<details>
+<summary><font size="2" color="red">Click to show the code.</font></summary>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">import random
+
+nums = list(range(100))
+print(random.choices(nums, k=10))
+</code></pre></div></details>
+<p>We can use the <a href="https://www.w3schools.com/tags/tag_details.asp">detail tag</a> to
+achieve this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;details&gt;
+&lt;summary&gt;&lt;font size=&#34;2&#34; color=&#34;red&#34;&gt;Click to show the code.&lt;/font&gt;&lt;/summary&gt;
+
+```
+import random
+
+nums = list(range(100))
+print(random.choices(nums, k=10))
+```
+&lt;/details&gt;
+</code></pre></div><h1 id="create-anchor-for-text">Create anchor for text</h1>
+<p>Sometimes, we want to anchor a position in the post so that when the reader
+click its reference, they will be brought to the referred position. This can be
+achieved by using <a href="https://www.w3schools.com/tags/tag_a.asp">anchor tag</a>. For
+example, click <a href="#color_text">here</a> to go to first section.</p>
+<p>The code to achieve this is:</p>
+<div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="gh"># &lt;a name=&#34;color_text&#34;&gt;&lt;/a&gt;How to color text?
+</span><span class="gh"></span>
+click [<span class="nt">here</span>](<span class="na">#color_text</span>) to go to first section.
+</code></pre></div><p>This works both for Markdown headers and normal text.</p>
+<h1 id="references-">References</h1>
+<ul>
+<li><a href="https://stackoverflow.com/q/35465557/6064933">Apply color in Markdown</a>.</li>
+<li><a href="https://stackoverflow.com/a/12118349/6064933">Center align image</a>.</li>
+<li><a href="https://stackoverflow.com/a/7015050/6064933">Anchored text in Markdown</a>.</li>
+<li><a href="https://gist.github.com/pierrejoubert73/902cc94d79424356a8d20be2b382e1ab">Collapsible content in Markdown</a>.</li>
+</ul>
     </div>
 
     <div class="post-copyright">
@@ -253,7 +223,7 @@ display size.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-05-28
+        2020-06-02
         
     </span>
   </p>
@@ -279,17 +249,12 @@ display size.</p>
   </div>
 </div><footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/snippet/">snippet</a>
-          <a href="/tags/Vim/">Vim</a>
+          <a href="/tags/Markdown/">Markdown</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/2020/06/01/markdown_writing_tricks/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Markdown Writing Tricks</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2020/05/22/highlight_yank_region_nvim/">
-            <span class="next-text nav-default">Highlight Yanked Region in Nvim/Vim</span>
+        
+        <a class="next" href="/2020/05/27/why_you_should_use_snippets_in_vim/">
+            <span class="next-text nav-default">Why You Should Use Snippets in Vim/Neovim</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

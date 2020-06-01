@@ -10,7 +10,42 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-06-01T22:23:38+08:00</lastmod>
+    <lastmod>2020-06-02T00:10:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/Markdown/</loc>
+    <lastmod>2020-06-02T00:10:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/2020/06/01/markdown_writing_tricks/</loc>
+    <lastmod>2020-06-02T00:10:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/Note/</loc>
+    <lastmod>2020-06-02T00:10:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/post/</loc>
+    <lastmod>2020-06-02T00:10:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/</loc>
+    <lastmod>2020-06-02T00:10:44+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -23,22 +58,8 @@
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-06-01T22:23:38+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://jdhao.github.io/tags/snippet/</loc>
     <lastmod>2020-05-28T22:27:44+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-06-01T22:23:38+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -80,13 +101,6 @@
   
   <url>
     <loc>https://jdhao.github.io/2020/05/22/v2ray_justmysocks/</loc>
-    <lastmod>2020-05-28T22:48:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/categories/Note/</loc>
     <lastmod>2020-05-28T22:48:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -199,7 +213,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/technique/</loc>
-    <lastmod>2020-05-19T23:07:18+08:00</lastmod>
+    <lastmod>2020-06-01T23:56:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -555,13 +569,6 @@
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/tags/Markdown/</loc>
-    <lastmod>2020-05-25T23:04:01+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://jdhao.github.io/2020/01/19/hugo_toc_header_missing/</loc>
     <lastmod>2020-03-16T10:38:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -829,7 +836,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Regex/</loc>
-    <lastmod>2020-03-30T22:15:48+08:00</lastmod>
+    <lastmod>2020-06-01T23:56:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1200,7 +1207,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Sublime-Text/</loc>
-    <lastmod>2020-05-19T23:07:18+08:00</lastmod>
+    <lastmod>2020-06-01T23:56:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1347,7 +1354,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2019/02/28/sublime_text_regex_cheat_sheet/</loc>
-    <lastmod>2020-03-21T00:00:00+08:00</lastmod>
+    <lastmod>2020-06-01T23:56:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
