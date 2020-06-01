@@ -52,12 +52,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2020/06/01/markdown_writing_tricks/" />
 <meta property="article:published_time" content="2020-06-01T22:44:14+08:00" />
-<meta property="article:modified_time" content="2020-06-02T00:10:44+08:00" />
+<meta property="article:modified_time" content="2020-06-02T00:24:55+08:00" />
 <meta itemprop="name" content="Markdown Writing Tricks">
 <meta itemprop="description" content="Some of the tricks when writing Markdown files.">
 <meta itemprop="datePublished" content="2020-06-01T22:44:14&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-02T00:10:44&#43;08:00" />
-<meta itemprop="wordCount" content="257">
+<meta itemprop="dateModified" content="2020-06-02T00:24:55&#43;08:00" />
+<meta itemprop="wordCount" content="298">
 
 
 
@@ -137,7 +137,7 @@
         <div class="post-category">
             <a href="/categories/Note/"> Note </a>
             </div>
-          <span class="more-meta"> 257 words </span>
+          <span class="more-meta"> 298 words </span>
           <span class="more-meta"> 2 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -148,7 +148,7 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#a-namecolor_textahow-to-color-text"><a name="color_text"></a>How to color text?</a></li>
+    <li><a href="#how-to-color-text">How to color text</a></li>
     <li><a href="#how-to-center-align-image-and-set-image-size">How to center align image and set image size</a></li>
     <li><a href="#create-collapsible-content">Create collapsible content</a></li>
     <li><a href="#create-anchor-for-text">Create anchor for text</a></li>
@@ -159,9 +159,10 @@
 </div>
     <div class="post-content">
       <p>Some of the tricks when writing Markdown files.</p>
-<h1 id="a-namecolor_textahow-to-color-text"><a name="color_text"></a>How to color text?</h1>
-<p>To color some text, we can use the <a href="https://www.w3schools.com/tags/tag_font.asp">font
-tag</a>, which is deprecated in HTML5.</p>
+<h1 id="how-to-color-text">How to color text</h1>
+<p><a name="color_text"></a> To color some text, we can use the <a href="https://www.w3schools.com/tags/tag_font.asp">font
+tag</a>, which is deprecated in
+HTML5.</p>
 <div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">font</span> <span class="na">color</span><span class="o">=</span><span class="s">&#34;red&#34;</span><span class="p">&gt;</span>red text<span class="p">&lt;/</span><span class="nt">font</span><span class="p">&gt;</span>
 </code></pre></div><p>We can also use the <a href="https://www.w3schools.com/tags/tag_span.asp">span tag</a>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;color:blue&#34;</span><span class="p">&gt;</span>this is blue text<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>.
@@ -205,7 +206,10 @@ example, click <a href="#color_text">here</a> to go to first section.</p>
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="gh"># &lt;a name=&#34;color_text&#34;&gt;&lt;/a&gt;How to color text?
 </span><span class="gh"></span>
 click [<span class="nt">here</span>](<span class="na">#color_text</span>) to go to first section.
-</code></pre></div><p>This works both for Markdown headers and normal text.</p>
+</code></pre></div><p>This works both for Markdown headers and normal text in some Markdown flavor.</p>
+<p>For some Markdown variant, to go to a header, remove all punctuations in the
+header title and turn all text in header to lowever case and replace space with
+<code>-</code>, click <a href="#how-to-color-text">here</a> to go to section 1.</p>
 <h1 id="references-">References</h1>
 <ul>
 <li><a href="https://stackoverflow.com/q/35465557/6064933">Apply color in Markdown</a>.</li>
