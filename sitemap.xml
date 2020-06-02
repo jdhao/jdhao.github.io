@@ -10,7 +10,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-06-02T00:24:55+08:00</lastmod>
+    <lastmod>2020-06-02T22:45:06+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,14 +38,14 @@
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-06-02T00:24:55+08:00</lastmod>
+    <lastmod>2020-06-02T22:45:06+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-06-02T00:24:55+08:00</lastmod>
+    <lastmod>2020-06-02T22:45:06+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -206,7 +206,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/Linux/</loc>
-    <lastmod>2020-05-05T17:45:59+08:00</lastmod>
+    <lastmod>2020-06-02T22:45:06+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1431,7 +1431,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Tmux/</loc>
-    <lastmod>2020-03-30T00:02:25+08:00</lastmod>
+    <lastmod>2020-06-02T22:45:06+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1669,7 +1669,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2018/10/16/tmux_build_without_root_priviledge/</loc>
-    <lastmod>2019-04-20T19:08:24+08:00</lastmod>
+    <lastmod>2020-06-02T22:45:06+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
