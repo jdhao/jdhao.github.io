@@ -10,7 +10,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-06-02T22:59:09+08:00</lastmod>
+    <lastmod>2020-06-03T23:24:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,14 +38,14 @@
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-06-02T22:59:09+08:00</lastmod>
+    <lastmod>2020-06-03T23:24:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-06-02T22:45:06+08:00</lastmod>
+    <lastmod>2020-06-03T23:24:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -255,7 +255,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/Python/</loc>
-    <lastmod>2020-05-17T19:03:10+08:00</lastmod>
+    <lastmod>2020-06-03T23:24:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -360,21 +360,21 @@
   
   <url>
     <loc>https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/</loc>
-    <lastmod>2020-03-17T23:39:57+08:00</lastmod>
+    <lastmod>2020-06-03T23:21:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/OpenCV/</loc>
-    <lastmod>2020-05-17T19:03:10+08:00</lastmod>
+    <lastmod>2020-06-03T23:24:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/PIL/</loc>
-    <lastmod>2020-04-01T01:43:36+08:00</lastmod>
+    <lastmod>2020-06-03T23:24:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1144,7 +1144,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2019/07/06/python_opencv_pil_image_to_bytes/</loc>
-    <lastmod>2020-03-16T12:20:28+08:00</lastmod>
+    <lastmod>2020-06-03T23:24:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
