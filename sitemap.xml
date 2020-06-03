@@ -10,7 +10,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-06-03T23:24:04+08:00</lastmod>
+    <lastmod>2020-06-03T23:45:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,7 +38,7 @@
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-06-03T23:24:04+08:00</lastmod>
+    <lastmod>2020-06-03T23:45:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -542,7 +542,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/tools/</loc>
-    <lastmod>2020-06-01T22:23:38+08:00</lastmod>
+    <lastmod>2020-06-03T23:45:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1171,15 +1171,8 @@
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/tags/keyboard/</loc>
-    <lastmod>2020-03-11T23:28:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://jdhao.github.io/2019/06/10/mechanical_keyboard_try/</loc>
-    <lastmod>2020-03-11T23:28:07+08:00</lastmod>
+    <lastmod>2020-06-03T23:45:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
