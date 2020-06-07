@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Mon, 01 Jun 2020 22:44:14 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jun 2020 20:02:18 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python</title>
+      <link>https://jdhao.github.io/categories/Python/</link>
+      <pubDate>Sun, 07 Jun 2020 20:02:18 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/categories/Python/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Note</title>
@@ -63,15 +72,6 @@
       <pubDate>Sun, 26 Apr 2020 22:44:37 +0800</pubDate>
       
       <guid>https://jdhao.github.io/categories/technique/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>https://jdhao.github.io/categories/Python/</link>
-      <pubDate>Fri, 24 Apr 2020 01:12:43 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/categories/Python/</guid>
       <description></description>
     </item>
     

@@ -23,6 +23,16 @@ I enjoy programming. I am most familiar with Python and fairly proficient in usi
     </item>
     
     <item>
+      <title>How to Use Asyncio in Flask Applications</title>
+      <link>https://jdhao.github.io/2020/06/07/asyncio_inside_flask/</link>
+      <pubDate>Sun, 07 Jun 2020 20:02:18 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/06/07/asyncio_inside_flask/</guid>
+      <description>&lt;p&gt;I was using asyncio inside a view function for Flask to run some asynchronous
+function and met an error.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Markdown Writing Tricks</title>
       <link>https://jdhao.github.io/2020/06/01/markdown_writing_tricks/</link>
       <pubDate>Mon, 01 Jun 2020 22:44:14 +0800</pubDate>

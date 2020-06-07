@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Mon, 13 Apr 2020 22:29:23 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jun 2020 20:02:18 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/Flask/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to Use Asyncio in Flask Applications</title>
+      <link>https://jdhao.github.io/2020/06/07/asyncio_inside_flask/</link>
+      <pubDate>Sun, 07 Jun 2020 20:02:18 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/06/07/asyncio_inside_flask/</guid>
+      <description>&lt;p&gt;I was using asyncio inside a view function for Flask to run some asynchronous
+function and met an error.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Build Web API with Flask --- Work with JSON-like Dict</title>
