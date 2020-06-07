@@ -10,7 +10,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-06-07T19:56:52+08:00</lastmod>
+    <lastmod>2020-06-07T19:59:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,14 +38,14 @@
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-06-07T19:56:52+08:00</lastmod>
+    <lastmod>2020-06-07T19:59:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-06-07T19:56:52+08:00</lastmod>
+    <lastmod>2020-06-07T19:59:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -255,7 +255,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/Python/</loc>
-    <lastmod>2020-06-07T19:56:52+08:00</lastmod>
+    <lastmod>2020-06-07T19:59:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -304,21 +304,21 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Flask/</loc>
-    <lastmod>2020-06-07T19:56:52+08:00</lastmod>
+    <lastmod>2020-06-07T19:59:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/HTTP/</loc>
-    <lastmod>2020-06-07T19:56:52+08:00</lastmod>
+    <lastmod>2020-06-07T19:59:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/request/</loc>
-    <lastmod>2020-06-07T19:56:52+08:00</lastmod>
+    <lastmod>2020-06-07T19:59:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -332,7 +332,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2020/04/06/build_webapi_with_flask_s1/</loc>
-    <lastmod>2020-06-07T19:56:52+08:00</lastmod>
+    <lastmod>2020-06-07T19:59:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

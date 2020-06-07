@@ -56,7 +56,7 @@ with the help of Flask." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2020/04/06/build_webapi_with_flask_s1/" />
 <meta property="article:published_time" content="2020-04-06T22:05:07+08:00" />
-<meta property="article:modified_time" content="2020-06-07T19:56:52+08:00" />
+<meta property="article:modified_time" content="2020-06-07T19:59:57+08:00" />
 <meta itemprop="name" content="Build A Web API Service Using Flask -- The Basics">
 <meta itemprop="description" content="Web API is a kind of web application. Simply put, web APIs are built for other
 applications to query info from the web server. For Python,
@@ -64,8 +64,8 @@ Flask package can be used to
 build web applications. In this post, I want to share how to build web APIs
 with the help of Flask.">
 <meta itemprop="datePublished" content="2020-04-06T22:05:07&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-07T19:56:52&#43;08:00" />
-<meta itemprop="wordCount" content="957">
+<meta itemprop="dateModified" content="2020-06-07T19:59:57&#43;08:00" />
+<meta itemprop="wordCount" content="978">
 
 
 
@@ -149,7 +149,7 @@ with the help of Flask."/>
         <div class="post-category">
             <a href="/categories/Python/"> Python </a>
             </div>
-          <span class="more-meta"> 957 words </span>
+          <span class="more-meta"> 978 words </span>
           <span class="more-meta"> 5 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -195,13 +195,16 @@ root a number, the following code shows how to do that:</p>
     <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">),</span> <span class="s1">&#39;msg&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">})</span>
 </code></pre></div><p>In the above code, we first create a flask application using <code>Flask(__name__)</code>,
 which lets Flask know that we are building an application inside this module.
-We then use the <code>@app.route()</code> decorator to define a URL that we can later use
-to access our web API. The <code>methods</code> parameter is used to specify what kinds
-of <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">HTTP requests</a>
-the server can accept from the client.</p>
-<p>Below the app decorator, we define a <a href="https://stackoverflow.com/q/46254054/6064933">view function</a>
-to process the client request, the actual name of this view function does not
-matter.</p>
+We then use the <code>@app.route()</code> decorator to define a URL path that we can later
+use to access our web API. The <code>methods</code> parameter is used to specify what
+kinds of <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">HTTP
+requests</a> the server
+can accept from the client.</p>
+<p>Below the app decorator, we define a <a href="https://stackoverflow.com/q/46254054/6064933">view
+function</a> to process the client
+request, the actual name of this view function does not matter. The view
+function name does not have be the same as <code>app.route</code> path (ref
+<a href="https://stackoverflow.com/q/55103067/6064933">here</a>).</p>
 <p>To process the client requests in the server side, Flask provides the <code>request</code>
 module to handle the requests. When a client is using a <code>POST</code> request, the
 requested data will be available in <code>request.form</code> that is like a Python
@@ -314,6 +317,7 @@ following code:</p>
 </code></pre></div><h1 id="references">References</h1>
 <ul>
 <li><a href="https://flask.palletsprojects.com/en/1.1.x/quickstart/#quickstart">Flask quickstart guide</a>.</li>
+<li><a href="https://stackoverflow.com/q/19261833/6064933">What is endpoint in Flask</a>.</li>
 <li><a href="https://flask.palletsprojects.com/en/1.1.x/server/">Run flask server</a>.</li>
 <li><a href="https://stackoverflow.com/q/41940663/6064933">change host and port</a>.</li>
 <li><a href="https://stackoverflow.com/q/7023052/6064933">configure flask server to be visible across the network</a>.</li>
