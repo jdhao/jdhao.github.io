@@ -52,12 +52,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2020/06/01/markdown_writing_tricks/" />
 <meta property="article:published_time" content="2020-06-01T22:44:14+08:00" />
-<meta property="article:modified_time" content="2020-06-02T00:24:55+08:00" />
+<meta property="article:modified_time" content="2020-06-07T23:54:52+08:00" />
 <meta itemprop="name" content="Markdown Writing Tricks">
 <meta itemprop="description" content="Some of the tricks when writing Markdown files.">
 <meta itemprop="datePublished" content="2020-06-01T22:44:14&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-02T00:24:55&#43;08:00" />
-<meta itemprop="wordCount" content="298">
+<meta itemprop="dateModified" content="2020-06-07T23:54:52&#43;08:00" />
+<meta itemprop="wordCount" content="403">
 
 
 
@@ -137,7 +137,7 @@
         <div class="post-category">
             <a href="/categories/Note/"> Note </a>
             </div>
-          <span class="more-meta"> 298 words </span>
+          <span class="more-meta"> 403 words </span>
           <span class="more-meta"> 2 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -152,6 +152,12 @@
     <li><a href="#how-to-center-align-image-and-set-image-size">How to center align image and set image size</a></li>
     <li><a href="#create-collapsible-content">Create collapsible content</a></li>
     <li><a href="#create-anchor-for-text">Create anchor for text</a></li>
+    <li><a href="#literal-backticks-in-inline-code-or-code-blocks">Literal backticks in inline code or code blocks</a>
+      <ul>
+        <li><a href="#backtick-in-ininlie-code-block">Backtick in ininlie code block</a></li>
+        <li><a href="#how-to-render-three-backticks-in-code-blocks">How to render three backticks in code blocks</a></li>
+      </ul>
+    </li>
     <li><a href="#references-">References</a></li>
   </ul>
 </nav>
@@ -210,12 +216,29 @@ click [<span class="nt">here</span>](<span class="na">#color_text</span>) to go 
 <p>For some Markdown variant, to go to a header, remove all punctuations in the
 header title and turn all text in header to lowever case and replace space with
 <code>-</code>, click <a href="#how-to-color-text">here</a> to go to section 1.</p>
+<h1 id="literal-backticks-in-inline-code-or-code-blocks">Literal backticks in inline code or code blocks</h1>
+<h2 id="backtick-in-ininlie-code-block">Backtick in ininlie code block</h2>
+<p>To use backticks inside inline code blocks, we can use more backticks as the openning
+and closing inline code delimiter. For example, to produce <code>foo`</code>, use the
+following:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">`` foo` ``
+</code></pre></div><h2 id="how-to-render-three-backticks-in-code-blocks">How to render three backticks in code blocks</h2>
+<p>Since the usual delimiter for code block is three backticks, using three
+literal backticks inside the usual three-backtick code block will result in
+rendering problems.</p>
+<p>To fix this problem we can use more backticks as the code block delimiter.</p>
 <h1 id="references-">References</h1>
 <ul>
 <li><a href="https://stackoverflow.com/q/35465557/6064933">Apply color in Markdown</a>.</li>
 <li><a href="https://stackoverflow.com/a/12118349/6064933">Center align image</a>.</li>
 <li><a href="https://stackoverflow.com/a/7015050/6064933">Anchored text in Markdown</a>.</li>
 <li><a href="https://gist.github.com/pierrejoubert73/902cc94d79424356a8d20be2b382e1ab">Collapsible content in Markdown</a>.</li>
+<li>Backticks
+<ul>
+<li><a href="https://meta.stackexchange.com/q/82718/359653">Escape backtick in inline code block</a>.</li>
+<li><a href="https://stackoverflow.com/a/49268657/6064933">Fenced code block inside fenced code block</a>.</li>
+</ul>
+</li>
 </ul>
     </div>
 
@@ -227,7 +250,7 @@ header title and turn all text in header to lowever case and replace space with
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-06-02
+        2020-06-07
         
     </span>
   </p>
