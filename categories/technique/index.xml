@@ -91,15 +91,6 @@ issues when using Zsh.&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Markdown 生成 HTML 时汉字之间多出空格的问题</title>
-      <link>https://jdhao.github.io/2019/05/04/markdown_extra_space/</link>
-      <pubDate>Sat, 04 May 2019 23:26:14 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/05/04/markdown_extra_space/</guid>
-      <description>&lt;p&gt;在过去很长一段时间，我都在&lt;a href=&#34;https://jdhao.github.io/2017/03/04/Sublime-Windows-Markdown/&#34;&gt;使用 Sublime Text 来编辑 Markdown 文件&lt;/a&gt;，Sublime Text有一个非常实用的功能，&lt;a href=&#34;https://stackoverflow.com/q/25900954/6064933&#34;&gt;可以设定 &lt;code&gt;wrap_width&lt;/code&gt;  和 &lt;code&gt;word_wrap&lt;/code&gt; 选项&lt;/a&gt;，自动在设定的 80个字符长度处 softwrap 文本。所以即使一个段落写成一行，编辑起来或者看起来都不违和。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Sublime Text Regular Expression Cheat Sheet</title>
       <link>https://jdhao.github.io/2019/02/28/sublime_text_regex_cheat_sheet/</link>
       <pubDate>Thu, 28 Feb 2019 23:29:44 +0800</pubDate>

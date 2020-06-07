@@ -17,7 +17,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-06-07T20:16:24+08:00</lastmod>
+    <lastmod>2020-06-07T23:35:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,7 +38,7 @@
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-06-07T20:16:24+08:00</lastmod>
+    <lastmod>2020-06-07T23:35:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -52,14 +52,14 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-06-07T20:16:24+08:00</lastmod>
+    <lastmod>2020-06-07T23:35:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/Markdown/</loc>
-    <lastmod>2020-06-02T00:24:55+08:00</lastmod>
+    <lastmod>2020-06-07T23:35:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -395,7 +395,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/Blog/</loc>
-    <lastmod>2020-05-22T00:39:05+08:00</lastmod>
+    <lastmod>2020-06-07T23:35:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -577,7 +577,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Hugo/</loc>
-    <lastmod>2020-05-17T23:43:07+08:00</lastmod>
+    <lastmod>2020-06-07T23:35:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1207,7 +1207,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Pandoc/</loc>
-    <lastmod>2020-03-19T00:36:13+08:00</lastmod>
+    <lastmod>2020-06-07T23:35:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1256,7 +1256,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2019/05/04/markdown_extra_space/</loc>
-    <lastmod>2020-03-19T00:36:13+08:00</lastmod>
+    <lastmod>2020-06-07T23:35:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

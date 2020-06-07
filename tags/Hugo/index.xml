@@ -61,7 +61,7 @@ HTML tags inside markdown file to include images:&lt;/p&gt;
     </item>
     
     <item>
-      <title>Markdown 生成 HTML 时汉字之间多出空格的问题</title>
+      <title>Markdown 生成 HTML 时汉字之间出现多余空格问题</title>
       <link>https://jdhao.github.io/2019/05/04/markdown_extra_space/</link>
       <pubDate>Sat, 04 May 2019 23:26:14 +0800</pubDate>
       

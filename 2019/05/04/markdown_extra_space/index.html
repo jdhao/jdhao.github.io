@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Markdown 生成 HTML 时汉字之间多出空格的问题 - jdhao&#39;s blog</title>
+  <title>Markdown 生成 HTML 时汉字之间出现多余空格问题 - jdhao&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -47,22 +47,22 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Markdown 生成 HTML 时汉字之间多出空格的问题" />
+<meta property="og:title" content="Markdown 生成 HTML 时汉字之间出现多余空格问题" />
 <meta property="og:description" content="在过去很长一段时间，我都在使用 Sublime Text 来编辑 Markdown 文件，Sublime Text有一个非常实用的功能，可以设定 wrap_width  和 word_wrap 选项，自动在设定的 80个字符长度处 softwrap 文本。所以即使一个段落写成一行，编辑起来或者看起来都不违和。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2019/05/04/markdown_extra_space/" />
 <meta property="article:published_time" content="2019-05-04T23:26:14+08:00" />
-<meta property="article:modified_time" content="2020-03-19T00:36:13+08:00" />
-<meta itemprop="name" content="Markdown 生成 HTML 时汉字之间多出空格的问题">
+<meta property="article:modified_time" content="2020-06-07T23:35:00+08:00" />
+<meta itemprop="name" content="Markdown 生成 HTML 时汉字之间出现多余空格问题">
 <meta itemprop="description" content="在过去很长一段时间，我都在使用 Sublime Text 来编辑 Markdown 文件，Sublime Text有一个非常实用的功能，可以设定 wrap_width  和 word_wrap 选项，自动在设定的 80个字符长度处 softwrap 文本。所以即使一个段落写成一行，编辑起来或者看起来都不违和。">
 <meta itemprop="datePublished" content="2019-05-04T23:26:14&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-19T00:36:13&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-07T23:35:00&#43;08:00" />
 <meta itemprop="wordCount" content="743">
 
 
 
 <meta itemprop="keywords" content="Markdown,Pandoc,Hugo," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Markdown 生成 HTML 时汉字之间多出空格的问题"/>
+<meta name="twitter:title" content="Markdown 生成 HTML 时汉字之间出现多余空格问题"/>
 <meta name="twitter:description" content="在过去很长一段时间，我都在使用 Sublime Text 来编辑 Markdown 文件，Sublime Text有一个非常实用的功能，可以设定 wrap_width  和 word_wrap 选项，自动在设定的 80个字符长度处 softwrap 文本。所以即使一个段落写成一行，编辑起来或者看起来都不违和。"/>
 
 <!--[if lte IE 9]>
@@ -130,12 +130,12 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Markdown 生成 HTML 时汉字之间多出空格的问题</h1>
+      <h1 class="post-title">Markdown 生成 HTML 时汉字之间出现多余空格问题</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-05-04 </span>
         <div class="post-category">
-            <a href="/categories/technique/"> technique </a>
+            <a href="/categories/Blog/"> Blog </a>
             </div>
           <span class="more-meta"> 743 words </span>
           <span class="more-meta"> 2 mins read </span>
@@ -159,20 +159,22 @@
     <div class="post-content">
       <p>在过去很长一段时间，我都在<a href="https://jdhao.github.io/2017/03/04/Sublime-Windows-Markdown/">使用 Sublime Text 来编辑 Markdown 文件</a>，Sublime Text有一个非常实用的功能，<a href="https://stackoverflow.com/q/25900954/6064933">可以设定 <code>wrap_width</code>  和 <code>word_wrap</code> 选项</a>，自动在设定的 80个字符长度处 softwrap 文本。所以即使一个段落写成一行，编辑起来或者看起来都不违和。</p>
 <p>最近将 Markdown 编辑器从 Sublime Text 换成 Neovim 以后，由于 Neovim 当前并没有将文本 softwrap 到特定字符宽度的功能，于是我转而使用<a href="https://neovim.io/doc/user/options.html#'textwidth'"><code>textwidth</code></a>选项，强制所有文本在达到 <code>textwidth</code> 以后自动换行。对于英文，这倒没有什么影像，但是对于中文，两行首尾相接位置的字符之间就会莫名其妙地多出一个空格。例如下面的句子</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">你好吗
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">你好吗
 我很好
 </code></pre></div><p>渲染成 HTML 以后，会变成 <code>你好吗 我很好</code>，汉字<code>吗</code>和<code>我</code>之间多了一个空格。</p>
 <p>这个问题的原因是当初 HTML 的设计者都是以英语为主要语言，英语中单词之间使用空格来分隔，因此不同行之间的英文单词中间的换行符被转换成了空格，具体参见<a href="https://stackoverflow.com/a/8551033/606493">这里</a>。但是中文字符之间并不需要空格来分隔，所以就出现了上述的问题。改 HTML 标准是不可能的了，因此只能通过其他方法来处理。</p>
 <h1 id="hugo-解决办法">Hugo 解决办法</h1>
 <p>通过查找，我发现 Hugo 使用的 blackfriday 引擎是支持处理中文字符之间的空格问题的，使用方法很简单，在 Hugo 的配置文件 <code>config.toml</code> 中加入以下配置：</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">[blackfriday]
-  extensions = [&#34;joinLines&#34;]
+<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[</span><span class="nx">blackfriday</span><span class="p">]</span>
+  <span class="nx">extensions</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;joinLines&#34;</span><span class="p">]</span>
 </code></pre></div><p>经过观察发现，该选项不仅对中文有效，对英文也有效，因此上下两行之间的英文单词本来应该有的空格也会被取消，所以以上的方法并不好，谨慎使用，除非你主要使用的是中文。</p>
 <h1 id="pandoc-解决办法">Pandoc 解决办法</h1>
 <p>如果你使用 Pandoc 将 Markdown 转为 HTML，那么可以加入 Extension <a href="https://pandoc.org/MANUAL.html#non-pandoc-extensions"><code>east_asian_line_breaks</code></a>，这个 Extension 就是专门针对上述的情况设计的。</p>
 <h1 id="权宜之计">权宜之计</h1>
 <p>如果中文和英文的博客都写，并且使用 Hugo，目前似乎没有完美的解决方案。只好把一个段落的问题都写成一行，为了达到 softwrap 的效果，我们可以使用<a href="https://github.com/junegunn/goyo.vim">Goyo</a>，近似实现像 Sublime Text 中那样的结果。</p>
-<p><img src="https://blog-resource-1257868508.file.myqcloud.com/20190507012004.png" alt=""></p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20190507012004.png" width="600">
+</p>
 <h1 id="参考资料">参考资料</h1>
 <ul>
 <li>Hugo 对中文字符之间空格的处理
@@ -206,7 +208,7 @@
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-03-19
+        2020-06-07
         
     </span>
   </p>
