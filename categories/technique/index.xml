@@ -23,14 +23,15 @@
     </item>
     
     <item>
-      <title>Handling Merge Conflict after Git Stash</title>
+      <title>Resolving Merge Conflict after Git Stash Pop</title>
       <link>https://jdhao.github.io/2019/12/03/git_stash_merge_conflict_handling/</link>
       <pubDate>Tue, 03 Dec 2019 00:57:11 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/12/03/git_stash_merge_conflict_handling/</guid>
-      <description>&lt;p&gt;Sometimes, when you are working with your local changes, you may want to pull
-the latest updates from the remote Git repository. You can use &lt;code&gt;git stash&lt;/code&gt; to
-store the unfinished work temporarily.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Sometimes, when we are working with our local changes in a Git repo, we may
+want to pull the latest updates from the remote repository. To avoid code
+conflict between remote files and local files. We can use &lt;code&gt;git stash&lt;/code&gt; to store
+the unfinished local work temporarily.&lt;/p&gt;</description>
     </item>
     
     <item>

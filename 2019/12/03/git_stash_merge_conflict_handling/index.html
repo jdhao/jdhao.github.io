@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Handling Merge Conflict after Git Stash - jdhao&#39;s blog</title>
+  <title>Resolving Merge Conflict after Git Stash Pop - jdhao&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="Sometimes, when you are working with your local changes, you may want to pull the latest updates from the remote Git repository. You can use git stash to store the unfinished work temporarily.
+<meta name="author" content="jdhao" /><meta name="description" content="Sometimes, when we are working with our local changes in a Git repo, we may want to pull the latest updates from the remote repository. To avoid code conflict between remote files and local files. We can use git stash to store the unfinished local work temporarily.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -47,29 +47,32 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Handling Merge Conflict after Git Stash" />
-<meta property="og:description" content="Sometimes, when you are working with your local changes, you may want to pull
-the latest updates from the remote Git repository. You can use git stash to
-store the unfinished work temporarily." />
+<meta property="og:title" content="Resolving Merge Conflict after Git Stash Pop" />
+<meta property="og:description" content="Sometimes, when we are working with our local changes in a Git repo, we may
+want to pull the latest updates from the remote repository. To avoid code
+conflict between remote files and local files. We can use git stash to store
+the unfinished local work temporarily." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2019/12/03/git_stash_merge_conflict_handling/" />
 <meta property="article:published_time" content="2019-12-03T00:57:11+08:00" />
-<meta property="article:modified_time" content="2019-12-21T23:13:41+08:00" />
-<meta itemprop="name" content="Handling Merge Conflict after Git Stash">
-<meta itemprop="description" content="Sometimes, when you are working with your local changes, you may want to pull
-the latest updates from the remote Git repository. You can use git stash to
-store the unfinished work temporarily.">
+<meta property="article:modified_time" content="2020-06-08T23:10:42+08:00" />
+<meta itemprop="name" content="Resolving Merge Conflict after Git Stash Pop">
+<meta itemprop="description" content="Sometimes, when we are working with our local changes in a Git repo, we may
+want to pull the latest updates from the remote repository. To avoid code
+conflict between remote files and local files. We can use git stash to store
+the unfinished local work temporarily.">
 <meta itemprop="datePublished" content="2019-12-03T00:57:11&#43;08:00" />
-<meta itemprop="dateModified" content="2019-12-21T23:13:41&#43;08:00" />
-<meta itemprop="wordCount" content="479">
+<meta itemprop="dateModified" content="2020-06-08T23:10:42&#43;08:00" />
+<meta itemprop="wordCount" content="637">
 
 
 
 <meta itemprop="keywords" content="Git," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Handling Merge Conflict after Git Stash"/>
-<meta name="twitter:description" content="Sometimes, when you are working with your local changes, you may want to pull
-the latest updates from the remote Git repository. You can use git stash to
-store the unfinished work temporarily."/>
+<meta name="twitter:title" content="Resolving Merge Conflict after Git Stash Pop"/>
+<meta name="twitter:description" content="Sometimes, when we are working with our local changes in a Git repo, we may
+want to pull the latest updates from the remote repository. To avoid code
+conflict between remote files and local files. We can use git stash to store
+the unfinished local work temporarily."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -136,14 +139,14 @@ store the unfinished work temporarily."/>
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Handling Merge Conflict after Git Stash</h1>
+      <h1 class="post-title">Resolving Merge Conflict after Git Stash Pop</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-12-03 </span>
         <div class="post-category">
             <a href="/categories/technique/"> technique </a>
             </div>
-          <span class="more-meta"> 479 words </span>
+          <span class="more-meta"> 637 words </span>
           <span class="more-meta"> 3 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -154,8 +157,9 @@ store the unfinished work temporarily."/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#git-stash-basics">Git stash basics</a>
+    <li><a href="#git-stash-basic-knowledge">Git stash basic knowledge</a>
       <ul>
+        <li><a href="#stashed-changes-are-per-repository-not-per-branch">Stashed changes are per repository, not per branch.</a></li>
         <li><a href="#show-stashed-changes">Show stashed changes</a></li>
         <li><a href="#show-the-detailed-info-of-a-particular-stash">Show the detailed info of a particular stash</a></li>
       </ul>
@@ -173,42 +177,54 @@ store the unfinished work temporarily."/>
   </div>
 </div>
     <div class="post-content">
-      <p>Sometimes, when you are working with your local changes, you may want to pull
-the latest updates from the remote Git repository. You can use <code>git stash</code> to
-store the unfinished work temporarily.</p>
-<p>Git-stash gives you a clean repo and revert the repo state to last commit.</p>
-<h1 id="git-stash-basics">Git stash basics</h1>
+      <p>Sometimes, when we are working with our local changes in a Git repo, we may
+want to pull the latest updates from the remote repository. To avoid code
+conflict between remote files and local files. We can use <code>git stash</code> to store
+the unfinished local work temporarily.</p>
+<p>Git-stash gives you a clean repo and revert the repo state to last commit. Then
+we can use <code>git pull</code> to pull the updates.</p>
+<h1 id="git-stash-basic-knowledge">Git stash basic knowledge</h1>
+<h2 id="stashed-changes-are-per-repository-not-per-branch">Stashed changes are per repository, not per branch.</h2>
+<p>If you are in a certain branch and do a <code>git stash</code>, you may think that the
+stashed changes only belong to that branch. However, that is not the case.
+Since you have not committed the changes, they do not belong to any branch,
+even if you are currently working on a specific branch (see
+<a href="https://stackoverflow.com/q/20526355/6064933">here</a>).</p>
 <h2 id="show-stashed-changes">Show stashed changes</h2>
 <p>To show stashed changes, use <code>git stash list</code>. It will show a list of stash you
 have made.</p>
 <h2 id="show-the-detailed-info-of-a-particular-stash">Show the detailed info of a particular stash</h2>
-<p>Each stash in the stash list can be referenced by its stash number. To show
-changes in a particular stash, we can use the following command:</p>
+<p>Each stash in the stash list can be referenced by its number. To show changes
+in a particular stash, we can use the following command:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># show changes in the first stash
 git stash show stash@{0}
 </code></pre></div><p>The above command only shows summary changes to files in a stash. To show
 detailed changes of a stash, add the <code>-p</code> option:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git stash show -p stash@{0}
 </code></pre></div><h1 id="applying-git-stash">Applying git stash</h1>
-<p>After the git-pull, you may want to continue your unfinished work. You can use
-<code>git stash pop</code> to restore your unfinished work.</p>
-<p>If everything goes well, your unfinished changes can merge with the remote
-updates without any conflict. However, if you and other people both have
-changed the same file at the same place, you will encounter merge errors after
-git-stash. The error message is like the following:</p>
+<p>After the git-pull, we may want to continue our unfinished work. We can use
+<code>git stash pop</code> to restore unfinished work. You can also use <code>git stash apply</code>
+instead. The difference between <code>git stash pop</code> and <code>git stash apply</code> is that
+the former will drop the stash if there is no merge conflict, while the later
+will never drop the stash even if the stashed changes merge successfully with
+the pulled code.</p>
+<p>Anyway, if everything goes well, our unfinished changes can merge with the
+remote updates without any conflict. However, if we and other collaborator both
+have changed the same file at the same place, we will encounter merge errors
+after git-stash. The error message is like the following:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Auto-merging test.txt
 CONFLICT (content): Merge conflict in test.txt
 The stash entry is kept in case you need it again.
 </code></pre></div><h1 id="conflict-markers">Conflict markers</h1>
-<p>When you open the conflict file, you may see some markers like the following:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">abc
+<p>When we open the conflict file, we will see some markers like the following:</p>
+<div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">abc
 &lt;&lt;&lt;&lt;&lt;&lt;&lt; Updated upstream
 qwe
 =======
 lmn
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; Stashed changes
-</code></pre></div><p>These markers are called <code>conflict markers</code> which are used to indicate the
-conflicting changes made to a file.</p>
+</code></pre></div><p>These markers are called <a href="https://wincent.com/wiki/Understanding_Git_conflict_markers"><code>conflict markers</code></a>, which
+are used to indicate the conflicting changes made to a file.</p>
 <p>In the git-stash case, code between <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>=======</code> are the changes
 made upstream, and code between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> are your stashed
 changes.</p>
@@ -223,9 +239,9 @@ accordingly and remove those conflict markers.</li>
 <h2 id="mark-conflict-as-resolved">Mark conflict as resolved</h2>
 <p>After resolving the conflict, you can use <code>git add</code> to mark the conflict as
 resolved. But in the git-stash scenario, you may not want to do this since your
-change is unfinished yet.</p>
-<p>Or you can use <code>git reset</code> to mark that the conflict has been solved.  You can
-continue working on your project until your change is completed, and then
+changes are not finished yet.</p>
+<p>Or you can use <code>git reset</code> to mark that the conflict has been solved. You can
+continue working on your project until your changes are completed, and then
 commit your changes.</p>
 <p>After the conflict has been resolved, do not forget to use <code>git stash drop</code> to
 drop the stash because the stash will not be dropped automatically in case of a
@@ -233,10 +249,12 @@ merge conflict.</p>
 <h1 id="references">References</h1>
 <ul>
 <li><a href="https://stackoverflow.com/q/3573623/6064933">Preview changes for a git stash.</a></li>
-<li><a href="https://wincent.com/wiki/Understanding_Git_conflict_markers">Understand Git conflict markers.</a></li>
-<li><a href="https://stackoverflow.com/questions/51166531/how-to-resolve-git-stash-conflicts">Resolve Git stash conflict.</a></li>
+<li><a href="https://stackoverflow.com/q/15286075/6064933">Difference between git stash pop and git stash apply</a>.</li>
+<li><a href="https://stackoverflow.com/q/10657315/6064933">Git merge left HEAD marks in my files</a>.</li>
+<li><a href="https://stackoverflow.com/q/51166531/6064933">Resolve Git stash conflict.</a>.</li>
 <li><a href="https://stackoverflow.com/q/55366930/6064933">https://stackoverflow.com/q/55366930/6064933</a></li>
 <li><a href="https://stackoverflow.com/a/7932912/6064933">Resolve git stash conflict without commiting.</a></li>
+<li><a href="https://www.stefaanlippens.net/resolve-git-unmerged-paths-after-stash-pop/">Resolve conflict after stash pop</a>.</li>
 </ul>
     </div>
 
@@ -248,7 +266,7 @@ merge conflict.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2019-12-21
+        2020-06-08
         
     </span>
   </p>
