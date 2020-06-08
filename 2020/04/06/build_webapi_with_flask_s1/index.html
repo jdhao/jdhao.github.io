@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="Web API is a kind of web application. Simply put, web APIs are built for other applications to query info from the web server. For Python, Flask package can be used to build web applications. In this post, I want to share how to build web APIs with the help of Flask.
+<meta name="author" content="jdhao" /><meta name="description" content="Web API is a kind of web application. Simply put, web APIs are built for other applications to get info from the web server. For Python, Flask can be used to build web applications. In this post, I want to share how to build web APIs with Flask.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -49,33 +49,30 @@
 
 <meta property="og:title" content="Build A Web API Service Using Flask -- The Basics" />
 <meta property="og:description" content="Web API is a kind of web application. Simply put, web APIs are built for other
-applications to query info from the web server. For Python,
-Flask package can be used to
-build web applications. In this post, I want to share how to build web APIs
-with the help of Flask." />
+applications to get info from the web server. For Python,
+Flask can be used to build web
+applications. In this post, I want to share how to build web APIs with Flask." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2020/04/06/build_webapi_with_flask_s1/" />
 <meta property="article:published_time" content="2020-04-06T22:05:07+08:00" />
-<meta property="article:modified_time" content="2020-06-07T19:59:57+08:00" />
+<meta property="article:modified_time" content="2020-06-08T22:40:54+08:00" />
 <meta itemprop="name" content="Build A Web API Service Using Flask -- The Basics">
 <meta itemprop="description" content="Web API is a kind of web application. Simply put, web APIs are built for other
-applications to query info from the web server. For Python,
-Flask package can be used to
-build web applications. In this post, I want to share how to build web APIs
-with the help of Flask.">
+applications to get info from the web server. For Python,
+Flask can be used to build web
+applications. In this post, I want to share how to build web APIs with Flask.">
 <meta itemprop="datePublished" content="2020-04-06T22:05:07&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-07T19:59:57&#43;08:00" />
-<meta itemprop="wordCount" content="978">
+<meta itemprop="dateModified" content="2020-06-08T22:40:54&#43;08:00" />
+<meta itemprop="wordCount" content="1005">
 
 
 
 <meta itemprop="keywords" content="Flask,HTTP,request," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Build A Web API Service Using Flask -- The Basics"/>
 <meta name="twitter:description" content="Web API is a kind of web application. Simply put, web APIs are built for other
-applications to query info from the web server. For Python,
-Flask package can be used to
-build web applications. In this post, I want to share how to build web APIs
-with the help of Flask."/>
+applications to get info from the web server. For Python,
+Flask can be used to build web
+applications. In this post, I want to share how to build web APIs with Flask."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -149,7 +146,7 @@ with the help of Flask."/>
         <div class="post-category">
             <a href="/categories/Python/"> Python </a>
             </div>
-          <span class="more-meta"> 978 words </span>
+          <span class="more-meta"> 1005 words </span>
           <span class="more-meta"> 5 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -160,7 +157,12 @@ with the help of Flask."/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#a-simple-web-api">A simple web API</a></li>
+    <li><a href="#a-simple-web-api">A simple web API</a>
+      <ul>
+        <li><a href="#processing-the-client-request">Processing the client request</a></li>
+        <li><a href="#return-json-object-to-client">Return JSON object to client</a></li>
+      </ul>
+    </li>
     <li><a href="#running-the-development-server">Running the development server</a>
       <ul>
         <li><a href="#run-the-http-server-via-apprun">Run the HTTP server via <code>app.run()</code></a></li>
@@ -176,13 +178,12 @@ with the help of Flask."/>
 </div>
     <div class="post-content">
       <p>Web API is a kind of web application. Simply put, web APIs are built for other
-applications to query info from the web server. For Python,
-<a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a> package can be used to
-build web applications. In this post, I want to share how to build web APIs
-with the help of Flask.</p>
+applications to get info from the web server. For Python,
+<a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a> can be used to build web
+applications. In this post, I want to share how to build web APIs with Flask.</p>
 <h1 id="a-simple-web-api">A simple web API</h1>
-<p>Supposing that we want to build a simple web API that can calculate the square
-root a number, the following code shows how to do that:</p>
+<p>Supposing that we want to build a simple web API that returns the square root a
+number, the following code shows how to do that:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
 
@@ -194,30 +195,34 @@ root a number, the following code shows how to do that:</p>
 
     <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">),</span> <span class="s1">&#39;msg&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">})</span>
 </code></pre></div><p>In the above code, we first create a flask application using <code>Flask(__name__)</code>,
-which lets Flask know that we are building an application inside this module.
-We then use the <code>@app.route()</code> decorator to define a URL path that we can later
-use to access our web API. The <code>methods</code> parameter is used to specify what
-kinds of <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">HTTP
+which lets Flask know that we are building an application. We then use the
+<code>@app.route()</code> decorator to define a URL path that we can later incorparate
+with IP and port number to access our web API. The <code>methods</code> parameter is used
+to specify what kinds of <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">HTTP
 requests</a> the server
-can accept from the client.</p>
+can process from the client.</p>
 <p>Below the app decorator, we define a <a href="https://stackoverflow.com/q/46254054/6064933">view
 function</a> to process the client
 request, the actual name of this view function does not matter. The view
 function name does not have be the same as <code>app.route</code> path (ref
 <a href="https://stackoverflow.com/q/55103067/6064933">here</a>).</p>
+<h2 id="processing-the-client-request">Processing the client request</h2>
 <p>To process the client requests in the server side, Flask provides the <code>request</code>
-module to handle the requests. When a client is using a <code>POST</code> request, the
-requested data will be available in <code>request.form</code> that is like a Python
-dictionary. Note that by default, the posted form data are all string type.
-You have to specify the <code>type</code> parameter to convert the value to desired type.</p>
+module. When a client is using a <code>POST</code> request to post a JSON object, the
+posted data will be available in <code>request.form</code>, which is like a Python
+dictionary. Note that by default, the value for a key is of string type.
+You have to specify the <code>type</code> parameter to convert the value to desired type:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">num</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;num&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+</code></pre></div><p>If you do not use <code>type=int</code>, <code>num</code> will be a string instead of an integer..</p>
+<h2 id="return-json-object-to-client">Return JSON object to client</h2>
 <p>Flask provides the <a href="https://flask.palletsprojects.com/en/1.1.x/api/#flask.json.jsonify"><code>jsonify</code></a>
 method to serialize any compatible data type to JSON format. Finally, we
 return the result in JSON format.</p>
 <h1 id="running-the-development-server">Running the development server</h1>
-<p>After we build the simple web API, we would like to test it. We need to first
-run the web server. Flask also ships with a simple web server for testing
-purposes. There are two ways that we can run the web server: via <code>app.run()</code>
-or via the Flask command line interface.</p>
+<p>After we build the simple web API, we need to test if it works. First, we need
+to run the web server. Flask ships with a simple web server for testing
+purposes. There are two ways that we can run the web server: via <code>app.run()</code> or
+via the Flask command line interface.</p>
 <h2 id="run-the-http-server-via-apprun">Run the HTTP server via <code>app.run()</code></h2>
 <p>Add the following code to the Flask application module:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
@@ -334,7 +339,7 @@ following code:</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-06-07
+        2020-06-08
         
     </span>
   </p>

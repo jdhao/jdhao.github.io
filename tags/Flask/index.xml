@@ -50,10 +50,9 @@ API with Flask and how to post image to this web API and get response.&lt;/p&gt;
       
       <guid>https://jdhao.github.io/2020/04/06/build_webapi_with_flask_s1/</guid>
       <description>&lt;p&gt;Web API is a kind of web application. Simply put, web APIs are built for other
-applications to query info from the web server. For Python,
-&lt;a href=&#34;https://flask.palletsprojects.com/en/1.1.x/&#34;&gt;Flask&lt;/a&gt; package can be used to
-build web applications. In this post, I want to share how to build web APIs
-with the help of Flask.&lt;/p&gt;</description>
+applications to get info from the web server. For Python,
+&lt;a href=&#34;https://flask.palletsprojects.com/en/1.1.x/&#34;&gt;Flask&lt;/a&gt; can be used to build web
+applications. In this post, I want to share how to build web APIs with Flask.&lt;/p&gt;</description>
     </item>
     
   </channel>
