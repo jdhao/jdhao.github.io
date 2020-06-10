@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Mon, 27 Apr 2020 22:00:48 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jun 2020 00:03:30 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/categories/Linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Set Timezone inside Docker Container</title>
+      <link>https://jdhao.github.io/2020/06/11/linux_set_timezone/</link>
+      <pubDate>Thu, 11 Jun 2020 00:03:30 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/06/11/linux_set_timezone/</guid>
+      <description>&lt;p&gt;After running a Ubuntu docker container, I found that the default time zone is
+UTC. I want to change it to my local timezone.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Bash Script Note 1</title>

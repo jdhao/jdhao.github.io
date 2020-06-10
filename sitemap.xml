@@ -9,15 +9,57 @@
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/tags/async/</loc>
-    <lastmod>2020-06-07T20:16:24+08:00</lastmod>
+    <loc>https://jdhao.github.io/categories/</loc>
+    <lastmod>2020-06-11T00:08:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-06-08T23:10:42+08:00</lastmod>
+    <loc>https://jdhao.github.io/tags/Docker/</loc>
+    <lastmod>2020-06-11T00:08:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/Linux/</loc>
+    <lastmod>2020-06-11T00:08:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/post/</loc>
+    <lastmod>2020-06-11T00:08:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/2020/06/11/linux_set_timezone/</loc>
+    <lastmod>2020-06-11T00:08:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/</loc>
+    <lastmod>2020-06-11T00:08:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/Ubuntu/</loc>
+    <lastmod>2020-06-11T00:08:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/async/</loc>
+    <lastmod>2020-06-07T20:16:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -37,22 +79,8 @@
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-06-08T23:10:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://jdhao.github.io/categories/Python/</loc>
     <lastmod>2020-06-08T22:40:54+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-06-08T23:10:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -198,13 +226,6 @@
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/tags/Docker/</loc>
-    <lastmod>2020-05-03T22:37:32+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://jdhao.github.io/2020/05/02/docker_knowledge_s2/</loc>
     <lastmod>2020-05-03T22:37:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -228,13 +249,6 @@
   <url>
     <loc>https://jdhao.github.io/2020/04/27/bash_script_notes_s1/</loc>
     <lastmod>2020-04-29T00:33:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/categories/Linux/</loc>
-    <lastmod>2020-06-02T22:45:06+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -361,13 +375,6 @@
   <url>
     <loc>https://jdhao.github.io/tags/Office/</loc>
     <lastmod>2020-04-26T23:30:08+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/Ubuntu/</loc>
-    <lastmod>2020-05-03T22:37:24+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Sun, 07 Jun 2020 20:02:18 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jun 2020 00:03:30 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker</title>
+      <link>https://jdhao.github.io/tags/Docker/</link>
+      <pubDate>Thu, 11 Jun 2020 00:03:30 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/tags/Docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>https://jdhao.github.io/tags/Ubuntu/</link>
+      <pubDate>Thu, 11 Jun 2020 00:03:30 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/tags/Ubuntu/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>async</title>
@@ -94,15 +112,6 @@
     </item>
     
     <item>
-      <title>Docker</title>
-      <link>https://jdhao.github.io/tags/Docker/</link>
-      <pubDate>Sat, 02 May 2020 16:18:30 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/tags/Docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Bash</title>
       <link>https://jdhao.github.io/tags/Bash/</link>
       <pubDate>Mon, 27 Apr 2020 22:00:48 +0800</pubDate>
@@ -171,15 +180,6 @@
       <pubDate>Mon, 30 Mar 2020 22:30:20 +0800</pubDate>
       
       <guid>https://jdhao.github.io/tags/Office/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ubuntu</title>
-      <link>https://jdhao.github.io/tags/Ubuntu/</link>
-      <pubDate>Mon, 30 Mar 2020 22:30:20 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/tags/Ubuntu/</guid>
       <description></description>
     </item>
     
