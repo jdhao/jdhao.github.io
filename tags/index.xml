@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Thu, 11 Jun 2020 00:03:30 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jun 2020 00:10:43 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Anaconda</title>
+      <link>https://jdhao.github.io/tags/Anaconda/</link>
+      <pubDate>Thu, 11 Jun 2020 00:10:43 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/tags/Anaconda/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Docker</title>
@@ -639,15 +648,6 @@
       <pubDate>Mon, 24 Dec 2018 00:14:00 +0800</pubDate>
       
       <guid>https://jdhao.github.io/tags/Linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Anaconda</title>
-      <link>https://jdhao.github.io/tags/Anaconda/</link>
-      <pubDate>Mon, 19 Nov 2018 16:30:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/tags/Anaconda/</guid>
       <description></description>
     </item>
     

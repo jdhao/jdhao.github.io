@@ -23,6 +23,18 @@ I enjoy programming. I am most familiar with Python and fairly proficient in usi
     </item>
     
     <item>
+      <title>Virtual Environment Management with Conda</title>
+      <link>https://jdhao.github.io/2020/06/11/conda_env_management/</link>
+      <pubDate>Thu, 11 Jun 2020 00:10:43 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/06/11/conda_env_management/</guid>
+      <description>&lt;p&gt;Conda is the default package and environment management tool shipped with
+&lt;a href=&#34;https://www.anaconda.com/products/individual&#34;&gt;Anaconda&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This post logs my cheatsheet and notes for working with virtual environments
+with &lt;a href=&#34;https://docs.conda.io/projects/conda/en/latest/&#34;&gt;conda&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Set Timezone inside Docker Container</title>
       <link>https://jdhao.github.io/2020/06/11/linux_set_timezone/</link>
       <pubDate>Thu, 11 Jun 2020 00:03:30 +0800</pubDate>
