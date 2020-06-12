@@ -53,13 +53,13 @@ cursor more efficiently." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2019/01/11/line_number_setting_nvim/" />
 <meta property="article:published_time" content="2019-01-11T20:25:31+08:00" />
-<meta property="article:modified_time" content="2019-12-03T01:58:15+08:00" />
+<meta property="article:modified_time" content="2020-06-13T02:28:21+08:00" />
 <meta itemprop="name" content="Line Number Settings for More Efficient Movement in Neovim">
 <meta itemprop="description" content="In this post, I would like to share line number settings in Neovim to move the
 cursor more efficiently.">
 <meta itemprop="datePublished" content="2019-01-11T20:25:31&#43;08:00" />
-<meta itemprop="dateModified" content="2019-12-03T01:58:15&#43;08:00" />
-<meta itemprop="wordCount" content="467">
+<meta itemprop="dateModified" content="2020-06-13T02:28:21&#43;08:00" />
+<meta itemprop="wordCount" content="461">
 
 
 
@@ -140,7 +140,7 @@ cursor more efficiently."/>
         <div class="post-category">
             <a href="/categories/Nvim/"> Nvim </a>
             </div>
-          <span class="more-meta"> 467 words </span>
+          <span class="more-meta"> 461 words </span>
           <span class="more-meta"> 3 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -175,46 +175,50 @@ cursor more efficiently.</p>
 <p>To know where we are in a file, it is useful to show the line number on the
 leftmost column of the window. To show line numbers in neovim, we can set the
 <code>number</code> option:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">set number
-</code></pre></div><p>The absolute line number will be shown at the leftmost column of current
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">set</span> <span class="nx">number</span><span class="err">
+</span></code></pre></div><p>The absolute line number will be shown at the leftmost column of current
 window.</p>
-<p><img src="https://i.loli.net/2019/01/11/5c3897624bb77.jpg" alt=""></p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20200613021435.png" width="600">
+</p>
 <h2 id="combine-absolute-number-and-relative-number">Combine absolute number and relative number</h2>
-<p>While the <code>number</code> option is useful to see where we are in the file, it is not
-convenient for moving the cursor to other lines. Because cursor movement in
-Neovim is based on relative distance. For example, to go to 3 lines above or
-below the current line, we use <code>3k</code> or <code>3j</code>. If we want to go to a specific
-line, we have to manually calculate the distance between current cursor line
-and the destination line, which is cumbersome and error-prone.</p>
+<p>While the <code>number</code> option is useful, it is not convenient for us to move the
+cursor to other lines. Because cursor movement in Neovim is based on relative
+distance. For example, to go to 3 lines above or below the current line, we use
+<code>3k</code> or <code>3j</code>. If we want to go to a specific line, we have to manually
+calculate the distance between current cursor line and the destination line,
+which is cumbersome and error-prone.</p>
 <p>To alleviate this issue, Neovim also support showing relative number:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">set relativenumber
-</code></pre></div><p>This option can be combined with <code>number</code> option. The end result is that only
-the cursor line shows absolute line number and the other lines show relative
-number( or distance) relative to current line.</p>
-<p><img src="https://i.loli.net/2019/01/11/5c38a3611275b.jpg" alt="2019-01-11_220809.jpg"></p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">set</span> <span class="nx">relativenumber</span><span class="err">
+</span></code></pre></div><p>This option can be combined with the <code>number</code> option. The end result is that
+only the cursor line shows absolute line number, and all the other lines show
+relative number( or distance) relative to current line.</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20200613022102.jpg" width="600">
+</p>
 <h1 id="automatic-toggle-of-relative-line-number">Automatic toggle of relative line number</h1>
 <p>In some situations, it is more convenient to see absolute line numbers, e.g.,
-when you want to debug a file and run to specific lines. You can the use plugin
+when we want to debug a file and run to specific lines. We can the use plugin
 <a href="https://github.com/jeffkreeftmeijer/vim-numbertoggle">vim-numbertoggle</a> to
-automatically toggle relative number based on several events. e.g., when you
-enter insert mode or lost focus of window.</p>
+automatically toggle relative number based on several events. e.g., when we
+enter insert mode or lost focus of a window.</p>
 <h2 id="automatic-number-toggle-does-not-work-inside-tmux">Automatic number toggle does not work inside Tmux?</h2>
-<p>But I have found that the number toggle function does not work inside tmux
-sessions by default<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. If I open two tmux panes side by side and open a file
-with Neovim in one pane and then switch to another tmux pane, the relative line
+<p>I have found that the number toggle function does not work inside tmux sessions
+by default<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. If I open two tmux panes side by side and open a file in
+Neovim in one pane and then switch to another tmux pane, the relative line
 number in Neovim does not change to absolute number.</p>
 <p>I opened an issue on the Neovim GitHub repo and get the right answer from the
-developer. We need to turn on the <code>focus-events</code> for tmux. From the Tmux
-documention:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"> focus-events [on | off]
-         When enabled, focus events are requested from the terminal if
-         supported and passed through to applications running in tmux. Attached
-         clients should be detached and attached again after changing this
-         option.
+developer. We need to turn on the <code>focus-events</code> option for tmux. From the Tmux
+documentaion:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">focus-events [on | off]
+        When enabled, focus events are requested from the terminal if
+        supported and passed through to applications running in tmux. Attached
+        clients should be detached and attached again after changing this
+        option.
 </code></pre></div><p>We need to edit the tmux config file <code>~/.tmux.conf</code> and add the following
 setting:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">set -g focus-events on
-</code></pre></div><p>Refresh the tmux session or start a new tmux session and the automatic relative
+</code></pre></div><p>Refresh the tmux session or start a new tmux session and automatic relative
 number toggle should work as expected now.</p>
 <h1 id="references">References</h1>
 <ul>
@@ -222,7 +226,7 @@ number toggle should work as expected now.</p>
 <li><a href="https://jeffkreeftmeijer.com/vim-number/">Automatic relative number toggle</a>.</li>
 <li><a href="https://github.com/neovim/neovim/issues/9486">Issue opened in Neovim GitHub repo</a>.</li>
 <li><a href="https://github.com/jeffkreeftmeijer/vim-numbertoggle/issues/45">Issue opened in vim-numbertoggle repo</a>.</li>
-<li><a href="https://vi.stackexchange.com/questions/18515/automatic-line-number-toggle-does-not-work-inside-tmux">Questions on StackExchange</a>.</li>
+<li><a href="https://vi.stackexchange.com/q/18515/15292">Questions on StackExchange</a>.</li>
 </ul>
 <section class="footnotes" role="doc-endnotes">
 <hr>
@@ -242,7 +246,7 @@ number toggle should work as expected now.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2019-12-03
+        2020-06-13
         
     </span>
   </p>

@@ -1041,12 +1041,12 @@ Image object to binary data without saving the underlying image to disk.&lt;/p&g
       <guid>https://jdhao.github.io/2019/06/26/movement_navigation_inside_nvim/</guid>
       <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;One key spirit of Vim is to accomplish something in as fewer key strokes as
-possible. When you repeat a command a few times in order to perform an action,
-you need to ask yourself if there is a better way to do it. Only in this way,
-can you make progress in mastering Vim. For example, when your want to delete
-five lines of texts, if you press &lt;code&gt;dd&lt;/code&gt; five times, you are certainly doing it
-the wrong way. After looking up the Vim manual, you know that you can use &lt;code&gt;5dd&lt;/code&gt;
-or &lt;code&gt;d4j&lt;/code&gt;: you only need three keystrokes instead of ten!&lt;/p&gt;</description>
+possible. When we repeat a command several times to perform an action, we need
+to ask ourselves if there is a better way to do it. Only in this way, can we
+make progress in mastering Vim. For example, to delete five lines of texts, if
+we press &lt;code&gt;dd&lt;/code&gt; five times, we are certainly doing it the wrong way. After
+looking up the Vim manual, we know that we can use &lt;code&gt;5dd&lt;/code&gt; or &lt;code&gt;d4j&lt;/code&gt;: only three
+keystrokes are needed instead of ten!&lt;/p&gt;</description>
     </item>
     
     <item>
