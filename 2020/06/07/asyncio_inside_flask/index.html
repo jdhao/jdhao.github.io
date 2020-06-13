@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>How to Use Asyncio in Flask Applications - jdhao&#39;s blog</title>
+  <title>How to Use Asyncio with Flask Applications - jdhao&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="I was using asyncio inside a view function for Flask to run some asynchronous function and met an error.
+<meta name="author" content="jdhao" /><meta name="description" content="I was using asyncio inside a view function for Flask to run some asynchronous functions and met an error.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -47,26 +47,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="How to Use Asyncio in Flask Applications" />
-<meta property="og:description" content="I was using asyncio inside a view function for Flask to run some asynchronous
-function and met an error." />
+<meta property="og:title" content="How to Use Asyncio with Flask Applications" />
+<meta property="og:description" content="I was using asyncio inside a
+view function for Flask to run some asynchronous functions and met an error." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2020/06/07/asyncio_inside_flask/" />
 <meta property="article:published_time" content="2020-06-07T20:02:18+08:00" />
-<meta property="article:modified_time" content="2020-06-07T20:16:24+08:00" />
-<meta itemprop="name" content="How to Use Asyncio in Flask Applications">
-<meta itemprop="description" content="I was using asyncio inside a view function for Flask to run some asynchronous
-function and met an error.">
+<meta property="article:modified_time" content="2020-06-13T15:45:27+08:00" />
+<meta itemprop="name" content="How to Use Asyncio with Flask Applications">
+<meta itemprop="description" content="I was using asyncio inside a
+view function for Flask to run some asynchronous functions and met an error.">
 <meta itemprop="datePublished" content="2020-06-07T20:02:18&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-07T20:16:24&#43;08:00" />
-<meta itemprop="wordCount" content="441">
+<meta itemprop="dateModified" content="2020-06-13T15:45:27&#43;08:00" />
+<meta itemprop="wordCount" content="468">
 
 
 
 <meta itemprop="keywords" content="Flask,async," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="How to Use Asyncio in Flask Applications"/>
-<meta name="twitter:description" content="I was using asyncio inside a view function for Flask to run some asynchronous
-function and met an error."/>
+<meta name="twitter:title" content="How to Use Asyncio with Flask Applications"/>
+<meta name="twitter:description" content="I was using asyncio inside a
+view function for Flask to run some asynchronous functions and met an error."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -133,14 +133,14 @@ function and met an error."/>
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">How to Use Asyncio in Flask Applications</h1>
+      <h1 class="post-title">How to Use Asyncio with Flask Applications</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2020-06-07 </span>
         <div class="post-category">
             <a href="/categories/Python/"> Python </a>
             </div>
-          <span class="more-meta"> 441 words </span>
+          <span class="more-meta"> 468 words </span>
           <span class="more-meta"> 3 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -157,8 +157,8 @@ function and met an error."/>
   </div>
 </div>
     <div class="post-content">
-      <p>I was using asyncio inside a view function for Flask to run some asynchronous
-function and met an error.</p>
+      <p>I was using <a href="https://docs.python.org/3/library/asyncio.html">asyncio</a> inside a
+view function for Flask to run some asynchronous functions and met an error.</p>
 <p>Here is the demo code:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">asyncio</span>
 
@@ -185,17 +185,18 @@ function and met an error.</p>
 <blockquote>
 <p>RuntimeError: There is no current event loop in thread &lsquo;Thread-1&rsquo;.</p>
 </blockquote>
-<p>for the line:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">loop = asyncio.get_event_loop()
+<p>for the following line of code:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">loop</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span>
 </code></pre></div><p>From the asyncio <a href="https://docs.python.org/3.6/library/asyncio-eventloops.html#asyncio.AbstractEventLoopPolicy">documentation on default event loop policy</a>:</p>
 <blockquote>
 <p>If the current thread doesn’t already have an event loop associated with it,
 the default policy’s get_event_loop() method creates one when called from
 the main thread, but raises RuntimeError otherwise</p>
 </blockquote>
-<p>So it seems that the view function <code>index()</code> is not run in the main thread. To
-verify this, we can use the <code>threading</code> module to help us find which thread we
-are currently in:</p>
+<p>So it seems that the view function <code>index()</code> is not run in the main thread. As
+a result, there is no event loop associated with the current thread, hence the
+error message. To verify this, we can use the <code>threading</code> module to help us
+find which thread we are currently in:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">threading</span>
 <span class="kn">import</span> <span class="nn">asyncio</span>
 
@@ -227,14 +228,14 @@ are currently in:</p>
 <p>In flask global level: MainThread</p>
 </blockquote>
 <p>So the statement outside the view function is run in the main thread.</p>
-<p>When we request the service, we can see the following message:</p>
+<p>When we request the service, we can see the following message from the view
+function:</p>
 <blockquote>
 <p>Inside flask function: Thread-1</p>
 </blockquote>
 <p>This verifies that Flask is indeed running the view functions in a separate
 thread other than the main thread.</p>
-<p>In the
-<a href="https://flask.palletsprojects.com/en/1.1.x/api/?highlight=flask%20run#flask.Flask.run">Flask.run()</a>
+<p>In the <a href="https://flask.palletsprojects.com/en/1.1.x/api/#flask.Flask.run">Flask.run()</a>
 doc, this is also briefly mentioned in the <code>changelog</code> part:</p>
 <blockquote>
 <p>Changed in version 1.0: If installed, python-dotenv will be used to load
@@ -254,7 +255,7 @@ finish to process another request. That is often preferred than the
 single-threaded mode. Note, however, that the development server is not for
 production purposes. We need to use dedicated WSGI server such as
 <a href="https://gunicorn.org/">gunicorn</a> and <a href="https://uwsgi-docs.readthedocs.io/en/latest/">uWSGI</a>
-in production.</p>
+in production for better performance.</p>
 <h1 id="references">References</h1>
 <ul>
 <li><a href="https://stackoverflow.com/q/14814201/6064933">Can I serve multiple clients using just Flask app.run() as standalone?</a>.</li>
@@ -270,7 +271,7 @@ in production.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-06-07
+        2020-06-13
         
     </span>
   </p>

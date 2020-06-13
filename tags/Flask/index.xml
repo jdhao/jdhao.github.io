@@ -13,13 +13,13 @@
     
     
     <item>
-      <title>How to Use Asyncio in Flask Applications</title>
+      <title>How to Use Asyncio with Flask Applications</title>
       <link>https://jdhao.github.io/2020/06/07/asyncio_inside_flask/</link>
       <pubDate>Sun, 07 Jun 2020 20:02:18 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2020/06/07/asyncio_inside_flask/</guid>
-      <description>&lt;p&gt;I was using asyncio inside a view function for Flask to run some asynchronous
-function and met an error.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I was using &lt;a href=&#34;https://docs.python.org/3/library/asyncio.html&#34;&gt;asyncio&lt;/a&gt; inside a
+view function for Flask to run some asynchronous functions and met an error.&lt;/p&gt;</description>
     </item>
     
     <item>
