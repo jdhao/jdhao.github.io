@@ -10,42 +10,49 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-06-14T20:58:30+08:00</lastmod>
+    <lastmod>2020-06-14T21:04:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/categories/Mac/</loc>
-    <lastmod>2020-06-14T20:58:30+08:00</lastmod>
+    <lastmod>2020-06-14T21:04:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-06-14T20:58:30+08:00</lastmod>
+    <lastmod>2020-06-14T21:04:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-06-14T20:58:30+08:00</lastmod>
+    <lastmod>2020-06-14T21:04:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/terminal/</loc>
-    <lastmod>2020-06-14T20:58:30+08:00</lastmod>
+    <lastmod>2020-06-14T21:04:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/2020/06/14/kitty_open_terminal_fail/</loc>
-    <lastmod>2020-06-14T20:58:30+08:00</lastmod>
+    <loc>https://jdhao.github.io/tags/Tmux/</loc>
+    <lastmod>2020-06-14T21:04:12+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/2020/06/14/kitty_tmux_open_terminal_fail/</loc>
+    <lastmod>2020-06-14T21:04:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1460,13 +1467,6 @@
   <url>
     <loc>https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/</loc>
     <lastmod>2020-03-23T23:49:56+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/Tmux/</loc>
-    <lastmod>2020-06-13T02:28:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
