@@ -9,6 +9,48 @@
   </url>
   
   <url>
+    <loc>https://jdhao.github.io/categories/</loc>
+    <lastmod>2020-06-14T20:58:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/Mac/</loc>
+    <lastmod>2020-06-14T20:58:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/post/</loc>
+    <lastmod>2020-06-14T20:58:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/</loc>
+    <lastmod>2020-06-14T20:58:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/terminal/</loc>
+    <lastmod>2020-06-14T20:58:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/2020/06/14/kitty_open_terminal_fail/</loc>
+    <lastmod>2020-06-14T20:58:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://jdhao.github.io/tags/Anaconda/</loc>
     <lastmod>2020-06-13T01:21:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -16,29 +58,8 @@
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-06-13T16:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-06-13T16:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://jdhao.github.io/categories/Python/</loc>
     <lastmod>2020-06-13T15:45:27+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-06-13T15:58:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -220,21 +241,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2020/05/05/kitty_config_mac/</loc>
-    <lastmod>2020-05-06T00:17:53+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/categories/Mac/</loc>
-    <lastmod>2020-05-06T00:17:53+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/terminal/</loc>
-    <lastmod>2020-05-06T00:17:53+08:00</lastmod>
+    <lastmod>2020-06-14T18:02:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

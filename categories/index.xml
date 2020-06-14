@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Thu, 11 Jun 2020 00:10:43 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jun 2020 18:04:06 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mac</title>
+      <link>https://jdhao.github.io/categories/Mac/</link>
+      <pubDate>Sun, 14 Jun 2020 18:04:06 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/categories/Mac/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Python</title>
@@ -54,15 +63,6 @@
       <pubDate>Fri, 22 May 2020 20:41:01 +0800</pubDate>
       
       <guid>https://jdhao.github.io/categories/thought/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mac</title>
-      <link>https://jdhao.github.io/categories/Mac/</link>
-      <pubDate>Tue, 05 May 2020 20:52:40 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/categories/Mac/</guid>
       <description></description>
     </item>
     

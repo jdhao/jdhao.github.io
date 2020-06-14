@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Thu, 11 Jun 2020 00:10:43 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jun 2020 18:04:06 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>terminal</title>
+      <link>https://jdhao.github.io/tags/terminal/</link>
+      <pubDate>Sun, 14 Jun 2020 18:04:06 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/tags/terminal/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Anaconda</title>
@@ -108,15 +117,6 @@
       <pubDate>Thu, 07 May 2020 00:35:45 +0800</pubDate>
       
       <guid>https://jdhao.github.io/tags/Git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>terminal</title>
-      <link>https://jdhao.github.io/tags/terminal/</link>
-      <pubDate>Tue, 05 May 2020 20:52:40 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/tags/terminal/</guid>
       <description></description>
     </item>
     
