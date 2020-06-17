@@ -23,6 +23,16 @@ I enjoy programming. I am most familiar with Python and fairly proficient in usi
     </item>
     
     <item>
+      <title>Download Image from URL using Python</title>
+      <link>https://jdhao.github.io/2020/06/17/download_image_from_url_python/</link>
+      <pubDate>Wed, 17 Jun 2020 09:19:30 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/06/17/download_image_from_url_python/</guid>
+      <description>&lt;p&gt;Recently, I want to download images using Python. This is what I learn after
+survey.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Tmux: Open Terminal Failed in Kitty Terminal</title>
       <link>https://jdhao.github.io/2020/06/14/kitty_tmux_open_terminal_fail/</link>
       <pubDate>Sun, 14 Jun 2020 18:04:06 +0800</pubDate>

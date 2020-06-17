@@ -10,27 +10,48 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-06-14T21:04:12+08:00</lastmod>
+    <lastmod>2020-06-17T09:22:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/categories/Mac/</loc>
-    <lastmod>2020-06-14T21:04:12+08:00</lastmod>
+    <loc>https://jdhao.github.io/2020/06/17/download_image_from_url_python/</loc>
+    <lastmod>2020-06-17T09:22:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-06-14T21:04:12+08:00</lastmod>
+    <lastmod>2020-06-17T09:22:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/Python/</loc>
+    <lastmod>2020-06-17T09:22:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/request/</loc>
+    <lastmod>2020-06-17T09:22:45+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/</loc>
+    <lastmod>2020-06-17T09:22:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/Mac/</loc>
     <lastmod>2020-06-14T21:04:12+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -60,13 +81,6 @@
   <url>
     <loc>https://jdhao.github.io/tags/Anaconda/</loc>
     <lastmod>2020-06-13T01:21:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/categories/Python/</loc>
-    <lastmod>2020-06-13T15:45:27+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -367,13 +381,6 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/HTTP/</loc>
-    <lastmod>2020-06-08T22:40:54+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/request/</loc>
     <lastmod>2020-06-08T22:40:54+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
