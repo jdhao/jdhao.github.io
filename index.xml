@@ -38,9 +38,10 @@ learned after survey.&lt;/p&gt;</description>
       <pubDate>Sun, 14 Jun 2020 18:04:06 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2020/06/14/kitty_tmux_open_terminal_fail/</guid>
-      <description>I have several terminal emulators installed on my Mac: kitty, Alacritty and iterm2. When I start a Tmux session in Alacritty and try to create another tmux session in kitty, I noticed this strange error that I have never met before:
- open terminal failed: missing or unsuitable terminal: xterm-kitty
- For clarity, kitty seems to use its own terminfo file called xterm-kitty, and Alacritty and iterm2 both use the good-old xterm-256color.</description>
+      <description>&lt;p&gt;I have several terminal emulators installed on my Mac: &lt;a href=&#34;https://sw.kovidgoyal.net/kitty/&#34;&gt;kitty&lt;/a&gt;,
+&lt;a href=&#34;https://github.com/alacritty/alacritty&#34;&gt;Alacritty&lt;/a&gt; and &lt;a href=&#34;https://www.iterm2.com/&#34;&gt;iterm2&lt;/a&gt;.
+When I start a Tmux session in Alacritty and try to create another tmux session
+in kitty, I noticed this strange error that I have never met before:&lt;/p&gt;</description>
     </item>
     
     <item>
