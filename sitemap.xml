@@ -10,49 +10,49 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-06-17T09:22:45+08:00</lastmod>
+    <lastmod>2020-06-18T00:14:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/2020/06/17/download_image_from_url_python/</loc>
-    <lastmod>2020-06-17T09:22:45+08:00</lastmod>
+    <lastmod>2020-06-18T00:14:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-06-17T09:22:45+08:00</lastmod>
+    <lastmod>2020-06-18T00:14:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/categories/Python/</loc>
-    <lastmod>2020-06-17T09:22:45+08:00</lastmod>
+    <lastmod>2020-06-18T00:14:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/tags/request/</loc>
-    <lastmod>2020-06-17T09:22:45+08:00</lastmod>
+    <loc>https://jdhao.github.io/tags/requests/</loc>
+    <lastmod>2020-06-18T00:14:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-06-17T09:22:45+08:00</lastmod>
+    <lastmod>2020-06-18T00:14:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/categories/Mac/</loc>
-    <lastmod>2020-06-14T21:04:12+08:00</lastmod>
+    <lastmod>2020-06-17T23:59:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -129,7 +129,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Flask/</loc>
-    <lastmod>2020-06-13T15:45:27+08:00</lastmod>
+    <lastmod>2020-06-17T23:28:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -374,28 +374,28 @@
   
   <url>
     <loc>https://jdhao.github.io/2020/04/13/build_webapi_with_flask_s3/</loc>
-    <lastmod>2020-04-16T23:05:20+08:00</lastmod>
+    <lastmod>2020-06-17T23:28:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/HTTP/</loc>
-    <lastmod>2020-06-08T22:40:54+08:00</lastmod>
+    <lastmod>2020-06-17T23:28:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/2020/04/12/build_webapi_with_flask_s2/</loc>
-    <lastmod>2020-04-16T23:05:26+08:00</lastmod>
+    <lastmod>2020-06-17T23:28:06+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/2020/04/06/build_webapi_with_flask_s1/</loc>
-    <lastmod>2020-06-08T22:40:54+08:00</lastmod>
+    <lastmod>2020-06-17T23:27:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1375,7 +1375,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2019/04/02/mac_logitech_mouse_setting/</loc>
-    <lastmod>2020-03-11T23:28:05+08:00</lastmod>
+    <lastmod>2020-06-17T23:59:48+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
