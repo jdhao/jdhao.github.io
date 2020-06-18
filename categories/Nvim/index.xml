@@ -197,14 +197,13 @@ configurations.&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Building A Custom Vim Statusline</title>
+      <title>Building A Vim Statusline from Scratch</title>
       <link>https://jdhao.github.io/2019/11/03/vim_custom_statusline/</link>
       <pubDate>Sun, 03 Nov 2019 14:22:20 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/11/03/vim_custom_statusline/</guid>
       <description>&lt;p align=&#34;center&#34;&gt;
-&lt;img
-src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20191103144006.png&#34;&gt;
+&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20191103144006.png&#34;&gt;
 &lt;/p&gt;
 &lt;p&gt;I have been using &lt;a href=&#34;https://github.com/vim-airline/vim-airline&#34;&gt;vim-airline&lt;/a&gt; to
 customize my Nvim statusline ever since I first started using Neovim. It works
