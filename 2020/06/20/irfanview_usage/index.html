@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Duplicate Logging Messages in Python - jdhao&#39;s blog</title>
+  <title>IrfanView Settings - jdhao&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="When I am working on a project, I find that the logging message is printed twice. The following minimal code can reproduce this issue:
+<meta name="author" content="jdhao" /><meta name="description" content="IrfanView is a lightweight and fast image viewer for Windows. Here are some settings to make it more useful.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -27,7 +27,7 @@
 <meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
-<link rel="canonical" href="https://jdhao.github.io/2020/06/20/python_duplicate_logging_messages/" />
+<link rel="canonical" href="https://jdhao.github.io/2020/06/20/irfanview_usage/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -49,26 +49,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Duplicate Logging Messages in Python" />
-<meta property="og:description" content="When I am working on a project, I find that the logging message is printed
-twice. The following minimal code can reproduce this issue:" />
+<meta property="og:title" content="IrfanView Settings" />
+<meta property="og:description" content="IrfanView is a lightweight and fast image viewer
+for Windows. Here are some settings to make it more useful." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2020/06/20/python_duplicate_logging_messages/" />
-<meta property="article:published_time" content="2020-06-20T00:45:12+08:00" />
-<meta property="article:modified_time" content="2020-06-20T00:49:15+08:00" />
-<meta itemprop="name" content="Duplicate Logging Messages in Python">
-<meta itemprop="description" content="When I am working on a project, I find that the logging message is printed
-twice. The following minimal code can reproduce this issue:">
-<meta itemprop="datePublished" content="2020-06-20T00:45:12&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-20T00:49:15&#43;08:00" />
-<meta itemprop="wordCount" content="264">
+<meta property="og:url" content="https://jdhao.github.io/2020/06/20/irfanview_usage/" />
+<meta property="article:published_time" content="2020-06-20T00:53:59+08:00" />
+<meta property="article:modified_time" content="2020-06-20T00:59:08+08:00" />
+<meta itemprop="name" content="IrfanView Settings">
+<meta itemprop="description" content="IrfanView is a lightweight and fast image viewer
+for Windows. Here are some settings to make it more useful.">
+<meta itemprop="datePublished" content="2020-06-20T00:53:59&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-20T00:59:08&#43;08:00" />
+<meta itemprop="wordCount" content="192">
 
 
 
-<meta itemprop="keywords" content="logging," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Duplicate Logging Messages in Python"/>
-<meta name="twitter:description" content="When I am working on a project, I find that the logging message is printed
-twice. The following minimal code can reproduce this issue:"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="IrfanView Settings"/>
+<meta name="twitter:description" content="IrfanView is a lightweight and fast image viewer
+for Windows. Here are some settings to make it more useful."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -135,15 +135,15 @@ twice. The following minimal code can reproduce this issue:"/>
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Duplicate Logging Messages in Python</h1>
+      <h1 class="post-title">IrfanView Settings</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2020-06-20 </span>
         <div class="post-category">
-            <a href="/categories/Python/"> Python </a>
+            <a href="/categories/tools/"> tools </a>
             </div>
-          <span class="more-meta"> 264 words </span>
-          <span class="more-meta"> 2 mins read </span>
+          <span class="more-meta"> 192 words </span>
+          <span class="more-meta"> 1 min read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -153,72 +153,47 @@ twice. The following minimal code can reproduce this issue:"/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#references">References</a></li>
+    <li><a href="#jump-to-next-file-after-deleting-current-one">Jump to next file after deleting current one</a></li>
+    <li><a href="#fit-image-to-window-size-when-viewing">Fit image to window size when viewing</a>
+      <ul>
+        <li><a href="#reference">Reference</a></li>
+      </ul>
+    </li>
+    <li><a href="#do-not-exit-program-when-pressing-esc">Do not exit program when pressing ESC</a>
+      <ul>
+        <li><a href="#reference-1">Reference</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p>When I am working on a project, I find that the logging message is printed
-twice. The following minimal code can reproduce this issue:</p>
-<p>Source code for <code>logger.py</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-
-
-<span class="k">class</span> <span class="nc">MyLogger</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
-
-        <span class="n">stream_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
-        <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span>
-            <span class="s2">&#34;[</span><span class="si">%(asctime)s</span><span class="s2">] [</span><span class="si">%(name)s</span><span class="s2">] [</span><span class="si">%(levelname)s</span><span class="s2">] </span><span class="si">%(message)s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s2">&#34;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&#34;</span>
-        <span class="p">)</span>
-        <span class="n">stream_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
-
-        <span class="n">stream_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">stream_handler</span><span class="p">)</span>
-        <span class="c1"># self.logger.propagate = False</span>
-
-    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;{}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
-
-<span class="n">my_logger</span> <span class="o">=</span> <span class="n">MyLogger</span><span class="p">(</span><span class="s2">&#34;Logging debug&#34;</span><span class="p">)</span>
-</code></pre></div><p>Source code for <code>main.py</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">logging</span>
-
-<span class="kn">from</span> <span class="nn">logger</span> <span class="kn">import</span> <span class="n">my_logger</span>
-
-<span class="n">root_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
-<span class="n">stream_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
-<span class="n">root_logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">stream_handler</span><span class="p">)</span>
-
-<span class="n">my_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;demo&#34;</span><span class="p">)</span>
-<span class="n">my_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;another test&#34;</span><span class="p">)</span>
-</code></pre></div><p>When we run <code>main.py</code>, we can see that each log message is printed twice on the
-console:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">[2020-06-19 21:56:53] [Logging debug] [INFO] demo
-demo
-[2020-06-19 21:56:53] [Logging debug] [INFO] another test
-another test
-</code></pre></div><p>But why? The reason is that, when we use <code>logging.getLogger()</code> without any
-argument, <a href="https://docs.python.org/3/library/logging.html#logging.getLogger">we will get the root logger</a>.
-<code>my_logger</code> in <code>logger.py</code> is thus a child logger of this root logger. By
-default, child logger message will be propagated to the logger in the upper
-hierarchy.</p>
-<p>We have two options: (1) Disable propagation from child logger (2) Do not use
-root logger.</p>
-<p>Option 1: in the <code>logger.py</code>, uncomment the line <code>self.logger.propagate = False</code> to make sure that child logger does not propagate its message to the
-root logger.</p>
-<p>Option 2: We simply do not use root logger in <code>main.py</code>. For example, we can
-get another logger by using <code>another_logger = logging.getLogger('main')</code>. In
-this way, logging message from <code>my_logger</code> have no relationship with
-<code>another_logger</code>. So the logging messages are print only once.</p>
-<h1 id="references">References</h1>
+      <p><a href="https://www.irfanview.com/">IrfanView</a> is a lightweight and fast image viewer
+for Windows. Here are some settings to make it more useful.</p>
+<h1 id="jump-to-next-file-after-deleting-current-one">Jump to next file after deleting current one</h1>
+<p>By default, IrfanView will not jump to next image if you delete current one. To
+enable this, click <code>Options --&gt; Properties/Settings... --&gt; File Handling</code>.
+Under the <code>delete</code> section, check the following box:</p>
+<blockquote>
+<p>Jump to the next file after deleting/moving</p>
+</blockquote>
+<h1 id="fit-image-to-window-size-when-viewing">Fit image to window size when viewing</h1>
+<p>When we are viewing images in a directory, it is annoying that window size
+chagnes as image sizes vary. To keep the window size and fit the image to
+window, go to <code>View --&gt; Display options (window mode)</code> and choose <code>Fit images to window</code>.</p>
+<h2 id="reference">Reference</h2>
 <ul>
-<li><a href="https://stackoverflow.com/q/7173033/6064933">Duplicate log output when using Python logging module</a>.</li>
-<li><a href="https://docs.python.org/3/howto/logging.html#advanced-logging-tutorial">Advanced logging tutorial</a>.</li>
+<li><a href="https://irfanview-forum.de/showthread.php?t=11273">https://irfanview-forum.de/showthread.php?t=11273</a></li>
+</ul>
+<h1 id="do-not-exit-program-when-pressing-esc">Do not exit program when pressing ESC</h1>
+<p>By default, Irfanview will exit immediately if we press the ESC key when we are
+viewing an image, which is really annoying. To disable this behavior, go to
+<code>Options --&gt; Properties/Settings</code>, in the popup window, click <code>Start / Exit options</code>. In the <code>Exit options</code> section, check the box <code>Warning on ESC program exit</code>.  Do not forget to click <code>OK</code> button to save your settings.</p>
+<p><img src="https://s1.ax1x.com/2020/06/18/NnY7Ed.png" alt="NnY7Ed.png" border="0" /></p>
+<h2 id="reference-1">Reference</h2>
+<ul>
+<li><a href="https://irfanview-forum.de/showthread.php?t=1092">https://irfanview-forum.de/showthread.php?t=1092</a></li>
 </ul>
     </div>
 
@@ -255,17 +230,11 @@ this way, logging message from <code>my_logger</code> have no relationship with
       </label>
   </div>
 </div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/logging/">logging</a>
-          </div>
+      
       <nav class="post-nav">
-        <a class="prev" href="/2020/06/20/irfanview_usage/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">IrfanView Settings</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2020/06/17/download_image_from_url_python/">
-            <span class="next-text nav-default">Download Image from URL using Python</span>
+        
+        <a class="next" href="/2020/06/20/python_duplicate_logging_messages/">
+            <span class="next-text nav-default">Duplicate Logging Messages in Python</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
