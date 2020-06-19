@@ -23,6 +23,16 @@ I enjoy programming. I am most familiar with Python and fairly proficient in usi
     </item>
     
     <item>
+      <title>Duplicate Logging Messages in Python</title>
+      <link>https://jdhao.github.io/2020/06/20/python_duplicate_logging_messages/</link>
+      <pubDate>Sat, 20 Jun 2020 00:45:12 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/06/20/python_duplicate_logging_messages/</guid>
+      <description>&lt;p&gt;When I am working on a project, I find that the logging message is printed
+twice. The following minimal code can reproduce this issue:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Download Image from URL using Python</title>
       <link>https://jdhao.github.io/2020/06/17/download_image_from_url_python/</link>
       <pubDate>Wed, 17 Jun 2020 09:19:30 +0800</pubDate>

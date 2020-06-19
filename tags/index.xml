@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Wed, 17 Jun 2020 09:19:30 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 20 Jun 2020 00:45:12 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>logging</title>
+      <link>https://jdhao.github.io/tags/logging/</link>
+      <pubDate>Sat, 20 Jun 2020 00:45:12 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/tags/logging/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>requests</title>
@@ -153,15 +162,6 @@
       <pubDate>Sun, 26 Apr 2020 22:44:37 +0800</pubDate>
       
       <guid>https://jdhao.github.io/tags/Windows/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>logging</title>
-      <link>https://jdhao.github.io/tags/logging/</link>
-      <pubDate>Fri, 24 Apr 2020 01:12:43 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/tags/logging/</guid>
       <description></description>
     </item>
     

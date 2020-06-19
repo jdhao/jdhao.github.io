@@ -10,7 +10,42 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-06-19T00:51:28+08:00</lastmod>
+    <lastmod>2020-06-20T00:49:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/2020/06/20/python_duplicate_logging_messages/</loc>
+    <lastmod>2020-06-20T00:49:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/logging/</loc>
+    <lastmod>2020-06-20T00:49:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/post/</loc>
+    <lastmod>2020-06-20T00:49:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/Python/</loc>
+    <lastmod>2020-06-20T00:49:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/</loc>
+    <lastmod>2020-06-20T00:49:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -23,29 +58,8 @@
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-06-19T00:51:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/categories/Python/</loc>
-    <lastmod>2020-06-18T00:14:02+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://jdhao.github.io/tags/requests/</loc>
     <lastmod>2020-06-18T00:14:02+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-06-19T00:51:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -326,13 +340,6 @@
   <url>
     <loc>https://jdhao.github.io/2020/04/24/python_logging_for_multiple_modules/</loc>
     <lastmod>2020-04-24T01:28:41+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/logging/</loc>
-    <lastmod>2020-04-27T00:45:09+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
