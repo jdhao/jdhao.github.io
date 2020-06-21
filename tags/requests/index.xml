@@ -19,8 +19,9 @@
       
       <guid>https://jdhao.github.io/2020/06/21/faster_im_download_with_requests/</guid>
       <description>&lt;p&gt;In my &lt;a href=&#34;https://jdhao.github.io/2020/06/17/download_image_from_url_python/#using-requests-package&#34;&gt;previous post&lt;/a&gt;,
-I write about how to download an image from URL using requests package. In this
-post, I want to share ways to make the download speed faster.&lt;/p&gt;</description>
+I write about how to download an image from URL using
+&lt;a href=&#34;https://github.com/psf/requests&#34;&gt;requests&lt;/a&gt; package. In this post, I want to
+share ways to make the download speed faster.&lt;/p&gt;</description>
     </item>
     
     <item>
