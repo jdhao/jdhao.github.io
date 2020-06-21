@@ -10,20 +10,55 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-06-20T01:01:58+08:00</lastmod>
+    <lastmod>2020-06-21T23:06:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/2020/06/20/irfanview_usage/</loc>
-    <lastmod>2020-06-20T01:01:58+08:00</lastmod>
+    <loc>https://jdhao.github.io/2020/06/21/faster_im_download_with_requests/</loc>
+    <lastmod>2020-06-21T23:06:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/HTTP/</loc>
+    <lastmod>2020-06-21T23:06:33+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
+    <lastmod>2020-06-21T23:06:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/Python/</loc>
+    <lastmod>2020-06-21T23:06:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/requests/</loc>
+    <lastmod>2020-06-21T23:06:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/</loc>
+    <lastmod>2020-06-21T23:06:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/2020/06/20/irfanview_usage/</loc>
     <lastmod>2020-06-20T01:01:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -51,28 +86,7 @@
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/categories/Python/</loc>
-    <lastmod>2020-06-20T00:49:15+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-06-20T00:49:15+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://jdhao.github.io/2020/06/17/download_image_from_url_python/</loc>
-    <lastmod>2020-06-18T00:14:02+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/requests/</loc>
     <lastmod>2020-06-18T00:14:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -395,13 +409,6 @@
   
   <url>
     <loc>https://jdhao.github.io/2020/04/13/build_webapi_with_flask_s3/</loc>
-    <lastmod>2020-06-17T23:28:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/HTTP/</loc>
     <lastmod>2020-06-17T23:28:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

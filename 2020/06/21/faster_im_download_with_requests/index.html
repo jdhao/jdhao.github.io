@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>IrfanView Settings - jdhao&#39;s blog</title>
+  <title>Downloading Images Faster with requests Sessions - jdhao&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="IrfanView is a lightweight and fast image viewer for Windows. Here are some settings to make it more useful.
+<meta name="author" content="jdhao" /><meta name="description" content="In my previous post, I write about how to download an image from URL using requests package. In this post, I want to share ways to make the download speed faster.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -27,7 +27,7 @@
 <meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
-<link rel="canonical" href="https://jdhao.github.io/2020/06/20/irfanview_usage/" />
+<link rel="canonical" href="https://jdhao.github.io/2020/06/21/faster_im_download_with_requests/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -49,26 +49,29 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="IrfanView Settings" />
-<meta property="og:description" content="IrfanView is a lightweight and fast image viewer
-for Windows. Here are some settings to make it more useful." />
+<meta property="og:title" content="Downloading Images Faster with requests Sessions" />
+<meta property="og:description" content="In my previous post,
+I write about how to download an image from URL using requests package. In this
+post, I want to share ways to make the download speed faster." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2020/06/20/irfanview_usage/" />
-<meta property="article:published_time" content="2020-06-20T00:53:59+08:00" />
-<meta property="article:modified_time" content="2020-06-20T01:01:58+08:00" />
-<meta itemprop="name" content="IrfanView Settings">
-<meta itemprop="description" content="IrfanView is a lightweight and fast image viewer
-for Windows. Here are some settings to make it more useful.">
-<meta itemprop="datePublished" content="2020-06-20T00:53:59&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-20T01:01:58&#43;08:00" />
-<meta itemprop="wordCount" content="192">
+<meta property="og:url" content="https://jdhao.github.io/2020/06/21/faster_im_download_with_requests/" />
+<meta property="article:published_time" content="2020-06-21T22:13:05+08:00" />
+<meta property="article:modified_time" content="2020-06-21T23:06:33+08:00" />
+<meta itemprop="name" content="Downloading Images Faster with requests Sessions">
+<meta itemprop="description" content="In my previous post,
+I write about how to download an image from URL using requests package. In this
+post, I want to share ways to make the download speed faster.">
+<meta itemprop="datePublished" content="2020-06-21T22:13:05&#43;08:00" />
+<meta itemprop="dateModified" content="2020-06-21T23:06:33&#43;08:00" />
+<meta itemprop="wordCount" content="437">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="IrfanView Settings"/>
-<meta name="twitter:description" content="IrfanView is a lightweight and fast image viewer
-for Windows. Here are some settings to make it more useful."/>
+<meta itemprop="keywords" content="HTTP,requests," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Downloading Images Faster with requests Sessions"/>
+<meta name="twitter:description" content="In my previous post,
+I write about how to download an image from URL using requests package. In this
+post, I want to share ways to make the download speed faster."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -135,15 +138,15 @@ for Windows. Here are some settings to make it more useful."/>
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">IrfanView Settings</h1>
+      <h1 class="post-title">Downloading Images Faster with requests Sessions</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2020-06-20 </span>
+        <span class="post-time"> 2020-06-21 </span>
         <div class="post-category">
-            <a href="/categories/tools/"> tools </a>
+            <a href="/categories/Python/"> Python </a>
             </div>
-          <span class="more-meta"> 192 words </span>
-          <span class="more-meta"> 1 min read </span>
+          <span class="more-meta"> 437 words </span>
+          <span class="more-meta"> 3 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -153,49 +156,77 @@ for Windows. Here are some settings to make it more useful."/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#jump-to-next-file-after-deleting-current-one">Jump to next file after deleting current one</a></li>
-    <li><a href="#fit-image-to-window-size-when-viewing">Fit image to window size when viewing</a>
-      <ul>
-        <li><a href="#reference">Reference</a></li>
-      </ul>
-    </li>
-    <li><a href="#do-not-exit-program-when-pressing-esc">Do not exit program when pressing ESC</a>
-      <ul>
-        <li><a href="#reference-1">Reference</a></li>
-      </ul>
-    </li>
+    <li><a href="#persistent-session-or-not">Persistent session or not?</a></li>
+    <li><a href="#stream-or-not">stream or not?</a></li>
+    <li><a href="#benchmark">Benchmark</a></li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p><a href="https://www.irfanview.com/">IrfanView</a> is a lightweight and fast image viewer
-for Windows. Here are some settings to make it more useful.</p>
-<h1 id="jump-to-next-file-after-deleting-current-one">Jump to next file after deleting current one</h1>
-<p>By default, IrfanView will not jump to next image if you delete current one. To
-enable this, click <code>Options --&gt; Properties/Settings... --&gt; File Handling</code>.
-Under the <code>delete</code> section, check the following box:</p>
-<blockquote>
-<p>Jump to the next file after deleting/moving</p>
-</blockquote>
-<h1 id="fit-image-to-window-size-when-viewing">Fit image to window size when viewing</h1>
-<p>When we are viewing images in a directory, it is annoying that window size
-chagnes as image sizes vary. To keep the window size and fit the image to
-window, go to <code>View --&gt; Display options (window mode)</code> and choose <code>Fit images to window</code>.</p>
-<h2 id="reference">Reference</h2>
+      <p>In my <a href="https://jdhao.github.io/2020/06/17/download_image_from_url_python/#using-requests-package">previous post</a>,
+I write about how to download an image from URL using requests package. In this
+post, I want to share ways to make the download speed faster.</p>
+<p>Various ways exists for downloading an image using the requests package.</p>
+<h1 id="persistent-session-or-not">Persistent session or not?</h1>
+<p>There are two ways to make a HTTP request using requests:</p>
 <ul>
-<li><a href="https://irfanview-forum.de/showthread.php?t=11273">https://irfanview-forum.de/showthread.php?t=11273</a></li>
+<li>using <code>requests.get()</code></li>
+<li>using <code>session.get()</code> where <code>session</code> is a <code>requests.Session()</code> object.</li>
 </ul>
-<h1 id="do-not-exit-program-when-pressing-esc">Do not exit program when pressing ESC</h1>
-<p>By default, Irfanview will exit immediately if we press the ESC key when we are
-viewing an image, which is really annoying. To disable this behavior, go to
-<code>Options --&gt; Properties/Settings</code>, in the popup window, click <code>Start / Exit options</code>. In the <code>Exit options</code> section, check the box <code>Warning on ESC program exit</code>.  Do not forget to click <code>OK</code> button to save your settings.</p>
-<p align="center">
-<img src="https://blog-resource-1257868508.file.myqcloud.com/20200620010129.png" width="600">
-</p>
-<h2 id="reference-1">Reference</h2>
+<p>The difference is that with <code>requests.get()</code>, a new <code>session</code> object is created
+each time when we make a request. What does this mean? It means that each time
+we make the request, we need to establish a new TCP connection to the remote
+host. The connection is closed when we have finished the request.</p>
+<p>With <code>session.get()</code>, if we are making several requests to the same host, the
+connection will be reused so that no time is wasted re-establishing new
+connections. This is known as <a href="https://en.wikipedia.org/wiki/HTTP_persistent_connection">HTTP persistent connection</a>.
+In summary, using session will reduce the image download time.</p>
+<h1 id="stream-or-not">stream or not?</h1>
+<p>As said in the previous post, for large files, we may want to use <code>stream</code>
+parameter when making the request, which will reduce the memory overhead. So we
+have two ways to get the binary image from the response:</p>
 <ul>
-<li><a href="https://irfanview-forum.de/showthread.php?t=1092">https://irfanview-forum.de/showthread.php?t=1092</a></li>
+<li>using <code>response.content</code></li>
+<li>using <code>response.raw.read()</code></li>
+</ul>
+<h1 id="benchmark">Benchmark</h1>
+<p>By combining session options and stream options, we have four different ways to
+download images using requests.</p>
+<ul>
+<li><code>r.raw</code> with session</li>
+<li><code>r.content</code> with session</li>
+<li><code>r.raw</code> without session</li>
+<li><code>r.content</code> without session</li>
+</ul>
+<p>In order to find which is faster, I have run a small benchmark. I combine
+<code>concurrent.futures</code> and requests to download several images concurrently using
+the above four different settings of requests. The complete code can be found
+<a href="https://github.com/jdhao/im_download_requests">here</a>.</p>
+<p>According to my benchmark, using sessions is faster than requests without
+explicit sessions. For the stream option, using <code>r.raw</code> is generally faster
+than using <code>r.content</code>, but it is not always the case. If the image size not
+big enough, using either <code>r.raw</code> or <code>r.content</code> is fine.</p>
+<p>The benefit of using explicit sessions is more apparent when we are downloading
+more images concurrently. On my Mac, when downing 20 images concurrently, the
+output is:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">avg time (r.raw with session): 0.2751150131225586
+avg time (r.content with session): 0.2750370740890503
+avg time (r.raw no session): 1.5932393550872803
+avg time (r.content no session): 0.8408806085586548
+</code></pre></div><p>With 40 images, the output is:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">avg time (r.raw with session): 0.3991949200630188
+avg time (r.content with session): 0.42252095937728884
+avg time (r.raw no session): 1.937515652179718
+avg time (r.content no session): 1.912631618976593
+</code></pre></div><p>So the takeaway from this post is that using sessions will save our time and
+download images faster.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://requests.readthedocs.io/en/master/user/advanced/">https://requests.readthedocs.io/en/master/user/advanced/</a></li>
+<li><a href="https://stackoverflow.com/q/32986228/6064933">Difference between using requests.get() and requests.session().get()</a>?</li>
+<li><a href="https://stackoverflow.com/a/37170963/6064933">Python 3 urllib Vs requests performance</a>.</li>
 </ul>
     </div>
 
@@ -207,7 +238,7 @@ viewing an image, which is really annoying. To disable this behavior, go to
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-06-20
+        2020-06-21
         
     </span>
   </p>
@@ -232,15 +263,14 @@ viewing an image, which is really annoying. To disable this behavior, go to
       </label>
   </div>
 </div><footer class="post-footer">
-      
+      <div class="post-tags">
+          <a href="/tags/HTTP/">HTTP</a>
+          <a href="/tags/requests/">requests</a>
+          </div>
       <nav class="post-nav">
-        <a class="prev" href="/2020/06/21/faster_im_download_with_requests/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Downloading Images Faster with requests Sessions</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2020/06/20/python_duplicate_logging_messages/">
-            <span class="next-text nav-default">Duplicate Logging Messages in Python</span>
+        
+        <a class="next" href="/2020/06/20/irfanview_usage/">
+            <span class="next-text nav-default">IrfanView Settings</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

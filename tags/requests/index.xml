@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Wed, 17 Jun 2020 09:19:30 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2020 22:13:05 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/requests/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Downloading Images Faster with requests Sessions</title>
+      <link>https://jdhao.github.io/2020/06/21/faster_im_download_with_requests/</link>
+      <pubDate>Sun, 21 Jun 2020 22:13:05 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/06/21/faster_im_download_with_requests/</guid>
+      <description>&lt;p&gt;In my &lt;a href=&#34;https://jdhao.github.io/2020/06/17/download_image_from_url_python/#using-requests-package&#34;&gt;previous post&lt;/a&gt;,
+I write about how to download an image from URL using requests package. In this
+post, I want to share ways to make the download speed faster.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Download Image from URL using Python</title>
