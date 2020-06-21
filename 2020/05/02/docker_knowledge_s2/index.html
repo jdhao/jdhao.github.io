@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。
+<meta name="author" content="jdhao" /><meta name="description" content="本文总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -50,22 +50,22 @@
 
 
 <meta property="og:title" content="Docker 学习系列 --- 2" />
-<meta property="og:description" content="总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。" />
+<meta property="og:description" content="本文总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2020/05/02/docker_knowledge_s2/" />
 <meta property="article:published_time" content="2020-05-02T16:18:30+08:00" />
-<meta property="article:modified_time" content="2020-05-03T22:37:12+08:00" />
+<meta property="article:modified_time" content="2020-06-21T23:17:29+08:00" />
 <meta itemprop="name" content="Docker 学习系列 --- 2">
-<meta itemprop="description" content="总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。">
+<meta itemprop="description" content="本文总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。">
 <meta itemprop="datePublished" content="2020-05-02T16:18:30&#43;08:00" />
-<meta itemprop="dateModified" content="2020-05-03T22:37:12&#43;08:00" />
-<meta itemprop="wordCount" content="1692">
+<meta itemprop="dateModified" content="2020-06-21T23:17:29&#43;08:00" />
+<meta itemprop="wordCount" content="1687">
 
 
 
 <meta itemprop="keywords" content="Docker," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker 学习系列 --- 2"/>
-<meta name="twitter:description" content="总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。"/>
+<meta name="twitter:description" content="本文总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -139,7 +139,7 @@
         <div class="post-category">
             <a href="/categories/Note/"> Note </a>
             </div>
-          <span class="more-meta"> 1692 words </span>
+          <span class="more-meta"> 1687 words </span>
           <span class="more-meta"> 4 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -162,12 +162,12 @@
       </ul>
     </li>
     <li><a href="#如何从容器中拷贝东西到-host-机器">如何从容器中拷贝东西到 host 机器</a></li>
-    <li><a href="#dockerfile-里面的-run-命令默认的目录在哪里">dockerfile 里面的 RUN 命令默认的目录在哪里？</a>
+    <li><a href="#dockerfile-里面的-run-命令默认运行目录在哪里">Dockerfile 里面的 RUN 命令默认运行目录在哪里？</a>
       <ul>
         <li><a href="#参考-2">参考</a></li>
       </ul>
     </li>
-    <li><a href="#dockerfile-如何设置变量以便后续使用">dockerfile 如何设置变量以便后续使用</a>
+    <li><a href="#dockerfile-如何设置变量以便后续使用">Dockerfile 如何设置变量以便后续使用</a>
       <ul>
         <li><a href="#参考-3">参考</a></li>
       </ul>
@@ -177,7 +177,7 @@
         <li><a href="#参考-4">参考</a></li>
       </ul>
     </li>
-    <li><a href="#dockerfile-arg-和-env-指令无法扩展某些变量或者符号">dockerfile ARG 和 ENV 指令无法扩展某些变量或者符号</a></li>
+    <li><a href="#dockerfile-arg-和-env-指令无法扩展某些变量或者符号">Dockerfile ARG 和 ENV 指令无法扩展某些变量或者符号</a></li>
     <li><a href="#如何从某一个命令之后开始强制重新-build">如何从某一个命令之后开始强制重新 build？</a>
       <ul>
         <li><a href="#参考-5">参考</a></li>
@@ -199,7 +199,7 @@
   </div>
 </div>
     <div class="post-content">
-      <p>总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。</p>
+      <p>本文总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。</p>
 <h1 id="unable-to-find-xxx-locally">Unable to find xxx locally</h1>
 <p>使用 <code>docker run -it centos:7</code> 命令，遇到提示：</p>
 <blockquote>
@@ -209,16 +209,16 @@
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">7: Pulling from library/centos
 Digest: sha256:307835c385f656ec2e2fec602cf093224173c51119bbebd602c53c3653a3d6eb
 Status: Downloaded newer image for centos:7
-</code></pre></div><p>当使用 docker run 运行镜像的时候，如果镜像不存在，那么 docker 会从 docker hub 寻找对应的镜像，下载运行。出现这个错误提示可能是因为网络原因，耐心等待就可以了，参考<a href="https://stackoverflow.com/q/48212796/6064933">这里</a></p>
+</code></pre></div><p>当使用 <code>docker run</code> 运行镜像的时候，如果镜像不存在，那么 docker 会从 docker hub 寻找对应的镜像，下载运行。出现这个错误提示可能是因为网络原因，耐心等待就可以了，参考<a href="https://stackoverflow.com/q/48212796/6064933">这里</a></p>
 <h1 id="wget-命令未找到"><code>wget</code> 命令未找到</h1>
-<p>docker hub 上的 centos 镜像和普通的 centos 安装包有一定区别，执行的是最小安装，有很多常用的工具并没有安装，例如 <code>wget</code>, <code>which</code> 等，需要自己去安装。</p>
-<p>Nvidia cuda 的 centos 系统镜像是基于 Docker hub 上 centos 7 的镜像，所以这些工具也没有安装，需要自己安装。</p>
+<p>docker hub 上的 CentOS 镜像和普通的 CentOS 安装包有一定区别，执行的是最小安装，有很多常用的工具并没有安装，例如 <code>wget</code>, <code>which</code> 等，需要自己去安装。</p>
+<p>Nvidia cuda 的 CentOS 系统镜像是基于 Docker hub 上 CentOS 7 的镜像，所以这些工具也没有安装，需要自己安装。</p>
 <h2 id="参考">参考</h2>
 <ul>
 <li><a href="https://stackoverflow.com/q/28885137/6064933">https://stackoverflow.com/q/28885137/6064933</a></li>
 </ul>
 <h1 id="docker-run--it-选项作用">docker run -it 选项作用</h1>
-<p>docker run 命令很常用的两个选项是 <code>-it</code>，<code>-i</code> 作用是把 host 的 input 和container 的 input 连接起来，<code>-t</code> 创造一个 pseudo terminal，这两个命令连起来使用，就好像直接在 container 里面创建了 bash shell，可以接收输入和输出，就像用户使用 host 机器的 shell 一样。</p>
+<p>docker run 命令很常用的两个选项是 <code>-it</code>，<code>-i</code> 作用是把 host 的 input 和容器的 input 连接起来，<code>-t</code> 创造一个 pseudo terminal，这两个命令连起来使用，就好像直接在 container 里面创建了 bash shell，可以接收输入和输出，就像用户使用 host 机器的 shell 一样。</p>
 <h2 id="参考-1">参考</h2>
 <ul>
 <li><a href="https://stackoverflow.com/q/30137135/6064933">https://stackoverflow.com/q/30137135/6064933</a></li>
@@ -227,15 +227,15 @@ Status: Downloaded newer image for centos:7
 <h1 id="如何从容器中拷贝东西到-host-机器">如何从容器中拷贝东西到 host 机器</h1>
 <p>参考 <a href="https://stackoverflow.com/a/22050116/6064933">这里</a>，可以使用 <code>docker cp</code> 命令：</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">docker cp CONTAINER_ID:/path/inside/docker/container /path/in/host/machine
-</code></pre></div><h1 id="dockerfile-里面的-run-命令默认的目录在哪里">dockerfile 里面的 RUN 命令默认的目录在哪里？</h1>
-<p>dockerfile 如果没有指定<a href="https://docs.docker.com/engine/reference/builder/#workdir">WORKDIR</a>，那么默认执行命令的目录是在 <code>/</code>，并不是 <code>/root</code>, 如果基础镜像指定了 work dir，那么 workdir 就是基础镜像指定的目录。因此在使用 dockerfile 构建自己的镜像时，最好使用 WORKDIR 指定自己的工作目录，避免收到基础镜像的影响。</p>
+</code></pre></div><h1 id="dockerfile-里面的-run-命令默认运行目录在哪里">Dockerfile 里面的 RUN 命令默认运行目录在哪里？</h1>
+<p>Dockerfile 如果没有指定 <a href="https://docs.docker.com/engine/reference/builder/#workdir">WORKDIR</a>，那么默认执行命令的目录是在 <code>/</code>，并不是 <code>/root</code>, 如果基础镜像指定了 work dir，那么 workdir 就是基础镜像指定的目录。因此在使用 Dockerfile 构建自己的镜像时，最好使用 <code>WORKDIR</code> 命令指定自己的工作目录，避免受到基础镜像的影响。</p>
 <h2 id="参考-2">参考</h2>
 <ul>
 <li><a href="https://stackoverflow.com/a/49903714/6064933">What&rsquo;s the default WORKDIR in docker</a>?</li>
 <li><a href="https://stackoverflow.com/q/35286990/6064933">https://stackoverflow.com/q/35286990/6064933</a></li>
 </ul>
-<h1 id="dockerfile-如何设置变量以便后续使用">dockerfile 如何设置变量以便后续使用</h1>
-<p>使用 dockerfile 构建镜像时，有时候我们需要设置一些变量，以便后续引用，节省时间。可以利用 <a href="https://docs.docker.com/engine/reference/builder/#arg">ARG</a> 命令设置变量，指的注意的是，ARG 命令设置变量，只在 build 的时候有效，<a href="https://docs.docker.com/engine/reference/builder/#env">ENV</a> 设置的变量，镜像 build 完成，进入镜像以后，仍然是有效的。</p>
+<h1 id="dockerfile-如何设置变量以便后续使用">Dockerfile 如何设置变量以便后续使用</h1>
+<p>使用 Dockerfile 构建镜像时，有时候我们需要设置一些变量，以便后续引用，节省时间。可以利用 <a href="https://docs.docker.com/engine/reference/builder/#arg">ARG</a> 命令设置变量，指的注意的是，ARG 命令设置变量，只在 build 的时候有效，<a href="https://docs.docker.com/engine/reference/builder/#env">ENV</a> 设置的变量，镜像 build 完成，进入镜像以后，仍然是有效的。</p>
 <h2 id="参考-3">参考</h2>
 <ul>
 <li><a href="https://stackoverflow.com/a/37639938/6064933">How to define a variable inside Dockerfile</a>.</li>
@@ -250,19 +250,19 @@ Status: Downloaded newer image for centos:7
 <li><a href="https://stackoverflow.com/q/44465703/6064933">The purpose of build contex</a></li>
 <li><a href="https://medium.com/lucjuggery/docker-tips-about-the-build-context-dbc76505e178">https://medium.com/lucjuggery/docker-tips-about-the-build-context-dbc76505e178</a></li>
 </ul>
-<h1 id="dockerfile-arg-和-env-指令无法扩展某些变量或者符号">dockerfile ARG 和 ENV 指令无法扩展某些变量或者符号</h1>
+<h1 id="dockerfile-arg-和-env-指令无法扩展某些变量或者符号">Dockerfile ARG 和 ENV 指令无法扩展某些变量或者符号</h1>
 <p>Dockerfile 的 ARG 和 ENV 指令，无法 expand <code>$HOME</code>, <code>~</code>，如果要使用路径，最好使用绝对路径。</p>
 <p>例如，ctags 被安装在 /root/tools/ctags，如果用 ENV 定义 PATH 环境变量：</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ENV PATH=$HOME/tools/ctags/bin:$PATH
 </code></pre></div><p>然后在 Dockerfile 中运行下面的指令：</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">RUN which ctags
-</code></pre></div><p>会提示错误，如果你把 PATH 打印出来 <code>RUN echo $PATH</code>, 会发现 ctags 有关的一项目录是错的，显示的是 <code>/tools/ctags/bin</code>，也就是使用 ENV 指令定义 PATH 的时候，<code>$HOME</code> 是空的，并不会被 expand 为 <code>/root</code>。同样如果使用 <code>~</code>：</p>
+</code></pre></div><p>会提示错误，如果我们把 PATH 打印出来 <code>RUN echo $PATH</code>, 会发现 ctags 有关的一项目录是错的，显示的是 <code>/tools/ctags/bin</code>，也就是使用 ENV 指令定义 PATH 的时候，<code>$HOME</code> 是空的，并不会被 expand 为 <code>/root</code>。同样如果使用 <code>~</code>：</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ENV PATH=~/tools/ctags/bin:$PATH
 </code></pre></div><p>也不会被正确 expand 为 <code>/root</code>, 如果要运行 ctags 相关的指令也是不成功的。如果要设置环境变量，可以设置为绝对路径；如果觉得啰嗦，可以利用 ARG 自定义一个 HOME 变量：</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ARG HOME=/root
 </code></pre></div><p>然后在设置 ENV 变量的时候引用 HOME 变量就不会出错。</p>
 <h1 id="如何从某一个命令之后开始强制重新-build">如何从某一个命令之后开始强制重新 build？</h1>
-<p>Dockerfile 如果从开始到某一步在 build 的时候没有出错，并且没有增加或者删除 build的步骤，那么下一次 build 镜像的时候，默认使用上一步 build 的缓存，不会重新 build，这样可以加快镜像构建的速度。如果想从某一步开始重新开始 build，可以在这一步之前加入一个没用的不耗时的命令，例如</p>
+<p>Dockerfile 如果从开始到某一步在 build 的时候没有出错，并且没有增加或者删除 build 的步骤，那么下一次 build 镜像的时候，默认使用上一步 build 的缓存，不会重新 build，这样可以加快镜像构建的速度。如果想从某一步开始重新开始 build，可以在这一步之前加入一个没用的不耗时的命令，例如</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">RUN echo &#34;hello world&#34;
 </code></pre></div><p>重新构建的时候，新加入的命令及以后的所有步骤就会重新 build。</p>
 <h2 id="参考-5">参考</h2>
@@ -270,7 +270,7 @@ Status: Downloaded newer image for centos:7
 <li><a href="https://stackoverflow.com/q/35134713/6064933">Disable cache for specific RUN command</a>.</li>
 </ul>
 <h1 id="source-命令未找到"><code>source</code> 命令未找到</h1>
-<p>当我试着用 RUN 指令运行 source 命令:</p>
+<p>当我试着用 RUN 指令运行 <code>source</code> 命令:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">RUN source /root/.bash_profile
 </code></pre></div><p>遇到了错误提示：</p>
 <blockquote>
@@ -304,7 +304,7 @@ Status: Downloaded newer image for centos:7
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-05-03
+        2020-06-21
         
     </span>
   </p>
