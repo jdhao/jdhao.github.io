@@ -23,6 +23,16 @@ I enjoy programming. I am most familiar with Python and fairly proficient in usi
     </item>
     
     <item>
+      <title>uWSGI Install and Use Issues</title>
+      <link>https://jdhao.github.io/2020/07/02/uwsgi_install_use_issue/</link>
+      <pubDate>Thu, 02 Jul 2020 01:02:17 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/07/02/uwsgi_install_use_issue/</guid>
+      <description>&lt;p&gt;My notes on several issues when installing and running
+&lt;a href=&#34;https://uwsgi-docs.readthedocs.io/en/latest/&#34;&gt;uWSGI&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Downloading Images Faster with requests Sessions</title>
       <link>https://jdhao.github.io/2020/06/21/faster_im_download_with_requests/</link>
       <pubDate>Sun, 21 Jun 2020 22:13:05 +0800</pubDate>

@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Sun, 21 Jun 2020 22:13:05 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2020 01:02:17 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>uWSGI Install and Use Issues</title>
+      <link>https://jdhao.github.io/2020/07/02/uwsgi_install_use_issue/</link>
+      <pubDate>Thu, 02 Jul 2020 01:02:17 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/07/02/uwsgi_install_use_issue/</guid>
+      <description>&lt;p&gt;My notes on several issues when installing and running
+&lt;a href=&#34;https://uwsgi-docs.readthedocs.io/en/latest/&#34;&gt;uWSGI&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Downloading Images Faster with requests Sessions</title>
