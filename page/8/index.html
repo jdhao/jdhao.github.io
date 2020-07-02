@@ -125,6 +125,36 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/2018/12/03/text_file_read_write_on_windows/">Reading and Writing Text Files on Windows</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2018-12-03 </span>
+      <div class="post-category">
+          <a href="/categories/Python/"> Python </a>
+          </div>
+        <span class="more-meta"> 476 words </span>
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>If you are using Python 3 on Windows, you may have seen a Unicode decoding
+error when opening files in UTF-8 format:</p>
+<blockquote>
+<p>UnicodeDecodeError: &lsquo;gbk&rsquo; codec can&rsquo;t decode byte 0xaf in position 5: illegal multibyte sequence</p>
+</blockquote>
+<p>If you read the same file on Linux or MacOS, you will find that this file can
+be opened without any error. Why is there a difference? It has something to do
+with the default encoding Python chooses to use on different platforms.</p>
+    </div>
+    <div class="read-more">
+      <a href="/2018/12/03/text_file_read_write_on_windows/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/2018/11/27/font_shape_mathematics_bezier_curves/">The Mathematics behind Font Shapes --- Bézier Curves and More</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2018-11-27 </span>
@@ -626,34 +656,6 @@ would rather keep the program plain simple and usable. So I decided to give
     </div>
     <div class="read-more">
       <a href="/2018/10/12/python_logging_module/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2018/10/11/python_argparse_set_boolean_params/">Set up the Default Value for Boolean Option in Argparse</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2018-10-11 </span>
-      <div class="post-category">
-          <a href="/categories/Python/"> Python </a>
-          </div>
-        <span class="more-meta"> 280 words </span>
-        <span class="more-meta"> 2 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>TL;DR</p>
-<p>If you want to set a parameter&rsquo;s default value to <code>True</code> using argparse, use</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">parser.add_argument(&#39;--param&#39;, action=&#39;store_false&#39;)
-</code></pre></div><p>Otherwise, use</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">parser.add_argument(&#39;--param&#39;, action=&#39;store_true&#39;)
-</code></pre></div>
-    </div>
-    <div class="read-more">
-      <a href="/2018/10/11/python_argparse_set_boolean_params/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>

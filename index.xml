@@ -23,6 +23,18 @@ I enjoy programming. I am most familiar with Python and fairly proficient in usi
     </item>
     
     <item>
+      <title>Switch Command with update-alternatives on Ubuntu</title>
+      <link>https://jdhao.github.io/2020/07/02/ubuntu_update_alternatives/</link>
+      <pubDate>Thu, 02 Jul 2020 23:06:40 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/07/02/ubuntu_update_alternatives/</guid>
+      <description>&lt;p&gt;To build different projects, we may need to install different versions of the
+same software. To use the specific version, we may create a sym link to the
+executable with that version. On Ubuntu, we can also switch command versions
+easily with &lt;a href=&#34;http://manpages.ubuntu.com/manpages/trusty/man8/update-alternatives.8.html&#34;&gt;update-alternatives&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>uWSGI Install and Use Issues</title>
       <link>https://jdhao.github.io/2020/07/02/uwsgi_install_use_issue/</link>
       <pubDate>Thu, 02 Jul 2020 01:02:17 +0800</pubDate>
