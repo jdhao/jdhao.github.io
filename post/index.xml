@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Thu, 02 Jul 2020 23:06:40 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jul 2020 00:35:48 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>如何找到技术问题根源？</title>
+      <link>https://jdhao.github.io/2020/07/05/how_to_find_casue_of_technical_issues/</link>
+      <pubDate>Sun, 05 Jul 2020 00:35:48 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/07/05/how_to_find_casue_of_technical_issues/</guid>
+      <description>&lt;p&gt;在实际编程中，我们总会遇到各种各样的代码运行问题，如何快速发现问题的根源需要一些系统的方法，构造一个最小的能够复现错误的环境至关重要，也就是所谓的 &lt;a href=&#34;https://stackoverflow.com/help/minimal-reproducible-example&#34;&gt;MWE&lt;/a&gt;，minimal working example。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Switch Command with update-alternatives on Ubuntu</title>
