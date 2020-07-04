@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Building and Install Tmux from Source on CentOS 7 - jdhao&#39;s blog</title>
+  <title>Building and Install Tmux from Source on Linux - jdhao&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="Tmux is a great terminal multiplexer. The Tmux installed by yum is too old1 on my CentOS servers. So I decided to install the latest version of Tmux that supports true colors. Since I do not have root priviledge on the system, I have to build Tmux from source and install it under my HOME directory. If that is also what you want to do, keep reading.
+<meta name="author" content="jdhao" /><meta name="description" content="Tmux is a great terminal multiplexer. Tmux installed via the package manager is often too old. So I decided to install the latest version of Tmux that supports true colors from source. Since I do not have root priviledge on the system, I have to build Tmux and install it under my HOME. If that is also what you want, keep reading.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -49,35 +49,35 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Building and Install Tmux from Source on CentOS 7" />
-<meta property="og:description" content="Tmux is a great terminal multiplexer. The Tmux installed by yum is too old1
-on my CentOS servers. So I decided to install the latest version of Tmux that
-supports true colors. Since I do not have root priviledge on the system, I have
-to build Tmux from source and install it under my HOME directory. If that is
-also what you want to do, keep reading." />
+<meta property="og:title" content="Building and Install Tmux from Source on Linux" />
+<meta property="og:description" content="Tmux is a great terminal multiplexer. Tmux installed via the package manager is
+often too old. So I decided to install the latest version of Tmux that supports
+true colors from source. Since I do not have root priviledge on the system, I
+have to build Tmux and install it under my HOME. If that is also what you
+want, keep reading." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2018/10/16/tmux_build_without_root_priviledge/" />
 <meta property="article:published_time" content="2018-10-16T13:21:00+08:00" />
-<meta property="article:modified_time" content="2020-06-02T22:45:06+08:00" />
-<meta itemprop="name" content="Building and Install Tmux from Source on CentOS 7">
-<meta itemprop="description" content="Tmux is a great terminal multiplexer. The Tmux installed by yum is too old1
-on my CentOS servers. So I decided to install the latest version of Tmux that
-supports true colors. Since I do not have root priviledge on the system, I have
-to build Tmux from source and install it under my HOME directory. If that is
-also what you want to do, keep reading.">
+<meta property="article:modified_time" content="2020-07-04T08:36:37+08:00" />
+<meta itemprop="name" content="Building and Install Tmux from Source on Linux">
+<meta itemprop="description" content="Tmux is a great terminal multiplexer. Tmux installed via the package manager is
+often too old. So I decided to install the latest version of Tmux that supports
+true colors from source. Since I do not have root priviledge on the system, I
+have to build Tmux and install it under my HOME. If that is also what you
+want, keep reading.">
 <meta itemprop="datePublished" content="2018-10-16T13:21:00&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-02T22:45:06&#43;08:00" />
-<meta itemprop="wordCount" content="433">
+<meta itemprop="dateModified" content="2020-07-04T08:36:37&#43;08:00" />
+<meta itemprop="wordCount" content="435">
 
 
 
 <meta itemprop="keywords" content="Tmux," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Building and Install Tmux from Source on CentOS 7"/>
-<meta name="twitter:description" content="Tmux is a great terminal multiplexer. The Tmux installed by yum is too old1
-on my CentOS servers. So I decided to install the latest version of Tmux that
-supports true colors. Since I do not have root priviledge on the system, I have
-to build Tmux from source and install it under my HOME directory. If that is
-also what you want to do, keep reading."/>
+<meta name="twitter:title" content="Building and Install Tmux from Source on Linux"/>
+<meta name="twitter:description" content="Tmux is a great terminal multiplexer. Tmux installed via the package manager is
+often too old. So I decided to install the latest version of Tmux that supports
+true colors from source. Since I do not have root priviledge on the system, I
+have to build Tmux and install it under my HOME. If that is also what you
+want, keep reading."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -144,14 +144,14 @@ also what you want to do, keep reading."/>
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Building and Install Tmux from Source on CentOS 7</h1>
+      <h1 class="post-title">Building and Install Tmux from Source on Linux</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2018-10-16 </span>
         <div class="post-category">
             <a href="/categories/Linux/"> Linux </a>
             </div>
-          <span class="more-meta"> 433 words </span>
+          <span class="more-meta"> 435 words </span>
           <span class="more-meta"> 3 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -175,15 +175,16 @@ also what you want to do, keep reading."/>
   </div>
 </div>
     <div class="post-content">
-      <p>Tmux is a great terminal multiplexer. The Tmux installed by yum is too old<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>
-on my CentOS servers. So I decided to install the latest version of Tmux that
-supports true colors. Since I do not have root priviledge on the system, I have
-to build Tmux from source and install it under my HOME directory. If that is
-also what you want to do, keep reading.</p>
+      <p>Tmux is a great terminal multiplexer. Tmux installed via the package manager is
+often too old. So I decided to install the latest version of Tmux that supports
+true colors from source. Since I do not have root priviledge on the system, I
+have to build Tmux and install it under my <code>HOME</code>. If that is also what you
+want, keep reading.</p>
 <p>Tmux has two dependencies: <a href="https://github.com/libevent/libevent">libevent</a> and
 <a href="https://invisible-island.net/ncurses/">ncurses</a>. We have to build and install
 these two libraries first.</p>
 <h1 id="build-libevent">Build libevent</h1>
+<p>First, we use the following script to build and install libevent:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">wget https://github.com/libevent/libevent/releases/download/release-2.1.11-stable/libevent-2.1.11-stable.tar.gz
 tar zxvf libevent-2.1.11-stable.tar.gz
 <span class="nb">cd</span> libevent-2.1.11-stable
@@ -193,6 +194,7 @@ mkdir -p <span class="nv">$HOME</span>/local
 make -j <span class="o">&amp;&amp;</span> make install
 </code></pre></div><p>Libevent will be install to <code>$HOME/local</code>.</p>
 <h1 id="build-ncurses">Build ncurses</h1>
+<p>We also need to build ncurses library:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">wget https://ftp.gnu.org/pub/gnu/ncurses/ncurses-6.2.tar.gz
 tar zxvf ncurses-6.2.tar.gz
 <span class="nb">cd</span> ncurses-6.2/
@@ -200,8 +202,7 @@ tar zxvf ncurses-6.2.tar.gz
 make -j<span class="o">&amp;&amp;</span> make install
 </code></pre></div><p>The above command will install ncurses under <code>$HOME/local</code>.</p>
 <h1 id="build-tmux">Build Tmux</h1>
-<p>Finally, we build Tmux. Download the latest Tmux release tarball from GitHub
-and build it:</p>
+<p>Finally, we download the latest Tmux release tarball from GitHub and build it:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">wget https://github.com/tmux/tmux/releases/download/3.1b/tmux-3.1b.tar.gz
 tar zxvf tmux-3.1b.tar.gz
 <span class="nb">cd</span> tmux-3.1b
@@ -211,14 +212,14 @@ tar zxvf tmux-3.1b.tar.gz
 </span><span class="se"></span>    <span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">&#34;-L</span><span class="nv">$HOME</span><span class="s2">/local/lib&#34;</span>
 make -j <span class="o">&amp;&amp;</span> make install
 </code></pre></div><p>After running the above commands, Tmux will be installed to <code>$HOME/local</code>. The
-<code>tmux</code> executable file is under <code>$HOME/local/bin</code>.</p>
+<code>tmux</code> executable is under <code>$HOME/local/bin</code>.</p>
 <h2 id="post-install">Post install</h2>
-<p>We need to add Tmux executable to PATH variables.</p>
+<p>We need to add Tmux executable to env variable PATH.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/local/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
-</code></pre></div><p>After building Tmux, we should update the env variable <code>LD_LIBRARY_PATH</code> to
-include the libevent and libncurses shared object directory:</p>
+</code></pre></div><p>After building Tmux, we should also update the env variable <code>LD_LIBRARY_PATH</code>
+to include the libevent and libncurses shared object directory:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/local/lib:</span><span class="nv">$LD_LIBRARY_PATH</span><span class="s2">&#34;</span>
-</code></pre></div><p>Or you will meet the following error when starting tmux:</p>
+</code></pre></div><p>Or you may meet the following error when starting tmux:</p>
 <blockquote>
 <p>tmux: error while loading shared libraries: libevent-2.1.so.7: cannot open
 shared object file: No such file or directory</p>
@@ -268,14 +269,6 @@ make -j <span class="o">&amp;&amp;</span> make install
 <li><a href="https://gist.github.com/ryin/3106801">Build Tmux from source</a>.</li>
 <li>Tmux readme: <a href="https://github.com/tmux/tmux">https://github.com/tmux/tmux</a></li>
 </ul>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p>The version of Tmux installed by yum is 1.8. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
     </div>
 
     <div class="post-copyright">
@@ -286,7 +279,7 @@ make -j <span class="o">&amp;&amp;</span> make install
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-06-02
+        2020-07-04
         
     </span>
   </p>
