@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Serving Flask Application with uWSGI - jdhao&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="jdhao" /><meta name="description" content="In my old post, I have shared how to run the builtin development server to serve the web API. For production, we need to use more powerful web servers. Flask complies to the WSGI (Web Server Gateway Interface) specification and can work with any web server that conforms to WSGI.
+In this post, I want share how to run Flask applications using uWSGI &amp;mdash; a popular WSGI-compliant server.
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+
+
+<meta name="generator" content="Hugo 0.69.0 with theme even" />
+
+
+<link rel="canonical" href="https://jdhao.github.io/2020/06/13/flask_serving_via_wsgi_server/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6058871559165202",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+
+
+<link href="/sass/main.min.78f8f17bab244b9ee62ad16480c9584d5fc2db06ae20681d1ca225cefd80767c.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Serving Flask Application with uWSGI" />
+<meta property="og:description" content="In my old post, I have
+shared how to run the builtin development server to serve the web API. For
+production, we need to use more powerful web servers. Flask complies to the
+WSGI (Web Server
+Gateway Interface) specification and can work with any web server that conforms
+to WSGI.
+In this post, I want share how to run Flask applications using
+uWSGI &mdash; a popular WSGI-compliant server." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jdhao.github.io/2020/06/13/flask_serving_via_wsgi_server/" />
+<meta property="article:published_time" content="2020-06-13T21:44:44+08:00" />
+<meta property="article:modified_time" content="2020-07-09T01:28:58+08:00" />
+<meta itemprop="name" content="Serving Flask Application with uWSGI">
+<meta itemprop="description" content="In my old post, I have
+shared how to run the builtin development server to serve the web API. For
+production, we need to use more powerful web servers. Flask complies to the
+WSGI (Web Server
+Gateway Interface) specification and can work with any web server that conforms
+to WSGI.
+In this post, I want share how to run Flask applications using
+uWSGI &mdash; a popular WSGI-compliant server.">
+<meta itemprop="datePublished" content="2020-06-13T21:44:44&#43;08:00" />
+<meta itemprop="dateModified" content="2020-07-09T01:28:58&#43;08:00" />
+<meta itemprop="wordCount" content="591">
+
+
+
+<meta itemprop="keywords" content="Flask," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Serving Flask Application with uWSGI"/>
+<meta name="twitter:description" content="In my old post, I have
+shared how to run the builtin development server to serve the web API. For
+production, we need to use more powerful web servers. Flask complies to the
+WSGI (Web Server
+Gateway Interface) specification and can work with any web server that conforms
+to WSGI.
+In this post, I want share how to run Flask applications using
+uWSGI &mdash; a popular WSGI-compliant server."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">jdhao&#39;s blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">jdhao&#39;s blog</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Serving Flask Application with uWSGI</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-06-13 </span>
+        <div class="post-category">
+            <a href="/categories/Python/"> Python </a>
+            </div>
+          <span class="more-meta"> 591 words </span>
+          <span class="more-meta"> 3 mins read </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-and-simple-running">Install and simple running</a></li>
+    <li><a href="#run-uwsgi-via-config">Run uWSGI via config</a>
+      <ul>
+        <li><a href="#chdir">chdir</a></li>
+        <li><a href="#wsgi-file-and-callable">wsgi-file and callable</a></li>
+        <li><a href="#master">master</a></li>
+        <li><a href="#single-interpreter">single-interpreter</a></li>
+        <li><a href="#die-on-term">die-on-term</a></li>
+        <li><a href="#need-app">need-app</a></li>
+        <li><a href="#lazy-apps">lazy-apps</a></li>
+        <li><a href="#proc-name-spaced">proc-name-spaced</a></li>
+        <li><a href="#py-autoreload">py-autoreload</a></li>
+        <li><a href="#pidfile">pidfile</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>In my <a href="https://jdhao.github.io/2020/04/06/build_webapi_with_flask_s1/">old post</a>, I have
+shared how to run the builtin development server to serve the web API. For
+production, we need to use more powerful web servers. Flask complies to the
+<a href="https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface">WSGI</a> (Web Server
+Gateway Interface) specification and can work with any web server that conforms
+to WSGI.</p>
+<p>In this post, I want share how to run Flask applications using
+<a href="https://uwsgi-docs.readthedocs.io/en/latest/">uWSGI</a> &mdash; a popular WSGI-compliant server.</p>
+<h1 id="install-and-simple-running">Install and simple running</h1>
+<p>To install uWSGI, we can use pip:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pip install uwsgi
+</code></pre></div><p>To run a simple flask application using uWSGI, we can use the following
+commands:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">uwsgi --http 0.0.0.0:8081 --module flask-app:app --master --processes <span class="m">2</span> --threads <span class="m">2</span>
+<span class="c1"># or run following command</span>
+<span class="c1"># uwsgi --socket 0.0.0.0:8081 --protocol=http --module flask-app:app</span>
+</code></pre></div><h1 id="run-uwsgi-via-config">Run uWSGI via config</h1>
+<p>When we use more options via the command line, it becomes less convenient. We
+can also use an <code>ini</code> file to config uWSGI like this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[uwsgi]</span>
+<span class="na">chdir</span><span class="o">=</span><span class="s">/path/to/project</span>
+<span class="na">wsgi-file</span><span class="o">=</span><span class="s">flask-demo.py</span>
+<span class="na">callable</span><span class="o">=</span><span class="s">app</span>
+<span class="na">http</span><span class="o">=</span><span class="s">0.0.0.0:1234</span>
+<span class="na">need-app</span><span class="o">=</span><span class="s">true</span>
+<span class="na">lazy-apps</span><span class="o">=</span><span class="s">true</span>
+<span class="na">master</span><span class="o">=</span><span class="s">true</span>
+<span class="na">processes</span><span class="o">=</span><span class="s">2</span>
+<span class="na">threads</span><span class="o">=</span><span class="s">2</span>
+<span class="na">single-interpreter</span><span class="o">=</span><span class="s">true</span>
+<span class="na">die-on-term</span><span class="o">=</span><span class="s">true</span>
+<span class="na">procname-prefix-spaced</span><span class="o">=</span><span class="s">flask demo</span>
+<span class="na">vacuum</span><span class="o">=</span><span class="s">true</span>
+<span class="na">pidfile</span><span class="o">=</span><span class="s">demo.pid</span>
+</code></pre></div><p>Save this file as <code>uwsgi.ini</code> (or whatever you like), and then run the
+application using <code>uwsgi --ini uwsgi.ini</code>. If the extention of config file is
+<code>ini</code>, we also directly run uWSGI as this: <code>uwsgi uwsgi.ini</code>.</p>
+<p>Below are meanings of the some of these options:</p>
+<h2 id="chdir">chdir</h2>
+<p>The <code>chdir</code> option specifies the directory to run the application.</p>
+<h2 id="wsgi-file-and-callable">wsgi-file and callable</h2>
+<p><code>wsgi-file</code> specify the source file where your application resides. <code>callable</code>
+are the name of your application. For example, if you define your application
+like this: <code>app = Flask(__name__)</code>, then you should set <code>callable = app</code>.</p>
+<h2 id="master">master</h2>
+<p>With master mode on, the master process will restart a worker process if it
+dies. Generally, it is good idea to turn master mode on with <code>master = true</code>.</p>
+<p>See also: <a href="https://stackoverflow.com/q/35072176/6064933">https://stackoverflow.com/q/35072176/6064933</a></p>
+<h2 id="single-interpreter">single-interpreter</h2>
+<p>By default, uwsgi will enable multiple interpreter mode, i.e., running
+multiple apps in a single process using different interpreter. If we are
+running a single app, it is not necessary to run in this mode.</p>
+<p>Ref:</p>
+<ul>
+<li><a href="http://lists.unbit.it/pipermail/uwsgi/2010-April/000247.html">http://lists.unbit.it/pipermail/uwsgi/2010-April/000247.html</a></li>
+<li><a href="https://docs.newrelic.com/docs/agents/python-agent/web-frameworks-servers/python-agent-uwsgi-web-server">https://docs.newrelic.com/docs/agents/python-agent/web-frameworks-servers/python-agent-uwsgi-web-server</a></li>
+</ul>
+<h2 id="die-on-term">die-on-term</h2>
+<p>without <code>die-on-term = true</code>, you can not kill uwsgi process via <code>kill xxx</code>.
+Instead, uWSGI will reload a process if it were killed. This may not be what
+you want.</p>
+<h2 id="need-app">need-app</h2>
+<p>if <code>need-app = true</code>, uWSGI will not run if it can not find the application to
+run. Otherwise, it will load even without an application. When you request the
+service, you will get HTTP 500 responses.</p>
+<h2 id="lazy-apps">lazy-apps</h2>
+<p>With <code>lazy-apps=true</code>, each process will initialize applications indepently of
+each other. If you do not set this option, you may run into troubles. For example,
+someone report that <a href="https://discuss.pytorch.org/t/basic-operations-do-not-work-in-1-1-0-with-uwsgi-flask/50257/7">PyTorch model are not runnning properly using uWSGI and flask
+if <code>lazy-apps</code> option is not set</a>.</p>
+<p>See also official discussion <a href="https://uwsgi-docs.readthedocs.io/en/latest/articles/TheArtOfGracefulReloading.html#preforking-vs-lazy-apps-vs-lazy">here</a>.</p>
+<h2 id="proc-name-spaced">proc-name-spaced</h2>
+<p>It will add a custom prefix to uwsgi process so that you can find the process
+for a specific application easily.</p>
+<div class="highlight"><pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">proc-name-spaced</span> <span class="o">=</span> <span class="s">demo</span>
+</code></pre></div><p>will produce the following output:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">jdhao 29516  1.0  0.0 110104 14852 pts/31   S+   21:16   0:00 demo uWSGI master
+jdhao 29520  5.5  0.0 186184 28080 pts/31   S+   21:16   0:00 demo uWSGI worker 1
+jdhao 29521  0.0  0.0 110104  7644 pts/31   S+   21:16   0:00 demo uWSGI http 1
+</code></pre></div><h2 id="py-autoreload">py-autoreload</h2>
+<p><code>py-autoreload=2</code> will check if file is modified every 2 seconds and restart
+application if modification detected. This should only be used for debugging,
+and <strong>not</strong> for production.</p>
+<p>Ref:</p>
+<ul>
+<li><a href="https://uwsgi-docs.readthedocs.io/en/latest/Configuration.html#ini-files">https://uwsgi-docs.readthedocs.io/en/latest/Configuration.html#ini-files</a></li>
+</ul>
+<h2 id="pidfile">pidfile</h2>
+<p>The option <code>pidfile</code> will create a file under specified location with the pid of
+uWSGI master process. To kill the uWSGI process safely, you can use the following
+command:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">uwsgi --stop demo.pid
+</code></pre></div><p>Ref:</p>
+<ul>
+<li><a href="https://stackoverflow.com/a/31971005/6064933">How to kill all instance of uwsgi?</a></li>
+</ul>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://uwsgi-docs.readthedocs.io/en/latest/ParsingOrder.html">https://uwsgi-docs.readthedocs.io/en/latest/ParsingOrder.html</a></li>
+<li><a href="https://www.techatbloomberg.com/blog/configuring-uwsgi-production-deployment/">https://www.techatbloomberg.com/blog/configuring-uwsgi-production-deployment/</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">jdhao</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-07-09
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">License</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
+        <span>wechat</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
+        <span>alipay</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Flask/">Flask</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2020/06/14/kitty_tmux_open_terminal_fail/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Tmux: Open Terminal Failed in Kitty Terminal</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/2020/06/11/conda_env_management/">
+            <span class="next-text nav-default">Virtual Environment Management with Conda</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jdhao';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
+  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">jdhao</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-113395108-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>

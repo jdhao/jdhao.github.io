@@ -10,7 +10,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-07-06T23:20:28+08:00</lastmod>
+    <lastmod>2020-07-09T01:28:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -24,7 +24,7 @@
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-07-06T23:20:28+08:00</lastmod>
+    <lastmod>2020-07-09T01:28:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -45,7 +45,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-07-06T23:20:28+08:00</lastmod>
+    <lastmod>2020-07-09T01:28:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -94,7 +94,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/Python/</loc>
-    <lastmod>2020-07-02T22:13:17+08:00</lastmod>
+    <lastmod>2020-07-09T01:28:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -191,6 +191,20 @@
   </url>
   
   <url>
+    <loc>https://jdhao.github.io/tags/Flask/</loc>
+    <lastmod>2020-07-09T01:28:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/2020/06/13/flask_serving_via_wsgi_server/</loc>
+    <lastmod>2020-07-09T01:28:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://jdhao.github.io/tags/Anaconda/</loc>
     <lastmod>2020-06-13T01:21:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -221,13 +235,6 @@
   <url>
     <loc>https://jdhao.github.io/tags/async/</loc>
     <lastmod>2020-06-13T15:45:27+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/Flask/</loc>
-    <lastmod>2020-06-17T23:28:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

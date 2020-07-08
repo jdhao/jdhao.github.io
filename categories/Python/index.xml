@@ -55,6 +55,22 @@ learned after survey.&lt;/p&gt;</description>
     </item>
     
     <item>
+      <title>Serving Flask Application with uWSGI</title>
+      <link>https://jdhao.github.io/2020/06/13/flask_serving_via_wsgi_server/</link>
+      <pubDate>Sat, 13 Jun 2020 21:44:44 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/06/13/flask_serving_via_wsgi_server/</guid>
+      <description>&lt;p&gt;In my &lt;a href=&#34;https://jdhao.github.io/2020/04/06/build_webapi_with_flask_s1/&#34;&gt;old post&lt;/a&gt;, I have
+shared how to run the builtin development server to serve the web API. For
+production, we need to use more powerful web servers. Flask complies to the
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface&#34;&gt;WSGI&lt;/a&gt; (Web Server
+Gateway Interface) specification and can work with any web server that conforms
+to WSGI.&lt;/p&gt;
+&lt;p&gt;In this post, I want share how to run Flask applications using
+&lt;a href=&#34;https://uwsgi-docs.readthedocs.io/en/latest/&#34;&gt;uWSGI&lt;/a&gt; &amp;mdash; a popular WSGI-compliant server.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Virtual Environment Management with Conda</title>
       <link>https://jdhao.github.io/2020/06/11/conda_env_management/</link>
       <pubDate>Thu, 11 Jun 2020 00:10:43 +0800</pubDate>
