@@ -10,7 +10,42 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-07-09T01:28:58+08:00</lastmod>
+    <lastmod>2020-07-10T00:25:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/2020/07/09/requests_notes/</loc>
+    <lastmod>2020-07-10T00:25:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/post/</loc>
+    <lastmod>2020-07-10T00:25:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/Python/</loc>
+    <lastmod>2020-07-10T00:25:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/requests/</loc>
+    <lastmod>2020-07-10T00:25:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/</loc>
+    <lastmod>2020-07-10T00:25:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -18,13 +53,6 @@
   <url>
     <loc>https://jdhao.github.io/categories/Deep-Learning/</loc>
     <lastmod>2020-07-06T23:20:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-07-09T01:28:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -39,13 +67,6 @@
   <url>
     <loc>https://jdhao.github.io/2020/07/06/pytorch_set_num_threads/</loc>
     <lastmod>2020-07-06T23:20:28+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-07-09T01:28:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -93,13 +114,6 @@
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/categories/Python/</loc>
-    <lastmod>2020-07-09T01:28:58+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://jdhao.github.io/2020/07/02/uwsgi_install_use_issue/</loc>
     <lastmod>2020-07-02T22:13:17+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -115,13 +129,6 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/HTTP/</loc>
-    <lastmod>2020-06-21T23:09:42+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/requests/</loc>
     <lastmod>2020-06-21T23:09:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

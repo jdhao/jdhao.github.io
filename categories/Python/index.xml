@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Thu, 02 Jul 2020 01:02:17 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jul 2020 23:30:14 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/categories/Python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Note on Using requests package</title>
+      <link>https://jdhao.github.io/2020/07/09/requests_notes/</link>
+      <pubDate>Thu, 09 Jul 2020 23:30:14 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/07/09/requests_notes/</guid>
+      <description>How to see request header and body? When making requests, we may want to see exactly what are being requested. With requests, it is easy do access the request header and request body:
+import requests url = &amp;#34;http://httpbin.org/post&amp;#34; payload = {&amp;#34;apple&amp;#34;: 10, &amp;#34;pear&amp;#34;: [20, 30], &amp;#34;img&amp;#34;: &amp;#34;http://example.com/demo.jpg&amp;#34;} r = requests.post(url, json=payload) print(f&amp;#34;request headers: {r.request.headers}&amp;#34;) print(f&amp;#34;request body: {r.request.body}&amp;#34;) A sample output is:
+request headers: {&amp;#39;User-Agent&amp;#39;: &amp;#39;python-requests/2.19.1&amp;#39;, &amp;#39;Accept-Encoding&amp;#39;: &amp;#39;gzip, deflate&amp;#39;, &amp;#39;Accept&amp;#39;: &amp;#39;*/*&amp;#39;, &amp;#39;Connection&amp;#39;: &amp;#39;keep-alive&amp;#39;, &amp;#39;Content-Length&amp;#39;: &amp;#39;69&amp;#39;, &amp;#39;Content-Type&amp;#39;: &amp;#39;application/json&amp;#39;} request body: b&amp;#39;{&amp;#34;apple&amp;#34;: 10, &amp;#34;pear&amp;#34;: [20, 30], &amp;#34;img&amp;#34;: &amp;#34;http://example.</description>
+    </item>
     
     <item>
       <title>uWSGI Install and Use Issues</title>
