@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Wed, 15 Jul 2020 23:17:07 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2020 22:17:07 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/categories/Linux/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Can Not Get Env Variable Value in Python in Bash Shell?</title>
       <link>https://jdhao.github.io/2020/07/15/python_can_got_env_variable_value/</link>
-      <pubDate>Wed, 15 Jul 2020 23:17:07 +0800</pubDate>
+      <pubDate>Wed, 15 Jul 2020 22:17:07 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2020/07/15/python_can_got_env_variable_value/</guid>
       <description>&lt;p&gt;I found a strange issue when I want to get the value of variable from Python
