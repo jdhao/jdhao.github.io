@@ -23,6 +23,16 @@ I enjoy programming. I am most familiar with Python and fairly proficient in usi
     </item>
     
     <item>
+      <title>Can Not Get Env Variable Value in Python?</title>
+      <link>https://jdhao.github.io/2020/07/15/python_can_got_env_variable_value/</link>
+      <pubDate>Wed, 15 Jul 2020 23:17:07 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/07/15/python_can_got_env_variable_value/</guid>
+      <description>&lt;p&gt;I found a strange issue when I want to get the value of variable from Python
+script.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Note on Using requests package</title>
       <link>https://jdhao.github.io/2020/07/09/requests_notes/</link>
       <pubDate>Thu, 09 Jul 2020 23:30:14 +0800</pubDate>

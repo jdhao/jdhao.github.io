@@ -9,21 +9,49 @@
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-07-10T00:25:29+08:00</lastmod>
+    <loc>https://jdhao.github.io/tags/Bash/</loc>
+    <lastmod>2020-07-15T23:22:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/2020/07/09/requests_notes/</loc>
-    <lastmod>2020-07-10T00:25:29+08:00</lastmod>
+    <loc>https://jdhao.github.io/2020/07/15/python_can_got_env_variable_value/</loc>
+    <lastmod>2020-07-15T23:22:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/</loc>
+    <lastmod>2020-07-15T23:22:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/Linux/</loc>
+    <lastmod>2020-07-15T23:22:15+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
+    <lastmod>2020-07-15T23:22:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/</loc>
+    <lastmod>2020-07-15T23:22:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/2020/07/09/requests_notes/</loc>
     <lastmod>2020-07-10T00:25:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -38,13 +66,6 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/requests/</loc>
-    <lastmod>2020-07-10T00:25:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/</loc>
     <lastmod>2020-07-10T00:25:29+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -88,13 +109,6 @@
   <url>
     <loc>https://jdhao.github.io/2020/07/05/how_to_find_casue_of_technical_issues/</loc>
     <lastmod>2020-07-05T00:43:29+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/categories/Linux/</loc>
-    <lastmod>2020-07-04T08:36:37+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -382,13 +396,6 @@
   <url>
     <loc>https://jdhao.github.io/2020/05/02/docker_knowledge_s1/</loc>
     <lastmod>2020-05-03T22:37:18+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/Bash/</loc>
-    <lastmod>2020-05-05T17:45:59+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

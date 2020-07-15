@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Thu, 09 Jul 2020 23:30:14 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2020 23:17:07 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bash</title>
+      <link>https://jdhao.github.io/tags/Bash/</link>
+      <pubDate>Wed, 15 Jul 2020 23:17:07 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/tags/Bash/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>requests</title>
@@ -171,15 +180,6 @@
       <pubDate>Thu, 07 May 2020 00:35:45 +0800</pubDate>
       
       <guid>https://jdhao.github.io/tags/Git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bash</title>
-      <link>https://jdhao.github.io/tags/Bash/</link>
-      <pubDate>Mon, 27 Apr 2020 22:00:48 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/tags/Bash/</guid>
       <description></description>
     </item>
     
