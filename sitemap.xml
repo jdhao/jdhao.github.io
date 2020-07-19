@@ -24,7 +24,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-07-19T20:05:07+08:00</lastmod>
+    <lastmod>2020-07-19T23:57:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,14 +38,14 @@
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-07-19T20:05:07+08:00</lastmod>
+    <lastmod>2020-07-19T23:57:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-07-19T20:05:07+08:00</lastmod>
+    <lastmod>2020-07-19T23:57:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -290,7 +290,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/Nvim/</loc>
-    <lastmod>2020-06-19T00:51:28+08:00</lastmod>
+    <lastmod>2020-07-19T23:57:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -304,7 +304,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Vim/</loc>
-    <lastmod>2020-06-19T00:51:28+08:00</lastmod>
+    <lastmod>2020-07-19T23:57:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -724,7 +724,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</loc>
-    <lastmod>2020-05-02T14:45:50+08:00</lastmod>
+    <lastmod>2020-07-19T23:57:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

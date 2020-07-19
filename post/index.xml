@@ -546,8 +546,8 @@ the generated &lt;abbr title=&#34;Table of Content&#34;&gt;TOC&lt;/abbr&gt;.&lt;
       
       <guid>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</guid>
       <description>&lt;h1 id=&#34;引子&#34;&gt;引子&lt;/h1&gt;
-&lt;p&gt;从开始完全使用 &lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; 进行日常&lt;a href=&#34;https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/&#34;&gt;代码开发&lt;/a&gt;与&lt;a href=&#34;https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/&#34;&gt;文档编写&lt;/a&gt;到现在，已经过去了大约一年半的时间，一年半以前，我对 Vim 的了解还处在非常初级的阶段，经过长时间的&lt;a href=&#34;https://jdhao.github.io/categories/Nvim/&#34;&gt;使用与学习&lt;/a&gt;，已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。&lt;/p&gt;
-&lt;p&gt;在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的恩怨情仇也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。&lt;/p&gt;</description>
+&lt;p&gt;从完全使用 &lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; 进行日常&lt;a href=&#34;https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/&#34;&gt;代码开发&lt;/a&gt;与&lt;a href=&#34;https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/&#34;&gt;文档编写&lt;/a&gt;到现在，已经过去了大约一年半的时间，一年半以前，我对 Vim 的了解还处在非常初级的阶段，经过长时间的&lt;a href=&#34;https://jdhao.github.io/categories/Nvim/&#34;&gt;使用与学习&lt;/a&gt;，已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。&lt;/p&gt;
+&lt;p&gt;在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的&lt;em&gt;恩怨情仇&lt;/em&gt;也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。&lt;/p&gt;</description>
     </item>
     
     <item>
