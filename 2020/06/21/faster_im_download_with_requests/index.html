@@ -57,15 +57,15 @@ share ways to make the download speed faster." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2020/06/21/faster_im_download_with_requests/" />
 <meta property="article:published_time" content="2020-06-21T22:13:05+08:00" />
-<meta property="article:modified_time" content="2020-06-21T23:09:42+08:00" />
+<meta property="article:modified_time" content="2020-07-20T02:06:02+08:00" />
 <meta itemprop="name" content="Downloading Images Faster with requests Sessions">
 <meta itemprop="description" content="In my previous post,
 I write about how to download an image from URL using
 requests package. In this post, I want to
 share ways to make the download speed faster.">
 <meta itemprop="datePublished" content="2020-06-21T22:13:05&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-21T23:09:42&#43;08:00" />
-<meta itemprop="wordCount" content="437">
+<meta itemprop="dateModified" content="2020-07-20T02:06:02&#43;08:00" />
+<meta itemprop="wordCount" content="455">
 
 
 
@@ -148,7 +148,7 @@ share ways to make the download speed faster."/>
         <div class="post-category">
             <a href="/categories/Python/"> Python </a>
             </div>
-          <span class="more-meta"> 437 words </span>
+          <span class="more-meta"> 455 words </span>
           <span class="more-meta"> 3 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -219,13 +219,18 @@ output is:</p>
 avg time (r.content with session): 0.2750370740890503
 avg time (r.raw no session): 1.5932393550872803
 avg time (r.content no session): 0.8408806085586548
-</code></pre></div><p>With 40 images, the output is:</p>
+</code></pre></div><p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20200720020301.jpg" width="800">
+</p>
+<p>With 40 images, the output is:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">avg time (r.raw with session): 0.3991949200630188
 avg time (r.content with session): 0.42252095937728884
 avg time (r.raw no session): 1.937515652179718
 avg time (r.content no session): 1.912631618976593
-</code></pre></div><p>So the takeaway from this post is that using sessions will save our time and
-download images faster.</p>
+</code></pre></div><p>From the above results, we can conclude that using requests with sessions will
+reduce image download time immensely.</p>
+<p>The takeaway from this post is that using sessions will download images faster,
+thus saving our time .</p>
 <h1 id="references">References</h1>
 <ul>
 <li><a href="https://requests.readthedocs.io/en/master/user/advanced/">https://requests.readthedocs.io/en/master/user/advanced/</a></li>
@@ -242,7 +247,7 @@ download images faster.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-06-21
+        2020-07-20
         
     </span>
   </p>
