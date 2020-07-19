@@ -139,7 +139,7 @@ in kitty, I noticed this strange error that I have never met before:&lt;/p&gt;</
     </item>
     
     <item>
-      <title>Serving Flask Application with uWSGI</title>
+      <title>Serving Flask Applications with uWSGI</title>
       <link>https://jdhao.github.io/2020/06/13/flask_serving_via_wsgi_server/</link>
       <pubDate>Sat, 13 Jun 2020 21:44:44 +0800</pubDate>
       
