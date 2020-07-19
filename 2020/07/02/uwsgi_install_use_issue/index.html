@@ -55,13 +55,13 @@ uWSGI." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2020/07/02/uwsgi_install_use_issue/" />
 <meta property="article:published_time" content="2020-07-02T01:02:17+08:00" />
-<meta property="article:modified_time" content="2020-07-02T22:13:17+08:00" />
+<meta property="article:modified_time" content="2020-07-19T20:03:55+08:00" />
 <meta itemprop="name" content="uWSGI Install and Use Issues">
 <meta itemprop="description" content="My notes on several issues when installing and running
 uWSGI.">
 <meta itemprop="datePublished" content="2020-07-02T01:02:17&#43;08:00" />
-<meta itemprop="dateModified" content="2020-07-02T22:13:17&#43;08:00" />
-<meta itemprop="wordCount" content="495">
+<meta itemprop="dateModified" content="2020-07-19T20:03:55&#43;08:00" />
+<meta itemprop="wordCount" content="630">
 
 
 
@@ -142,7 +142,7 @@ uWSGI."/>
         <div class="post-category">
             <a href="/categories/Python/"> Python </a>
             </div>
-          <span class="more-meta"> 495 words </span>
+          <span class="more-meta"> 630 words </span>
           <span class="more-meta"> 3 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -156,6 +156,7 @@ uWSGI."/>
     <li><a href="#pip-install-uwsgi-error">pip install uwsgi error</a></li>
     <li><a href="#uwsgi-can-not-find-shared-object">uwsgi can not find shared object</a></li>
     <li><a href="#uwsgi-segmentation-fault">uwsgi segmentation fault</a></li>
+    <li><a href="#symbol-not-found-on-macos">symbol not found on MacOS</a></li>
   </ul>
 </nav>
   </div>
@@ -276,6 +277,36 @@ uwsgi(+0x21abed) [0x5638f8632bed]
 python 3.6. I am not knowledgeable enough to know the exact cause of this
 issue. It seems there is some compatibility issue with uwsgi, python version
 and concurrent package.</p>
+<h1 id="symbol-not-found-on-macos">symbol not found on MacOS</h1>
+<p>I am using Python 3.7 installed via Anaconda, and uWSGI is installed via pip.</p>
+<p>When I run my simple Flask application, I see the following error:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ImportError: dlopen(/Users/jdhao/anaconda3/lib/python3.7/lib-dynload/math.cpython-37m-darwin.so, 2): Symbol not found: _PyExc_MemoryErrorImportError: dlopen(/Users/jdhao/anaconda3/lib/python3.7/lib-dynload/math.cpython-37m-darwin.so, 2): Symbol not found: _PyExc_MemoryError
+  Referenced from: /Users/jdhao/anaconda3/lib/python3.7/lib-dynload/math.cpython-37m-darwin.so
+  Expected in: flat namespace
+</code></pre></div><p>This seems to be a compatibility issue between uWSGI and Anaconda python. There
+are two solutions:</p>
+<ol>
+<li>
+<p>Uninstall uWSGI installed via pip and install it using conda:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># uWSGI is provided by the conda-forge channel</span>
+conda install -c conda-forge uwsgi
+</code></pre></div></li>
+<li>
+<p>Using Python 3.6 with uWSGI. We can create a new virtual env with Python 3.6.5
+and intall uWSGI inside.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">conda create -n py36 <span class="nv">python</span><span class="o">==</span>3.6.5 flask
+</code></pre></div></li>
+</ol>
+<p>After that, activate the virtual env and install uWSGI inside:</p>
+<pre><code>```bash
+conda activate py36
+pip install uwsgi
+```
+</code></pre>
+<p>Ref:</p>
+<ul>
+<li><a href="https://github.com/facebookresearch/fastText/issues/380#issuecomment-499183656">https://github.com/facebookresearch/fastText/issues/380#issuecomment-499183656</a></li>
+</ul>
     </div>
 
     <div class="post-copyright">
@@ -286,7 +317,7 @@ and concurrent package.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-07-02
+        2020-07-19
         
     </span>
   </p>
