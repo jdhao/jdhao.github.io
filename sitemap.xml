@@ -9,6 +9,34 @@
   </url>
   
   <url>
+    <loc>https://jdhao.github.io/categories/</loc>
+    <lastmod>2020-07-23T00:19:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/Linux/</loc>
+    <lastmod>2020-07-23T00:19:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/2020/07/23/linux_command_cheat_sheet_s2/</loc>
+    <lastmod>2020-07-23T00:19:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/post/</loc>
+    <lastmod>2020-07-23T00:19:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://jdhao.github.io/tags/Bash/</loc>
     <lastmod>2020-07-15T23:59:46+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -18,27 +46,6 @@
   <url>
     <loc>https://jdhao.github.io/2020/07/15/python_can_got_env_variable_value/</loc>
     <lastmod>2020-07-15T23:59:46+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-07-20T02:12:35+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/categories/Linux/</loc>
-    <lastmod>2020-07-15T23:59:46+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-07-20T02:12:35+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1235,7 +1242,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2019/08/09/linux_command_cheat_sheet_s1/</loc>
-    <lastmod>2019-08-09T00:05:14+08:00</lastmod>
+    <lastmod>2020-07-23T00:15:07+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
