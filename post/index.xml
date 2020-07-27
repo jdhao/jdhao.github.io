@@ -7,10 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Thu, 23 Jul 2020 00:17:04 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2020 23:58:56 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using Multiprocessing in Python</title>
+      <link>https://jdhao.github.io/2020/07/27/python_multiprocessing/</link>
+      <pubDate>Mon, 27 Jul 2020 23:58:56 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/07/27/python_multiprocessing/</guid>
+      <description>&lt;p&gt;One of the ways to achieve parallelism is to use multi-processing, where we can
+execute tasks in different cores of the CPU to reduce the total processing
+time. Python provides the
+&lt;a href=&#34;https://docs.python.org/3/library/multiprocessing.html&#34;&gt;multiprocessing&lt;/a&gt;
+package to facilitate this.&lt;/p&gt;
+&lt;p&gt;This post summarizes some the questions I have when I learn to use
+multiprocessing in Python.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Linux Command Cheatsheet -- s2</title>
