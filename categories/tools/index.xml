@@ -28,7 +28,11 @@ for Windows. Here are some settings to make it more useful.&lt;/p&gt;</descripti
       <pubDate>Sun, 16 Feb 2020 22:55:50 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2020/02/16/ripgrep_cheat_sheet/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/BurntSushi/ripgrep&#34;&gt;Ripgrep&lt;/a&gt; is a command line tools that searches patterns under your current directory, like the good old &lt;a href=&#34;https://en.wikipedia.org/wiki/Grep&#34;&gt;grep&lt;/a&gt;, but &lt;a href=&#34;https://blog.burntsushi.net/ripgrep/&#34;&gt;with faster speed&lt;/a&gt;. In this post, I list some of the commonly-used flags for ripgrep.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/BurntSushi/ripgrep&#34;&gt;Ripgrep&lt;/a&gt; is a command line tools that
+searches patterns under your current directory, like the good old
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Grep&#34;&gt;grep&lt;/a&gt;, but &lt;a href=&#34;https://blog.burntsushi.net/ripgrep/&#34;&gt;with faster
+speed&lt;/a&gt;. In this post, I list some of the
+commonly-used flags for ripgrep.&lt;/p&gt;</description>
     </item>
     
     <item>
