@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Wed, 15 Jul 2020 22:17:07 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2020 23:23:45 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Anaconda</title>
+      <link>https://jdhao.github.io/tags/Anaconda/</link>
+      <pubDate>Wed, 29 Jul 2020 23:23:45 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/tags/Anaconda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pip</title>
+      <link>https://jdhao.github.io/tags/pip/</link>
+      <pubDate>Wed, 29 Jul 2020 23:23:45 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/tags/pip/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Bash</title>
@@ -99,15 +117,6 @@
       <pubDate>Sat, 13 Jun 2020 21:44:44 +0800</pubDate>
       
       <guid>https://jdhao.github.io/tags/Flask/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Anaconda</title>
-      <link>https://jdhao.github.io/tags/Anaconda/</link>
-      <pubDate>Thu, 11 Jun 2020 00:10:43 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/tags/Anaconda/</guid>
       <description></description>
     </item>
     
@@ -657,15 +666,6 @@
       <pubDate>Mon, 24 Dec 2018 00:14:00 +0800</pubDate>
       
       <guid>https://jdhao.github.io/tags/Linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pip</title>
-      <link>https://jdhao.github.io/tags/pip/</link>
-      <pubDate>Mon, 19 Nov 2018 16:30:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/tags/pip/</guid>
       <description></description>
     </item>
     
