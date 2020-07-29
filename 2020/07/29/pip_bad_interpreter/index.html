@@ -57,15 +57,15 @@ when I use pip, I am seeing the following error:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2020/07/29/pip_bad_interpreter/" />
 <meta property="article:published_time" content="2020-07-29T23:23:45+08:00" />
-<meta property="article:modified_time" content="2020-07-29T23:25:50+08:00" />
+<meta property="article:modified_time" content="2020-07-30T00:11:23+08:00" />
 <meta itemprop="name" content="pip bad interpreter issue">
 <meta itemprop="description" content="I am using pip installed via minconda. I installed it
 under ~/miniconda3 and then move the installation directory to
 ~/tools/miniconda3. After that, I changed the PATH accordingly. However,
 when I use pip, I am seeing the following error:">
 <meta itemprop="datePublished" content="2020-07-29T23:23:45&#43;08:00" />
-<meta itemprop="dateModified" content="2020-07-29T23:25:50&#43;08:00" />
-<meta itemprop="wordCount" content="92">
+<meta itemprop="dateModified" content="2020-07-30T00:11:23&#43;08:00" />
+<meta itemprop="wordCount" content="98">
 
 
 
@@ -148,7 +148,7 @@ when I use pip, I am seeing the following error:"/>
         <div class="post-category">
             <a href="/categories/Python/"> Python </a>
             </div>
-          <span class="more-meta"> 92 words </span>
+          <span class="more-meta"> 98 words </span>
           <span class="more-meta"> 1 min read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
@@ -169,11 +169,12 @@ when I use pip, I am seeing the following error:</p>
 <p>/home/jdhao/miniconda3/bin/python:  bad interpreter: No such file or directory</p>
 </blockquote>
 <p>this is because the executable <code>pip</code> under <code>~/tools/miniconda3/bin/</code> is
-actually a Python source file. Its first line are shebang:</p>
+actually a Python source file. Its first line is a <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">shebang</a>:</p>
 <blockquote>
 <p>#!/home/jdhao/miniconda3/bin/python</p>
 </blockquote>
-<p>and it still points to the old location. Hence the error message.</p>
+<p>and it still points to the old Python that is no longer there. Hence the error
+message.</p>
 <p>A simple solution is to remove miniconda3 directory and install it again.</p>
 <p>Ref:</p>
 <ul>
@@ -189,7 +190,7 @@ actually a Python source file. Its first line are shebang:</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-07-29
+        2020-07-30
         
     </span>
   </p>
