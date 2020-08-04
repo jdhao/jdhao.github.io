@@ -28,17 +28,6 @@ Markdown.&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>How Do I Show the Current File Path In Neovim?</title>
-      <link>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</link>
-      <pubDate>Wed, 31 Jul 2019 23:10:27 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</guid>
-      <description>&lt;p&gt;I saw on &lt;a href=&#34;https://vi.stackexchange.com/questions/104/how-can-i-see-the-full-path-of-the-current-file/20768#20768&#34;&gt;StackExchange&lt;/a&gt;
-that someone asked about how to see the full path of current file in Vim. I
-think it would be helpful to write about how I do it.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Why Doesn&#39;t Jedi Autocompletion Work for Some Methods</title>
       <link>https://jdhao.github.io/2019/05/13/jedi_autocomplete_type_hints/</link>
       <pubDate>Mon, 13 May 2019 20:36:10 +0800</pubDate>

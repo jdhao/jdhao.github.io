@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Wed, 29 Jul 2020 23:23:45 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2020 23:01:55 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>technique</title>
+      <link>https://jdhao.github.io/categories/technique/</link>
+      <pubDate>Tue, 04 Aug 2020 23:01:55 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/categories/technique/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Python</title>
@@ -81,15 +90,6 @@
       <pubDate>Wed, 27 May 2020 22:46:19 +0800</pubDate>
       
       <guid>https://jdhao.github.io/categories/Nvim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>technique</title>
-      <link>https://jdhao.github.io/categories/technique/</link>
-      <pubDate>Sun, 26 Apr 2020 22:44:37 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/categories/technique/</guid>
       <description></description>
     </item>
     

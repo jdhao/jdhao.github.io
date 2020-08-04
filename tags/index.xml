@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Wed, 29 Jul 2020 23:23:45 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2020 23:01:55 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>font</title>
+      <link>https://jdhao.github.io/tags/font/</link>
+      <pubDate>Tue, 04 Aug 2020 23:01:55 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/tags/font/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Anaconda</title>
@@ -306,15 +315,6 @@
       <pubDate>Sat, 22 Feb 2020 11:41:09 +0800</pubDate>
       
       <guid>https://jdhao.github.io/tags/encoding/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>font</title>
-      <link>https://jdhao.github.io/tags/font/</link>
-      <pubDate>Sat, 22 Feb 2020 11:41:09 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/tags/font/</guid>
       <description></description>
     </item>
     

@@ -23,6 +23,16 @@ I enjoy programming. I am most familiar with Python and fairly proficient in usi
     </item>
     
     <item>
+      <title>Note on font size</title>
+      <link>https://jdhao.github.io/2020/08/04/fontsize_point_pixel_relationship/</link>
+      <pubDate>Tue, 04 Aug 2020 23:01:55 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/08/04/fontsize_point_pixel_relationship/</guid>
+      <description>Relationship between point and pixel size In digital typography, the size of text is commonly specified in points (pt). What is a point? A point is 1/72 of an inch (25.4mm), i.e., 0.3528 mm (25.4/72). Therefor, point is a physical unit that has absolute value.
+Pixels are the smallest unit on screen to display images and graphics. It is not a physical unit. So there is no fixed relationship between point and pixel.</description>
+    </item>
+    
+    <item>
       <title>pip bad interpreter issue</title>
       <link>https://jdhao.github.io/2020/07/29/pip_bad_interpreter/</link>
       <pubDate>Wed, 29 Jul 2020 23:23:45 +0800</pubDate>
