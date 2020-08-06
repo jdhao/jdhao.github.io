@@ -7,10 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Sat, 04 May 2019 15:53:29 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2020 23:45:44 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/categories/Android/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MIUI 12 输入法无法复制文本到剪切板</title>
+      <link>https://jdhao.github.io/2020/08/06/miui12_clipboard_issue/</link>
+      <pubDate>Thu, 06 Aug 2020 23:45:44 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/08/06/miui12_clipboard_issue/</guid>
+      <description>&lt;p&gt;MIUI 12 更新以后，新增了更加细致的权限管理和隐私保护功能。&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20200806235442.jpeg&#34; width=&#34;400&#34;&gt;
+&lt;/p&gt;
+&lt;p&gt;前几天尝试关闭了所有 APP 不该需要的功能。结果发现讯飞输入法复制文本，粘贴文本的功能无法使用了。&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20200806235905.jpeg&#34; width=&#34;400&#34;&gt;
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>小米 9 安装谷歌商店（Google Play Store）与相关配置</title>

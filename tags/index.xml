@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Tue, 04 Aug 2020 23:01:55 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2020 23:45:44 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MIUI</title>
+      <link>https://jdhao.github.io/tags/MIUI/</link>
+      <pubDate>Thu, 06 Aug 2020 23:45:44 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/tags/MIUI/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>小米</title>
+      <link>https://jdhao.github.io/tags/%E5%B0%8F%E7%B1%B3/</link>
+      <pubDate>Thu, 06 Aug 2020 23:45:44 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/tags/%E5%B0%8F%E7%B1%B3/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>font</title>
@@ -594,24 +612,6 @@
       <pubDate>Mon, 13 May 2019 20:36:10 +0800</pubDate>
       
       <guid>https://jdhao.github.io/tags/Jedi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MIUI</title>
-      <link>https://jdhao.github.io/tags/MIUI/</link>
-      <pubDate>Sat, 04 May 2019 15:53:29 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/tags/MIUI/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>小米</title>
-      <link>https://jdhao.github.io/tags/%E5%B0%8F%E7%B1%B3/</link>
-      <pubDate>Sat, 04 May 2019 15:53:29 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/tags/%E5%B0%8F%E7%B1%B3/</guid>
       <description></description>
     </item>
     
