@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Thu, 06 Aug 2020 23:45:44 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 23:04:54 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Warmup in Maskrcnn-benchmark and how does it work?</title>
+      <link>https://jdhao.github.io/2020/08/14/warmup_maskrcnn_how_does_it_work/</link>
+      <pubDate>Fri, 14 Aug 2020 23:04:54 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/08/14/warmup_maskrcnn_how_does_it_work/</guid>
+      <description>&lt;p&gt;In &lt;a href=&#34;https://github.com/facebookresearch/maskrcnn-benchmark&#34;&gt;maskrcnn-benchmark&lt;/a&gt;,
+there is some config parameters about warmup in solver (&lt;code&gt;WARMUP_FACTOR&lt;/code&gt;,
+&lt;code&gt;WARMUP_ITERS&lt;/code&gt;, &lt;code&gt;WARMUP_METHOD&lt;/code&gt; ). What is warmup, and how does it work?&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>MIUI 12 输入法无法复制文本到剪切板</title>

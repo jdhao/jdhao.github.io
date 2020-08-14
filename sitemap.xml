@@ -9,14 +9,35 @@
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/categories/Android/</loc>
-    <lastmod>2020-08-09T12:25:13+08:00</lastmod>
+    <loc>https://jdhao.github.io/categories/</loc>
+    <lastmod>2020-08-14T23:08:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/categories/</loc>
+    <loc>https://jdhao.github.io/categories/Deep-Learning/</loc>
+    <lastmod>2020-08-14T23:08:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/post/</loc>
+    <lastmod>2020-08-14T23:08:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/2020/08/14/warmup_maskrcnn_how_does_it_work/</loc>
+    <lastmod>2020-08-14T23:08:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/Android/</loc>
     <lastmod>2020-08-09T12:25:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -31,13 +52,6 @@
   
   <url>
     <loc>https://jdhao.github.io/2020/08/06/miui12_clipboard_issue/</loc>
-    <lastmod>2020-08-09T12:25:13+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/post/</loc>
     <lastmod>2020-08-09T12:25:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -151,13 +165,6 @@
   <url>
     <loc>https://jdhao.github.io/tags/requests/</loc>
     <lastmod>2020-08-09T12:23:21+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/categories/Deep-Learning/</loc>
-    <lastmod>2020-07-06T23:20:28+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
