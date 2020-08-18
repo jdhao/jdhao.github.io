@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Tue, 17 Mar 2020 23:08:32 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2020 22:12:11 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/PIL/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Create Outline Text in Python with Pillow</title>
+      <link>https://jdhao.github.io/2020/08/18/pillow_create_text_outline/</link>
+      <pubDate>Tue, 18 Aug 2020 22:12:11 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/08/18/pillow_create_text_outline/</guid>
+      <description>&lt;p&gt;Sometimes, we may want to add surrounding color to text strokes in Python.
+Prior to version 6.2.0, we can not do this in Pillow. Fortunately, starting
+from version 6.2.0, pillow now supports text outlines natively in the
+&lt;a href=&#34;https://pillow.readthedocs.io/en/stable/reference/ImageDraw.html#PIL.ImageDraw.ImageDraw.text&#34;&gt;&lt;code&gt;ImageDraw.text()&lt;/code&gt;&lt;/a&gt;
+method.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Conversion between base64 and OpenCV or PIL Image</title>

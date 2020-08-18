@@ -10,20 +10,55 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-08-14T23:08:26+08:00</lastmod>
+    <lastmod>2020-08-18T22:16:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://jdhao.github.io/categories/Deep-Learning/</loc>
-    <lastmod>2020-08-14T23:08:26+08:00</lastmod>
+    <loc>https://jdhao.github.io/2020/08/18/context_manager_for_measuring_runtime/</loc>
+    <lastmod>2020-08-18T22:15:58+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
+    <lastmod>2020-08-18T22:16:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/Python/</loc>
+    <lastmod>2020-08-18T22:16:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/2020/08/18/pillow_create_text_outline/</loc>
+    <lastmod>2020-08-18T22:16:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/PIL/</loc>
+    <lastmod>2020-08-18T22:16:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/tags/</loc>
+    <lastmod>2020-08-18T22:16:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://jdhao.github.io/categories/Deep-Learning/</loc>
     <lastmod>2020-08-14T23:08:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -52,13 +87,6 @@
   
   <url>
     <loc>https://jdhao.github.io/2020/08/06/miui12_clipboard_issue/</loc>
-    <lastmod>2020-08-09T12:25:13+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/</loc>
     <lastmod>2020-08-09T12:25:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -109,13 +137,6 @@
   <url>
     <loc>https://jdhao.github.io/2020/07/29/pip_bad_interpreter/</loc>
     <lastmod>2020-07-30T00:11:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/categories/Python/</loc>
-    <lastmod>2020-08-09T12:23:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -598,13 +619,6 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/OpenCV/</loc>
-    <lastmod>2020-06-03T23:24:04+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://jdhao.github.io/tags/PIL/</loc>
     <lastmod>2020-06-03T23:24:04+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
