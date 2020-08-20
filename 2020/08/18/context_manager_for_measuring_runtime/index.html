@@ -55,12 +55,12 @@ makes sure that resources are correctly closed after their use." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2020/08/18/context_manager_for_measuring_runtime/" />
 <meta property="article:published_time" content="2020-08-18T22:15:17+08:00" />
-<meta property="article:modified_time" content="2020-08-18T22:15:58+08:00" />
+<meta property="article:modified_time" content="2020-08-21T01:18:37+08:00" />
 <meta itemprop="name" content="Measuring Code Running Time with contextmanager">
 <meta itemprop="description" content="In Python, context manager is great way to handle the closing of resources. It
 makes sure that resources are correctly closed after their use.">
 <meta itemprop="datePublished" content="2020-08-18T22:15:17&#43;08:00" />
-<meta itemprop="dateModified" content="2020-08-18T22:15:58&#43;08:00" />
+<meta itemprop="dateModified" content="2020-08-21T01:18:37&#43;08:00" />
 <meta itemprop="wordCount" content="180">
 
 
@@ -168,10 +168,10 @@ code block. Here is the code:</p>
 
 <span class="nd">@contextmanager</span>
 <span class="k">def</span> <span class="nf">report_time</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-	<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-	<span class="k">yield</span>
-	<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-	<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;Time needed for {name}: {end-start}&#34;</span><span class="p">)</span>	
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">yield</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&#34;Time needed for {name}: {end-start}&#34;</span><span class="p">)</span>   
 </code></pre></div><p>In the above code, we define a context manager <code>report_time</code>, when the block it
 manages starts, it will set the start time in <code>start</code>. Then it yields, which
 means that the block it manages starts running. When the block finishes,
@@ -181,7 +181,7 @@ block.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="k">with</span> <span class="n">report_time</span><span class="p">(</span><span class="s2">&#34;httpbin request&#34;</span><span class="p">):</span>
-	<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;https://httpbin.org/get&#34;</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;https://httpbin.org/get&#34;</span><span class="p">)</span>
 </code></pre></div><p>Ref:</p>
 <ul>
 <li><a href="https://jeffknupp.com/blog/2016/03/07/python-with-context-managers/">https://jeffknupp.com/blog/2016/03/07/python-with-context-managers/</a></li>
@@ -197,7 +197,7 @@ block.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-08-18
+        2020-08-21
         
     </span>
   </p>
