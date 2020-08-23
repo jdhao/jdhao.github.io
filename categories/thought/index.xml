@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Sun, 05 Jul 2020 00:35:48 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2020 01:04:34 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/categories/thought/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>从产品猜测设计</title>
+      <link>https://jdhao.github.io/2020/08/24/thought_on_product_design/</link>
+      <pubDate>Mon, 24 Aug 2020 01:04:34 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/08/24/thought_on_product_design/</guid>
+      <description>&lt;p&gt;关于产品设计的一些想法。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>如何找到技术问题根源？</title>
