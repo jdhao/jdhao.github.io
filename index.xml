@@ -23,6 +23,17 @@ I enjoy programming. I am most familiar with Python and fairly proficient in usi
     </item>
     
     <item>
+      <title>LeaderF settings</title>
+      <link>https://jdhao.github.io/2020/08/26/leaderf_nvim_settings/</link>
+      <pubDate>Wed, 26 Aug 2020 23:24:20 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/08/26/leaderf_nvim_settings/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/Yggdroot/LeaderF&#34;&gt;LeaderF&lt;/a&gt; is Vim/Neovim plugin to
+fuzzy-search files, colorschemes, tags etc. quickly. It works across different
+platforms flawlessly. Here are some of its settings to address minor issues.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>从产品猜测设计</title>
       <link>https://jdhao.github.io/2020/08/24/thought_on_product_design/</link>
       <pubDate>Mon, 24 Aug 2020 01:04:34 +0800</pubDate>
