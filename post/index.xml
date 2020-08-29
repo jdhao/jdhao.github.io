@@ -736,12 +736,8 @@ empowered by various plugins.&lt;/p&gt;</description>
       <pubDate>Sun, 29 Dec 2019 17:57:05 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/12/29/hugo_html_not_shown/</guid>
-      <description>&lt;p&gt;Due to Markdown&amp;rsquo;s inablity to center and resize image properly, I use the raw
-HTML tags inside markdown file to include images:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;align&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;center&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;img&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;xxx.xx.xx/test.jpg&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      <description>&lt;p&gt;Due to Markdown&amp;rsquo;s inability to center and resize image properly, I use the raw
+HTML tags inside markdown file to include images:&lt;/p&gt;</description>
     </item>
     
     <item>
