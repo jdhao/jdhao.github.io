@@ -649,7 +649,7 @@ commonly-used flags for ripgrep.&lt;/p&gt;</description>
       <pubDate>Sun, 19 Jan 2020 21:56:34 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2020/01/19/hugo_toc_header_missing/</guid>
-      <description>&lt;p&gt;After updating Hugo to the latest version (v 0.62), apart from the issue of
+      <description>&lt;p&gt;After updating Hugo to the latest version (v0.62), apart from the issue of
 &lt;a href=&#34;https://jdhao.github.io/2019/12/29/hugo_html_not_shown/&#34;&gt;missing HTML code&lt;/a&gt;, I
 have also observed that level 1 header written in Markdown is not rendered in
 the generated &lt;abbr title=&#34;Table of Content&#34;&gt;TOC&lt;/abbr&gt;.&lt;/p&gt;</description>

@@ -10,7 +10,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-08-30T00:34:25+08:00</lastmod>
+    <lastmod>2020-08-30T00:39:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -31,7 +31,7 @@
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-08-30T00:34:25+08:00</lastmod>
+    <lastmod>2020-08-30T00:39:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -80,7 +80,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-08-30T00:34:25+08:00</lastmod>
+    <lastmod>2020-08-30T00:39:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -395,7 +395,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Markdown/</loc>
-    <lastmod>2020-08-30T00:34:25+08:00</lastmod>
+    <lastmod>2020-08-30T00:39:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -640,7 +640,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/Blog/</loc>
-    <lastmod>2020-08-30T00:34:25+08:00</lastmod>
+    <lastmod>2020-08-30T00:39:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -808,14 +808,14 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Hugo/</loc>
-    <lastmod>2020-08-30T00:34:25+08:00</lastmod>
+    <lastmod>2020-08-30T00:39:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/2020/01/19/hugo_toc_header_missing/</loc>
-    <lastmod>2020-03-16T10:38:17+08:00</lastmod>
+    <lastmod>2020-08-30T00:39:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
