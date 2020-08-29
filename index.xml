@@ -747,7 +747,8 @@ empowered by various plugins.&lt;/p&gt;</description>
       
       <guid>https://jdhao.github.io/2019/12/29/hugo_html_not_shown/</guid>
       <description>&lt;p&gt;Due to Markdown&amp;rsquo;s inability to center and resize image properly, I use the raw
-HTML tags inside markdown file to include images:&lt;/p&gt;</description>
+HTML tags inside markdown file to include images:&lt;/p&gt;
+&lt;p&gt;&lt;font color=&#34;red&#34;&gt;由于 Markdown 格式无法很好居中和设定图像尺寸，我使用 HTML tags 来添加图像(图像可以很好居中以及设定显示大小):&lt;/font&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
