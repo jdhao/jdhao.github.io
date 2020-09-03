@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Thu, 07 May 2020 00:35:45 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2020 23:41:00 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/Git/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Git branches</title>
+      <link>https://jdhao.github.io/2020/09/03/git_branch_operations/</link>
+      <pubDate>Thu, 03 Sep 2020 23:41:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/2020/09/03/git_branch_operations/</guid>
+      <description>&lt;p&gt;Some commonly used Git commands related to branch operations.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Git Learning Notes (2)</title>

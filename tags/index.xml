@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
-    <lastBuildDate>Tue, 18 Aug 2020 22:12:11 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2020 23:41:00 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Git</title>
+      <link>https://jdhao.github.io/tags/Git/</link>
+      <pubDate>Thu, 03 Sep 2020 23:41:00 +0800</pubDate>
+      
+      <guid>https://jdhao.github.io/tags/Git/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>PIL</title>
@@ -216,15 +225,6 @@
       <pubDate>Sat, 09 May 2020 01:07:09 +0800</pubDate>
       
       <guid>https://jdhao.github.io/tags/search/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>https://jdhao.github.io/tags/Git/</link>
-      <pubDate>Thu, 07 May 2020 00:35:45 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/tags/Git/</guid>
       <description></description>
     </item>
     
