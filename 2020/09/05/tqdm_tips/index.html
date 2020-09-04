@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Git branches - jdhao&#39;s blog</title>
+  <title>Tqdm Issues and Tips - jdhao&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="Some commonly used Git commands related to branch operations.
+<meta name="author" content="jdhao" /><meta name="description" content="A few issues and tips when using tqdm.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -27,7 +27,7 @@
 <meta name="generator" content="Hugo 0.69.0 with theme even" />
 
 
-<link rel="canonical" href="https://jdhao.github.io/2020/09/03/git_branch_operations/" />
+<link rel="canonical" href="https://jdhao.github.io/2020/09/05/tqdm_tips/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -49,23 +49,23 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Git branches" />
-<meta property="og:description" content="Some commonly used Git commands related to branch operations." />
+<meta property="og:title" content="Tqdm Issues and Tips" />
+<meta property="og:description" content="A few issues and tips when using tqdm." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2020/09/03/git_branch_operations/" />
-<meta property="article:published_time" content="2020-09-03T23:41:00+08:00" />
-<meta property="article:modified_time" content="2020-09-03T23:42:12+08:00" />
-<meta itemprop="name" content="Git branches">
-<meta itemprop="description" content="Some commonly used Git commands related to branch operations.">
-<meta itemprop="datePublished" content="2020-09-03T23:41:00&#43;08:00" />
-<meta itemprop="dateModified" content="2020-09-03T23:42:12&#43;08:00" />
-<meta itemprop="wordCount" content="200">
+<meta property="og:url" content="https://jdhao.github.io/2020/09/05/tqdm_tips/" />
+<meta property="article:published_time" content="2020-09-05T00:23:28+08:00" />
+<meta property="article:modified_time" content="2020-09-05T00:25:16+08:00" />
+<meta itemprop="name" content="Tqdm Issues and Tips">
+<meta itemprop="description" content="A few issues and tips when using tqdm.">
+<meta itemprop="datePublished" content="2020-09-05T00:23:28&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-05T00:25:16&#43;08:00" />
+<meta itemprop="wordCount" content="300">
 
 
 
-<meta itemprop="keywords" content="Git," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Git branches"/>
-<meta name="twitter:description" content="Some commonly used Git commands related to branch operations."/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tqdm Issues and Tips"/>
+<meta name="twitter:description" content="A few issues and tips when using tqdm."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -132,15 +132,15 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Git branches</h1>
+      <h1 class="post-title">Tqdm Issues and Tips</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2020-09-03 </span>
+        <span class="post-time"> 2020-09-05 </span>
         <div class="post-category">
-            <a href="/categories/Note/"> Note </a>
+            <a href="/categories/Python/"> Python </a>
             </div>
-          <span class="more-meta"> 200 words </span>
-          <span class="more-meta"> 1 min read </span>
+          <span class="more-meta"> 300 words </span>
+          <span class="more-meta"> 2 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -150,57 +150,84 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#create-a-new-branch-locally-and-remotely">Create a new branch (locally and remotely)</a>
-      <ul>
-        <li><a href="#create-branch-locally">create branch locally</a></li>
-        <li><a href="#create-branch-remotely">create branch remotely</a></li>
-      </ul>
-    </li>
-    <li><a href="#show-branches">show branches</a></li>
-    <li><a href="#delete-a-branch">Delete a branch</a></li>
-    <li><a href="#create-a-local-branch-from-a-remote-branch">Create a local branch from a remote branch?</a></li>
-    <li><a href="#references">References</a></li>
+    <li><a href="#windows-display-issue">windows display issue</a></li>
+    <li><a href="#iterate-over-each-line-in-a-file-and-show-progress">Iterate over each line in a file and show progress?</a></li>
+    <li><a href="#show-progress-for-concurrentfuturesthreadpoolexecutor">Show progress for concurrent.futures.ThreadPoolExecutor</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p>Some commonly used Git commands related to branch operations.</p>
-<h1 id="create-a-new-branch-locally-and-remotely">Create a new branch (locally and remotely)</h1>
-<h2 id="create-branch-locally">create branch locally</h2>
-<p>We can use the following command to create a new branch</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git branch &lt;new_branch&gt;
-</code></pre></div><p>At this time, we are still in original branch. To switch to new branch, use the following command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git checkout &lt;new_branch&gt;
-</code></pre></div><p>The two steps can be combined with the following command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git checkout -b &lt;new_branch&gt;
-</code></pre></div><h2 id="create-branch-remotely">create branch remotely</h2>
-<p>To create a remote branch, use the following command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">git push -u origin &lt;local_branch&gt;
-</code></pre></div><h1 id="show-branches">show branches</h1>
+      <p>A few issues and tips when using tqdm.</p>
+<h1 id="windows-display-issue">windows display issue</h1>
+<p>on Windows, it seems that tqdm will print a new line when showing the progress,
+which is annoying.</p>
+<p>According to issue <a href="https://github.com/tqdm/tqdm/issues/454">here</a>, this is due
+to unicode handling in Windows terminal. We can add <code>ascii=True</code> in tqdm() to
+prevent this behavior. Works for me on Windows for both Cmder and plain cmd.</p>
+<h1 id="iterate-over-each-line-in-a-file-and-show-progress">Iterate over each line in a file and show progress?</h1>
+<p>When we are handling files with large number of lines, we may want to see the
+progress. To see the progress, we need to know the number of lines in this
+file. Here is a sample code to show the progress bar:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&#34;test.txt&#34;</span>
+<span class="n">num_lines</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">))</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="n">num_lines</span><span class="p">):</span>
+        <span class="c1"># deal with this line...</span>
+        <span class="k">pass</span>
+</code></pre></div><p>Ref: <a href="https://stackoverflow.com/q/48437189/6064933">python enumerate tqdm bar when reading a file?</a></p>
+<h1 id="show-progress-for-concurrentfuturesthreadpoolexecutor">Show progress for concurrent.futures.ThreadPoolExecutor</h1>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ThreadPoolExecutor</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+
+<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">nums</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">))</span>
+    <span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tqdm</span><span class="p">(</span><span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="n">nums</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)))</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div><p>The output of <code>executor.map(square, nums)</code> is a generator containing all the
+returned results from the function <code>square()</code>. So we need to supply the total
+number in the <code>total</code> argument.</p>
+<p>In the latest version of tqdm, we can also simply the above code by using
+<code>tqdm.contrib.concurrent.thread_map()</code> method, which is essentialy a wrapper
+around above code:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ThreadPoolExecutor</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">from</span> <span class="nn">tqdm.contrib.concurrent</span> <span class="kn">import</span> <span class="n">thread_map</span>
+
+
+<span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">nums</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">))</span>
+    <span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">thread_map</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="n">nums</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div><p>The above code is tested on tqdm version 4.48.2.</p>
+<p>Ref:</p>
 <ul>
-<li>show all branches (local and remote): <code>git branch -a</code></li>
-<li>show all local branches: <code>git branch -l</code></li>
-<li>show all remote branches: <code>git branch -r</code></li>
-</ul>
-<h1 id="delete-a-branch">Delete a branch</h1>
-<ul>
-<li>Delete local branch: <code>git branch -d &lt;branch_name&gt;</code></li>
-<li>Delete remote branch: <code>git push -d &lt;remote_name&gt; &lt;remote_branch&gt;</code></li>
-</ul>
-<p>Note that to delete a local branch, you need first to checkout to another
-branch.</p>
-<h1 id="create-a-local-branch-from-a-remote-branch">Create a local branch from a remote branch?</h1>
-<p>First, we need to fetch the remote changes:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git fetch
-</code></pre></div><p>Then we need to create a local branch from the remote branch:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git checkout -b local_branch_name remote_name/remote_branch
-</code></pre></div><h1 id="references">References</h1>
-<ul>
-<li><a href="https://stackoverflow.com/q/2003505/6064933">Delete git branch</a>.</li>
-<li><a href="https://stackoverflow.com/q/1519006/6064933">How to create remote branch</a>.</li>
-<li><a href="https://stackoverflow.com/a/6232535/6064933">Push local to remote and track it</a>.</li>
-<li><a href="https://stackoverflow.com/a/48840672/6064933">Create local branch from remote branch</a>.</li>
+<li><a href="https://stackoverflow.com/a/52242947/6064933">Use tqdm with concurrent.futures?</a></li>
+<li>Another way: <a href="https://gist.github.com/alexeygrigorev/79c97c1e9dd854562df9bbeea76fc5de">https://gist.github.com/alexeygrigorev/79c97c1e9dd854562df9bbeea76fc5de</a></li>
+<li><a href="https://tqdm.github.io/docs/contrib.concurrent/#tqdmcontribconcurrent">doc on tqdm.contrib.concurrent</a>.</li>
 </ul>
     </div>
 
@@ -212,7 +239,7 @@ branch.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-09-03
+        2020-09-05
         
     </span>
   </p>
@@ -237,17 +264,11 @@ branch.</p>
       </label>
   </div>
 </div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/Git/">Git</a>
-          </div>
+      
       <nav class="post-nav">
-        <a class="prev" href="/2020/09/05/tqdm_tips/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Tqdm Issues and Tips</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2020/08/26/leaderf_nvim_settings/">
-            <span class="next-text nav-default">LeaderF settings</span>
+        
+        <a class="next" href="/2020/09/03/git_branch_operations/">
+            <span class="next-text nav-default">Git branches</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
