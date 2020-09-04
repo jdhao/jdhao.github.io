@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="A short post on how to convert PPTX file to images. There are two steps. The first step is to from pptx to PDF, and the second step is from PDF to JPEG image.
+<meta name="author" content="jdhao" /><meta name="description" content="A short post on how to convert PPTX file to images. There are two steps. The first step is to from PPTX to PDF, and the second step is from PDF to JPEG image.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -51,18 +51,18 @@
 
 <meta property="og:title" content="Convert PPTX Slides to JPEG Images on Linux" />
 <meta property="og:description" content="A short post on how to convert PPTX file to images. There are two steps. The
-first step is to from pptx to PDF, and the second step is from PDF to JPEG
+first step is to from PPTX to PDF, and the second step is from PDF to JPEG
 image." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2020/03/30/pptx_to_image/" />
 <meta property="article:published_time" content="2020-03-30T22:30:20+08:00" />
-<meta property="article:modified_time" content="2020-09-05T00:29:35+08:00" />
+<meta property="article:modified_time" content="2020-09-05T01:05:35+08:00" />
 <meta itemprop="name" content="Convert PPTX Slides to JPEG Images on Linux">
 <meta itemprop="description" content="A short post on how to convert PPTX file to images. There are two steps. The
-first step is to from pptx to PDF, and the second step is from PDF to JPEG
+first step is to from PPTX to PDF, and the second step is from PDF to JPEG
 image.">
 <meta itemprop="datePublished" content="2020-03-30T22:30:20&#43;08:00" />
-<meta itemprop="dateModified" content="2020-09-05T00:29:35&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-05T01:05:35&#43;08:00" />
 <meta itemprop="wordCount" content="256">
 
 
@@ -70,7 +70,7 @@ image.">
 <meta itemprop="keywords" content="Office,Ubuntu," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Convert PPTX Slides to JPEG Images on Linux"/>
 <meta name="twitter:description" content="A short post on how to convert PPTX file to images. There are two steps. The
-first step is to from pptx to PDF, and the second step is from PDF to JPEG
+first step is to from PPTX to PDF, and the second step is from PDF to JPEG
 image."/>
 
 <!--[if lte IE 9]>
@@ -174,12 +174,12 @@ image."/>
 </div>
     <div class="post-content">
       <p>A short post on how to convert PPTX file to images. There are two steps. The
-first step is to from pptx to PDF, and the second step is from PDF to JPEG
+first step is to from PPTX to PDF, and the second step is from PDF to JPEG
 image.</p>
 <h1 id="step-one">Step one</h1>
 <p>First, we need to install <a href="https://www.libreoffice.org/">libreoffice</a>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">apt update <span class="o">&amp;&amp;</span> apt install libreoffice
-</code></pre></div><p>To convert pptx to image, we need to first convert it to PDF</p>
+</code></pre></div><p>To convert PPTX to image, we need to first convert it to PDF</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">soffice --headless --convert-to pdf test.pptx
 </code></pre></div><p>This will create a file named <code>test.pdf</code>.</p>
 <h1 id="step-two">Step two</h1>
@@ -190,7 +190,7 @@ image.</p>
 </code></pre></div><p>Then we can convert PDF file to image using <code>convert</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">convert -density <span class="m">150</span> test.pdf -quality <span class="m">80</span> output-%3d.jpg
 </code></pre></div><h3 id="possible-issues">Possible issues</h3>
-<p>During conversion, two errors occur aftering issuing the convert command:</p>
+<p>During conversion, two errors occur after issuing the convert command:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">convert-im6.q16: not authorized `multiple_img.pdf&#39; @ error/constitute.c/ReadImage/412.
 convert-im6.q16: no images defined `output-%3d.jpg&#39; @ error/convert.c/ConvertImageCommand/3258.
 </code></pre></div><p>For the first error, you can edit <code>/etc/ImageMagick-6/policy.xml</code> and change
@@ -201,7 +201,7 @@ the following line:</p>
 </code></pre></div><p>For the second error, this is because ghostscript has not been installed on the
 system. Try to install it:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">apt install ghostscript
-</code></pre></div><p>After that, you should be fine to generate from pptx to jpg/png
+</code></pre></div><p>After that, you should be fine to generate from PPTX to jpg/png
 images.</p>
 <h2 id="with-poppler">With poppler</h2>
 <p>We need to install poppler-utils:</p>
