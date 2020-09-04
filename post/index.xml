@@ -517,7 +517,9 @@ applications. In this post, I want to share how to build web APIs with Flask.&lt
       <pubDate>Mon, 30 Mar 2020 22:30:20 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2020/03/30/pptx_to_image/</guid>
-      <description>&lt;p&gt;A short post on how to convert PPTX file to images.&lt;/p&gt;</description>
+      <description>&lt;p&gt;A short post on how to convert PPTX file to images. There are two steps. The
+first step is to from pptx to PDF, and the second step is from PDF to JPEG
+image.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -876,12 +878,12 @@ In this post, I want to share how to accomplish this task with
     </item>
     
     <item>
-      <title>Converting PDF Pages to Images with Pdftoppm</title>
+      <title>Converting PDF Pages to Images with Poppler</title>
       <link>https://jdhao.github.io/2019/11/14/convert_pdf_to_images_pdftoppm/</link>
       <pubDate>Thu, 14 Nov 2019 22:44:21 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/11/14/convert_pdf_to_images_pdftoppm/</guid>
-      <description>&lt;p&gt;In this post, I will summarize how to convert PDF to images using the pdftoppm
+      <description>&lt;p&gt;In this post, I want to share how to convert PDF to images using the pdftoppm
 command line tool.&lt;/p&gt;</description>
     </item>
     

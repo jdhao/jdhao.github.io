@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="A short post on how to convert PPTX file to images.
+<meta name="author" content="jdhao" /><meta name="description" content="A short post on how to convert PPTX file to images. There are two steps. The first step is to from pptx to PDF, and the second step is from PDF to JPEG image.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -50,22 +50,28 @@
 
 
 <meta property="og:title" content="Convert PPTX File to Image on Ubuntu" />
-<meta property="og:description" content="A short post on how to convert PPTX file to images." />
+<meta property="og:description" content="A short post on how to convert PPTX file to images. There are two steps. The
+first step is to from pptx to PDF, and the second step is from PDF to JPEG
+image." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2020/03/30/pptx_to_image/" />
 <meta property="article:published_time" content="2020-03-30T22:30:20+08:00" />
-<meta property="article:modified_time" content="2020-03-30T22:34:09+08:00" />
+<meta property="article:modified_time" content="2020-09-05T00:21:55+08:00" />
 <meta itemprop="name" content="Convert PPTX File to Image on Ubuntu">
-<meta itemprop="description" content="A short post on how to convert PPTX file to images.">
+<meta itemprop="description" content="A short post on how to convert PPTX file to images. There are two steps. The
+first step is to from pptx to PDF, and the second step is from PDF to JPEG
+image.">
 <meta itemprop="datePublished" content="2020-03-30T22:30:20&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-30T22:34:09&#43;08:00" />
-<meta itemprop="wordCount" content="160">
+<meta itemprop="dateModified" content="2020-09-05T00:21:55&#43;08:00" />
+<meta itemprop="wordCount" content="256">
 
 
 
 <meta itemprop="keywords" content="Office,Ubuntu," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Convert PPTX File to Image on Ubuntu"/>
-<meta name="twitter:description" content="A short post on how to convert PPTX file to images."/>
+<meta name="twitter:description" content="A short post on how to convert PPTX file to images. There are two steps. The
+first step is to from pptx to PDF, and the second step is from PDF to JPEG
+image."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -139,8 +145,8 @@
         <div class="post-category">
             <a href="/categories/Note/"> Note </a>
             </div>
-          <span class="more-meta"> 160 words </span>
-          <span class="more-meta"> 1 min read </span>
+          <span class="more-meta"> 256 words </span>
+          <span class="more-meta"> 2 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -150,49 +156,65 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#steps">Steps</a></li>
-    <li><a href="#possible-issues">Possible issues</a></li>
+    <li><a href="#step-one">Step one</a></li>
+    <li><a href="#step-two">Step two</a>
+      <ul>
+        <li><a href="#with-imagemagick">With Imagemagick</a>
+          <ul>
+            <li><a href="#possible-issues">Possible issues</a></li>
+          </ul>
+        </li>
+        <li><a href="#with-poppler">With poppler</a></li>
+      </ul>
+    </li>
     <li><a href="#references">References</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p>A short post on how to convert PPTX file to images.</p>
-<h1 id="steps">Steps</h1>
-<ol>
-<li>First, we need to install <a href="https://www.libreoffice.org/">libreoffice</a>:</li>
-</ol>
+      <p>A short post on how to convert PPTX file to images. There are two steps. The
+first step is to from pptx to PDF, and the second step is from PDF to JPEG
+image.</p>
+<h1 id="step-one">Step one</h1>
+<p>First, we need to install <a href="https://www.libreoffice.org/">libreoffice</a>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">apt update <span class="o">&amp;&amp;</span> apt install libreoffice
-</code></pre></div><ol start="2">
-<li>Second, we need to install imagemagick:</li>
-</ol>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">apt install imagemagick
 </code></pre></div><p>To convert pptx to image, we need to first convert it to PDF</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">soffice --headless --convert-to pdf test.pptx
+</code></pre></div><p>This will create a file named <code>test.pdf</code>.</p>
+<h1 id="step-two">Step two</h1>
+<p>In order to turn PDF to images, we can use imagemagick or poppler.</p>
+<h2 id="with-imagemagick">With Imagemagick</h2>
+<p>We need to install imagemagick:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">apt install imagemagick
 </code></pre></div><p>Then we can convert PDF file to image using <code>convert</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">convert -density <span class="m">150</span> test.pdf -quality <span class="m">80</span> output-%3d.jpg
-</code></pre></div><h1 id="possible-issues">Possible issues</h1>
+</code></pre></div><h3 id="possible-issues">Possible issues</h3>
 <p>During conversion, two errors occur aftering issuing the convert command:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">convert-im6.q16: not authorized `multiple_img.pdf&#39; @ error/constitute.c/ReadImage/412.
 convert-im6.q16: no images defined `output-%3d.jpg&#39; @ error/convert.c/ConvertImageCommand/3258.
 </code></pre></div><p>For the first error, you can edit <code>/etc/ImageMagick-6/policy.xml</code> and change
 the following line:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;policy domain=&#34;coder&#34; rights=&#34;none&#34; pattern=&#34;PDF&#34; /&gt;
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">&lt;policy domain=&#34;coder&#34; rights=&#34;none&#34; pattern=&#34;PDF&#34; /&gt;
 </code></pre></div><p>to</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;policy domain=&#34;coder&#34; rights=&#34;read|write&#34; pattern=&#34;PDF&#34; /&gt;
-</code></pre></div><p>For the second error, this is because ghostscript has not been installed on
-the system. Try to install it:</p>
+</code></pre></div><p>For the second error, this is because ghostscript has not been installed on the
+system. Try to install it:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">apt install ghostscript
-</code></pre></div><p>After all these steps, you should be fine to generate from pptx to jpg/png
+</code></pre></div><p>After that, you should be fine to generate from pptx to jpg/png
 images.</p>
+<h2 id="with-poppler">With poppler</h2>
+<p>We need to install poppler-utils:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">apt-get update <span class="o">&amp;&amp;</span> apt-get install -y poppler-utils
+</code></pre></div><p>For further steps, refer to <a href="https://jdhao.github.io/2019/11/14/convert_pdf_to_images_pdftoppm/">this
+post</a>.</p>
 <h1 id="references">References</h1>
 <ul>
-<li><a href="https://stackoverflow.com/questions/21523267/how-to-convert-pptx-files-to-jpg-or-png-for-each-slide-on-linux">https://stackoverflow.com/questions/21523267/how-to-convert-pptx-files-to-jpg-or-png-for-each-slide-on-linux</a></li>
+<li><a href="https://stackoverflow.com/q/21523267/6064933">How to convert pptx files to jpg or png (for each slide) on linux?</a></li>
 <li><a href="https://jdhao.github.io/2019/11/20/convert_pdf_to_image_imagemagick/">https://jdhao.github.io/2019/11/20/convert_pdf_to_image_imagemagick/</a></li>
-<li><a href="https://stackoverflow.com/questions/42928765/convertnot-authorized-aaaa-error-constitute-c-readimage-453">https://stackoverflow.com/questions/42928765/convertnot-authorized-aaaa-error-constitute-c-readimage-453</a></li>
-<li><a href="https://superuser.com/questions/819277/cant-convert-pdf-into-image-because-of-no-images-defined-error">https://superuser.com/questions/819277/cant-convert-pdf-into-image-because-of-no-images-defined-error</a></li>
-<li><a href="https://askubuntu.com/questions/1181762/imagemagickconvert-im6-q16-no-images-defined">https://askubuntu.com/questions/1181762/imagemagickconvert-im6-q16-no-images-defined</a></li>
+<li><a href="https://stackoverflow.com/q/42928765/6064933">convert:not authorized <code>aaaa</code> @ error/constitute.c/ReadImage/453</a></li>
+<li><a href="https://superuser.com/q/819277/736190">Can&rsquo;t convert PDF into image, because of &lsquo;no images defined&rsquo; error</a></li>
+<li><a href="https://askubuntu.com/questions/1181762/imagemagickconvert-im6-q16-no-images-defined">ImageMagick:convert-im6.q16: no images defined</a></li>
 </ul>
     </div>
 
@@ -204,7 +226,7 @@ images.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-03-30
+        2020-09-05
         
     </span>
   </p>

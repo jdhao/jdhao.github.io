@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Converting PDF Pages to Images with Pdftoppm - jdhao&#39;s blog</title>
+  <title>Converting PDF Pages to Images with Poppler - jdhao&#39;s blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="jdhao" /><meta name="description" content="In this post, I will summarize how to convert PDF to images using the pdftoppm command line tool.
+<meta name="author" content="jdhao" /><meta name="description" content="In this post, I want to share how to convert PDF to images using the pdftoppm command line tool.
 " /><meta name="keywords" content="Hugo, theme, even" />
 
 
@@ -49,25 +49,25 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Converting PDF Pages to Images with Pdftoppm" />
-<meta property="og:description" content="In this post, I will summarize how to convert PDF to images using the pdftoppm
+<meta property="og:title" content="Converting PDF Pages to Images with Poppler" />
+<meta property="og:description" content="In this post, I want to share how to convert PDF to images using the pdftoppm
 command line tool." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2019/11/14/convert_pdf_to_images_pdftoppm/" />
 <meta property="article:published_time" content="2019-11-14T22:44:21+08:00" />
-<meta property="article:modified_time" content="2020-02-27T10:31:46+08:00" />
-<meta itemprop="name" content="Converting PDF Pages to Images with Pdftoppm">
-<meta itemprop="description" content="In this post, I will summarize how to convert PDF to images using the pdftoppm
+<meta property="article:modified_time" content="2020-09-05T00:12:03+08:00" />
+<meta itemprop="name" content="Converting PDF Pages to Images with Poppler">
+<meta itemprop="description" content="In this post, I want to share how to convert PDF to images using the pdftoppm
 command line tool.">
 <meta itemprop="datePublished" content="2019-11-14T22:44:21&#43;08:00" />
-<meta itemprop="dateModified" content="2020-02-27T10:31:46&#43;08:00" />
-<meta itemprop="wordCount" content="409">
+<meta itemprop="dateModified" content="2020-09-05T00:12:03&#43;08:00" />
+<meta itemprop="wordCount" content="510">
 
 
 
 <meta itemprop="keywords" content="PDF," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Converting PDF Pages to Images with Pdftoppm"/>
-<meta name="twitter:description" content="In this post, I will summarize how to convert PDF to images using the pdftoppm
+<meta name="twitter:title" content="Converting PDF Pages to Images with Poppler"/>
+<meta name="twitter:description" content="In this post, I want to share how to convert PDF to images using the pdftoppm
 command line tool."/>
 
 <!--[if lte IE 9]>
@@ -135,15 +135,15 @@ command line tool."/>
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Converting PDF Pages to Images with Pdftoppm</h1>
+      <h1 class="post-title">Converting PDF Pages to Images with Poppler</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-11-14 </span>
         <div class="post-category">
             <a href="/categories/technique/"> technique </a>
             </div>
-          <span class="more-meta"> 409 words </span>
-          <span class="more-meta"> 2 mins read </span>
+          <span class="more-meta"> 510 words </span>
+          <span class="more-meta"> 3 mins read </span>
         <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
       </div>
     </header>
@@ -153,7 +153,12 @@ command line tool."/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#install">Install</a></li>
+    <li><a href="#install">Install</a>
+      <ul>
+        <li><a href="#install-on-windows">Install on Windows</a></li>
+        <li><a href="#install-on-ubuntu">Install on Ubuntu</a></li>
+      </ul>
+    </li>
     <li><a href="#how-to-use">How to use</a></li>
     <li><a href="#using-pdf2image">Using pdf2image</a></li>
     <li><a href="#references">References</a></li>
@@ -162,9 +167,10 @@ command line tool."/>
   </div>
 </div>
     <div class="post-content">
-      <p>In this post, I will summarize how to convert PDF to images using the pdftoppm
+      <p>In this post, I want to share how to convert PDF to images using the pdftoppm
 command line tool.</p>
 <h1 id="install">Install</h1>
+<h2 id="install-on-windows">Install on Windows</h2>
 <p><code>pdftoppm</code> is provided by the <a href="https://github.com/freedesktop/poppler">poppler</a>
 project. For Windows, in order to install the latest version of poppler, you
 can install it via <a href="https://anaconda.org/conda-forge/poppler">conda</a>:</p>
@@ -174,6 +180,10 @@ can install it via <a href="https://anaconda.org/conda-forge/poppler">conda</a>:
 <p>You need to install newer version of pdftoppm to use some of its features, for
 example, <a href="https://stackoverflow.com/q/18719256/6064933">exporting to JPEG format</a><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.
 Note that the poppler provided by <a href="https://blog.alivate.com.au/poppler-windows/">this page</a> is too old.</p>
+<h2 id="install-on-ubuntu">Install on Ubuntu</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">apt-get update <span class="o">&amp;&amp;</span> apt-get install -y poppler-utils
+</code></pre></div><p>This package installs the poppler command line utilities, such as <code>pdftoppm</code>,
+which we are going to use.</p>
 <h1 id="how-to-use">How to use</h1>
 <p>To convert a single page of PDF to image, you can use the following command:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">pdftoppm -singlefile -f 4 -r 72 -jpeg -jpegopt quality=90 presentation.pdf test_poppler
@@ -207,9 +217,17 @@ pdftoppm. Make sure you have installed pdftoppm and set its PATH correctly.</p>
 object</a>. You can
 then manipulate the images with the powerful functionality provided by the
 Pillow package.</p>
+<p>There also a few important parameters to note:</p>
+<ul>
+<li><code>dpi</code>: this change the size and quality of th generated images. If you want to generate high quality images, use a large dpi, e.g., 300.</li>
+<li><code>thread_count</code>: Use multi-threading to accelerate image generation. The author <a href="https://github.com/Belval/pdf2image#performance-tips">suggests no more than 4
+threads</a>, however, I found more threads lead to lightly faster speed. You may tweak it to fit your
+need.</li>
+</ul>
 <h1 id="references">References</h1>
 <ul>
 <li><a href="https://stackoverflow.com/q/18381713/6064933">Install poppler on Windows</a>.</li>
+<li><a href="https://stackoverflow.com/q/32156047/6064933">Install poppler on Ubuntu</a>.</li>
 <li><a href="https://mikethecanuck.wordpress.com/2016/12/29/parsing-pdfs-using-python/">Parsing pdfs using Python</a>.</li>
 <li><a href="https://www.mankier.com/1/pdftoppm">pdftoppm man page</a>.</li>
 </ul>
@@ -231,7 +249,7 @@ Pillow package.</p>
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-02-27
+        2020-09-05
         
     </span>
   </p>
