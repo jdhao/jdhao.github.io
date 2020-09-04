@@ -54,11 +54,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jdhao.github.io/2020/09/05/tqdm_tips/" />
 <meta property="article:published_time" content="2020-09-05T00:23:28+08:00" />
-<meta property="article:modified_time" content="2020-09-05T00:25:16+08:00" />
+<meta property="article:modified_time" content="2020-09-05T01:02:08+08:00" />
 <meta itemprop="name" content="Tqdm Issues and Tips">
 <meta itemprop="description" content="A few issues and tips when using tqdm.">
 <meta itemprop="datePublished" content="2020-09-05T00:23:28&#43;08:00" />
-<meta itemprop="dateModified" content="2020-09-05T00:25:16&#43;08:00" />
+<meta itemprop="dateModified" content="2020-09-05T01:02:08&#43;08:00" />
 <meta itemprop="wordCount" content="300">
 
 
@@ -150,7 +150,7 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#windows-display-issue">windows display issue</a></li>
+    <li><a href="#windows-display-issue">Windows display issue</a></li>
     <li><a href="#iterate-over-each-line-in-a-file-and-show-progress">Iterate over each line in a file and show progress?</a></li>
     <li><a href="#show-progress-for-concurrentfuturesthreadpoolexecutor">Show progress for concurrent.futures.ThreadPoolExecutor</a></li>
   </ul>
@@ -158,12 +158,12 @@
   </div>
 </div>
     <div class="post-content">
-      <p>A few issues and tips when using tqdm.</p>
-<h1 id="windows-display-issue">windows display issue</h1>
-<p>on Windows, it seems that tqdm will print a new line when showing the progress,
+      <p>A few issues and tips when using <a href="https://github.com/tqdm/tqdm">tqdm</a>.</p>
+<h1 id="windows-display-issue">Windows display issue</h1>
+<p>On Windows, it seems that tqdm will print a new line when showing the progress,
 which is annoying.</p>
 <p>According to issue <a href="https://github.com/tqdm/tqdm/issues/454">here</a>, this is due
-to unicode handling in Windows terminal. We can add <code>ascii=True</code> in tqdm() to
+to Unicode handling in Windows terminal. We can add <code>ascii=True</code> in tqdm() to
 prevent this behavior. Works for me on Windows for both Cmder and plain cmd.</p>
 <h1 id="iterate-over-each-line-in-a-file-and-show-progress">Iterate over each line in a file and show progress?</h1>
 <p>When we are handling files with large number of lines, we may want to see the
@@ -202,7 +202,7 @@ file. Here is a sample code to show the progress bar:</p>
 returned results from the function <code>square()</code>. So we need to supply the total
 number in the <code>total</code> argument.</p>
 <p>In the latest version of tqdm, we can also simply the above code by using
-<code>tqdm.contrib.concurrent.thread_map()</code> method, which is essentialy a wrapper
+<code>tqdm.contrib.concurrent.thread_map()</code> method, which is essentially a wrapper
 around above code:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ThreadPoolExecutor</span>
 <span class="kn">import</span> <span class="nn">time</span>
