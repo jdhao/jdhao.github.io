@@ -28,7 +28,8 @@ I enjoy programming. I am most familiar with Python and fairly proficient in usi
       <pubDate>Sat, 05 Sep 2020 00:23:28 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2020/09/05/tqdm_tips/</guid>
-      <description>&lt;p&gt;A few issues and tips when using &lt;a href=&#34;https://github.com/tqdm/tqdm&#34;&gt;tqdm&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/tqdm/tqdm&#34;&gt;Tqdm&lt;/a&gt; is a popular pakcage to show progress bar
+when executing a loop. Here are a few issues and tips when using tqdm.&lt;/p&gt;</description>
     </item>
     
     <item>
