@@ -10,14 +10,14 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/</loc>
-    <lastmod>2020-09-05T15:28:33+08:00</lastmod>
+    <lastmod>2020-09-05T23:42:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://jdhao.github.io/post/</loc>
-    <lastmod>2020-09-05T15:28:33+08:00</lastmod>
+    <lastmod>2020-09-05T23:42:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -59,7 +59,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/</loc>
-    <lastmod>2020-09-05T01:05:35+08:00</lastmod>
+    <lastmod>2020-09-05T23:42:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -206,7 +206,7 @@
   
   <url>
     <loc>https://jdhao.github.io/categories/Linux/</loc>
-    <lastmod>2020-07-29T00:15:56+08:00</lastmod>
+    <lastmod>2020-09-05T23:42:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -360,7 +360,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Tmux/</loc>
-    <lastmod>2020-07-04T08:36:37+08:00</lastmod>
+    <lastmod>2020-09-05T23:42:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -444,7 +444,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Vim/</loc>
-    <lastmod>2020-08-21T01:24:39+08:00</lastmod>
+    <lastmod>2020-09-05T23:36:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -577,7 +577,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/C/</loc>
-    <lastmod>2020-06-13T02:28:21+08:00</lastmod>
+    <lastmod>2020-09-05T23:32:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1158,7 +1158,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Nvim/</loc>
-    <lastmod>2020-05-19T22:28:44+08:00</lastmod>
+    <lastmod>2020-09-05T23:36:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1249,7 +1249,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/CentOS/</loc>
-    <lastmod>2020-06-13T02:28:21+08:00</lastmod>
+    <lastmod>2020-09-05T23:32:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1592,7 +1592,7 @@
   
   <url>
     <loc>https://jdhao.github.io/tags/Mac/</loc>
-    <lastmod>2020-06-13T02:28:21+08:00</lastmod>
+    <lastmod>2020-09-05T23:32:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1648,7 +1648,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2019/01/17/tmux_plugin_management/</loc>
-    <lastmod>2019-12-08T15:13:52+08:00</lastmod>
+    <lastmod>2020-09-05T23:32:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1830,7 +1830,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2018/10/23/tmux_questions_and_trouble_shooting/</loc>
-    <lastmod>2019-08-09T00:13:47+08:00</lastmod>
+    <lastmod>2020-09-05T23:42:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1865,7 +1865,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2018/10/16/tmux_build_without_root_priviledge/</loc>
-    <lastmod>2020-07-04T08:36:37+08:00</lastmod>
+    <lastmod>2020-09-05T23:37:06+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -1949,7 +1949,7 @@
   
   <url>
     <loc>https://jdhao.github.io/2018/09/30/tmux_settings_for_vim_users/</loc>
-    <lastmod>2020-03-30T00:02:25+08:00</lastmod>
+    <lastmod>2020-09-05T23:36:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
