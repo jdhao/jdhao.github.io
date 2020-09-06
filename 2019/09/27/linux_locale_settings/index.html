@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2019/09/27/linux_locale_settings/" />
@@ -65,13 +65,14 @@ When I logged into a Ubuntu server, the system interface and messages are shown
 all shown in Chinese. I want them to be displayed in English. After some
 searching, I found out that we can change the
 locale settings.">
-<meta itemprop="datePublished" content="2019-09-27T23:56:47&#43;08:00" />
-<meta itemprop="dateModified" content="2020-05-03T22:37:24&#43;08:00" />
+<meta itemprop="datePublished" content="2019-09-27T23:56:47+08:00" />
+<meta itemprop="dateModified" content="2020-05-03T22:37:24+08:00" />
 <meta itemprop="wordCount" content="704">
 
 
 
-<meta itemprop="keywords" content="CentOS,Ubuntu,locale,Docker," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="CentOS,Ubuntu,locale,Docker," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Setting Up Locale in Linux"/>
 <meta name="twitter:description" content="Introduction
 When I logged into a Ubuntu server, the system interface and messages are shown
@@ -162,9 +163,9 @@ locale settings."/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction-">Introduction</a></li>
-    <li><a href="#set-up-locale-for-normal-linux-system-">Set up locale for normal Linux system</a></li>
-    <li><a href="#set-up-locale-for-docker-container-">Set up locale for docker container</a>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#set-up-locale-for-normal-linux-system">Set up locale for normal Linux system</a></li>
+    <li><a href="#set-up-locale-for-docker-container">Set up locale for docker container</a>
       <ul>
         <li><a href="#ubuntu-docker">Ubuntu docker</a></li>
         <li><a href="#centos-docker">CentOS docker</a></li>
@@ -176,7 +177,7 @@ locale settings."/>
   </div>
 </div>
     <div class="post-content">
-      <h1 id="introduction-">Introduction</h1>
+      <h1 id="introduction">Introduction</h1>
 <p>When I logged into a Ubuntu server, the system interface and messages are shown
 all shown in Chinese. I want them to be displayed in English. After some
 searching, I found out that we can change the
@@ -188,7 +189,7 @@ searching, I found out that we can change the
 preferences that the user wants to see in their <a href="https://en.wikipedia.org/wiki/User_interface">user
 interface</a></p>
 </blockquote>
-<h1 id="set-up-locale-for-normal-linux-system-">Set up locale for normal Linux system</h1>
+<h1 id="set-up-locale-for-normal-linux-system">Set up locale for normal Linux system</h1>
 <p>In Linux systems, there are several environment variables related to the locale
 settings, such as <code>LANG</code>, <code>LC_COLLATE</code>, <code>LC_TIME</code>, <code>LC_ALL</code> etc. A valid locale
 is like <code>en_US.UTF-8</code>. You can check
@@ -237,7 +238,7 @@ To verify this, suppose that we have the following settings inside
 <span class="nb">export</span> <span class="nv">LANGUAGE</span><span class="o">=</span>zh_CN.utf8
 </code></pre></div><p>After sourcing the file, you will find that the messages given for command
 output will be in Chinese (i.e., <code>LANG</code> is overridden.)</p>
-<h1 id="set-up-locale-for-docker-container-">Set up locale for docker container</h1>
+<h1 id="set-up-locale-for-docker-container">Set up locale for docker container</h1>
 <h2 id="ubuntu-docker">Ubuntu docker</h2>
 <p>I try to build a Ubuntu container. I want to set my locale to <code>en_US.UTF-8</code>
 inside the container by simply adding the following ENV instruction:</p>

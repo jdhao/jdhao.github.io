@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2018/09/20/disable_warning_neomake_pylint/" />
@@ -59,13 +59,14 @@ bugs in your source code. It is easy to install pylint with conda or pip:" />
 <meta itemprop="name" content="Use Pylint for Code Checking inside Neovim">
 <meta itemprop="description" content="Pylint is a popular static code checker which can effectively find the possible
 bugs in your source code. It is easy to install pylint with conda or pip:">
-<meta itemprop="datePublished" content="2018-09-20T17:31:00&#43;08:00" />
-<meta itemprop="dateModified" content="2020-04-28T23:32:26&#43;08:00" />
+<meta itemprop="datePublished" content="2018-09-20T17:31:00+08:00" />
+<meta itemprop="dateModified" content="2020-04-28T23:32:26+08:00" />
 <meta itemprop="wordCount" content="711">
 
 
 
-<meta itemprop="keywords" content="pylint," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="pylint," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Use Pylint for Code Checking inside Neovim"/>
 <meta name="twitter:description" content="Pylint is a popular static code checker which can effectively find the possible
 bugs in your source code. It is easy to install pylint with conda or pip:"/>
@@ -159,7 +160,7 @@ bugs in your source code. It is easy to install pylint with conda or pip:"/>
         <li><a href="#pylint-warning-module-has-no-member">pylint warning “module has no member&rdquo;</a></li>
         <li><a href="#disable-warning-for-a-certain-line">Disable warning for a certain line</a></li>
         <li><a href="#disable-warning-for-a-certain-file">Disable warning for a certain file</a></li>
-        <li><a href="#find-the-msg-id-of-a-certain-message-">Find the msg id of a certain message</a></li>
+        <li><a href="#find-the-msg-id-of-a-certain-message">Find the msg id of a certain message</a></li>
       </ul>
     </li>
     <li><a href="#configure-and-use-pylint-with-neovim">Configure and use pylint with Neovim</a>
@@ -217,7 +218,7 @@ For example:</p>
 </code></pre></div><h2 id="disable-warning-for-a-certain-file">Disable warning for a certain file</h2>
 <p>If you want to disable a certain warning or error for a particular file, you
 can add <code>#pylint: disable=some-message</code> at the top of the file.</p>
-<h2 id="find-the-msg-id-of-a-certain-message-">Find the msg id of a certain message</h2>
+<h2 id="find-the-msg-id-of-a-certain-message">Find the msg id of a certain message</h2>
 <p>To disable a certain warning, we want to know its message id. On the command
 line, use the following command:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pylint --list-msgs <span class="p">|</span>grep message

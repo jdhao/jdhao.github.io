@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2018/03/29/latex-chinese.zh/" />
@@ -57,13 +57,14 @@
 <meta property="article:modified_time" content="2020-03-11T23:28:03+08:00" />
 <meta itemprop="name" content="全面总结如何在 LaTeX 中使用中文 (2020 最新版)">
 <meta itemprop="description" content="LaTeX 最初对中文的支持并不友好，只支持 ASCII 字符，后来才逐渐变得好起来，加入了对 Unicode 字符的支持。本文总结一下几种在 LaTeX 中使用中文的方法，以期能够帮助读者快速使用 LaTeX 对中文内容进行排版。">
-<meta itemprop="datePublished" content="2018-03-29T17:54:13&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-11T23:28:03&#43;08:00" />
+<meta itemprop="datePublished" content="2018-03-29T17:54:13+08:00" />
+<meta itemprop="dateModified" content="2020-03-11T23:28:03+08:00" />
 <meta itemprop="wordCount" content="1234">
 
 
 
-<meta itemprop="keywords" content="font,字体,LaTeX," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="font,字体,LaTeX," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="全面总结如何在 LaTeX 中使用中文 (2020 最新版)"/>
 <meta name="twitter:description" content="LaTeX 最初对中文的支持并不友好，只支持 ASCII 字符，后来才逐渐变得好起来，加入了对 Unicode 字符的支持。本文总结一下几种在 LaTeX 中使用中文的方法，以期能够帮助读者快速使用 LaTeX 对中文内容进行排版。"/>
 
@@ -152,8 +153,8 @@
   <ul>
     <li><a href="#使用-ctex">使用 CTeX</a>
       <ul>
-        <li><a href="#使用-ctexart-">使用 ctexart</a></li>
-        <li><a href="#使用-ctex-宏包-">使用 ctex 宏包</a></li>
+        <li><a href="#使用-ctexart">使用 ctexart</a></li>
+        <li><a href="#使用-ctex-宏包">使用 ctex 宏包</a></li>
       </ul>
     </li>
     <li><a href="#使用-xecjk">使用 xeCJK</a></li>
@@ -171,7 +172,7 @@
 <li>使用 ctexart 文档类（英文：documentclass）</li>
 <li>使用 ctex 宏包（英文：package）</li>
 </ul>
-<h2 id="使用-ctexart-">使用 ctexart</h2>
+<h2 id="使用-ctexart">使用 ctexart</h2>
 <p>如果你的文章主要由中文构成，你可以考虑使用 CTeX 中的 <code>ctexart</code> 文档类，下面的例子展示了如何使用 <code>ctexart</code> 文档类来写中文文档：</p>
 <div class="highlight"><pre class="chroma"><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="na">[UTF8]</span><span class="nb">{</span>ctexart<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>
@@ -180,7 +181,7 @@
 你好，这是一个测试文档。
 <span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre></div><p>使用 <code>ctexart</code> documentclass 时候，最好加上 <code>\usepackage[T1]{fontenc}</code>，否则<a href="https://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc">某些符号显示不正确</a>。</p>
-<h2 id="使用-ctex-宏包-">使用 ctex 宏包</h2>
+<h2 id="使用-ctex-宏包">使用 ctex 宏包</h2>
 <p>除了使用 <code>ctexart</code> 文档类，你可以可以选择使用 <code>ctex</code> 宏包，一个简单例子如下：</p>
 <div class="highlight"><pre class="chroma"><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="na">[UTF8]</span><span class="nb">{</span>ctex<span class="nb">}</span>

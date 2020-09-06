@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2019/10/14/python_script_to_exe/" />
@@ -69,13 +69,14 @@ On Linux, it is easy to achieve with the help of
 shebang.
 However, on Windows, it does not work. Then I thought I might convert the
 script to Windows executable.">
-<meta itemprop="datePublished" content="2019-10-14T21:46:55&#43;08:00" />
-<meta itemprop="dateModified" content="2019-10-15T00:00:03&#43;08:00" />
+<meta itemprop="datePublished" content="2019-10-14T21:46:55+08:00" />
+<meta itemprop="dateModified" content="2019-10-15T00:00:03+08:00" />
 <meta itemprop="wordCount" content="433">
 
 
 
-<meta itemprop="keywords" content="Windows," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Windows," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Convert Python Script to Exe on Windows with Pyinstaller"/>
 <meta name="twitter:description" content="Introduction
 I have a use case where I want to convert my Python script to standalone
@@ -168,21 +169,21 @@ script to Windows executable."/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction-">Introduction</a></li>
+    <li><a href="#introduction">Introduction</a></li>
     <li><a href="#how-to-use-pyinstaller">How to use pyinstaller</a></li>
     <li><a href="#reduce-the-size-of-executable">Reduce the size of executable</a>
       <ul>
-        <li><a href="#create-a-virtual-environment-">Create a virtual environment</a></li>
-        <li><a href="#using-upx-">Using UPX</a></li>
+        <li><a href="#create-a-virtual-environment">Create a virtual environment</a></li>
+        <li><a href="#using-upx">Using UPX</a></li>
       </ul>
     </li>
-    <li><a href="#references-">References</a></li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h1 id="introduction-">Introduction</h1>
+      <h1 id="introduction">Introduction</h1>
 <p>I have a use case where I want to convert my Python script to standalone
 executable so that I do not need to type <code>python</code> before it to run the script.
 On Linux, it is easy to achieve with the help of
@@ -207,13 +208,13 @@ windows, we can use the <code>--console</code> option.</p>
 <h1 id="reduce-the-size-of-executable">Reduce the size of executable</h1>
 <p>One problem is that the generated executable file is huge even if the script
 only contains a few lines of code.</p>
-<h2 id="create-a-virtual-environment-">Create a virtual environment</h2>
+<h2 id="create-a-virtual-environment">Create a virtual environment</h2>
 <p>According to <a href="https://stackoverflow.com/a/47810133/6064933">post here</a>, to
 reduce the size of the produced executable, we can create a clean virtual
 environment where only packages required for our script are installed.</p>
 <p>In my case, after building the executable inside a virtual env, I have reduced
 the executable size from more than 200Mb to only 6Mb!</p>
-<h2 id="using-upx-">Using UPX</h2>
+<h2 id="using-upx">Using UPX</h2>
 <p>An additional way to reduce executable size is to use
 <a href="https://upx.github.io/">UPX</a> to compress files. You can download the UPX
 windows release file and extract it to a folder. When running the pyinstaller,
@@ -231,7 +232,7 @@ LoadLibrary: The parameter is incorrect.
 options can be used multiple times to exclude several files. For example:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">pyinstaller.exe --onefile --console --upx-dir=upx-3.95-win64\upx-3.95-win64\ --upx-exclude=python36.dll --upx-exclude=vcruntime140.dll my_script.py
 </code></pre></div><p>After that, the executable file can run without errors.</p>
-<h1 id="references-">References</h1>
+<h1 id="references">References</h1>
 <ul>
 <li><a href="https://github.com/pyinstaller/pyinstaller/issues/1694#issuecomment-384040050">Reduce executable size</a>.</li>
 <li><a href="https://stackoverflow.com/questions/47730240/how-do-i-use-upx-with-pyinstaller">How to use upx with pyinstaller</a>.</li>

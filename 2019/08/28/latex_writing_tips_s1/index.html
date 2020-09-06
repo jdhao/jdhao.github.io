@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2019/08/28/latex_writing_tips_s1/" />
@@ -57,13 +57,14 @@
 <meta property="article:modified_time" content="2020-03-06T13:38:22+08:00" />
 <meta itemprop="name" content="Tips on Writing Papers in LaTeX">
 <meta itemprop="description" content="In this post, I want to share some tips on writing papers using $\LaTeX$.">
-<meta itemprop="datePublished" content="2019-08-28T14:36:31&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-06T13:38:22&#43;08:00" />
+<meta itemprop="datePublished" content="2019-08-28T14:36:31+08:00" />
+<meta itemprop="dateModified" content="2020-03-06T13:38:22+08:00" />
 <meta itemprop="wordCount" content="499">
 
 
 
-<meta itemprop="keywords" content="LaTeX,writing," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="LaTeX,writing," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tips on Writing Papers in LaTeX"/>
 <meta name="twitter:description" content="In this post, I want to share some tips on writing papers using $\LaTeX$."/>
 
@@ -150,20 +151,20 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#use-non-breaking-space-before-references-">Use non-breaking space before references</a></li>
-    <li><a href="#period-or-dot-and-sentence-spacing-">Period (or dot) and sentence spacing</a></li>
-    <li><a href="#do-not-use-textit-for-emphasizing-text-">Do not use <code>\textit</code> for emphasizing text</a></li>
-    <li><a href="#terminate-command-with-curly-braces-">Terminate command with curly braces</a></li>
+    <li><a href="#use-non-breaking-space-before-references">Use non-breaking space before references</a></li>
+    <li><a href="#period-or-dot-and-sentence-spacing">Period (or dot) and sentence spacing</a></li>
+    <li><a href="#do-not-use-textit-for-emphasizing-text">Do not use <code>\textit</code> for emphasizing text</a></li>
+    <li><a href="#terminate-command-with-curly-braces">Terminate command with curly braces</a></li>
     <li><a href="#space-and-parentheses">Space and parentheses</a></li>
-    <li><a href="#quotation-marks-">Quotation marks</a></li>
-    <li><a href="#references-">References</a></li>
+    <li><a href="#quotation-marks">Quotation marks</a></li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <p>In this post, I want to share some tips on writing papers using $\LaTeX$.</p>
-<h1 id="use-non-breaking-space-before-references-">Use non-breaking space before references</h1>
+<h1 id="use-non-breaking-space-before-references">Use non-breaking space before references</h1>
 <p>In certain cases, two piece of texts must be close to each other and not appear
 in different lines, e.g., when you refer to an image or a table. This is when
 <a href="https://en.wikibooks.org/wiki/LaTeX/FAQ#Non-breaking_spaces">non-breakable space</a>
@@ -172,7 +173,7 @@ example, to refer to some figure you have defined, you can use the following:</p
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">The figure~\ref{fig:some_fig} shows an interesting result.
 </code></pre></div><p>This will make sure that <code>figure</code> will always be followed by the index number
 in the same line.</p>
-<h1 id="period-or-dot-and-sentence-spacing-">Period (or dot) and sentence spacing</h1>
+<h1 id="period-or-dot-and-sentence-spacing">Period (or dot) and sentence spacing</h1>
 <p>LaTeX use different width of space between words in a sentence and between
 two sentences. Typically, a lower case letter followed by a dot ends a
 sentence. An upper case letter followed by a dot is some kind of an acronym and
@@ -186,12 +187,12 @@ should follow the dot with an inter-word space (<code>\ </code>):</p>
 </code></pre></div><p>If a dot follows an upper case letter and it is indeed the end of a sentence,
 you should precede the dot with <code>\@</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">WHO is a world orgnization, just like WTO\@.
-</code></pre></div><h1 id="do-not-use-textit-for-emphasizing-text-">Do not use <code>\textit</code> for emphasizing text</h1>
+</code></pre></div><h1 id="do-not-use-textit-for-emphasizing-text">Do not use <code>\textit</code> for emphasizing text</h1>
 <p>Some people like to use <code>\textit</code> for emphasizing text. Although this works
 most of the time, it is not encouraged. For example, what if you want to
 emphasize text inside <code>\textit</code> command? To emphasize text, you should use
 <code>\emph{}</code> which is dedicated to do this job and does it well.</p>
-<h1 id="terminate-command-with-curly-braces-">Terminate command with curly braces</h1>
+<h1 id="terminate-command-with-curly-braces">Terminate command with curly braces</h1>
 <p>If you use <code>chktex</code>, you may see warnings like the following:</p>
 <blockquote>
 <p>command terminated with space</p>
@@ -207,12 +208,12 @@ enclosed text, there is no need to add spaces in the two ends.</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">national basketball association (NBA): ✔️
 national basketball association(NBA): ❌
 national basketball association ( NBA ): ❌
-</code></pre></div><h1 id="quotation-marks-">Quotation marks</h1>
+</code></pre></div><h1 id="quotation-marks">Quotation marks</h1>
 <p>If you use two <code>&quot;</code> for double quotation and two <code>'</code> for single quotation, you
 will find the opening quotation is apparently wrong. The correct way to
 represent double quotation is <code>``some text''</code>.
 The correct way to use single quotation is <code>`some text'</code>.</p>
-<h1 id="references-">References</h1>
+<h1 id="references">References</h1>
 <ul>
 <li><a href="https://tex.stackexchange.com/questions/15547/when-should-i-use-non-breaking-space?rq=1">When should we use non-breakable space</a></li>
 <li><a href="https://tex.stackexchange.com/questions/55105/when-should-i-use-intersentence-spacing">Inter-sentence spacing in LaTeX</a></li>

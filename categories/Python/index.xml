@@ -272,7 +272,7 @@ on the first element in each sub-list.&lt;/p&gt;</description>
       <pubDate>Mon, 14 Oct 2019 21:46:55 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/10/14/python_script_to_exe/</guid>
-      <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;I have a use case where I want to convert my Python script to standalone
 executable so that I do not need to type &lt;code&gt;python&lt;/code&gt; before it to run the script.
 On Linux, it is easy to achieve with the help of
@@ -302,7 +302,7 @@ while to understand the cause.&lt;/p&gt;</description>
       <pubDate>Sat, 20 Jul 2019 21:19:39 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/07/20/pil_jpeg_image_quality/</guid>
-      <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;The other day, I was haunted by a bug and found that it was an issue with the
 image quality saved by &lt;a href=&#34;https://pillow.readthedocs.io/en/stable/&#34;&gt;Pillow&lt;/a&gt; after
 spending a few hours debugging the code.&lt;/p&gt;</description>
@@ -314,7 +314,7 @@ spending a few hours debugging the code.&lt;/p&gt;</description>
       <pubDate>Sat, 06 Jul 2019 22:18:22 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/07/06/python_opencv_pil_image_to_bytes/</guid>
-      <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Sometimes, we may want an in-memory jpg or png image that is represented as
 binary data. But often, what we have got is image in OpenCV (Numpy ndarray) or
 PIL Image format. In this post, I will share how to convert Numpy image or PIL

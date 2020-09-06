@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/" />
@@ -65,13 +65,14 @@ in base64 encoded format.
 However, when we are doing image processing tasks, we need to use PIL or
 OpenCV. In this post, I will share how to convert between OpenCV or PIL image
 and base64 encoded image.">
-<meta itemprop="datePublished" content="2020-03-17T23:08:32&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-03T23:21:54&#43;08:00" />
+<meta itemprop="datePublished" content="2020-03-17T23:08:32+08:00" />
+<meta itemprop="dateModified" content="2020-06-03T23:21:54+08:00" />
 <meta itemprop="wordCount" content="375">
 
 
 
-<meta itemprop="keywords" content="PIL,OpenCV," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="PIL,OpenCV," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Conversion between base64 and OpenCV or PIL Image"/>
 <meta name="twitter:description" content="When we are building web services using Python, we often send or receive images
 in base64 encoded format.
@@ -162,7 +163,7 @@ and base64 encoded image."/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#base64-to-pil-or-opencv-image-">base64 to PIL or OpenCV image</a>
+    <li><a href="#base64-to-pil-or-opencv-image">base64 to PIL or OpenCV image</a>
       <ul>
         <li><a href="#base64-to-pil-image">base64 to PIL Image</a></li>
         <li><a href="#base64-to-opencv-image">base64 to OpenCV Image</a></li>
@@ -185,7 +186,7 @@ in <a href="https://docs.python.org/3/library/base64.html">base64</a> encoded fo
 However, when we are doing image processing tasks, we need to use PIL or
 OpenCV. In this post, I will share how to convert between OpenCV or PIL image
 and base64 encoded image.</p>
-<h1 id="base64-to-pil-or-opencv-image-">base64 to PIL or OpenCV image</h1>
+<h1 id="base64-to-pil-or-opencv-image">base64 to PIL or OpenCV image</h1>
 <h2 id="base64-to-pil-image">base64 to PIL Image</h2>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">base64</span>
 <span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>

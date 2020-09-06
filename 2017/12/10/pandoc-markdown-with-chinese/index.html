@@ -26,7 +26,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/" />
@@ -65,13 +65,14 @@ For English version of this post, click here.
 For English version of this post, click here.
 更新时间：2019-11-18
 本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。">
-<meta itemprop="datePublished" content="2017-12-10T00:10:00&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-11T23:28:44&#43;08:00" />
+<meta itemprop="datePublished" content="2017-12-10T00:10:00+08:00" />
+<meta itemprop="dateModified" content="2020-03-11T23:28:44+08:00" />
 <meta itemprop="wordCount" content="3342">
 
 
 
-<meta itemprop="keywords" content="font,字体,Markdown,LaTeX,Sublime-Text,Pandoc,Unicode,PDF," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="font,字体,Markdown,LaTeX,Sublime-Text,Pandoc,Unicode,PDF," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件"/>
 <meta name="twitter:description" content="
 For English version of this post, click here.
@@ -177,7 +178,7 @@ For English version of this post, click here.
         <li><a href="#更改-pdf-的-margin">更改 PDF 的 margin</a></li>
         <li><a href="#markdown-文件中使用斜杠-backslash-会出错">Markdown 文件中使用斜杠 backslash 会出错</a></li>
         <li><a href="#给-inline-code-加上背景色">给 inline code 加上背景色</a></li>
-        <li><a href="#更改引用-block-quote-的风格-">更改引用 (block quote) 的风格</a>
+        <li><a href="#更改引用-block-quote-的风格">更改引用 (block quote) 的风格</a>
           <ul>
             <li><a href="#参考">参考</a></li>
           </ul>
@@ -292,7 +293,7 @@ style="float: middle;"
 </code></pre></div><p>在使用 Pandoc 转换 Markdown 文件时，加上 <code>-H</code> 选项来引用 <code>head.tex</code> 文件，例如</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pandoc --pdf-engine<span class="o">=</span>xelatex -H head.tex test.md -o test.pdf
 </code></pre></div><p>这样生成的 PDF 中，inline code 就会有灰色的背景色，背景颜色可以根据自己喜好修改。</p>
-<h2 id="更改引用-block-quote-的风格-">更改引用 (block quote) 的风格</h2>
+<h2 id="更改引用-block-quote-的风格">更改引用 (block quote) 的风格</h2>
 <p>默认情况下，当我们把 Markdown 文件转为 PDF 时，Pandoc 使用 LaTeX 中的 <a href="https://tex.stackexchange.com/q/33219/114857"><code>quote</code></a>环境来表示 block quote。生成的 PDF 中，引用文字只是被缩进了，看起来很不明显。</p>
 <p>我们可以自己定义一个 quotation 环境，给环境加上背景颜色和缩进。将下面的设置写入到 <code>head.tex</code> 中：</p>
 <div class="highlight"><pre class="chroma"><code class="language-latex" data-lang="latex"><span class="k">\usepackage</span><span class="nb">{</span>framed<span class="nb">}</span>

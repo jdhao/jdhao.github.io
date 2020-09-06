@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2019/09/29/linux_login_setup/" />
@@ -59,13 +59,14 @@ related to login shell." />
 <meta itemprop="name" content="Why don&#39;t settings inside bashrc or bash_profile take effect?">
 <meta itemprop="description" content="In this post, I would like to share causes and solutions to a few issues
 related to login shell.">
-<meta itemprop="datePublished" content="2019-09-29T21:40:28&#43;08:00" />
-<meta itemprop="dateModified" content="2020-05-05T14:59:56&#43;08:00" />
+<meta itemprop="datePublished" content="2019-09-29T21:40:28+08:00" />
+<meta itemprop="dateModified" content="2020-05-05T14:59:56+08:00" />
 <meta itemprop="wordCount" content="872">
 
 
 
-<meta itemprop="keywords" content="shell,Bash," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="shell,Bash," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Why don&#39;t settings inside bashrc or bash_profile take effect?"/>
 <meta name="twitter:description" content="In this post, I would like to share causes and solutions to a few issues
 related to login shell."/>
@@ -158,9 +159,9 @@ related to login shell."/>
       <ul>
         <li><a href="#login-and-interactive-shell">Login and interactive shell</a>
           <ul>
-            <li><a href="#login-shell-">login shell</a></li>
-            <li><a href="#interactive-shell-">Interactive shell</a></li>
-            <li><a href="#different-types-of-shell-">Different types of shell</a></li>
+            <li><a href="#login-shell">login shell</a></li>
+            <li><a href="#interactive-shell">Interactive shell</a></li>
+            <li><a href="#different-types-of-shell">Different types of shell</a></li>
           </ul>
         </li>
         <li><a href="#why-isnt-bashrc-sourced">Why isn&rsquo;t <code>.bashrc</code> sourced?</a></li>
@@ -187,7 +188,7 @@ inside <code>.bash_profile</code> is sourced. Settings inside <code>.bashrc</cod
 effect. Before we delve into this problem, we first need to understand the
 basic concept of a login shell and an interactive shell.</p>
 <h2 id="login-and-interactive-shell">Login and interactive shell</h2>
-<h3 id="login-shell-">login shell</h3>
+<h3 id="login-shell">login shell</h3>
 <p>A login shell is usually the shell when the user first log in to the
 system. If the user start another shell or use <code>bash</code> inside the current
 shell, then the user will probably start a non-login shell<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. To
@@ -195,7 +196,7 @@ check whether the bash shell is a login shell, use the following
 command:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># only works for bash</span>
 <span class="nb">shopt</span> -q login_shell <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s1">&#39;Login shell&#39;</span> <span class="o">||</span> <span class="nb">echo</span> <span class="s1">&#39;Not login shell&#39;</span>
-</code></pre></div><h3 id="interactive-shell-">Interactive shell</h3>
+</code></pre></div><h3 id="interactive-shell">Interactive shell</h3>
 <p>Roughly speaking, an interactive shell is a shell that the user can interact
 with via the terminal, i.e., typing a command, sending it to the shell and
 getting output. If you run a script <code>test.sh</code> inside the shell by using <code>bash test.sh</code>, what actually happens is that a non-interactive bash shell is started
@@ -204,7 +205,7 @@ to execute the commands inside <code>test.sh</code>. Now, you get a sense of wha
 <code>i</code> is present in the variable <code>$-</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="nv">$-</span>
 <span class="c1"># output may be: himBHs</span>
-</code></pre></div><h3 id="different-types-of-shell-">Different types of shell</h3>
+</code></pre></div><h3 id="different-types-of-shell">Different types of shell</h3>
 <p>According to the above statements, we now have four different types of a shell:</p>
 <ul>
 <li>interactive login shell</li>

@@ -46,7 +46,7 @@ while to understand the cause.&lt;/p&gt;</description>
       <pubDate>Sat, 06 Jul 2019 22:18:22 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/07/06/python_opencv_pil_image_to_bytes/</guid>
-      <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Sometimes, we may want an in-memory jpg or png image that is represented as
 binary data. But often, what we have got is image in OpenCV (Numpy ndarray) or
 PIL Image format. In this post, I will share how to convert Numpy image or PIL

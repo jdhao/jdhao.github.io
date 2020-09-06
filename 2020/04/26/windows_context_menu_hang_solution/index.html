@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/" />
@@ -59,13 +59,14 @@
 <meta itemprop="name" content="解决 Windows 下文件管理器中右键单击无响应问题">
 <meta itemprop="description" content="引子
 最近使用工作电脑的时候，不知道为什么，在文件资源管理器里面鼠标右键单击打开菜单(也叫context menu)的时候，系统很大概率会卡顿，鼠标指针开始转圈，文件管理器白屏，然后会提示&quot;未响应&rdquo;,过一会儿，右键菜单才会出现。以至于我每次点击右键之前，都很烦躁，希望不要出现卡顿的情况。">
-<meta itemprop="datePublished" content="2020-04-26T22:44:37&#43;08:00" />
-<meta itemprop="dateModified" content="2020-04-30T00:41:46&#43;08:00" />
+<meta itemprop="datePublished" content="2020-04-26T22:44:37+08:00" />
+<meta itemprop="dateModified" content="2020-04-30T00:41:46+08:00" />
 <meta itemprop="wordCount" content="705">
 
 
 
-<meta itemprop="keywords" content="Windows," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Windows," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="解决 Windows 下文件管理器中右键单击无响应问题"/>
 <meta name="twitter:description" content="引子
 最近使用工作电脑的时候，不知道为什么，在文件资源管理器里面鼠标右键单击打开菜单(也叫context menu)的时候，系统很大概率会卡顿，鼠标指针开始转圈，文件管理器白屏，然后会提示&quot;未响应&rdquo;,过一会儿，右键菜单才会出现。以至于我每次点击右键之前，都很烦躁，希望不要出现卡顿的情况。"/>
@@ -153,18 +154,18 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#引子-">引子</a></li>
-    <li><a href="#解决方案-">解决方案</a></li>
-    <li><a href="#参考-">参考</a></li>
+    <li><a href="#引子">引子</a></li>
+    <li><a href="#解决方案">解决方案</a></li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h1 id="引子-">引子</h1>
+      <h1 id="引子">引子</h1>
 <p>最近使用工作电脑的时候，不知道为什么，在文件资源管理器里面鼠标右键单击打开菜单(也叫<a href="https://en.wikipedia.org/wiki/Context_menu">context menu</a>)的时候，系统很大概率会卡顿，鼠标指针开始转圈，文件管理器白屏，然后会提示&quot;未响应&rdquo;,过一会儿，右键菜单才会出现。以至于我每次点击右键之前，都很烦躁，希望不要出现卡顿的情况。</p>
 <p>使用 Windows，总有一种碰运气的感觉，如果什么东西不能正常工作了，很多时候，我们并不清楚为什么？可能重启一下，就没有这个问题了。另外一些问题，重启也无法解决，譬如这个右键菜单卡顿的问题，我**重启了好几次也没有用。从这个角度来看，我更喜欢 Linux 系统，基本上出现了问题，从谷歌总能找到确定性（definitive）的答案，而不是像 Windows 一样，你需要尝试 N 种你也不确定能不能成功的方案。</p>
-<h1 id="解决方案-">解决方案</h1>
+<h1 id="解决方案">解决方案</h1>
 <p>回归到这个问题，经过各种查找，大概确定这个卡顿的原因可能是第三方软件在右键菜单添加了太多项目，所以我们需要把一些没用的软件快捷方式从右键菜单里面清除出去。另外一些没用的软件，可以一起清理掉。</p>
 <p>第一步：清理无用的应用。打开 Win10 设置（快捷键 <code>Win + I</code>），进入应用，没用的，长时间未使用的应用全部卸载。</p>
 <p>第二步：清理右键菜单快捷方式。下载 <a href="http://www.nirsoft.net/utils/shell_menu_view.html">ShellMenuView</a>这个小工具(下载地址<a href="http://www.nirsoft.net/utils/shmnview.zip">这里</a>)。无需安装，解压即可运行。</p>
@@ -176,7 +177,7 @@
 <img src="https://blog-resource-1257868508.file.myqcloud.com/20200426225205.png" width="400">
 </p>
 <p>进行上述操作之后，重启系统，在文件管理器使用右键菜单，发现卡顿消失，可以确定卡顿就是第三方在右键菜单添加项目导致的。</p>
-<h1 id="参考-">参考</h1>
+<h1 id="参考">参考</h1>
 <ul>
 <li><a href="https://superuser.com/q/5011/736190">https://superuser.com/q/5011/736190</a></li>
 <li><a href="https://answers.microsoft.com/en-us/windows/forum/all/right-click-crashes-explorer-on-windows-10-pro/3fd432f3-6b11-40be-b75f-babc038fcbff">Right click crashes Windows 10 Pro</a>.</li>

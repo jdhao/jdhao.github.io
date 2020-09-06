@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2020/05/02/docker_knowledge_s1/" />
@@ -57,13 +57,14 @@
 <meta property="article:modified_time" content="2020-05-03T22:37:18+08:00" />
 <meta itemprop="name" content="Docker 学习系列 --- 1">
 <meta itemprop="description" content="Docker 是一种类似虚拟机的机制，允许我们在 host 机器创建一个隔绝的小型操作系统环境，并且可以保存下这个环境（称为 Docker 镜像），把这个 Docker 镜像部署到其他 host 机器，各个机器上的环境完全一致。这样我们就不需要每次在部署新环境的时候，重复执行安装程序、配置环境的流程，大大简化了我们的工作，提升了工作效率。">
-<meta itemprop="datePublished" content="2020-05-02T15:23:59&#43;08:00" />
-<meta itemprop="dateModified" content="2020-05-03T22:37:18&#43;08:00" />
+<meta itemprop="datePublished" content="2020-05-02T15:23:59+08:00" />
+<meta itemprop="dateModified" content="2020-05-03T22:37:18+08:00" />
 <meta itemprop="wordCount" content="1173">
 
 
 
-<meta itemprop="keywords" content="Docker," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Docker," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker 学习系列 --- 1"/>
 <meta name="twitter:description" content="Docker 是一种类似虚拟机的机制，允许我们在 host 机器创建一个隔绝的小型操作系统环境，并且可以保存下这个环境（称为 Docker 镜像），把这个 Docker 镜像部署到其他 host 机器，各个机器上的环境完全一致。这样我们就不需要每次在部署新环境的时候，重复执行安装程序、配置环境的流程，大大简化了我们的工作，提升了工作效率。"/>
 
@@ -154,7 +155,7 @@
       <ul>
         <li><a href="#镜像-与-容器-两个概念有什么区别"><code>镜像</code> 与 <code>容器</code> 两个概念有什么区别？</a>
           <ul>
-            <li><a href="#参考-">参考</a></li>
+            <li><a href="#参考">参考</a></li>
           </ul>
         </li>
         <li><a href="#如何退出当前运行的-docker-容器">如何退出当前运行的 docker 容器</a></li>
@@ -164,8 +165,8 @@
         <li><a href="#删除容器">删除容器</a></li>
       </ul>
     </li>
-    <li><a href="#cuda-dockerfile-资源-">Cuda Dockerfile 资源</a></li>
-    <li><a href="#docker-镜像构建重要心得-">Docker 镜像构建重要心得</a></li>
+    <li><a href="#cuda-dockerfile-资源">Cuda Dockerfile 资源</a></li>
+    <li><a href="#docker-镜像构建重要心得">Docker 镜像构建重要心得</a></li>
   </ul>
 </nav>
   </div>
@@ -176,7 +177,7 @@
 <p>Docker 镜像就像一个小的操作系统，从哪里获取我们需要的 Docker 镜像呢？ <a href="https://hub.docker.com/">Docker hub</a> 是 Docker 官方提供的镜像托管仓库，里面包含了很多用户上传的镜像。docker hub 上的镜像，可以直接使用 <code>docker run</code> 命令来运行镜像，不需要 <code>docker pull</code>,然后再 <code>docker run</code>。如果运行一个镜像不在本地，docker 会尝试从 docker hub 下载这个镜像，然后再运行。</p>
 <h2 id="镜像-与-容器-两个概念有什么区别"><code>镜像</code> 与 <code>容器</code> 两个概念有什么区别？</h2>
 <p>可以简单认为，镜像是死的，是冻结的容器，镜像实例化运行以后，就是容器，所以从一个镜像可以运行多个容器，这些容器初始状态都是完全一样的。镜像和容器的关系，类似于编程中 ”类“ 和 ”对象“ 的关系。</p>
-<h3 id="参考-">参考</h3>
+<h3 id="参考">参考</h3>
 <ul>
 <li><a href="https://stackoverflow.com/q/21498832/6064933">https://stackoverflow.com/q/21498832/6064933</a></li>
 <li><a href="https://stackoverflow.com/q/23735149/6064933">https://stackoverflow.com/q/23735149/6064933</a></li>
@@ -198,13 +199,13 @@
 </code></pre></div><h2 id="删除容器">删除容器</h2>
 <p>如果需要删除某个 container，可以使用(参考<a href="https://docs.docker.com/engine/reference/commandline/rm/">这里</a>)</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">docker rm CONTAINER_ID
-</code></pre></div><h1 id="cuda-dockerfile-资源-">Cuda Dockerfile 资源</h1>
+</code></pre></div><h1 id="cuda-dockerfile-资源">Cuda Dockerfile 资源</h1>
 <p>英伟达官方提供了大量的含有 Cuda 环境的 Dockerfile 资源，地址如下：</p>
 <blockquote>
 <p><a href="https://gitlab.com/nvidia/container-images/cuda">https://gitlab.com/nvidia/container-images/cuda</a></p>
 </blockquote>
 <p>包含了各个系统以及各个版本的 cuda。如果要构建使用英伟达显卡的镜像，可以使用这些镜像中的一个作为基础镜像。</p>
-<h1 id="docker-镜像构建重要心得-">Docker 镜像构建重要心得</h1>
+<h1 id="docker-镜像构建重要心得">Docker 镜像构建重要心得</h1>
 <p>我们可以使用 Dockerfile 来构建 Docker 镜像，Dockerfile 相当于是构建镜像的模版。构建镜像最令人烦躁的问题就是在构建过程中突然出错，我们不得不一次次修改 Dockerfile，解决各种问题。所以构建 Docker 镜像的一个重要心得就是：尽量防止 build 出错。</p>
 <p>我们构建镜像的时候，一般会从一个基础镜像开始构建，由于基础镜像通常执行的是最小安装[^1]，很多常用工具并没有安装，所以镜像 build 过程中，经常因为没有安装一些库而中途出错。一个好的方法是开两个 terminal 窗口，一个窗口，可以先 docker run 进入基础镜像的容器，然后在容器里面一步一步运行想要执行的操作，如果在基础镜像里面运行没有错误，在另外一个 terminal 窗口，把这些操作写到 Dockerfile；如果在基础镜像里面运行某个命令有错误，那么解决这个错误，把需要添加的库或者需要执行的命令补充到 Dockerfile 里面。</p>
 <p>按照上面这个步骤来建立 Dockerfile，可以极大减少出错的机会。</p>

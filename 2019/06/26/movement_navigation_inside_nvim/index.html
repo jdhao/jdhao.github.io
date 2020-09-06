@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2019/06/26/movement_navigation_inside_nvim/" />
@@ -71,13 +71,14 @@ make progress in mastering Vim. For example, to delete five lines of texts, if
 we press dd five times, we are certainly doing it the wrong way. After
 looking up the Vim manual, we know that we can use 5dd or d4j: only three
 keystrokes are needed instead of ten!">
-<meta itemprop="datePublished" content="2019-06-26T22:51:43&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-13T02:44:36&#43;08:00" />
+<meta itemprop="datePublished" content="2019-06-26T22:51:43+08:00" />
+<meta itemprop="dateModified" content="2020-06-13T02:44:36+08:00" />
 <meta itemprop="wordCount" content="1194">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Fast Movement and Navigation Inside Vim or Neovim"/>
 <meta name="twitter:description" content="Introduction
 One key spirit of Vim is to accomplish something in as fewer key strokes as
@@ -171,22 +172,22 @@ keystrokes are needed instead of ten!"/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction-">Introduction</a></li>
+    <li><a href="#introduction">Introduction</a></li>
     <li><a href="#quickly-go-to-a-line">Quickly go to a line</a>
       <ul>
-        <li><a href="#relative-number-">Relative number</a></li>
+        <li><a href="#relative-number">Relative number</a></li>
       </ul>
     </li>
-    <li><a href="#precise-cursor-movement-">Precise cursor movement</a></li>
+    <li><a href="#precise-cursor-movement">Precise cursor movement</a></li>
     <li><a href="#quickly-go-to-a-previous-edit-position">Quickly go to a previous edit position</a></li>
     <li><a href="#switching-buffers-quickly">Switching buffers quickly</a></li>
-    <li><a href="#conclusion-">Conclusion</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h1 id="introduction-">Introduction</h1>
+      <h1 id="introduction">Introduction</h1>
 <p>One key spirit of Vim is to accomplish something in as fewer key strokes as
 possible. When we repeat a command several times to perform an action, we need
 to ask ourselves if there is a better way to do it. Only in this way, can we
@@ -213,7 +214,7 @@ above the current cursor line. This is a terrible and highly inefficient way to
 go to where you want.</p>
 <p>To go to a line, first press the line number, then press <code>gg</code> or <code>G</code>. For
 example, to go to line <code>87</code>, press either <code>87gg</code> or <code>87G</code>.</p>
-<h2 id="relative-number-">Relative number</h2>
+<h2 id="relative-number">Relative number</h2>
 <p>We can also move the cursor relatively based on the distance between the
 destination line and current line. To go to ten lines below or above, we can
 press <code>10j</code> or <code>10k</code>.</p>
@@ -232,7 +233,7 @@ line. No more manual calculation needed!</p>
 </p>
 <p>For more settings about line number in Neovim, see
 <a href="https://jdhao.github.io/2019/01/11/line_number_setting_nvim/">my other post</a>.</p>
-<h1 id="precise-cursor-movement-">Precise cursor movement</h1>
+<h1 id="precise-cursor-movement">Precise cursor movement</h1>
 <p>Vim provides the <a href="https://stackoverflow.com/questions/9402607/how-to-jump-to-a-specific-character-in-vim"><code>f</code>, <code>t</code> or <code>F</code>, <code>T</code> command</a>
 to jump forward or backward to a character in current line, and you can repeat
 the action by pressing <code>,</code> or <code>;</code> (see <code>:h ,</code> or <code>:h ;</code>). While these
@@ -320,7 +321,7 @@ file name (see image below).</p>
 <p align="center">
 <img src="https://blog-resource-1257868508.file.myqcloud.com/20190627223843.png" width="800">
 </p>
-<h1 id="conclusion-">Conclusion</h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>In this post, I shared several ways for faster movement and navigation inside
 Neovim/Vim. I hope that you can apply the techniques here to improve your
 efficiency and save your time. Hopefully, you may share your own ideas on how

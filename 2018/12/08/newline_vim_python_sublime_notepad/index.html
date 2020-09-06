@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/" />
@@ -67,13 +67,14 @@ cases." />
 Every programmer knows newline character, but may be not so familiar. In this
 post, I want to share what I have learned about newline handling in various
 cases.">
-<meta itemprop="datePublished" content="2018-12-08T22:30:50&#43;08:00" />
-<meta itemprop="dateModified" content="2020-05-19T22:28:44&#43;08:00" />
+<meta itemprop="datePublished" content="2018-12-08T22:30:50+08:00" />
+<meta itemprop="dateModified" content="2020-05-19T22:28:44+08:00" />
 <meta itemprop="wordCount" content="1029">
 
 
 
-<meta itemprop="keywords" content="Nvim,Windows,Mac,Sublime-Text," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Nvim,Windows,Mac,Sublime-Text," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How Is Newline Handled in Python and Various Editors?"/>
 <meta name="twitter:description" content="
 
@@ -213,9 +214,9 @@ means that no matter what the file line ending is, it will all be translated to
 deprecated in favor of a <code>newline</code> parameter in the <code>open()</code> method.  According
 to the <a href="https://docs.python.org/3/library/functions.html#open">documentation</a>:</p>
 <blockquote>
-<p>newline controls how universal newlines mode works (it only applies to text mode). It can be None, &lsquo;', &lsquo;\n&rsquo;, &lsquo;\r&rsquo;, and &lsquo;\r\n&rsquo;. It works as follows:</p>
+<p>newline controls how universal newlines mode works (it only applies to text mode). It can be None, &lsquo;&rsquo;, &lsquo;\n&rsquo;, &lsquo;\r&rsquo;, and &lsquo;\r\n&rsquo;. It works as follows:</p>
 <ul>
-<li>When reading input from the stream, if newline is None, universal newlines mode is enabled. Lines in the input can end in &lsquo;\n&rsquo;, &lsquo;\r&rsquo;, or &lsquo;\r\n&rsquo;, and these are translated into &lsquo;\n&rsquo; before being returned to the caller. If it is &lsquo;', universal newlines mode is enabled, but line endings are returned to the caller untranslated.</li>
+<li>When reading input from the stream, if newline is None, universal newlines mode is enabled. Lines in the input can end in &lsquo;\n&rsquo;, &lsquo;\r&rsquo;, or &lsquo;\r\n&rsquo;, and these are translated into &lsquo;\n&rsquo; before being returned to the caller. If it is &lsquo;&rsquo;, universal newlines mode is enabled, but line endings are returned to the caller untranslated.</li>
 <li>When writing output to the stream, if newline is None, any &lsquo;\n&rsquo; characters written are translated to the system default line separator, <a href="https://docs.python.org/3/library/os.html#os.linesep"><code>os.linesep</code></a>. If newline is '&rsquo; or &lsquo;\n&rsquo;, no translation takes place.</li>
 </ul>
 </blockquote>

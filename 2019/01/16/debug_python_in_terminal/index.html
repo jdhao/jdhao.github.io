@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2019/01/16/debug_python_in_terminal/" />
@@ -60,13 +60,14 @@
 <meta itemprop="description" content="
 
 ">
-<meta itemprop="datePublished" content="2019-01-16T10:21:12&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-11T23:27:59&#43;08:00" />
+<meta itemprop="datePublished" content="2019-01-16T10:21:12+08:00" />
+<meta itemprop="dateModified" content="2020-03-11T23:27:59+08:00" />
 <meta itemprop="wordCount" content="641">
 
 
 
-<meta itemprop="keywords" content="debug,terminal," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="debug,terminal," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to Debug Python Code in Terminal"/>
 <meta name="twitter:description" content="
 
@@ -155,14 +156,14 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#pdb-">Pdb</a>
+    <li><a href="#pdb">Pdb</a>
       <ul>
         <li><a href="#common-commands">Common commands</a></li>
-        <li><a href="#how-to-enable-autocomplete-">How to enable autocomplete</a></li>
+        <li><a href="#how-to-enable-autocomplete">How to enable autocomplete</a></li>
       </ul>
     </li>
-    <li><a href="#ipdb-">ipdb</a></li>
-    <li><a href="#pudb-">pudb</a></li>
+    <li><a href="#ipdb">ipdb</a></li>
+    <li><a href="#pudb">pudb</a></li>
     <li><a href="#conclusion">Conclusion</a></li>
     <li><a href="#references">References</a></li>
   </ul>
@@ -182,7 +183,7 @@ simple programs. Once my source code becomes long enough or complex enough, it
 becomes inefficient to add <code>print</code> one by one to just play with an object.</p>
 <p>Finally, I decided to give terminal debuggers a try. In this post, I introduce
 three debuggers.</p>
-<h1 id="pdb-">Pdb</h1>
+<h1 id="pdb">Pdb</h1>
 <p>Python ships with a native debugger called
 <a href="https://docs.python.org/3/library/pdb.html">pdb</a>.</p>
 <p>You can debug your code with intrusive way or non-introsive way. For the
@@ -210,7 +211,7 @@ interface. Here, I list some of the commands and their meanings:</p>
 <li><code>h</code>: show help message</li>
 <li><code>q</code>: quit the debugger</li>
 </ul>
-<h2 id="how-to-enable-autocomplete-">How to enable autocomplete</h2>
+<h2 id="how-to-enable-autocomplete">How to enable autocomplete</h2>
 <p>By default, pdb does not provide auto-completion for variable names and object
 methods. To enable auto-completion, create a file <code>.pdbrc</code> under your <strong>HOME</strong>
 directory with the following settings:</p>
@@ -218,7 +219,7 @@ directory with the following settings:</p>
 import pdb
 
 pdb.Pdb.complete=rlcompleter.Completer(locals()).complete
-</code></pre></div><h1 id="ipdb-">ipdb</h1>
+</code></pre></div><h1 id="ipdb">ipdb</h1>
 <p><a href="https://github.com/gotcha/ipdb">Ipdb</a> is like pdb, but with builtin
 autocompletion, syntax highlighting and more commands. You can install it with
 pip:</p>
@@ -240,7 +241,7 @@ line will be highlighted to make your follow the execution of program easier.</p
 <p align="center">
 <img src="https://blog-resource-1257868508.file.myqcloud.com/20190116230104.png" width="600">
 </p>
-<h1 id="pudb-">pudb</h1>
+<h1 id="pudb">pudb</h1>
 <p>Another terminal debugger worth trying is
 <a href="https://documen.tician.de/pudb/misc.html">pudb</a>. First, install it with pip:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">pip install pudb

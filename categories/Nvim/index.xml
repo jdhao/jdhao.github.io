@@ -112,7 +112,7 @@ type.&lt;/p&gt;</description>
 &lt;img
 src=&#34;https://blog-resource-1257868508.file.myqcloud.com/firenvim.gif&#34;&gt;
 &lt;/p&gt;
-&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Last year, I have written &lt;a href=&#34;https://jdhao.github.io/2019/05/11/nvim_text_input_browser/&#34;&gt;a post&lt;/a&gt;
 on how to edit texts inside the browser using Vim/Nvim or browser extensions
 which have Vim emulations. But none of them is satisfactory enough since they
@@ -126,7 +126,7 @@ empowered by various plugins.&lt;/p&gt;</description>
       <pubDate>Sun, 22 Dec 2019 13:45:25 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</guid>
-      <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;I write my blog posts in Markdown and build the blog using
 &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;. Hugo supports &lt;a href=&#34;https://gohugo.io/content-management/front-matter/&#34;&gt;front matter&lt;/a&gt;
 for Markdown so that you can attach some metadata with a post, such as title,
@@ -261,7 +261,7 @@ think it would be helpful to write about how I do it.&lt;/p&gt;</description>
       <pubDate>Wed, 26 Jun 2019 22:51:43 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/06/26/movement_navigation_inside_nvim/</guid>
-      <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;One key spirit of Vim is to accomplish something in as fewer key strokes as
 possible. When we repeat a command several times to perform an action, we need
 to ask ourselves if there is a better way to do it. Only in this way, can we

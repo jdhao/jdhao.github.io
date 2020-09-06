@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2018/03/29/latex-chinese/" />
@@ -61,13 +61,14 @@ would like to introduce several ways to work with Chinese in LaTeX." />
 <meta itemprop="description" content="The original LaTeX do not have good support for Chinese. With the development
 of LaTeX, we can now easily use Chinese in LaTeX document. In this post, I
 would like to introduce several ways to work with Chinese in LaTeX.">
-<meta itemprop="datePublished" content="2018-03-29T17:54:13&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-11T22:46:24&#43;08:00" />
+<meta itemprop="datePublished" content="2018-03-29T17:54:13+08:00" />
+<meta itemprop="dateModified" content="2020-03-11T22:46:24+08:00" />
 <meta itemprop="wordCount" content="613">
 
 
 
-<meta itemprop="keywords" content="font,LaTeX," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="font,LaTeX," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to Use Chinese with LaTeX"/>
 <meta name="twitter:description" content="The original LaTeX do not have good support for Chinese. With the development
 of LaTeX, we can now easily use Chinese in LaTeX document. In this post, I
@@ -158,8 +159,8 @@ would like to introduce several ways to work with Chinese in LaTeX."/>
   <ul>
     <li><a href="#use-ctex">Use CTeX</a>
       <ul>
-        <li><a href="#use-ctexart-documentclass-">Use ctexart documentclass</a></li>
-        <li><a href="#use-ctex-package-">Use ctex package</a></li>
+        <li><a href="#use-ctexart-documentclass">Use ctexart documentclass</a></li>
+        <li><a href="#use-ctex-package">Use ctex package</a></li>
       </ul>
     </li>
     <li><a href="#use-xecjk-with-xelatex">Use xeCJK with xelatex</a></li>
@@ -173,7 +174,7 @@ would like to introduce several ways to work with Chinese in LaTeX."/>
 of LaTeX, we can now easily use Chinese in LaTeX document. In this post, I
 would like to introduce several ways to work with Chinese in LaTeX.</p>
 <h1 id="use-ctex">Use CTeX</h1>
-<h2 id="use-ctexart-documentclass-">Use ctexart documentclass</h2>
+<h2 id="use-ctexart-documentclass">Use ctexart documentclass</h2>
 <p>The <a href="https://github.com/CTeX-org/ctex-kit">CTeX group</a> has developed multiple
 document classes and packages to deal with the particular need of Chinese
 typesetting.</p>
@@ -187,7 +188,7 @@ typesetting.</p>
 </code></pre></div><p>When using the <code>ctexart</code> documentclass, you should also add
 <code>\usepackage[T1]{fontenc}</code>. Otherwise, some of the characters <a href="https://tex.stackexchange.com/questions/664/why-should-i-use-usepackaget1fontenc">will be shown
 incorrectly</a>.</p>
-<h2 id="use-ctex-package-">Use ctex package</h2>
+<h2 id="use-ctex-package">Use ctex package</h2>
 <p>Or you can use the <code>ctex</code> package instead:</p>
 <div class="highlight"><pre class="chroma"><code class="language-latex" data-lang="latex"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="na">[UTF8]</span><span class="nb">{</span>ctex<span class="nb">}</span>

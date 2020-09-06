@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2020/04/12/build_webapi_with_flask_s2/" />
@@ -61,13 +61,14 @@ API with Flask and how to post image to this web API and get response." />
 <meta itemprop="description" content="In this post, I want to write about how to build a simple image processing web
 API that returns the size of an image. The topics include how to build this web
 API with Flask and how to post image to this web API and get response.">
-<meta itemprop="datePublished" content="2020-04-12T20:11:52&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-17T23:28:06&#43;08:00" />
+<meta itemprop="datePublished" content="2020-04-12T20:11:52+08:00" />
+<meta itemprop="dateModified" content="2020-06-17T23:28:06+08:00" />
 <meta itemprop="wordCount" content="651">
 
 
 
-<meta itemprop="keywords" content="Flask,requests,HTTP," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Flask,requests,HTTP," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Build Web API with Flask -- Post and Receive Image"/>
 <meta name="twitter:description" content="In this post, I want to write about how to build a simple image processing web
 API that returns the size of an image. The topics include how to build this web
@@ -167,7 +168,7 @@ API with Flask and how to post image to this web API and get response."/>
         <li><a href="#post-multiple-based64-encoded-image">Post multiple based64 encoded image</a></li>
       </ul>
     </li>
-    <li><a href="#references-">References</a></li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav>
   </div>
@@ -283,7 +284,7 @@ base64 string:</p>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;images&#34;</span><span class="p">:</span> <span class="n">b64_ims</span><span class="p">}</span>
 </code></pre></div><p>In the server side, you can get the posted dict and decode the base64 image one
 by one, just like what I have shown above for a single image.</p>
-<h1 id="references-">References</h1>
+<h1 id="references">References</h1>
 <ul>
 <li><a href="https://stackoverflow.com/q/44926465/6064933">Upload image in flask</a>.</li>
 <li><a href="https://stackoverflow.com/q/24642040/6064933">Send file and JSON in single request</a>.</li>

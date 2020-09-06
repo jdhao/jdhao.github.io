@@ -25,7 +25,7 @@ This post is a hands-on experience of setting up LSP support for Python with the
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/" />
@@ -64,13 +64,14 @@ the python-language-server." />
 support has been merged into Neovim master.
 This post is a hands-on experience of setting up LSP support for Python with
 the python-language-server.">
-<meta itemprop="datePublished" content="2019-11-20T22:41:16&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-08T19:25:32&#43;08:00" />
+<meta itemprop="datePublished" content="2019-11-20T22:41:16+08:00" />
+<meta itemprop="dateModified" content="2020-03-08T19:25:32+08:00" />
 <meta itemprop="wordCount" content="491">
 
 
 
-<meta itemprop="keywords" content="LSP," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="LSP," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A Hands-on Experience with Neovim&#39;s Builtin LSP Support"/>
 <meta name="twitter:description" content="Just a few days ago, the builtin Language Server Protocol
 support has been merged into Neovim master.
@@ -164,11 +165,11 @@ the python-language-server."/>
     <li><a href="#install-nvim-lsp">Install nvim-lsp</a>
       <ul>
         <li><a href="#configuration-for-pyls">Configuration for pyls</a></li>
-        <li><a href="#the-auto-completion-experience-">The auto-completion experience</a></li>
+        <li><a href="#the-auto-completion-experience">The auto-completion experience</a></li>
       </ul>
     </li>
-    <li><a href="#useful-mappings-">Useful mappings</a></li>
-    <li><a href="#references-">References</a></li>
+    <li><a href="#useful-mappings">Useful mappings</a></li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav>
   </div>
@@ -235,14 +236,14 @@ python-languages-server and all its dependencies with the following command:</p>
 auto-completion like what is provided by deoplete. To invoke completion, you
 need to press <code>&lt;C-X&gt;&lt;C-O&gt;</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. If all goes well, you should be able to see a
 completion menu with all the completion items.</p>
-<h2 id="the-auto-completion-experience-">The auto-completion experience</h2>
+<h2 id="the-auto-completion-experience">The auto-completion experience</h2>
 <p>Neovim may hang or lag behind when you start completion since all the
 compeltion items will be shown in the completion menu and the number of items
 may be huge. There is also no auto-completion like what is provided by other
 more mature completion engines. It may take a while before you can really use
 this for your daily work. Right now, I suggest you stick to your current
 completion engines.</p>
-<h1 id="useful-mappings-">Useful mappings</h1>
+<h1 id="useful-mappings">Useful mappings</h1>
 <p>There are other functions provided by LSP which you may find useful. You can
 add the following mappings for those functions:</p>
 <div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">nnoremap</span> <span class="p">&lt;</span><span class="nx">silent</span><span class="p">&gt;</span> ;<span class="nx">dc</span> :<span class="nx">call</span> <span class="nx">lsp</span>#<span class="nx">text_document_declaration</span><span class="p">()&lt;</span><span class="nx">CR</span><span class="p">&gt;</span><span class="err">
@@ -253,7 +254,7 @@ add the following mappings for those functions:</p>
 </span><span class="err"></span><span class="nx">nnoremap</span> <span class="p">&lt;</span><span class="nx">silent</span><span class="p">&gt;</span> ;<span class="nx">td</span> :<span class="nx">call</span> <span class="nx">lsp</span>#<span class="nx">text_document_type_definition</span><span class="p">()&lt;</span><span class="nx">CR</span><span class="p">&gt;</span><span class="err">
 </span></code></pre></div><p>I tried those mappings, but it seems that not all of the functions can be run
 with success.</p>
-<h1 id="references-">References</h1>
+<h1 id="references">References</h1>
 <ul>
 <li><a href="https://www.reddit.com/r/neovim/comments/dx098o/github_neovimnvimlsp_common_configurations_for/">https://www.reddit.com/r/neovim/comments/dx098o/github_neovimnvimlsp_common_configurations_for/</a></li>
 <li><a href="https://www.reddit.com/r/neovim/comments/dvd8sz/builtin_language_server_with_my_preferred_style/">https://www.reddit.com/r/neovim/comments/dvd8sz/builtin_language_server_with_my_preferred_style/</a></li>

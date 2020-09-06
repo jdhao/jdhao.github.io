@@ -25,7 +25,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/" />
@@ -68,13 +68,14 @@ are either slow or cumbersome when I want to search my notes. Finally, I
 decided to take my notes in Markdown and convert them to PDF using Pandoc for
 reading. In this post, I will summarize how I do it.
 本文的中文版本参见 这里。">
-<meta itemprop="datePublished" content="2019-05-30T17:02:57&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-11T23:28:06&#43;08:00" />
+<meta itemprop="datePublished" content="2019-05-30T17:02:57+08:00" />
+<meta itemprop="dateModified" content="2020-03-11T23:28:06+08:00" />
 <meta itemprop="wordCount" content="2638">
 
 
 
-<meta itemprop="keywords" content="Pandoc,Sublime-Text,PDF,Markdown,font,LaTeX,Unicode," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Pandoc,Sublime-Text,PDF,Markdown,font,LaTeX,Unicode," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Converting Markdown to Beautiful PDF with Pandoc"/>
 <meta name="twitter:description" content="Over the past few years, I have been using some dedicated note-taking software
 to manage my notes. But all these tools I have tried are unsatisfactory: they
@@ -166,32 +167,32 @@ reading. In this post, I will summarize how I do it.
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#prerequisite-">Prerequisite</a></li>
-    <li><a href="#generating-pdf-from-markdown-with-pandoc-">Generating PDF from Markdown with Pandoc</a>
+    <li><a href="#prerequisite">Prerequisite</a></li>
+    <li><a href="#generating-pdf-from-markdown-with-pandoc">Generating PDF from Markdown with Pandoc</a>
       <ul>
-        <li><a href="#background-">Background</a></li>
-        <li><a href="#how-to-handle-languages-other-than-english-">How to Handle Languages other than English</a></li>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#how-to-handle-languages-other-than-english">How to Handle Languages other than English</a></li>
       </ul>
     </li>
-    <li><a href="#issues-and-techniques-">Issues and techniques</a>
+    <li><a href="#issues-and-techniques">Issues and techniques</a>
       <ul>
-        <li><a href="#block-quote-table-and-list-are-not-correctly-rendered-">Block quote, table and list are not correctly rendered</a></li>
-        <li><a href="#add-highlight-to-block-code-">Add highlight to block code</a></li>
-        <li><a href="#use-numbered-section-and-add-toc-">Use numbered section and add TOC</a></li>
-        <li><a href="#add-colors-to-links-">Add colors to links</a></li>
-        <li><a href="#change-the-pdf-margin-">Change the PDF margin</a></li>
-        <li><a href="#error-when-using-backslash-inside-markdown-">Error when using backslash inside Markdown</a></li>
-        <li><a href="#add-background-color-to-inline-code-">Add background color to inline code</a></li>
-        <li><a href="#change-the-default-style-of-block-quote-">Change the default style of block quote</a>
+        <li><a href="#block-quote-table-and-list-are-not-correctly-rendered">Block quote, table and list are not correctly rendered</a></li>
+        <li><a href="#add-highlight-to-block-code">Add highlight to block code</a></li>
+        <li><a href="#use-numbered-section-and-add-toc">Use numbered section and add TOC</a></li>
+        <li><a href="#add-colors-to-links">Add colors to links</a></li>
+        <li><a href="#change-the-pdf-margin">Change the PDF margin</a></li>
+        <li><a href="#error-when-using-backslash-inside-markdown">Error when using backslash inside Markdown</a></li>
+        <li><a href="#add-background-color-to-inline-code">Add background color to inline code</a></li>
+        <li><a href="#change-the-default-style-of-block-quote">Change the default style of block quote</a>
           <ul>
             <li><a href="#references">References</a></li>
           </ul>
         </li>
-        <li><a href="#put-the-settings-to-headtex-">Put the settings to <code>head.tex</code></a></li>
-        <li><a href="#nested-list-level-exceed-the-limit-">Nested list level exceed the limit</a></li>
-        <li><a href="#add-anchors-in-markdown-">Add anchors in Markdown</a></li>
-        <li><a href="#how-to-resize-image-">How to resize image</a></li>
-        <li><a href="#how-to-start-a-new-page-for-each-section-">How to start a new page for each section</a>
+        <li><a href="#put-the-settings-to-headtex">Put the settings to <code>head.tex</code></a></li>
+        <li><a href="#nested-list-level-exceed-the-limit">Nested list level exceed the limit</a></li>
+        <li><a href="#add-anchors-in-markdown">Add anchors in Markdown</a></li>
+        <li><a href="#how-to-resize-image">How to resize image</a></li>
+        <li><a href="#how-to-start-a-new-page-for-each-section">How to start a new page for each section</a>
           <ul>
             <li><a href="#start-a-new-page-only-after-toc">Start a new page only after TOC</a></li>
           </ul>
@@ -200,13 +201,13 @@ reading. In this post, I will summarize how I do it.
         <li><a href="#images-references">Images references</a></li>
       </ul>
     </li>
-    <li><a href="#generate-pdf-using-sublime-text-build-system-">Generate PDF using Sublime Text build system</a>
+    <li><a href="#generate-pdf-using-sublime-text-build-system">Generate PDF using Sublime Text build system</a>
       <ul>
-        <li><a href="#pandoc-is-not-recognized-on-windows-systems-">Pandoc is not recognized on Windows systems</a></li>
+        <li><a href="#pandoc-is-not-recognized-on-windows-systems">Pandoc is not recognized on Windows systems</a></li>
       </ul>
     </li>
-    <li><a href="#conclusion-">Conclusion</a></li>
-    <li><a href="#references-">References</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#references-1">References</a></li>
   </ul>
 </nav>
   </div>
@@ -244,7 +245,7 @@ service you use.</p>
 <p>In this post, I would like to share how to generate beautiful PDF files from
 Markdown and give solutions to the issues I have encountered during the
 process.</p>
-<h1 id="prerequisite-">Prerequisite</h1>
+<h1 id="prerequisite">Prerequisite</h1>
 <p>Before we begin, you need to make sure that you have installed the following
 tools:</p>
 <ul>
@@ -266,8 +267,8 @@ Code</a> or even
 <a href="https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/">Neovim</a>.</p>
 </li>
 </ul>
-<h1 id="generating-pdf-from-markdown-with-pandoc-">Generating PDF from Markdown with Pandoc</h1>
-<h2 id="background-">Background</h2>
+<h1 id="generating-pdf-from-markdown-with-pandoc">Generating PDF from Markdown with Pandoc</h1>
+<h2 id="background">Background</h2>
 <p>For those who are not familiar with Pandoc, Pandoc is a powerful tool for
 converting document between different formats. It is called the swiss knife of
 document converter. There are actually two steps involved in converting
@@ -281,7 +282,7 @@ Markdown files to PDF:</p>
 quotation, table and other complex format, I have met a few problems during the
 conversion process. In the following text, I will introduce how to solve these
 issues.</p>
-<h2 id="how-to-handle-languages-other-than-english-">How to Handle Languages other than English</h2>
+<h2 id="how-to-handle-languages-other-than-english">How to Handle Languages other than English</h2>
 <p>By default, Pandoc uses <code>pdflatex</code> command to generate PDF files, which can not
 handle Unicode characters well. You will encounter errors when you try to
 convert Markdown files containing Unicode characters to PDF files.</p>
@@ -311,13 +312,13 @@ work. You need to use the following command instead<sup id="fnref:4"><a href="#f
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">pandoc --latex-engine=xelatex -V mainfont=&#39;WenQuanYi Micro Hei&#39; test.md -o test.pdf
 </code></pre></div><p>On Linux systems, the way to find the font supporting your language is the same
 as Windows system.</p>
-<h1 id="issues-and-techniques-">Issues and techniques</h1>
-<h2 id="block-quote-table-and-list-are-not-correctly-rendered-">Block quote, table and list are not correctly rendered</h2>
+<h1 id="issues-and-techniques">Issues and techniques</h1>
+<h2 id="block-quote-table-and-list-are-not-correctly-rendered">Block quote, table and list are not correctly rendered</h2>
 <p>The reason is that Pandoc requires that you leave an empty line before block
 quote, list and table environment. If the lines in the block quote are not
 correctly broken, i.e., all the lines are merged as one paragraph, you can add
 a space after each line to solve this issue.</p>
-<h2 id="add-highlight-to-block-code-">Add highlight to block code</h2>
+<h2 id="add-highlight-to-block-code">Add highlight to block code</h2>
 <p>Pandoc supports block code syntax highlighting for many languages and offers
 several highlight themes. To list the highlight themes that Pandoc provides,
 use the following command:</p>
@@ -329,12 +330,12 @@ language in the block quote and use <code>--highlight-style</code>, e.g.,:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">pandoc --pdf-engine=xelatex --highlight-style zenburn test.md -o test.pdf
 </code></pre></div><p>In the above command, we use the <code>zenburn</code> theme, I also recommend using the
 <code>tango</code> or <code>breezedark</code> theme.</p>
-<h2 id="use-numbered-section-and-add-toc-">Use numbered section and add TOC</h2>
+<h2 id="use-numbered-section-and-add-toc">Use numbered section and add TOC</h2>
 <p>By default, there is no table of contents (TOC) in the generated PDF and no
 numbers in the headers<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>. To add TOC, use the <code>--toc</code> option; to add section
 numbers, use the <code>-N</code> option. A complete example is as follows:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">pandoc --pdf-engine=xelatex --toc -N -o test.pdf test.md
-</code></pre></div><h2 id="add-colors-to-links-">Add colors to links</h2>
+</code></pre></div><h2 id="add-colors-to-links">Add colors to links</h2>
 <p>According to the Pandoc user guide, we can add colors to different links via
 the <code>colorlinks</code> option to separate the links from the normal texts:</p>
 <blockquote>
@@ -356,7 +357,7 @@ we can use the following command:</p>
 </code></pre></div><p>Note that the <code>urlcolor</code> option will not color the raw URL links in the text.
 To color those raw links, you can enclose those links with <code>&lt;&gt;</code>, e.g.,
 <code>&lt;www.google.com&gt;</code>.</p>
-<h2 id="change-the-pdf-margin-">Change the PDF margin</h2>
+<h2 id="change-the-pdf-margin">Change the PDF margin</h2>
 <p>The default margin for the generated PDF is too large. According to the <a href="https://pandoc.org/faqs.html#how-do-i-change-the-margins-in-pdf-output">Pandoc
 FAQ</a>,
 you can use the following option to change the margin:</p>
@@ -364,7 +365,7 @@ you can use the following option to change the margin:</p>
 </code></pre></div><p>The complete command is:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">pandoc --pdf-engine=xelatex -V geometry:&#34;top=2cm, bottom=1.5cm, left=2cm,
 right=2cm&#34; -o test.pdf test.md
-</code></pre></div><h2 id="error-when-using-backslash-inside-markdown-">Error when using backslash inside Markdown</h2>
+</code></pre></div><h2 id="error-when-using-backslash-inside-markdown">Error when using backslash inside Markdown</h2>
 <p>In ordinary Markdown format, it is fine to use backslash characters inside the
 files. But Pandoc interpret the backslash and string after it as LaTeX command
 by default. As a result, you may encounter <a href="https://tex.stackexchange.com/q/407744/114857">weired
@@ -377,7 +378,7 @@ LaTeX command. You need to use the following flag:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">pandoc -f markdown-raw_tex
 </code></pre></div><p>Or you can use two backslash to represent a literal backslash, e.g., <code>\\sometxt </code>. If you want to express a LaTeX command, enclose the command with
 inline code block, like this: <code>\textt{}</code>.</p>
-<h2 id="add-background-color-to-inline-code-">Add background color to inline code</h2>
+<h2 id="add-background-color-to-inline-code">Add background color to inline code</h2>
 <p>In translating Markdown source file to TeX files, Pandoc use the
 <a href="https://www.tutorialspoint.com/tex_commands/texttt.htm"><code> \texttt</code></a>
 command to represent the inline code. So inline code has no background color in
@@ -402,7 +403,7 @@ change the background color as you wish.</p>
 <p align="center">
 <img src="https://blog-resource-1257868508.file.myqcloud.com/20190530235523.png" width="400">
 </p>
-<h2 id="change-the-default-style-of-block-quote-">Change the default style of block quote</h2>
+<h2 id="change-the-default-style-of-block-quote">Change the default style of block quote</h2>
 <p>By default, when converting Markdown to PDF, Pandoc use the
 <a href="https://tex.stackexchange.com/q/33219/114857"><code>quote</code></a> environment for
 Markdown block quotes. The texts inside quotation are only indented, making it
@@ -440,7 +441,7 @@ src="https://blog-resource-1257868508.file.myqcloud.com/20191118222418.png">
 <li><a href="https://tex.stackexchange.com/a/435632/114857">Change background color of quotation</a>.</li>
 <li><a href="https://tex.stackexchange.com/questions/291235/modifying-an-existing-environment-but-keeping-the-name">Redefining existing environment in LaTeX</a>.</li>
 </ul>
-<h2 id="put-the-settings-to-headtex-">Put the settings to <code>head.tex</code></h2>
+<h2 id="put-the-settings-to-headtex">Put the settings to <code>head.tex</code></h2>
 <p>You may have noticed the clumsiness if you try to customize a lot of settings.
 When converting Markdown to PDF, we often need to use several settings. If you
 specify all these options on the command line, it would be time consuming and
@@ -471,7 +472,7 @@ highlighting, and link color to <code>head.tex</code>:</p>
     urlcolor=RoyalBlue,
 <span class="nb">}</span>
 </code></pre></div></details>
-<h2 id="nested-list-level-exceed-the-limit-">Nested list level exceed the limit</h2>
+<h2 id="nested-list-level-exceed-the-limit">Nested list level exceed the limit</h2>
 <p>One reader <a href="https://disqus.com/by/disqus_q3bv7H1Y4D/">Karl Liu</a> mentioned that
 if the nested list level exceeds 6, you will encounter the following error when
 trying to generate PDF file:</p>
@@ -509,7 +510,7 @@ add the following settings in <code>head.tex</code>:</p>
 <span class="k">\renewlist</span><span class="nb">{</span>enumerate<span class="nb">}{</span>enumerate<span class="nb">}{</span>9<span class="nb">}</span>
 </code></pre></div></details>
 <p>Add the <code>-H head.tex</code> option when compiling PDF files.</p>
-<h2 id="add-anchors-in-markdown-">Add anchors in Markdown</h2>
+<h2 id="add-anchors-in-markdown">Add anchors in Markdown</h2>
 <p>I try to use anchors in Markdown following the <a href="https://stackoverflow.com/questions/5319754/cross-reference-named-anchor-in-markdown">discussion
 here</a>.
 Unfortunately, in the generated PDF, the anchor does not work: when I click the
@@ -519,7 +520,7 @@ jump to and then refer to it in other places using the id. Here is an example:</
 <div class="highlight"><pre class="chroma"><code class="language-markdown" data-lang="markdown"><span class="gu">## head 2 {#my_head2}
 </span><span class="gu"></span>
 Please click [<span class="nt">here</span>](<span class="na">#my_head2</span>) to go to head 2.
-</code></pre></div><h2 id="how-to-resize-image-">How to resize image</h2>
+</code></pre></div><h2 id="how-to-resize-image">How to resize image</h2>
 <p>We can also resize images using the attribute. You can specify width or height
 in absolute pixel values or as percentage relative to the page or column width.
 For example:</p>
@@ -530,7 +531,7 @@ For example:</p>
 or you can use relative value to the page or column width
 
 ![<span class="nt">test image</span>](<span class="na">test.jpg</span>){width=90%}
-</code></pre></div><h2 id="how-to-start-a-new-page-for-each-section-">How to start a new page for each section</h2>
+</code></pre></div><h2 id="how-to-start-a-new-page-for-each-section">How to start a new page for each section</h2>
 <p>By default, when you generate PDF from Markdown files, each section started by
 the level 1 header do not start from the new page: it will continue from where
 the last section ends. If you want to start a new page when a new section
@@ -577,7 +578,7 @@ world
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">![my great image\label{fig-my-great-img}](image_great.jpg)
 
 In Fig.\ref{fig-my-great-img}, I show a great image.
-</code></pre></div><h1 id="generate-pdf-using-sublime-text-build-system-">Generate PDF using Sublime Text build system</h1>
+</code></pre></div><h1 id="generate-pdf-using-sublime-text-build-system">Generate PDF using Sublime Text build system</h1>
 <p>It is cumbersome to switch to the terminal and use Pandoc to generate the PDF
 files and preview it after finishing writing the Markdown files. To simply the
 process, I use the Sublime Text build system for building PDF file and
@@ -605,7 +606,7 @@ previewing.</p>
 </code></pre></div></details>
 <p>You can download the build system and <code>head.tex</code> file
 <a href="https://gist.github.com/jdhao/90fcc239cfa3bba77e10185580e16170">here</a>.</p>
-<h2 id="pandoc-is-not-recognized-on-windows-systems-">Pandoc is not recognized on Windows systems</h2>
+<h2 id="pandoc-is-not-recognized-on-windows-systems">Pandoc is not recognized on Windows systems</h2>
 <p>For some reasons unknown to me, when using the above build systems to compile
 Markdown files, I encountered the following errors:</p>
 <blockquote>
@@ -635,11 +636,11 @@ in the build system. So I adjust the above build system:</p>
 }
 </code></pre></div></details>
 <p>After that, everything goes well.</p>
-<h1 id="conclusion-">Conclusion</h1>
+<h1 id="conclusion">Conclusion</h1>
 <p>In this post, I give a complete summary on how to generate beautiful PDF files
 from Markdown. I also share several solutions to the issues I have encountered.
 I hope that you can now generate beautiful PDF from Markdown files.</p>
-<h1 id="references-">References</h1>
+<h1 id="references-1">References</h1>
 <ul>
 <li><a href="https://pandoc.org/faqs.html#i-get-a-blank-document-when-i-try-to-convert-a-markdown-document-in-chinese-to-pdf-using-pandoc--o-test.pdf-test.markdown">Dealing with Chinese in Pandoc</a></li>
 <li><a href="https://pandoc.org/MANUAL.html#block-quotations">Pandoc&rsquo;s handling of block quote</a></li>

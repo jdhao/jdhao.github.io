@@ -18,7 +18,7 @@
       <pubDate>Sun, 26 Apr 2020 22:44:37 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</guid>
-      <description>&lt;h1 id=&#34;引子-&#34;&gt;引子&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;引子&#34;&gt;引子&lt;/h1&gt;
 &lt;p&gt;最近使用工作电脑的时候，不知道为什么，在文件资源管理器里面鼠标右键单击打开菜单(也叫&lt;a href=&#34;https://en.wikipedia.org/wiki/Context_menu&#34;&gt;context menu&lt;/a&gt;)的时候，系统很大概率会卡顿，鼠标指针开始转圈，文件管理器白屏，然后会提示&amp;quot;未响应&amp;rdquo;,过一会儿，右键菜单才会出现。以至于我每次点击右键之前，都很烦躁，希望不要出现卡顿的情况。&lt;/p&gt;</description>
     </item>
     
@@ -28,7 +28,7 @@
       <pubDate>Mon, 14 Oct 2019 21:46:55 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/10/14/python_script_to_exe/</guid>
-      <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;I have a use case where I want to convert my Python script to standalone
 executable so that I do not need to type &lt;code&gt;python&lt;/code&gt; before it to run the script.
 On Linux, it is easy to achieve with the help of

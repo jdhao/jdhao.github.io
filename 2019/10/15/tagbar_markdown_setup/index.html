@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/" />
@@ -69,13 +69,14 @@ I have been using Vim plugin Tagbar for viewing and navigating tags inside my
 source file. However, for Markdown files, there is no support out of the box.
 In this post, I would like to share how to set up tagbar to show tags for
 Markdown.">
-<meta itemprop="datePublished" content="2019-10-15T01:01:01&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-11T23:29:10&#43;08:00" />
+<meta itemprop="datePublished" content="2019-10-15T01:01:01+08:00" />
+<meta itemprop="dateModified" content="2020-03-11T23:29:10+08:00" />
 <meta itemprop="wordCount" content="353">
 
 
 
-<meta itemprop="keywords" content="Nvim,Markdown,tags,Vim," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Nvim,Markdown,tags,Vim," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Generating Table of Contents for Markdown with Tagbar"/>
 <meta name="twitter:description" content="
 
@@ -168,13 +169,13 @@ Markdown."/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#markdown-set-up-">Markdown set up</a>
+    <li><a href="#markdown-set-up">Markdown set up</a>
       <ul>
-        <li><a href="#linux-">Linux</a></li>
+        <li><a href="#linux">Linux</a></li>
         <li><a href="#windows">Windows</a></li>
       </ul>
     </li>
-    <li><a href="#references-">References</a></li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav>
   </div>
@@ -187,7 +188,7 @@ Markdown."/>
 source file. However, for Markdown files, there is no support out of the box.
 In this post, I would like to share how to set up tagbar to show tags for
 Markdown.</p>
-<h1 id="markdown-set-up-">Markdown set up</h1>
+<h1 id="markdown-set-up">Markdown set up</h1>
 <p><a href="https://github.com/majutsushi/tagbar/wiki#markdown">The tagbar wiki</a> has
 instructions on setting up Markdown support.
 Using <a href="https://github.com/jszakmeister/markdown2ctags">markdown2ctags</a> is the
@@ -197,7 +198,7 @@ enough and only works for Linux-like systems.</p>
 Markdown files containing Unicode characters. I have modified the original
 script and make it work in Python 3. You can find it
 <a href="https://github.com/jdhao/nvim-config/blob/master/tools/markdown2ctags.py">here</a>.</p>
-<h2 id="linux-">Linux</h2>
+<h2 id="linux">Linux</h2>
 <p>For Linux, put the script to folder <code>tools</code> under Neovim config directory<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.
 You have to give it execution right (this is very crucial but the author fails
 to say so):</p>
@@ -234,7 +235,7 @@ current working directory<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" 
 under the Neovim config directory.</p>
 <p>After all these set up, you should be able to see the table of contents in
 tagbar windows after using <code>TagbarOpen</code> command.</p>
-<h1 id="references-">References</h1>
+<h1 id="references">References</h1>
 <ul>
 <li><a href="https://github.com/majutsushi/tagbar/blob/master/doc/tagbar.txt">Tagbar doc</a>.</li>
 <li><a href="https://github.com/majutsushi/tagbar/wiki#markdown">Markdown support for tagbar</a>.</li>

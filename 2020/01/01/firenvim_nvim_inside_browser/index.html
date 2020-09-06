@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2020/01/01/firenvim_nvim_inside_browser/" />
@@ -73,13 +73,14 @@ on how to edit texts inside the browser using Vim/Nvim or browser extensions
 which have Vim emulations. But none of them is satisfactory enough since they
 are either not convenient to use or lacking features compared to real Neovim
 empowered by various plugins.">
-<meta itemprop="datePublished" content="2020-01-01T23:51:12&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-11T23:28:00&#43;08:00" />
+<meta itemprop="datePublished" content="2020-01-01T23:51:12+08:00" />
+<meta itemprop="dateModified" content="2020-03-11T23:28:00+08:00" />
 <meta itemprop="wordCount" content="364">
 
 
 
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Firenvim: Neovim inside Your Browser"/>
 <meta name="twitter:description" content="
 
@@ -174,10 +175,10 @@ empowered by various plugins."/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction-">Introduction</a></li>
-    <li><a href="#install-">Install</a></li>
-    <li><a href="#custom-settings-">Custom settings</a></li>
-    <li><a href="#references-">References</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#install">Install</a></li>
+    <li><a href="#custom-settings">Custom settings</a></li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav>
   </div>
@@ -187,7 +188,7 @@ empowered by various plugins."/>
 <img
 src="https://blog-resource-1257868508.file.myqcloud.com/firenvim.gif">
 </p>
-<h1 id="introduction-">Introduction</h1>
+<h1 id="introduction">Introduction</h1>
 <p>Last year, I have written <a href="https://jdhao.github.io/2019/05/11/nvim_text_input_browser/">a post</a>
 on how to edit texts inside the browser using Vim/Nvim or browser extensions
 which have Vim emulations. But none of them is satisfactory enough since they
@@ -199,7 +200,7 @@ architecture</a><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc
 firenvim can activate a Neovim instance in the background and acts as a remote
 UI client for Neovim. Thus, you can use the full power of Neovim and its
 plugins inside your browser without any compromises.</p>
-<h1 id="install-">Install</h1>
+<h1 id="install">Install</h1>
 <p>To use firenvim, first we need to install it as a Neovim plugin using a plugin
 manager, for example, with vim-plug:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Plug &#39;glacambre/firenvim&#39;, { &#39;do&#39;: { _ -&gt; firenvim#install(0) } }
@@ -212,7 +213,7 @@ command on the shell command line:</p>
 <a href="https://chrome.google.com/webstore/detail/firenvim/egpjdkipkomnmjhjmdamaniclmdlobbo">Chrome</a>.</p>
 <p>Now, close your browser and reopen it. Click in a text area and firenvim should
 be able to automatically take over the text area and start a neovim instance.</p>
-<h1 id="custom-settings-">Custom settings</h1>
+<h1 id="custom-settings">Custom settings</h1>
 <p>Firenvim provides the variable <code>g:started_by_firenvim</code> when it starts
 a neovim instance. So you can use this variable to set conditional options
 and settings for firenvim. For example, set <code>laststatus</code> to zero, and do not
@@ -236,7 +237,7 @@ show ruler, since the text area is already very small.</p>
 </span><span class="err"></span>    <span class="nx">augroup</span> <span class="nx">END</span><span class="err">
 </span><span class="err"></span><span class="k">endif</span><span class="err">
 </span></code></pre></div><p>For more configuration, see the <a href="https://github.com/glacambre/firenvim#configuring-firenvim">doc on project page</a>.</p>
-<h1 id="references-">References</h1>
+<h1 id="references">References</h1>
 <ul>
 <li><a href="https://www.reddit.com/r/neovim/comments/bmguyj/embed_neovim_in_your_browser/">https://www.reddit.com/r/neovim/comments/bmguyj/embed_neovim_in_your_browser/</a></li>
 <li><a href="https://www.reddit.com/r/neovim/comments/d9gk5y/firenvim_has_been_released_on_the_chrome_web_store/">https://www.reddit.com/r/neovim/comments/d9gk5y/firenvim_has_been_released_on_the_chrome_web_store/</a></li>

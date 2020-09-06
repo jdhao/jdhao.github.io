@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2020/01/05/ultisnips_python_interpolation/" />
@@ -65,13 +65,14 @@ filetypes. For example, for Markdown, to insert level 1 header, the snippet
 trigger is sec, and for level 2 and 3 header, the triggers are ssec and
 sssec respectively. These triggers are non-intuitive and hard to remember and
 type.">
-<meta itemprop="datePublished" content="2020-01-05T18:52:03&#43;08:00" />
-<meta itemprop="dateModified" content="2020-01-05T20:22:16&#43;08:00" />
+<meta itemprop="datePublished" content="2020-01-05T18:52:03+08:00" />
+<meta itemprop="dateModified" content="2020-01-05T20:22:16+08:00" />
 <meta itemprop="wordCount" content="482">
 
 
 
-<meta itemprop="keywords" content="snippet," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="snippet," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Regex Keyword and Python Interpolation in Ultisnips"/>
 <meta name="twitter:description" content="Vim-snippet provides a lot of useful Ultisnips snippets for various
 filetypes. For example, for Markdown, to insert level 1 header, the snippet
@@ -164,9 +165,9 @@ type."/>
   <ul>
     <li><a href="#creating-a-header-snippet">Creating a header snippet</a>
       <ul>
-        <li><a href="#the-regex-keyword-">The regex keyword</a></li>
-        <li><a href="#a-simple-snippet-">A simple snippet</a></li>
-        <li><a href="#a-complex-one-using-post_jump-">A complex one using post_jump</a></li>
+        <li><a href="#the-regex-keyword">The regex keyword</a></li>
+        <li><a href="#a-simple-snippet">A simple snippet</a></li>
+        <li><a href="#a-complex-one-using-post_jump">A complex one using post_jump</a></li>
       </ul>
     </li>
     <li><a href="#references">References</a></li>
@@ -186,7 +187,7 @@ regex keyword and Python interpolation<sup id="fnref:1"><a href="#fn:1" class="f
 snippet is that you can type <code>h{NUM}</code> (where <code>NUM</code> is a header level) and press
 <kbd>Tab</kbd> will create the corresponding headers.</p>
 <h1 id="creating-a-header-snippet">Creating a header snippet</h1>
-<h2 id="the-regex-keyword-">The regex keyword</h2>
+<h2 id="the-regex-keyword">The regex keyword</h2>
 <p>In order to create a single snippet with chaning trigger keyword, we need to
 use regex in the trigger word. So the first line of the snippet looks like
 this:</p>
@@ -201,7 +202,7 @@ line. This number must be in the range [1-6] to trigger the snippet since there
 are only six header levels in Markdown.</p>
 <p>Also note that, unlike other snippet trigger, the regex trigger word needed to
 be quoted with double quotes.</p>
-<h2 id="a-simple-snippet-">A simple snippet</h2>
+<h2 id="a-simple-snippet">A simple snippet</h2>
 <p>Combining regex keyword and Python interpolation, we can create a simple header
 snippet like the following one:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">snippet &#34;h([1-6])&#34; &#34;Markdown header&#34; br
@@ -216,7 +217,7 @@ them.</p>
 is the captured result from regex keyword. <code>match.group(1)</code> will be the content
 of the first capture group, and in this case, it will be the number in string
 format. The rest of the code is self-explaining so I will not elaborate.</p>
-<h2 id="a-complex-one-using-post_jump-">A complex one using post_jump</h2>
+<h2 id="a-complex-one-using-post_jump">A complex one using post_jump</h2>
 <p>A more <strong>advanced</strong> way is to use <code>post_jump</code> actions, which can perform
 various complicated logics inside a Python function.</p>
 <p>With post_jump, the header snippet now looks like this:</p>

@@ -23,7 +23,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2019/08/16/nvim_config_folding/" />
@@ -56,13 +56,14 @@
 <meta property="article:modified_time" content="2020-03-17T23:47:47+08:00" />
 <meta itemprop="name" content="How to Create Proper Folding for Vim/Nvim Configuration">
 <meta itemprop="description" content="">
-<meta itemprop="datePublished" content="2019-08-16T22:56:20&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-17T23:47:47&#43;08:00" />
+<meta itemprop="datePublished" content="2019-08-16T22:56:20+08:00" />
+<meta itemprop="dateModified" content="2020-03-17T23:47:47+08:00" />
 <meta itemprop="wordCount" content="1004">
 
 
 
-<meta itemprop="keywords" content="folding,Vim," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="folding,Vim," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to Create Proper Folding for Vim/Nvim Configuration"/>
 <meta name="twitter:description" content=""/>
 
@@ -149,19 +150,19 @@
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction-">Introduction</a></li>
-    <li><a href="#folding-with-marker-">Folding with Marker</a></li>
-    <li><a href="#folding-with-expression-">Folding with Expression</a></li>
-    <li><a href="#custom-folding-text-">Custom Folding Text</a></li>
-    <li><a href="#conclusion-">Conclusion</a></li>
-    <li><a href="#references-">References</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#folding-with-marker">Folding with Marker</a></li>
+    <li><a href="#folding-with-expression">Folding with Expression</a></li>
+    <li><a href="#custom-folding-text">Custom Folding Text</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <p><img src="https://blog-resource-1257868508.file.myqcloud.com/20190817223054.png" alt="Folded config"></p>
-<h1 id="introduction-">Introduction</h1>
+<h1 id="introduction">Introduction</h1>
 <p>I started using Neovim about a year ago. During the process, I have been
 constantly evolving my configuration (the <code>init.vim</code> file): adding some
 settings and plugins and dropping others. At its peak, my <code>init.vim</code> has over
@@ -180,7 +181,7 @@ properly. The end result is shown in the title image.</p>
 </ul>
 <p>I found that <code>fold-expr</code> and <code>fold-marker</code> is easy to use and understand. In
 this article, I only introduce these two methods.</p>
-<h1 id="folding-with-marker-">Folding with Marker</h1>
+<h1 id="folding-with-marker">Folding with Marker</h1>
 <p>When we fold with a marker, Nvim will create a fold where the fold marker
 appears. The default fold marker is <code>{{{</code> (for opening a fold) and <code>}}}</code> (for
 closing a fold). To fold the Nvim config with marker, you have to use <code>marker</code>
@@ -236,7 +237,7 @@ opening fold line and return a reasonable string as the fold text. See the
 <code>foldtext()</code> doc for details. If you are not satisfied with the style of the
 default fold text, you may define your fold text function to replace the
 <code>foldtext()</code>. We will cover that later in this post.</p>
-<h1 id="folding-with-expression-">Folding with Expression</h1>
+<h1 id="folding-with-expression">Folding with Expression</h1>
 <p>Folding with marker is not flexible enough since you have to use the marker and
 indicate the folding level by appending a number behind the marker. Folding
 with expression is more flexible and powerful.</p>
@@ -281,7 +282,7 @@ by a level 1 fold, its folding level is 0, which means that this line is not
 in a fold and will not be folded. For other lines, its folding level is the
 same as the previous line.</p>
 <p>The format for the folding level can be found in <code>:h fold-expr</code>.</p>
-<h1 id="custom-folding-text-">Custom Folding Text</h1>
+<h1 id="custom-folding-text">Custom Folding Text</h1>
 <p>Now that we can define the folding level by the folding expression. We need to
 customize the folding text as well. Or the fold text produced by the default
 <code>foldtext()</code> function will look ugly:</p>
@@ -315,11 +316,11 @@ there are spaces after the fold text in the current window. If you do not want
 these trailing characters, you can add the following setting to Nvim config:</p>
 <div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="c">&#34; note that there is a space character behind backslash</span><span class="err">
 </span><span class="err"></span><span class="nx">set</span> <span class="nx">fillchars</span><span class="p">=</span><span class="nx">fold</span>:\<span class="err">
-</span></code></pre></div><h1 id="conclusion-">Conclusion</h1>
+</span></code></pre></div><h1 id="conclusion">Conclusion</h1>
 <p>In this post, I introduced how to create folding for the Nvim configuration
 file and use custom folding text for a fold. With this knowledge, you can
 create fancy foldings and folding text as you want.</p>
-<h1 id="references-">References</h1>
+<h1 id="references">References</h1>
 <ul>
 <li><a href="https://vi.stackexchange.com/questions/3814/is-there-a-best-practice-to-fold-a-vimrc-file">https://vi.stackexchange.com/questions/3814/is-there-a-best-practice-to-fold-a-vimrc-file</a></li>
 </ul>

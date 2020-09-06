@@ -25,7 +25,7 @@ request headers: {&amp;#39;User-Agent&amp;#39;: &amp;#39;python-requests/2.19.1&
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2020/07/09/requests_notes/" />
@@ -62,13 +62,14 @@ request headers: {&#39;User-Agent&#39;: &#39;python-requests/2.19.1&#39;, &#39;A
 <meta itemprop="description" content="How to see request header and body? When making requests, we may want to see exactly what are being requested. With requests, it is easy do access the request header and request body:
 import requests url = &#34;http://httpbin.org/post&#34; payload = {&#34;apple&#34;: 10, &#34;pear&#34;: [20, 30], &#34;img&#34;: &#34;http://example.com/demo.jpg&#34;} r = requests.post(url, json=payload) print(f&#34;request headers: {r.request.headers}&#34;) print(f&#34;request body: {r.request.body}&#34;) A sample output is:
 request headers: {&#39;User-Agent&#39;: &#39;python-requests/2.19.1&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Content-Length&#39;: &#39;69&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;} request body: b&#39;{&#34;apple&#34;: 10, &#34;pear&#34;: [20, 30], &#34;img&#34;: &#34;http://example.">
-<meta itemprop="datePublished" content="2020-07-09T23:30:14&#43;08:00" />
-<meta itemprop="dateModified" content="2020-08-09T12:23:21&#43;08:00" />
+<meta itemprop="datePublished" content="2020-07-09T23:30:14+08:00" />
+<meta itemprop="dateModified" content="2020-08-09T12:23:21+08:00" />
 <meta itemprop="wordCount" content="379">
 
 
 
-<meta itemprop="keywords" content="requests," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="requests," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Note on Using requests package"/>
 <meta name="twitter:description" content="How to see request header and body? When making requests, we may want to see exactly what are being requested. With requests, it is easy do access the request header and request body:
 import requests url = &#34;http://httpbin.org/post&#34; payload = {&#34;apple&#34;: 10, &#34;pear&#34;: [20, 30], &#34;img&#34;: &#34;http://example.com/demo.jpg&#34;} r = requests.post(url, json=payload) print(f&#34;request headers: {r.request.headers}&#34;) print(f&#34;request body: {r.request.body}&#34;) A sample output is:

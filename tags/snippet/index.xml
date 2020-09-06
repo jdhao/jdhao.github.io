@@ -41,7 +41,7 @@ type.&lt;/p&gt;</description>
       <pubDate>Sun, 22 Dec 2019 13:45:25 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</guid>
-      <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;I write my blog posts in Markdown and build the blog using
 &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;. Hugo supports &lt;a href=&#34;https://gohugo.io/content-management/front-matter/&#34;&gt;front matter&lt;/a&gt;
 for Markdown so that you can attach some metadata with a post, such as title,

@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2019/01/17/tmux_plugin_management/" />
@@ -59,13 +59,14 @@ manager (i.e., tpm) and also mention a few useful plugins." />
 <meta itemprop="name" content="Tmux Plugin Install and Management">
 <meta itemprop="description" content="In this post, I want to share how to manage tmux plugins with Tmux plugin
 manager (i.e., tpm) and also mention a few useful plugins.">
-<meta itemprop="datePublished" content="2019-01-17T22:03:16&#43;08:00" />
-<meta itemprop="dateModified" content="2020-09-05T23:32:56&#43;08:00" />
+<meta itemprop="datePublished" content="2019-01-17T22:03:16+08:00" />
+<meta itemprop="dateModified" content="2020-09-05T23:32:56+08:00" />
 <meta itemprop="wordCount" content="412">
 
 
 
-<meta itemprop="keywords" content="Tmux,Mac,CentOS," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Tmux,Mac,CentOS," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tmux Plugin Install and Management"/>
 <meta name="twitter:description" content="In this post, I want to share how to manage tmux plugins with Tmux plugin
 manager (i.e., tpm) and also mention a few useful plugins."/>
@@ -155,18 +156,18 @@ manager (i.e., tpm) and also mention a few useful plugins."/>
   <ul>
     <li><a href="#install-the-plugin-manager">Install the plugin manager</a>
       <ul>
-        <li><a href="#install-tpm-">Install tpm</a></li>
-        <li><a href="#plugin-management-with-tpm-">Plugin management with tpm</a>
+        <li><a href="#install-tpm">Install tpm</a></li>
+        <li><a href="#plugin-management-with-tpm">Plugin management with tpm</a>
           <ul>
-            <li><a href="#plugin-install-">plugin install</a></li>
-            <li><a href="#plugin-update-">plugin update</a></li>
-            <li><a href="#plugin-uninstall-">plugin uninstall</a></li>
+            <li><a href="#plugin-install">plugin install</a></li>
+            <li><a href="#plugin-update">plugin update</a></li>
+            <li><a href="#plugin-uninstall">plugin uninstall</a></li>
           </ul>
         </li>
         <li><a href="#automatic-install-of-tpm-on-new-machines">Automatic install of tpm on new machines</a></li>
       </ul>
     </li>
-    <li><a href="#plugin-install">Plugin Install</a>
+    <li><a href="#plugin-install-1">Plugin Install</a>
       <ul>
         <li><a href="#themes">Themes</a>
           <ul>
@@ -192,7 +193,7 @@ manager (i.e., tpm) and also mention a few useful plugins.</p>
 <p>Like Vim, to add new tmux plugins, we can either manually install themes or
 employ a plugin manager. <a href="https://github.com/tmux-plugins/tpm">Tpm</a> is designed
 for this purpose, which helps to manage your plugins automatically.</p>
-<h2 id="install-tpm-">Install tpm</h2>
+<h2 id="install-tpm">Install tpm</h2>
 <p>First, we need to install tpm itself:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 </code></pre></div><p>Add the following setting to your tmux configuration file <code>.tmux.conf</code>:</p>
@@ -205,9 +206,9 @@ set -g @plugin &#39;tmux-plugins/tmux-sensible&#39;
 run -b &#39;~/.tmux/plugins/tpm/tpm&#39;
 </code></pre></div><p>Then you should refresh the tmux environment to make the change take effect:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">tmux <span class="nb">source</span> ~/.tmux.conf
-</code></pre></div><h2 id="plugin-management-with-tpm-">Plugin management with tpm</h2>
+</code></pre></div><h2 id="plugin-management-with-tpm">Plugin management with tpm</h2>
 <p>The following operations assume that you are in a tmux session.</p>
-<h3 id="plugin-install-">plugin install</h3>
+<h3 id="plugin-install">plugin install</h3>
 <ol>
 <li>
 <p>Add new plugin to <code>~/.tmux.conf</code> with <code>set -g @plugin '...'</code></p>
@@ -216,9 +217,9 @@ run -b &#39;~/.tmux/plugins/tpm/tpm&#39;
 <p>Press <code>&lt;prefix&gt; + I</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> (capital I) to fetch the plugin.</p>
 </li>
 </ol>
-<h3 id="plugin-update-">plugin update</h3>
+<h3 id="plugin-update">plugin update</h3>
 <p>Press <code>&lt;prefix&gt; + U</code> to update existing plugins</p>
-<h3 id="plugin-uninstall-">plugin uninstall</h3>
+<h3 id="plugin-uninstall">plugin uninstall</h3>
 <ol>
 <li>
 <p>Delete or comment out the plugin in <code>.tmux.conf</code></p>
@@ -233,7 +234,7 @@ to automatically install tpm on a new machine, you can add the following
 setting to your <code>.tmux.conf</code>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">if &#34;test ! -d ~/.tmux/plugins/tpm&#34; \
    &#34;run &#39;git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm &amp;&amp; ~/.tmux/plugins/tpm/bin/install_plugins&#39;&#34;
-</code></pre></div><h1 id="plugin-install">Plugin Install</h1>
+</code></pre></div><h1 id="plugin-install-1">Plugin Install</h1>
 <h2 id="themes">Themes</h2>
 <p>Themes are great. Here are a few themes you can try.</p>
 <h3 id="tmux-theme-pack">Tmux theme pack</h3>

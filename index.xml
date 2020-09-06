@@ -7,6 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>jdhao</copyright>
+    <lastBuildDate>Sat, 05 Sep 2020 00:23:28 +0800</lastBuildDate>
     
 	<atom:link href="https://jdhao.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -441,7 +442,7 @@ settings.&lt;/p&gt;</description>
       <pubDate>Sun, 26 Apr 2020 22:44:37 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</guid>
-      <description>&lt;h1 id=&#34;引子-&#34;&gt;引子&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;引子&#34;&gt;引子&lt;/h1&gt;
 &lt;p&gt;最近使用工作电脑的时候，不知道为什么，在文件资源管理器里面鼠标右键单击打开菜单(也叫&lt;a href=&#34;https://en.wikipedia.org/wiki/Context_menu&#34;&gt;context menu&lt;/a&gt;)的时候，系统很大概率会卡顿，鼠标指针开始转圈，文件管理器白屏，然后会提示&amp;quot;未响应&amp;rdquo;,过一会儿，右键菜单才会出现。以至于我每次点击右键之前，都很烦躁，希望不要出现卡顿的情况。&lt;/p&gt;</description>
     </item>
     
@@ -753,7 +754,7 @@ type.&lt;/p&gt;</description>
 &lt;img
 src=&#34;https://blog-resource-1257868508.file.myqcloud.com/firenvim.gif&#34;&gt;
 &lt;/p&gt;
-&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Last year, I have written &lt;a href=&#34;https://jdhao.github.io/2019/05/11/nvim_text_input_browser/&#34;&gt;a post&lt;/a&gt;
 on how to edit texts inside the browser using Vim/Nvim or browser extensions
 which have Vim emulations. But none of them is satisfactory enough since they
@@ -778,7 +779,7 @@ HTML tags inside markdown file to include images:&lt;/p&gt;
       <pubDate>Sun, 22 Dec 2019 13:45:25 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</guid>
-      <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;I write my blog posts in Markdown and build the blog using
 &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;. Hugo supports &lt;a href=&#34;https://gohugo.io/content-management/front-matter/&#34;&gt;front matter&lt;/a&gt;
 for Markdown so that you can attach some metadata with a post, such as title,
@@ -1053,7 +1054,7 @@ Markdown.&lt;/p&gt;</description>
       <pubDate>Mon, 14 Oct 2019 21:46:55 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/10/14/python_script_to_exe/</guid>
-      <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;I have a use case where I want to convert my Python script to standalone
 executable so that I do not need to type &lt;code&gt;python&lt;/code&gt; before it to run the script.
 On Linux, it is easy to achieve with the help of
@@ -1135,7 +1136,7 @@ related to login shell.&lt;/p&gt;</description>
       <pubDate>Fri, 27 Sep 2019 23:56:47 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/09/27/linux_locale_settings/</guid>
-      <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;When I logged into a Ubuntu server, the system interface and messages are shown
 all shown in Chinese. I want them to be displayed in English. After some
 searching, I found out that we can change the
@@ -1276,7 +1277,7 @@ think it would be helpful to write about how I do it.&lt;/p&gt;</description>
       <pubDate>Sat, 20 Jul 2019 21:19:39 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/07/20/pil_jpeg_image_quality/</guid>
-      <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;The other day, I was haunted by a bug and found that it was an issue with the
 image quality saved by &lt;a href=&#34;https://pillow.readthedocs.io/en/stable/&#34;&gt;Pillow&lt;/a&gt; after
 spending a few hours debugging the code.&lt;/p&gt;</description>
@@ -1302,7 +1303,7 @@ may be confusing for new users. Here, I would like to talk about
       <pubDate>Sat, 06 Jul 2019 22:18:22 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/07/06/python_opencv_pil_image_to_bytes/</guid>
-      <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Sometimes, we may want an in-memory jpg or png image that is represented as
 binary data. But often, what we have got is image in OpenCV (Numpy ndarray) or
 PIL Image format. In this post, I will share how to convert Numpy image or PIL
@@ -1315,7 +1316,7 @@ Image object to binary data without saving the underlying image to disk.&lt;/p&g
       <pubDate>Wed, 26 Jun 2019 22:51:43 +0800</pubDate>
       
       <guid>https://jdhao.github.io/2019/06/26/movement_navigation_inside_nvim/</guid>
-      <description>&lt;h1 id=&#34;introduction-&#34;&gt;Introduction&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;One key spirit of Vim is to accomplish something in as fewer key strokes as
 possible. When we repeat a command several times to perform an action, we need
 to ask ourselves if there is a better way to do it. Only in this way, can we

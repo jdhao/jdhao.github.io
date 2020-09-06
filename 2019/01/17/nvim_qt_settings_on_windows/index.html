@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/" />
@@ -65,13 +65,14 @@ Neovim or
 use a GUI for Neovim. If you use terminal Nvim, you may encounter various
 annoying issues. Based on my experience, I recommend you using a GUI client for
 Nvim instead of the terminal one.">
-<meta itemprop="datePublished" content="2019-01-17T22:04:05&#43;08:00" />
-<meta itemprop="dateModified" content="2020-03-23T23:49:56&#43;08:00" />
+<meta itemprop="datePublished" content="2019-01-17T22:04:05+08:00" />
+<meta itemprop="dateModified" content="2020-03-23T23:49:56+08:00" />
 <meta itemprop="wordCount" content="719">
 
 
 
-<meta itemprop="keywords" content="Windows,font,字体," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Windows,font,字体," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Nvim-qt Settings on Windows 10"/>
 <meta name="twitter:description" content="To run Neovim on Windows, you can either use the terminal
 Neovim or
@@ -162,11 +163,11 @@ Nvim instead of the terminal one."/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#general-settings-">General settings</a>
+    <li><a href="#general-settings">General settings</a>
       <ul>
         <li><a href="#where-should-i-put-configurations-related-to-nvim-qt">Where should I put configurations related to nvim-qt?</a></li>
         <li><a href="#how-do-i-pass-options-to-neovim-when-starting-nvim-qt-on-the-command-line">How do I pass options to neovim when starting nvim-qt on the command line?</a></li>
-        <li><a href="#shiftinsert-does-not-work-in-nvim-qt-">Shift+Insert does not work in nvim-qt</a></li>
+        <li><a href="#shiftinsert-does-not-work-in-nvim-qt">Shift+Insert does not work in nvim-qt</a></li>
       </ul>
     </li>
     <li><a href="#gui-settings">GUI settings</a>
@@ -195,7 +196,7 @@ end</a> for Neovim,
 and it is packaged with Neovim by default on Windows platform. In this post, I
 will give a summary on how to solve a few issues with
 <a href="https://github.com/equalsraf/neovim-qt">Nvim-qt</a>.</p>
-<h1 id="general-settings-">General settings</h1>
+<h1 id="general-settings">General settings</h1>
 <h2 id="where-should-i-put-configurations-related-to-nvim-qt">Where should I put configurations related to nvim-qt?</h2>
 <p>Nvim-qt will use your Nvim configurations as well as a GUI configuration
 file<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. The GUI config file is named <code>ginit.vim</code>, and you should put it under
@@ -209,7 +210,7 @@ it with nvim startup options. You need to specify nvim options after <code>--</c
 example, to <a href="https://www.mankier.com/1/nvim#-u">open a file using specific
 configuration</a>, use the following command:</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">nvim-qt some_file.txt -- -u init.vim
-</code></pre></div><h2 id="shiftinsert-does-not-work-in-nvim-qt-">Shift+Insert does not work in nvim-qt</h2>
+</code></pre></div><h2 id="shiftinsert-does-not-work-in-nvim-qt">Shift+Insert does not work in nvim-qt</h2>
 <p>In Nvim-qt, when we press <kbd>Shift</kbd>+<kbd>Insert</kbd> in insert mode, it
 will add a literal <code>&lt;S-Insert&gt;</code>, instead of placing the text on the system
 clipboard to the cursor position. To fix this issue, we can use the following

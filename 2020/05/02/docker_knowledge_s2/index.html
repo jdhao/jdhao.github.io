@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2020/05/02/docker_knowledge_s2/" />
@@ -57,13 +57,14 @@
 <meta property="article:modified_time" content="2020-06-21T23:17:29+08:00" />
 <meta itemprop="name" content="Docker 学习系列 --- 2">
 <meta itemprop="description" content="本文总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。">
-<meta itemprop="datePublished" content="2020-05-02T16:18:30&#43;08:00" />
-<meta itemprop="dateModified" content="2020-06-21T23:17:29&#43;08:00" />
+<meta itemprop="datePublished" content="2020-05-02T16:18:30+08:00" />
+<meta itemprop="dateModified" content="2020-06-21T23:17:29+08:00" />
 <meta itemprop="wordCount" content="1687">
 
 
 
-<meta itemprop="keywords" content="Docker," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Docker," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker 学习系列 --- 2"/>
 <meta name="twitter:description" content="本文总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。"/>
 
@@ -172,7 +173,7 @@
         <li><a href="#参考-3">参考</a></li>
       </ul>
     </li>
-    <li><a href="#copy-failed-forbidden-path-outside-the-build-context-">COPY failed: Forbidden path outside the build context</a>
+    <li><a href="#copy-failed-forbidden-path-outside-the-build-context">COPY failed: Forbidden path outside the build context</a>
       <ul>
         <li><a href="#参考-4">参考</a></li>
       </ul>
@@ -241,7 +242,7 @@ Status: Downloaded newer image for centos:7
 <li><a href="https://stackoverflow.com/a/37639938/6064933">How to define a variable inside Dockerfile</a>.</li>
 <li><a href="https://stackoverflow.com/a/41919137/6064933">Difference between ARG and ENV</a>.</li>
 </ul>
-<h1 id="copy-failed-forbidden-path-outside-the-build-context-">COPY failed: Forbidden path outside the build context</h1>
+<h1 id="copy-failed-forbidden-path-outside-the-build-context">COPY failed: Forbidden path outside the build context</h1>
 <p>当我试图从当前 Dockerfile 所在目录的上一级目录拷贝某个文件到镜像的某个目录：</p>
 <div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">COPY ../some_file /path/inside/container
 </code></pre></div><p>然后遇到了上述错误，原因是 docker 只允许从当前 Dockerfile 的<a href="https://medium.com/lucjuggery/docker-tips-about-the-build-context-dbc76505e178">build context</a>下某个目录 copy 文件。</p>

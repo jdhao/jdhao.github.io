@@ -24,7 +24,7 @@
 <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
 
 
-<meta name="generator" content="Hugo 0.69.0 with theme even" />
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
 <link rel="canonical" href="https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/" />
@@ -65,13 +65,14 @@ I write my blog posts in Markdown and build the blog using
 Hugo. Hugo supports front matter
 for Markdown so that you can attach some metadata with a post, such as title,
 date, tags, categories, etc.">
-<meta itemprop="datePublished" content="2019-12-22T13:45:25&#43;08:00" />
-<meta itemprop="dateModified" content="2020-04-25T20:56:35&#43;08:00" />
+<meta itemprop="datePublished" content="2019-12-22T13:45:25+08:00" />
+<meta itemprop="dateModified" content="2020-04-25T20:56:35+08:00" />
 <meta itemprop="wordCount" content="508">
 
 
 
-<meta itemprop="keywords" content="Vim,Markdown,snippet," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Vim,Markdown,snippet," />
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Creating Markdown Front Matter with Ultisnips"/>
 <meta name="twitter:description" content="Introduction
 I write my blog posts in Markdown and build the blog using
@@ -162,21 +163,21 @@ date, tags, categories, etc."/>
   <div class="post-toc-content">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction-">Introduction</a></li>
-    <li><a href="#initial-snippet-">Initial snippet</a></li>
-    <li><a href="#ultisnips-command-interpolation-">Ultisnips command interpolation</a>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#initial-snippet">Initial snippet</a></li>
+    <li><a href="#ultisnips-command-interpolation">Ultisnips command interpolation</a>
       <ul>
-        <li><a href="#vim-interpolation-">Vim interpolation</a></li>
-        <li><a href="#python-interpolation-">Python interpolation</a></li>
+        <li><a href="#vim-interpolation">Vim interpolation</a></li>
+        <li><a href="#python-interpolation">Python interpolation</a></li>
       </ul>
     </li>
-    <li><a href="#references-">References</a></li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h1 id="introduction-">Introduction</h1>
+      <h1 id="introduction">Introduction</h1>
 <p>I write my blog posts in Markdown and build the blog using
 <a href="https://gohugo.io/">Hugo</a>. Hugo supports <a href="https://gohugo.io/content-management/front-matter/">front matter</a>
 for Markdown so that you can attach some metadata with a post, such as title,
@@ -189,7 +190,7 @@ date, tags, categories, etc.</p>
 </span><span class="w"></span><span class="k">categories</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>Nvim<span class="p">]</span><span class="w">
 </span><span class="w"></span>---<span class="w">
 </span></code></pre></div><p>The <code>date</code> field is in ISO date format.</p>
-<h1 id="initial-snippet-">Initial snippet</h1>
+<h1 id="initial-snippet">Initial snippet</h1>
 <p>It is tedious to write the boilerplate text in front matter for every post I
 create. <a href="https://github.com/SirVer/ultisnips">Ultisnips</a> is good at automating
 such tasks. If you are not familiar with Ultisnips, you can check <a href="https://jdhao.github.io/2019/04/17/neovim_snippet_s1/">my previous
@@ -208,7 +209,7 @@ Ultisnips.</p>
 tabstops to fill the text.</p>
 <p>This snippet is working great, but for the <code>date</code> field, we still need to fill
 the current date manually, which is not convenient enough.</p>
-<h1 id="ultisnips-command-interpolation-">Ultisnips command interpolation</h1>
+<h1 id="ultisnips-command-interpolation">Ultisnips command interpolation</h1>
 <p>Ultisnips also provides a powerful feature called interpolation, which means
 that you can run shell, Vim and Python command inside a snippet and use the
 returned output in snippet. The interpolation code are placed inside two
@@ -228,7 +229,7 @@ snip.rv=datetime.now().strftime(&#34;%Y-%m-%d %H:%M:%S%z&#34;)`
 <p>Back to the above snippet, if we want the interpolation code to be
 cross-platform, we should only consider Vim or Python interpolation since most
 Linux shell commands are not available on Windows.</p>
-<h2 id="vim-interpolation-">Vim interpolation</h2>
+<h2 id="vim-interpolation">Vim interpolation</h2>
 <p>With Vim interpolation, the original meta snippet for Markdown becomes:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">snippet<span class="w"> </span><span class="s2">&#34;meta(data)?&#34;</span><span class="w"> </span><span class="s2">&#34;Markdown metadata front matter&#34;</span><span class="w"> </span>br<span class="w">
 </span><span class="w"></span>---<span class="w">
@@ -241,7 +242,7 @@ Linux shell commands are not available on Windows.</p>
 we are inside the snippet region<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>, which is not desired. According to
 <a href="https://www.youtube.com/watch?v=JJQYwt6Diro">tutorial here</a>, we can use Python
 interpolation to deal with this issue.</p>
-<h2 id="python-interpolation-">Python interpolation</h2>
+<h2 id="python-interpolation">Python interpolation</h2>
 <p>Inside the Python interpolation code, Ultisnips provides the <code>snip</code> object. The
 attribute <code>snip.c</code> is empty once the interpolation has finished. <code>snip.rv</code> is
 the result for the snip interpolation.</p>
@@ -259,7 +260,7 @@ is run for once.</p>
 </span><span class="w"></span>---<span class="w">
 </span></code></pre></div><p>Now the date field will be fixed while we are editing other parts of the
 snippet.</p>
-<h1 id="references-">References</h1>
+<h1 id="references">References</h1>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=JJQYwt6Diro">Ultisnips official tutorial.</a></li>
 <li><a href="http://vimcasts.org/episodes/ultisnips-python-interpolation/">Vimcast on Ultisnips Python interpolation.</a></li>
