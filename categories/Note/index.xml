@@ -1,289 +1,58 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Note on jdhao&#39;s blog</title>
-    <link>https://jdhao.github.io/categories/Note/</link>
-    <description>Recent content in Note on jdhao&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>jdhao</copyright>
-    <lastBuildDate>Thu, 03 Sep 2020 23:41:00 +0800</lastBuildDate>
-    
-	<atom:link href="https://jdhao.github.io/categories/Note/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Git branches</title>
-      <link>https://jdhao.github.io/2020/09/03/git_branch_operations/</link>
-      <pubDate>Thu, 03 Sep 2020 23:41:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/09/03/git_branch_operations/</guid>
-      <description>&lt;p&gt;Some commonly used Git commands related to branch operations.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Markdown Writing Tricks</title>
-      <link>https://jdhao.github.io/2020/06/01/markdown_writing_tricks/</link>
-      <pubDate>Mon, 01 Jun 2020 22:44:14 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/06/01/markdown_writing_tricks/</guid>
-      <description>&lt;p&gt;Some of the tricks when writing Markdown files.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Justmysocks 支持 v2ray 协议了！</title>
-      <link>https://jdhao.github.io/2020/05/22/v2ray_justmysocks/</link>
-      <pubDate>Fri, 22 May 2020 00:40:58 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/05/22/v2ray_justmysocks/</guid>
-      <description>&lt;p&gt;two meetings 即将或者正在召开，上个谷歌也越来越难，最近墙对各种工具的阻断非常严重，连之前&lt;a href=&#34;https://jdhao.github.io/2020/04/25/shadowsocks_obfs_setup/&#34;&gt;使用了 obfs 的 ss&lt;/a&gt; 都不行了，最近一段时间也处于时断时续的状态。&lt;/p&gt;
-&lt;p&gt;Justmysocks 之前一直用的都是 shadowsocks 协议，对墙的反制能力不行，每到关键时候就显露疲态。好消息是，justmysocks 终于在最近推出了基于 &lt;a href=&#34;https://www.v2ray.com/en/&#34;&gt;v2ray&lt;/a&gt; 协议的线路。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Space for CJK Languages (CJK 语言中的空格)</title>
-      <link>https://jdhao.github.io/2020/05/16/space_for_cjk/</link>
-      <pubDate>Sat, 16 May 2020 22:04:23 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/05/16/space_for_cjk/</guid>
-      <description>&lt;p&gt;I was doing some typograph for Chinese text and want to insert a space equal to
-the width of a Chinese character.&lt;/p&gt;
-&lt;p&gt;&lt;font color=&#34;red&#34;&gt;最近在做一些中文排版的工作，有一个需求是在中文字符之间插入空格，并且空格的宽度等于中文字符的宽度，在某些情况下这样排版显得更加美观。&lt;/font&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Git Learning Notes (2)</title>
-      <link>https://jdhao.github.io/2020/05/07/git_learning_notes_s2/</link>
-      <pubDate>Thu, 07 May 2020 00:35:45 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/05/07/git_learning_notes_s2/</guid>
-      <description>&lt;p&gt;My Git learning notes.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Docker 学习系列 --- 2</title>
-      <link>https://jdhao.github.io/2020/05/02/docker_knowledge_s2/</link>
-      <pubDate>Sat, 02 May 2020 16:18:30 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/05/02/docker_knowledge_s2/</guid>
-      <description>&lt;p&gt;本文总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Docker 学习系列 --- 1</title>
-      <link>https://jdhao.github.io/2020/05/02/docker_knowledge_s1/</link>
-      <pubDate>Sat, 02 May 2020 15:23:59 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/05/02/docker_knowledge_s1/</guid>
-      <description>&lt;p&gt;Docker 是一种类似虚拟机的机制，允许我们在 host 机器创建一个隔绝的小型操作系统环境，并且可以保存下这个环境（称为 Docker 镜像），把这个 Docker 镜像部署到其他 host 机器，各个机器上的环境完全一致。这样我们就不需要每次在部署新环境的时候，重复执行安装程序、配置环境的流程，大大简化了我们的工作，提升了工作效率。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Shadowsocks 配置 obfs</title>
-      <link>https://jdhao.github.io/2020/04/25/shadowsocks_obfs_setup/</link>
-      <pubDate>Sat, 25 Apr 2020 00:44:29 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/04/25/shadowsocks_obfs_setup/</guid>
-      <description>&lt;p&gt;最近几个月在手机上使用 justmysocks，感觉速度很慢，经常断流，连接不上。通过搜索，发现原因是使用的线路问题。为了学习之用，我们可以通过配置 &lt;a href=&#34;https://github.com/shadowsocks/simple-obfs&#34;&gt;obfs&lt;/a&gt; 增强服务稳定性。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Git Learning Notes (1)</title>
-      <link>https://jdhao.github.io/2020/04/23/git_learning_notes_s1/</link>
-      <pubDate>Thu, 23 Apr 2020 00:05:20 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/04/23/git_learning_notes_s1/</guid>
-      <description>&lt;p&gt;This is my personal note of learning Git.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Convert PPTX Slides to JPEG Images on Linux</title>
-      <link>https://jdhao.github.io/2020/03/30/pptx_to_image/</link>
-      <pubDate>Mon, 30 Mar 2020 22:30:20 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/03/30/pptx_to_image/</guid>
-      <description>&lt;p&gt;A short post on how to convert PPTX file to images. There are two steps. The
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Note on jdhao's blog</title><link>https://jdhao.github.io/categories/Note/</link><description>Recent content in Note on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Thu, 03 Sep 2020 23:41:00 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/categories/Note/index.xml" rel="self" type="application/rss+xml"/><item><title>Git branches</title><link>https://jdhao.github.io/2020/09/03/git_branch_operations/</link><pubDate>Thu, 03 Sep 2020 23:41:00 +0800</pubDate><guid>https://jdhao.github.io/2020/09/03/git_branch_operations/</guid><description>&lt;p>Some commonly used Git commands related to branch operations.&lt;/p></description></item><item><title>Markdown Writing Tricks</title><link>https://jdhao.github.io/2020/06/01/markdown_writing_tricks/</link><pubDate>Mon, 01 Jun 2020 22:44:14 +0800</pubDate><guid>https://jdhao.github.io/2020/06/01/markdown_writing_tricks/</guid><description>&lt;p>Some of the tricks when writing Markdown files.&lt;/p></description></item><item><title>Justmysocks 支持 v2ray 协议了！</title><link>https://jdhao.github.io/2020/05/22/v2ray_justmysocks/</link><pubDate>Fri, 22 May 2020 00:40:58 +0800</pubDate><guid>https://jdhao.github.io/2020/05/22/v2ray_justmysocks/</guid><description>&lt;p>two meetings 即将或者正在召开，上个谷歌也越来越难，最近墙对各种工具的阻断非常严重，连之前&lt;a href="https://jdhao.github.io/2020/04/25/shadowsocks_obfs_setup/">使用了 obfs 的 ss&lt;/a> 都不行了，最近一段时间也处于时断时续的状态。&lt;/p>
+&lt;p>Justmysocks 之前一直用的都是 shadowsocks 协议，对墙的反制能力不行，每到关键时候就显露疲态。好消息是，justmysocks 终于在最近推出了基于 &lt;a href="https://www.v2ray.com/en/">v2ray&lt;/a> 协议的线路。&lt;/p></description></item><item><title>Space for CJK Languages (CJK 语言中的空格)</title><link>https://jdhao.github.io/2020/05/16/space_for_cjk/</link><pubDate>Sat, 16 May 2020 22:04:23 +0800</pubDate><guid>https://jdhao.github.io/2020/05/16/space_for_cjk/</guid><description>&lt;p>I was doing some typograph for Chinese text and want to insert a space equal to
+the width of a Chinese character.&lt;/p>
+&lt;p>&lt;font color="red">最近在做一些中文排版的工作，有一个需求是在中文字符之间插入空格，并且空格的宽度等于中文字符的宽度，在某些情况下这样排版显得更加美观。&lt;/font>&lt;/p></description></item><item><title>Git Learning Notes (2)</title><link>https://jdhao.github.io/2020/05/07/git_learning_notes_s2/</link><pubDate>Thu, 07 May 2020 00:35:45 +0800</pubDate><guid>https://jdhao.github.io/2020/05/07/git_learning_notes_s2/</guid><description>&lt;p>My Git learning notes.&lt;/p></description></item><item><title>Docker 学习系列 --- 2</title><link>https://jdhao.github.io/2020/05/02/docker_knowledge_s2/</link><pubDate>Sat, 02 May 2020 16:18:30 +0800</pubDate><guid>https://jdhao.github.io/2020/05/02/docker_knowledge_s2/</guid><description>&lt;p>本文总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。&lt;/p></description></item><item><title>Docker 学习系列 --- 1</title><link>https://jdhao.github.io/2020/05/02/docker_knowledge_s1/</link><pubDate>Sat, 02 May 2020 15:23:59 +0800</pubDate><guid>https://jdhao.github.io/2020/05/02/docker_knowledge_s1/</guid><description>&lt;p>Docker 是一种类似虚拟机的机制，允许我们在 host 机器创建一个隔绝的小型操作系统环境，并且可以保存下这个环境（称为 Docker 镜像），把这个 Docker 镜像部署到其他 host 机器，各个机器上的环境完全一致。这样我们就不需要每次在部署新环境的时候，重复执行安装程序、配置环境的流程，大大简化了我们的工作，提升了工作效率。&lt;/p></description></item><item><title>Shadowsocks 配置 obfs</title><link>https://jdhao.github.io/2020/04/25/shadowsocks_obfs_setup/</link><pubDate>Sat, 25 Apr 2020 00:44:29 +0800</pubDate><guid>https://jdhao.github.io/2020/04/25/shadowsocks_obfs_setup/</guid><description>&lt;p>最近几个月在手机上使用 justmysocks，感觉速度很慢，经常断流，连接不上。通过搜索，发现原因是使用的线路问题。为了学习之用，我们可以通过配置 &lt;a href="https://github.com/shadowsocks/simple-obfs">obfs&lt;/a> 增强服务稳定性。&lt;/p></description></item><item><title>Git Learning Notes (1)</title><link>https://jdhao.github.io/2020/04/23/git_learning_notes_s1/</link><pubDate>Thu, 23 Apr 2020 00:05:20 +0800</pubDate><guid>https://jdhao.github.io/2020/04/23/git_learning_notes_s1/</guid><description>&lt;p>This is my personal note of learning Git.&lt;/p></description></item><item><title>Convert PPTX Slides to JPEG Images on Linux</title><link>https://jdhao.github.io/2020/03/30/pptx_to_image/</link><pubDate>Mon, 30 Mar 2020 22:30:20 +0800</pubDate><guid>https://jdhao.github.io/2020/03/30/pptx_to_image/</guid><description>&lt;p>A short post on how to convert PPTX file to images. There are two steps. The
 first step is to from PPTX to PDF, and the second step is from PDF to JPEG
-image.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Point to Line Distance in 2D Plane</title>
-      <link>https://jdhao.github.io/2020/02/23/point_to_line_dist_2d/</link>
-      <pubDate>Sun, 23 Feb 2020 18:36:27 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/02/23/point_to_line_dist_2d/</guid>
-      <description>&lt;p&gt;Suppose that we have a straight line formed by point B and C, and we have another point A. What is the distance from point A to line BC?&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to Convert PDF to Images with Imagemagick</title>
-      <link>https://jdhao.github.io/2019/11/20/convert_pdf_to_image_imagemagick/</link>
-      <pubDate>Wed, 20 Nov 2019 22:20:41 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/11/20/convert_pdf_to_image_imagemagick/</guid>
-      <description>&lt;p&gt;Previously, I have talked about how to convert PDF to images using pdftoppm
-&lt;a href=&#34;https://jdhao.github.io/2019/11/14/convert_pdf_to_images_pdftoppm/&#34;&gt;here&lt;/a&gt;.
+image.&lt;/p></description></item><item><title>Point to Line Distance in 2D Plane</title><link>https://jdhao.github.io/2020/02/23/point_to_line_dist_2d/</link><pubDate>Sun, 23 Feb 2020 18:36:27 +0800</pubDate><guid>https://jdhao.github.io/2020/02/23/point_to_line_dist_2d/</guid><description>&lt;p>Suppose that we have a straight line formed by point B and C, and we have another point A. What is the distance from point A to line BC?&lt;/p></description></item><item><title>How to Convert PDF to Images with Imagemagick</title><link>https://jdhao.github.io/2019/11/20/convert_pdf_to_image_imagemagick/</link><pubDate>Wed, 20 Nov 2019 22:20:41 +0800</pubDate><guid>https://jdhao.github.io/2019/11/20/convert_pdf_to_image_imagemagick/</guid><description>&lt;p>Previously, I have talked about how to convert PDF to images using pdftoppm
+&lt;a href="https://jdhao.github.io/2019/11/14/convert_pdf_to_images_pdftoppm/">here&lt;/a>.
 In this post, I want to share how to accomplish this task with
-&lt;a href=&#34;https://imagemagick.org/index.php&#34;&gt;Imagemagick&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>互联网上常用缩略语集锦</title>
-      <link>https://jdhao.github.io/2019/11/18/acronym_on_internet_and_forum/</link>
-      <pubDate>Mon, 18 Nov 2019 23:46:54 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/11/18/acronym_on_internet_and_forum/</guid>
-      <description>&lt;p&gt;上 &lt;a href=&#34;https://www.reddit.com/&#34;&gt;Reddit&lt;/a&gt; 或者 GitHub 时，在讨论中，经常会碰到一些缩略语，作为一名非 native speaker，经常有点摸不着头脑，不知道这些缩略语啥意思，这篇文章总结一些常用缩略语以及中文含义。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>更改 Adsense 邮寄地址，重新寄送 PIN</title>
-      <link>https://jdhao.github.io/2019/10/22/adsense_change_address_resend_pin/</link>
-      <pubDate>Tue, 22 Oct 2019 00:22:33 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/10/22/adsense_change_address_resend_pin/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://jdhao.github.io/2019/09/22/google_adsense_hugo_config/#%E5%85%B6%E4%BB%96&#34;&gt;之前的文章&lt;/a&gt;提到过，当 Adsense 帐号的收入达到 10 美元阈值的时候，谷歌会向你注册 Adsense 登记的地址发送一封邮件，里面有验证的 PIN 码，只有验证了 PIN 码，后续才能收到谷歌的付款。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Generating Table of Contents for Markdown with Tagbar</title>
-      <link>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</link>
-      <pubDate>Tue, 15 Oct 2019 01:01:01 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;
-&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20191015001602.png&#34;&gt;
-&lt;/p&gt;
-&lt;p&gt;I have been using Vim plugin Tagbar for viewing and navigating tags inside my
+&lt;a href="https://imagemagick.org/index.php">Imagemagick&lt;/a>.&lt;/p></description></item><item><title>互联网上常用缩略语集锦</title><link>https://jdhao.github.io/2019/11/18/acronym_on_internet_and_forum/</link><pubDate>Mon, 18 Nov 2019 23:46:54 +0800</pubDate><guid>https://jdhao.github.io/2019/11/18/acronym_on_internet_and_forum/</guid><description>&lt;p>上 &lt;a href="https://www.reddit.com/">Reddit&lt;/a> 或者 GitHub 时，在讨论中，经常会碰到一些缩略语，作为一名非 native speaker，经常有点摸不着头脑，不知道这些缩略语啥意思，这篇文章总结一些常用缩略语以及中文含义。&lt;/p></description></item><item><title>更改 Adsense 邮寄地址，重新寄送 PIN</title><link>https://jdhao.github.io/2019/10/22/adsense_change_address_resend_pin/</link><pubDate>Tue, 22 Oct 2019 00:22:33 +0800</pubDate><guid>https://jdhao.github.io/2019/10/22/adsense_change_address_resend_pin/</guid><description>&lt;p>&lt;a href="https://jdhao.github.io/2019/09/22/google_adsense_hugo_config/#%E5%85%B6%E4%BB%96">之前的文章&lt;/a>提到过，当 Adsense 帐号的收入达到 10 美元阈值的时候，谷歌会向你注册 Adsense 登记的地址发送一封邮件，里面有验证的 PIN 码，只有验证了 PIN 码，后续才能收到谷歌的付款。&lt;/p></description></item><item><title>Generating Table of Contents for Markdown with Tagbar</title><link>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</link><pubDate>Tue, 15 Oct 2019 01:01:01 +0800</pubDate><guid>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20191015001602.png">
+&lt;/p>
+&lt;p>I have been using Vim plugin Tagbar for viewing and navigating tags inside my
 source file. However, for Markdown files, there is no support out of the box.
 In this post, I would like to share how to set up tagbar to show tags for
-Markdown.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Ubuntu on Windows Missing after Windows Update</title>
-      <link>https://jdhao.github.io/2019/10/11/wsl_distro_deleted_after_windows_update/</link>
-      <pubDate>Fri, 11 Oct 2019 22:55:01 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/10/11/wsl_distro_deleted_after_windows_update/</guid>
-      <description>&lt;p&gt;I have been using Ubuntu on Windows via WSL for about a year and it works quite
-well.&lt;/p&gt;
-&lt;p&gt;The terminal I use for Ubuntu on Windows is
-&lt;a href=&#34;https://github.com/mintty/wsltty&#34;&gt;wsltty&lt;/a&gt;, which is a thin wrapper around
-&lt;a href=&#34;https://github.com/mintty/mintty&#34;&gt;mintty&lt;/a&gt; and other tools for starting WSL
+Markdown.&lt;/p></description></item><item><title>Ubuntu on Windows Missing after Windows Update</title><link>https://jdhao.github.io/2019/10/11/wsl_distro_deleted_after_windows_update/</link><pubDate>Fri, 11 Oct 2019 22:55:01 +0800</pubDate><guid>https://jdhao.github.io/2019/10/11/wsl_distro_deleted_after_windows_update/</guid><description>&lt;p>I have been using Ubuntu on Windows via WSL for about a year and it works quite
+well.&lt;/p>
+&lt;p>The terminal I use for Ubuntu on Windows is
+&lt;a href="https://github.com/mintty/wsltty">wsltty&lt;/a>, which is a thin wrapper around
+&lt;a href="https://github.com/mintty/mintty">mintty&lt;/a> and other tools for starting WSL
 sessions. Recently, when I start clicking the WSL Terminal icon, it start a
-Window and then quit silently.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Why Doesn&#39;t Jedi Autocompletion Work for Some Methods</title>
-      <link>https://jdhao.github.io/2019/05/13/jedi_autocomplete_type_hints/</link>
-      <pubDate>Mon, 13 May 2019 20:36:10 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/05/13/jedi_autocomplete_type_hints/</guid>
-      <description>&lt;p&gt;Currently I am writing all my Python code using Neovim and &lt;a href=&#34;https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/#plugin-install-and-settings&#34;&gt;a couple of
-plugins&lt;/a&gt;
-to provide auto-completion, linting, etc.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Display Image with Pillow inside Ubuntu on Windows</title>
-      <link>https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/</link>
-      <pubDate>Sat, 16 Feb 2019 11:42:55 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/</guid>
-      <description>&lt;p&gt;With the help of &lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/about&#34;&gt;Windows Subsystem for Linux (WSL, for
-short)&lt;/a&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, we can use the
-&lt;em&gt;nearly full&lt;/em&gt; Linux environment on Windows system. In this post, I would like
+Window and then quit silently.&lt;/p></description></item><item><title>Why Doesn't Jedi Autocompletion Work for Some Methods</title><link>https://jdhao.github.io/2019/05/13/jedi_autocomplete_type_hints/</link><pubDate>Mon, 13 May 2019 20:36:10 +0800</pubDate><guid>https://jdhao.github.io/2019/05/13/jedi_autocomplete_type_hints/</guid><description>&lt;p>Currently I am writing all my Python code using Neovim and &lt;a href="https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/#plugin-install-and-settings">a couple of
+plugins&lt;/a>
+to provide auto-completion, linting, etc.&lt;/p></description></item><item><title>Display Image with Pillow inside Ubuntu on Windows</title><link>https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/</link><pubDate>Sat, 16 Feb 2019 11:42:55 +0800</pubDate><guid>https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/</guid><description>&lt;p>With the help of &lt;a href="https://docs.microsoft.com/en-us/windows/wsl/about">Windows Subsystem for Linux (WSL, for
+short)&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, we can use the
+&lt;em>nearly full&lt;/em> Linux environment on Windows system. In this post, I would like
 to share how to display images inside Ubuntu on Windows, which is one of the
-popular distrubtions.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Deoplete Failed to Load at Startup after Updating Python neovim Package</title>
-      <link>https://jdhao.github.io/2018/11/19/deoplete_failed_to_load_neovim/</link>
-      <pubDate>Mon, 19 Nov 2018 18:18:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/11/19/deoplete_failed_to_load_neovim/</guid>
-      <description>&lt;p&gt;Today when I use &lt;code&gt;:checkhealth&lt;/code&gt; to check if there are anything wrong with my
-Neovim and related packages. I got an info that &lt;a href=&#34;https://github.com/neovim/pynvim&#34;&gt;Python &lt;code&gt;neovim&lt;/code&gt;
-package&lt;/a&gt; is not up to date. So I tried to
-update neovim with &lt;code&gt;pip install --upgrade neovim&lt;/code&gt;. This is the start of a
-disaster which wastes me several hours.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>What Is The Difference between pip, pip3 and pip3.6 Shipped with Anaconda3?</title>
-      <link>https://jdhao.github.io/2018/11/19/anaconda3_windows_difference_between_pip_pip3/</link>
-      <pubDate>Mon, 19 Nov 2018 16:30:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/11/19/anaconda3_windows_difference_between_pip_pip3/</guid>
-      <description>&lt;p&gt;On Windows system, if you install Python3 via
-&lt;a href=&#34;https://www.anaconda.com/download/#windows&#34;&gt;Anaconda&lt;/a&gt;. Under Anaconda root directory,
-there is a directory named &lt;code&gt;Scripts&lt;/code&gt;, in which &lt;code&gt;pip.exe&lt;/code&gt;, &lt;code&gt;pip3.exe&lt;/code&gt; and
-&lt;code&gt;pip3.6.exe&lt;/code&gt; all exist. When we want to install a package, a natural question
-arises, is there any difference if I use &lt;code&gt;pip install PACKAGE&lt;/code&gt; or &lt;code&gt;pip3 install PACKAGE&lt;/code&gt;?&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to Use shutil.move() on Windows and Linux</title>
-      <link>https://jdhao.github.io/2018/11/15/shutil_linux_windows_usage/</link>
-      <pubDate>Thu, 15 Nov 2018 20:58:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/11/15/shutil_linux_windows_usage/</guid>
-      <description>&lt;p&gt;Today when I try to move a file using
-&lt;a href=&#34;https://docs.python.org/3/library/shutil.html#shutil.move&#34;&gt;&lt;code&gt;shutil.move()&lt;/code&gt;&lt;/a&gt; on
-my Windows machine, I encounter an error message:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;PermissionError: [WinError 32] The process cannot access the file because it is being used by another process&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;In this post, I will write about what I have learned from this error.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Fixing the nerdtree Window Problem with `bd` Command in Nvim</title>
-      <link>https://jdhao.github.io/2018/10/09/nerdtree_windows_issue_bd_vim/</link>
-      <pubDate>Tue, 09 Oct 2018 12:19:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/10/09/nerdtree_windows_issue_bd_vim/</guid>
-      <description>&lt;p&gt;If you have a nerdtree file navigation window on the left of the current buffer
-and use &lt;code&gt;:bd&lt;/code&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;, you will find that the nerdtree window will occupy the whole
-window.  When you open another buffer, you have to manually resize the nerdtree
-window to a smaller size, which is super annoying.&lt;/p&gt;
-&lt;p&gt;How to prevent this behaviour?&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Server Autologin with Expect</title>
-      <link>https://jdhao.github.io/2018/10/08/server_autologin_with_expect/</link>
-      <pubDate>Mon, 08 Oct 2018 23:01:24 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/10/08/server_autologin_with_expect/</guid>
-      <description>&lt;p&gt;I use a Windows 10 machine and need to connect to Linux servers. After using
-several &lt;a href=&#34;https://www.slant.co/topics/149/~best-ssh-clients-for-windows&#34;&gt;ssh clients&lt;/a&gt;
+popular distrubtions.&lt;/p></description></item><item><title>Deoplete Failed to Load at Startup after Updating Python neovim Package</title><link>https://jdhao.github.io/2018/11/19/deoplete_failed_to_load_neovim/</link><pubDate>Mon, 19 Nov 2018 18:18:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/19/deoplete_failed_to_load_neovim/</guid><description>&lt;p>Today when I use &lt;code>:checkhealth&lt;/code> to check if there are anything wrong with my
+Neovim and related packages. I got an info that &lt;a href="https://github.com/neovim/pynvim">Python &lt;code>neovim&lt;/code>
+package&lt;/a> is not up to date. So I tried to
+update neovim with &lt;code>pip install --upgrade neovim&lt;/code>. This is the start of a
+disaster which wastes me several hours.&lt;/p></description></item><item><title>What Is The Difference between pip, pip3 and pip3.6 Shipped with Anaconda3?</title><link>https://jdhao.github.io/2018/11/19/anaconda3_windows_difference_between_pip_pip3/</link><pubDate>Mon, 19 Nov 2018 16:30:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/19/anaconda3_windows_difference_between_pip_pip3/</guid><description>&lt;p>On Windows system, if you install Python3 via
+&lt;a href="https://www.anaconda.com/download/#windows">Anaconda&lt;/a>. Under Anaconda root directory,
+there is a directory named &lt;code>Scripts&lt;/code>, in which &lt;code>pip.exe&lt;/code>, &lt;code>pip3.exe&lt;/code> and
+&lt;code>pip3.6.exe&lt;/code> all exist. When we want to install a package, a natural question
+arises, is there any difference if I use &lt;code>pip install PACKAGE&lt;/code> or &lt;code>pip3 install PACKAGE&lt;/code>?&lt;/p></description></item><item><title>How to Use shutil.move() on Windows and Linux</title><link>https://jdhao.github.io/2018/11/15/shutil_linux_windows_usage/</link><pubDate>Thu, 15 Nov 2018 20:58:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/15/shutil_linux_windows_usage/</guid><description>&lt;p>Today when I try to move a file using
+&lt;a href="https://docs.python.org/3/library/shutil.html#shutil.move">&lt;code>shutil.move()&lt;/code>&lt;/a> on
+my Windows machine, I encounter an error message:&lt;/p>
+&lt;blockquote>
+&lt;p>PermissionError: [WinError 32] The process cannot access the file because it is being used by another process&lt;/p>
+&lt;/blockquote>
+&lt;p>In this post, I will write about what I have learned from this error.&lt;/p></description></item><item><title>Fixing the nerdtree Window Problem with `bd` Command in Nvim</title><link>https://jdhao.github.io/2018/10/09/nerdtree_windows_issue_bd_vim/</link><pubDate>Tue, 09 Oct 2018 12:19:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/09/nerdtree_windows_issue_bd_vim/</guid><description>&lt;p>If you have a nerdtree file navigation window on the left of the current buffer
+and use &lt;code>:bd&lt;/code>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, you will find that the nerdtree window will occupy the whole
+window. When you open another buffer, you have to manually resize the nerdtree
+window to a smaller size, which is super annoying.&lt;/p>
+&lt;p>How to prevent this behaviour?&lt;/p></description></item><item><title>Server Autologin with Expect</title><link>https://jdhao.github.io/2018/10/08/server_autologin_with_expect/</link><pubDate>Mon, 08 Oct 2018 23:01:24 +0800</pubDate><guid>https://jdhao.github.io/2018/10/08/server_autologin_with_expect/</guid><description>&lt;p>I use a Windows 10 machine and need to connect to Linux servers. After using
+several &lt;a href="https://www.slant.co/topics/149/~best-ssh-clients-for-windows">ssh clients&lt;/a>
 for connecting to the server, I finally settled for
-&lt;a href=&#34;https://www.cygwin.com/&#34;&gt;Cygwin&lt;/a&gt; and
-&lt;a href=&#34;https://github.com/mintty/wsltty&#34;&gt;Wsltty&lt;/a&gt;, which is open-sourced and use the
-well-known &lt;a href=&#34;https://github.com/mintty/mintty&#34;&gt;mintty terminal&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;But one feature I miss from the SSH tools such as MobaXterm or Xshell is that
+&lt;a href="https://www.cygwin.com/">Cygwin&lt;/a> and
+&lt;a href="https://github.com/mintty/wsltty">Wsltty&lt;/a>, which is open-sourced and use the
+well-known &lt;a href="https://github.com/mintty/mintty">mintty terminal&lt;/a>.&lt;/p>
+&lt;p>But one feature I miss from the SSH tools such as MobaXterm or Xshell is that
 these tools can save the server IP, port, user name and even password, so that
-you can log into the server with just a click.&lt;/p&gt;
-&lt;p&gt;With mintty terminal, I have to manually ssh to my server each time, which is
+you can log into the server with just a click.&lt;/p>
+&lt;p>With mintty terminal, I have to manually ssh to my server each time, which is
 tedious and time consuming. Fortunately, I have found the
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Expect&#34;&gt;Expect&lt;/a&gt; scripting language which is
-pretty powerful for this task.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to Replace A Page of PDF File with Another PDF</title>
-      <link>https://jdhao.github.io/2018/06/04/insert-image-page-to-pdf/</link>
-      <pubDate>Mon, 04 Jun 2018 14:18:34 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/06/04/insert-image-page-to-pdf/</guid>
-      <description>&lt;p&gt;In this post, I want to write about how to replace one page of existing PDF
-files with a new PDF image.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;a href="https://en.wikipedia.org/wiki/Expect">Expect&lt;/a> scripting language which is
+pretty powerful for this task.&lt;/p></description></item><item><title>How to Replace A Page of PDF File with Another PDF</title><link>https://jdhao.github.io/2018/06/04/insert-image-page-to-pdf/</link><pubDate>Mon, 04 Jun 2018 14:18:34 +0800</pubDate><guid>https://jdhao.github.io/2018/06/04/insert-image-page-to-pdf/</guid><description>&lt;p>In this post, I want to write about how to replace one page of existing PDF
+files with a new PDF image.&lt;/p></description></item></channel></rss>

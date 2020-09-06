@@ -1,48 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>GitHub on jdhao&#39;s blog</title>
-    <link>https://jdhao.github.io/tags/GitHub/</link>
-    <description>Recent content in GitHub on jdhao&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>jdhao</copyright>
-    <lastBuildDate>Wed, 16 May 2018 16:22:54 +0800</lastBuildDate>
-    
-	<atom:link href="https://jdhao.github.io/tags/GitHub/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>How to Push Local Git Repo to Remote Repo in GitHub</title>
-      <link>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</link>
-      <pubDate>Wed, 16 May 2018 16:22:54 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</guid>
-      <description>There are two basic cases when we push our local repo to remote repo. These two cases differ in their settings. But sometimes, we are easily confused.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GitHub on jdhao's blog</title><link>https://jdhao.github.io/tags/GitHub/</link><description>Recent content in GitHub on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Wed, 16 May 2018 16:22:54 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/GitHub/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Push Local Git Repo to Remote Repo in GitHub</title><link>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</link><pubDate>Wed, 16 May 2018 16:22:54 +0800</pubDate><guid>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</guid><description>There are two basic cases when we push our local repo to remote repo. These two cases differ in their settings. But sometimes, we are easily confused.
 First scenario The first case is that you have created a local repo and want to store it on GitHub later. In this case, your usual work flow for local repo is:
- Initialize the local repo (git init) Write you code and document, etc.</description>
-    </item>
-    
-    <item>
-      <title>A Tutorial on Creating GitHub Pull Requests</title>
-      <link>https://jdhao.github.io/2018/05/06/first-github-pull-request/</link>
-      <pubDate>Sun, 06 May 2018 15:23:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/05/06/first-github-pull-request/</guid>
-      <description>Today I make my first ever GitHub pull request to the great Hexo theme NexT. I will summarize how to make a pull request in following post.
+Initialize the local repo (git init) Write you code and document, etc.</description></item><item><title>A Tutorial on Creating GitHub Pull Requests</title><link>https://jdhao.github.io/2018/05/06/first-github-pull-request/</link><pubDate>Sun, 06 May 2018 15:23:00 +0800</pubDate><guid>https://jdhao.github.io/2018/05/06/first-github-pull-request/</guid><description>Today I make my first ever GitHub pull request to the great Hexo theme NexT. I will summarize how to make a pull request in following post.
 Creating a fork According to GitHub documentation:
- If you don&amp;rsquo;t have write access to the repository where you&amp;rsquo;d like to create a pull request, you must create a fork, or copy, of the repository first.
- If you do not have write access to the repository you want to contribute to, the first step is to fork it.</description>
-    </item>
-    
-    <item>
-      <title>A New Start</title>
-      <link>https://jdhao.github.io/2017/02/24/my_first_post/</link>
-      <pubDate>Fri, 24 Feb 2017 22:48:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2017/02/24/my_first_post/</guid>
-      <description>去年的时候还是前年，在谷歌上搜索东西，看到了很多人的博客都是用 GitHub 托管的， 使用 GitHub 提供的 GitHub Pages 功能。我一看就喜欢 上这种开源并且简洁的方式，却没有立</description>
-    </item>
-    
-  </channel>
-</rss>
+If you don&amp;rsquo;t have write access to the repository where you&amp;rsquo;d like to create a pull request, you must create a fork, or copy, of the repository first.
+If you do not have write access to the repository you want to contribute to, the first step is to fork it.</description></item><item><title>A New Start</title><link>https://jdhao.github.io/2017/02/24/my_first_post/</link><pubDate>Fri, 24 Feb 2017 22:48:00 +0800</pubDate><guid>https://jdhao.github.io/2017/02/24/my_first_post/</guid><description>去年的时候还是前年，在谷歌上搜索东西，看到了很多人的博客都是用 GitHub 托管的， 使用 GitHub 提供的 GitHub Pages 功能。我一看就喜欢 上这种开源并且简洁的方式，却没有立</description></item></channel></rss>

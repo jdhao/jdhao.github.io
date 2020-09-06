@@ -1,227 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>How to Create Proper Folding for Vim/Nvim Configuration - jdhao&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jdhao" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
-
-
-
-<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
-
-
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
-
-
-<link rel="canonical" href="https://jdhao.github.io/2019/08/16/nvim_config_folding/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6058871559165202",
-    enable_page_level_ads: true
-  });
-</script>
-
-
-
-
-<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="How to Create Proper Folding for Vim/Nvim Configuration" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2019/08/16/nvim_config_folding/" />
-<meta property="article:published_time" content="2019-08-16T22:56:20+08:00" />
-<meta property="article:modified_time" content="2020-03-17T23:47:47+08:00" />
-<meta itemprop="name" content="How to Create Proper Folding for Vim/Nvim Configuration">
-<meta itemprop="description" content="">
-<meta itemprop="datePublished" content="2019-08-16T22:56:20+08:00" />
-<meta itemprop="dateModified" content="2020-03-17T23:47:47+08:00" />
-<meta itemprop="wordCount" content="1004">
-
-
-
-<meta itemprop="keywords" content="folding,Vim," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="How to Create Proper Folding for Vim/Nvim Configuration"/>
-<meta name="twitter:description" content=""/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jdhao&#39;s blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jdhao&#39;s blog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">How to Create Proper Folding for Vim/Nvim Configuration</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2019-08-16 </span>
-        <div class="post-category">
-            <a href="/categories/Nvim/"> Nvim </a>
-            </div>
-          <span class="more-meta"> 1004 words </span>
-          <span class="more-meta"> 5 mins read </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#folding-with-marker">Folding with Marker</a></li>
-    <li><a href="#folding-with-expression">Folding with Expression</a></li>
-    <li><a href="#custom-folding-text">Custom Folding Text</a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
-    <li><a href="#references">References</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p><img src="https://blog-resource-1257868508.file.myqcloud.com/20190817223054.png" alt="Folded config"></p>
-<h1 id="introduction">Introduction</h1>
-<p>I started using Neovim about a year ago. During the process, I have been
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>How to Create Proper Folding for Vim/Nvim Configuration - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://jdhao.github.io/2019/08/16/nvim_config_folding/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="How to Create Proper Folding for Vim/Nvim Configuration"><meta property="og:description" content><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/08/16/nvim_config_folding/"><meta property="article:published_time" content="2019-08-16T22:56:20+08:00"><meta property="article:modified_time" content="2020-03-17T23:47:47+08:00"><meta itemprop=name content="How to Create Proper Folding for Vim/Nvim Configuration"><meta itemprop=description content><meta itemprop=datePublished content="2019-08-16T22:56:20+08:00"><meta itemprop=dateModified content="2020-03-17T23:47:47+08:00"><meta itemprop=wordCount content="1004"><meta itemprop=keywords content="folding,Vim,"><meta name=twitter:card content="summary"><meta name=twitter:title content="How to Create Proper Folding for Vim/Nvim Configuration"><meta name=twitter:description content><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>How to Create Proper Folding for Vim/Nvim Configuration</h1><div class=post-meta><span class=post-time>2019-08-16</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>1004 words</span>
+<span class=more-meta>5 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#introduction>Introduction</a></li><li><a href=#folding-with-marker>Folding with Marker</a></li><li><a href=#folding-with-expression>Folding with Expression</a></li><li><a href=#custom-folding-text>Custom Folding Text</a></li><li><a href=#conclusion>Conclusion</a></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p><img src=https://blog-resource-1257868508.file.myqcloud.com/20190817223054.png alt="Folded config"></p><h1 id=introduction>Introduction</h1><p>I started using Neovim about a year ago. During the process, I have been
 constantly evolving my configuration (the <code>init.vim</code> file): adding some
 settings and plugins and dropping others. At its peak, my <code>init.vim</code> has over
 1600 lines of settings and comments. Managing a configuration of this size
 requires grouping the relevant settings into different sections or even
 subsections. This is when I started thinking about folding my configuration
-properly. The end result is shown in the title image.</p>
-<p>Nvim offers several methods to fold a file:</p>
-<ul>
-<li><a href="https://neovim.io/doc/user/fold.html#fold-manual">fold-manual</a></li>
-<li><a href="https://neovim.io/doc/user/fold.html#fold-indent">fold-indent</a></li>
-<li><a href="https://neovim.io/doc/user/fold.html#fold-expr">fold-expr</a></li>
-<li><a href="https://neovim.io/doc/user/fold.html#fold-marker">fold-marker</a></li>
-<li><a href="https://neovim.io/doc/user/fold.html#fold-syntax">fold-syntax</a></li>
-<li><a href="https://neovim.io/doc/user/fold.html#fold-diff">fold-diff</a></li>
-</ul>
-<p>I found that <code>fold-expr</code> and <code>fold-marker</code> is easy to use and understand. In
-this article, I only introduce these two methods.</p>
-<h1 id="folding-with-marker">Folding with Marker</h1>
-<p>When we fold with a marker, Nvim will create a fold where the fold marker
+properly. The end result is shown in the title image.</p><p>Nvim offers several methods to fold a file:</p><ul><li><a href=https://neovim.io/doc/user/fold.html#fold-manual>fold-manual</a></li><li><a href=https://neovim.io/doc/user/fold.html#fold-indent>fold-indent</a></li><li><a href=https://neovim.io/doc/user/fold.html#fold-expr>fold-expr</a></li><li><a href=https://neovim.io/doc/user/fold.html#fold-marker>fold-marker</a></li><li><a href=https://neovim.io/doc/user/fold.html#fold-syntax>fold-syntax</a></li><li><a href=https://neovim.io/doc/user/fold.html#fold-diff>fold-diff</a></li></ul><p>I found that <code>fold-expr</code> and <code>fold-marker</code> is easy to use and understand. In
+this article, I only introduce these two methods.</p><h1 id=folding-with-marker>Folding with Marker</h1><p>When we fold with a marker, Nvim will create a fold where the fold marker
 appears. The default fold marker is <code>{{{</code> (for opening a fold) and <code>}}}</code> (for
 closing a fold). To fold the Nvim config with marker, you have to use <code>marker</code>
-as the folding method:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">set</span> <span class="nx">foldmethod</span><span class="p">=</span><span class="nx">marker</span><span class="err">
+as the folding method:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>set</span> <span class=nx>foldmethod</span><span class=p>=</span><span class=nx>marker</span><span class=err>
 </span></code></pre></div><p>To indicate the fold level, you can append a number after the fold marker. I
-show an example config using fold markers below:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="c">&#34;{{{ Some settings</span><span class="err">
-</span><span class="err"></span><span class="c">&#34;{{{2 Plugin install</span><span class="err">
-</span><span class="err"></span><span class="nx">call</span> <span class="nx">plug</span>#<span class="nx">begin</span><span class="p">(</span><span class="nx">expand</span><span class="p">(</span><span class="s1">&#39;~/.local/share/nvim/plugged&#39;</span><span class="p">))</span><span class="err">
-</span><span class="err"></span><span class="nx">Plug</span> <span class="s1">&#39;neoclide/coc.nvim&#39;</span><span class="p">,</span> {<span class="s1">&#39;do&#39;</span>: <span class="s1">&#39;./install.sh&#39;</span>}<span class="err">
-</span><span class="err"></span><span class="nx">Plug</span> <span class="s1">&#39;Shougo/neco-vim&#39;</span><span class="err">
-</span><span class="err"></span><span class="nx">Plug</span> <span class="s1">&#39;neoclide/coc-neco&#39;</span><span class="err">
-</span><span class="err"></span><span class="nx">call</span> <span class="nx">plug</span>#<span class="nx">end</span><span class="p">()</span><span class="err">
-</span><span class="err"></span><span class="c">&#34;}}}2</span><span class="err">
-</span><span class="err"></span><span class="c">
-</span><span class="c">&#34;{{{2 Builtin options</span><span class="err">
-</span><span class="err"></span><span class="nx">set</span> <span class="nx">number</span><span class="err">
-</span><span class="err"></span><span class="nx">set</span> <span class="nx">relativenumber</span><span class="err">
-</span><span class="err"></span><span class="nx">set</span> <span class="nx">pyxversion</span><span class="p">=</span><span class="m">3</span><span class="err">
-</span><span class="err"></span><span class="nx">set</span> <span class="nx">foldmethod</span><span class="p">=</span><span class="nx">marker</span><span class="err">
-</span><span class="err"></span><span class="nx">set</span> <span class="nx">wildoptions</span><span class="p">=</span><span class="nx">pum</span><span class="err">
-</span><span class="err"></span><span class="c">&#34;}}}2</span><span class="err">
-</span><span class="err"></span><span class="c">&#34;}}}1</span><span class="err">
-</span><span class="err"></span><span class="c">
-</span><span class="c">&#34;{{{ Color schemes</span><span class="err">
-</span><span class="err"></span><span class="nx">set</span> <span class="nx">background</span><span class="p">=</span><span class="nb">dark</span><span class="err">
-</span><span class="err"></span><span class="nx">color</span> <span class="nx">desert</span><span class="err">
-</span><span class="err"></span><span class="c">&#34;}}}</span><span class="err">
+show an example config using fold markers below:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=c>&#34;{{{ Some settings</span><span class=err>
+</span><span class=err></span><span class=c>&#34;{{{2 Plugin install</span><span class=err>
+</span><span class=err></span><span class=nx>call</span> <span class=nx>plug</span>#<span class=nx>begin</span><span class=p>(</span><span class=nx>expand</span><span class=p>(</span><span class=s1>&#39;~/.local/share/nvim/plugged&#39;</span><span class=p>))</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;neoclide/coc.nvim&#39;</span><span class=p>,</span> {<span class=s1>&#39;do&#39;</span>: <span class=s1>&#39;./install.sh&#39;</span>}<span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;Shougo/neco-vim&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;neoclide/coc-neco&#39;</span><span class=err>
+</span><span class=err></span><span class=nx>call</span> <span class=nx>plug</span>#<span class=nx>end</span><span class=p>()</span><span class=err>
+</span><span class=err></span><span class=c>&#34;}}}2</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34;{{{2 Builtin options</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>number</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>relativenumber</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>pyxversion</span><span class=p>=</span><span class=m>3</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>foldmethod</span><span class=p>=</span><span class=nx>marker</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>wildoptions</span><span class=p>=</span><span class=nx>pum</span><span class=err>
+</span><span class=err></span><span class=c>&#34;}}}2</span><span class=err>
+</span><span class=err></span><span class=c>&#34;}}}1</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34;{{{ Color schemes</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>background</span><span class=p>=</span><span class=nb>dark</span><span class=err>
+</span><span class=err></span><span class=nx>color</span> <span class=nx>desert</span><span class=err>
+</span><span class=err></span><span class=c>&#34;}}}</span><span class=err>
 </span></code></pre></div><p>In the above sample configuration, I define two level 1 sections. Inside the
-first level 1 section, there are two level 2 sub-sections.</p>
-<p>If you open Nvim with the above configuration:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">nvim -u init.vim init.vim
-</code></pre></div><p>the folding is like the following:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">+-- 17 lines: Some settings ··········································
+first level 1 section, there are two level 2 sub-sections.</p><p>If you open Nvim with the above configuration:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>nvim -u init.vim init.vim
+</code></pre></div><p>the folding is like the following:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>+-- 17 lines: Some settings ··········································
 
 +--  4 lines: Color schemes···········································
 </code></pre></div><p>Two level 1 folds will be shown. Go to the first level 1 fold and use <code>zo</code> to
-open the fold. Now the buffer will be shown as the following:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&#34;{{{ Some settings
+open the fold. Now the buffer will be shown as the following:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>&#34;{{{ Some settings
 +---  7 lines: Plugin install·········································
 
 +---  7 lines: Builtin options········································
@@ -229,273 +48,93 @@ open the fold. Now the buffer will be shown as the following:</p>
 
 +--  4 lines: Color schemes···········································
 </code></pre></div><p>In the closed fold line, there are some texts shown to indicate the meaning of
-this fold and how many lines have been folded<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. It is called
+this fold and how many lines have been folded<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. It is called
 <a href="https://neovim.io/doc/user/options.html#'foldtext'"><code>foldtext</code></a> in Nvim. By
 default, the <code>foldtext</code> option will use the function
-<a href="https://neovim.io/doc/user/eval.html#foldtext()"><code>foldtext()</code></a> to evaluate the
+<a href=https://neovim.io/doc/user/eval.html#foldtext()><code>foldtext()</code></a> to evaluate the
 opening fold line and return a reasonable string as the fold text. See the
 <code>foldtext()</code> doc for details. If you are not satisfied with the style of the
 default fold text, you may define your fold text function to replace the
-<code>foldtext()</code>. We will cover that later in this post.</p>
-<h1 id="folding-with-expression">Folding with Expression</h1>
-<p>Folding with marker is not flexible enough since you have to use the marker and
+<code>foldtext()</code>. We will cover that later in this post.</p><h1 id=folding-with-expression>Folding with Expression</h1><p>Folding with marker is not flexible enough since you have to use the marker and
 indicate the folding level by appending a number behind the marker. Folding
-with expression is more flexible and powerful.</p>
-<p>To fold Nvim config with an expression, you have to use <code>expr</code> for the
-<code>foldmethod</code> option and define your custom folding function:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">set</span> <span class="nx">foldmethod</span><span class="p">=</span><span class="nx">expr</span><span class="err">
-</span><span class="err"></span><span class="nx">set</span> <span class="nx">foldexpr</span><span class="p">=</span><span class="nx">VimFolds</span><span class="p">(</span><span class="nx">v</span>:<span class="nx">lnum</span><span class="p">)</span><span class="err">
+with expression is more flexible and powerful.</p><p>To fold Nvim config with an expression, you have to use <code>expr</code> for the
+<code>foldmethod</code> option and define your custom folding function:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>set</span> <span class=nx>foldmethod</span><span class=p>=</span><span class=nx>expr</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>foldexpr</span><span class=p>=</span><span class=nx>VimFolds</span><span class=p>(</span><span class=nx>v</span>:<span class=nx>lnum</span><span class=p>)</span><span class=err>
 </span></code></pre></div><p>In the above settings, we define the folding function <code>VimFolds()</code>, which will
 evaluate each line of the config and return its folding level. The variable
 <code>v:lnum</code> is a special variable which indicates the current line the folding
 function is evaluating. That is where the power of <code>fold-expr</code> resides: you can
 structure your configuration the way you want and use the folding function to
-parse the config and returns the correct folding level for each line.</p>
-<p>With custom folding expression, we can define our own fold indicator. For
+parse the config and returns the correct folding level for each line.</p><p>With custom folding expression, we can define our own fold indicator. For
 example, I am currently using the number of <code>{</code> to indicate the level of a
-folding:</p>
-<ul>
-<li><code>&quot;{</code>: level 1</li>
-<li><code>&quot;{{</code>: level 2</li>
-<li><code>&quot;{{{</code>: level 3</li>
-<li>&hellip;&hellip;</li>
-</ul>
-<p>I use the following folding function to parse the configuration:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="k">function</span><span class="p">!</span> <span class="nx">VimFolds</span><span class="p">(</span><span class="nx">lnum</span><span class="p">)</span><span class="err">
-</span><span class="err"></span><span class="c">    &#34; get content of current line and the line below</span><span class="err">
-</span><span class="err"></span>    <span class="k">let</span> <span class="nx">l</span>:<span class="nx">cur_line</span> <span class="p">=</span> <span class="nx">getline</span><span class="p">(</span><span class="nx">a</span>:<span class="nx">lnum</span><span class="p">)</span><span class="err">
-</span><span class="err"></span>    <span class="k">let</span> <span class="nx">l</span>:<span class="nx">next_line</span> <span class="p">=</span> <span class="nx">getline</span><span class="p">(</span><span class="nx">a</span>:<span class="nx">lnum</span><span class="p">+</span><span class="m">1</span><span class="p">)</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span>    <span class="k">if</span> <span class="nx">l</span>:<span class="nx">cur_line</span> <span class="p">=~</span># <span class="s1">&#39;^&#34;{&#39;</span><span class="err">
-</span><span class="err"></span>        <span class="nx">return</span> <span class="s1">&#39;&gt;&#39;</span> . <span class="p">(</span><span class="nx">matchend</span><span class="p">(</span><span class="nx">l</span>:<span class="nx">cur_line</span><span class="p">,</span> <span class="s1">&#39;&#34;{*&#39;</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span><span class="p">)</span><span class="err">
-</span><span class="err"></span>    <span class="k">else</span><span class="err">
-</span><span class="err"></span>        <span class="k">if</span> <span class="nx">l</span>:<span class="nx">cur_line</span> <span class="p">==</span># <span class="s1">&#39;&#39;</span> &amp;&amp; <span class="p">(</span><span class="nx">matchend</span><span class="p">(</span><span class="nx">l</span>:<span class="nx">next_line</span><span class="p">,</span> <span class="s1">&#39;&#34;{*&#39;</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span><span class="p">)</span> <span class="p">==</span> <span class="m">1</span><span class="err">
-</span><span class="err"></span>            <span class="nx">return</span> <span class="m">0</span><span class="err">
-</span><span class="err"></span>        <span class="k">else</span><span class="err">
-</span><span class="err"></span>            <span class="nx">return</span> <span class="s1">&#39;=&#39;</span><span class="err">
-</span><span class="err"></span>        <span class="k">endif</span><span class="err">
-</span><span class="err"></span>    <span class="k">endif</span><span class="err">
-</span><span class="err"></span><span class="k">endfunction</span><span class="err">
-</span></code></pre></div><p>For lines starting with <code>&quot;{</code>, the above function will extract the number of
+folding:</p><ul><li><code>"{</code>: level 1</li><li><code>"{{</code>: level 2</li><li><code>"{{{</code>: level 3</li><li>&mldr;&mldr;</li></ul><p>I use the following folding function to parse the configuration:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=k>function</span><span class=p>!</span> <span class=nx>VimFolds</span><span class=p>(</span><span class=nx>lnum</span><span class=p>)</span><span class=err>
+</span><span class=err></span><span class=c>    &#34; get content of current line and the line below</span><span class=err>
+</span><span class=err></span>    <span class=k>let</span> <span class=nx>l</span>:<span class=nx>cur_line</span> <span class=p>=</span> <span class=nx>getline</span><span class=p>(</span><span class=nx>a</span>:<span class=nx>lnum</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=k>let</span> <span class=nx>l</span>:<span class=nx>next_line</span> <span class=p>=</span> <span class=nx>getline</span><span class=p>(</span><span class=nx>a</span>:<span class=nx>lnum</span><span class=p>+</span><span class=m>1</span><span class=p>)</span><span class=err>
+</span><span class=err>
+</span><span class=err></span>    <span class=k>if</span> <span class=nx>l</span>:<span class=nx>cur_line</span> <span class=p>=~</span># <span class=s1>&#39;^&#34;{&#39;</span><span class=err>
+</span><span class=err></span>        <span class=nx>return</span> <span class=s1>&#39;&gt;&#39;</span> . <span class=p>(</span><span class=nx>matchend</span><span class=p>(</span><span class=nx>l</span>:<span class=nx>cur_line</span><span class=p>,</span> <span class=s1>&#39;&#34;{*&#39;</span><span class=p>)</span> <span class=p>-</span> <span class=m>1</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=k>else</span><span class=err>
+</span><span class=err></span>        <span class=k>if</span> <span class=nx>l</span>:<span class=nx>cur_line</span> <span class=p>==</span># <span class=s1>&#39;&#39;</span> &amp;&amp; <span class=p>(</span><span class=nx>matchend</span><span class=p>(</span><span class=nx>l</span>:<span class=nx>next_line</span><span class=p>,</span> <span class=s1>&#39;&#34;{*&#39;</span><span class=p>)</span> <span class=p>-</span> <span class=m>1</span><span class=p>)</span> <span class=p>==</span> <span class=m>1</span><span class=err>
+</span><span class=err></span>            <span class=nx>return</span> <span class=m>0</span><span class=err>
+</span><span class=err></span>        <span class=k>else</span><span class=err>
+</span><span class=err></span>            <span class=nx>return</span> <span class=s1>&#39;=&#39;</span><span class=err>
+</span><span class=err></span>        <span class=k>endif</span><span class=err>
+</span><span class=err></span>    <span class=k>endif</span><span class=err>
+</span><span class=err></span><span class=k>endfunction</span><span class=err>
+</span></code></pre></div><p>For lines starting with <code>"{</code>, the above function will extract the number of
 curly braces and return its folding level. For empty lines which are followed
 by a level 1 fold, its folding level is 0, which means that this line is not
 in a fold and will not be folded. For other lines, its folding level is the
-same as the previous line.</p>
-<p>The format for the folding level can be found in <code>:h fold-expr</code>.</p>
-<h1 id="custom-folding-text">Custom Folding Text</h1>
-<p>Now that we can define the folding level by the folding expression. We need to
+same as the previous line.</p><p>The format for the folding level can be found in <code>:h fold-expr</code>.</p><h1 id=custom-folding-text>Custom Folding Text</h1><p>Now that we can define the folding level by the folding expression. We need to
 customize the folding text as well. Or the fold text produced by the default
-<code>foldtext()</code> function will look ugly:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">+-- 21 lines: { Some settings··················································
+<code>foldtext()</code> function will look ugly:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>+-- 21 lines: { Some settings··················································
 
 +-- 27 lines: { Custom functions···············································
 
 +--  4 lines: { Color schemes··················································
 </code></pre></div><p>To customize the fold text, as I have mentioned earlier, we need to create a
-custom fold text function to produce the folding text we want.</p>
-<p>Below I show a custom folding text function:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="k">function</span><span class="p">!</span> <span class="nx">MyFoldText</span><span class="p">()</span><span class="err">
-</span><span class="err"></span>    <span class="k">let</span> <span class="nx">line</span> <span class="p">=</span> <span class="nx">getline</span><span class="p">(</span><span class="nx">v</span>:<span class="nx">foldstart</span><span class="p">)</span><span class="err">
-</span><span class="err"></span>    <span class="k">let</span> <span class="nx">folded_line_num</span> <span class="p">=</span> <span class="nx">v</span>:<span class="nx">foldend</span> <span class="p">-</span> <span class="nx">v</span>:<span class="nx">foldstart</span><span class="err">
-</span><span class="err"></span>    <span class="k">let</span> <span class="nx">line_text</span> <span class="p">=</span> <span class="nx">substitute</span><span class="p">(</span><span class="nx">line</span><span class="p">,</span> <span class="s1">&#39;^&#34;{\+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">)</span><span class="err">
-</span><span class="err"></span>    <span class="k">let</span> <span class="nx">fillcharcount</span> <span class="p">=</span> &amp;<span class="nx">textwidth</span> <span class="p">-</span> <span class="nx">len</span><span class="p">(</span><span class="nx">line_text</span><span class="p">)</span> <span class="p">-</span> <span class="nx">len</span><span class="p">(</span><span class="nx">folded_line_num</span><span class="p">)</span><span class="err">
-</span><span class="err"></span>    <span class="nx">return</span> <span class="s1">&#39;+&#39;</span>. <span class="nx">repeat</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span> . <span class="nx">line_text</span> . <span class="nx">repeat</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="nx">fillcharcount</span><span class="p">)</span> . <span class="s1">&#39; (&#39;</span> . <span class="nx">folded_line_num</span> . <span class="s1">&#39; L)&#39;</span><span class="err">
-</span><span class="err"></span><span class="k">endfunction</span><span class="err">
+custom fold text function to produce the folding text we want.</p><p>Below I show a custom folding text function:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=k>function</span><span class=p>!</span> <span class=nx>MyFoldText</span><span class=p>()</span><span class=err>
+</span><span class=err></span>    <span class=k>let</span> <span class=nx>line</span> <span class=p>=</span> <span class=nx>getline</span><span class=p>(</span><span class=nx>v</span>:<span class=nx>foldstart</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=k>let</span> <span class=nx>folded_line_num</span> <span class=p>=</span> <span class=nx>v</span>:<span class=nx>foldend</span> <span class=p>-</span> <span class=nx>v</span>:<span class=nx>foldstart</span><span class=err>
+</span><span class=err></span>    <span class=k>let</span> <span class=nx>line_text</span> <span class=p>=</span> <span class=nx>substitute</span><span class=p>(</span><span class=nx>line</span><span class=p>,</span> <span class=s1>&#39;^&#34;{\+&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>,</span> <span class=s1>&#39;g&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=k>let</span> <span class=nx>fillcharcount</span> <span class=p>=</span> &amp;<span class=nx>textwidth</span> <span class=p>-</span> <span class=nx>len</span><span class=p>(</span><span class=nx>line_text</span><span class=p>)</span> <span class=p>-</span> <span class=nx>len</span><span class=p>(</span><span class=nx>folded_line_num</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=nx>return</span> <span class=s1>&#39;+&#39;</span>. <span class=nx>repeat</span><span class=p>(</span><span class=s1>&#39;-&#39;</span><span class=p>,</span> <span class=m>4</span><span class=p>)</span> . <span class=nx>line_text</span> . <span class=nx>repeat</span><span class=p>(</span><span class=s1>&#39;.&#39;</span><span class=p>,</span> <span class=nx>fillcharcount</span><span class=p>)</span> . <span class=s1>&#39; (&#39;</span> . <span class=nx>folded_line_num</span> . <span class=s1>&#39; L)&#39;</span><span class=err>
+</span><span class=err></span><span class=k>endfunction</span><span class=err>
 </span></code></pre></div><p>In the above function, <code>v:foldstart</code> and <code>v:foldend</code> are the special variable
 provided by Vim for a particular folding level. We need to set the <code>foldtext</code>
-option to use the custom function:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">set</span> <span class="nx">foldtext</span><span class="p">=</span><span class="nx">MyFoldText</span><span class="p">()</span><span class="err">
-</span></code></pre></div><p>Reopen Nvim and now the fold text becomes:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Some settings  -------------------------------------------------------- (20 L)···········
+option to use the custom function:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>set</span> <span class=nx>foldtext</span><span class=p>=</span><span class=nx>MyFoldText</span><span class=p>()</span><span class=err>
+</span></code></pre></div><p>Reopen Nvim and now the fold text becomes:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>Some settings  -------------------------------------------------------- (20 L)···········
 
 Custom functions  ----------------------------------------------------- (26 L)···········
 
 Color schemes  --------------------------------------------------------- (3 L)···········
 </code></pre></div><p>The trailing <code>·</code> characters at the end of each folding line is added by Nvim if
 there are spaces after the fold text in the current window. If you do not want
-these trailing characters, you can add the following setting to Nvim config:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="c">&#34; note that there is a space character behind backslash</span><span class="err">
-</span><span class="err"></span><span class="nx">set</span> <span class="nx">fillchars</span><span class="p">=</span><span class="nx">fold</span>:\<span class="err">
-</span></code></pre></div><h1 id="conclusion">Conclusion</h1>
-<p>In this post, I introduced how to create folding for the Nvim configuration
+these trailing characters, you can add the following setting to Nvim config:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; note that there is a space character behind backslash</span><span class=err>
+</span><span class=err></span><span class=nx>set</span> <span class=nx>fillchars</span><span class=p>=</span><span class=nx>fold</span>:\<span class=err>
+</span></code></pre></div><h1 id=conclusion>Conclusion</h1><p>In this post, I introduced how to create folding for the Nvim configuration
 file and use custom folding text for a fold. With this knowledge, you can
-create fancy foldings and folding text as you want.</p>
-<h1 id="references">References</h1>
-<ul>
-<li><a href="https://vi.stackexchange.com/questions/3814/is-there-a-best-practice-to-fold-a-vimrc-file">https://vi.stackexchange.com/questions/3814/is-there-a-best-practice-to-fold-a-vimrc-file</a></li>
-</ul>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p>See <code>:h fold-foldtext</code> for detailed explanations on fold text. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">jdhao</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2020-03-17
-        
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">License</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
-        <span>wechat</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
-        <span>alipay</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/folding/">folding</a>
-          <a href="/tags/Vim/">Vim</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/2019/08/27/latex_table_with_booktabs/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Creating A Professional Table in LaTeX with booktabs</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2019/08/09/linux_command_cheat_sheet_s1/">
-            <span class="next-text nav-default">Linux Command Cheat Sheet</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'jdhao';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
-  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy; 
-    2017 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jdhao</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-113395108-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-
-</body>
-</html>
+create fancy foldings and folding text as you want.</p><h1 id=references>References</h1><ul><li><a href=https://vi.stackexchange.com/questions/3814/is-there-a-best-practice-to-fold-a-vimrc-file>https://vi.stackexchange.com/questions/3814/is-there-a-best-practice-to-fold-a-vimrc-file</a></li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>See <code>:h fold-foldtext</code> for detailed explanations on fold text. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-03-17</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/folding/>folding</a>
+<a href=/tags/Vim/>Vim</a></div><nav class=post-nav><a class=prev href=/2019/08/27/latex_table_with_booktabs/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Creating A Professional Table in LaTeX with booktabs</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2019/08/09/linux_command_cheat_sheet_s1/><span class="next-text nav-default">Linux Command Cheat Sheet</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='jdhao';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+2017 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>

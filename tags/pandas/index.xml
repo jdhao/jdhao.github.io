@@ -1,27 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>pandas on jdhao&#39;s blog</title>
-    <link>https://jdhao.github.io/tags/pandas/</link>
-    <description>Recent content in pandas on jdhao&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>jdhao</copyright>
-    <lastBuildDate>Sun, 13 May 2018 21:24:42 +0800</lastBuildDate>
-    
-	<atom:link href="https://jdhao.github.io/tags/pandas/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>How to Read and Write CSV Files in Python</title>
-      <link>https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/</link>
-      <pubDate>Sun, 13 May 2018 21:24:42 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/</guid>
-      <description>In this post, I will summarize the most convenient way to read and write CSV files (with or without headers) in Python.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pandas on jdhao's blog</title><link>https://jdhao.github.io/tags/pandas/</link><description>Recent content in pandas on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Sun, 13 May 2018 21:24:42 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/pandas/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Read and Write CSV Files in Python</title><link>https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/</link><pubDate>Sun, 13 May 2018 21:24:42 +0800</pubDate><guid>https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/</guid><description>In this post, I will summarize the most convenient way to read and write CSV files (with or without headers) in Python.
 Write CSV files Python has a built-in CSV module which deals with CSV files. In order to write to files in CSV format, we first build a CSV writer and then write to files using this writer. I will give a simple example below:
-import csv lines = [[&amp;#39;Bob&amp;#39;, &amp;#39;male&amp;#39;, &amp;#39;27&amp;#39;], [&amp;#39;Smith&amp;#39;, &amp;#39;male&amp;#39;, &amp;#39;26&amp;#39;], [&amp;#39;Alice&amp;#39;, &amp;#39;female&amp;#39;, &amp;#39;26&amp;#39;]] header = [&amp;#39;name&amp;#39;, &amp;#39;gender&amp;#39;, &amp;#39;age&amp;#39;] with open(&amp;#34;test.</description>
-    </item>
-    
-  </channel>
-</rss>
+import csv lines = [[&amp;#39;Bob&amp;#39;, &amp;#39;male&amp;#39;, &amp;#39;27&amp;#39;], [&amp;#39;Smith&amp;#39;, &amp;#39;male&amp;#39;, &amp;#39;26&amp;#39;], [&amp;#39;Alice&amp;#39;, &amp;#39;female&amp;#39;, &amp;#39;26&amp;#39;]] header = [&amp;#39;name&amp;#39;, &amp;#39;gender&amp;#39;, &amp;#39;age&amp;#39;] with open(&amp;#34;test.</description></item></channel></rss>

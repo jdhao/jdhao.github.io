@@ -1,461 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 1 - jdhao&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jdhao" /><meta name="description" content="In this post, I summarize some nifty little techniques which make my experience of editing in Nvim smoother.
-" /><meta name="keywords" content="Hugo, theme, even" />
-
-
-
-<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
-
-
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
-
-
-<link rel="canonical" href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6058871559165202",
-    enable_page_level_ads: true
-  });
-</script>
-
-
-
-
-<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="Nifty Little Nvim Techniques to Make My Life Easier -- Series 1" />
-<meta property="og:description" content="In this post, I summarize some nifty little techniques which make my experience
-of editing in Nvim smoother." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/" />
-<meta property="article:published_time" content="2019-03-28T00:24:33+08:00" />
-<meta property="article:modified_time" content="2020-04-30T13:56:22+08:00" />
-<meta itemprop="name" content="Nifty Little Nvim Techniques to Make My Life Easier -- Series 1">
-<meta itemprop="description" content="In this post, I summarize some nifty little techniques which make my experience
-of editing in Nvim smoother.">
-<meta itemprop="datePublished" content="2019-03-28T00:24:33+08:00" />
-<meta itemprop="dateModified" content="2020-04-30T13:56:22+08:00" />
-<meta itemprop="wordCount" content="702">
-
-
-
-<meta itemprop="keywords" content="Vim," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Nifty Little Nvim Techniques to Make My Life Easier -- Series 1"/>
-<meta name="twitter:description" content="In this post, I summarize some nifty little techniques which make my experience
-of editing in Nvim smoother."/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jdhao&#39;s blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jdhao&#39;s blog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Nifty Little Nvim Techniques to Make My Life Easier -- Series 1</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2019-03-28 </span>
-        <div class="post-category">
-            <a href="/categories/Nvim/"> Nvim </a>
-            </div>
-          <span class="more-meta"> 702 words </span>
-          <span class="more-meta"> 4 mins read </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#how-do-we-select-the-current-line-but-not-including-the-newline-character">How do we select the current line, but not including the newline character?</a>
-      <ul>
-        <li><a href="#references">References</a></li>
-      </ul>
-    </li>
-    <li><a href="#case-changing-operators">Case-changing operators</a></li>
-    <li><a href="#the-ys-operator">The <code>ys</code> operator</a></li>
-    <li><a href="#how-do-i-check-the-documentation-of-the-keyword-under-the-cursor">How do I check the documentation of the keyword under the cursor?</a>
-      <ul>
-        <li><a href="#references-1">References</a></li>
-      </ul>
-    </li>
-    <li><a href="#setting-up-textwidth-in-nvim">Setting up <code>textwidth</code> in Nvim</a>
-      <ul>
-        <li><a href="#references-2">References</a></li>
-      </ul>
-    </li>
-    <li><a href="#how-to-show-the-full-path-of-current-file">How to show the full path of current file?</a>
-      <ul>
-        <li><a href="#references-3">References</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>In this post, I summarize some nifty little techniques which make my experience
-of editing in <a href="https://github.com/neovim/neovim">Nvim</a> smoother.</p>
-<h1 id="how-do-we-select-the-current-line-but-not-including-the-newline-character">How do we select the current line, but not including the newline character?</h1>
-<p>In Neovim, if we want to select from the current cursor position to the end of
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 1 - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="In this post, I summarize some nifty little techniques which make my experience of editing in Nvim smoother."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Nifty Little Nvim Techniques to Make My Life Easier -- Series 1"><meta property="og:description" content="In this post, I summarize some nifty little techniques which make my experience
+of editing in Nvim smoother."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/"><meta property="article:published_time" content="2019-03-28T00:24:33+08:00"><meta property="article:modified_time" content="2020-04-30T13:56:22+08:00"><meta itemprop=name content="Nifty Little Nvim Techniques to Make My Life Easier -- Series 1"><meta itemprop=description content="In this post, I summarize some nifty little techniques which make my experience
+of editing in Nvim smoother."><meta itemprop=datePublished content="2019-03-28T00:24:33+08:00"><meta itemprop=dateModified content="2020-04-30T13:56:22+08:00"><meta itemprop=wordCount content="702"><meta itemprop=keywords content="Vim,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Nifty Little Nvim Techniques to Make My Life Easier -- Series 1"><meta name=twitter:description content="In this post, I summarize some nifty little techniques which make my experience
+of editing in Nvim smoother."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 1</h1><div class=post-meta><span class=post-time>2019-03-28</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>702 words</span>
+<span class=more-meta>4 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#how-do-we-select-the-current-line-but-not-including-the-newline-character>How do we select the current line, but not including the newline character?</a><ul><li><a href=#references>References</a></li></ul></li><li><a href=#case-changing-operators>Case-changing operators</a></li><li><a href=#the-ys-operator>The <code>ys</code> operator</a></li><li><a href=#how-do-i-check-the-documentation-of-the-keyword-under-the-cursor>How do I check the documentation of the keyword under the cursor?</a><ul><li><a href=#references-1>References</a></li></ul></li><li><a href=#setting-up-textwidth-in-nvim>Setting up <code>textwidth</code> in Nvim</a><ul><li><a href=#references-2>References</a></li></ul></li><li><a href=#how-to-show-the-full-path-of-current-file>How to show the full path of current file?</a><ul><li><a href=#references-3>References</a></li></ul></li></ul></nav></div></div><div class=post-content><p>In this post, I summarize some nifty little techniques which make my experience
+of editing in <a href=https://github.com/neovim/neovim>Nvim</a> smoother.</p><h1 id=how-do-we-select-the-current-line-but-not-including-the-newline-character>How do we select the current line, but not including the newline character?</h1><p>In Neovim, if we want to select from the current cursor position to the end of
 the line, we usually use <code>v$</code>. But the annoynance is that newline character
 will also be selected. We have to press <code>h</code> to move the cursor one character
-leftward.</p>
-<p>How do we select only to the last character of the line? Fortunately, we can
-use <code>g_</code> to do just what we want. According to the documentation:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">g_			To the last non-blank character of the line and
+leftward.</p><p>How do we select only to the last character of the line? Fortunately, we can
+use <code>g_</code> to do just what we want. According to the documentation:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>g_			To the last non-blank character of the line and
 			[count - 1] lines downward |inclusive|.
 </code></pre></div><p>To select from the cursor position to the last character of this line, we can
-use <code>vg_</code>.</p>
-<p>There is also a <code>selection</code> option in Neovim which controls how the selection
-behaves. If we use</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">set selection=exclusive
+use <code>vg_</code>.</p><p>There is also a <code>selection</code> option in Neovim which controls how the selection
+behaves. If we use</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>set selection=exclusive
 </code></pre></div><p>, then the last character will not be included in the selection if we use <code>$</code>
-to move the cursor to the end of the line.</p>
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://vi.stackexchange.com/questions/12607/extend-visual-selection-til-the-last-character-on-the-line-excluding-the-new-li/18571#18571">https://vi.stackexchange.com/questions/12607/extend-visual-selection-til-the-last-character-on-the-line-excluding-the-new-li/18571#18571</a></li>
-<li><a href="https://stackoverflow.com/questions/20165596/select-entire-line-in-vim-without-the-new-line-character">https://stackoverflow.com/questions/20165596/select-entire-line-in-vim-without-the-new-line-character</a></li>
-</ul>
-<h1 id="case-changing-operators">Case-changing operators</h1>
-<p>Neovim provides several shortcut to change the character cases quickly. All the
+to move the cursor to the end of the line.</p><h2 id=references>References</h2><ul><li><a href=https://vi.stackexchange.com/questions/12607/extend-visual-selection-til-the-last-character-on-the-line-excluding-the-new-li/18571#18571>https://vi.stackexchange.com/questions/12607/extend-visual-selection-til-the-last-character-on-the-line-excluding-the-new-li/18571#18571</a></li><li><a href=https://stackoverflow.com/questions/20165596/select-entire-line-in-vim-without-the-new-line-character>https://stackoverflow.com/questions/20165596/select-entire-line-in-vim-without-the-new-line-character</a></li></ul><h1 id=case-changing-operators>Case-changing operators</h1><p>Neovim provides several shortcut to change the character cases quickly. All the
 following operations should be followed by some motions (e.g., <code>$</code>, <code>w</code>, <code>e</code>
-etc.):</p>
-<ul>
-<li><code>g~</code>: switch the case of character</li>
-<li><code>gu</code>: change characters to lower case</li>
-<li><code>gU</code>: change characters to upper case</li>
-</ul>
-<h1 id="the-ys-operator">The <code>ys</code> operator</h1>
-<p>Sometimes, we want to add an surrounding character to existing text object. The
-<code>ys</code> operator provided by <a href="https://github.com/tpope/vim-surround">Surround</a> is
-used to just for that purpose. To use it, the format is</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ys&lt;TextOjbect&gt;&lt;char&gt;
+etc.):</p><ul><li><code>g~</code>: switch the case of character</li><li><code>gu</code>: change characters to lower case</li><li><code>gU</code>: change characters to upper case</li></ul><h1 id=the-ys-operator>The <code>ys</code> operator</h1><p>Sometimes, we want to add an surrounding character to existing text object. The
+<code>ys</code> operator provided by <a href=https://github.com/tpope/vim-surround>Surround</a> is
+used to just for that purpose. To use it, the format is</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>ys&lt;TextOjbect&gt;&lt;char&gt;
 </code></pre></div><p>Suppose we have the following texts and we want to surround the word <code>welcome</code>
-with <code>[]</code></p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># * indicate cursor postion
+with <code>[]</code></p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback># * indicate cursor postion
 &#34;wel*come to china&#34;
-</code></pre></div><p>your key stroke should be <code>ysiw]</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
-<p>The above texts now becomes:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&#34;[welcome] to china&#34;
-</code></pre></div><p>If you want to surround <code>welcome to china</code> with <code>()</code>, you can use <code>ysi&quot;)</code><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
-<h1 id="how-do-i-check-the-documentation-of-the-keyword-under-the-cursor">How do I check the documentation of the keyword under the cursor?</h1>
-<p>When we are browsing the Nvim help file. We may want to check the documentation
+</code></pre></div><p>your key stroke should be <code>ysiw]</code><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></p><p>The above texts now becomes:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>&#34;[welcome] to china&#34;
+</code></pre></div><p>If you want to surround <code>welcome to china</code> with <code>()</code>, you can use <code>ysi")</code><sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></p><h1 id=how-do-i-check-the-documentation-of-the-keyword-under-the-cursor>How do I check the documentation of the keyword under the cursor?</h1><p>When we are browsing the Nvim help file. We may want to check the documentation
 of keyword quickly. For example, when the cursor is in the keyword <code>clipboard</code>
 (the keyword in the help files are colored as opposed to the regular text which
-is white), how do I see its documentation immdediately?</p>
-<p align="center">
-<img src="https://blog-resource-1257868508.file.myqcloud.com/20200430135552.png" width="400">
-</p>
-<p>It is very simple: just press <code>K</code> and you will go the documentation of the
+is white), how do I see its documentation immdediately?</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200430135552.png width=400></p><p>It is very simple: just press <code>K</code> and you will go the documentation of the
 keyword. You can also press <kbd>Ctrl</kbd>+<kbd>]</kbd> to go to the
-documentation.</p>
-<p>If you have enabled mouse support in nvim with the following options:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">set</span> <span class="nx">mouse</span><span class="p">=</span><span class="nx">a</span><span class="err">
+documentation.</p><p>If you have enabled mouse support in nvim with the following options:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>set</span> <span class=nx>mouse</span><span class=p>=</span><span class=nx>a</span><span class=err>
 </span></code></pre></div><p>you can double click the keyword to go to its documentation. If you are using
-<a href="http://mintty.github.io/">mintty</a> terminal, clicking the keyword while you are
-pressing <kbd>Ctrl</kbd> will also work.</p>
-<p>By the way, to go back to previous position in the help file, press
-<kbd>Ctrl</kbd>+<kbd>O</kbd> or <kbd>Ctrl</kbd>+<kbd>T</kbd>.</p>
-<h2 id="references-1">References</h2>
-<ul>
-<li><a href="https://neovim.io/doc/user/">Nvim user manual</a></li>
-<li><a href="https://vi.stackexchange.com/questions/2136/how-do-i-navigate-to-topics-in-vims-documentation">How to navigate in Nvim help file</a>.</li>
-<li><a href="https://stackoverflow.com/questions/15867323/search-vim-help-for-subject-under-cursor/54980820#54980820">Search vim help for keyword under cursor</a></li>
-<li><a href="https://vimrcfu.com/snippet/19">https://vimrcfu.com/snippet/19</a></li>
-</ul>
-<h1 id="setting-up-textwidth-in-nvim">Setting up <code>textwidth</code> in Nvim</h1>
-<p>For text file types such as Markdown, LaTeX, we may want to restrict the line
+<a href=http://mintty.github.io/>mintty</a> terminal, clicking the keyword while you are
+pressing <kbd>Ctrl</kbd> will also work.</p><p>By the way, to go back to previous position in the help file, press
+<kbd>Ctrl</kbd>+<kbd>O</kbd> or <kbd>Ctrl</kbd>+<kbd>T</kbd>.</p><h2 id=references-1>References</h2><ul><li><a href=https://neovim.io/doc/user/>Nvim user manual</a></li><li><a href=https://vi.stackexchange.com/questions/2136/how-do-i-navigate-to-topics-in-vims-documentation>How to navigate in Nvim help file</a>.</li><li><a href=https://stackoverflow.com/questions/15867323/search-vim-help-for-subject-under-cursor/54980820#54980820>Search vim help for keyword under cursor</a></li><li><a href=https://vimrcfu.com/snippet/19>https://vimrcfu.com/snippet/19</a></li></ul><h1 id=setting-up-textwidth-in-nvim>Setting up <code>textwidth</code> in Nvim</h1><p>For text file types such as Markdown, LaTeX, we may want to restrict the line
 length to at most 80 characters for better readability. To set line length of
 the file, we should use
-<a href="https://neovim.io/doc/user/options.html#'textwidth'"><code>textwidth</code></a> option:</p>
-<blockquote>
-<p>Maximum width of text that is being inserted.  A longer line will be
-broken after white space to get this width.  A zero value disables this</p>
-</blockquote>
-<p>Add the following setting to your <code>init.vim</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">autocmd</span> <span class="nx">FileType</span> <span class="nx">text</span><span class="p">,</span><span class="nx">markdown</span><span class="p">,</span><span class="nx">tex</span> <span class="nx">setlocal</span> <span class="nx">textwidth</span><span class="p">=</span><span class="m">80</span><span class="err">
+<a href="https://neovim.io/doc/user/options.html#'textwidth'"><code>textwidth</code></a> option:</p><blockquote><p>Maximum width of text that is being inserted. A longer line will be
+broken after white space to get this width. A zero value disables this</p></blockquote><p>Add the following setting to your <code>init.vim</code>:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>autocmd</span> <span class=nx>FileType</span> <span class=nx>text</span><span class=p>,</span><span class=nx>markdown</span><span class=p>,</span><span class=nx>tex</span> <span class=nx>setlocal</span> <span class=nx>textwidth</span><span class=p>=</span><span class=m>80</span><span class=err>
 </span></code></pre></div><p>If you open an existing file, you will find that the file content isn&rsquo;t changed
 automatically. It turns out that we have to manually format the existing texts.
 You can use <code>gggqG</code> to format the entire document. When you type new text, it
-will be correctly breaked at the textwidth.</p>
-<h2 id="references-2">References</h2>
-<ul>
-<li><a href="https://thoughtbot.com/blog/wrap-existing-text-at-80-characters-in-vim">https://thoughtbot.com/blog/wrap-existing-text-at-80-characters-in-vim</a></li>
-<li><a href="https://stackoverflow.com/questions/5136902/vim-textwidth-has-no-effect">https://stackoverflow.com/questions/5136902/vim-textwidth-has-no-effect</a></li>
-</ul>
-<h1 id="how-to-show-the-full-path-of-current-file">How to show the full path of current file?</h1>
-<p>You can use <code>{count}Ctrl-G</code> to show the full path of current buffer:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">{count}CTRL-G           Like CTRL-G, but prints the current file name with
+will be correctly breaked at the textwidth.</p><h2 id=references-2>References</h2><ul><li><a href=https://thoughtbot.com/blog/wrap-existing-text-at-80-characters-in-vim>https://thoughtbot.com/blog/wrap-existing-text-at-80-characters-in-vim</a></li><li><a href=https://stackoverflow.com/questions/5136902/vim-textwidth-has-no-effect>https://stackoverflow.com/questions/5136902/vim-textwidth-has-no-effect</a></li></ul><h1 id=how-to-show-the-full-path-of-current-file>How to show the full path of current file?</h1><p>You can use <code>{count}Ctrl-G</code> to show the full path of current buffer:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>{count}CTRL-G           Like CTRL-G, but prints the current file name with
                         full path.  If the count is higher than 1 the current
                         buffer number is also given.
 </code></pre></div><p>To show only the full path of file, use <code>1</code> followed by <code>Ctrl-G</code>. To also show
-the buffer number, use a count higher than <code>1</code>, e.g., <code>2&lt;C-G&gt;</code>.</p>
-<h2 id="references-3">References</h2>
-<ul>
-<li><a href="https://vi.stackexchange.com/questions/104/how-can-i-see-the-full-path-of-the-current-file">https://vi.stackexchange.com/questions/104/how-can-i-see-the-full-path-of-the-current-file</a></li>
-</ul>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p><code>iw</code> means inner <a href="http://vimdoc.sourceforge.net/htmldoc/motion.html#iw">word object</a>. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p><code>i&quot;</code> is a <a href="http://vimdoc.sourceforge.net/htmldoc/motion.html#i'">quote object</a>. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">jdhao</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2020-04-30
-        
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">License</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
-        <span>wechat</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
-        <span>alipay</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/Vim/">Vim</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/2019/04/02/mac_logitech_mouse_setting/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Mac 上罗技 M590 鼠标设置</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2019/03/26/nvim_latex_write_preview/">
-            <span class="next-text nav-default">A Complete Guide on Writing LaTeX with Vimtex in Neovim</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'jdhao';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
-  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy; 
-    2017 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jdhao</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-113395108-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-
-</body>
-</html>
+the buffer number, use a count higher than <code>1</code>, e.g., <code>2&lt;C-G></code>.</p><h2 id=references-3>References</h2><ul><li><a href=https://vi.stackexchange.com/questions/104/how-can-i-see-the-full-path-of-the-current-file>https://vi.stackexchange.com/questions/104/how-can-i-see-the-full-path-of-the-current-file</a></li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p><code>iw</code> means inner <a href=http://vimdoc.sourceforge.net/htmldoc/motion.html#iw>word object</a>. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p><code>i"</code> is a <a href="http://vimdoc.sourceforge.net/htmldoc/motion.html#i'">quote object</a>. <a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-04-30</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Vim/>Vim</a></div><nav class=post-nav><a class=prev href=/2019/04/02/mac_logitech_mouse_setting/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Mac 上罗技 M590 鼠标设置</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2019/03/26/nvim_latex_write_preview/><span class="next-text nav-default">A Complete Guide on Writing LaTeX with Vimtex in Neovim</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='jdhao';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+2017 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>

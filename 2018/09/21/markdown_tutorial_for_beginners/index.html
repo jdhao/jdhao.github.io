@@ -1,254 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>写给初学者的 Markdown 教程 - jdhao&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jdhao" /><meta name="description" content="这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown 写出格式规范的文章了。
-" /><meta name="keywords" content="Hugo, theme, even" />
-
-
-
-<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
-
-
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
-
-
-<link rel="canonical" href="https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6058871559165202",
-    enable_page_level_ads: true
-  });
-</script>
-
-
-
-
-<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="写给初学者的 Markdown 教程" />
-<meta property="og:description" content="这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown
-写出格式规范的文章了。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/" />
-<meta property="article:published_time" content="2018-09-21T16:59:00+08:00" />
-<meta property="article:modified_time" content="2019-04-20T16:47:43+08:00" />
-<meta itemprop="name" content="写给初学者的 Markdown 教程">
-<meta itemprop="description" content="这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown
-写出格式规范的文章了。">
-<meta itemprop="datePublished" content="2018-09-21T16:59:00+08:00" />
-<meta itemprop="dateModified" content="2019-04-20T16:47:43+08:00" />
-<meta itemprop="wordCount" content="2482">
-
-
-
-<meta itemprop="keywords" content="Markdown," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="写给初学者的 Markdown 教程"/>
-<meta name="twitter:description" content="这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown
-写出格式规范的文章了。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jdhao&#39;s blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jdhao&#39;s blog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">写给初学者的 Markdown 教程</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2018-09-21 </span>
-        <div class="post-category">
-            <a href="/categories/technique/"> technique </a>
-            </div>
-          <span class="more-meta"> 2482 words </span>
-          <span class="more-meta"> 5 mins read </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#什么是-markdown">什么是 Markdown</a>
-      <ul>
-        <li><a href="#markdown-优点">Markdown 优点</a></li>
-      </ul>
-    </li>
-    <li><a href="#markdown-具体语法">Markdown 具体语法</a>
-      <ul>
-        <li><a href="#标题heading">标题（heading）</a>
-          <ul>
-            <li><a href="#注意点">注意点</a></li>
-            <li><a href="#效果展示与源代码">效果展示与源代码</a></li>
-          </ul>
-        </li>
-        <li><a href="#列表">列表</a>
-          <ul>
-            <li><a href="#注意点-1">注意点</a></li>
-            <li><a href="#效果展示与源代码-1">效果展示与源代码</a></li>
-          </ul>
-        </li>
-        <li><a href="#强调与着重表示">强调与着重表示</a>
-          <ul>
-            <li><a href="#注意点-2">注意点</a></li>
-          </ul>
-        </li>
-        <li><a href="#链接">链接</a></li>
-        <li><a href="#代码块与代码段">代码块与代码段</a></li>
-        <li><a href="#图片">图片</a>
-          <ul>
-            <li><a href="#注意点-3">注意点</a></li>
-          </ul>
-        </li>
-        <li><a href="#表格">表格</a></li>
-        <li><a href="#任务列表">任务列表</a></li>
-      </ul>
-    </li>
-    <li><a href="#markdown-源文件编辑与预览">Markdown 源文件编辑与预览</a>
-      <ul>
-        <li><a href="#vnote">Vnote</a></li>
-        <li><a href="#visual-stuido-code">Visual Stuido Code</a></li>
-        <li><a href="#sublime-text">Sublime Text</a></li>
-      </ul>
-    </li>
-    <li><a href="#参考资料">参考资料</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown
-写出格式规范的文章了。</p>
-<h1 id="什么是-markdown">什么是 Markdown</h1>
-<p>Markdown 是一种可标记语言，通过简单的标记，可以将纯文本内容转为内容丰富的 HTML
-网页，实现字体加粗，链接，插入图片等等纯文本无法实现的功能。</p>
-<p>Markdown 类似编程语言，需要先编写，然后通过渲染器把 Markdown 源文件转为内容丰富
-的 HTML 网页（类似于编程语言的编译器，把一种语言翻译为另外一种语言）。</p>
-<h2 id="markdown-优点">Markdown 优点</h2>
-<p>采用 Markdown 生成的文档，格式规范，清晰明了，避免了纯文本文件无法对文本格式进
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>写给初学者的 Markdown 教程 - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown 写出格式规范的文章了。"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="写给初学者的 Markdown 教程"><meta property="og:description" content="这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown
+写出格式规范的文章了。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/"><meta property="article:published_time" content="2018-09-21T16:59:00+08:00"><meta property="article:modified_time" content="2019-04-20T16:47:43+08:00"><meta itemprop=name content="写给初学者的 Markdown 教程"><meta itemprop=description content="这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown
+写出格式规范的文章了。"><meta itemprop=datePublished content="2018-09-21T16:59:00+08:00"><meta itemprop=dateModified content="2019-04-20T16:47:43+08:00"><meta itemprop=wordCount content="2482"><meta itemprop=keywords content="Markdown,"><meta name=twitter:card content="summary"><meta name=twitter:title content="写给初学者的 Markdown 教程"><meta name=twitter:description content="这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown
+写出格式规范的文章了。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>写给初学者的 Markdown 教程</h1><div class=post-meta><span class=post-time>2018-09-21</span><div class=post-category><a href=/categories/technique/>technique</a></div><span class=more-meta>2482 words</span>
+<span class=more-meta>5 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#什么是-markdown>什么是 Markdown</a><ul><li><a href=#markdown-优点>Markdown 优点</a></li></ul></li><li><a href=#markdown-具体语法>Markdown 具体语法</a><ul><li><a href=#标题heading>标题（heading）</a><ul><li><a href=#注意点>注意点</a></li><li><a href=#效果展示与源代码>效果展示与源代码</a></li></ul></li><li><a href=#列表>列表</a><ul><li><a href=#注意点-1>注意点</a></li><li><a href=#效果展示与源代码-1>效果展示与源代码</a></li></ul></li><li><a href=#强调与着重表示>强调与着重表示</a><ul><li><a href=#注意点-2>注意点</a></li></ul></li><li><a href=#链接>链接</a></li><li><a href=#代码块与代码段>代码块与代码段</a></li><li><a href=#图片>图片</a><ul><li><a href=#注意点-3>注意点</a></li></ul></li><li><a href=#表格>表格</a></li><li><a href=#任务列表>任务列表</a></li></ul></li><li><a href=#markdown-源文件编辑与预览>Markdown 源文件编辑与预览</a><ul><li><a href=#vnote>Vnote</a></li><li><a href=#visual-stuido-code>Visual Stuido Code</a></li><li><a href=#sublime-text>Sublime Text</a></li></ul></li><li><a href=#参考资料>参考资料</a></li></ul></nav></div></div><div class=post-content><p>这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown
+写出格式规范的文章了。</p><h1 id=什么是-markdown>什么是 Markdown</h1><p>Markdown 是一种可标记语言，通过简单的标记，可以将纯文本内容转为内容丰富的 HTML
+网页，实现字体加粗，链接，插入图片等等纯文本无法实现的功能。</p><p>Markdown 类似编程语言，需要先编写，然后通过渲染器把 Markdown 源文件转为内容丰富
+的 HTML 网页（类似于编程语言的编译器，把一种语言翻译为另外一种语言）。</p><h2 id=markdown-优点>Markdown 优点</h2><p>采用 Markdown 生成的文档，格式规范，清晰明了，避免了纯文本文件无法对文本格式进
 行控制的尴尬，是书写技术文档的最佳选择之一。同时，Markdown 又不像网页那样复杂，
-仅仅使用简单的语法，就能生成丰富的内容，这也是 Markdown 流行的原因。</p>
-<h1 id="markdown-具体语法">Markdown 具体语法</h1>
-<p>本部分介绍常用的 Markdown 语法，由于 Markdown 类似编程语言，因此对书写格式有一
-定要求，符合要求才能生成想要的结果，书写时候一定要遵循规范。</p>
-<h2 id="标题heading">标题（heading）</h2>
-<p>Markdown 中的标题采用 <code>#</code> 来标志，<code>#</code> 后面跟具体的标题文本。<code>#</code> 的个数代表标题
-级别：1 个 <code>#</code> 代表一级标题，2 个 <code>#</code> 代表二级标题，以此类推。</p>
-<h3 id="注意点">注意点</h3>
-<ul>
-<li><code>#</code> 与标题的文本之间，需要留一个空格，否则可能无法正常渲染为标题样式</li>
-<li>标题级别不要太多，五六级标题与正文文本字体大小区别已经不大，因此意义也不大</li>
-</ul>
-<h3 id="效果展示与源代码">效果展示与源代码</h3>
-<p>源代码：</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># 一级标题
+仅仅使用简单的语法，就能生成丰富的内容，这也是 Markdown 流行的原因。</p><h1 id=markdown-具体语法>Markdown 具体语法</h1><p>本部分介绍常用的 Markdown 语法，由于 Markdown 类似编程语言，因此对书写格式有一
+定要求，符合要求才能生成想要的结果，书写时候一定要遵循规范。</p><h2 id=标题heading>标题（heading）</h2><p>Markdown 中的标题采用 <code>#</code> 来标志，<code>#</code> 后面跟具体的标题文本。<code>#</code> 的个数代表标题
+级别：1 个 <code>#</code> 代表一级标题，2 个 <code>#</code> 代表二级标题，以此类推。</p><h3 id=注意点>注意点</h3><ul><li><code>#</code> 与标题的文本之间，需要留一个空格，否则可能无法正常渲染为标题样式</li><li>标题级别不要太多，五六级标题与正文文本字体大小区别已经不大，因此意义也不大</li></ul><h3 id=效果展示与源代码>效果展示与源代码</h3><p>源代码：</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback># 一级标题
 ## 二级标题
 ### 三级标题
 #### 四级标题
 ##### 五级标题
 ###### 六级标题
-</code></pre></div><p>生成的标题效果为：</p>
-<p><img src="https://i.loli.net/2018/09/21/5ba4a55b544a1.png" alt="markdown_heading.png"></p>
-<h2 id="列表">列表</h2>
-<p>Markdown 中的列表，分为有序列表以及无序列表两种。</p>
-<ul>
-<li>对于有序列表，使用数字开头，后面跟 <code>.</code>（英文的句号），空格，后面写上该步骤内容。</li>
-<li>对于无序列表，使用 <code>+</code> 或者 <code>-</code> 开头，空格，后面写具体内容。</li>
-</ul>
-<p>你也可以创建多级嵌套列表，在某一级别下另起一行，缩进四个空格开始更低级别。</p>
-<h3 id="注意点-1">注意点</h3>
-<ul>
-<li>列表项前面需要空一行，否则某些 Markdown 渲染器无法正常识别列表</li>
-<li><strong>列表标志后面需空格</strong></li>
-</ul>
-<h3 id="效果展示与源代码-1">效果展示与源代码</h3>
-<p>源代码：</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1. 有序列表，这是步骤一
+</code></pre></div><p>生成的标题效果为：</p><p><img src=https://i.loli.net/2018/09/21/5ba4a55b544a1.png alt=markdown_heading.png></p><h2 id=列表>列表</h2><p>Markdown 中的列表，分为有序列表以及无序列表两种。</p><ul><li>对于有序列表，使用数字开头，后面跟 <code>.</code>（英文的句号），空格，后面写上该步骤内容。</li><li>对于无序列表，使用 <code>+</code> 或者 <code>-</code> 开头，空格，后面写具体内容。</li></ul><p>你也可以创建多级嵌套列表，在某一级别下另起一行，缩进四个空格开始更低级别。</p><h3 id=注意点-1>注意点</h3><ul><li>列表项前面需要空一行，否则某些 Markdown 渲染器无法正常识别列表</li><li><strong>列表标志后面需空格</strong></li></ul><h3 id=效果展示与源代码-1>效果展示与源代码</h3><p>源代码：</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>1. 有序列表，这是步骤一
     1. 步骤 1.1
         1. 步骤 1.1.1
         2. 步骤 1.1.2
@@ -280,35 +48,20 @@
         + 美洲黑人
         + 亚洲黑人
     + 黄人
-</code></pre></div><p>生成的列表效果如下图：</p>
-<p><img src="https://i.loli.net/2018/09/21/5ba4a59f0e643.png" alt="markdown_list.png"></p>
-<h2 id="强调与着重表示">强调与着重表示</h2>
-<p>要使用<em>斜体</em>，可以使用一对 <code>*</code> 或者 <code>_</code>包围要斜体的文字；要<strong>加粗文字</strong>，使用两对 <code>*</code> 或者 <code>_</code> 包围文字。</p>
-<p>如何既斜体又加粗文字？<code>*</code> 与 <code>_</code> 交替使用即可，<em><strong>像这样</strong></em> ，或者 <em><strong>这样</strong></em> 。</p>
-<p>以上文字源代码为：</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">要使用*斜体*，可以使用一对 `*` 或者 `_`包围要斜体的文字；要**加粗文字**，使用两对 `*` 或者 `_` 包围文字。
+</code></pre></div><p>生成的列表效果如下图：</p><p><img src=https://i.loli.net/2018/09/21/5ba4a59f0e643.png alt=markdown_list.png></p><h2 id=强调与着重表示>强调与着重表示</h2><p>要使用<em>斜体</em>，可以使用一对 <code>*</code> 或者 <code>_</code>包围要斜体的文字；要<strong>加粗文字</strong>，使用两对 <code>*</code> 或者 <code>_</code> 包围文字。</p><p>如何既斜体又加粗文字？<code>*</code> 与 <code>_</code> 交替使用即可，<em><strong>像这样</strong></em> ，或者 <em><strong>这样</strong></em> 。</p><p>以上文字源代码为：</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>要使用*斜体*，可以使用一对 `*` 或者 `_`包围要斜体的文字；要**加粗文字**，使用两对 `*` 或者 `_` 包围文字。
 
 如何既斜体又加粗文字？`*` 与 `_` 交替使用即可，*__像这样__* ，或者 _**这样**_ 。
-</code></pre></div><h3 id="注意点-2">注意点</h3>
-<ul>
-<li>使用 <code>_</code> 进行斜体或者着重表示，可能需要和周围文字之间加上空格，否则无法正常渲
-染，建议使用 <code>*</code></li>
-</ul>
-<h2 id="链接">链接</h2>
-<p>可以给文字加上链接，链接的格式为 <code>[]()</code>，方括号内填写希望显示的文字，圆括号内填
-写该文字具体链接的网页地址。</p>
-<p>例如，我们不可以访问<a href="https://www.google.com/">谷歌</a>和
-<a href="https://www.youtube.com">YouTube</a>。直接书写网页地址也可以，用 <code>&lt;&gt;</code> 包含网页，
-像这样，<a href="https://www.google.com/">https://www.google.com/</a>。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">可以给文字加上链接，链接的格式为 `[]()`，方括号内填写希望显示的文字，圆括号内填写该文字具体链接的网页地址。
+</code></pre></div><h3 id=注意点-2>注意点</h3><ul><li>使用 <code>_</code> 进行斜体或者着重表示，可能需要和周围文字之间加上空格，否则无法正常渲
+染，建议使用 <code>*</code></li></ul><h2 id=链接>链接</h2><p>可以给文字加上链接，链接的格式为 <code>[]()</code>，方括号内填写希望显示的文字，圆括号内填
+写该文字具体链接的网页地址。</p><p>例如，我们不可以访问<a href=https://www.google.com/>谷歌</a>和
+<a href=https://www.youtube.com>YouTube</a>。直接书写网页地址也可以，用 <code>&lt;></code> 包含网页，
+像这样，<a href=https://www.google.com/>https://www.google.com/</a>。</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>可以给文字加上链接，链接的格式为 `[]()`，方括号内填写希望显示的文字，圆括号内填写该文字具体链接的网页地址。
 
 例如，我们不可以访问[谷歌](https://www.google.com/)和 [YouTube](https://www.youtube.com)。直接书写网页地址也可以，
 用 `&lt;&gt;` 包含网页，像这样，&lt;https://www.google.com/&gt;。
-</code></pre></div><h2 id="代码块与代码段">代码块与代码段</h2>
-<p>Markdown 中可以写 inline code 以及 code block，inline code 使用一对 <code>`</code> （
-backtick 键）包含，<code>sell = np.sin(time)</code>。code block 使用三个 <code>`</code>  开始与结
-束。</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">import matplotlib
+</code></pre></div><h2 id=代码块与代码段>代码块与代码段</h2><p>Markdown 中可以写 inline code 以及 code block，inline code 使用一对 <code>`</code> （
+backtick 键）包含，<code>sell = np.sin(time)</code>。code block 使用三个 <code>`</code> 开始与结
+束。</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>import matplotlib
 matplotlib.use(&#39;agg&#39;)
 import matplotlib.pyplot as plt
 import numpy as np
@@ -324,8 +77,7 @@ fig, ax = plt.subplots()
 
 ax.plot(x, y)
 plt.savefig(&#39;test.png&#39;)
-</code></pre></div><p>上述代码块源代码为</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">```
+</code></pre></div><p>上述代码块源代码为</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>```
 import matplotlib
 matplotlib.use(&#39;agg&#39;)
 import matplotlib.pyplot as plt
@@ -343,259 +95,47 @@ fig, ax = plt.subplots()
 ax.plot(x, y)
 plt.savefig(&#39;test.png&#39;)
 ```
-</code></pre></div><h2 id="图片">图片</h2>
-<p>可以在 Markdown 中使用图片，格式为 <code>！[Image_caption](Image_link)</code>。有两种方式
-来引用图片：</p>
-<ol>
-<li>本地图片：直接写上图片绝对路径或者相对当前 Markdown 文件的相对路径</li>
-<li>网络图片：直接写上图片链接即可</li>
-</ol>
-<p><img src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" alt="这是一张网络图片"></p>
-<p>以上图片对应的源代码如下：</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">![这是一张网络图片](https://assets-cdn.github.com/images/modules/logos_page/Octocat.png)
-</code></pre></div><h3 id="注意点-3">注意点</h3>
-<p>如果图片的链接为本地路径，Markdown 文件移动到其它地方，或者分享给他人以后，图片
-将不能显示。可以使用一些<a href="https://www.v2ex.com/t/380503">图床</a><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>来存放图片，保
-证在哪里都能显示图片。或者，尽量不在 Markdown 里使用图片。</p>
-<h2 id="表格">表格</h2>
-<p>Markdown 中也可以书写简单的表格：</p>
-<table>
-<thead>
-<tr>
-<th>姓名</th>
-<th>数学</th>
-<th>语文</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>张三</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr>
-<td>李四</td>
-<td>3</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-<p>生成上述表格的源代码为：</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">|姓名|数学|语文|
+</code></pre></div><h2 id=图片>图片</h2><p>可以在 Markdown 中使用图片，格式为 <code>！[Image_caption](Image_link)</code>。有两种方式
+来引用图片：</p><ol><li>本地图片：直接写上图片绝对路径或者相对当前 Markdown 文件的相对路径</li><li>网络图片：直接写上图片链接即可</li></ol><p><img src=https://assets-cdn.github.com/images/modules/logos_page/Octocat.png alt=这是一张网络图片></p><p>以上图片对应的源代码如下：</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>![这是一张网络图片](https://assets-cdn.github.com/images/modules/logos_page/Octocat.png)
+</code></pre></div><h3 id=注意点-3>注意点</h3><p>如果图片的链接为本地路径，Markdown 文件移动到其它地方，或者分享给他人以后，图片
+将不能显示。可以使用一些<a href=https://www.v2ex.com/t/380503>图床</a><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>来存放图片，保
+证在哪里都能显示图片。或者，尽量不在 Markdown 里使用图片。</p><h2 id=表格>表格</h2><p>Markdown 中也可以书写简单的表格：</p><table><thead><tr><th>姓名</th><th>数学</th><th>语文</th></tr></thead><tbody><tr><td>张三</td><td>1</td><td>2</td></tr><tr><td>李四</td><td>3</td><td>4</td></tr></tbody></table><p>生成上述表格的源代码为：</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>|姓名|数学|语文|
 |---|---|---|
 |张三| 1| 2 |
 |李四| 3| 4 |
 </code></pre></div><p>自己手写一个表格比较麻烦和枯燥，可以利用在线的工具，生成 Markdown 格式的表格，
 一个不错的网站是
-<a href="https://www.tablesgenerator.com/markdown_tables">TableGenerator</a>.</p>
-<h2 id="任务列表">任务列表</h2>
-<p>某些种类的 Markdown 还支持任务列表语法，例如：</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 吃饭</li>
-<li>[] 睡觉</li>
-<li><input checked="" disabled="" type="checkbox"> 打怪兽</li>
-<li>[] 写作业</li>
-<li>[] 看电影</li>
-</ul>
-<p>生成上述任务列表的源代码如下：</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">- [x] 吃饭
+<a href=https://www.tablesgenerator.com/markdown_tables>TableGenerator</a>.</p><h2 id=任务列表>任务列表</h2><p>某些种类的 Markdown 还支持任务列表语法，例如：</p><ul><li><input checked disabled type=checkbox> 吃饭</li><li>[] 睡觉</li><li><input checked disabled type=checkbox> 打怪兽</li><li>[] 写作业</li><li>[] 看电影</li></ul><p>生成上述任务列表的源代码如下：</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>- [x] 吃饭
 - [ ] 睡觉
 - [x] 打怪兽
 - [ ] 写作业
 - [ ] 看电影
-</code></pre></div><p><code>[]</code> 中加上 <code>x</code> 表示某个任务已经完成，否则表示该任务进行中。</p>
-<h1 id="markdown-源文件编辑与预览">Markdown 源文件编辑与预览</h1>
-<p>推荐几款编辑与预览的编辑器，VNote，Sublime Text 与 Visual Stuido Code</p>
-<h2 id="vnote">Vnote</h2>
-<p><a href="https://github.com/tamlok/vnote">Vnote</a> 是国人开发的 Markdown 笔记软件，专为
-Markdown 设计，可以方便编写 Markdown 文件，进行预览，对文件进行管理等。</p>
-<h2 id="visual-stuido-code">Visual Stuido Code</h2>
-<p>安装 Visual Studio Code，VScode 原生支持 Markdown 文件预览，无需安装插件，按
+</code></pre></div><p><code>[]</code> 中加上 <code>x</code> 表示某个任务已经完成，否则表示该任务进行中。</p><h1 id=markdown-源文件编辑与预览>Markdown 源文件编辑与预览</h1><p>推荐几款编辑与预览的编辑器，VNote，Sublime Text 与 Visual Stuido Code</p><h2 id=vnote>Vnote</h2><p><a href=https://github.com/tamlok/vnote>Vnote</a> 是国人开发的 Markdown 笔记软件，专为
+Markdown 设计，可以方便编写 Markdown 文件，进行预览，对文件进行管理等。</p><h2 id=visual-stuido-code>Visual Stuido Code</h2><p>安装 Visual Studio Code，VScode 原生支持 Markdown 文件预览，无需安装插件，按
 <kbd>Ctrl</kbd>+<kbd>K</kbd>，再按 <kbd>V</kbd>，会在当前编辑窗口的右边打开文件
-预览窗口，可以实时查看生成的 HTML 文件效果。更多指导，请查看 <a href="https://code.visualstudio.com/docs/languages/markdown">官方文档
-</a>。</p>
-<h2 id="sublime-text">Sublime Text</h2>
-<p>安装 Sublime Text，并且安装插件 <a href="https://github.com/facelessuser/MarkdownPreview">Markdown
-Preview</a>。</p>
-<p>写好 Markdown 以后，直接使用快捷键
+预览窗口，可以实时查看生成的 HTML 文件效果。更多指导，请查看 <a href=https://code.visualstudio.com/docs/languages/markdown>官方文档
+</a>。</p><h2 id=sublime-text>Sublime Text</h2><p>安装 Sublime Text，并且安装插件 <a href=https://github.com/facelessuser/MarkdownPreview>Markdown
+Preview</a>。</p><p>写好 Markdown 以后，直接使用快捷键
 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> 打开浏览器预览生成的 HTML 网页效
-果。</p>
-<h1 id="参考资料">参考资料</h1>
-<ul>
-<li>Markdown cheatsheet：https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links</li>
-<li>Markdown 官方文档：https://daringfireball.net/projects/markdown/</li>
-</ul>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p>所谓“图床”，简单来说，就是存储图片的网络空间，这样不管身在何处，只要有网络，就可以看到图片。 <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">jdhao</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2019-04-20
-        
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">License</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
-        <span>wechat</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
-        <span>alipay</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/Markdown/">Markdown</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/2018/09/28/nvim_tagbar_install_use/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">How to Use Tagbar in Neovim</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2018/09/20/disable_warning_neomake_pylint/">
-            <span class="next-text nav-default">Use Pylint for Code Checking inside Neovim</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'jdhao';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
-  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy; 
-    2017 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jdhao</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-113395108-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-
-</body>
-</html>
+果。</p><h1 id=参考资料>参考资料</h1><ul><li>Markdown cheatsheet：https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links</li><li>Markdown 官方文档：https://daringfireball.net/projects/markdown/</li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>所谓“图床”，简单来说，就是存储图片的网络空间，这样不管身在何处，只要有网络，就可以看到图片。 <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2019-04-20</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Markdown/>Markdown</a></div><nav class=post-nav><a class=prev href=/2018/09/28/nvim_tagbar_install_use/><i class="iconfont icon-left"></i><span class="prev-text nav-default">How to Use Tagbar in Neovim</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2018/09/20/disable_warning_neomake_pylint/><span class="next-text nav-default">Use Pylint for Code Checking inside Neovim</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='jdhao';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+2017 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>

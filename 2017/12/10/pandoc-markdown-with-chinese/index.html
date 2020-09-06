@@ -1,612 +1,163 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件 - jdhao&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jdhao" /><meta name="description" content="For English version of this post, click here.
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件 - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="For English version of this post, click here.
 更新时间：2019-11-18
-本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。
-" /><meta name="keywords" content="Hugo, theme, even" />
-
-
-
-<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
-
-
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
-
-
-<link rel="canonical" href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6058871559165202",
-    enable_page_level_ads: true
-  });
-</script>
-
-
-
-
-<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件" />
-<meta property="og:description" content="
-For English version of this post, click here.
+本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件"><meta property="og:description" content="For English version of this post, click here.
 更新时间：2019-11-18
-本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/" />
-<meta property="article:published_time" content="2017-12-10T00:10:00+08:00" />
-<meta property="article:modified_time" content="2020-03-11T23:28:44+08:00" />
-<meta itemprop="name" content="纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件">
-<meta itemprop="description" content="
-For English version of this post, click here.
+本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/"><meta property="article:published_time" content="2017-12-10T00:10:00+08:00"><meta property="article:modified_time" content="2020-03-11T23:28:44+08:00"><meta itemprop=name content="纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件"><meta itemprop=description content="For English version of this post, click here.
 更新时间：2019-11-18
-本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。">
-<meta itemprop="datePublished" content="2017-12-10T00:10:00+08:00" />
-<meta itemprop="dateModified" content="2020-03-11T23:28:44+08:00" />
-<meta itemprop="wordCount" content="3342">
-
-
-
-<meta itemprop="keywords" content="font,字体,Markdown,LaTeX,Sublime-Text,Pandoc,Unicode,PDF," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件"/>
-<meta name="twitter:description" content="
-For English version of this post, click here.
+本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。"><meta itemprop=datePublished content="2017-12-10T00:10:00+08:00"><meta itemprop=dateModified content="2020-03-11T23:28:44+08:00"><meta itemprop=wordCount content="3342"><meta itemprop=keywords content="font,字体,Markdown,LaTeX,Sublime-Text,Pandoc,Unicode,PDF,"><meta name=twitter:card content="summary"><meta name=twitter:title content="纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件"><meta name=twitter:description content="For English version of this post, click here.
 更新时间：2019-11-18
-本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jdhao&#39;s blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jdhao&#39;s blog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2017-12-10 </span>
-        <div class="post-category">
-            <a href="/categories/tools/"> tools </a>
-            </div>
-          <span class="more-meta"> 3342 words </span>
-          <span class="more-meta"> 7 mins read </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#你需要什么">你需要什么</a></li>
-    <li><a href="#使用-pandoc-从-markdown-生成-pdf-文件">使用 Pandoc 从 Markdown 生成 PDF 文件</a>
-      <ul>
-        <li><a href="#背景介绍">背景介绍</a></li>
-        <li><a href="#如何处理中文">如何处理中文</a></li>
-      </ul>
-    </li>
-    <li><a href="#使用问题以及技巧">使用问题以及技巧</a>
-      <ul>
-        <li><a href="#block-quote-table-以及-list-未能正确渲染">block quote, table 以及 list 未能正确渲染</a></li>
-        <li><a href="#给-block-code-加上-highlight">给 block code 加上 highlight</a></li>
-        <li><a href="#给-section-加上编号以及给文章加上目录">给 section 加上编号以及给文章加上目录</a></li>
-        <li><a href="#给链接加上颜色">给链接加上颜色</a></li>
-        <li><a href="#更改-pdf-的-margin">更改 PDF 的 margin</a></li>
-        <li><a href="#markdown-文件中使用斜杠-backslash-会出错">Markdown 文件中使用斜杠 backslash 会出错</a></li>
-        <li><a href="#给-inline-code-加上背景色">给 inline code 加上背景色</a></li>
-        <li><a href="#更改引用-block-quote-的风格">更改引用 (block quote) 的风格</a>
-          <ul>
-            <li><a href="#参考">参考</a></li>
-          </ul>
-        </li>
-        <li><a href="#将设置放入-headtex-文件中">将设置放入 <code>head.tex</code> 文件中</a></li>
-        <li><a href="#list-嵌套层次太多的问题">List 嵌套层次太多的问题</a></li>
-      </ul>
-    </li>
-    <li><a href="#使用-sublime-text-build-system-生成--pdf">使用 Sublime Text build system 生成  PDF</a>
-      <ul>
-        <li><a href="#系统无法识别-pandoc-的问题">系统无法识别 Pandoc 的问题</a></li>
-      </ul>
-    </li>
-    <li><a href="#笔记云同步">笔记云同步</a></li>
-    <li><a href="#参考资料">参考资料</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p><img src="https://blog-resource-1257868508.file.myqcloud.com/18-1-7/731510.jpg"
-title="生成的 PDF 截图"
-style="float: middle;"></p>
-<p>For English version of this post, click <a href="https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/">here</a>.</p>
-<p>更新时间：2019-11-18</p>
-<p>本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。</p>
-<h1 id="你需要什么">你需要什么</h1>
-<p>在正式开始文章之前，首先你需要安装下面的这些工具才能在后续正常进行操作：</p>
-<ul>
-<li>
-<p>首先当然是 Pandoc，下载<a href="https://github.com/jgm/pandoc/releases">最新的安装包</a>，安装完以后，记得把 Pandoc 安装目录加入系统 <code>PATH</code> 变量。</p>
-</li>
-<li>
-<p>TeX 发行版。请确保你的系统已经安装了 TeX 软件，你可以使用 <a href="https://www.tug.org/texlive/">TeX Live</a> 或者 <a href="https://miktex.org/">MiKTeX</a>，安装完成之后可能需要设置 <code>PATH</code>，推荐安装 TeX Live。</p>
-</li>
-<li>
-<p>一个强大的文本编辑器，当然首推 <a href="https://www.sublimetext.com/">Sublime Text</a>.当然了，<a href="https://code.visualstudio.com/">Visual Studio Code</a> 和 <a href="https://atom.io/">GitHub Atom</a> 也是不错的选择。</p>
-</li>
-</ul>
-<h1 id="使用-pandoc-从-markdown-生成-pdf-文件">使用 Pandoc 从 Markdown 生成 PDF 文件</h1>
-<h2 id="背景介绍">背景介绍</h2>
-<p><a href="https://pandoc.org/">Pandoc</a> 可以很方便地对不同 Markup 语言的文件进行格式转换，因此被誉为格式转换的「瑞士军刀」。使用 Pandoc 把 Markdown 文件转为 PDF 文件，实际上包含两个步骤：</p>
-<ul>
-<li>第一步， Markdown 文件被转为 LaTeX 源文件。</li>
-<li>第二步，调用系统的 <code>pdflatex</code>, <code>xelatex</code> 或者其他 TeX 命令，将 <code>.tex</code> 文件转换为最终的 PDF 文件 (见上图)。</li>
-</ul>
-<p>由于我的文档是中文，并且包含引用，表格等比较复杂的格式，在文件转换过程中遇到了一些问题，下面介绍具体解决办法。</p>
-<h2 id="如何处理中文">如何处理中文</h2>
-<p>Pandoc 默认使用的 <code>pdflatex</code> 命令无法处理 Unicode 字符，如果要把包含中文的Markdown 文件转为 PDF，在生成 PDF 的过程中会报错。我们需要使用 <code>xelatex</code> 来处理中文，并且需要使用 <code>CJKmainfont</code> 选项指定支持中文的字体。 在 Windows 系统中，对于 Pandoc 2.0 版本以上，可以使用以下的命令生成 PDF 文件：</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pandoc --pdf-engine<span class="o">=</span>xelatex -V <span class="nv">CJKmainfont</span><span class="o">=</span><span class="s2">&#34;KaiTi&#34;</span> test.md -o test1.pdf
-</code></pre></div><p><code>CJKmainfont</code> 后面跟的是支持中文的字体名称。那么如何找到支持中文的字体呢？ 首先，你需要知道你所使用的语言的 <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">language code</a>, 例如，中文(即Chinese)的 language code 是 <code>zh</code>。 然后使用 <code>fc-list</code> 命令查看支持中文的字体(对于 Windows 系统，<code>fc-list</code> 命令在安装 TeX Live 完整版以后可以使用, Unix 系统一般会预装这个程序)：</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">fc-list :lang<span class="o">=</span>zh <span class="c1"># zh 是中文的 「language code」</span>
-</code></pre></div><p>系统输出如下图所示:</p>
-<p><img src="https://blog-resource-1257868508.file.myqcloud.com/18-1-4/51615620.jpg"
-title="fc-list 输出"
-style="float: middle;"
-></p>
-<p>字体的名称就是字体文件位置后面的字符串，由于字体名称可能会包含空格，因此在引用的时候需要加上引号，例如 <code>-V CJKmainfont=&quot;Source Han Serif CN&quot;</code>。</p>
-<p>在 Pandoc 2.0 版本中， <a href="https://github.com/shd101wyy/markdown-preview-enhanced/issues/665"><code>--pdf-engine</code> 命令取代了原有的 <code>--latex-engine</code> 命令</a>。对于Linux 系统，Pandoc 版本可能比较老，上述生成 PDF 的命令可能并不适合，正确的命令如下 (在 Pandoc 1.12.3.1 验证)：</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pandoc --latex-engine<span class="o">=</span>xelatex -V <span class="nv">mainfont</span><span class="o">=</span><span class="s1">&#39;WenQuanYi Micro Hei&#39;</span> test.md -o test.pdf
-</code></pre></div><p>在 Linux 系统上，找出支持中文的字体的方式与 Windows 系统是一样的。</p>
-<h1 id="使用问题以及技巧">使用问题以及技巧</h1>
-<h2 id="block-quote-table-以及-list-未能正确渲染">block quote, table 以及 list 未能正确渲染</h2>
-<p>原因是在 Pandoc 中 block quote，list 以及 table 前需要空一行。另外 block quote 中每一行渲染成 PDF 未能正确换行，所有行的文字都跑到了一行，可以通过强制在原 block quote 的每一行后面加上空格来解决。</p>
-<h2 id="给-block-code-加上-highlight">给 block code 加上 highlight</h2>
-<p>Pandoc 支持给 block code 里面的代码加上背景高亮，并提供了不同的高亮主题，支持非常多的语言。要列出 Pandoc 提供的高亮方案，使用下面命令，</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pandoc --list-highlight-styles
-</code></pre></div><p>要列出所有支持的语言，使用下面命令，</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pandoc --list-highlight-languages
-</code></pre></div><p>要使用语法高亮，Markdown 文件中的 block code 必须指定语言，同时在命令行使用<code>--highlight-style</code> 选项，例如：</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pandoc --pdf-engine<span class="o">=</span>xelatex --highlight-style zenburn test.md -o test.pdf
-</code></pre></div><p>以上命令，使用了 <code>zenburn</code> 主题, 另外，也推荐使用 <code>tango</code>, <code>zenburn</code> 或者<code>breezedark</code> 高亮主题。</p>
-<h2 id="给-section-加上编号以及给文章加上目录">给 section 加上编号以及给文章加上目录</h2>
-<p>默认情况下，生成的 PDF 不含目录，同时各级标题不含编号，仅仅字体大小有变化，要给各个 section 加上编号，可以用 <code>-N</code> 选项；加上目录，可以使用 <code>--toc</code> 选项。 一个完整例子如下:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pandoc --pdf-engine<span class="o">=</span>xelatex --toc -N -o test.pdf test.md
-</code></pre></div><h2 id="给链接加上颜色">给链接加上颜色</h2>
-<p>根据 Pandoc user guide 的说明，我们可以通过 <code>colorlinks</code> 选项给各种链接加上颜色，便于和普通文本区分开来：</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">colorlinks
+本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件</h1><div class=post-meta><span class=post-time>2017-12-10</span><div class=post-category><a href=/categories/tools/>tools</a></div><span class=more-meta>3342 words</span>
+<span class=more-meta>7 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#你需要什么>你需要什么</a></li><li><a href=#使用-pandoc-从-markdown-生成-pdf-文件>使用 Pandoc 从 Markdown 生成 PDF 文件</a><ul><li><a href=#背景介绍>背景介绍</a></li><li><a href=#如何处理中文>如何处理中文</a></li></ul></li><li><a href=#使用问题以及技巧>使用问题以及技巧</a><ul><li><a href=#block-quote-table-以及-list-未能正确渲染>block quote, table 以及 list 未能正确渲染</a></li><li><a href=#给-block-code-加上-highlight>给 block code 加上 highlight</a></li><li><a href=#给-section-加上编号以及给文章加上目录>给 section 加上编号以及给文章加上目录</a></li><li><a href=#给链接加上颜色>给链接加上颜色</a></li><li><a href=#更改-pdf-的-margin>更改 PDF 的 margin</a></li><li><a href=#markdown-文件中使用斜杠-backslash-会出错>Markdown 文件中使用斜杠 backslash 会出错</a></li><li><a href=#给-inline-code-加上背景色>给 inline code 加上背景色</a></li><li><a href=#更改引用-block-quote-的风格>更改引用 (block quote) 的风格</a><ul><li><a href=#参考>参考</a></li></ul></li><li><a href=#将设置放入-headtex-文件中>将设置放入 <code>head.tex</code> 文件中</a></li><li><a href=#list-嵌套层次太多的问题>List 嵌套层次太多的问题</a></li></ul></li><li><a href=#使用-sublime-text-build-system-生成--pdf>使用 Sublime Text build system 生成 PDF</a><ul><li><a href=#系统无法识别-pandoc-的问题>系统无法识别 Pandoc 的问题</a></li></ul></li><li><a href=#笔记云同步>笔记云同步</a></li><li><a href=#参考资料>参考资料</a></li></ul></nav></div></div><div class=post-content><p><img src=https://blog-resource-1257868508.file.myqcloud.com/18-1-7/731510.jpg title="生成的 PDF 截图" style=float:middle></p><p>For English version of this post, click <a href=https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/>here</a>.</p><p>更新时间：2019-11-18</p><p>本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。</p><h1 id=你需要什么>你需要什么</h1><p>在正式开始文章之前，首先你需要安装下面的这些工具才能在后续正常进行操作：</p><ul><li><p>首先当然是 Pandoc，下载<a href=https://github.com/jgm/pandoc/releases>最新的安装包</a>，安装完以后，记得把 Pandoc 安装目录加入系统 <code>PATH</code> 变量。</p></li><li><p>TeX 发行版。请确保你的系统已经安装了 TeX 软件，你可以使用 <a href=https://www.tug.org/texlive/>TeX Live</a> 或者 <a href=https://miktex.org/>MiKTeX</a>，安装完成之后可能需要设置 <code>PATH</code>，推荐安装 TeX Live。</p></li><li><p>一个强大的文本编辑器，当然首推 <a href=https://www.sublimetext.com/>Sublime Text</a>.当然了，<a href=https://code.visualstudio.com/>Visual Studio Code</a> 和 <a href=https://atom.io/>GitHub Atom</a> 也是不错的选择。</p></li></ul><h1 id=使用-pandoc-从-markdown-生成-pdf-文件>使用 Pandoc 从 Markdown 生成 PDF 文件</h1><h2 id=背景介绍>背景介绍</h2><p><a href=https://pandoc.org/>Pandoc</a> 可以很方便地对不同 Markup 语言的文件进行格式转换，因此被誉为格式转换的「瑞士军刀」。使用 Pandoc 把 Markdown 文件转为 PDF 文件，实际上包含两个步骤：</p><ul><li>第一步， Markdown 文件被转为 LaTeX 源文件。</li><li>第二步，调用系统的 <code>pdflatex</code>, <code>xelatex</code> 或者其他 TeX 命令，将 <code>.tex</code> 文件转换为最终的 PDF 文件 (见上图)。</li></ul><p>由于我的文档是中文，并且包含引用，表格等比较复杂的格式，在文件转换过程中遇到了一些问题，下面介绍具体解决办法。</p><h2 id=如何处理中文>如何处理中文</h2><p>Pandoc 默认使用的 <code>pdflatex</code> 命令无法处理 Unicode 字符，如果要把包含中文的Markdown 文件转为 PDF，在生成 PDF 的过程中会报错。我们需要使用 <code>xelatex</code> 来处理中文，并且需要使用 <code>CJKmainfont</code> 选项指定支持中文的字体。 在 Windows 系统中，对于 Pandoc 2.0 版本以上，可以使用以下的命令生成 PDF 文件：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>pandoc --pdf-engine<span class=o>=</span>xelatex -V <span class=nv>CJKmainfont</span><span class=o>=</span><span class=s2>&#34;KaiTi&#34;</span> test.md -o test1.pdf
+</code></pre></div><p><code>CJKmainfont</code> 后面跟的是支持中文的字体名称。那么如何找到支持中文的字体呢？ 首先，你需要知道你所使用的语言的 <a href=https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>language code</a>, 例如，中文(即Chinese)的 language code 是 <code>zh</code>。 然后使用 <code>fc-list</code> 命令查看支持中文的字体(对于 Windows 系统，<code>fc-list</code> 命令在安装 TeX Live 完整版以后可以使用, Unix 系统一般会预装这个程序)：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>fc-list :lang<span class=o>=</span>zh <span class=c1># zh 是中文的 「language code」</span>
+</code></pre></div><p>系统输出如下图所示:</p><p><img src=https://blog-resource-1257868508.file.myqcloud.com/18-1-4/51615620.jpg title="fc-list 输出" style=float:middle></p><p>字体的名称就是字体文件位置后面的字符串，由于字体名称可能会包含空格，因此在引用的时候需要加上引号，例如 <code>-V CJKmainfont="Source Han Serif CN"</code>。</p><p>在 Pandoc 2.0 版本中， <a href=https://github.com/shd101wyy/markdown-preview-enhanced/issues/665><code>--pdf-engine</code> 命令取代了原有的 <code>--latex-engine</code> 命令</a>。对于Linux 系统，Pandoc 版本可能比较老，上述生成 PDF 的命令可能并不适合，正确的命令如下 (在 Pandoc 1.12.3.1 验证)：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>pandoc --latex-engine<span class=o>=</span>xelatex -V <span class=nv>mainfont</span><span class=o>=</span><span class=s1>&#39;WenQuanYi Micro Hei&#39;</span> test.md -o test.pdf
+</code></pre></div><p>在 Linux 系统上，找出支持中文的字体的方式与 Windows 系统是一样的。</p><h1 id=使用问题以及技巧>使用问题以及技巧</h1><h2 id=block-quote-table-以及-list-未能正确渲染>block quote, table 以及 list 未能正确渲染</h2><p>原因是在 Pandoc 中 block quote，list 以及 table 前需要空一行。另外 block quote 中每一行渲染成 PDF 未能正确换行，所有行的文字都跑到了一行，可以通过强制在原 block quote 的每一行后面加上空格来解决。</p><h2 id=给-block-code-加上-highlight>给 block code 加上 highlight</h2><p>Pandoc 支持给 block code 里面的代码加上背景高亮，并提供了不同的高亮主题，支持非常多的语言。要列出 Pandoc 提供的高亮方案，使用下面命令，</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>pandoc --list-highlight-styles
+</code></pre></div><p>要列出所有支持的语言，使用下面命令，</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>pandoc --list-highlight-languages
+</code></pre></div><p>要使用语法高亮，Markdown 文件中的 block code 必须指定语言，同时在命令行使用<code>--highlight-style</code> 选项，例如：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>pandoc --pdf-engine<span class=o>=</span>xelatex --highlight-style zenburn test.md -o test.pdf
+</code></pre></div><p>以上命令，使用了 <code>zenburn</code> 主题, 另外，也推荐使用 <code>tango</code>, <code>zenburn</code> 或者<code>breezedark</code> 高亮主题。</p><h2 id=给-section-加上编号以及给文章加上目录>给 section 加上编号以及给文章加上目录</h2><p>默认情况下，生成的 PDF 不含目录，同时各级标题不含编号，仅仅字体大小有变化，要给各个 section 加上编号，可以用 <code>-N</code> 选项；加上目录，可以使用 <code>--toc</code> 选项。 一个完整例子如下:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>pandoc --pdf-engine<span class=o>=</span>xelatex --toc -N -o test.pdf test.md
+</code></pre></div><h2 id=给链接加上颜色>给链接加上颜色</h2><p>根据 Pandoc user guide 的说明，我们可以通过 <code>colorlinks</code> 选项给各种链接加上颜色，便于和普通文本区分开来：</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>colorlinks
     add color to link text; automatically enabled if any of linkcolor, filecolor, citecolor, urlcolor, or toccolor are set
-</code></pre></div><p>同时，为了精确控制不同类型链接颜色，Pandoc 还提供了对不同链接颜色的个性化设置选项：</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">linkcolor, filecolor, citecolor, urlcolor, toccolor
+</code></pre></div><p>同时，为了精确控制不同类型链接颜色，Pandoc 还提供了对不同链接颜色的个性化设置选项：</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>linkcolor, filecolor, citecolor, urlcolor, toccolor
     color for internal links, external links, citation links, linked URLs, and
     links in table of contents, respectively: uses options allowed by xcolor,
     including the dvipsnames, svgnames, and x11names lists
-</code></pre></div><p>例如，如果我们想给 URL 链接加上颜色，并且 <code>urlcolor</code> 要设为 <code>NavyBlue</code>, 可以使用下面的命令：</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pandoc --pdf-engine<span class="o">=</span>xelatex -V colorlinks -V <span class="nv">urlcolor</span><span class="o">=</span>NavyBlue test.md -o test.pdf
-</code></pre></div><p>其他链接的颜色可以按照上述方式设置。</p>
-<p>值得注意的是，<code>urlcolor</code> 选项并不能给文中直接展示的 raw URL link 加上颜色。 要给直接展示的 URL link 加上颜色，可以用 <code>&lt;&gt;</code> 包围要展示的链接，例如<code>&lt;www.google.com&gt;</code>。</p>
-<p>另外，也可以使用选项 <code>-f gfm</code>，参考<a href="https://github.com/jgm/pandoc/issues/2827">这里</a>。完整命令如下，</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pandoc --pdf-engine<span class="o">=</span>xelatex -f gfm -Vurlcolor<span class="o">=</span>cyan -o test.pdf test.md
-</code></pre></div><p>使用 <code>-f gfm</code> 的一个缺点是 <a href="https://github.com/jgm/pandoc/issues/4168">gfm 不支持公式</a>，因此如果在 Markdown 中包含公式，将不能正确渲染。解决办法是去掉 <code>-f gfm</code> flag，或者使用 Pandoc 自带的 <code>markdown</code>格式。</p>
-<h2 id="更改-pdf-的-margin">更改 PDF 的 margin</h2>
-<p>使用默认设置生成的 PDF margin 太大，<a href="https://pandoc.org/faqs.html#how-do-i-change-the-margins-in-pdf-output">根据 Pandoc 官方FAQ</a>，可以使用下面的选项更改 margin：</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">-V geometry:<span class="s2">&#34;top=2cm, bottom=1.5cm, left=2cm, right=2cm&#34;</span>
-</code></pre></div><p>完整命令为：</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pandoc --pdf-engine<span class="o">=</span>xelatex -V geometry:<span class="s2">&#34;top=2cm, bottom=1.5cm, left=2cm, right=2cm&#34;</span> -o test.pdf test.md
-</code></pre></div><h2 id="markdown-文件中使用斜杠-backslash-会出错">Markdown 文件中使用斜杠 backslash 会出错</h2>
-<p>原始的 Markdown 格式，支持在文件中使用 backslash，但是 Pandoc 把 backslash 以及后面的内容理解成 LaTeX 命令，因此在编译包含 backslash 的文件时，可能会<a href="https://tex.stackexchange.com/q/407744/114857">遇到<code>undefined command</code> 错误或者更加奇怪的错误</a>。参考<a href="https://github.com/jgm/pandoc/issues/1637">这里</a>以及<a href="https://github.com/jgm/pandoc/issues/2790">这里</a>，解决办法是让 Pandoc 把 Markdown文件当成正常的 Markdown，不要解读 LaTeX 命令，使用下面的 flag:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pandoc -f markdown-raw_tex
-</code></pre></div><p>或者，也可以用两个 backslash 表示字面意义的 backslash，例如 <code>\\columnwidth</code> 或者如果 backslash 及后面文字原本就是一个命令，用 inline code block 包含起来。</p>
-<h2 id="给-inline-code-加上背景色">给 inline code 加上背景色</h2>
-<p>将 Markdown 转为 PDF 时，由于 Pandoc 使用 LaTeX 中的 <code>\textt</code> 命令来表示 inline code，所以 inline code 是没有背景色的。为了增加 inline code 的可读性，我们可以修改 <code>\texttt</code> 命令，给文本添加背景色。首先建立 <code>head.tex</code> 文件，在其中加入以下命令：</p>
-<div class="highlight"><pre class="chroma"><code class="language-latex" data-lang="latex"><span class="c">% change background color for inline code in
-</span><span class="c">% markdown files. The following code does not work well for
-</span><span class="c">% long text as the text will exceed the page boundary
-</span><span class="c"></span><span class="k">\definecolor</span><span class="nb">{</span>bgcolor<span class="nb">}{</span>HTML<span class="nb">}{</span>E0E0E0<span class="nb">}</span>
-<span class="k">\let\oldtexttt\texttt</span>
+</code></pre></div><p>例如，如果我们想给 URL 链接加上颜色，并且 <code>urlcolor</code> 要设为 <code>NavyBlue</code>, 可以使用下面的命令：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>pandoc --pdf-engine<span class=o>=</span>xelatex -V colorlinks -V <span class=nv>urlcolor</span><span class=o>=</span>NavyBlue test.md -o test.pdf
+</code></pre></div><p>其他链接的颜色可以按照上述方式设置。</p><p>值得注意的是，<code>urlcolor</code> 选项并不能给文中直接展示的 raw URL link 加上颜色。 要给直接展示的 URL link 加上颜色，可以用 <code>&lt;></code> 包围要展示的链接，例如<code>&lt;www.google.com></code>。</p><p>另外，也可以使用选项 <code>-f gfm</code>，参考<a href=https://github.com/jgm/pandoc/issues/2827>这里</a>。完整命令如下，</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>pandoc --pdf-engine<span class=o>=</span>xelatex -f gfm -Vurlcolor<span class=o>=</span>cyan -o test.pdf test.md
+</code></pre></div><p>使用 <code>-f gfm</code> 的一个缺点是 <a href=https://github.com/jgm/pandoc/issues/4168>gfm 不支持公式</a>，因此如果在 Markdown 中包含公式，将不能正确渲染。解决办法是去掉 <code>-f gfm</code> flag，或者使用 Pandoc 自带的 <code>markdown</code>格式。</p><h2 id=更改-pdf-的-margin>更改 PDF 的 margin</h2><p>使用默认设置生成的 PDF margin 太大，<a href=https://pandoc.org/faqs.html#how-do-i-change-the-margins-in-pdf-output>根据 Pandoc 官方FAQ</a>，可以使用下面的选项更改 margin：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>-V geometry:<span class=s2>&#34;top=2cm, bottom=1.5cm, left=2cm, right=2cm&#34;</span>
+</code></pre></div><p>完整命令为：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>pandoc --pdf-engine<span class=o>=</span>xelatex -V geometry:<span class=s2>&#34;top=2cm, bottom=1.5cm, left=2cm, right=2cm&#34;</span> -o test.pdf test.md
+</code></pre></div><h2 id=markdown-文件中使用斜杠-backslash-会出错>Markdown 文件中使用斜杠 backslash 会出错</h2><p>原始的 Markdown 格式，支持在文件中使用 backslash，但是 Pandoc 把 backslash 以及后面的内容理解成 LaTeX 命令，因此在编译包含 backslash 的文件时，可能会<a href=https://tex.stackexchange.com/q/407744/114857>遇到<code>undefined command</code> 错误或者更加奇怪的错误</a>。参考<a href=https://github.com/jgm/pandoc/issues/1637>这里</a>以及<a href=https://github.com/jgm/pandoc/issues/2790>这里</a>，解决办法是让 Pandoc 把 Markdown文件当成正常的 Markdown，不要解读 LaTeX 命令，使用下面的 flag:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>pandoc -f markdown-raw_tex
+</code></pre></div><p>或者，也可以用两个 backslash 表示字面意义的 backslash，例如 <code>\\columnwidth</code> 或者如果 backslash 及后面文字原本就是一个命令，用 inline code block 包含起来。</p><h2 id=给-inline-code-加上背景色>给 inline code 加上背景色</h2><p>将 Markdown 转为 PDF 时，由于 Pandoc 使用 LaTeX 中的 <code>\textt</code> 命令来表示 inline code，所以 inline code 是没有背景色的。为了增加 inline code 的可读性，我们可以修改 <code>\texttt</code> 命令，给文本添加背景色。首先建立 <code>head.tex</code> 文件，在其中加入以下命令：</p><div class=highlight><pre class=chroma><code class=language-latex data-lang=latex><span class=c>% change background color for inline code in
+</span><span class=c>% markdown files. The following code does not work well for
+</span><span class=c>% long text as the text will exceed the page boundary
+</span><span class=c></span><span class=k>\definecolor</span><span class=nb>{</span>bgcolor<span class=nb>}{</span>HTML<span class=nb>}{</span>E0E0E0<span class=nb>}</span>
+<span class=k>\let\oldtexttt\texttt</span>
 
-<span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\texttt</span><span class="nb">}</span>[1]<span class="nb">{</span>
-  <span class="k">\colorbox</span><span class="nb">{</span>bgcolor<span class="nb">}{</span><span class="k">\oldtexttt</span><span class="nb">{</span>#1<span class="nb">}}</span>
-<span class="nb">}</span>
-</code></pre></div><p>在使用 Pandoc 转换 Markdown 文件时，加上 <code>-H</code> 选项来引用 <code>head.tex</code> 文件，例如</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pandoc --pdf-engine<span class="o">=</span>xelatex -H head.tex test.md -o test.pdf
-</code></pre></div><p>这样生成的 PDF 中，inline code 就会有灰色的背景色，背景颜色可以根据自己喜好修改。</p>
-<h2 id="更改引用-block-quote-的风格">更改引用 (block quote) 的风格</h2>
-<p>默认情况下，当我们把 Markdown 文件转为 PDF 时，Pandoc 使用 LaTeX 中的 <a href="https://tex.stackexchange.com/q/33219/114857"><code>quote</code></a>环境来表示 block quote。生成的 PDF 中，引用文字只是被缩进了，看起来很不明显。</p>
-<p>我们可以自己定义一个 quotation 环境，给环境加上背景颜色和缩进。将下面的设置写入到 <code>head.tex</code> 中：</p>
-<div class="highlight"><pre class="chroma"><code class="language-latex" data-lang="latex"><span class="k">\usepackage</span><span class="nb">{</span>framed<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="nb">{</span>quoting<span class="nb">}</span>
+<span class=k>\renewcommand</span><span class=nb>{</span><span class=k>\texttt</span><span class=nb>}</span>[1]<span class=nb>{</span>
+  <span class=k>\colorbox</span><span class=nb>{</span>bgcolor<span class=nb>}{</span><span class=k>\oldtexttt</span><span class=nb>{</span>#1<span class=nb>}}</span>
+<span class=nb>}</span>
+</code></pre></div><p>在使用 Pandoc 转换 Markdown 文件时，加上 <code>-H</code> 选项来引用 <code>head.tex</code> 文件，例如</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>pandoc --pdf-engine<span class=o>=</span>xelatex -H head.tex test.md -o test.pdf
+</code></pre></div><p>这样生成的 PDF 中，inline code 就会有灰色的背景色，背景颜色可以根据自己喜好修改。</p><h2 id=更改引用-block-quote-的风格>更改引用 (block quote) 的风格</h2><p>默认情况下，当我们把 Markdown 文件转为 PDF 时，Pandoc 使用 LaTeX 中的 <a href=https://tex.stackexchange.com/q/33219/114857><code>quote</code></a>环境来表示 block quote。生成的 PDF 中，引用文字只是被缩进了，看起来很不明显。</p><p>我们可以自己定义一个 quotation 环境，给环境加上背景颜色和缩进。将下面的设置写入到 <code>head.tex</code> 中：</p><div class=highlight><pre class=chroma><code class=language-latex data-lang=latex><span class=k>\usepackage</span><span class=nb>{</span>framed<span class=nb>}</span>
+<span class=k>\usepackage</span><span class=nb>{</span>quoting<span class=nb>}</span>
 
-<span class="k">\definecolor</span><span class="nb">{</span>bgcolor<span class="nb">}{</span>HTML<span class="nb">}{</span>DADADA<span class="nb">}</span>
-<span class="k">\colorlet</span><span class="nb">{</span>shadecolor<span class="nb">}{</span>bgcolor<span class="nb">}</span>
-<span class="c">% define a new environment shadedquotation. You can change leftmargin and
-</span><span class="c">% rightmargin as you wish.
-</span><span class="c"></span><span class="k">\newenvironment</span><span class="nb">{</span>shadedquotation<span class="nb">}</span>
- <span class="nb">{</span><span class="k">\begin</span><span class="nb">{</span>shaded*<span class="nb">}</span>
-  <span class="k">\quoting</span><span class="na">[leftmargin=1em, rightmargin=0pt, vskip=0pt, font=itshape]</span>
- <span class="nb">}</span>
- <span class="nb">{</span><span class="k">\endquoting</span>
- <span class="k">\end</span><span class="nb">{</span>shaded*<span class="nb">}</span>
- <span class="nb">}</span>
+<span class=k>\definecolor</span><span class=nb>{</span>bgcolor<span class=nb>}{</span>HTML<span class=nb>}{</span>DADADA<span class=nb>}</span>
+<span class=k>\colorlet</span><span class=nb>{</span>shadecolor<span class=nb>}{</span>bgcolor<span class=nb>}</span>
+<span class=c>% define a new environment shadedquotation. You can change leftmargin and
+</span><span class=c>% rightmargin as you wish.
+</span><span class=c></span><span class=k>\newenvironment</span><span class=nb>{</span>shadedquotation<span class=nb>}</span>
+ <span class=nb>{</span><span class=k>\begin</span><span class=nb>{</span>shaded*<span class=nb>}</span>
+  <span class=k>\quoting</span><span class=na>[leftmargin=1em, rightmargin=0pt, vskip=0pt, font=itshape]</span>
+ <span class=nb>}</span>
+ <span class=nb>{</span><span class=k>\endquoting</span>
+ <span class=k>\end</span><span class=nb>{</span>shaded*<span class=nb>}</span>
+ <span class=nb>}</span>
 
-<span class="c">%
-</span><span class="c"></span><span class="k">\def\quote</span><span class="nb">{</span><span class="k">\shadedquotation</span><span class="nb">}</span>
-<span class="k">\def\endquote</span><span class="nb">{</span><span class="k">\endshadedquotation</span><span class="nb">}</span>
-</code></pre></div><p>当你想把 Markdown 转为 PDF 时，可以使用下面的命令：</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">pandoc -H head.tex test.md -o test.pdf
-</code></pre></div><p>生成的 PDF 中引用的效果如下：</p>
-<p align="center">
-<img
-src="https://blog-resource-1257868508.file.myqcloud.com/20191118222418.png">
-</p>
-<h3 id="参考">参考</h3>
-<ul>
-<li><a href="https://tex.stackexchange.com/a/435632/114857">更改 quotation 环境的背景色</a>.</li>
-<li><a href="https://tex.stackexchange.com/questions/291235/modifying-an-existing-environment-but-keeping-the-name">如何重新定义 LaTeX 中已有的环境</a>.</li>
-</ul>
-<h2 id="将设置放入-headtex-文件中">将设置放入 <code>head.tex</code> 文件中</h2>
-<p>由于将 Markdown 转为 PDF 需要诸多选项与设置，将这些设置都写在命令行上，既浪费时间，也不利于小修小改，所以可以将常用的一些命令都放到 <code>head.tex</code> 文件中，然后在转换 Markdown 文件的时候引用该文件即可。</p>
-<p>例如，可以将设置页面宽度的命令，给 inline code 着色的命令，以及设置链接颜色的命令统一放入 <code>head.tex</code> 中：</p>
-<div class="highlight"><pre class="chroma"><code class="language-latex" data-lang="latex"><span class="k">\usepackage</span><span class="nb">{</span>fancyvrb,newverbs<span class="nb">}</span>
-<span class="k">\usepackage</span><span class="na">[top=2cm, bottom=1.5cm, left=2cm, right=2cm]</span><span class="nb">{</span>geometry<span class="nb">}</span>
+<span class=c>%
+</span><span class=c></span><span class=k>\def\quote</span><span class=nb>{</span><span class=k>\shadedquotation</span><span class=nb>}</span>
+<span class=k>\def\endquote</span><span class=nb>{</span><span class=k>\endshadedquotation</span><span class=nb>}</span>
+</code></pre></div><p>当你想把 Markdown 转为 PDF 时，可以使用下面的命令：</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>pandoc -H head.tex test.md -o test.pdf
+</code></pre></div><p>生成的 PDF 中引用的效果如下：</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20191118222418.png></p><h3 id=参考>参考</h3><ul><li><a href=https://tex.stackexchange.com/a/435632/114857>更改 quotation 环境的背景色</a>.</li><li><a href=https://tex.stackexchange.com/questions/291235/modifying-an-existing-environment-but-keeping-the-name>如何重新定义 LaTeX 中已有的环境</a>.</li></ul><h2 id=将设置放入-headtex-文件中>将设置放入 <code>head.tex</code> 文件中</h2><p>由于将 Markdown 转为 PDF 需要诸多选项与设置，将这些设置都写在命令行上，既浪费时间，也不利于小修小改，所以可以将常用的一些命令都放到 <code>head.tex</code> 文件中，然后在转换 Markdown 文件的时候引用该文件即可。</p><p>例如，可以将设置页面宽度的命令，给 inline code 着色的命令，以及设置链接颜色的命令统一放入 <code>head.tex</code> 中：</p><div class=highlight><pre class=chroma><code class=language-latex data-lang=latex><span class=k>\usepackage</span><span class=nb>{</span>fancyvrb,newverbs<span class=nb>}</span>
+<span class=k>\usepackage</span><span class=na>[top=2cm, bottom=1.5cm, left=2cm, right=2cm]</span><span class=nb>{</span>geometry<span class=nb>}</span>
 
-<span class="c">% change background color for inline code in
-</span><span class="c">% markdown files. The following code does not work well for
-</span><span class="c">% long text as the text will exceed the page boundary
-</span><span class="c"></span><span class="k">\definecolor</span><span class="nb">{</span>bgcolor<span class="nb">}{</span>HTML<span class="nb">}{</span>E0E0E0<span class="nb">}</span>
-<span class="k">\let\oldtexttt\texttt</span>
+<span class=c>% change background color for inline code in
+</span><span class=c>% markdown files. The following code does not work well for
+</span><span class=c>% long text as the text will exceed the page boundary
+</span><span class=c></span><span class=k>\definecolor</span><span class=nb>{</span>bgcolor<span class=nb>}{</span>HTML<span class=nb>}{</span>E0E0E0<span class=nb>}</span>
+<span class=k>\let\oldtexttt\texttt</span>
 
-<span class="k">\renewcommand</span><span class="nb">{</span><span class="k">\texttt</span><span class="nb">}</span>[1]<span class="nb">{</span>
-  <span class="k">\colorbox</span><span class="nb">{</span>bgcolor<span class="nb">}{</span><span class="k">\oldtexttt</span><span class="nb">{</span>#1<span class="nb">}}</span>
-<span class="nb">}</span>
+<span class=k>\renewcommand</span><span class=nb>{</span><span class=k>\texttt</span><span class=nb>}</span>[1]<span class=nb>{</span>
+  <span class=k>\colorbox</span><span class=nb>{</span>bgcolor<span class=nb>}{</span><span class=k>\oldtexttt</span><span class=nb>{</span>#1<span class=nb>}}</span>
+<span class=nb>}</span>
 
-<span class="c">%% color and other settings for hyperref package
-</span><span class="c"></span><span class="k">\hypersetup</span><span class="nb">{</span>
+<span class=c>%% color and other settings for hyperref package
+</span><span class=c></span><span class=k>\hypersetup</span><span class=nb>{</span>
     bookmarksopen=true,
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=RoyalBlue,
-<span class="nb">}</span>
-</code></pre></div><p>下次使用的时候，直接用 <code>-H</code> 选项引用以上文件即可。</p>
-<h2 id="list-嵌套层次太多的问题">List 嵌套层次太多的问题</h2>
-<p>读者<a href="https://disqus.com/by/disqus_q3bv7H1Y4D/">Karl Liu</a>反应，如果使用 Markdown List 嵌套的层次太多（具体是超过六层），使用 Pandoc 生成的 PDF 文件的时候，会出现错误</p>
-<blockquote>
-<p>! LaTeX Error: Too deeply nested.</p>
-</blockquote>
-<p>具体讨论见<a href="https://github.com/jgm/pandoc/issues/2922">这个 issue</a>，作者提出的解决方法是，在 <code>head.tex</code> 文件中加上如下设置：</p>
-<div class="highlight"><pre class="chroma"><code class="language-latex" data-lang="latex"><span class="k">\usepackage</span><span class="nb">{</span>enumitem<span class="nb">}</span>
-<span class="k">\setlistdepth</span><span class="nb">{</span>9<span class="nb">}</span>
+<span class=nb>}</span>
+</code></pre></div><p>下次使用的时候，直接用 <code>-H</code> 选项引用以上文件即可。</p><h2 id=list-嵌套层次太多的问题>List 嵌套层次太多的问题</h2><p>读者<a href=https://disqus.com/by/disqus_q3bv7H1Y4D/>Karl Liu</a>反应，如果使用 Markdown List 嵌套的层次太多（具体是超过六层），使用 Pandoc 生成的 PDF 文件的时候，会出现错误</p><blockquote><p>! LaTeX Error: Too deeply nested.</p></blockquote><p>具体讨论见<a href=https://github.com/jgm/pandoc/issues/2922>这个 issue</a>，作者提出的解决方法是，在 <code>head.tex</code> 文件中加上如下设置：</p><div class=highlight><pre class=chroma><code class=language-latex data-lang=latex><span class=k>\usepackage</span><span class=nb>{</span>enumitem<span class=nb>}</span>
+<span class=k>\setlistdepth</span><span class=nb>{</span>9<span class=nb>}</span>
 
-<span class="k">\setlist</span><span class="na">[itemize,1]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[itemize,2]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[itemize,3]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[itemize,4]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[itemize,5]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[itemize,6]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[itemize,7]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[itemize,8]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[itemize,9]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\bullet</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\renewlist</span><span class="nb">{</span>itemize<span class="nb">}{</span>itemize<span class="nb">}{</span>9<span class="nb">}</span>
+<span class=k>\setlist</span><span class=na>[itemize,1]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\bullet</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[itemize,2]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\bullet</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[itemize,3]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\bullet</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[itemize,4]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\bullet</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[itemize,5]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\bullet</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[itemize,6]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\bullet</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[itemize,7]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\bullet</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[itemize,8]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\bullet</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[itemize,9]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\bullet</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\renewlist</span><span class=nb>{</span>itemize<span class=nb>}{</span>itemize<span class=nb>}{</span>9<span class=nb>}</span>
 
-<span class="k">\setlist</span><span class="na">[enumerate,1]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\arabic</span><span class="o">*</span><span class="nb">.</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[enumerate,2]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\alph</span><span class="o">*</span><span class="nb">.</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[enumerate,3]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\roman</span><span class="o">*</span><span class="nb">.</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[enumerate,4]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\arabic</span><span class="o">*</span><span class="nb">.</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[enumerate,5]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\alpha</span><span class="o">*</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[enumerate,6]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\roman</span><span class="o">*</span><span class="nb">.</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[enumerate,7]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\arabic</span><span class="o">*</span><span class="nb">.</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[enumerate,8]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\alph</span><span class="o">*</span><span class="nb">.</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\setlist</span><span class="na">[enumerate,9]</span><span class="nb">{</span>label=<span class="s">$</span><span class="nv">\roman</span><span class="o">*</span><span class="nb">.</span><span class="s">$</span><span class="nb">}</span>
-<span class="k">\renewlist</span><span class="nb">{</span>enumerate<span class="nb">}{</span>enumerate<span class="nb">}{</span>9<span class="nb">}</span>
-</code></pre></div><p>在编译 PDF 的时候，加上 <code>-H head.tex</code> 选项。</p>
-<h1 id="使用-sublime-text-build-system-生成--pdf">使用 Sublime Text build system 生成  PDF</h1>
-<p>写完 Markdown，再切换到 terminal 使用 Pandoc 生成 PDF 以及预览,颇为麻烦，因此我使用 Sublime Text 的 build system 来简化编译生成 PDF 以及预览的整个过程。PDF 预览使用了轻量级的 <a href="http://www.sumatrapdfreader.org/free-pdf-reader.html">Sumatra PDF reader</a>。</p>
-<p>一个示例的 build system 如下，</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">{<span class="w">
-</span><span class="w">    </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;pandoc --pdf-engine=xelatex --highlight-style=zenburn -V colorlinks -V CJKmainfont=KaiTi \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}.pdf\&#34; &#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">    </span><span class="k">&#34;file_regex&#34;: </span><span class="s2">&#34;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">    </span><span class="k">&#34;working_dir&#34;: </span><span class="s2">&#34;${file_path}&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">    </span><span class="k">&#34;selector&#34;: </span><span class="s2">&#34;text.html.markdown&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span><span class="s2">&#34;variants&#34;</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="p">[</span><span class="w">
-</span><span class="w">        </span>{<span class="w">
-</span><span class="w">            </span><span class="k">&#34;name&#34;: </span><span class="s2">&#34;Convert to PDF and Preview&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">            </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;pandoc --pdf-engine=xelatex --highlight-style=zenburn -V colorlinks  -V CJKmainfont=KaiTi \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}.pdf\&#34;  &amp;&amp;SumatraPDF \&#34;${file_path}/${file_base_name}.pdf\&#34; &#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">            </span>//<span class="w"> </span><span class="k">&#34;shell_cmd&#34;: </span><span class="w">  </span><span class="s2">&#34;start \&#34;$file_base_name\&#34; call $file_base_name&#34;</span><span class="w">
-</span><span class="w">        </span>}<span class="w">
-</span><span class="w">    </span><span class="p">]</span><span class="w">
-</span><span class="w"></span>}<span class="w">
-</span><span class="w">
-</span></code></pre></div><p>在命令中使用到了引号，必须使用 backslash escape。可以从<a href="https://gist.github.com/jdhao/90fcc239cfa3bba77e10185580e16170">这里</a> 下载这个 build system。</p>
-<h2 id="系统无法识别-pandoc-的问题">系统无法识别 Pandoc 的问题</h2>
-<p>不知什么原因，上述把 Markdown 文件转为 PDF 的 build system 在编译 Markdown 文件时，突然给出如下错误提示：</p>
-<blockquote>
-<p>&lsquo;pandoc&rsquo; is not recognized as an internal or external command, operable program or batch file.</p>
-</blockquote>
-<p>通过查询 <a href="http://docs.sublimetext.info/en/latest/reference/build_systems/exec.html#exec-command-arguments">sublime 文档</a>，发现我们可以在 build system 里面加上 <code>path</code> 变量。因此，我对上述的 build system 进行了调整，新的 build system 如下：</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">{<span class="w">
-</span><span class="w">    </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;pandoc --pdf-engine=xelatex --highlight-style=zenburn -V colorlinks -V CJKmainfont=\&#34;Source Han Serif SC\&#34; \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}.pdf\&#34; &#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">    </span><span class="k">&#34;path&#34;: </span><span class="s2">&#34;C:/Users/east/AppData/Local/Pandoc/;%PATH%&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">    </span><span class="k">&#34;file_regex&#34;: </span><span class="s2">&#34;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">    </span><span class="k">&#34;working_dir&#34;: </span><span class="s2">&#34;${file_path}&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">    </span><span class="k">&#34;selector&#34;: </span><span class="s2">&#34;text.html.markdown&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span><span class="s2">&#34;variants&#34;</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="p">[</span><span class="w">
-</span><span class="w">        </span>{<span class="w">
-</span><span class="w">            </span><span class="k">&#34;name&#34;: </span><span class="s2">&#34;Convert to PDF and Preview&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">            </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;pandoc --pdf-engine=xelatex --highlight-style=zenburn -V colorlinks  -V CJKmainfont=\&#34;Source Han Serif SC\&#34; \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}.pdf\&#34;  &amp;&amp;SumatraPDF \&#34;${file_path}/${file_base_name}.pdf\&#34; &#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">            </span><span class="k">&#34;path&#34;: </span><span class="s2">&#34;C:/Users/east/AppData/Local/Pandoc/;%PATH%&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">            </span>//<span class="w"> </span><span class="k">&#34;shell_cmd&#34;: </span><span class="w">  </span><span class="s2">&#34;start \&#34;$file_base_name\&#34; call $file_base_name&#34;</span><span class="w">
-</span><span class="w">        </span>}<span class="w">
-</span><span class="w">    </span><span class="p">]</span><span class="w">
-</span><span class="w"></span>}<span class="w">
-</span></code></pre></div><p>使用新的 build system 以后，一切恢复正常。</p>
-<h1 id="笔记云同步">笔记云同步</h1>
-<p>云同步可以选择<a href="https://www.jianguoyun.com">坚果云</a>。同步速度快，并且支持多个文件夹同步，每个月有 1G 免费上传流量，对于文档同步来说，足够使用了。当然也可以使用自己的网盘或者云存储，都是可以的，看自己喜好。</p>
-<p>注：以后有更新的话，会优先更新文章开头提到的英文版本，由于精力有限，此版本更新将不会很频繁，以修复错误为主。</p>
-<h1 id="参考资料">参考资料</h1>
-<ul>
-<li><a href="https://pandoc.org/faqs.html#i-get-a-blank-document-when-i-try-to-convert-a-markdown-document-in-chinese-to-pdf-using-pandoc--o-test.pdf-test.markdown">Pandoc 处理中文</a>.</li>
-<li><a href="http://pandoc.org/MANUAL.html#block-quotations">Pandoc 对 block quote 的处理</a>.</li>
-<li><a href="https://pandoc.org/MANUAL.html#syntax-highlighting">Pandoc 语法高亮设置</a>.</li>
-<li><a href="https://en.wikibooks.org/wiki/LaTeX/Colors#The_68_standard_colors_known_to_dvips">dvipsnames 提供的颜色</a>.</li>
-<li><a href="https://stackoverflow.com/questions/24208889/how-to-specify-numbered-sections-in-pandocs-front-matter/47738183#47738183">Pandoc 设置 section number</a></li>
-<li><a href="https://stackoverflow.com/questions/47533072/g-is-not-recognised-as-an-internal-or-external-command-in-sublime-text">解决 Pandoc 命令找不到的问题</a>.</li>
-</ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">jdhao</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2020-03-11
-        
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">License</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
-        <span>wechat</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
-        <span>alipay</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/font/">font</a>
-          <a href="/tags/%E5%AD%97%E4%BD%93/">字体</a>
-          <a href="/tags/Markdown/">Markdown</a>
-          <a href="/tags/LaTeX/">LaTeX</a>
-          <a href="/tags/Sublime-Text/">Sublime-Text</a>
-          <a href="/tags/Pandoc/">Pandoc</a>
-          <a href="/tags/Unicode/">Unicode</a>
-          <a href="/tags/PDF/">PDF</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/2017/12/29/cmder-usage/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Cmder --- The Ultimate Command Line Tool for Windows</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2017/11/16/matplotlib-plotting-notes/">
-            <span class="next-text nav-default">Matplotlib Plotting Notes -- Series 1</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'jdhao';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
-  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy; 
-    2017 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jdhao</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-113395108-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-
-</body>
-</html>
+<span class=k>\setlist</span><span class=na>[enumerate,1]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\arabic</span><span class=o>*</span><span class=nb>.</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[enumerate,2]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\alph</span><span class=o>*</span><span class=nb>.</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[enumerate,3]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\roman</span><span class=o>*</span><span class=nb>.</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[enumerate,4]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\arabic</span><span class=o>*</span><span class=nb>.</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[enumerate,5]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\alpha</span><span class=o>*</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[enumerate,6]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\roman</span><span class=o>*</span><span class=nb>.</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[enumerate,7]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\arabic</span><span class=o>*</span><span class=nb>.</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[enumerate,8]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\alph</span><span class=o>*</span><span class=nb>.</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\setlist</span><span class=na>[enumerate,9]</span><span class=nb>{</span>label=<span class=s>$</span><span class=nv>\roman</span><span class=o>*</span><span class=nb>.</span><span class=s>$</span><span class=nb>}</span>
+<span class=k>\renewlist</span><span class=nb>{</span>enumerate<span class=nb>}{</span>enumerate<span class=nb>}{</span>9<span class=nb>}</span>
+</code></pre></div><p>在编译 PDF 的时候，加上 <code>-H head.tex</code> 选项。</p><h1 id=使用-sublime-text-build-system-生成--pdf>使用 Sublime Text build system 生成 PDF</h1><p>写完 Markdown，再切换到 terminal 使用 Pandoc 生成 PDF 以及预览,颇为麻烦，因此我使用 Sublime Text 的 build system 来简化编译生成 PDF 以及预览的整个过程。PDF 预览使用了轻量级的 <a href=http://www.sumatrapdfreader.org/free-pdf-reader.html>Sumatra PDF reader</a>。</p><p>一个示例的 build system 如下，</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>{<span class=w>
+</span><span class=w>    </span><span class=k>&#34;shell_cmd&#34;: </span><span class=s2>&#34;pandoc --pdf-engine=xelatex --highlight-style=zenburn -V colorlinks -V CJKmainfont=KaiTi \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}.pdf\&#34; &#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>    </span><span class=k>&#34;file_regex&#34;: </span><span class=s2>&#34;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>    </span><span class=k>&#34;working_dir&#34;: </span><span class=s2>&#34;${file_path}&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>    </span><span class=k>&#34;selector&#34;: </span><span class=s2>&#34;text.html.markdown&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>
+</span><span class=w>    </span><span class=s2>&#34;variants&#34;</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=p>[</span><span class=w>
+</span><span class=w>        </span>{<span class=w>
+</span><span class=w>            </span><span class=k>&#34;name&#34;: </span><span class=s2>&#34;Convert to PDF and Preview&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>            </span><span class=k>&#34;shell_cmd&#34;: </span><span class=s2>&#34;pandoc --pdf-engine=xelatex --highlight-style=zenburn -V colorlinks  -V CJKmainfont=KaiTi \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}.pdf\&#34;  &amp;&amp;SumatraPDF \&#34;${file_path}/${file_base_name}.pdf\&#34; &#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>            </span>//<span class=w> </span><span class=k>&#34;shell_cmd&#34;: </span><span class=w>  </span><span class=s2>&#34;start \&#34;$file_base_name\&#34; call $file_base_name&#34;</span><span class=w>
+</span><span class=w>        </span>}<span class=w>
+</span><span class=w>    </span><span class=p>]</span><span class=w>
+</span><span class=w></span>}<span class=w>
+</span><span class=w>
+</span></code></pre></div><p>在命令中使用到了引号，必须使用 backslash escape。可以从<a href=https://gist.github.com/jdhao/90fcc239cfa3bba77e10185580e16170>这里</a> 下载这个 build system。</p><h2 id=系统无法识别-pandoc-的问题>系统无法识别 Pandoc 的问题</h2><p>不知什么原因，上述把 Markdown 文件转为 PDF 的 build system 在编译 Markdown 文件时，突然给出如下错误提示：</p><blockquote><p>&lsquo;pandoc&rsquo; is not recognized as an internal or external command, operable program or batch file.</p></blockquote><p>通过查询 <a href=http://docs.sublimetext.info/en/latest/reference/build_systems/exec.html#exec-command-arguments>sublime 文档</a>，发现我们可以在 build system 里面加上 <code>path</code> 变量。因此，我对上述的 build system 进行了调整，新的 build system 如下：</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>{<span class=w>
+</span><span class=w>    </span><span class=k>&#34;shell_cmd&#34;: </span><span class=s2>&#34;pandoc --pdf-engine=xelatex --highlight-style=zenburn -V colorlinks -V CJKmainfont=\&#34;Source Han Serif SC\&#34; \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}.pdf\&#34; &#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>    </span><span class=k>&#34;path&#34;: </span><span class=s2>&#34;C:/Users/east/AppData/Local/Pandoc/;%PATH%&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>    </span><span class=k>&#34;file_regex&#34;: </span><span class=s2>&#34;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>    </span><span class=k>&#34;working_dir&#34;: </span><span class=s2>&#34;${file_path}&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>    </span><span class=k>&#34;selector&#34;: </span><span class=s2>&#34;text.html.markdown&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>
+</span><span class=w>    </span><span class=s2>&#34;variants&#34;</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=p>[</span><span class=w>
+</span><span class=w>        </span>{<span class=w>
+</span><span class=w>            </span><span class=k>&#34;name&#34;: </span><span class=s2>&#34;Convert to PDF and Preview&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>            </span><span class=k>&#34;shell_cmd&#34;: </span><span class=s2>&#34;pandoc --pdf-engine=xelatex --highlight-style=zenburn -V colorlinks  -V CJKmainfont=\&#34;Source Han Serif SC\&#34; \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}.pdf\&#34;  &amp;&amp;SumatraPDF \&#34;${file_path}/${file_base_name}.pdf\&#34; &#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>            </span><span class=k>&#34;path&#34;: </span><span class=s2>&#34;C:/Users/east/AppData/Local/Pandoc/;%PATH%&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>            </span>//<span class=w> </span><span class=k>&#34;shell_cmd&#34;: </span><span class=w>  </span><span class=s2>&#34;start \&#34;$file_base_name\&#34; call $file_base_name&#34;</span><span class=w>
+</span><span class=w>        </span>}<span class=w>
+</span><span class=w>    </span><span class=p>]</span><span class=w>
+</span><span class=w></span>}<span class=w>
+</span></code></pre></div><p>使用新的 build system 以后，一切恢复正常。</p><h1 id=笔记云同步>笔记云同步</h1><p>云同步可以选择<a href=https://www.jianguoyun.com>坚果云</a>。同步速度快，并且支持多个文件夹同步，每个月有 1G 免费上传流量，对于文档同步来说，足够使用了。当然也可以使用自己的网盘或者云存储，都是可以的，看自己喜好。</p><p>注：以后有更新的话，会优先更新文章开头提到的英文版本，由于精力有限，此版本更新将不会很频繁，以修复错误为主。</p><h1 id=参考资料>参考资料</h1><ul><li><a href=https://pandoc.org/faqs.html#i-get-a-blank-document-when-i-try-to-convert-a-markdown-document-in-chinese-to-pdf-using-pandoc--o-test.pdf-test.markdown>Pandoc 处理中文</a>.</li><li><a href=http://pandoc.org/MANUAL.html#block-quotations>Pandoc 对 block quote 的处理</a>.</li><li><a href=https://pandoc.org/MANUAL.html#syntax-highlighting>Pandoc 语法高亮设置</a>.</li><li><a href=https://en.wikibooks.org/wiki/LaTeX/Colors#The_68_standard_colors_known_to_dvips>dvipsnames 提供的颜色</a>.</li><li><a href=https://stackoverflow.com/questions/24208889/how-to-specify-numbered-sections-in-pandocs-front-matter/47738183#47738183>Pandoc 设置 section number</a></li><li><a href=https://stackoverflow.com/questions/47533072/g-is-not-recognised-as-an-internal-or-external-command-in-sublime-text>解决 Pandoc 命令找不到的问题</a>.</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-03-11</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/font/>font</a>
+<a href=/tags/%E5%AD%97%E4%BD%93/>字体</a>
+<a href=/tags/Markdown/>Markdown</a>
+<a href=/tags/LaTeX/>LaTeX</a>
+<a href=/tags/Sublime-Text/>Sublime-Text</a>
+<a href=/tags/Pandoc/>Pandoc</a>
+<a href=/tags/Unicode/>Unicode</a>
+<a href=/tags/PDF/>PDF</a></div><nav class=post-nav><a class=prev href=/2017/12/29/cmder-usage/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Cmder --- The Ultimate Command Line Tool for Windows</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2017/11/16/matplotlib-plotting-notes/><span class="next-text nav-default">Matplotlib Plotting Notes -- Series 1</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='jdhao';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+2017 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>

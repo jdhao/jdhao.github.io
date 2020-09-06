@@ -1,87 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>ssh on jdhao&#39;s blog</title>
-    <link>https://jdhao.github.io/tags/ssh/</link>
-    <description>Recent content in ssh on jdhao&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>jdhao</copyright>
-    <lastBuildDate>Sun, 27 Oct 2019 22:43:12 +0800</lastBuildDate>
-    
-	<atom:link href="https://jdhao.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Essential Knowledge about SSH</title>
-      <link>https://jdhao.github.io/2019/10/27/ssh_essential_knowledge/</link>
-      <pubDate>Sun, 27 Oct 2019 22:43:12 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/10/27/ssh_essential_knowledge/</guid>
-      <description>&lt;p&gt;Although I use SSH (secure shell) every day, I seem to know little about it
-except the fact that I can use &lt;code&gt;ssh&lt;/code&gt; command to log into my remote servers.
-Recently, I found myself some time to learn how does it work.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Execellent Development Experience with Cygwin and Mintty Terminal on Windows 10</title>
-      <link>https://jdhao.github.io/2018/10/23/cygwin_install_and_use/</link>
-      <pubDate>Tue, 23 Oct 2018 15:00:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/10/23/cygwin_install_and_use/</guid>
-      <description>&lt;p&gt;Linux is great for programming compared to Windows. If you miss the experience
-you get on Linux, maybe you should try &lt;a href=&#34;https://www.cygwin.com/&#34;&gt;Cygwin&lt;/a&gt;, which
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ssh on jdhao's blog</title><link>https://jdhao.github.io/tags/ssh/</link><description>Recent content in ssh on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Sun, 27 Oct 2019 22:43:12 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml"/><item><title>Essential Knowledge about SSH</title><link>https://jdhao.github.io/2019/10/27/ssh_essential_knowledge/</link><pubDate>Sun, 27 Oct 2019 22:43:12 +0800</pubDate><guid>https://jdhao.github.io/2019/10/27/ssh_essential_knowledge/</guid><description>&lt;p>Although I use SSH (secure shell) every day, I seem to know little about it
+except the fact that I can use &lt;code>ssh&lt;/code> command to log into my remote servers.
+Recently, I found myself some time to learn how does it work.&lt;/p></description></item><item><title>Execellent Development Experience with Cygwin and Mintty Terminal on Windows 10</title><link>https://jdhao.github.io/2018/10/23/cygwin_install_and_use/</link><pubDate>Tue, 23 Oct 2018 15:00:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/23/cygwin_install_and_use/</guid><description>&lt;p>Linux is great for programming compared to Windows. If you miss the experience
+you get on Linux, maybe you should try &lt;a href="https://www.cygwin.com/">Cygwin&lt;/a>, which
 set up a Linux-like environment on Windows platform. In this post, I want to
 talk about how to configure Cygwin and how to use mintty terminal on Windows 10
-to get excellent programming experience.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Server Autologin with Expect</title>
-      <link>https://jdhao.github.io/2018/10/08/server_autologin_with_expect/</link>
-      <pubDate>Mon, 08 Oct 2018 23:01:24 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/10/08/server_autologin_with_expect/</guid>
-      <description>&lt;p&gt;I use a Windows 10 machine and need to connect to Linux servers. After using
-several &lt;a href=&#34;https://www.slant.co/topics/149/~best-ssh-clients-for-windows&#34;&gt;ssh clients&lt;/a&gt;
+to get excellent programming experience.&lt;/p></description></item><item><title>Server Autologin with Expect</title><link>https://jdhao.github.io/2018/10/08/server_autologin_with_expect/</link><pubDate>Mon, 08 Oct 2018 23:01:24 +0800</pubDate><guid>https://jdhao.github.io/2018/10/08/server_autologin_with_expect/</guid><description>&lt;p>I use a Windows 10 machine and need to connect to Linux servers. After using
+several &lt;a href="https://www.slant.co/topics/149/~best-ssh-clients-for-windows">ssh clients&lt;/a>
 for connecting to the server, I finally settled for
-&lt;a href=&#34;https://www.cygwin.com/&#34;&gt;Cygwin&lt;/a&gt; and
-&lt;a href=&#34;https://github.com/mintty/wsltty&#34;&gt;Wsltty&lt;/a&gt;, which is open-sourced and use the
-well-known &lt;a href=&#34;https://github.com/mintty/mintty&#34;&gt;mintty terminal&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;But one feature I miss from the SSH tools such as MobaXterm or Xshell is that
+&lt;a href="https://www.cygwin.com/">Cygwin&lt;/a> and
+&lt;a href="https://github.com/mintty/wsltty">Wsltty&lt;/a>, which is open-sourced and use the
+well-known &lt;a href="https://github.com/mintty/mintty">mintty terminal&lt;/a>.&lt;/p>
+&lt;p>But one feature I miss from the SSH tools such as MobaXterm or Xshell is that
 these tools can save the server IP, port, user name and even password, so that
-you can log into the server with just a click.&lt;/p&gt;
-&lt;p&gt;With mintty terminal, I have to manually ssh to my server each time, which is
+you can log into the server with just a click.&lt;/p>
+&lt;p>With mintty terminal, I have to manually ssh to my server each time, which is
 tedious and time consuming. Fortunately, I have found the
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Expect&#34;&gt;Expect&lt;/a&gt; scripting language which is
-pretty powerful for this task.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to Use Putty on Windows</title>
-      <link>https://jdhao.github.io/2018/04/12/putty-windows-x11-forwarding-setup/</link>
-      <pubDate>Thu, 12 Apr 2018 00:20:26 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/04/12/putty-windows-x11-forwarding-setup/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://www.chiark.greenend.org.uk/~sgtatham/putty/&#34;&gt;Putty&lt;/a&gt; is a powerful and
+&lt;a href="https://en.wikipedia.org/wiki/Expect">Expect&lt;/a> scripting language which is
+pretty powerful for this task.&lt;/p></description></item><item><title>How to Use Putty on Windows</title><link>https://jdhao.github.io/2018/04/12/putty-windows-x11-forwarding-setup/</link><pubDate>Thu, 12 Apr 2018 00:20:26 +0800</pubDate><guid>https://jdhao.github.io/2018/04/12/putty-windows-x11-forwarding-setup/</guid><description>&lt;p>&lt;a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">Putty&lt;/a> is a powerful and
 slim ssh tool with rich features. It is widely used to connect to the remote
-servers. I will summarize some of its settings and usages in this post.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Set up X11 Forwarding with Git for Windows (git-bash)</title>
-      <link>https://jdhao.github.io/2018/03/02/Windows-connect-server-x11-with-gitbash/</link>
-      <pubDate>Fri, 02 Mar 2018 00:05:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/03/02/Windows-connect-server-x11-with-gitbash/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://jdhao.github.io/2017/12/29/cmder-usage/&#34;&gt;As I have posted earlier&lt;/a&gt;,
+servers. I will summarize some of its settings and usages in this post.&lt;/p></description></item><item><title>Set up X11 Forwarding with Git for Windows (git-bash)</title><link>https://jdhao.github.io/2018/03/02/Windows-connect-server-x11-with-gitbash/</link><pubDate>Fri, 02 Mar 2018 00:05:00 +0800</pubDate><guid>https://jdhao.github.io/2018/03/02/Windows-connect-server-x11-with-gitbash/</guid><description>&lt;p>&lt;a href="https://jdhao.github.io/2017/12/29/cmder-usage/">As I have posted earlier&lt;/a>,
 Cmder is a better option if you use Windows command line frequently. The full
-installation of Cmder comes with &lt;a href=&#34;https://gitforwindows.org/&#34;&gt;&lt;em&gt;Git for
-Windows&lt;/em&gt;&lt;/a&gt;, which is handy to provide a Linux-like
+installation of Cmder comes with &lt;a href="https://gitforwindows.org/">&lt;em>Git for
+Windows&lt;/em>&lt;/a>, which is handy to provide a Linux-like
 environment. In this post, I will write about how to use Git for Windows to
 connect to a remote CentOS server and set up X11 forwarding to use the GUI
-applications on that server.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+applications on that server.&lt;/p></description></item></channel></rss>

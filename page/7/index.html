@@ -1,761 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>jdhao&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jdhao" /><meta name="description" content="A blog for the patient and curious people" /><meta name="keywords" content="Hugo, theme, even" />
-
-
-
-<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
-
-
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
-
-
-<link rel="canonical" href="https://jdhao.github.io/" />
-  <link href="https://jdhao.github.io/index.xml" rel="alternate" type="application/rss+xml" title="jdhao&#39;s blog" />
-  <link href="https://jdhao.github.io/index.xml" rel="feed" type="application/rss+xml" title="jdhao&#39;s blog" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6058871559165202",
-    enable_page_level_ads: true
-  });
-</script>
-
-
-
-
-<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="jdhao&#39;s blog" />
-<meta property="og:description" content="A blog for the patient and curious people" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://jdhao.github.io/" />
-<meta property="og:updated_time" content="2020-09-05T23:42:57+08:00" />
-<meta itemprop="name" content="jdhao&#39;s blog">
-<meta itemprop="description" content="A blog for the patient and curious people">
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="jdhao&#39;s blog"/>
-<meta name="twitter:description" content="A blog for the patient and curious people"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jdhao&#39;s blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jdhao&#39;s blog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/06/06/nvim_deoplete_settings/">Nvim Autocompletion with Deoplete</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-06-06 </span>
-      <div class="post-category">
-          <a href="/categories/Nvim/"> Nvim </a>
-          </div>
-        <span class="more-meta"> 274 words </span>
-        <span class="more-meta"> 2 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p><a href="https://github.com/Shougo/deoplete.nvim">Deoplete</a> is a good auto-completion
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://jdhao.github.io/><link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's blog"><link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's blog"><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="jdhao's blog"><meta property="og:description" content="A blog for the patient and curious people"><meta property="og:type" content="website"><meta property="og:url" content="https://jdhao.github.io/"><meta property="og:updated_time" content="2020-09-05T23:42:57+08:00"><meta itemprop=name content="jdhao's blog"><meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary"><meta name=twitter:title content="jdhao's blog"><meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><section id=posts class=posts><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/06/06/nvim_deoplete_settings/>Nvim Autocompletion with Deoplete</a></h1><div class=post-meta><span class=post-time>2019-06-06</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>274 words</span>
+<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p><a href=https://github.com/Shougo/deoplete.nvim>Deoplete</a> is a good auto-completion
 plugin for Neovim. In this post, I introduce how to set up auto-completion for
-Nvim with the help of deoplete.</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/06/06/nvim_deoplete_settings/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/05/30/markdown2pdf_pandoc/">Converting Markdown to Beautiful PDF with Pandoc</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-05-30 </span>
-      <div class="post-category">
-          <a href="/categories/tools/"> tools </a>
-          </div>
-        <span class="more-meta"> 2638 words </span>
-        <span class="more-meta"> 6 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>Over the past few years, I have been using some dedicated note-taking software
+Nvim with the help of deoplete.</p></div><div class=read-more><a href=/2019/06/06/nvim_deoplete_settings/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/05/30/markdown2pdf_pandoc/>Converting Markdown to Beautiful PDF with Pandoc</a></h1><div class=post-meta><span class=post-time>2019-05-30</span><div class=post-category><a href=/categories/tools/>tools</a></div><span class=more-meta>2638 words</span>
+<span class=more-meta>6 mins read</span></div></header><div class=post-content><div class=post-summary><p>Over the past few years, I have been using some dedicated note-taking software
 to manage my notes. But all these tools I have tried are unsatisfactory: they
 are either slow or cumbersome when I want to search my notes. Finally, I
 decided to take my notes in Markdown and convert them to PDF using Pandoc for
-reading. In this post, I will summarize how I do it.</p>
-<p>本文的中文版本参见 <a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/">这里</a>。</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/05/30/markdown2pdf_pandoc/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/05/18/nvim_exclusive_inclusive_motion/">Exclusive and Inclusive Motion in Neovim/Vim</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-05-18 </span>
-      <div class="post-category">
-          <a href="/categories/Nvim/"> Nvim </a>
-          </div>
-        <span class="more-meta"> 424 words </span>
-        <span class="more-meta"> 2 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h1 id="introduction">Introduction</h1>
-<p>Suppose that we have the following text in normal mode (cursor is indicated by
-<code>^</code>):</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">hello world
+reading. In this post, I will summarize how I do it.</p><p>本文的中文版本参见 <a href=https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/>这里</a>。</p></div><div class=read-more><a href=/2019/05/30/markdown2pdf_pandoc/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/05/18/nvim_exclusive_inclusive_motion/>Exclusive and Inclusive Motion in Neovim/Vim</a></h1><div class=post-meta><span class=post-time>2019-05-18</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>424 words</span>
+<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><h1 id=introduction>Introduction</h1><p>Suppose that we have the following text in normal mode (cursor is indicated by
+<code>^</code>):</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>hello world
 ^
-</code></pre></div><p>if we use <code>dw</code>, we delete <code>hello&lt;Space&gt;</code><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> and only <code>world</code> is left; if we
-use <code>de</code>, <code>hello</code> is deleted and <code>&lt;Space&gt;world</code> is left. Have you ever wondered
+</code></pre></div><p>if we use <code>dw</code>, we delete <code>hello&lt;Space></code><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> and only <code>world</code> is left; if we
+use <code>de</code>, <code>hello</code> is deleted and <code>&lt;Space>world</code> is left. Have you ever wondered
 about why <code>dw</code> do not delete <code>w</code> while <code>de</code> will delete the <code>o</code> in <code>hello</code>? It
 seems that motion <code>e</code> and <code>w</code> are somewhat inconsistent in their behaviours. It
-turns out that it has something to do with the exclusivity of motions in Vim.</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/05/18/nvim_exclusive_inclusive_motion/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/05/14/nifty_nvim_techniques_s3/">Nifty Nvim Techniques Which Make My Life Easier -- Series 3</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-05-14 </span>
-      <div class="post-category">
-          <a href="/categories/Nvim/"> Nvim </a>
-          </div>
-        <span class="more-meta"> 984 words </span>
-        <span class="more-meta"> 2 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>This is the 3rd of my blog post series about some nifty techniques of using
-Nvim. For other posts, see</p>
-<ul>
-<li><a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">Series 1</a></li>
-<li><a href="https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/">Series 2</a></li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/2019/05/14/nifty_nvim_techniques_s3/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/05/13/jedi_autocomplete_type_hints/">Why Doesn&#39;t Jedi Autocompletion Work for Some Methods</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-05-13 </span>
-      <div class="post-category">
-          <a href="/categories/Note/"> Note </a>
-          </div>
-        <span class="more-meta"> 468 words </span>
-        <span class="more-meta"> 3 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>Currently I am writing all my Python code using Neovim and <a href="https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/#plugin-install-and-settings">a couple of
+turns out that it has something to do with the exclusivity of motions in Vim.</p></div><div class=read-more><a href=/2019/05/18/nvim_exclusive_inclusive_motion/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/05/14/nifty_nvim_techniques_s3/>Nifty Nvim Techniques Which Make My Life Easier -- Series 3</a></h1><div class=post-meta><span class=post-time>2019-05-14</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>984 words</span>
+<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>This is the 3rd of my blog post series about some nifty techniques of using
+Nvim. For other posts, see</p><ul><li><a href=https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/>Series 1</a></li><li><a href=https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/>Series 2</a></li></ul></div><div class=read-more><a href=/2019/05/14/nifty_nvim_techniques_s3/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/05/13/jedi_autocomplete_type_hints/>Why Doesn't Jedi Autocompletion Work for Some Methods</a></h1><div class=post-meta><span class=post-time>2019-05-13</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>468 words</span>
+<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>Currently I am writing all my Python code using Neovim and <a href=https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/#plugin-install-and-settings>a couple of
 plugins</a>
-to provide auto-completion, linting, etc.</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/05/13/jedi_autocomplete_type_hints/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/05/11/nvim_text_input_browser/">Vim-like Editing inside Browser</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-05-11 </span>
-      <div class="post-category">
-          <a href="/categories/tools/"> tools </a>
-          </div>
-        <span class="more-meta"> 621 words </span>
-        <span class="more-meta"> 3 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>Vim/Nvim has powerful ability in editing texts. But if you are in a browser and
+to provide auto-completion, linting, etc.</p></div><div class=read-more><a href=/2019/05/13/jedi_autocomplete_type_hints/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/05/11/nvim_text_input_browser/>Vim-like Editing inside Browser</a></h1><div class=post-meta><span class=post-time>2019-05-11</span><div class=post-category><a href=/categories/tools/>tools</a></div><span class=more-meta>621 words</span>
+<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>Vim/Nvim has powerful ability in editing texts. But if you are in a browser and
 want to input some text, can we somehow utilize the editing power of Vim? In
 this post, I would like to share several ways to use Vim or Vim-like editing
-when you are working inside a browser.</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/05/11/nvim_text_input_browser/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/05/04/markdown_extra_space/">Markdown 生成 HTML 时汉字之间出现多余空格问题</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-05-04 </span>
-      <div class="post-category">
-          <a href="/categories/Blog/"> Blog </a>
-          </div>
-        <span class="more-meta"> 743 words </span>
-        <span class="more-meta"> 2 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>在过去很长一段时间，我都在<a href="https://jdhao.github.io/2017/03/04/Sublime-Windows-Markdown/">使用 Sublime Text 来编辑 Markdown 文件</a>，Sublime Text有一个非常实用的功能，<a href="https://stackoverflow.com/q/25900954/6064933">可以设定 <code>wrap_width</code>  和 <code>word_wrap</code> 选项</a>，自动在设定的 80个字符长度处 softwrap 文本。所以即使一个段落写成一行，编辑起来或者看起来都不违和。</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/05/04/markdown_extra_space/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/05/04/mi9_google_play_configure/">小米 9 安装谷歌商店（Google Play Store）与相关配置</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-05-04 </span>
-      <div class="post-category">
-          <a href="/categories/Android/"> Android </a>
-          </div>
-        <span class="more-meta"> 1044 words </span>
-        <span class="more-meta"> 3 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>五一假期入手了<a href="https://zh.wikipedia.org/wiki/%E5%B0%8F%E7%B1%B39">小米9</a>，在安装谷歌 Play 商店以及启用过程中遇到了一些问题，特此记录解决方法。</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/05/04/mi9_google_play_configure/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/04/29/nvim_map_with_a_count/">Create Mappings Which Take A Count in Neovim</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-04-29 </span>
-      <div class="post-category">
-          <a href="/categories/Nvim/"> Nvim </a>
-          </div>
-        <span class="more-meta"> 1214 words </span>
-        <span class="more-meta"> 6 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p><img src="https://blog-resource-1257868508.file.myqcloud.com/20190503204410.png" alt="Mappings"></p>
-<p>Many normal mode commands accept a <code>count</code>, which means to repeat the motion
+when you are working inside a browser.</p></div><div class=read-more><a href=/2019/05/11/nvim_text_input_browser/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/05/04/markdown_extra_space/>Markdown 生成 HTML 时汉字之间出现多余空格问题</a></h1><div class=post-meta><span class=post-time>2019-05-04</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>743 words</span>
+<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>在过去很长一段时间，我都在<a href=https://jdhao.github.io/2017/03/04/Sublime-Windows-Markdown/>使用 Sublime Text 来编辑 Markdown 文件</a>，Sublime Text有一个非常实用的功能，<a href=https://stackoverflow.com/q/25900954/6064933>可以设定 <code>wrap_width</code> 和 <code>word_wrap</code> 选项</a>，自动在设定的 80个字符长度处 softwrap 文本。所以即使一个段落写成一行，编辑起来或者看起来都不违和。</p></div><div class=read-more><a href=/2019/05/04/markdown_extra_space/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/05/04/mi9_google_play_configure/>小米 9 安装谷歌商店（Google Play Store）与相关配置</a></h1><div class=post-meta><span class=post-time>2019-05-04</span><div class=post-category><a href=/categories/Android/>Android</a></div><span class=more-meta>1044 words</span>
+<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>五一假期入手了<a href=https://zh.wikipedia.org/wiki/%E5%B0%8F%E7%B1%B39>小米9</a>，在安装谷歌 Play 商店以及启用过程中遇到了一些问题，特此记录解决方法。</p></div><div class=read-more><a href=/2019/05/04/mi9_google_play_configure/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/04/29/nvim_map_with_a_count/>Create Mappings Which Take A Count in Neovim</a></h1><div class=post-meta><span class=post-time>2019-04-29</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>1214 words</span>
+<span class=more-meta>6 mins read</span></div></header><div class=post-content><div class=post-summary><p><img src=https://blog-resource-1257868508.file.myqcloud.com/20190503204410.png alt=Mappings></p><p>Many normal mode commands accept a <code>count</code>, which means to repeat the motion
 <code>count</code> times. For example, <code>3j</code> moves the cursor 3 lines below the current
 line and <code>4w</code> will move the cursor four words forward. Usually, the
 user-defined mappings can not take a count. Even if they can, they will most
 probably not work the way you expect them to. In this post, I will describe
-what I have learned to make a fairly complex mapping repeatable with a count.</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/04/29/nvim_map_with_a_count/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/04/29/nvim_spell_check/">Spell Check in Nvim</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-04-29 </span>
-      <div class="post-category">
-          <a href="/categories/Nvim/"> Nvim </a>
-          </div>
-        <span class="more-meta"> 294 words </span>
-        <span class="more-meta"> 2 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>In this post, I want to talk about how to enable built-in spell check
-functionality in Nvim.</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/04/29/nvim_spell_check/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/04/26/words_completion_nvim/">English Words Completion inside Neovim/Vim</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-04-26 </span>
-      <div class="post-category">
-          <a href="/categories/Nvim/"> Nvim </a>
-          </div>
-        <span class="more-meta"> 243 words </span>
-        <span class="more-meta"> 2 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p align="center">
-   <img src="https://blog-resource-1257868508.file.myqcloud.com/20190430093054.png" alt="">
-</p>
-<p>Some words are hard to type, it is handy if Neovim can provide auto-completion
+what I have learned to make a fairly complex mapping repeatable with a count.</p></div><div class=read-more><a href=/2019/04/29/nvim_map_with_a_count/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/04/29/nvim_spell_check/>Spell Check in Nvim</a></h1><div class=post-meta><span class=post-time>2019-04-29</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>294 words</span>
+<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>In this post, I want to talk about how to enable built-in spell check
+functionality in Nvim.</p></div><div class=read-more><a href=/2019/04/29/nvim_spell_check/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/04/26/words_completion_nvim/>English Words Completion inside Neovim/Vim</a></h1><div class=post-meta><span class=post-time>2019-04-26</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>243 words</span>
+<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190430093054.png alt></p><p>Some words are hard to type, it is handy if Neovim can provide auto-completion
 for the words we are typing. We can achieve word completion in Neovim in two
-ways.</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/04/26/words_completion_nvim/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/04/22/mix_python_and_vim_script/">How to Use Python Inside Vim Script with Neovim</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-04-22 </span>
-      <div class="post-category">
-          <a href="/categories/Nvim/"> Nvim </a>
-          </div>
-        <span class="more-meta"> 833 words </span>
-        <span class="more-meta"> 4 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <h1 id="introduction">Introduction</h1>
-<p>I have been using <a href="https://github.com/vim-airline/vim-airline">Vim-airline</a> for
+ways.</p></div><div class=read-more><a href=/2019/04/26/words_completion_nvim/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/04/22/mix_python_and_vim_script/>How to Use Python Inside Vim Script with Neovim</a></h1><div class=post-meta><span class=post-time>2019-04-22</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>833 words</span>
+<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><h1 id=introduction>Introduction</h1><p>I have been using <a href=https://github.com/vim-airline/vim-airline>Vim-airline</a> for
 a while to customize my statusline. We can change the theme used for statusline
 with the many themes available in
-<a href="https://github.com/vim-airline/vim-airline-themes">vim-airline-themes</a>. Not
+<a href=https://github.com/vim-airline/vim-airline-themes>vim-airline-themes</a>. Not
 all these themes looks good since it depends on the background color you use
-for Neovim and certainly your aesthetics.</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/04/22/mix_python_and_vim_script/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/04/17/nifty_nvim_techniques_s2/">Nifty Little Nvim Techniques to Make My Life Easier -- Series 2</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-04-17 </span>
-      <div class="post-category">
-          <a href="/categories/Nvim/"> Nvim </a>
-          </div>
-        <span class="more-meta"> 883 words </span>
-        <span class="more-meta"> 5 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>This is the series 2 of the nifty Nvim techniques.</p>
-<ul>
-<li>For series 1, see <a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">here</a>.</li>
-</ul>
-    </div>
-    <div class="read-more">
-      <a href="/2019/04/17/nifty_nvim_techniques_s2/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/04/17/neovim_snippet_s1/">Configuring Ultisnips for Neovim</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-04-17 </span>
-      <div class="post-category">
-          <a href="/categories/Nvim/"> Nvim </a>
-          </div>
-        <span class="more-meta"> 958 words </span>
-        <span class="more-meta"> 5 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>If you have used Sublime Text before, you may be familiar with its
-<a href="http://sublimetext.info/docs/en/extensibility/snippets.html">snippet</a> feature.
-<a href="https://en.wikipedia.org/wiki/Snippet_(programming)">Snippets</a> let us type a
+for Neovim and certainly your aesthetics.</p></div><div class=read-more><a href=/2019/04/22/mix_python_and_vim_script/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/04/17/nifty_nvim_techniques_s2/>Nifty Little Nvim Techniques to Make My Life Easier -- Series 2</a></h1><div class=post-meta><span class=post-time>2019-04-17</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>883 words</span>
+<span class=more-meta>5 mins read</span></div></header><div class=post-content><div class=post-summary><p>This is the series 2 of the nifty Nvim techniques.</p><ul><li>For series 1, see <a href=https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/>here</a>.</li></ul></div><div class=read-more><a href=/2019/04/17/nifty_nvim_techniques_s2/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/04/17/neovim_snippet_s1/>Configuring Ultisnips for Neovim</a></h1><div class=post-meta><span class=post-time>2019-04-17</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>958 words</span>
+<span class=more-meta>5 mins read</span></div></header><div class=post-content><div class=post-summary><p>If you have used Sublime Text before, you may be familiar with its
+<a href=http://sublimetext.info/docs/en/extensibility/snippets.html>snippet</a> feature.
+<a href=https://en.wikipedia.org/wiki/Snippet_(programming)>Snippets</a> let us type a
 trigger word and expand it to some boilerplate code or texts that we do not
 want to repeat typing. We will increase our efficiency dramatically with the
-help of snippets.</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/04/17/neovim_snippet_s1/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/04/02/mac_logitech_mouse_setting/">Mac 上罗技 M590 鼠标设置</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-04-02 </span>
-      <div class="post-category">
-          <a href="/categories/Mac/"> Mac </a>
-          </div>
-        <span class="more-meta"> 657 words </span>
-        <span class="more-meta"> 2 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>本文简单总结 Macbook Pro 上<a href="https://item.jd.com/4462453.html">罗技 M590 鼠标</a>的设置。</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/04/02/mac_logitech_mouse_setting/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/03/28/nifty_nvim_techniques_s1/">Nifty Little Nvim Techniques to Make My Life Easier -- Series 1</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-03-28 </span>
-      <div class="post-category">
-          <a href="/categories/Nvim/"> Nvim </a>
-          </div>
-        <span class="more-meta"> 702 words </span>
-        <span class="more-meta"> 4 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>In this post, I summarize some nifty little techniques which make my experience
-of editing in <a href="https://github.com/neovim/neovim">Nvim</a> smoother.</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/03/28/nifty_nvim_techniques_s1/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/03/26/nvim_latex_write_preview/">A Complete Guide on Writing LaTeX with Vimtex in Neovim</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-03-26 </span>
-      <div class="post-category">
-          <a href="/categories/Nvim/"> Nvim </a>
-          </div>
-        <span class="more-meta"> 1167 words </span>
-        <span class="more-meta"> 6 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>Previously, I have written <a href="https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/">a post</a>
+help of snippets.</p></div><div class=read-more><a href=/2019/04/17/neovim_snippet_s1/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/04/02/mac_logitech_mouse_setting/>Mac 上罗技 M590 鼠标设置</a></h1><div class=post-meta><span class=post-time>2019-04-02</span><div class=post-category><a href=/categories/Mac/>Mac</a></div><span class=more-meta>657 words</span>
+<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>本文简单总结 Macbook Pro 上<a href=https://item.jd.com/4462453.html>罗技 M590 鼠标</a>的设置。</p></div><div class=read-more><a href=/2019/04/02/mac_logitech_mouse_setting/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/03/28/nifty_nvim_techniques_s1/>Nifty Little Nvim Techniques to Make My Life Easier -- Series 1</a></h1><div class=post-meta><span class=post-time>2019-03-28</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>702 words</span>
+<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>In this post, I summarize some nifty little techniques which make my experience
+of editing in <a href=https://github.com/neovim/neovim>Nvim</a> smoother.</p></div><div class=read-more><a href=/2019/03/28/nifty_nvim_techniques_s1/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/03/26/nvim_latex_write_preview/>A Complete Guide on Writing LaTeX with Vimtex in Neovim</a></h1><div class=post-meta><span class=post-time>2019-03-26</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>1167 words</span>
+<span class=more-meta>6 mins read</span></div></header><div class=post-content><div class=post-summary><p>Previously, I have written <a href=https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/>a post</a>
 on how to write and compile LaTeX source code in Sublime Text. Now that I am
 familiar with Neovim, I want to do everything related to text editing inside
 Neovim. In this post, I would like to share how to configure Neovim for LaTeX
-editing and previewing.</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/03/26/nvim_latex_write_preview/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/03/07/pillow_image_alpha_channel/">Manipulating Images with Alpha Channels in Pillow</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-03-07 </span>
-      <div class="post-category">
-          <a href="/categories/Python/"> Python </a>
-          </div>
-        <span class="more-meta"> 437 words </span>
-        <span class="more-meta"> 3 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>In image processing, <a href="https://www.makeuseof.com/tag/alpha-channel-images-mean/">alpha
+editing and previewing.</p></div><div class=read-more><a href=/2019/03/26/nvim_latex_write_preview/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/03/07/pillow_image_alpha_channel/>Manipulating Images with Alpha Channels in Pillow</a></h1><div class=post-meta><span class=post-time>2019-03-07</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>437 words</span>
+<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>In image processing, <a href=https://www.makeuseof.com/tag/alpha-channel-images-mean/>alpha
 channel</a> is usually
 used to control the transparency of an image. In itself, the alpha channel is
-just a gray level image<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. In this post, I want to talk about how to add an
-alpha channel to RGB image and show it using the Pillow package.</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/03/07/pillow_image_alpha_channel/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/02/28/sublime_text_regex_cheat_sheet/">Sublime Text Regular Expression Cheat Sheet</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-02-28 </span>
-      <div class="post-category">
-          <a href="/categories/technique/"> technique </a>
-          </div>
-        <span class="more-meta"> 608 words </span>
-        <span class="more-meta"> 3 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p align="center">
-<img src="https://blog-resource-1257868508.file.myqcloud.com/20190304221654.png" width="800">
-</p>
-<p>A cheat sheet about regex in Sublime Text.</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/02/28/sublime_text_regex_cheat_sheet/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/2019/02/23/crop_rotated_rectangle_opencv/">Cropping Rotated Rectangles from Image with OpenCV</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-02-23 </span>
-      <div class="post-category">
-          <a href="/categories/Python/"> Python </a>
-          </div>
-        <span class="more-meta"> 1117 words </span>
-        <span class="more-meta"> 6 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>In computer vision tasks, we need to crop a rotated rectangle from the original
+just a gray level image<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. In this post, I want to talk about how to add an
+alpha channel to RGB image and show it using the Pillow package.</p></div><div class=read-more><a href=/2019/03/07/pillow_image_alpha_channel/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/02/28/sublime_text_regex_cheat_sheet/>Sublime Text Regular Expression Cheat Sheet</a></h1><div class=post-meta><span class=post-time>2019-02-28</span><div class=post-category><a href=/categories/technique/>technique</a></div><span class=more-meta>608 words</span>
+<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190304221654.png width=800></p><p>A cheat sheet about regex in Sublime Text.</p></div><div class=read-more><a href=/2019/02/28/sublime_text_regex_cheat_sheet/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/02/23/crop_rotated_rectangle_opencv/>Cropping Rotated Rectangles from Image with OpenCV</a></h1><div class=post-meta><span class=post-time>2019-02-23</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>1117 words</span>
+<span class=more-meta>6 mins read</span></div></header><div class=post-content><div class=post-summary><p>In computer vision tasks, we need to crop a rotated rectangle from the original
 image sometimes, for example, to crop a rotated text box. In this post, I would
-like to introduce how to do this in OpenCV.</p>
-    </div>
-    <div class="read-more">
-      <a href="/2019/02/23/crop_rotated_rectangle_opencv/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    </section>
-  
-  <nav class="pagination">
-    <a class="prev" href="/page/6/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
-      </a>
-    <a class="next" href="/page/8/">
-        <span class="next-text">Next</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-  </nav>
-        </div>
-        
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
-  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy; 
-    2017 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jdhao</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-113395108-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-
-</body>
-</html>
+like to introduce how to do this in OpenCV.</p></div><div class=read-more><a href=/2019/02/23/crop_rotated_rectangle_opencv/ class=read-more-link>Read more...</a></div></div></article></section><nav class=pagination><a class=prev href=/page/6/><i class="iconfont icon-left"></i><span class=prev-text>Prev</span></a>
+<a class=next href=/page/8/><span class=next-text>Next</span>
+<i class="iconfont icon-right"></i></a></nav></div></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+2017 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>

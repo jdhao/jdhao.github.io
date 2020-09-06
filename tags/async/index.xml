@@ -1,26 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>async on jdhao&#39;s blog</title>
-    <link>https://jdhao.github.io/tags/async/</link>
-    <description>Recent content in async on jdhao&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>jdhao</copyright>
-    <lastBuildDate>Sun, 07 Jun 2020 20:02:18 +0800</lastBuildDate>
-    
-	<atom:link href="https://jdhao.github.io/tags/async/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>How to Use Asyncio with Flask Applications</title>
-      <link>https://jdhao.github.io/2020/06/07/asyncio_inside_flask/</link>
-      <pubDate>Sun, 07 Jun 2020 20:02:18 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/06/07/asyncio_inside_flask/</guid>
-      <description>&lt;p&gt;I was using &lt;a href=&#34;https://docs.python.org/3/library/asyncio.html&#34;&gt;asyncio&lt;/a&gt; inside a
-view function for Flask to run some asynchronous functions and met an error.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>async on jdhao's blog</title><link>https://jdhao.github.io/tags/async/</link><description>Recent content in async on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Sun, 07 Jun 2020 20:02:18 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/async/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Use Asyncio with Flask Applications</title><link>https://jdhao.github.io/2020/06/07/asyncio_inside_flask/</link><pubDate>Sun, 07 Jun 2020 20:02:18 +0800</pubDate><guid>https://jdhao.github.io/2020/06/07/asyncio_inside_flask/</guid><description>&lt;p>I was using &lt;a href="https://docs.python.org/3/library/asyncio.html">asyncio&lt;/a> inside a
+view function for Flask to run some asynchronous functions and met an error.&lt;/p></description></item></channel></rss>

@@ -1,578 +1,182 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>How to Install Hexo and Theme NexT from Scratch on Windows - jdhao&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jdhao" /><meta name="description" content="In this post, I will describe the complete step to install both Hexo and theme NexT on Windows.
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>How to Install Hexo and Theme NexT from Scratch on Windows - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="In this post, I will describe the complete step to install both Hexo and theme NexT on Windows.
 Install Hexo and deploy your post First, we need to install the Hexo framework. The main steps are as follows:
-Install Node.js and Cmder We need to install Node.js and git for Windows. You can skip installing git for Windows if you choose to install Cmder(highly recommended on Windows). Choose the Full package if you decide to install Cmder (only the full package contains git for Windows)." /><meta name="keywords" content="Hugo, theme, even" />
-
-
-
-<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
-
-
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
-
-
-<link rel="canonical" href="https://jdhao.github.io/2017/02/26/hexo-install-use-issue/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6058871559165202",
-    enable_page_level_ads: true
-  });
-</script>
-
-
-
-
-<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="How to Install Hexo and Theme NexT from Scratch on Windows" />
-<meta property="og:description" content="In this post, I will describe the complete step to install both Hexo and theme NexT on Windows.
+Install Node.js and Cmder We need to install Node.js and git for Windows. You can skip installing git for Windows if you choose to install Cmder(highly recommended on Windows). Choose the Full package if you decide to install Cmder (only the full package contains git for Windows)."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://jdhao.github.io/2017/02/26/hexo-install-use-issue/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="How to Install Hexo and Theme NexT from Scratch on Windows"><meta property="og:description" content="In this post, I will describe the complete step to install both Hexo and theme NexT on Windows.
 Install Hexo and deploy your post First, we need to install the Hexo framework. The main steps are as follows:
-Install Node.js and Cmder We need to install Node.js and git for Windows. You can skip installing git for Windows if you choose to install Cmder(highly recommended on Windows). Choose the Full package if you decide to install Cmder (only the full package contains git for Windows)." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2017/02/26/hexo-install-use-issue/" />
-<meta property="article:published_time" content="2017-02-26T15:52:00+08:00" />
-<meta property="article:modified_time" content="2020-03-16T10:36:36+08:00" />
-<meta itemprop="name" content="How to Install Hexo and Theme NexT from Scratch on Windows">
-<meta itemprop="description" content="In this post, I will describe the complete step to install both Hexo and theme NexT on Windows.
+Install Node.js and Cmder We need to install Node.js and git for Windows. You can skip installing git for Windows if you choose to install Cmder(highly recommended on Windows). Choose the Full package if you decide to install Cmder (only the full package contains git for Windows)."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2017/02/26/hexo-install-use-issue/"><meta property="article:published_time" content="2017-02-26T15:52:00+08:00"><meta property="article:modified_time" content="2020-03-16T10:36:36+08:00"><meta itemprop=name content="How to Install Hexo and Theme NexT from Scratch on Windows"><meta itemprop=description content="In this post, I will describe the complete step to install both Hexo and theme NexT on Windows.
 Install Hexo and deploy your post First, we need to install the Hexo framework. The main steps are as follows:
-Install Node.js and Cmder We need to install Node.js and git for Windows. You can skip installing git for Windows if you choose to install Cmder(highly recommended on Windows). Choose the Full package if you decide to install Cmder (only the full package contains git for Windows).">
-<meta itemprop="datePublished" content="2017-02-26T15:52:00+08:00" />
-<meta itemprop="dateModified" content="2020-03-16T10:36:36+08:00" />
-<meta itemprop="wordCount" content="1101">
-
-
-
-<meta itemprop="keywords" content="Markdown,NexT,Hexo,LaTeX,Pandoc," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="How to Install Hexo and Theme NexT from Scratch on Windows"/>
-<meta name="twitter:description" content="In this post, I will describe the complete step to install both Hexo and theme NexT on Windows.
+Install Node.js and Cmder We need to install Node.js and git for Windows. You can skip installing git for Windows if you choose to install Cmder(highly recommended on Windows). Choose the Full package if you decide to install Cmder (only the full package contains git for Windows)."><meta itemprop=datePublished content="2017-02-26T15:52:00+08:00"><meta itemprop=dateModified content="2020-03-16T10:36:36+08:00"><meta itemprop=wordCount content="1101"><meta itemprop=keywords content="Markdown,NexT,Hexo,LaTeX,Pandoc,"><meta name=twitter:card content="summary"><meta name=twitter:title content="How to Install Hexo and Theme NexT from Scratch on Windows"><meta name=twitter:description content="In this post, I will describe the complete step to install both Hexo and theme NexT on Windows.
 Install Hexo and deploy your post First, we need to install the Hexo framework. The main steps are as follows:
-Install Node.js and Cmder We need to install Node.js and git for Windows. You can skip installing git for Windows if you choose to install Cmder(highly recommended on Windows). Choose the Full package if you decide to install Cmder (only the full package contains git for Windows)."/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jdhao&#39;s blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jdhao&#39;s blog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">How to Install Hexo and Theme NexT from Scratch on Windows</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2017-02-26 </span>
-        <div class="post-category">
-            <a href="/categories/Blog/"> Blog </a>
-            </div>
-          <span class="more-meta"> 1101 words </span>
-          <span class="more-meta"> 6 mins read </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#install-hexo-and-deploy-your-post">Install Hexo and deploy your post</a>
-      <ul>
-        <li><a href="#install-nodejs-and-cmder">Install Node.js and Cmder</a></li>
-        <li><a href="#set-up-the-blog-frame">Set up the blog frame</a></li>
-        <li><a href="#replace-the-default-renderer">Replace the default renderer</a></li>
-        <li><a href="#set-up-the-github-pages">Set up the GitHub pages</a></li>
-        <li><a href="#create-website-pages">Create website pages</a></li>
-        <li><a href="#write-posts-and-preview-your-site">Write posts and preview your site</a></li>
-        <li><a href="#deploy-your-blog">Deploy your blog</a>
-          <ul>
-            <li><a href="#generate-your-ssh-key">Generate your ssh key</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#install-next-theme">Install NexT theme</a>
-      <ul>
-        <li><a href="#estimate-post-word-count-and-read-time">Estimate post word count and read time.</a></li>
-        <li><a href="#local-search">Local search</a></li>
-        <li><a href="#compress-your-blog">Compress your blog</a></li>
-        <li><a href="#show-related-posts">Show related posts</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>In this post, I will describe the complete step to install both
-<a href="https://hexo.io/">Hexo</a> and theme
-<a href="https://github.com/theme-next/hexo-theme-next">NexT</a> on Windows.</p>
-<!-- more -->
-<h1 id="install-hexo-and-deploy-your-post">Install Hexo and deploy your post</h1>
-<p>First, we need to install the Hexo framework. The main steps are as follows:</p>
-<h2 id="install-nodejs-and-cmder">Install Node.js and Cmder</h2>
-<p>We need to install <a href="https://nodejs.org/en/download/">Node.js</a> and <a href="https://git-scm.com/download/win">git for
+Install Node.js and Cmder We need to install Node.js and git for Windows. You can skip installing git for Windows if you choose to install Cmder(highly recommended on Windows). Choose the Full package if you decide to install Cmder (only the full package contains git for Windows)."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>How to Install Hexo and Theme NexT from Scratch on Windows</h1><div class=post-meta><span class=post-time>2017-02-26</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>1101 words</span>
+<span class=more-meta>6 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#install-hexo-and-deploy-your-post>Install Hexo and deploy your post</a><ul><li><a href=#install-nodejs-and-cmder>Install Node.js and Cmder</a></li><li><a href=#set-up-the-blog-frame>Set up the blog frame</a></li><li><a href=#replace-the-default-renderer>Replace the default renderer</a></li><li><a href=#set-up-the-github-pages>Set up the GitHub pages</a></li><li><a href=#create-website-pages>Create website pages</a></li><li><a href=#write-posts-and-preview-your-site>Write posts and preview your site</a></li><li><a href=#deploy-your-blog>Deploy your blog</a><ul><li><a href=#generate-your-ssh-key>Generate your ssh key</a></li></ul></li></ul></li><li><a href=#install-next-theme>Install NexT theme</a><ul><li><a href=#estimate-post-word-count-and-read-time>Estimate post word count and read time.</a></li><li><a href=#local-search>Local search</a></li><li><a href=#compress-your-blog>Compress your blog</a></li><li><a href=#show-related-posts>Show related posts</a></li></ul></li></ul></nav></div></div><div class=post-content><p>In this post, I will describe the complete step to install both
+<a href=https://hexo.io/>Hexo</a> and theme
+<a href=https://github.com/theme-next/hexo-theme-next>NexT</a> on Windows.</p><h1 id=install-hexo-and-deploy-your-post>Install Hexo and deploy your post</h1><p>First, we need to install the Hexo framework. The main steps are as follows:</p><h2 id=install-nodejs-and-cmder>Install Node.js and Cmder</h2><p>We need to install <a href=https://nodejs.org/en/download/>Node.js</a> and <a href=https://git-scm.com/download/win>git for
 Windows</a>. You can skip installing git for
-Windows if you choose to install <a href="http://cmder.net/">Cmder</a>(highly recommended
+Windows if you choose to install <a href=http://cmder.net/>Cmder</a>(highly recommended
 on Windows). Choose the Full package if you decide to install Cmder (only the
-full package contains git for Windows).</p>
-<p><img src="https://blog-resource-1257868508.file.myqcloud.com/18-4-10/48824353.jpg"
-title="Choose Full version"
-style="float: middle;"></p>
-<h2 id="set-up-the-blog-frame">Set up the blog frame</h2>
-<p>Install the Hexo command line tool,</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm install -g hexo-cli
+full package contains git for Windows).</p><p><img src=https://blog-resource-1257868508.file.myqcloud.com/18-4-10/48824353.jpg title="Choose Full version" style=float:middle></p><h2 id=set-up-the-blog-frame>Set up the blog frame</h2><p>Install the Hexo command line tool,</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>npm install -g hexo-cli
 </code></pre></div><p>Then, we need the build the frame of our blog. Go to a directory where you want
-to set up your blog, for example, <code>d:/</code>. Use the following command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">hexo init hexo-blog
-<span class="nb">cd</span> hexo-blog
+to set up your blog, for example, <code>d:/</code>. Use the following command:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>hexo init hexo-blog
+<span class=nb>cd</span> hexo-blog
 npm install
 </code></pre></div><p>The above command will create a directory named <code>hexo-blog</code> and set up the
-frame of your blog.</p>
-<h2 id="replace-the-default-renderer">Replace the default renderer</h2>
-<p>This step is optional. But it is highly recommended.</p>
-<p>Change the default renderer shipped with Hexo. The renderer is used to
+frame of your blog.</p><h2 id=replace-the-default-renderer>Replace the default renderer</h2><p>This step is optional. But it is highly recommended.</p><p>Change the default renderer shipped with Hexo. The renderer is used to
 translate your markdown file to HTML files. But it has weak functionality and
-does not support LaTeX style equations. We need to remove it first:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">hexo uninstall hexo-renderer-marked --save
+does not support LaTeX style equations. We need to remove it first:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>hexo uninstall hexo-renderer-marked --save
 </code></pre></div><p>We can use the Pandoc renderer which is more powerful. Make sure that you have
-installed <a href="https://pandoc.org/">Pandoc</a> , and then use the following command to
-install the Panodc renderer,</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">hexo install hexo-renderer-pandoc --save
-</code></pre></div><h2 id="set-up-the-github-pages">Set up the GitHub pages</h2>
-<p>Set up your <a href="https://pages.github.com/">GitHub pages</a> and choose to set up a
+installed <a href=https://pandoc.org/>Pandoc</a> , and then use the following command to
+install the Panodc renderer,</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>hexo install hexo-renderer-pandoc --save
+</code></pre></div><h2 id=set-up-the-github-pages>Set up the GitHub pages</h2><p>Set up your <a href=https://pages.github.com/>GitHub pages</a> and choose to set up a
 <code>user site</code> (see image below). The name of the newly created repo must have the
 format <code>username.github.io</code>, where <code>username</code> is your GitHub user name. For me,
-the user name is <code>jdhao</code>.</p>
-<p><img src="https://blog-resource-1257868508.file.myqcloud.com/18-4-10/90061901.jpg"
-title="Set up user site"
-style="float: middle;"></p>
-<h2 id="create-website-pages">Create website pages</h2>
-<p>This is discussed thoroughly in <a href="https://hexo.io/docs/configuration.html">Official
+the user name is <code>jdhao</code>.</p><p><img src=https://blog-resource-1257868508.file.myqcloud.com/18-4-10/90061901.jpg title="Set up user site" style=float:middle></p><h2 id=create-website-pages>Create website pages</h2><p>This is discussed thoroughly in <a href=https://hexo.io/docs/configuration.html>Official
 documentation</a>. We are going to create
 4 more pages for our blog site and they are <code>tags</code>, <code>categories</code>, <code>archives</code>
-and <code>about</code> page. Use the following command to create the 4 pages:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">hexo new page <span class="s2">&#34;tags&#34;</span>
-hexo new page <span class="s2">&#34;categories&#34;</span>
-hexo new page <span class="s2">&#34;archives&#34;</span>
-hexo new page <span class="s2">&#34;about&#34;</span>
-</code></pre></div><h2 id="write-posts-and-preview-your-site">Write posts and preview your site</h2>
-<p>You can write your personal introduction in file <code>source\about\index.md</code>. In
-the command line, you can use</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">`hexo new post &#34;some_post&#34;`
+and <code>about</code> page. Use the following command to create the 4 pages:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>hexo new page <span class=s2>&#34;tags&#34;</span>
+hexo new page <span class=s2>&#34;categories&#34;</span>
+hexo new page <span class=s2>&#34;archives&#34;</span>
+hexo new page <span class=s2>&#34;about&#34;</span>
+</code></pre></div><h2 id=write-posts-and-preview-your-site>Write posts and preview your site</h2><p>You can write your personal introduction in file <code>source\about\index.md</code>. In
+the command line, you can use</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>`hexo new post &#34;some_post&#34;`
 </code></pre></div><p>to initialize a new template post named <code>some-post.md</code>, which is located in
-directory <code>source\_posts</code> under the Hexo root directory.</p>
-<p><img src="https://blog-resource-1257868508.file.myqcloud.com/18-4-10/223624.jpg"
-title="Directory for storing your posts"
-style="float: middle;"></p>
-<p>The template post will only include a yaml format header, which is used to
-configure the post meta info. A sample header is shown below:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w">
-</span><span class="w"></span><span class="k">title</span><span class="p">:</span><span class="w"> </span>How<span class="w"> </span>to<span class="w"> </span>Install<span class="w"> </span>Hexo<span class="w"> </span>and<span class="w"> </span>Theme<span class="w"> </span>NexT<span class="w"> </span>from<span class="w"> </span>Scratch<span class="w"> </span>on<span class="w"> </span>Windows<span class="w">
-</span><span class="w"></span><span class="k">date</span><span class="p">:</span><span class="w"> </span><span class="ld">2017-02-26 15:52:00 +0800</span><span class="w">
-</span><span class="w"></span><span class="k">lastmod</span><span class="p">:</span><span class="w"> </span><span class="ld">2018-02-08 15:42:00 +0800</span><span class="w">
-</span><span class="w"></span><span class="k">tags</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>Markdown<span class="p">,</span><span class="w"> </span>NexT<span class="p">,</span><span class="w"> </span>Hexo<span class="p">,</span><span class="w"> </span>LaTeX<span class="p">]</span><span class="w">
-</span><span class="w"></span><span class="k">categories</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>technique<span class="p">]</span><span class="w">
-</span><span class="w"></span>---<span class="w">
+directory <code>source\_posts</code> under the Hexo root directory.</p><p><img src=https://blog-resource-1257868508.file.myqcloud.com/18-4-10/223624.jpg title="Directory for storing your posts" style=float:middle></p><p>The template post will only include a yaml format header, which is used to
+configure the post meta info. A sample header is shown below:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>---<span class=w>
+</span><span class=w></span><span class=k>title</span><span class=p>:</span><span class=w> </span>How<span class=w> </span>to<span class=w> </span>Install<span class=w> </span>Hexo<span class=w> </span>and<span class=w> </span>Theme<span class=w> </span>NexT<span class=w> </span>from<span class=w> </span>Scratch<span class=w> </span>on<span class=w> </span>Windows<span class=w>
+</span><span class=w></span><span class=k>date</span><span class=p>:</span><span class=w> </span><span class=ld>2017-02-26 15:52:00 +0800</span><span class=w>
+</span><span class=w></span><span class=k>lastmod</span><span class=p>:</span><span class=w> </span><span class=ld>2018-02-08 15:42:00 +0800</span><span class=w>
+</span><span class=w></span><span class=k>tags</span><span class=p>:</span><span class=w> </span><span class=p>[</span>Markdown<span class=p>,</span><span class=w> </span>NexT<span class=p>,</span><span class=w> </span>Hexo<span class=p>,</span><span class=w> </span>LaTeX<span class=p>]</span><span class=w>
+</span><span class=w></span><span class=k>categories</span><span class=p>:</span><span class=w> </span><span class=p>[</span>technique<span class=p>]</span><span class=w>
+</span><span class=w></span>---<span class=w>
 </span></code></pre></div><p>Then you can write your post in this file using your favorite editor. After
 finishing your post, you can use <code>hexo generate</code> to generate your blog website
-locally.</p>
-<p>To preview your blog website, you can use <code>hexo server</code> to set up a local http
+locally.</p><p>To preview your blog website, you can use <code>hexo server</code> to set up a local http
 server. Then you can preview your website in the browser by using the local
-address <code>localhost:4000</code>.</p>
-<p><img src="https://blog-resource-1257868508.file.myqcloud.com/18-4-10/63675385.jpg"
-title="Blog preview"
-style="float: middle;"></p>
-<h2 id="deploy-your-blog">Deploy your blog</h2>
-<p>In order to deploy your blog to GitHub, you need to install the deployer,</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm install hexo-deployer-git --save
+address <code>localhost:4000</code>.</p><p><img src=https://blog-resource-1257868508.file.myqcloud.com/18-4-10/63675385.jpg title="Blog preview" style=float:middle></p><h2 id=deploy-your-blog>Deploy your blog</h2><p>In order to deploy your blog to GitHub, you need to install the deployer,</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>npm install hexo-deployer-git --save
 </code></pre></div><p>Then we need to configure our GitHub user name and email. My configuration is
-as follows:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git config --global user.email <span class="s2">&#34;jdhao@hotmail.com&#34;</span>
-git config --global user.name <span class="s2">&#34;jdhao&#34;</span>
+as follows:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>git config --global user.email <span class=s2>&#34;jdhao@hotmail.com&#34;</span>
+git config --global user.name <span class=s2>&#34;jdhao&#34;</span>
 </code></pre></div><p>Change the command above to suit your need. In the file
 <code>hexo-blog\_config.yml</code>, we need to configure the address of your GitHub pages
-repo.</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">deploy</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">type</span><span class="p">:</span><span class="w"> </span>git<span class="w">
-</span><span class="w">  </span><span class="k">repo</span><span class="p">:</span><span class="w"> </span>https<span class="p">:</span>//github.com/jdhao/jdhao.github.io<span class="w">
-</span><span class="w">  </span><span class="k">branch</span><span class="p">:</span><span class="w"> </span>master<span class="w">
+repo.</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>deploy</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=k>type</span><span class=p>:</span><span class=w> </span>git<span class=w>
+</span><span class=w>  </span><span class=k>repo</span><span class=p>:</span><span class=w> </span>https<span class=p>:</span>//github.com/jdhao/jdhao.github.io<span class=w>
+</span><span class=w>  </span><span class=k>branch</span><span class=p>:</span><span class=w> </span>master<span class=w>
 </span></code></pre></div><p>You can use <code>hexo d -g</code> to generate and deploy your blog to GitHub. You will be
 prompted to input your email and password to confirm your identity. After that,
-your site will be deployed to GitHub. Anyone will be able to visit your blog.</p>
-<h3 id="generate-your-ssh-key">Generate your ssh key</h3>
-<p>You can generate your <code>ssh key</code> to avoid inputting email and password every
-time. First, use the following command to generate your key,</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ssh-keygen -t rsa -C <span class="s2">&#34;jdhao@hotmail.com&#34;</span> <span class="c1"># please use your own email address</span>
+your site will be deployed to GitHub. Anyone will be able to visit your blog.</p><h3 id=generate-your-ssh-key>Generate your ssh key</h3><p>You can generate your <code>ssh key</code> to avoid inputting email and password every
+time. First, use the following command to generate your key,</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>ssh-keygen -t rsa -C <span class=s2>&#34;jdhao@hotmail.com&#34;</span> <span class=c1># please use your own email address</span>
 </code></pre></div><p>The above command will generate two file: one (file name is <code>id_rsa</code>) for your
 private key and the other (file name is <code>id_rsa.pub</code>) for your public key. The
 files are located in <code>C:/Users/jdhao/.ssh</code> (look for something similar on your
-system). Open the file <code>id_rsa.pub</code> and <a href="https://help.github.com/articles/connecting-to-github-with-ssh/">add your public key to
-GitHub</a>.</p>
-<p>After adding the public key, we need to confirm it is successfully configured:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">ssh -T git@github.com
-</code></pre></div><p>You will see something like:</p>
-<blockquote>
-<p>The authenticity of host &lsquo;github.com (IP ADDRESS)&rsquo; can&rsquo;t be established.
+system). Open the file <code>id_rsa.pub</code> and <a href=https://help.github.com/articles/connecting-to-github-with-ssh/>add your public key to
+GitHub</a>.</p><p>After adding the public key, we need to confirm it is successfully configured:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>ssh -T git@github.com
+</code></pre></div><p>You will see something like:</p><blockquote><p>The authenticity of host &lsquo;github.com (IP ADDRESS)&rsquo; can&rsquo;t be established.
 RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
-Are you sure you want to continue connecting (yes/no)?</p>
-</blockquote>
-<p>Input <code>yes</code> and press <kbd>Enter</kbd>, and you will see the following output:</p>
-<blockquote>
-<p>Hi jdhao! You&rsquo;ve successfully authenticated, but GitHub does not
-provide shell access.</p>
-</blockquote>
-<p>This message will confirm that your setting is correct. You do not need to
-input your email and password from now on.</p>
-<p>Now, it is all set. You can start writing your posts.</p>
-<h1 id="install-next-theme">Install NexT theme</h1>
-<p>Go to the blog root <code>D:/hexo-blog</code> and execute the following command to install
-the latest NexT theme,</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/theme-next/hexo-theme-next themes/next-new
+Are you sure you want to continue connecting (yes/no)?</p></blockquote><p>Input <code>yes</code> and press <kbd>Enter</kbd>, and you will see the following output:</p><blockquote><p>Hi jdhao! You&rsquo;ve successfully authenticated, but GitHub does not
+provide shell access.</p></blockquote><p>This message will confirm that your setting is correct. You do not need to
+input your email and password from now on.</p><p>Now, it is all set. You can start writing your posts.</p><h1 id=install-next-theme>Install NexT theme</h1><p>Go to the blog root <code>D:/hexo-blog</code> and execute the following command to install
+the latest NexT theme,</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>git clone https://github.com/theme-next/hexo-theme-next themes/next-new
 </code></pre></div><p>NexT theme has its own configuration files, it is located in
 <code>themes/next-new/_config.yml</code>. You can customize as you wish. There are several
-plugins which is useful.</p>
-<h2 id="estimate-post-word-count-and-read-time">Estimate post word count and read time.</h2>
-<p>The plugin
-<a href="https://github.com/theme-next/hexo-symbols-count-time">hexo-symbols-count-time</a>
+plugins which is useful.</p><h2 id=estimate-post-word-count-and-read-time>Estimate post word count and read time.</h2><p>The plugin
+<a href=https://github.com/theme-next/hexo-symbols-count-time>hexo-symbols-count-time</a>
 can be used to calculate the post word number and estimate your read time.
-Install this plugin</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm install hexo-symbols-count-time --save
-</code></pre></div><p>In the Hexo configuration file, use the following setting:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">symbols_count_time</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">symbols</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">  </span><span class="k">time</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">  </span><span class="k">total_symbols</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w">  </span><span class="k">total_time</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span></code></pre></div><h2 id="local-search">Local search</h2>
-<p>Install the plugin
-<a href="https://github.com/theme-next/hexo-generator-searchdb">hexo-generator-searchdb</a>
-to add the local search feature:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm install hexo-generator-searchdb --save
-</code></pre></div><p>Edit the Hexo <code>_config.yml</code> file and add the following settings:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">search</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">path</span><span class="p">:</span><span class="w"> </span>search.xml<span class="w">
-</span><span class="w">  </span><span class="k">field</span><span class="p">:</span><span class="w"> </span>post<span class="w">
-</span><span class="w">  </span><span class="k">format</span><span class="p">:</span><span class="w"> </span>html<span class="w">
-</span><span class="w">  </span><span class="k">limit</span><span class="p">:</span><span class="w"> </span><span class="m">10000</span><span class="w">
+Install this plugin</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>npm install hexo-symbols-count-time --save
+</code></pre></div><p>In the Hexo configuration file, use the following setting:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>symbols_count_time</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=k>symbols</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>  </span><span class=k>time</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>  </span><span class=k>total_symbols</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span><span class=w>  </span><span class=k>total_time</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></code></pre></div><h2 id=local-search>Local search</h2><p>Install the plugin
+<a href=https://github.com/theme-next/hexo-generator-searchdb>hexo-generator-searchdb</a>
+to add the local search feature:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>npm install hexo-generator-searchdb --save
+</code></pre></div><p>Edit the Hexo <code>_config.yml</code> file and add the following settings:</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>search</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=k>path</span><span class=p>:</span><span class=w> </span>search.xml<span class=w>
+</span><span class=w>  </span><span class=k>field</span><span class=p>:</span><span class=w> </span>post<span class=w>
+</span><span class=w>  </span><span class=k>format</span><span class=p>:</span><span class=w> </span>html<span class=w>
+</span><span class=w>  </span><span class=k>limit</span><span class=p>:</span><span class=w> </span><span class=m>10000</span><span class=w>
 </span></code></pre></div><p>Also, you need to edit the theme Next configuration
-<code>themes/next-new/_config.yml</code>, and change the setting for local search,</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">local_search</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">enable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></code></pre></div><h2 id="compress-your-blog">Compress your blog</h2>
-<p>Install the plugin
-<a href="https://github.com/theme-next/hexo-filter-optimize">hexo-filter-optimize</a> to
-compress your blog,</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm install hexo-filter-optimize --save
-</code></pre></div><p>In the Hexo <code>_config.yml</code> file, add the following setting,</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">filter_optimize</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">enable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">  </span><span class="c"># remove static resource query string</span><span class="w">
-</span><span class="w">
-</span><span class="w">  </span><span class="c">#   - like `?v=1.0.0`</span><span class="w">
-</span><span class="w">
-</span><span class="w">  </span><span class="k">remove_query_string</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">  </span><span class="c"># remove the surrounding comments in each of the bundled files</span><span class="w">
-</span><span class="w">
-</span><span class="w">  </span><span class="k">remove_comments</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w">  </span><span class="k">css</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">enable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">    </span><span class="c"># bundle loaded css file into the one</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span><span class="k">bundle</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">    </span><span class="c"># use a script block to load css elements dynamically</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span><span class="k">delivery</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">    </span><span class="c"># make specific css content inline into the html page</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span><span class="c">#   - only support the full path</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span><span class="c">#   - default is [&#39;css/main.css&#39;]</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span><span class="k">inlines</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">excludes</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">js</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="c"># bundle loaded js file into the one</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span><span class="k">bundle</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">    </span><span class="k">excludes</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="c"># set the priority of this plugin,</span><span class="w">
-</span><span class="w">
-</span><span class="w">  </span><span class="c"># lower means it will be executed first, default is 10</span><span class="w">
-</span><span class="w">
-</span><span class="w">  </span><span class="k">priority</span><span class="p">:</span><span class="w"> </span><span class="m">12</span><span class="w">
+<code>themes/next-new/_config.yml</code>, and change the setting for local search,</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>local_search</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=k>enable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></code></pre></div><h2 id=compress-your-blog>Compress your blog</h2><p>Install the plugin
+<a href=https://github.com/theme-next/hexo-filter-optimize>hexo-filter-optimize</a> to
+compress your blog,</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>npm install hexo-filter-optimize --save
+</code></pre></div><p>In the Hexo <code>_config.yml</code> file, add the following setting,</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>filter_optimize</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=k>enable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>  </span><span class=c># remove static resource query string</span><span class=w>
+</span><span class=w>
+</span><span class=w>  </span><span class=c>#   - like `?v=1.0.0`</span><span class=w>
+</span><span class=w>
+</span><span class=w>  </span><span class=k>remove_query_string</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>  </span><span class=c># remove the surrounding comments in each of the bundled files</span><span class=w>
+</span><span class=w>
+</span><span class=w>  </span><span class=k>remove_comments</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span><span class=w>  </span><span class=k>css</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>enable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>    </span><span class=c># bundle loaded css file into the one</span><span class=w>
+</span><span class=w>
+</span><span class=w>    </span><span class=k>bundle</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>    </span><span class=c># use a script block to load css elements dynamically</span><span class=w>
+</span><span class=w>
+</span><span class=w>    </span><span class=k>delivery</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>    </span><span class=c># make specific css content inline into the html page</span><span class=w>
+</span><span class=w>
+</span><span class=w>    </span><span class=c>#   - only support the full path</span><span class=w>
+</span><span class=w>
+</span><span class=w>    </span><span class=c>#   - default is [&#39;css/main.css&#39;]</span><span class=w>
+</span><span class=w>
+</span><span class=w>    </span><span class=k>inlines</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>excludes</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=k>js</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=c># bundle loaded js file into the one</span><span class=w>
+</span><span class=w>
+</span><span class=w>    </span><span class=k>bundle</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>    </span><span class=k>excludes</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=c># set the priority of this plugin,</span><span class=w>
+</span><span class=w>
+</span><span class=w>  </span><span class=c># lower means it will be executed first, default is 10</span><span class=w>
+</span><span class=w>
+</span><span class=w>  </span><span class=k>priority</span><span class=p>:</span><span class=w> </span><span class=m>12</span><span class=w>
 </span></code></pre></div><p>After using this plugin, you may find some of the icons are not displayed
 correctly. This issue has been raised
-<a href="https://github.com/theme-next/hexo-filter-optimize/issues/4">here</a>. The
+<a href=https://github.com/theme-next/hexo-filter-optimize/issues/4>here</a>. The
 solution is to edit the theme NexT configuration file and use custom CDN
-address for fontAwesome,</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">fontawesome</span><span class="p">:</span><span class="w"> </span>https<span class="p">:</span>//cdnjs.cloudflare.com/ajax/libs/font-awesome/<span class="m">4.7.0</span>/css/font-awesome.min.css<span class="w">
-</span></code></pre></div><h2 id="show-related-posts">Show related posts</h2>
-<p>It would be nice to show related posts in the post page. Just install the
-<a href="https://github.com/tea3/hexo-related-popular-posts">hexo-related-popular-posts</a>,</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm install hexo-related-popular-posts --save
-</code></pre></div><p>Use the following setting in the theme NexT configuration file,</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">related_posts</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">enable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">  </span><span class="k">title</span><span class="p">:</span><span class="w"> </span>Related<span class="w"> </span>posts<span class="w">
-</span><span class="w">  </span><span class="k">display_in_home</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w">  </span><span class="k">params</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="k">maxCount</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
-</span><span class="w">    </span><span class="c">#PPMixingRate: 0.0</span><span class="w">
-</span><span class="w">    </span><span class="c">#isDate: false</span><span class="w">
-</span><span class="w">    </span><span class="c">#isImage: false</span><span class="w">
-</span><span class="w">    </span><span class="c">#isExcerpt: false</span><span class="w">
-</span></code></pre></div><p>Now, you have have finished all the configurations. Happy writing!</p>
-
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">jdhao</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2020-03-16
-        
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">License</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
-        <span>wechat</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
-        <span>alipay</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/Markdown/">Markdown</a>
-          <a href="/tags/NexT/">NexT</a>
-          <a href="/tags/Hexo/">Hexo</a>
-          <a href="/tags/LaTeX/">LaTeX</a>
-          <a href="/tags/Pandoc/">Pandoc</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/2017/02/26/hexo-use-markdown-writing-issue/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Hexo 使用，博客写作相关问题及解决方法</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2017/02/25/spring_festival_in_wh/">
-            <span class="next-text nav-default">在武汉过春节</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'jdhao';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
-  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy; 
-    2017 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jdhao</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-113395108-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-
-</body>
-</html>
+address for fontAwesome,</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>fontawesome</span><span class=p>:</span><span class=w> </span>https<span class=p>:</span>//cdnjs.cloudflare.com/ajax/libs/font-awesome/<span class=m>4.7.0</span>/css/font-awesome.min.css<span class=w>
+</span></code></pre></div><h2 id=show-related-posts>Show related posts</h2><p>It would be nice to show related posts in the post page. Just install the
+<a href=https://github.com/tea3/hexo-related-popular-posts>hexo-related-popular-posts</a>,</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>npm install hexo-related-popular-posts --save
+</code></pre></div><p>Use the following setting in the theme NexT configuration file,</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>related_posts</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=k>enable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>  </span><span class=k>title</span><span class=p>:</span><span class=w> </span>Related<span class=w> </span>posts<span class=w>
+</span><span class=w>  </span><span class=k>display_in_home</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span><span class=w>  </span><span class=k>params</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=k>maxCount</span><span class=p>:</span><span class=w> </span><span class=m>5</span><span class=w>
+</span><span class=w>    </span><span class=c>#PPMixingRate: 0.0</span><span class=w>
+</span><span class=w>    </span><span class=c>#isDate: false</span><span class=w>
+</span><span class=w>    </span><span class=c>#isImage: false</span><span class=w>
+</span><span class=w>    </span><span class=c>#isExcerpt: false</span><span class=w>
+</span></code></pre></div><p>Now, you have have finished all the configurations. Happy writing!</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-03-16</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Markdown/>Markdown</a>
+<a href=/tags/NexT/>NexT</a>
+<a href=/tags/Hexo/>Hexo</a>
+<a href=/tags/LaTeX/>LaTeX</a>
+<a href=/tags/Pandoc/>Pandoc</a></div><nav class=post-nav><a class=prev href=/2017/02/26/hexo-use-markdown-writing-issue/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Hexo 使用，博客写作相关问题及解决方法</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2017/02/25/spring_festival_in_wh/><span class="next-text nav-default">在武汉过春节</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='jdhao';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+2017 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>

@@ -1,99 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>PyTorch on jdhao&#39;s blog</title>
-    <link>https://jdhao.github.io/tags/PyTorch/</link>
-    <description>Recent content in PyTorch on jdhao&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>jdhao</copyright>
-    <lastBuildDate>Mon, 06 Jul 2020 23:15:25 +0800</lastBuildDate>
-    
-	<atom:link href="https://jdhao.github.io/tags/PyTorch/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Set the Number of Threads to Use in PyTorch</title>
-      <link>https://jdhao.github.io/2020/07/06/pytorch_set_num_threads/</link>
-      <pubDate>Mon, 06 Jul 2020 23:15:25 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/07/06/pytorch_set_num_threads/</guid>
-      <description>&lt;p&gt;In this post, I will share how PyTorch set the number of the threads to use for
-its operations.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Distributed Training in PyTorch with Horovod</title>
-      <link>https://jdhao.github.io/2019/11/01/pytorch_distributed_training/</link>
-      <pubDate>Fri, 01 Nov 2019 22:26:53 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/11/01/pytorch_distributed_training/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/horovod/horovod&#34;&gt;Horovod&lt;/a&gt; is the distributed training
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PyTorch on jdhao's blog</title><link>https://jdhao.github.io/tags/PyTorch/</link><description>Recent content in PyTorch on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Mon, 06 Jul 2020 23:15:25 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/PyTorch/index.xml" rel="self" type="application/rss+xml"/><item><title>Set the Number of Threads to Use in PyTorch</title><link>https://jdhao.github.io/2020/07/06/pytorch_set_num_threads/</link><pubDate>Mon, 06 Jul 2020 23:15:25 +0800</pubDate><guid>https://jdhao.github.io/2020/07/06/pytorch_set_num_threads/</guid><description>&lt;p>In this post, I will share how PyTorch set the number of the threads to use for
+its operations.&lt;/p></description></item><item><title>Distributed Training in PyTorch with Horovod</title><link>https://jdhao.github.io/2019/11/01/pytorch_distributed_training/</link><pubDate>Fri, 01 Nov 2019 22:26:53 +0800</pubDate><guid>https://jdhao.github.io/2019/11/01/pytorch_distributed_training/</guid><description>&lt;p>&lt;a href="https://github.com/horovod/horovod">Horovod&lt;/a> is the distributed training
 framework developed by Uber. It support training distributed programs with
-little modification for both TensorFlow, PyTorch, MXNet and keras.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Difference between view, reshape, transpose and permute in PyTorch</title>
-      <link>https://jdhao.github.io/2019/07/10/pytorch_view_reshape_transpose_permute/</link>
-      <pubDate>Wed, 10 Jul 2019 23:21:48 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/07/10/pytorch_view_reshape_transpose_permute/</guid>
-      <description>&lt;p&gt;PyTorch provides a lot of methods for the Tensor type. Some of these methods
+little modification for both TensorFlow, PyTorch, MXNet and keras.&lt;/p></description></item><item><title>Difference between view, reshape, transpose and permute in PyTorch</title><link>https://jdhao.github.io/2019/07/10/pytorch_view_reshape_transpose_permute/</link><pubDate>Wed, 10 Jul 2019 23:21:48 +0800</pubDate><guid>https://jdhao.github.io/2019/07/10/pytorch_view_reshape_transpose_permute/</guid><description>&lt;p>PyTorch provides a lot of methods for the Tensor type. Some of these methods
 may be confusing for new users. Here, I would like to talk about
-&lt;a href=&#34;https://pytorch.org/docs/stable/tensors.html#torch.Tensor.view&#34;&gt;&lt;code&gt;view()&lt;/code&gt;&lt;/a&gt;  vs
-&lt;a href=&#34;https://pytorch.org/docs/stable/torch.html#torch.reshape&#34;&gt;&lt;code&gt;reshape()&lt;/code&gt;&lt;/a&gt;,
-&lt;a href=&#34;https://pytorch.org/docs/stable/torch.html#torch.transpose&#34;&gt;&lt;code&gt;transpose()&lt;/code&gt;&lt;/a&gt; vs
-&lt;a href=&#34;https://pytorch.org/docs/stable/tensors.html#torch.Tensor.permute&#34;&gt;&lt;code&gt;permute()&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Set Default GPU in PyTorch</title>
-      <link>https://jdhao.github.io/2018/04/02/pytorch-gpu-usage/</link>
-      <pubDate>Mon, 02 Apr 2018 11:13:22 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/04/02/pytorch-gpu-usage/</guid>
-      <description>&lt;p&gt;You can use two ways to set the GPU you want to use by default.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Notes on PyTorch Tensor Data Types</title>
-      <link>https://jdhao.github.io/2017/11/15/pytorch-datatype-note/</link>
-      <pubDate>Wed, 15 Nov 2017 21:22:45 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2017/11/15/pytorch-datatype-note/</guid>
-      <description>&lt;p&gt;In PyTorch,
-&lt;a href=&#34;http://pytorch.org/docs/master/tensors.html#torch-tensor&#34;&gt;&lt;code&gt;Tensor&lt;/code&gt;&lt;/a&gt; is the
-primary object that we deal with (&lt;code&gt;Variable&lt;/code&gt; is just a thin wrapper class for
-&lt;code&gt;Tensor&lt;/code&gt;). In this post, I will give a summary of pitfalls that we should avoid
-when using Tensors. Since &lt;code&gt;FloatTensor&lt;/code&gt; and &lt;code&gt;LongTensor&lt;/code&gt; are the most popular
-&lt;code&gt;Tensor&lt;/code&gt; types in PyTorch, I will focus on these two data types.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Understanding Computational Graphs in PyTorch</title>
-      <link>https://jdhao.github.io/2017/11/12/pytorch-computation-graph/</link>
-      <pubDate>Sun, 12 Nov 2017 13:22:46 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2017/11/12/pytorch-computation-graph/</guid>
-      <description>&lt;p&gt;PyTorch is a relatively new deep learning library which support dynamic
+&lt;a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor.view">&lt;code>view()&lt;/code>&lt;/a> vs
+&lt;a href="https://pytorch.org/docs/stable/torch.html#torch.reshape">&lt;code>reshape()&lt;/code>&lt;/a>,
+&lt;a href="https://pytorch.org/docs/stable/torch.html#torch.transpose">&lt;code>transpose()&lt;/code>&lt;/a> vs
+&lt;a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor.permute">&lt;code>permute()&lt;/code>&lt;/a>.&lt;/p></description></item><item><title>Set Default GPU in PyTorch</title><link>https://jdhao.github.io/2018/04/02/pytorch-gpu-usage/</link><pubDate>Mon, 02 Apr 2018 11:13:22 +0800</pubDate><guid>https://jdhao.github.io/2018/04/02/pytorch-gpu-usage/</guid><description>&lt;p>You can use two ways to set the GPU you want to use by default.&lt;/p></description></item><item><title>Notes on PyTorch Tensor Data Types</title><link>https://jdhao.github.io/2017/11/15/pytorch-datatype-note/</link><pubDate>Wed, 15 Nov 2017 21:22:45 +0800</pubDate><guid>https://jdhao.github.io/2017/11/15/pytorch-datatype-note/</guid><description>&lt;p>In PyTorch,
+&lt;a href="http://pytorch.org/docs/master/tensors.html#torch-tensor">&lt;code>Tensor&lt;/code>&lt;/a> is the
+primary object that we deal with (&lt;code>Variable&lt;/code> is just a thin wrapper class for
+&lt;code>Tensor&lt;/code>). In this post, I will give a summary of pitfalls that we should avoid
+when using Tensors. Since &lt;code>FloatTensor&lt;/code> and &lt;code>LongTensor&lt;/code> are the most popular
+&lt;code>Tensor&lt;/code> types in PyTorch, I will focus on these two data types.&lt;/p></description></item><item><title>Understanding Computational Graphs in PyTorch</title><link>https://jdhao.github.io/2017/11/12/pytorch-computation-graph/</link><pubDate>Sun, 12 Nov 2017 13:22:46 +0800</pubDate><guid>https://jdhao.github.io/2017/11/12/pytorch-computation-graph/</guid><description>&lt;p>PyTorch is a relatively new deep learning library which support dynamic
 computation graphs. It has gained a lot of attention after its official release
 in January. In this post, I want to share what I have learned about the
 computation graph in PyTorch. Without basic knowledge of computation graph, we
 can hardly understand what is actually happening under the hood when we are
-trying to train our &lt;em&gt;landscape-changing&lt;/em&gt; neural networks.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Writing Your Own Custom Dataset for Classification in PyTorch</title>
-      <link>https://jdhao.github.io/2017/10/23/pytorch-load-data-and-make-batch/</link>
-      <pubDate>Mon, 23 Oct 2017 17:14:26 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2017/10/23/pytorch-load-data-and-make-batch/</guid>
-      <description>&lt;p&gt;In this post, I&amp;rsquo;d like to talk about how to create your own dataset, process it
+trying to train our &lt;em>landscape-changing&lt;/em> neural networks.&lt;/p></description></item><item><title>Writing Your Own Custom Dataset for Classification in PyTorch</title><link>https://jdhao.github.io/2017/10/23/pytorch-load-data-and-make-batch/</link><pubDate>Mon, 23 Oct 2017 17:14:26 +0800</pubDate><guid>https://jdhao.github.io/2017/10/23/pytorch-load-data-and-make-batch/</guid><description>&lt;p>In this post, I&amp;rsquo;d like to talk about how to create your own dataset, process it
 and make data batches ready to be fed into your neural networks, with the help
-of PyTorch.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+of PyTorch.&lt;/p></description></item></channel></rss>

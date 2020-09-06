@@ -1,199 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Manipulating Images with Alpha Channels in Pillow - jdhao&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jdhao" /><meta name="description" content="In image processing, alpha channel is usually used to control the transparency of an image. In itself, the alpha channel is just a gray level image1. In this post, I want to talk about how to add an alpha channel to RGB image and show it using the Pillow package.
-" /><meta name="keywords" content="Hugo, theme, even" />
-
-
-
-<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
-
-
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
-
-
-<link rel="canonical" href="https://jdhao.github.io/2019/03/07/pillow_image_alpha_channel/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6058871559165202",
-    enable_page_level_ads: true
-  });
-</script>
-
-
-
-
-<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="Manipulating Images with Alpha Channels in Pillow" />
-<meta property="og:description" content="In image processing, alpha
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Manipulating Images with Alpha Channels in Pillow - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="In image processing, alpha channel is usually used to control the transparency of an image. In itself, the alpha channel is just a gray level image1. In this post, I want to talk about how to add an alpha channel to RGB image and show it using the Pillow package."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://jdhao.github.io/2019/03/07/pillow_image_alpha_channel/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Manipulating Images with Alpha Channels in Pillow"><meta property="og:description" content="In image processing, alpha
 channel is usually
 used to control the transparency of an image. In itself, the alpha channel is
 just a gray level image1. In this post, I want to talk about how to add an
-alpha channel to RGB image and show it using the Pillow package." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2019/03/07/pillow_image_alpha_channel/" />
-<meta property="article:published_time" content="2019-03-07T16:21:57+08:00" />
-<meta property="article:modified_time" content="2020-03-11T23:28:46+08:00" />
-<meta itemprop="name" content="Manipulating Images with Alpha Channels in Pillow">
-<meta itemprop="description" content="In image processing, alpha
+alpha channel to RGB image and show it using the Pillow package."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/03/07/pillow_image_alpha_channel/"><meta property="article:published_time" content="2019-03-07T16:21:57+08:00"><meta property="article:modified_time" content="2020-03-11T23:28:46+08:00"><meta itemprop=name content="Manipulating Images with Alpha Channels in Pillow"><meta itemprop=description content="In image processing, alpha
 channel is usually
 used to control the transparency of an image. In itself, the alpha channel is
 just a gray level image1. In this post, I want to talk about how to add an
-alpha channel to RGB image and show it using the Pillow package.">
-<meta itemprop="datePublished" content="2019-03-07T16:21:57+08:00" />
-<meta itemprop="dateModified" content="2020-03-11T23:28:46+08:00" />
-<meta itemprop="wordCount" content="437">
-
-
-
-<meta itemprop="keywords" content="PIL,Windows," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Manipulating Images with Alpha Channels in Pillow"/>
-<meta name="twitter:description" content="In image processing, alpha
+alpha channel to RGB image and show it using the Pillow package."><meta itemprop=datePublished content="2019-03-07T16:21:57+08:00"><meta itemprop=dateModified content="2020-03-11T23:28:46+08:00"><meta itemprop=wordCount content="437"><meta itemprop=keywords content="PIL,Windows,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Manipulating Images with Alpha Channels in Pillow"><meta name=twitter:description content="In image processing, alpha
 channel is usually
 used to control the transparency of an image. In itself, the alpha channel is
 just a gray level image1. In this post, I want to talk about how to add an
-alpha channel to RGB image and show it using the Pillow package."/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jdhao&#39;s blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jdhao&#39;s blog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Manipulating Images with Alpha Channels in Pillow</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2019-03-07 </span>
-        <div class="post-category">
-            <a href="/categories/Python/"> Python </a>
-            </div>
-          <span class="more-meta"> 437 words </span>
-          <span class="more-meta"> 3 mins read </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#references">References</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>In image processing, <a href="https://www.makeuseof.com/tag/alpha-channel-images-mean/">alpha
+alpha channel to RGB image and show it using the Pillow package."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Manipulating Images with Alpha Channels in Pillow</h1><div class=post-meta><span class=post-time>2019-03-07</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>437 words</span>
+<span class=more-meta>3 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>In image processing, <a href=https://www.makeuseof.com/tag/alpha-channel-images-mean/>alpha
 channel</a> is usually
 used to control the transparency of an image. In itself, the alpha channel is
-just a gray level image<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. In this post, I want to talk about how to add an
-alpha channel to RGB image and show it using the Pillow package.</p>
-<p>Suppose that we have the following image:</p>
-<p align="center">
-<img src="https://blog-resource-1257868508.file.myqcloud.com/20200222142548.jpg">
-</p>
-<p>we can add an alpha channel to it using the <a href="https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.putalpha">Image.putalpha()</a> method:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+just a gray level image<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. In this post, I want to talk about how to add an
+alpha channel to RGB image and show it using the Pillow package.</p><p>Suppose that we have the following image:</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200222142548.jpg></p><p>we can add an alpha channel to it using the <a href=https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.putalpha>Image.putalpha()</a> method:</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span>
 
-<span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;owl.jpg&#34;</span><span class="p">)</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&#34;L&#34;</span><span class="p">,</span> <span class="n">im</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class=n>im</span> <span class=o>=</span> <span class=n>Image</span><span class=o>.</span><span class=n>open</span><span class=p>(</span><span class=s2>&#34;owl.jpg&#34;</span><span class=p>)</span>
+<span class=n>alpha</span> <span class=o>=</span> <span class=n>Image</span><span class=o>.</span><span class=n>new</span><span class=p>(</span><span class=s2>&#34;L&#34;</span><span class=p>,</span> <span class=n>im</span><span class=o>.</span><span class=n>size</span><span class=p>,</span> <span class=mi>50</span><span class=p>)</span>
 
-<span class="n">im</span><span class="o">.</span><span class="n">putalpha</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class=n>im</span><span class=o>.</span><span class=n>putalpha</span><span class=p>(</span><span class=n>alpha</span><span class=p>)</span>
 
-<span class="n">im</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class=n>im</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
 </code></pre></div><p>You might expect to see a new image with opaque color, right? But what shows up
 is nothing different from the original image? Why? Do we use the <code>putalpha()</code>
-method wrongly?</p>
-<p>It turns out this has something to do with how image is shown using the
+method wrongly?</p><p>It turns out this has something to do with how image is shown using the
 <code>show()</code> method on different platforms. From the documentation of
-<code>Image.show()</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Displays this image. This method is mainly intended for debugging purposes.
+<code>Image.show()</code>:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>Displays this image. This method is mainly intended for debugging purposes.
 
 On Unix platforms, this method saves the image to a temporary PPM file, and calls either the xv utility or the display utility, depending on which one can be found.
 
@@ -201,215 +36,42 @@ On macOS, this method saves the image to a temporary BMP file, and opens it with
 
 On Windows, it saves the image to a temporary BMP file, and uses the standard BMP display utility to show it (usually Paint).
 </code></pre></div><p>So on Windows, the new image is converted to
-<a href="https://en.wikipedia.org/wiki/BMP_file_format">BMP</a> format and shown using the
+<a href=https://en.wikipedia.org/wiki/BMP_file_format>BMP</a> format and shown using the
 system default image viewer. During the process of format conversion, the alpha
-transparency is apparently lost<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. That is why you see no difference between
-and new image and original image.</p>
-<p>To fix this issue, we can patch the Pillow code to use PNG format as default.
-First, we need to find the root of Pillow package:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">import PIL
+transparency is apparently lost<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>. That is why you see no difference between
+and new image and original image.</p><p>To fix this issue, we can patch the Pillow code to use PNG format as default.
+First, we need to find the root of Pillow package:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>import PIL
 print(PIL.__path__)
-</code></pre></div><p>On my system, the output is:</p>
-<blockquote>
-<p>[&lsquo;D:\Anaconda\lib\site-packages\PIL&rsquo;]</p>
-</blockquote>
-<p>Go to this directory and open the file <code>ImageShow.py</code>.  I add the following
-code after the line <code>register(WindowsViewer)</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python">    <span class="k">class</span> <span class="nc">WindowsPNGViewer</span><span class="p">(</span><span class="n">Viewer</span><span class="p">):</span>
-        <span class="n">format</span> <span class="o">=</span> <span class="s2">&#34;PNG&#34;</span>
+</code></pre></div><p>On my system, the output is:</p><blockquote><p>[&lsquo;D:\Anaconda\lib\site-packages\PIL&rsquo;]</p></blockquote><p>Go to this directory and open the file <code>ImageShow.py</code>. I add the following
+code after the line <code>register(WindowsViewer)</code>:</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python>    <span class=k>class</span> <span class=nc>WindowsPNGViewer</span><span class=p>(</span><span class=n>Viewer</span><span class=p>):</span>
+        <span class=n>format</span> <span class=o>=</span> <span class=s2>&#34;PNG&#34;</span>
 
-        <span class="k">def</span> <span class="nf">get_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">file</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
-            <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;start &#34;Pillow&#34; /WAIT &#34;</span><span class="si">%s</span><span class="s1">&#34; &#39;</span>
-                    <span class="s1">&#39;&amp;&amp; ping -n 2 127.0.0.1 &gt;NUL &#39;</span>
-                    <span class="s1">&#39;&amp;&amp; del /f &#34;</span><span class="si">%s</span><span class="s1">&#34;&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="nb">file</span><span class="p">))</span>
+        <span class=k>def</span> <span class=nf>get_command</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=nb>file</span><span class=p>,</span> <span class=o>**</span><span class=n>options</span><span class=p>):</span>
+            <span class=k>return</span> <span class=p>(</span><span class=s1>&#39;start &#34;Pillow&#34; /WAIT &#34;</span><span class=si>%s</span><span class=s1>&#34; &#39;</span>
+                    <span class=s1>&#39;&amp;&amp; ping -n 2 127.0.0.1 &gt;NUL &#39;</span>
+                    <span class=s1>&#39;&amp;&amp; del /f &#34;</span><span class=si>%s</span><span class=s1>&#34;&#39;</span> <span class=o>%</span> <span class=p>(</span><span class=nb>file</span><span class=p>,</span> <span class=nb>file</span><span class=p>))</span>
 
-    <span class="n">register</span><span class="p">(</span><span class="n">WindowsPNGViewer</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div><p>After that, I can show the image with alpha channel correctly.</p>
-<p align="center">
-<img src="https://blog-resource-1257868508.file.myqcloud.com/20200222142659.png">
-</p>
-<h1 id="references">References</h1>
-<ul>
-<li><a href="https://pillow.readthedocs.io/en/5.1.x/handbook/concepts.html#concept-modes">Image modes in PIL</a></li>
-<li><a href="https://stackoverflow.com/q/26534148/6064933">Add alpha channel to image</a></li>
-<li><a href="https://stackoverflow.com/questions/9166400/convert-rgba-png-to-rgb-with-pil">Convert RGBA image to RGB image</a></li>
-<li><a href="https://github.com/python-pillow/Pillow/issues/3695">Image with alpha channel is not displayed correctly on Windows</a></li>
-</ul>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p>The pixel values are in the range (0, 255), where 0 will black out the image, 255 shows the original image and value between shows opaque image. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p>The BMP file format seems to support alpha channel, according to <a href="https://en.wikipedia.org/wiki/BMP_file_format">this wiki</a>. But that is not guaranteed. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">jdhao</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2020-03-11
-        
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">License</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
-        <span>wechat</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
-        <span>alipay</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/PIL/">PIL</a>
-          <a href="/tags/Windows/">Windows</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/2019/03/26/nvim_latex_write_preview/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">A Complete Guide on Writing LaTeX with Vimtex in Neovim</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2019/02/28/sublime_text_regex_cheat_sheet/">
-            <span class="next-text nav-default">Sublime Text Regular Expression Cheat Sheet</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'jdhao';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
-  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy; 
-    2017 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jdhao</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-113395108-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-
-</body>
-</html>
+    <span class=n>register</span><span class=p>(</span><span class=n>WindowsPNGViewer</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span>
+</code></pre></div><p>After that, I can show the image with alpha channel correctly.</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200222142659.png></p><h1 id=references>References</h1><ul><li><a href=https://pillow.readthedocs.io/en/5.1.x/handbook/concepts.html#concept-modes>Image modes in PIL</a></li><li><a href=https://stackoverflow.com/q/26534148/6064933>Add alpha channel to image</a></li><li><a href=https://stackoverflow.com/questions/9166400/convert-rgba-png-to-rgb-with-pil>Convert RGBA image to RGB image</a></li><li><a href=https://github.com/python-pillow/Pillow/issues/3695>Image with alpha channel is not displayed correctly on Windows</a></li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>The pixel values are in the range (0, 255), where 0 will black out the image, 255 shows the original image and value between shows opaque image. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>The BMP file format seems to support alpha channel, according to <a href=https://en.wikipedia.org/wiki/BMP_file_format>this wiki</a>. But that is not guaranteed. <a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-03-11</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/PIL/>PIL</a>
+<a href=/tags/Windows/>Windows</a></div><nav class=post-nav><a class=prev href=/2019/03/26/nvim_latex_write_preview/><i class="iconfont icon-left"></i><span class="prev-text nav-default">A Complete Guide on Writing LaTeX with Vimtex in Neovim</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2019/02/28/sublime_text_regex_cheat_sheet/><span class="next-text nav-default">Sublime Text Regular Expression Cheat Sheet</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='jdhao';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+2017 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>

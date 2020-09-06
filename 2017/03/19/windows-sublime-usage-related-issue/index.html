@@ -1,238 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Sublime Text 3 使用相关问题及解决办法 - jdhao&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jdhao" /><meta name="description" content="这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不 同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。
-" /><meta name="keywords" content="Hugo, theme, even" />
-
-
-
-<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
-
-
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
-
-
-<link rel="canonical" href="https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6058871559165202",
-    enable_page_level_ads: true
-  });
-</script>
-
-
-
-
-<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="Sublime Text 3 使用相关问题及解决办法" />
-<meta property="og:description" content="这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
-同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/" />
-<meta property="article:published_time" content="2017-03-19T19:01:00+08:00" />
-<meta property="article:modified_time" content="2020-03-11T23:29:25+08:00" />
-<meta itemprop="name" content="Sublime Text 3 使用相关问题及解决办法">
-<meta itemprop="description" content="这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
-同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。">
-<meta itemprop="datePublished" content="2017-03-19T19:01:00+08:00" />
-<meta itemprop="dateModified" content="2020-03-11T23:29:25+08:00" />
-<meta itemprop="wordCount" content="2227">
-
-
-
-<meta itemprop="keywords" content="Sublime-Text,encoding," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Sublime Text 3 使用相关问题及解决办法"/>
-<meta name="twitter:description" content="这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
-同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jdhao&#39;s blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jdhao&#39;s blog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Sublime Text 3 使用相关问题及解决办法</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2017-03-19 </span>
-        <div class="post-category">
-            <a href="/categories/tools/"> tools </a>
-            </div>
-          <span class="more-meta"> 2227 words </span>
-          <span class="more-meta"> 5 mins read </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#打开中文文件乱码-windows-linux">打开中文文件乱码 [Windows, Linux]</a></li>
-    <li><a href="#新建一个-build-system编译运行-c-文件linux-windows">新建一个 build system，编译运行 C++ 文件[Linux, Windows]</a></li>
-    <li><a href="#如何使程序直接在系统的-terminal-或者-console-运行">如何使程序直接在系统的 terminal 或者 console 运行</a>
-      <ul>
-        <li><a href="#linux-配置">Linux 配置</a></li>
-        <li><a href="#windows-配置">Windows 配置</a></li>
-      </ul>
-    </li>
-    <li><a href="#输入法图标不跟随输入光标">输入法图标不跟随输入光标</a></li>
-    <li><a href="#更改-package-的-user-setting保存的时候一直提示-unexpect-trailing-characterswindows-linux">更改 package 的 user setting，保存的时候一直提示 &ldquo;Unexpect trailing characters&rdquo;[Windows, Linux]</a></li>
-    <li><a href="#新建一个-snippet-windows-linux">新建一个 snippet [Windows, Linux]</a></li>
-    <li><a href="#如何编辑-sublime-text-自带的-build-system-windows-linux">如何编辑 Sublime Text 自带的 build system [Windows, Linux]</a></li>
-    <li><a href="#使用-package-control-安装插件的时候提示-there-are-no-packages-available-for-installationwindows-linux">使用 Package Control 安装插件的时候提示 “There are no packages available for installation”[Windows, Linux]</a></li>
-    <li><a href="#使用-ctrl--backtick-无法打开-consolewindows-linux">使用 Ctrl + backtick 无法打开 console[Windows, Linux]</a></li>
-    <li><a href="#参考">参考</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
-同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。</p>
-<h1 id="打开中文文件乱码-windows-linux">打开中文文件乱码 [Windows, Linux]</h1>
-<p>如果中文文件是使用的 <a href="https://www.zhihu.com/question/19677619">GBK 等中文独有的编码方式
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Sublime Text 3 使用相关问题及解决办法 - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不 同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Sublime Text 3 使用相关问题及解决办法"><meta property="og:description" content="这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
+同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/"><meta property="article:published_time" content="2017-03-19T19:01:00+08:00"><meta property="article:modified_time" content="2020-03-11T23:29:25+08:00"><meta itemprop=name content="Sublime Text 3 使用相关问题及解决办法"><meta itemprop=description content="这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
+同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。"><meta itemprop=datePublished content="2017-03-19T19:01:00+08:00"><meta itemprop=dateModified content="2020-03-11T23:29:25+08:00"><meta itemprop=wordCount content="2227"><meta itemprop=keywords content="Sublime-Text,encoding,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Sublime Text 3 使用相关问题及解决办法"><meta name=twitter:description content="这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
+同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Sublime Text 3 使用相关问题及解决办法</h1><div class=post-meta><span class=post-time>2017-03-19</span><div class=post-category><a href=/categories/tools/>tools</a></div><span class=more-meta>2227 words</span>
+<span class=more-meta>5 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#打开中文文件乱码-windows-linux>打开中文文件乱码 [Windows, Linux]</a></li><li><a href=#新建一个-build-system编译运行-c-文件linux-windows>新建一个 build system，编译运行 C++ 文件[Linux, Windows]</a></li><li><a href=#如何使程序直接在系统的-terminal-或者-console-运行>如何使程序直接在系统的 terminal 或者 console 运行</a><ul><li><a href=#linux-配置>Linux 配置</a></li><li><a href=#windows-配置>Windows 配置</a></li></ul></li><li><a href=#输入法图标不跟随输入光标>输入法图标不跟随输入光标</a></li><li><a href=#更改-package-的-user-setting保存的时候一直提示-unexpect-trailing-characterswindows-linux>更改 package 的 user setting，保存的时候一直提示 &ldquo;Unexpect trailing characters&rdquo;[Windows, Linux]</a></li><li><a href=#新建一个-snippet-windows-linux>新建一个 snippet [Windows, Linux]</a></li><li><a href=#如何编辑-sublime-text-自带的-build-system-windows-linux>如何编辑 Sublime Text 自带的 build system [Windows, Linux]</a></li><li><a href=#使用-package-control-安装插件的时候提示-there-are-no-packages-available-for-installationwindows-linux>使用 Package Control 安装插件的时候提示 “There are no packages available for installation”[Windows, Linux]</a></li><li><a href=#使用-ctrl--backtick-无法打开-consolewindows-linux>使用 Ctrl + backtick 无法打开 console[Windows, Linux]</a></li><li><a href=#参考>参考</a></li></ul></nav></div></div><div class=post-content><p>这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
+同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。</p><h1 id=打开中文文件乱码-windows-linux>打开中文文件乱码 [Windows, Linux]</h1><p>如果中文文件是使用的 <a href=https://www.zhihu.com/question/19677619>GBK 等中文独有的编码方式
 </a>，而不是通用的 UTF-8 编码，使用
 Sublime Text 打开以后会发现文件显示乱码，因为 Sublime Text 目前为止并不原生支持
 GBK 等中文编码。 好在有一款 Sublime Text 的插件，可以帮助解决这个问题。 这款插
-件名字叫 <a href="https://packagecontrol.io/packages/ConvertToUTF8">&ldquo;ConvertToUTF8&rdquo;</a>，
+件名字叫 <a href=https://packagecontrol.io/packages/ConvertToUTF8>&ldquo;ConvertToUTF8&rdquo;</a>，
 安装好以后打开中文编码文件就可以自动转换为 UTF-8 编码，值得注意的是关闭文件以后
 ，这个库默认把 UTF-8 编码再转为该文件初始编码，如果不想要这种行为，可以通过设定
-<code>&quot;convert_on_save&quot; : false</code> 来关闭这项功能。 如果不想下载这个插件，用系统自带的
-记事本打开文件，然后另存为 UTF-8 编码也可以。</p>
-<h1 id="新建一个-build-system编译运行-c-文件linux-windows">新建一个 build system，编译运行 C++ 文件[Linux, Windows]</h1>
-<p>Sublime Text 3 自带 CPP 的 build system： &ldquo;C++ Single File&rdquo;，但是这个 build
+<code>"convert_on_save" : false</code> 来关闭这项功能。 如果不想下载这个插件，用系统自带的
+记事本打开文件，然后另存为 UTF-8 编码也可以。</p><h1 id=新建一个-build-system编译运行-c-文件linux-windows>新建一个 build system，编译运行 C++ 文件[Linux, Windows]</h1><p>Sublime Text 3 自带 CPP 的 build system： &ldquo;C++ Single File&rdquo;，但是这个 build
 system 只能编译，不能直接运行编译好的程序，所以运行简单的 CPP 文件有点麻烦，编
 译好以后，还需要自己去 shell 里面运行。 我们可以新建一个简单的 build system，实
-现自己的需求，依次点击 &ldquo;Tools&ndash;&gt;Build System&ndash;&gt;New Build System&rdquo;，使用下面的配
-置</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">{<span class="w">
-</span><span class="w"></span><span class="s2">&#34;cmd&#34;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;g++ -std=c++11 -Wall ${file_name} -o ${file_base_name} &amp;&amp; ./${file_base_name}&#34;</span><span class="p">],</span><span class="w"> 
-</span><span class="w"></span><span class="s2">&#34;selector&#34;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;source.c&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w"></span><span class="k">&#34;shell&#34;: </span><span class="kc">true</span><span class="p">,</span><span class="w">
-</span><span class="w"></span><span class="s2">&#34;working_dir&#34;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;$file_path&#34;</span><span class="w">
-</span><span class="w"></span>}<span class="w">
-</span></code></pre></div><h1 id="如何使程序直接在系统的-terminal-或者-console-运行">如何使程序直接在系统的 terminal 或者 console 运行</h1>
-<p>Sublime Text 运行需要从 standard input (一般来说就是 console) 输入数据的程序时
+现自己的需求，依次点击 &ldquo;Tools&ndash;>Build System&ndash;>New Build System&rdquo;，使用下面的配
+置</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>{<span class=w>
+</span><span class=w></span><span class=s2>&#34;cmd&#34;</span><span class=w> </span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=s2>&#34;g++ -std=c++11 -Wall ${file_name} -o ${file_base_name} &amp;&amp; ./${file_base_name}&#34;</span><span class=p>],</span><span class=w> 
+</span><span class=w></span><span class=s2>&#34;selector&#34;</span><span class=w> </span><span class=p>:</span><span class=w> </span><span class=s2>&#34;source.c&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w></span><span class=k>&#34;shell&#34;: </span><span class=kc>true</span><span class=p>,</span><span class=w>
+</span><span class=w></span><span class=s2>&#34;working_dir&#34;</span><span class=w> </span><span class=p>:</span><span class=w> </span><span class=s2>&#34;$file_path&#34;</span><span class=w>
+</span><span class=w></span>}<span class=w>
+</span></code></pre></div><h1 id=如何使程序直接在系统的-terminal-或者-console-运行>如何使程序直接在系统的 terminal 或者 console 运行</h1><p>Sublime Text 运行需要从 standard input (一般来说就是 console) 输入数据的程序时
 ，该程序无法正常接收输入，如何解决这个问题呢？ 我们可以给编译 C++ 增加一个可选
-的方式，Sublime Text 里面称为  &ldquo;variants&rdquo;，然后指定在 GUI terminal 里面运行编译
-好的文件。 Linux 系统与 Windows 系统设置稍有不同。</p>
-<h2 id="linux-配置">Linux 配置</h2>
-<p>完整的配置文件如下</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">{<span class="w">
-</span><span class="w">    </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;g++ -std=c++11 -Wall \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}\&#34; &amp;&amp; \&#34;${file_path}/${file_base_name}\&#34;&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">    </span><span class="k">&#34;file_regex&#34;: </span><span class="s2">&#34;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">    </span><span class="k">&#34;working_dir&#34;: </span><span class="s2">&#34;${file_path}&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">    </span><span class="k">&#34;selector&#34;: </span><span class="s2">&#34;source.c++, source.cpp, source.cc, source.cxx&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span><span class="s2">&#34;variants&#34;</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="p">[</span><span class="w">
-</span><span class="w">        </span>{<span class="w">
-</span><span class="w">            </span><span class="k">&#34;name&#34;: </span><span class="s2">&#34;Run in Terminal&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">            </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;g++ -std=c++11 -Wall \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}\&#34; &amp;&amp; xterm -e &#39;${file_path}/${file_base_name} &amp;&amp; echo &amp;&amp; echo Press ENTER to continue &amp;&amp; read line &amp;&amp; exit&#39;&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">           </span>//<span class="w"> </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;gnome-terminal -e &#39;bash -c \&#34;${file_path}/${file_base_name}&amp;&amp; echo &amp;&amp; echo Press ENTER to continue &amp;&amp; read line &amp;&amp; exit\&#34;&#39;&#34;</span><span class="p">,</span><span class="w"> </span>//<span class="w"> </span>for<span class="w"> </span>gnome-terminal<span class="w"> 
-</span><span class="w">           </span>//<span class="w"> </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;xterm -e &#39;${file_path}/${file_base_name}; bash&#39;&#34;</span><span class="p">,</span><span class="w"> </span>//<span class="w"> </span>for<span class="w"> </span>xterm<span class="w">
-</span><span class="w">           </span>//<span class="w"> </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;xterm -hold -e ${file_path}/${file_base_name}&#34;</span><span class="p">,</span><span class="w"> </span>//<span class="w"> </span>for<span class="w"> </span>xterm<span class="w">
-</span><span class="w">           </span>//<span class="w"> </span><span class="k">&#34;shell_cmd&#34;: </span><span class="s2">&#34;konsole --hold -e ${file_path}/./${file_base_name}&#34;</span><span class="p">,</span><span class="w"> </span>//<span class="w"> </span>for<span class="w"> </span>konsole<span class="w">
-</span><span class="w">            </span><span class="k">&#34;shell&#34;: </span><span class="kc">true</span><span class="p">,</span><span class="w">
-</span><span class="w">        </span>}<span class="p">,</span><span class="w">
-</span><span class="w">    </span><span class="p">]</span><span class="w">
-</span><span class="w"></span>}<span class="w">
+的方式，Sublime Text 里面称为 &ldquo;variants&rdquo;，然后指定在 GUI terminal 里面运行编译
+好的文件。 Linux 系统与 Windows 系统设置稍有不同。</p><h2 id=linux-配置>Linux 配置</h2><p>完整的配置文件如下</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>{<span class=w>
+</span><span class=w>    </span><span class=k>&#34;shell_cmd&#34;: </span><span class=s2>&#34;g++ -std=c++11 -Wall \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}\&#34; &amp;&amp; \&#34;${file_path}/${file_base_name}\&#34;&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>    </span><span class=k>&#34;file_regex&#34;: </span><span class=s2>&#34;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>    </span><span class=k>&#34;working_dir&#34;: </span><span class=s2>&#34;${file_path}&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>    </span><span class=k>&#34;selector&#34;: </span><span class=s2>&#34;source.c++, source.cpp, source.cc, source.cxx&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>
+</span><span class=w>    </span><span class=s2>&#34;variants&#34;</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=p>[</span><span class=w>
+</span><span class=w>        </span>{<span class=w>
+</span><span class=w>            </span><span class=k>&#34;name&#34;: </span><span class=s2>&#34;Run in Terminal&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>            </span><span class=k>&#34;shell_cmd&#34;: </span><span class=s2>&#34;g++ -std=c++11 -Wall \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}\&#34; &amp;&amp; xterm -e &#39;${file_path}/${file_base_name} &amp;&amp; echo &amp;&amp; echo Press ENTER to continue &amp;&amp; read line &amp;&amp; exit&#39;&#34;</span><span class=p>,</span><span class=w>
+</span><span class=w>           </span>//<span class=w> </span><span class=k>&#34;shell_cmd&#34;: </span><span class=s2>&#34;gnome-terminal -e &#39;bash -c \&#34;${file_path}/${file_base_name}&amp;&amp; echo &amp;&amp; echo Press ENTER to continue &amp;&amp; read line &amp;&amp; exit\&#34;&#39;&#34;</span><span class=p>,</span><span class=w> </span>//<span class=w> </span>for<span class=w> </span>gnome-terminal<span class=w> 
+</span><span class=w>           </span>//<span class=w> </span><span class=k>&#34;shell_cmd&#34;: </span><span class=s2>&#34;xterm -e &#39;${file_path}/${file_base_name}; bash&#39;&#34;</span><span class=p>,</span><span class=w> </span>//<span class=w> </span>for<span class=w> </span>xterm<span class=w>
+</span><span class=w>           </span>//<span class=w> </span><span class=k>&#34;shell_cmd&#34;: </span><span class=s2>&#34;xterm -hold -e ${file_path}/${file_base_name}&#34;</span><span class=p>,</span><span class=w> </span>//<span class=w> </span>for<span class=w> </span>xterm<span class=w>
+</span><span class=w>           </span>//<span class=w> </span><span class=k>&#34;shell_cmd&#34;: </span><span class=s2>&#34;konsole --hold -e ${file_path}/./${file_base_name}&#34;</span><span class=p>,</span><span class=w> </span>//<span class=w> </span>for<span class=w> </span>konsole<span class=w>
+</span><span class=w>            </span><span class=k>&#34;shell&#34;: </span><span class=kc>true</span><span class=p>,</span><span class=w>
+</span><span class=w>        </span>}<span class=p>,</span><span class=w>
+</span><span class=w>    </span><span class=p>]</span><span class=w>
+</span><span class=w></span>}<span class=w>
 </span></code></pre></div><p>上述配置文件提供了针对 genome-terminal, xterm, Konsole 的配置，可以按照自己正在
 使用的 GUI terminal 选择对应的配置。 上述配置还可以保证程序在运行结束以后，
 terminal 的窗口不会立即关闭。 当运行需要从 console 输入数据的程序时，直接使用
-<code>CTRL + SHIFT + B</code> 快捷键，然后选择 <code>Run in Terminal</code> 选项即可。</p>
-<p><img src="https://blog-resource-1257868508.file.myqcloud.com/c++_run_in_terminal.png" alt=""></p>
-<h2 id="windows-配置">Windows 配置</h2>
-<p>以上的配置针对的 Linux 系统，如果你使用的是 Windows 系统，情况会稍有不同，下面
-的配置是适用于 Windows 的配置，</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+<code>CTRL + SHIFT + B</code> 快捷键，然后选择 <code>Run in Terminal</code> 选项即可。</p><p><img src=https://blog-resource-1257868508.file.myqcloud.com/c++_run_in_terminal.png alt></p><h2 id=windows-配置>Windows 配置</h2><p>以上的配置针对的 Linux 系统，如果你使用的是 Windows 系统，情况会稍有不同，下面
+的配置是适用于 Windows 的配置，</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>{
     &#34;shell_cmd&#34;: &#34;g++ -Wall -std=c++11 \&#34;${file}\&#34; -o \&#34;${file_path}/${file_base_name}.exe\&#34;&#34;,
     &#34;file_regex&#34;: &#34;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&#34;,
     &#34;working_dir&#34;: &#34;${file_path}&#34;,
@@ -253,253 +69,77 @@ terminal 的窗口不会立即关闭。 当运行需要从 console 输入数据�
 }
 </code></pre></div><p>使用 <code>CTRL + B</code> 来编译源代码，然后使用 <code>CTRL + SHIFT + B</code> 来选择在 Sublime Text
 的 console 运行还是直接在 Windows CMD 窗口运行，上述的配置也可以保证程序运行以
-后，terminal 的窗口不会自动关闭，方便用户查看输出结果。</p>
-<h1 id="输入法图标不跟随输入光标">输入法图标不跟随输入光标</h1>
-<p>在 Sublime Text 中使用中文时，发现输入法的候选字的框不跟随输入光标，这个 bug 官
+后，terminal 的窗口不会自动关闭，方便用户查看输出结果。</p><h1 id=输入法图标不跟随输入光标>输入法图标不跟随输入光标</h1><p>在 Sublime Text 中使用中文时，发现输入法的候选字的框不跟随输入光标，这个 bug 官
 方没有解决，有一个插件
-<a href="https://packagecontrol.io/packages/IMESupport">IMESupport</a> 可以解决这个问题。</p>
-<h1 id="更改-package-的-user-setting保存的时候一直提示-unexpect-trailing-characterswindows-linux">更改 package 的 user setting，保存的时候一直提示 &ldquo;Unexpect trailing characters&rdquo;[Windows, Linux]</h1>
-<p>安装了一个 package 以后，需要进行个性化设置，然后保存设置的时候一直提示错误，错
-误信息如下</p>
-<blockquote>
-<p>Error trying to parse settings: unexpected trailing characters</p>
-</blockquote>
-<p>这个原因是输入的 setting 不是有效的 JSON 格式，我的问题是忘记在 setting 外加大
-括号了。例如下面的 setting 就是有问题的</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="w">    </span><span class="k">// Convert when previewing file</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span>or<span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w">    </span><span class="s2">&#34;preview_action&#34;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-</span></code></pre></div><p>正确的写法应该是</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">{<span class="w">
-</span><span class="w"> </span><span class="k">// Convert when previewing file</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span>or<span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w">    </span><span class="s2">&#34;preview_action&#34;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-</span><span class="w"></span>}<span class="w">
-</span></code></pre></div><h1 id="新建一个-snippet-windows-linux">新建一个 snippet [Windows, Linux]</h1>
-<p>所谓 snippet，简单来说就是一个代码片段，你为这个 snippet 设立一个关键词，当你输
+<a href=https://packagecontrol.io/packages/IMESupport>IMESupport</a> 可以解决这个问题。</p><h1 id=更改-package-的-user-setting保存的时候一直提示-unexpect-trailing-characterswindows-linux>更改 package 的 user setting，保存的时候一直提示 &ldquo;Unexpect trailing characters&rdquo;[Windows, Linux]</h1><p>安装了一个 package 以后，需要进行个性化设置，然后保存设置的时候一直提示错误，错
+误信息如下</p><blockquote><p>Error trying to parse settings: unexpected trailing characters</p></blockquote><p>这个原因是输入的 setting 不是有效的 JSON 格式，我的问题是忘记在 setting 外加大
+括号了。例如下面的 setting 就是有问题的</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>    </span><span class=k>// Convert when previewing file</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w> </span>or<span class=w> </span><span class=kc>false</span><span class=w>
+</span><span class=w>    </span><span class=s2>&#34;preview_action&#34;</span><span class=w> </span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=p>,</span><span class=w>
+</span></code></pre></div><p>正确的写法应该是</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml>{<span class=w>
+</span><span class=w> </span><span class=k>// Convert when previewing file</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w> </span>or<span class=w> </span><span class=kc>false</span><span class=w>
+</span><span class=w>    </span><span class=s2>&#34;preview_action&#34;</span><span class=w> </span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=p>,</span><span class=w>
+</span><span class=w></span>}<span class=w>
+</span></code></pre></div><h1 id=新建一个-snippet-windows-linux>新建一个 snippet [Windows, Linux]</h1><p>所谓 snippet，简单来说就是一个代码片段，你为这个 snippet 设立一个关键词，当你输
 入关键词以后，就会激活这个 snippet，省去了重复输入的麻烦。 在编写 C++ 程序的时
 候每次都需要输入头文件，using declaration，比较麻烦，可以创立一个 snippet，建立
-好 CPP 文件以后输入关键词，自动填充预定义的模板。 建立方法如下，依次打开<code>Tools -&gt; Developer -&gt; New Snippet...</code>, 在生成的文件里填写如下内容，</p>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">snippet</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">content</span><span class="p">&gt;</span><span class="cp">&lt;![CDATA[
-</span><span class="cp">#include &lt;iostream&gt;
-</span><span class="cp">#include &lt;vector&gt;
-</span><span class="cp">#include &lt;string&gt;
-</span><span class="cp">#include &lt;algorithm&gt;
-</span><span class="cp">
-</span><span class="cp">using std::cout;
-</span><span class="cp">using std::vector;
-</span><span class="cp">using std::string;
-</span><span class="cp">
-</span><span class="cp">int main(){
-</span><span class="cp">    return 0;
-</span><span class="cp">}
-</span><span class="cp">
-</span><span class="cp">]]&gt;</span><span class="p">&lt;/</span><span class="nt">content</span><span class="p">&gt;</span>
-    <span class="c">&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">tabTrigger</span><span class="p">&gt;</span>cpp<span class="p">&lt;/</span><span class="nt">tabTrigger</span><span class="p">&gt;</span>
-    <span class="c">&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</span>
-    <span class="c">&lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;</span>
-<span class="p">&lt;/</span><span class="nt">snippet</span><span class="p">&gt;</span>
+好 CPP 文件以后输入关键词，自动填充预定义的模板。 建立方法如下，依次打开<code>Tools -> Developer -> New Snippet...</code>, 在生成的文件里填写如下内容，</p><div class=highlight><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>snippet</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>content</span><span class=p>&gt;</span><span class=cp>&lt;![CDATA[
+</span><span class=cp>#include &lt;iostream&gt;
+</span><span class=cp>#include &lt;vector&gt;
+</span><span class=cp>#include &lt;string&gt;
+</span><span class=cp>#include &lt;algorithm&gt;
+</span><span class=cp>
+</span><span class=cp>using std::cout;
+</span><span class=cp>using std::vector;
+</span><span class=cp>using std::string;
+</span><span class=cp>
+</span><span class=cp>int main(){
+</span><span class=cp>    return 0;
+</span><span class=cp>}
+</span><span class=cp>
+</span><span class=cp>]]&gt;</span><span class=p>&lt;/</span><span class=nt>content</span><span class=p>&gt;</span>
+    <span class=c>&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;</span>
+    <span class=p>&lt;</span><span class=nt>tabTrigger</span><span class=p>&gt;</span>cpp<span class=p>&lt;/</span><span class=nt>tabTrigger</span><span class=p>&gt;</span>
+    <span class=c>&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;</span>
+    <span class=c>&lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;</span>
+<span class=p>&lt;/</span><span class=nt>snippet</span><span class=p>&gt;</span>
 </code></pre></div><p>然后给创建的 snippet 起一个名字，如 <code>C++_default_template.sublime-snippet</code>, 然
-后在文件中输入 cpp，再点击<kbd>Tab</kbd>，就会直接输入对应的 snippet。</p>
-<h1 id="如何编辑-sublime-text-自带的-build-system-windows-linux">如何编辑 Sublime Text 自带的 build system [Windows, Linux]</h1>
-<p>在 Sublime Text 中，package 都是以 <code>.sublime-package</code> 的压缩文件形式存在，以
+后在文件中输入 cpp，再点击<kbd>Tab</kbd>，就会直接输入对应的 snippet。</p><h1 id=如何编辑-sublime-text-自带的-build-system-windows-linux>如何编辑 Sublime Text 自带的 build system [Windows, Linux]</h1><p>在 Sublime Text 中，package 都是以 <code>.sublime-package</code> 的压缩文件形式存在，以
 C++ build system 为例，如果要编辑 Sublime Text 自带的 C++ build system，首先要
-安装 <a href="https://github.com/skuroda/PackageResourceViewer">PackageResourceViewer</a>
+安装 <a href=https://github.com/skuroda/PackageResourceViewer>PackageResourceViewer</a>
 ，然后使用 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>，打开 Package Control
 的窗口，输入 <code>prv</code>, 选择 <code>Open Resource</code>，然后输入 <code>C++</code>，向下移动光标，选择
 <code>C++ Single File.sublime-build</code>，打开这个文件，按照自己意愿编辑，编辑以后保存就
-可以了。</p>
-<h1 id="使用-package-control-安装插件的时候提示-there-are-no-packages-available-for-installationwindows-linux">使用 Package Control 安装插件的时候提示 “There are no packages available for installation”[Windows, Linux]</h1>
-<p>问题如题所示，重装 Package Control 解决了这个问题。 首先，<a href="https://packagecontrol.io/docs/troubleshooting#Purging_and_Reinstalling">卸载 Package
+可以了。</p><h1 id=使用-package-control-安装插件的时候提示-there-are-no-packages-available-for-installationwindows-linux>使用 Package Control 安装插件的时候提示 “There are no packages available for installation”[Windows, Linux]</h1><p>问题如题所示，重装 Package Control 解决了这个问题。 首先，<a href=https://packagecontrol.io/docs/troubleshooting#Purging_and_Reinstalling>卸载 Package
 Control</a>
-，然后，<a href="https://packagecontrol.io/installation#st3">重新安装 Package Control</a>
-。</p>
-<h1 id="使用-ctrl--backtick-无法打开-consolewindows-linux">使用 Ctrl + backtick 无法打开 console[Windows, Linux]</h1>
-<p>Sublime Text 默认打开 console 的快捷键 (shortcut) 是
-<kbd>Ctrl</kbd>+<kbd>`</kbd>，但是在我的系统上，按这个组合键，没有任何反应，<a href="https://stackoverflow.com/questions/13965877/the-shortcut-key-to-open-console-in-sublime-text-2-does-not-work">
-根据 Stackoverflow 上的回答
-</a>
+，然后，<a href=https://packagecontrol.io/installation#st3>重新安装 Package Control</a>
+。</p><h1 id=使用-ctrl--backtick-无法打开-consolewindows-linux>使用 Ctrl + backtick 无法打开 console[Windows, Linux]</h1><p>Sublime Text 默认打开 console 的快捷键 (shortcut) 是
+<kbd>Ctrl</kbd>+<kbd>`</kbd>，但是在我的系统上，按这个组合键，没有任何反应，<a href=https://stackoverflow.com/questions/13965877/the-shortcut-key-to-open-console-in-sublime-text-2-does-not-work>
+根据 Stackoverflow 上的回答</a>
 ， 点击打开 console，然后输入 <code>sublime.log_input(True)</code>, 监听按键，发现按下
 <kbd>Ctrl</kbd>+<kbd>`</kbd> 时，Sublime 并未记录到按键。于是根据别人的答案，
 自己设置了另外一个快捷键组合 <kbd>Ctrl</kbd>+<kbd>'</kbd> 来打开 console, 在自
-己的 user key binding 设置里面加上一项：</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="w">    </span>{<span class="w"> </span><span class="k">&#34;keys&#34;: [&#34;ctrl+&#39;&#34;], &#34;command&#34;: &#34;show_panel&#34;, &#34;args&#34;: {&#34;panel&#34;: &#34;console&#34;, &#34;toggle&#34;: </span><span class="kc">true</span>}<span class="w"> </span>}<span class="p">,</span><span class="w">
-</span></code></pre></div><h1 id="参考">参考</h1>
-<ul>
-<li><a href="http://www.zhanglian2010.cn/2016/11/sublime-text-3-convert-to-utf8/">Sublime Text 解决中文编码问题</a></li>
-<li><a href="https://gist.github.com/xhacker/1eb3f87dd81a3c2015e7">示例 build system</a></li>
-<li><a href="https://goo.gl/zYPUio">build system 中一些关键词还有内置变量含义</a></li>
-<li><a href="https://www.kancloud.cn/digest/sublime-text-complete-guide/61426">解决输入法不跟随光标问题</a></li>
-<li><a href="https://goo.gl/5076f9">Unexpected trailling characters  解决办法</a></li>
-<li><a href="http://docs.sublimetext.info/en/latest/extensibility/snippets.html?highlight=snippet">snippet 的文档</a>.</li>
-<li><a href="https://superuser.com/a/1012167/736190">Windows，如何使程序运行后窗口不自动关闭</a></li>
-<li><a href="https://superuser.com/a/427981/736190">Windows，防止程序运行后窗口自动关闭</a></li>
-<li><a href="https://stackoverflow.com/a/39882361/6064933">Windows，防止窗口关闭另外一种方法</a></li>
-</ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">jdhao</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2020-03-11
-        
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">License</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
-        <span>wechat</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
-        <span>alipay</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/Sublime-Text/">Sublime-Text</a>
-          <a href="/tags/encoding/">encoding</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/2017/03/26/transfer-file-android-windows/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">如何使用 Android 文件管理器在电脑与手机之间无线传输文件</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2017/03/13/some_loss_and_explanations/">
-            <span class="next-text nav-default">Some Loss Functions and Their Intuitive Explanations</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'jdhao';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
-  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy; 
-    2017 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jdhao</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-113395108-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-
-</body>
-</html>
+己的 user key binding 设置里面加上一项：</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>    </span>{<span class=w> </span><span class=k>&#34;keys&#34;: [&#34;ctrl+&#39;&#34;], &#34;command&#34;: &#34;show_panel&#34;, &#34;args&#34;: {&#34;panel&#34;: &#34;console&#34;, &#34;toggle&#34;: </span><span class=kc>true</span>}<span class=w> </span>}<span class=p>,</span><span class=w>
+</span></code></pre></div><h1 id=参考>参考</h1><ul><li><a href=http://www.zhanglian2010.cn/2016/11/sublime-text-3-convert-to-utf8/>Sublime Text 解决中文编码问题</a></li><li><a href=https://gist.github.com/xhacker/1eb3f87dd81a3c2015e7>示例 build system</a></li><li><a href=https://goo.gl/zYPUio>build system 中一些关键词还有内置变量含义</a></li><li><a href=https://www.kancloud.cn/digest/sublime-text-complete-guide/61426>解决输入法不跟随光标问题</a></li><li><a href=https://goo.gl/5076f9>Unexpected trailling characters 解决办法</a></li><li><a href="http://docs.sublimetext.info/en/latest/extensibility/snippets.html?highlight=snippet">snippet 的文档</a>.</li><li><a href=https://superuser.com/a/1012167/736190>Windows，如何使程序运行后窗口不自动关闭</a></li><li><a href=https://superuser.com/a/427981/736190>Windows，防止程序运行后窗口自动关闭</a></li><li><a href=https://stackoverflow.com/a/39882361/6064933>Windows，防止窗口关闭另外一种方法</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-03-11</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Sublime-Text/>Sublime-Text</a>
+<a href=/tags/encoding/>encoding</a></div><nav class=post-nav><a class=prev href=/2017/03/26/transfer-file-android-windows/><i class="iconfont icon-left"></i><span class="prev-text nav-default">如何使用 Android 文件管理器在电脑与手机之间无线传输文件</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2017/03/13/some_loss_and_explanations/><span class="next-text nav-default">Some Loss Functions and Their Intuitive Explanations</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='jdhao';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+2017 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>

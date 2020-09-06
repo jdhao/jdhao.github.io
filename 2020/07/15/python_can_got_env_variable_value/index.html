@@ -1,414 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Can Not Get Env Variable Value in Python in Bash Shell? - jdhao&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jdhao" /><meta name="description" content="I found a strange issue when I want to get the value of variable from Python script.
-" /><meta name="keywords" content="Hugo, theme, even" />
-
-
-
-<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
-
-
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
-
-
-<link rel="canonical" href="https://jdhao.github.io/2020/07/15/python_can_got_env_variable_value/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6058871559165202",
-    enable_page_level_ads: true
-  });
-</script>
-
-
-
-
-<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="Can Not Get Env Variable Value in Python in Bash Shell?" />
-<meta property="og:description" content="I found a strange issue when I want to get the value of variable from Python
-script." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2020/07/15/python_can_got_env_variable_value/" />
-<meta property="article:published_time" content="2020-07-15T22:17:07+08:00" />
-<meta property="article:modified_time" content="2020-07-15T23:59:46+08:00" />
-<meta itemprop="name" content="Can Not Get Env Variable Value in Python in Bash Shell?">
-<meta itemprop="description" content="I found a strange issue when I want to get the value of variable from Python
-script.">
-<meta itemprop="datePublished" content="2020-07-15T22:17:07+08:00" />
-<meta itemprop="dateModified" content="2020-07-15T23:59:46+08:00" />
-<meta itemprop="wordCount" content="635">
-
-
-
-<meta itemprop="keywords" content="Bash," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Can Not Get Env Variable Value in Python in Bash Shell?"/>
-<meta name="twitter:description" content="I found a strange issue when I want to get the value of variable from Python
-script."/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jdhao&#39;s blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jdhao&#39;s blog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Can Not Get Env Variable Value in Python in Bash Shell?</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2020-07-15 </span>
-        <div class="post-category">
-            <a href="/categories/Linux/"> Linux </a>
-            </div>
-          <span class="more-meta"> 635 words </span>
-          <span class="more-meta"> 3 mins read </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#bash-builtin-and-external-commands">Bash builtin and external commands</a></li>
-    <li><a href="#when-will-variable-value-be-available-in-a-process">When will variable value be available in a process?</a></li>
-    <li><a href="#back-to-the-issue">Back to the issue</a></li>
-    <li><a href="#references">References</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>I found a strange issue when I want to get the value of variable from Python
-script.</p>
-<p>To reproduce, we can first set the value of <code>foo</code> in the Bash shell:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nv">FOO</span><span class="o">=</span><span class="m">123</span>
-</code></pre></div><p>Then execute the following python command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ python -c <span class="s2">&#34;import os; print(os.getenv(&#39;FOO&#39;, &#34;</span>None<span class="s2">&#34;))&#34;</span>
-</code></pre></div><p>The output is <code>None</code>. So the python command can not see the variable <code>FOO</code>.</p>
-<p>However, if we run the two command in one line:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nv">FOO</span><span class="o">=</span><span class="m">123</span> python -c <span class="s2">&#34;import os; print(os.getenv(&#39;FOO&#39;, &#34;</span>None<span class="s2">&#34;))&#34;</span>
-</code></pre></div><p>The output will be <code>123</code>.</p>
-<p>If we use <code>export FOO=123</code> instead of <code>FOO=123</code>, we can also access the value
-of <code>FOO</code> in Python.</p>
-<p>But why? What is the difference here? This is in fact a complex issue.</p>
-<h1 id="bash-builtin-and-external-commands">Bash builtin and external commands</h1>
-<p>First, we need to know that, when bash execute commands, it treats the builtin
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Can Not Get Env Variable Value in Python in Bash Shell? - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="I found a strange issue when I want to get the value of variable from Python script."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://jdhao.github.io/2020/07/15/python_can_got_env_variable_value/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Can Not Get Env Variable Value in Python in Bash Shell?"><meta property="og:description" content="I found a strange issue when I want to get the value of variable from Python
+script."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/07/15/python_can_got_env_variable_value/"><meta property="article:published_time" content="2020-07-15T22:17:07+08:00"><meta property="article:modified_time" content="2020-07-15T23:59:46+08:00"><meta itemprop=name content="Can Not Get Env Variable Value in Python in Bash Shell?"><meta itemprop=description content="I found a strange issue when I want to get the value of variable from Python
+script."><meta itemprop=datePublished content="2020-07-15T22:17:07+08:00"><meta itemprop=dateModified content="2020-07-15T23:59:46+08:00"><meta itemprop=wordCount content="635"><meta itemprop=keywords content="Bash,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Can Not Get Env Variable Value in Python in Bash Shell?"><meta name=twitter:description content="I found a strange issue when I want to get the value of variable from Python
+script."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Can Not Get Env Variable Value in Python in Bash Shell?</h1><div class=post-meta><span class=post-time>2020-07-15</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>635 words</span>
+<span class=more-meta>3 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#bash-builtin-and-external-commands>Bash builtin and external commands</a></li><li><a href=#when-will-variable-value-be-available-in-a-process>When will variable value be available in a process?</a></li><li><a href=#back-to-the-issue>Back to the issue</a></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>I found a strange issue when I want to get the value of variable from Python
+script.</p><p>To reproduce, we can first set the value of <code>foo</code> in the Bash shell:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>$ <span class=nv>FOO</span><span class=o>=</span><span class=m>123</span>
+</code></pre></div><p>Then execute the following python command:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>$ python -c <span class=s2>&#34;import os; print(os.getenv(&#39;FOO&#39;, &#34;</span>None<span class=s2>&#34;))&#34;</span>
+</code></pre></div><p>The output is <code>None</code>. So the python command can not see the variable <code>FOO</code>.</p><p>However, if we run the two command in one line:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>$ <span class=nv>FOO</span><span class=o>=</span><span class=m>123</span> python -c <span class=s2>&#34;import os; print(os.getenv(&#39;FOO&#39;, &#34;</span>None<span class=s2>&#34;))&#34;</span>
+</code></pre></div><p>The output will be <code>123</code>.</p><p>If we use <code>export FOO=123</code> instead of <code>FOO=123</code>, we can also access the value
+of <code>FOO</code> in Python.</p><p>But why? What is the difference here? This is in fact a complex issue.</p><h1 id=bash-builtin-and-external-commands>Bash builtin and external commands</h1><p>First, we need to know that, when bash execute commands, it treats the builtin
 and external commands differently. Builtin commands are those are literally,
 built into the bash executable. External commands are those commands that are
-not part of the bash shell.</p>
-<p>When bash executes builtin commands, it does not create a new process. When it
+not part of the bash shell.</p><p>When bash executes builtin commands, it does not create a new process. When it
 executes external commands, it will create a new shell and then execute the
 external commands. The new shell will inherit the environment variables of its
-parent shell (see <a href="https://askubuntu.com/q/428458/768311">here</a> on why bash
-needs to create a new process to execute an external commands).</p>
-<p>How do we check if a command is bash builtin or external command?</p>
-<p>First, we can check the output of <code>help</code>, it will list all bash builtin
+parent shell (see <a href=https://askubuntu.com/q/428458/768311>here</a> on why bash
+needs to create a new process to execute an external commands).</p><p>How do we check if a command is bash builtin or external command?</p><p>First, we can check the output of <code>help</code>, it will list all bash builtin
 commands. We can also use the <code>type</code> command to check if a command is a builtin
-command:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">type</span> -t some_command
+command:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=nb>type</span> -t some_command
 </code></pre></div><p>For builtin commands, it will output <code>builtin</code>. For external commands, it will
-output other output such as <code>file</code> (see <code>help type</code>  for more info).</p>
-<p>Ref:</p>
-<ul>
-<li><a href="https://www.theunixschool.com/2012/03/internal-vs-external-commands.html">https://www.theunixschool.com/2012/03/internal-vs-external-commands.html</a></li>
-<li><a href="https://stackoverflow.com/q/7399713/6064933">Check if a command is builtin</a>.</li>
-<li><a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_01_03.html">How does shell execute commands</a>.</li>
-<li><a href="https://linuxconfig.org/internal-vs-external-linux-shell-commands">https://linuxconfig.org/internal-vs-external-linux-shell-commands</a></li>
-</ul>
-<h1 id="when-will-variable-value-be-available-in-a-process">When will variable value be available in a process?</h1>
-<p>If we define variable without using <code>export</code>, it is not part of the environment
-variable. When bash create a new process, this variable will not be available.</p>
-<p>One exception is that if you set the variable and run the command in the same
-line, it will be available only to that command. From the <a href="https://www.gnu.org/software/bash/manual/html_node/Environment.html#Environment">Bash
-manual</a>:</p>
-<blockquote>
-<p>The environment for any simple command or function may be augmented
+output other output such as <code>file</code> (see <code>help type</code> for more info).</p><p>Ref:</p><ul><li><a href=https://www.theunixschool.com/2012/03/internal-vs-external-commands.html>https://www.theunixschool.com/2012/03/internal-vs-external-commands.html</a></li><li><a href=https://stackoverflow.com/q/7399713/6064933>Check if a command is builtin</a>.</li><li><a href=http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_01_03.html>How does shell execute commands</a>.</li><li><a href=https://linuxconfig.org/internal-vs-external-linux-shell-commands>https://linuxconfig.org/internal-vs-external-linux-shell-commands</a></li></ul><h1 id=when-will-variable-value-be-available-in-a-process>When will variable value be available in a process?</h1><p>If we define variable without using <code>export</code>, it is not part of the environment
+variable. When bash create a new process, this variable will not be available.</p><p>One exception is that if you set the variable and run the command in the same
+line, it will be available only to that command. From the <a href=https://www.gnu.org/software/bash/manual/html_node/Environment.html#Environment>Bash
+manual</a>:</p><blockquote><p>The environment for any simple command or function may be augmented
 temporarily by prefixing it with parameter assignments, as described in
-<a href="https://www.gnu.org/software/bash/manual/html_node/Shell-Parameters.html#Shell-Parameters">Shell Parameters</a>.
-These assignment statements affect only the environment seen by that command.</p>
-</blockquote>
-<p>If a variable is not exported, it is only a shell variable. When it is
+<a href=https://www.gnu.org/software/bash/manual/html_node/Shell-Parameters.html#Shell-Parameters>Shell Parameters</a>.
+These assignment statements affect only the environment seen by that command.</p></blockquote><p>If a variable is not exported, it is only a shell variable. When it is
 exported, it is an environment variable that will be available in all
-subprocesses.</p>
-<p>Ref:</p>
-<ul>
-<li><a href="https://stackoverflow.com/q/12561654/6064933">Defining a variable with or without export</a>.</li>
-<li><a href="https://stackoverflow.com/q/12561654/6064933">BASH: difference between “export k=1” vs. “k=1”</a>.</li>
-<li><a href="https://unix.stackexchange.com/q/3507/221410">https://unix.stackexchange.com/q/3507/221410</a></li>
-<li><a href="https://superuser.com/q/18988/736190">https://superuser.com/q/18988/736190</a></li>
-</ul>
-<h1 id="back-to-the-issue">Back to the issue</h1>
-<p>Now with sufficient knowledge on how bash works, we are able to know why
-certain ways work or fail.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nv">FOO</span><span class="o">=</span><span class="m">123</span>
-$ python -c <span class="s2">&#34;import os; print(os.getenv(&#39;FOO&#39;, &#34;</span>None<span class="s2">&#34;))&#34;</span>
+subprocesses.</p><p>Ref:</p><ul><li><a href=https://stackoverflow.com/q/12561654/6064933>Defining a variable with or without export</a>.</li><li><a href=https://stackoverflow.com/q/12561654/6064933>BASH: difference between “export k=1” vs. “k=1”</a>.</li><li><a href=https://unix.stackexchange.com/q/3507/221410>https://unix.stackexchange.com/q/3507/221410</a></li><li><a href=https://superuser.com/q/18988/736190>https://superuser.com/q/18988/736190</a></li></ul><h1 id=back-to-the-issue>Back to the issue</h1><p>Now with sufficient knowledge on how bash works, we are able to know why
+certain ways work or fail.</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>$ <span class=nv>FOO</span><span class=o>=</span><span class=m>123</span>
+$ python -c <span class=s2>&#34;import os; print(os.getenv(&#39;FOO&#39;, &#34;</span>None<span class=s2>&#34;))&#34;</span>
 </code></pre></div><p>The above way to get the value of <code>FOO</code> failed, because <code>python</code> is an external
 command to Bash. Bash will execute <code>python</code> in a new process. However, <code>FOO</code>
 defined via <code>FOO=123</code> is <strong>only</strong> available the shell that invoking <code>python</code>
 command, not the sub-process (also a Bash shell) that actually run <code>python</code>
-command.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nv">FOO</span><span class="o">=</span><span class="m">123</span> python -c <span class="s2">&#34;import os; print(os.getenv(&#39;FOO&#39;, &#34;</span>None<span class="s2">&#34;))&#34;</span>
+command.</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>$ <span class=nv>FOO</span><span class=o>=</span><span class=m>123</span> python -c <span class=s2>&#34;import os; print(os.getenv(&#39;FOO&#39;, &#34;</span>None<span class=s2>&#34;))&#34;</span>
 </code></pre></div><p>The above way works because the variable definition is in the same line with
 <code>python</code> command. It will be available temporily for this command. If you
-execute <code>python -c &quot;import os; print(os.getenv('FOO', &quot;None&quot;))</code> in a second
-line, it will not work.</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">export</span> <span class="nv">FOO</span><span class="o">=</span><span class="m">123</span>
-$ python -c <span class="s2">&#34;import os; print(os.getenv(&#39;FOO&#39;, &#34;</span>None<span class="s2">&#34;))&#34;</span>
+execute <code>python -c "import os; print(os.getenv('FOO', "None"))</code> in a second
+line, it will not work.</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>$ <span class=nb>export</span> <span class=nv>FOO</span><span class=o>=</span><span class=m>123</span>
+$ python -c <span class=s2>&#34;import os; print(os.getenv(&#39;FOO&#39;, &#34;</span>None<span class=s2>&#34;))&#34;</span>
 </code></pre></div><p>This way works because we set an environment variable <code>FOO</code> via <code>export</code>. So
-<code>FOO</code> will be available to all subprocesses created by this shell.</p>
-<h1 id="references">References</h1>
-<ul>
-<li><a href="https://stackoverflow.com/q/19070615/6064933">python - os.getenv and os.environ don&rsquo;t see environment variables of my bash shell</a>.</li>
-<li><a href="https://stackoverflow.com/q/31993885/6064933">Why can&rsquo;t Python see environment variables</a>.</li>
-</ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">jdhao</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2020-07-15
-        
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">License</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
-        <span>wechat</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
-        <span>alipay</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/Bash/">Bash</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/2020/07/23/linux_command_cheat_sheet_s2/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Linux Command Cheatsheet -- s2</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2020/07/09/requests_notes/">
-            <span class="next-text nav-default">Note on Using requests package</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'jdhao';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
-  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy; 
-    2017 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jdhao</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-113395108-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-
-</body>
-</html>
+<code>FOO</code> will be available to all subprocesses created by this shell.</p><h1 id=references>References</h1><ul><li><a href=https://stackoverflow.com/q/19070615/6064933>python - os.getenv and os.environ don&rsquo;t see environment variables of my bash shell</a>.</li><li><a href=https://stackoverflow.com/q/31993885/6064933>Why can&rsquo;t Python see environment variables</a>.</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-07-15</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Bash/>Bash</a></div><nav class=post-nav><a class=prev href=/2020/07/23/linux_command_cheat_sheet_s2/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Linux Command Cheatsheet -- s2</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2020/07/09/requests_notes/><span class="next-text nav-default">Note on Using requests package</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='jdhao';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+2017 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>

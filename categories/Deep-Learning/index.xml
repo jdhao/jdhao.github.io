@@ -1,105 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Deep-Learning on jdhao&#39;s blog</title>
-    <link>https://jdhao.github.io/categories/Deep-Learning/</link>
-    <description>Recent content in Deep-Learning on jdhao&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>jdhao</copyright>
-    <lastBuildDate>Fri, 14 Aug 2020 23:04:54 +0800</lastBuildDate>
-    
-	<atom:link href="https://jdhao.github.io/categories/Deep-Learning/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Warmup in Maskrcnn-benchmark and how does it work?</title>
-      <link>https://jdhao.github.io/2020/08/14/warmup_maskrcnn_how_does_it_work/</link>
-      <pubDate>Fri, 14 Aug 2020 23:04:54 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/08/14/warmup_maskrcnn_how_does_it_work/</guid>
-      <description>&lt;p&gt;In &lt;a href=&#34;https://github.com/facebookresearch/maskrcnn-benchmark&#34;&gt;maskrcnn-benchmark&lt;/a&gt;,
-there is some config parameters about warmup in solver (&lt;code&gt;WARMUP_FACTOR&lt;/code&gt;,
-&lt;code&gt;WARMUP_ITERS&lt;/code&gt;, &lt;code&gt;WARMUP_METHOD&lt;/code&gt; ). What is warmup, and how does it work?&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Set the Number of Threads to Use in PyTorch</title>
-      <link>https://jdhao.github.io/2020/07/06/pytorch_set_num_threads/</link>
-      <pubDate>Mon, 06 Jul 2020 23:15:25 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/07/06/pytorch_set_num_threads/</guid>
-      <description>&lt;p&gt;In this post, I will share how PyTorch set the number of the threads to use for
-its operations.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Labelme JSON 标注格式转 voc XML 格式</title>
-      <link>https://jdhao.github.io/2019/12/21/labelme_json_to_voc_xml/</link>
-      <pubDate>Sat, 21 Dec 2019 23:37:49 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/12/21/labelme_json_to_voc_xml/</guid>
-      <description>&lt;p&gt;labelme 是一款常用的计算机视觉任务标注工具，可以用来标注分类，检测，分割等任务的数据。对于检测任务，labelme 生层的标注文件是 json 格式，每个图像对应一个相应的 json 文件。但是很多任务都使用 PASCAL VOC 的 xml 格式标注，例如&lt;a href=&#34;https://github.com/facebookresearch/maskrcnn-benchmark&#34;&gt;maskrcnn-benchmark&lt;/a&gt; 任务中的 &lt;a href=&#34;https://github.com/facebookresearch/maskrcnn-benchmark/blob/master/maskrcnn_benchmark/data/datasets/voc.py&#34;&gt;voc 数据集&lt;/a&gt;。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Distributed Training in PyTorch with Horovod</title>
-      <link>https://jdhao.github.io/2019/11/01/pytorch_distributed_training/</link>
-      <pubDate>Fri, 01 Nov 2019 22:26:53 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/11/01/pytorch_distributed_training/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/horovod/horovod&#34;&gt;Horovod&lt;/a&gt; is the distributed training
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Deep-Learning on jdhao's blog</title><link>https://jdhao.github.io/categories/Deep-Learning/</link><description>Recent content in Deep-Learning on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Fri, 14 Aug 2020 23:04:54 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/categories/Deep-Learning/index.xml" rel="self" type="application/rss+xml"/><item><title>Warmup in Maskrcnn-benchmark and how does it work?</title><link>https://jdhao.github.io/2020/08/14/warmup_maskrcnn_how_does_it_work/</link><pubDate>Fri, 14 Aug 2020 23:04:54 +0800</pubDate><guid>https://jdhao.github.io/2020/08/14/warmup_maskrcnn_how_does_it_work/</guid><description>&lt;p>In &lt;a href="https://github.com/facebookresearch/maskrcnn-benchmark">maskrcnn-benchmark&lt;/a>,
+there is some config parameters about warmup in solver (&lt;code>WARMUP_FACTOR&lt;/code>,
+&lt;code>WARMUP_ITERS&lt;/code>, &lt;code>WARMUP_METHOD&lt;/code> ). What is warmup, and how does it work?&lt;/p></description></item><item><title>Set the Number of Threads to Use in PyTorch</title><link>https://jdhao.github.io/2020/07/06/pytorch_set_num_threads/</link><pubDate>Mon, 06 Jul 2020 23:15:25 +0800</pubDate><guid>https://jdhao.github.io/2020/07/06/pytorch_set_num_threads/</guid><description>&lt;p>In this post, I will share how PyTorch set the number of the threads to use for
+its operations.&lt;/p></description></item><item><title>Labelme JSON 标注格式转 voc XML 格式</title><link>https://jdhao.github.io/2019/12/21/labelme_json_to_voc_xml/</link><pubDate>Sat, 21 Dec 2019 23:37:49 +0800</pubDate><guid>https://jdhao.github.io/2019/12/21/labelme_json_to_voc_xml/</guid><description>&lt;p>labelme 是一款常用的计算机视觉任务标注工具，可以用来标注分类，检测，分割等任务的数据。对于检测任务，labelme 生层的标注文件是 json 格式，每个图像对应一个相应的 json 文件。但是很多任务都使用 PASCAL VOC 的 xml 格式标注，例如&lt;a href="https://github.com/facebookresearch/maskrcnn-benchmark">maskrcnn-benchmark&lt;/a> 任务中的 &lt;a href="https://github.com/facebookresearch/maskrcnn-benchmark/blob/master/maskrcnn_benchmark/data/datasets/voc.py">voc 数据集&lt;/a>。&lt;/p></description></item><item><title>Distributed Training in PyTorch with Horovod</title><link>https://jdhao.github.io/2019/11/01/pytorch_distributed_training/</link><pubDate>Fri, 01 Nov 2019 22:26:53 +0800</pubDate><guid>https://jdhao.github.io/2019/11/01/pytorch_distributed_training/</guid><description>&lt;p>&lt;a href="https://github.com/horovod/horovod">Horovod&lt;/a> is the distributed training
 framework developed by Uber. It support training distributed programs with
-little modification for both TensorFlow, PyTorch, MXNet and keras.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Difference between view, reshape, transpose and permute in PyTorch</title>
-      <link>https://jdhao.github.io/2019/07/10/pytorch_view_reshape_transpose_permute/</link>
-      <pubDate>Wed, 10 Jul 2019 23:21:48 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/07/10/pytorch_view_reshape_transpose_permute/</guid>
-      <description>&lt;p&gt;PyTorch provides a lot of methods for the Tensor type. Some of these methods
+little modification for both TensorFlow, PyTorch, MXNet and keras.&lt;/p></description></item><item><title>Difference between view, reshape, transpose and permute in PyTorch</title><link>https://jdhao.github.io/2019/07/10/pytorch_view_reshape_transpose_permute/</link><pubDate>Wed, 10 Jul 2019 23:21:48 +0800</pubDate><guid>https://jdhao.github.io/2019/07/10/pytorch_view_reshape_transpose_permute/</guid><description>&lt;p>PyTorch provides a lot of methods for the Tensor type. Some of these methods
 may be confusing for new users. Here, I would like to talk about
-&lt;a href=&#34;https://pytorch.org/docs/stable/tensors.html#torch.Tensor.view&#34;&gt;&lt;code&gt;view()&lt;/code&gt;&lt;/a&gt;  vs
-&lt;a href=&#34;https://pytorch.org/docs/stable/torch.html#torch.reshape&#34;&gt;&lt;code&gt;reshape()&lt;/code&gt;&lt;/a&gt;,
-&lt;a href=&#34;https://pytorch.org/docs/stable/torch.html#torch.transpose&#34;&gt;&lt;code&gt;transpose()&lt;/code&gt;&lt;/a&gt; vs
-&lt;a href=&#34;https://pytorch.org/docs/stable/tensors.html#torch.Tensor.permute&#34;&gt;&lt;code&gt;permute()&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Set Default GPU in PyTorch</title>
-      <link>https://jdhao.github.io/2018/04/02/pytorch-gpu-usage/</link>
-      <pubDate>Mon, 02 Apr 2018 11:13:22 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/04/02/pytorch-gpu-usage/</guid>
-      <description>&lt;p&gt;You can use two ways to set the GPU you want to use by default.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Understanding Computational Graphs in PyTorch</title>
-      <link>https://jdhao.github.io/2017/11/12/pytorch-computation-graph/</link>
-      <pubDate>Sun, 12 Nov 2017 13:22:46 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2017/11/12/pytorch-computation-graph/</guid>
-      <description>&lt;p&gt;PyTorch is a relatively new deep learning library which support dynamic
+&lt;a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor.view">&lt;code>view()&lt;/code>&lt;/a> vs
+&lt;a href="https://pytorch.org/docs/stable/torch.html#torch.reshape">&lt;code>reshape()&lt;/code>&lt;/a>,
+&lt;a href="https://pytorch.org/docs/stable/torch.html#torch.transpose">&lt;code>transpose()&lt;/code>&lt;/a> vs
+&lt;a href="https://pytorch.org/docs/stable/tensors.html#torch.Tensor.permute">&lt;code>permute()&lt;/code>&lt;/a>.&lt;/p></description></item><item><title>Set Default GPU in PyTorch</title><link>https://jdhao.github.io/2018/04/02/pytorch-gpu-usage/</link><pubDate>Mon, 02 Apr 2018 11:13:22 +0800</pubDate><guid>https://jdhao.github.io/2018/04/02/pytorch-gpu-usage/</guid><description>&lt;p>You can use two ways to set the GPU you want to use by default.&lt;/p></description></item><item><title>Understanding Computational Graphs in PyTorch</title><link>https://jdhao.github.io/2017/11/12/pytorch-computation-graph/</link><pubDate>Sun, 12 Nov 2017 13:22:46 +0800</pubDate><guid>https://jdhao.github.io/2017/11/12/pytorch-computation-graph/</guid><description>&lt;p>PyTorch is a relatively new deep learning library which support dynamic
 computation graphs. It has gained a lot of attention after its official release
 in January. In this post, I want to share what I have learned about the
 computation graph in PyTorch. Without basic knowledge of computation graph, we
 can hardly understand what is actually happening under the hood when we are
-trying to train our &lt;em&gt;landscape-changing&lt;/em&gt; neural networks.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Writing Your Own Custom Dataset for Classification in PyTorch</title>
-      <link>https://jdhao.github.io/2017/10/23/pytorch-load-data-and-make-batch/</link>
-      <pubDate>Mon, 23 Oct 2017 17:14:26 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2017/10/23/pytorch-load-data-and-make-batch/</guid>
-      <description>&lt;p&gt;In this post, I&amp;rsquo;d like to talk about how to create your own dataset, process it
+trying to train our &lt;em>landscape-changing&lt;/em> neural networks.&lt;/p></description></item><item><title>Writing Your Own Custom Dataset for Classification in PyTorch</title><link>https://jdhao.github.io/2017/10/23/pytorch-load-data-and-make-batch/</link><pubDate>Mon, 23 Oct 2017 17:14:26 +0800</pubDate><guid>https://jdhao.github.io/2017/10/23/pytorch-load-data-and-make-batch/</guid><description>&lt;p>In this post, I&amp;rsquo;d like to talk about how to create your own dataset, process it
 and make data batches ready to be fed into your neural networks, with the help
-of PyTorch.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+of PyTorch.&lt;/p></description></item></channel></rss>

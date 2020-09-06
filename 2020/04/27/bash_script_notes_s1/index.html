@@ -1,432 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Bash Script Note 1 - jdhao&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jdhao" /><meta name="description" content="Writing robust script We should use the following options in our bash script for better quality:
-" /><meta name="keywords" content="Hugo, theme, even" />
-
-
-
-<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
-
-
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
-
-
-<link rel="canonical" href="https://jdhao.github.io/2020/04/27/bash_script_notes_s1/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6058871559165202",
-    enable_page_level_ads: true
-  });
-</script>
-
-
-
-
-<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="Bash Script Note 1" />
-<meta property="og:description" content="Writing robust script
-We should use the following options in our bash script for better quality:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2020/04/27/bash_script_notes_s1/" />
-<meta property="article:published_time" content="2020-04-27T22:00:48+08:00" />
-<meta property="article:modified_time" content="2020-04-29T00:33:42+08:00" />
-<meta itemprop="name" content="Bash Script Note 1">
-<meta itemprop="description" content="Writing robust script
-We should use the following options in our bash script for better quality:">
-<meta itemprop="datePublished" content="2020-04-27T22:00:48+08:00" />
-<meta itemprop="dateModified" content="2020-04-29T00:33:42+08:00" />
-<meta itemprop="wordCount" content="438">
-
-
-
-<meta itemprop="keywords" content="Bash," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Bash Script Note 1"/>
-<meta name="twitter:description" content="Writing robust script
-We should use the following options in our bash script for better quality:"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jdhao&#39;s blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jdhao&#39;s blog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Bash Script Note 1</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2020-04-27 </span>
-        <div class="post-category">
-            <a href="/categories/Linux/"> Linux </a>
-            </div>
-          <span class="more-meta"> 438 words </span>
-          <span class="more-meta"> 3 mins read </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#writing-robust-script">Writing robust script</a></li>
-    <li><a href="#common-check-conditions-for-files">common check conditions for files</a></li>
-    <li><a href="#use---or---for-condition-check">Use <code>[ ]</code> or <code>[[ ]]</code> for condition check?</a></li>
-    <li><a href="#compare-string-equality">Compare string equality</a></li>
-    <li><a href="#how-to-set-boolean-variable">How to set boolean variable?</a></li>
-    <li><a href="#how-to-check-if-a-command-exists">How to check if a command exists?</a></li>
-    <li><a href="#references">References</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <h1 id="writing-robust-script">Writing robust script</h1>
-<p>We should use the following options in our bash script for better quality:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">set</span> -eux
-<span class="nb">set</span> -o pipefail
-</code></pre></div><p>Meaning of these option:</p>
-<ul>
-<li><code>-e</code>: Exit immediately if a command fails.</li>
-<li><code>-u</code>: If a variable is not set, this is considered an error<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</li>
-<li><code>-x</code>: Expand variables in a command and print it before executing the command (better for debugging if command fails).</li>
-<li><code>-o pipefail</code>: If any command in a pipe fails, this pipe will fail.</li>
-</ul>
-<p>For more options, see <a href="https://ss64.com/bash/set.html">bash set command doc</a>.</p>
-<h1 id="common-check-conditions-for-files">common check conditions for files</h1>
-<p>Some commonly used options for checking file conditions:</p>
-<table>
-<thead>
-<tr>
-<th>option</th>
-<th>meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>[ -d FILE ]</code></td>
-<td>True if FILE exists and is a directory</td>
-</tr>
-<tr>
-<td><code>[ -f FILE ]</code></td>
-<td>True if FILE exists and is a regular file</td>
-</tr>
-<tr>
-<td><code>[ -r FILE ]</code></td>
-<td>True if FILE exists and is readable</td>
-</tr>
-<tr>
-<td><code>[ -w FILE ]</code></td>
-<td>True if FILE exists and is writable</td>
-</tr>
-<tr>
-<td><code>[ -x FILE ]</code></td>
-<td>True if FILE exists and is executable</td>
-</tr>
-<tr>
-<td><code>[ -z STRING ]</code></td>
-<td>True if length of STRING is zero</td>
-</tr>
-<tr>
-<td><code>[ -n STRING ]</code></td>
-<td>True if length of STRING is not zero</td>
-</tr>
-</tbody>
-</table>
-<p>Note that to check if the opposite is true, use <code>[ ! condition ]</code>.</p>
-<h1 id="use---or---for-condition-check">Use <code>[ ]</code> or <code>[[ ]]</code> for condition check?</h1>
-<p>Both <code>[ ]</code> and <code>[[ ]]</code> can be used to check some conditions, but <code>[ ]</code> is POSIX
-compatible, and <code>[[ ]]</code> is not. Both bash, zsh support <code>[[ ]]</code>.</p>
-<p><code>[[ ]]</code> is also more versatile and powerful than <code>[ ]</code>. For example, it
-supports <code>&amp;&amp;</code>, <code>||</code> and grouping command using <code>()</code> etc.</p>
-<h1 id="compare-string-equality">Compare string equality</h1>
-<p>We can use <code>=</code> and <code>!=</code> to compare the equality of strings. Use of <code>==</code> is
-non-standard (see <a href="https://stackoverflow.com/a/2237103/6064933">here</a>).</p>
-<h1 id="how-to-set-boolean-variable">How to set boolean variable?</h1>
-<p>In bash, there is not really a boolean type. We can just use literal string
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Bash Script Note 1 - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="Writing robust script We should use the following options in our bash script for better quality:"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://jdhao.github.io/2020/04/27/bash_script_notes_s1/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Bash Script Note 1"><meta property="og:description" content="Writing robust script
+We should use the following options in our bash script for better quality:"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/04/27/bash_script_notes_s1/"><meta property="article:published_time" content="2020-04-27T22:00:48+08:00"><meta property="article:modified_time" content="2020-04-29T00:33:42+08:00"><meta itemprop=name content="Bash Script Note 1"><meta itemprop=description content="Writing robust script
+We should use the following options in our bash script for better quality:"><meta itemprop=datePublished content="2020-04-27T22:00:48+08:00"><meta itemprop=dateModified content="2020-04-29T00:33:42+08:00"><meta itemprop=wordCount content="438"><meta itemprop=keywords content="Bash,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Bash Script Note 1"><meta name=twitter:description content="Writing robust script
+We should use the following options in our bash script for better quality:"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Bash Script Note 1</h1><div class=post-meta><span class=post-time>2020-04-27</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>438 words</span>
+<span class=more-meta>3 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#writing-robust-script>Writing robust script</a></li><li><a href=#common-check-conditions-for-files>common check conditions for files</a></li><li><a href=#use---or---for-condition-check>Use <code>[ ]</code> or <code>[[ ]]</code> for condition check?</a></li><li><a href=#compare-string-equality>Compare string equality</a></li><li><a href=#how-to-set-boolean-variable>How to set boolean variable?</a></li><li><a href=#how-to-check-if-a-command-exists>How to check if a command exists?</a></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><h1 id=writing-robust-script>Writing robust script</h1><p>We should use the following options in our bash script for better quality:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=nb>set</span> -eux
+<span class=nb>set</span> -o pipefail
+</code></pre></div><p>Meaning of these option:</p><ul><li><code>-e</code>: Exit immediately if a command fails.</li><li><code>-u</code>: If a variable is not set, this is considered an error<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</li><li><code>-x</code>: Expand variables in a command and print it before executing the command (better for debugging if command fails).</li><li><code>-o pipefail</code>: If any command in a pipe fails, this pipe will fail.</li></ul><p>For more options, see <a href=https://ss64.com/bash/set.html>bash set command doc</a>.</p><h1 id=common-check-conditions-for-files>common check conditions for files</h1><p>Some commonly used options for checking file conditions:</p><table><thead><tr><th>option</th><th>meaning</th></tr></thead><tbody><tr><td><code>[ -d FILE ]</code></td><td>True if FILE exists and is a directory</td></tr><tr><td><code>[ -f FILE ]</code></td><td>True if FILE exists and is a regular file</td></tr><tr><td><code>[ -r FILE ]</code></td><td>True if FILE exists and is readable</td></tr><tr><td><code>[ -w FILE ]</code></td><td>True if FILE exists and is writable</td></tr><tr><td><code>[ -x FILE ]</code></td><td>True if FILE exists and is executable</td></tr><tr><td><code>[ -z STRING ]</code></td><td>True if length of STRING is zero</td></tr><tr><td><code>[ -n STRING ]</code></td><td>True if length of STRING is not zero</td></tr></tbody></table><p>Note that to check if the opposite is true, use <code>[ ! condition ]</code>.</p><h1 id=use---or---for-condition-check>Use <code>[ ]</code> or <code>[[ ]]</code> for condition check?</h1><p>Both <code>[ ]</code> and <code>[[ ]]</code> can be used to check some conditions, but <code>[ ]</code> is POSIX
+compatible, and <code>[[ ]]</code> is not. Both bash, zsh support <code>[[ ]]</code>.</p><p><code>[[ ]]</code> is also more versatile and powerful than <code>[ ]</code>. For example, it
+supports <code>&&</code>, <code>||</code> and grouping command using <code>()</code> etc.</p><h1 id=compare-string-equality>Compare string equality</h1><p>We can use <code>=</code> and <code>!=</code> to compare the equality of strings. Use of <code>==</code> is
+non-standard (see <a href=https://stackoverflow.com/a/2237103/6064933>here</a>).</p><h1 id=how-to-set-boolean-variable>How to set boolean variable?</h1><p>In bash, there is not really a boolean type. We can just use literal string
 <code>true</code> to set a bool variable and check if variable is equal to string <code>true</code>.
-For example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">use_python</span><span class="o">=</span><span class="nb">true</span>
-<span class="k">if</span> <span class="o">[[</span> <span class="nv">$use_python</span> <span class="o">=</span> <span class="nb">true</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="c1"># do something</span>
-<span class="k">else</span>:
-    <span class="c1"># do another thing</span>
-<span class="k">fi</span>
-</code></pre></div><h1 id="how-to-check-if-a-command-exists">How to check if a command exists?</h1>
-<p>We can use <code>command -v YOUCOMMAND</code> to check if <code>YOURCOMMAND</code> exists. For
-example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[[</span> ! <span class="s2">&#34;</span><span class="k">$(</span><span class="nb">command</span> -v rg<span class="k">)</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="c1"># install ripgrep</span>
-<span class="k">else</span>
-    <span class="nb">echo</span> <span class="s2">&#34;ripgrep already exists. No action needed.&#34;</span>
-<span class="k">fi</span>
-</code></pre></div><p>According to <a href="https://stackoverflow.com/a/677212/6064933">here</a>, <code>which</code>
+For example:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=nv>use_python</span><span class=o>=</span><span class=nb>true</span>
+<span class=k>if</span> <span class=o>[[</span> <span class=nv>$use_python</span> <span class=o>=</span> <span class=nb>true</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
+    <span class=c1># do something</span>
+<span class=k>else</span>:
+    <span class=c1># do another thing</span>
+<span class=k>fi</span>
+</code></pre></div><h1 id=how-to-check-if-a-command-exists>How to check if a command exists?</h1><p>We can use <code>command -v YOUCOMMAND</code> to check if <code>YOURCOMMAND</code> exists. For
+example:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=k>if</span> <span class=o>[[</span> ! <span class=s2>&#34;</span><span class=k>$(</span><span class=nb>command</span> -v rg<span class=k>)</span><span class=s2>&#34;</span> <span class=o>]]</span><span class=p>;</span> <span class=k>then</span>
+    <span class=c1># install ripgrep</span>
+<span class=k>else</span>
+    <span class=nb>echo</span> <span class=s2>&#34;ripgrep already exists. No action needed.&#34;</span>
+<span class=k>fi</span>
+</code></pre></div><p>According to <a href=https://stackoverflow.com/a/677212/6064933>here</a>, <code>which</code>
 command is not a reliable way to check if a command exists since it may return
-an exit code of 0 even if no command is found.</p>
-<h1 id="references">References</h1>
-<ul>
-<li><a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html">Introduction to bash if</a>.</li>
-<li><a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_02.html">More advanced if usage</a>.</li>
-<li><a href="http://mywiki.wooledge.org/BashFAQ/031">Difference between <code>[</code> and <code>[[</code></a>.</li>
-<li><a href="https://stackoverflow.com/a/677212/6064933">Check if a command exists in bash script</a>.</li>
-<li><a href="https://stackoverflow.com/q/2953646/6064933">How to declare boolean variable</a>.</li>
-</ul>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p>you will see <code>unbound variable</code> error message. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">jdhao</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2020-04-29
-        
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">License</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
-        <span>wechat</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
-        <span>alipay</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/Bash/">Bash</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/2020/05/02/docker_knowledge_s1/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Docker 学习系列 --- 1</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2020/04/26/windows_context_menu_hang_solution/">
-            <span class="next-text nav-default">解决 Windows 下文件管理器中右键单击无响应问题</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'jdhao';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
-  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy; 
-    2017 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jdhao</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-113395108-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-
-</body>
-</html>
+an exit code of 0 even if no command is found.</p><h1 id=references>References</h1><ul><li><a href=http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html>Introduction to bash if</a>.</li><li><a href=http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_02.html>More advanced if usage</a>.</li><li><a href=http://mywiki.wooledge.org/BashFAQ/031>Difference between <code>[</code> and <code>[[</code></a>.</li><li><a href=https://stackoverflow.com/a/677212/6064933>Check if a command exists in bash script</a>.</li><li><a href=https://stackoverflow.com/q/2953646/6064933>How to declare boolean variable</a>.</li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>you will see <code>unbound variable</code> error message. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-04-29</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Bash/>Bash</a></div><nav class=post-nav><a class=prev href=/2020/05/02/docker_knowledge_s1/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Docker 学习系列 --- 1</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2020/04/26/windows_context_menu_hang_solution/><span class="next-text nav-default">解决 Windows 下文件管理器中右键单击无响应问题</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='jdhao';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+2017 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>

@@ -1,401 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Hexo 书写 LaTeX 公式时的一些问题及解决方法 - jdhao&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jdhao" /><meta name="description" content="在写作博文的时候，有时候需要输入一些数学公式，如果公式过长，我们通常希望把方程分成多行显示，在 LaTeX 中，我们可以使用 aligned 环境来书写多行公式，但是写出来的 Markdown 经过 Hexo 的处理以后显示不正确，原因何在？原来这与 Hexo 的渲染引擎有关系。
-" /><meta name="keywords" content="Hugo, theme, even" />
-
-
-
-<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
-
-
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
-
-
-<link rel="canonical" href="https://jdhao.github.io/2017/10/06/hexo-markdown-latex-equation/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6058871559165202",
-    enable_page_level_ads: true
-  });
-</script>
-
-
-
-
-<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="Hexo 书写 LaTeX 公式时的一些问题及解决方法" />
-<meta property="og:description" content="在写作博文的时候，有时候需要输入一些数学公式，如果公式过长，我们通常希望把方程分成多行显示，在 LaTeX 中，我们可以使用 aligned 环境来书写多行公式，但是写出来的 Markdown 经过 Hexo 的处理以后显示不正确，原因何在？原来这与 Hexo 的渲染引擎有关系。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2017/10/06/hexo-markdown-latex-equation/" />
-<meta property="article:published_time" content="2017-10-06T23:59:00+08:00" />
-<meta property="article:modified_time" content="2020-03-16T10:37:04+08:00" />
-<meta itemprop="name" content="Hexo 书写 LaTeX 公式时的一些问题及解决方法">
-<meta itemprop="description" content="在写作博文的时候，有时候需要输入一些数学公式，如果公式过长，我们通常希望把方程分成多行显示，在 LaTeX 中，我们可以使用 aligned 环境来书写多行公式，但是写出来的 Markdown 经过 Hexo 的处理以后显示不正确，原因何在？原来这与 Hexo 的渲染引擎有关系。">
-<meta itemprop="datePublished" content="2017-10-06T23:59:00+08:00" />
-<meta itemprop="dateModified" content="2020-03-16T10:37:04+08:00" />
-<meta itemprop="wordCount" content="1187">
-
-
-
-<meta itemprop="keywords" content="Hexo,LaTeX,NexT,Markdown,MathJax,Pandoc," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Hexo 书写 LaTeX 公式时的一些问题及解决方法"/>
-<meta name="twitter:description" content="在写作博文的时候，有时候需要输入一些数学公式，如果公式过长，我们通常希望把方程分成多行显示，在 LaTeX 中，我们可以使用 aligned 环境来书写多行公式，但是写出来的 Markdown 经过 Hexo 的处理以后显示不正确，原因何在？原来这与 Hexo 的渲染引擎有关系。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jdhao&#39;s blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jdhao&#39;s blog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Hexo 书写 LaTeX 公式时的一些问题及解决方法</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2017-10-06 </span>
-        <div class="post-category">
-            <a href="/categories/Blog/"> Blog </a>
-            </div>
-          <span class="more-meta"> 1187 words </span>
-          <span class="more-meta"> 3 mins read </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#开启公式支持">开启公式支持</a></li>
-    <li><a href="#从一个例子说起">从一个例子说起</a></li>
-    <li><a href="#解决方法">解决方法</a>
-      <ul>
-        <li><a href="#注意事项">注意事项</a></li>
-      </ul>
-    </li>
-    <li><a href="#参考">参考</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>在写作博文的时候，有时候需要输入一些数学公式，如果公式过长，我们通常希望把方程分成多行显示，在 LaTeX 中，我们可以使用 <code>aligned</code> 环境来书写多行公式，但是写出来的 Markdown 经过 Hexo 的处理以后显示不正确，原因何在？原来这与 Hexo 的渲染引擎有关系。</p>
-<h1 id="开启公式支持">开启公式支持</h1>
-<p>Hexo 的自带的 Markdown 引擎并不支持 LaTeX 公式。 但是 MathJax 支持，因此首先要启用 MathJax 才能渲染 LaTeX 公式。如果你已经安装了 <a href="http://theme-next.iissnan.com/">NexT theme</a>，开启 MathJax 支持非常容易，在最新版的NexT 主题的 <code>_config.yml</code> 文件里，找到 MathJax 相关部分，使用以下配置，</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="k">math</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="k">enable</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="w">  </span><span class="c"># Default(true) will load mathjax/katex script on demand</span><span class="w">
-</span><span class="w">  </span><span class="c"># That is it only render those page who has &#39;mathjax: true&#39; in Front Matter.</span><span class="w">
-</span><span class="w">  </span><span class="c"># If you set it to false, it will load mathjax/katex srcipt EVERY PAGE.</span><span class="w">
-</span><span class="w">  </span><span class="k">per_page</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="w">  </span><span class="k">engine</span><span class="p">:</span><span class="w"> </span>mathjax<span class="w">
-</span></code></pre></div><p>但是，由于 LaTeX 中的一些符号在 Markdown 也中有特殊含义，例如 两个 <code>_</code> 在 Markdown中用来表示斜体（italic），因此两者的配合使用会产生一些问题。</p>
-<h1 id="从一个例子说起">从一个例子说起</h1>
-<p>假如我们想要显示下面的方程，</p>
-<p align="center">
-<img src="https://blog-resource-1257868508.file.myqcloud.com/multiline_equation_correct.png">
-</p>
-<p>如果使用如下的 LaTeX 代码</p>
-<div class="highlight"><pre class="chroma"><code class="language-latex" data-lang="latex"><span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
-x <span class="nb">&amp;</span>= a +b+c+d<span class="k">\\</span>
- <span class="nb">&amp;</span>= e +f<span class="k">\\</span>
- <span class="nb">&amp;</span>= g
-<span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
-</code></pre></div><p>使用 Hexo 渲染以后，得到的结果如下图所示，</p>
-<p align="center">
-<img src="https://blog-resource-1257868508.file.myqcloud.com/multiline_equation_wrong.png">
-</p>
-<p>可以看到，换行并未起作用，这是因为 Hexo 对 Markdown 文件的处理实际上分为两个步骤：</p>
-<ol>
-<li>Hexo 中的 Markdown 引擎把 Markdown 变为 html 文件</li>
-<li>MathJax 负责解释 html 的数学公式</li>
-</ol>
-<p>第一步中，由于 backslash 在 Markdown 属于特殊字符，用于字符转义，所以两个 backslash 经过 Markdown 引擎处理，只剩下一个，等到 MathJax 引擎处理时，实际上 MathJax 只看到一个 backslash，MathJax 把它当作 LaTeX 中的空格，因此我们见到了上图所示的渲染结果。</p>
-<p>知道了渲染错误的原因，解决办法也很简单，就是用四个 backslash 代替两个 backslash，确保 MathJax 的引擎看到的是两个 backslash，也就是把上述代码变成</p>
-<div class="highlight"><pre class="chroma"><code class="language-latex" data-lang="latex"><span class="k">\begin</span><span class="nb">{</span>align<span class="nb">}</span>
-x <span class="nb">&amp;</span>= a +b+c+d<span class="k">\\\\</span>
- <span class="nb">&amp;</span>= e +f<span class="k">\\\\</span>
- <span class="nb">&amp;</span>= g
-<span class="k">\end</span><span class="nb">{</span>align<span class="nb">}</span>
-</code></pre></div><p>这时产生的公式如下图所示，</p>
-<p align="center">
-<img src="https://blog-resource-1257868508.file.myqcloud.com/multiline_equation_not_perfect.png">
-</p>
-<p>如果想要去掉公式的编号，在 LaTeX 中，我们通常会选择<a href="https://tex.stackexchange.com/questions/2597/how-do-i-turn-off-equation-auto-numbering">加星号的 <code>align</code> 环境</a>，但是注意到星号 （star）在 Markdown 也有特殊含义(一对单星号表示斜体，一对双星号表示粗体)，因此必须对星号进行转义，才能确保 MathJax 见到星号，正确的代码是</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">\begin{align\*}
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Hexo 书写 LaTeX 公式时的一些问题及解决方法 - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="在写作博文的时候，有时候需要输入一些数学公式，如果公式过长，我们通常希望把方程分成多行显示，在 LaTeX 中，我们可以使用 aligned 环境来书写多行公式，但是写出来的 Markdown 经过 Hexo 的处理以后显示不正确，原因何在？原来这与 Hexo 的渲染引擎有关系。"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://jdhao.github.io/2017/10/06/hexo-markdown-latex-equation/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Hexo 书写 LaTeX 公式时的一些问题及解决方法"><meta property="og:description" content="在写作博文的时候，有时候需要输入一些数学公式，如果公式过长，我们通常希望把方程分成多行显示，在 LaTeX 中，我们可以使用 aligned 环境来书写多行公式，但是写出来的 Markdown 经过 Hexo 的处理以后显示不正确，原因何在？原来这与 Hexo 的渲染引擎有关系。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2017/10/06/hexo-markdown-latex-equation/"><meta property="article:published_time" content="2017-10-06T23:59:00+08:00"><meta property="article:modified_time" content="2020-03-16T10:37:04+08:00"><meta itemprop=name content="Hexo 书写 LaTeX 公式时的一些问题及解决方法"><meta itemprop=description content="在写作博文的时候，有时候需要输入一些数学公式，如果公式过长，我们通常希望把方程分成多行显示，在 LaTeX 中，我们可以使用 aligned 环境来书写多行公式，但是写出来的 Markdown 经过 Hexo 的处理以后显示不正确，原因何在？原来这与 Hexo 的渲染引擎有关系。"><meta itemprop=datePublished content="2017-10-06T23:59:00+08:00"><meta itemprop=dateModified content="2020-03-16T10:37:04+08:00"><meta itemprop=wordCount content="1187"><meta itemprop=keywords content="Hexo,LaTeX,NexT,Markdown,MathJax,Pandoc,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Hexo 书写 LaTeX 公式时的一些问题及解决方法"><meta name=twitter:description content="在写作博文的时候，有时候需要输入一些数学公式，如果公式过长，我们通常希望把方程分成多行显示，在 LaTeX 中，我们可以使用 aligned 环境来书写多行公式，但是写出来的 Markdown 经过 Hexo 的处理以后显示不正确，原因何在？原来这与 Hexo 的渲染引擎有关系。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Hexo 书写 LaTeX 公式时的一些问题及解决方法</h1><div class=post-meta><span class=post-time>2017-10-06</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>1187 words</span>
+<span class=more-meta>3 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#开启公式支持>开启公式支持</a></li><li><a href=#从一个例子说起>从一个例子说起</a></li><li><a href=#解决方法>解决方法</a><ul><li><a href=#注意事项>注意事项</a></li></ul></li><li><a href=#参考>参考</a></li></ul></nav></div></div><div class=post-content><p>在写作博文的时候，有时候需要输入一些数学公式，如果公式过长，我们通常希望把方程分成多行显示，在 LaTeX 中，我们可以使用 <code>aligned</code> 环境来书写多行公式，但是写出来的 Markdown 经过 Hexo 的处理以后显示不正确，原因何在？原来这与 Hexo 的渲染引擎有关系。</p><h1 id=开启公式支持>开启公式支持</h1><p>Hexo 的自带的 Markdown 引擎并不支持 LaTeX 公式。 但是 MathJax 支持，因此首先要启用 MathJax 才能渲染 LaTeX 公式。如果你已经安装了 <a href=http://theme-next.iissnan.com/>NexT theme</a>，开启 MathJax 支持非常容易，在最新版的NexT 主题的 <code>_config.yml</code> 文件里，找到 MathJax 相关部分，使用以下配置，</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=k>math</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=k>enable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>  </span><span class=c># Default(true) will load mathjax/katex script on demand</span><span class=w>
+</span><span class=w>  </span><span class=c># That is it only render those page who has &#39;mathjax: true&#39; in Front Matter.</span><span class=w>
+</span><span class=w>  </span><span class=c># If you set it to false, it will load mathjax/katex srcipt EVERY PAGE.</span><span class=w>
+</span><span class=w>  </span><span class=k>per_page</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span><span class=w>  </span><span class=k>engine</span><span class=p>:</span><span class=w> </span>mathjax<span class=w>
+</span></code></pre></div><p>但是，由于 LaTeX 中的一些符号在 Markdown 也中有特殊含义，例如 两个 <code>_</code> 在 Markdown中用来表示斜体（italic），因此两者的配合使用会产生一些问题。</p><h1 id=从一个例子说起>从一个例子说起</h1><p>假如我们想要显示下面的方程，</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/multiline_equation_correct.png></p><p>如果使用如下的 LaTeX 代码</p><div class=highlight><pre class=chroma><code class=language-latex data-lang=latex><span class=k>\begin</span><span class=nb>{</span>align<span class=nb>}</span>
+x <span class=nb>&amp;</span>= a +b+c+d<span class=k>\\</span>
+ <span class=nb>&amp;</span>= e +f<span class=k>\\</span>
+ <span class=nb>&amp;</span>= g
+<span class=k>\end</span><span class=nb>{</span>align<span class=nb>}</span>
+</code></pre></div><p>使用 Hexo 渲染以后，得到的结果如下图所示，</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/multiline_equation_wrong.png></p><p>可以看到，换行并未起作用，这是因为 Hexo 对 Markdown 文件的处理实际上分为两个步骤：</p><ol><li>Hexo 中的 Markdown 引擎把 Markdown 变为 html 文件</li><li>MathJax 负责解释 html 的数学公式</li></ol><p>第一步中，由于 backslash 在 Markdown 属于特殊字符，用于字符转义，所以两个 backslash 经过 Markdown 引擎处理，只剩下一个，等到 MathJax 引擎处理时，实际上 MathJax 只看到一个 backslash，MathJax 把它当作 LaTeX 中的空格，因此我们见到了上图所示的渲染结果。</p><p>知道了渲染错误的原因，解决办法也很简单，就是用四个 backslash 代替两个 backslash，确保 MathJax 的引擎看到的是两个 backslash，也就是把上述代码变成</p><div class=highlight><pre class=chroma><code class=language-latex data-lang=latex><span class=k>\begin</span><span class=nb>{</span>align<span class=nb>}</span>
+x <span class=nb>&amp;</span>= a +b+c+d<span class=k>\\\\</span>
+ <span class=nb>&amp;</span>= e +f<span class=k>\\\\</span>
+ <span class=nb>&amp;</span>= g
+<span class=k>\end</span><span class=nb>{</span>align<span class=nb>}</span>
+</code></pre></div><p>这时产生的公式如下图所示，</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/multiline_equation_not_perfect.png></p><p>如果想要去掉公式的编号，在 LaTeX 中，我们通常会选择<a href=https://tex.stackexchange.com/questions/2597/how-do-i-turn-off-equation-auto-numbering>加星号的 <code>align</code> 环境</a>，但是注意到星号 （star）在 Markdown 也有特殊含义(一对单星号表示斜体，一对双星号表示粗体)，因此必须对星号进行转义，才能确保 MathJax 见到星号，正确的代码是</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>\begin{align\*}
 x &amp;= a +b+c+d\\\\
  &amp;= e +f\\\\
  &amp;= g
 \end{align\*}
-</code></pre></div><p>如果按照上面的方法在 Markdown 文件中写公式，我们将会十分痛苦，并且写出来的 LaTeX 公式不能被标准的 LaTeX 处理引擎识别，因此这个解决办法是非常糟糕的解决办法。有没有更好的办法？答案是：有的！</p>
-<h1 id="解决方法">解决方法</h1>
-<p>我试用了多款号称能够解决这个问题的 hexo renderer，例如 <code>hexo-renderer-markdown-it-plus</code> 以及 <code>hexo-math</code>，效果都差强人意。最后发现使用 <a href="https://github.com/wzpan/hexo-renderer-pandoc">hexo-renderer-pandoc</a> 十分靠谱。使用这个 renderer 之前请确保你已经<a href="https://github.com/jgm/pandoc/releases">安装了Pandoc</a>，然后卸载 Hexo 自带的 renderer，安装 Pandoc renderer:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm uninstall hexo-renderer-marked --save
+</code></pre></div><p>如果按照上面的方法在 Markdown 文件中写公式，我们将会十分痛苦，并且写出来的 LaTeX 公式不能被标准的 LaTeX 处理引擎识别，因此这个解决办法是非常糟糕的解决办法。有没有更好的办法？答案是：有的！</p><h1 id=解决方法>解决方法</h1><p>我试用了多款号称能够解决这个问题的 hexo renderer，例如 <code>hexo-renderer-markdown-it-plus</code> 以及 <code>hexo-math</code>，效果都差强人意。最后发现使用 <a href=https://github.com/wzpan/hexo-renderer-pandoc>hexo-renderer-pandoc</a> 十分靠谱。使用这个 renderer 之前请确保你已经<a href=https://github.com/jgm/pandoc/releases>安装了Pandoc</a>，然后卸载 Hexo 自带的 renderer，安装 Pandoc renderer:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>npm uninstall hexo-renderer-marked --save
 npm install hexo-renderer-pandoc --save
-</code></pre></div><h2 id="注意事项">注意事项</h2>
-<p>如果你使用这款 Pandoc renderer，那么书写 Markdown 时候需要遵循 <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc 对 Markdown 的规定</a>。</p>
-<p>有一些比较明显的需要注意的事项：正常的文字后面如果跟的是<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#lists"><code>list</code></a>, <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#tables"><code>table</code></a>或者<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#blockquotes"><code>quotation</code></a>，文字后面需要空一行，如果不空行，这些环境将不能被 Pandoc renderer 正常渲染。</p>
-<p>另外，文中的 URL 使用 Pandoc 渲染以后是普通的文本格式，不能点击，可以通过用<code>&lt;&gt;</code> 包围 URL 的方式把 URL 变成可点击的 URL。</p>
-<hr>
-<h1 id="参考">参考</h1>
-<ul>
-<li><a href="https://math.meta.stackexchange.com/questions/3514/using-the-align-environment">Discussion about correct way to use align environment in Markdown</a>.</li>
-<li><a href="http://kubicode.me/2016/03/18/Hexo/The-Trick-about-Hexo-Support-MutliLine-Equation-using-MathJax/">Hexo 插入多行数学公式</a>.</li>
-<li><a href="https://stackoverflow.com/questions/35414121/pandoc-automatically-convert-urls-into-hyperlinks">How to make URL clickable</a></li>
-</ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">jdhao</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2020-03-16
-        
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">License</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
-        <span>wechat</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
-        <span>alipay</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/Hexo/">Hexo</a>
-          <a href="/tags/LaTeX/">LaTeX</a>
-          <a href="/tags/NexT/">NexT</a>
-          <a href="/tags/Markdown/">Markdown</a>
-          <a href="/tags/MathJax/">MathJax</a>
-          <a href="/tags/Pandoc/">Pandoc</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/2017/10/07/modulo-operator-in-cpp/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Remainder Operator(%) in C&#43;&#43;</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2017/10/06/heap-sort-explained/">
-            <span class="next-text nav-default">堆排序是如何工作的？</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'jdhao';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
-  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy; 
-    2017 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jdhao</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-113395108-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-
-</body>
-</html>
+</code></pre></div><h2 id=注意事项>注意事项</h2><p>如果你使用这款 Pandoc renderer，那么书写 Markdown 时候需要遵循 <a href=https://pandoc.org/MANUAL.html#pandocs-markdown>Pandoc 对 Markdown 的规定</a>。</p><p>有一些比较明显的需要注意的事项：正常的文字后面如果跟的是<a href=https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#lists><code>list</code></a>, <a href=https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#tables><code>table</code></a>或者<a href=https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#blockquotes><code>quotation</code></a>，文字后面需要空一行，如果不空行，这些环境将不能被 Pandoc renderer 正常渲染。</p><p>另外，文中的 URL 使用 Pandoc 渲染以后是普通的文本格式，不能点击，可以通过用<code>&lt;></code> 包围 URL 的方式把 URL 变成可点击的 URL。</p><hr><h1 id=参考>参考</h1><ul><li><a href=https://math.meta.stackexchange.com/questions/3514/using-the-align-environment>Discussion about correct way to use align environment in Markdown</a>.</li><li><a href=http://kubicode.me/2016/03/18/Hexo/The-Trick-about-Hexo-Support-MutliLine-Equation-using-MathJax/>Hexo 插入多行数学公式</a>.</li><li><a href=https://stackoverflow.com/questions/35414121/pandoc-automatically-convert-urls-into-hyperlinks>How to make URL clickable</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-03-16</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Hexo/>Hexo</a>
+<a href=/tags/LaTeX/>LaTeX</a>
+<a href=/tags/NexT/>NexT</a>
+<a href=/tags/Markdown/>Markdown</a>
+<a href=/tags/MathJax/>MathJax</a>
+<a href=/tags/Pandoc/>Pandoc</a></div><nav class=post-nav><a class=prev href=/2017/10/07/modulo-operator-in-cpp/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Remainder Operator(%) in C++</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2017/10/06/heap-sort-explained/><span class="next-text nav-default">堆排序是如何工作的？</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='jdhao';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+2017 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>

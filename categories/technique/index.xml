@@ -1,240 +1,54 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>technique on jdhao&#39;s blog</title>
-    <link>https://jdhao.github.io/categories/technique/</link>
-    <description>Recent content in technique on jdhao&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>jdhao</copyright>
-    <lastBuildDate>Tue, 04 Aug 2020 23:01:55 +0800</lastBuildDate>
-    
-	<atom:link href="https://jdhao.github.io/categories/technique/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Note on font size</title>
-      <link>https://jdhao.github.io/2020/08/04/fontsize_point_pixel_relationship/</link>
-      <pubDate>Tue, 04 Aug 2020 23:01:55 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/08/04/fontsize_point_pixel_relationship/</guid>
-      <description>Relationship between point and pixel size In digital typography, the size of text is commonly specified in points (pt). What is a point? A point is 1/72 of an inch (25.4mm), i.e., 0.3528 mm (25.4/72). Therefor, point is a physical unit that has absolute value.
-Pixels are the smallest unit on screen to display images and graphics. It is not a physical unit. So there is no fixed relationship between point and pixel.</description>
-    </item>
-    
-    <item>
-      <title>解决 Windows 下文件管理器中右键单击无响应问题</title>
-      <link>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</link>
-      <pubDate>Sun, 26 Apr 2020 22:44:37 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</guid>
-      <description>&lt;h1 id=&#34;引子&#34;&gt;引子&lt;/h1&gt;
-&lt;p&gt;最近使用工作电脑的时候，不知道为什么，在文件资源管理器里面鼠标右键单击打开菜单(也叫&lt;a href=&#34;https://en.wikipedia.org/wiki/Context_menu&#34;&gt;context menu&lt;/a&gt;)的时候，系统很大概率会卡顿，鼠标指针开始转圈，文件管理器白屏，然后会提示&amp;quot;未响应&amp;rdquo;,过一会儿，右键菜单才会出现。以至于我每次点击右键之前，都很烦躁，希望不要出现卡顿的情况。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Resolving Merge Conflict after Git Stash Pop</title>
-      <link>https://jdhao.github.io/2019/12/03/git_stash_merge_conflict_handling/</link>
-      <pubDate>Tue, 03 Dec 2019 00:57:11 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/12/03/git_stash_merge_conflict_handling/</guid>
-      <description>&lt;p&gt;Sometimes, when we are working with our local changes in a Git repo, we may
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>technique on jdhao's blog</title><link>https://jdhao.github.io/categories/technique/</link><description>Recent content in technique on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Tue, 04 Aug 2020 23:01:55 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/categories/technique/index.xml" rel="self" type="application/rss+xml"/><item><title>Note on font size</title><link>https://jdhao.github.io/2020/08/04/fontsize_point_pixel_relationship/</link><pubDate>Tue, 04 Aug 2020 23:01:55 +0800</pubDate><guid>https://jdhao.github.io/2020/08/04/fontsize_point_pixel_relationship/</guid><description>Relationship between point and pixel size In digital typography, the size of text is commonly specified in points (pt). What is a point? A point is 1/72 of an inch (25.4mm), i.e., 0.3528 mm (25.4/72). Therefor, point is a physical unit that has absolute value.
+Pixels are the smallest unit on screen to display images and graphics. It is not a physical unit. So there is no fixed relationship between point and pixel.</description></item><item><title>解决 Windows 下文件管理器中右键单击无响应问题</title><link>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</link><pubDate>Sun, 26 Apr 2020 22:44:37 +0800</pubDate><guid>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</guid><description>&lt;h1 id="引子">引子&lt;/h1>
+&lt;p>最近使用工作电脑的时候，不知道为什么，在文件资源管理器里面鼠标右键单击打开菜单(也叫&lt;a href="https://en.wikipedia.org/wiki/Context_menu">context menu&lt;/a>)的时候，系统很大概率会卡顿，鼠标指针开始转圈，文件管理器白屏，然后会提示&amp;quot;未响应&amp;rdquo;,过一会儿，右键菜单才会出现。以至于我每次点击右键之前，都很烦躁，希望不要出现卡顿的情况。&lt;/p></description></item><item><title>Resolving Merge Conflict after Git Stash Pop</title><link>https://jdhao.github.io/2019/12/03/git_stash_merge_conflict_handling/</link><pubDate>Tue, 03 Dec 2019 00:57:11 +0800</pubDate><guid>https://jdhao.github.io/2019/12/03/git_stash_merge_conflict_handling/</guid><description>&lt;p>Sometimes, when we are working with our local changes in a Git repo, we may
 want to pull the latest updates from the remote repository. To avoid code
-conflict between remote files and local files. We can use &lt;code&gt;git stash&lt;/code&gt; to store
-the unfinished local work temporarily.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Converting PDF Pages to Images with Poppler</title>
-      <link>https://jdhao.github.io/2019/11/14/convert_pdf_to_images_pdftoppm/</link>
-      <pubDate>Thu, 14 Nov 2019 22:44:21 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/11/14/convert_pdf_to_images_pdftoppm/</guid>
-      <description>&lt;p&gt;In this post, I want to share how to convert PDF to images using the pdftoppm
-command line tool.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Learning Expect Programming</title>
-      <link>https://jdhao.github.io/2019/10/29/expect_script_learning/</link>
-      <pubDate>Tue, 29 Oct 2019 01:42:59 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/10/29/expect_script_learning/</guid>
-      <description>&lt;p&gt;In &lt;a href=&#34;https://jdhao.github.io/2018/10/08/server_autologin_with_expect/&#34;&gt;my previous post&lt;/a&gt;,
+conflict between remote files and local files. We can use &lt;code>git stash&lt;/code> to store
+the unfinished local work temporarily.&lt;/p></description></item><item><title>Converting PDF Pages to Images with Poppler</title><link>https://jdhao.github.io/2019/11/14/convert_pdf_to_images_pdftoppm/</link><pubDate>Thu, 14 Nov 2019 22:44:21 +0800</pubDate><guid>https://jdhao.github.io/2019/11/14/convert_pdf_to_images_pdftoppm/</guid><description>&lt;p>In this post, I want to share how to convert PDF to images using the pdftoppm
+command line tool.&lt;/p></description></item><item><title>Learning Expect Programming</title><link>https://jdhao.github.io/2019/10/29/expect_script_learning/</link><pubDate>Tue, 29 Oct 2019 01:42:59 +0800</pubDate><guid>https://jdhao.github.io/2019/10/29/expect_script_learning/</guid><description>&lt;p>In &lt;a href="https://jdhao.github.io/2018/10/08/server_autologin_with_expect/">my previous post&lt;/a>,
 I talked about how to automate the server login process with the help of Expect
-programming language. This post continues my learning process.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Essential Knowledge about SSH</title>
-      <link>https://jdhao.github.io/2019/10/27/ssh_essential_knowledge/</link>
-      <pubDate>Sun, 27 Oct 2019 22:43:12 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/10/27/ssh_essential_knowledge/</guid>
-      <description>&lt;p&gt;Although I use SSH (secure shell) every day, I seem to know little about it
-except the fact that I can use &lt;code&gt;ssh&lt;/code&gt; command to log into my remote servers.
-Recently, I found myself some time to learn how does it work.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>JPEG Image Orientation and Exif</title>
-      <link>https://jdhao.github.io/2019/07/31/image_rotation_exif_info/</link>
-      <pubDate>Wed, 31 Jul 2019 23:19:35 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/07/31/image_rotation_exif_info/</guid>
-      <description>&lt;p&gt;The other day I came across a strange bug during work. My colleagues gave me
+programming language. This post continues my learning process.&lt;/p></description></item><item><title>Essential Knowledge about SSH</title><link>https://jdhao.github.io/2019/10/27/ssh_essential_knowledge/</link><pubDate>Sun, 27 Oct 2019 22:43:12 +0800</pubDate><guid>https://jdhao.github.io/2019/10/27/ssh_essential_knowledge/</guid><description>&lt;p>Although I use SSH (secure shell) every day, I seem to know little about it
+except the fact that I can use &lt;code>ssh&lt;/code> command to log into my remote servers.
+Recently, I found myself some time to learn how does it work.&lt;/p></description></item><item><title>JPEG Image Orientation and Exif</title><link>https://jdhao.github.io/2019/07/31/image_rotation_exif_info/</link><pubDate>Wed, 31 Jul 2019 23:19:35 +0800</pubDate><guid>https://jdhao.github.io/2019/07/31/image_rotation_exif_info/</guid><description>&lt;p>The other day I came across a strange bug during work. My colleagues gave me
 some photographs taken with a smartphone. On their machines (Windows 7), all
 the photos were shown correctly in landscape mode. However, when I checked
 those photos, I found that some of those photos were shown in portrait mode
-(rotated 90 or 270 degrees) or upside-down (rotated 180 degrees).&lt;/p&gt;
-&lt;p&gt;I was curious what happened and learned about
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Exif&#34;&gt;Exif&lt;/a&gt; and all its related stuff.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Binding Keys in Zsh</title>
-      <link>https://jdhao.github.io/2019/06/13/zsh_bind_keys/</link>
-      <pubDate>Thu, 13 Jun 2019 22:55:06 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/06/13/zsh_bind_keys/</guid>
-      <description>&lt;p&gt;In this post, I want to share how to use &lt;code&gt;bindkeys&lt;/code&gt; command to solve a few
-issues when using Zsh.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Sublime Text Regular Expression Cheat Sheet</title>
-      <link>https://jdhao.github.io/2019/02/28/sublime_text_regex_cheat_sheet/</link>
-      <pubDate>Thu, 28 Feb 2019 23:29:44 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/02/28/sublime_text_regex_cheat_sheet/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;
-&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20190304221654.png&#34; width=&#34;800&#34;&gt;
-&lt;/p&gt;
-&lt;p&gt;A cheat sheet about regex in Sublime Text.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How Is Newline Handled in Python and Various Editors?</title>
-      <link>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</link>
-      <pubDate>Sat, 08 Dec 2018 22:30:50 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;
-&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20181208223253.png&#34; width=&#34;800&#34;&gt;
-&lt;/p&gt;
-&lt;p&gt;Every programmer knows newline character, but may be not so familiar. In this
+(rotated 90 or 270 degrees) or upside-down (rotated 180 degrees).&lt;/p>
+&lt;p>I was curious what happened and learned about
+&lt;a href="https://en.wikipedia.org/wiki/Exif">Exif&lt;/a> and all its related stuff.&lt;/p></description></item><item><title>Binding Keys in Zsh</title><link>https://jdhao.github.io/2019/06/13/zsh_bind_keys/</link><pubDate>Thu, 13 Jun 2019 22:55:06 +0800</pubDate><guid>https://jdhao.github.io/2019/06/13/zsh_bind_keys/</guid><description>&lt;p>In this post, I want to share how to use &lt;code>bindkeys&lt;/code> command to solve a few
+issues when using Zsh.&lt;/p></description></item><item><title>Sublime Text Regular Expression Cheat Sheet</title><link>https://jdhao.github.io/2019/02/28/sublime_text_regex_cheat_sheet/</link><pubDate>Thu, 28 Feb 2019 23:29:44 +0800</pubDate><guid>https://jdhao.github.io/2019/02/28/sublime_text_regex_cheat_sheet/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190304221654.png" width="800">
+&lt;/p>
+&lt;p>A cheat sheet about regex in Sublime Text.&lt;/p></description></item><item><title>How Is Newline Handled in Python and Various Editors?</title><link>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</link><pubDate>Sat, 08 Dec 2018 22:30:50 +0800</pubDate><guid>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223253.png" width="800">
+&lt;/p>
+&lt;p>Every programmer knows newline character, but may be not so familiar. In this
 post, I want to share what I have learned about newline handling in various
-cases.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>The Mathematics behind Font Shapes --- Bézier Curves and More</title>
-      <link>https://jdhao.github.io/2018/11/27/font_shape_mathematics_bezier_curves/</link>
-      <pubDate>Tue, 27 Nov 2018 16:14:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/11/27/font_shape_mathematics_bezier_curves/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;
-&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20200223203853.png&#34;&gt;
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>写给初学者的 Markdown 教程</title>
-      <link>https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/</link>
-      <pubDate>Fri, 21 Sep 2018 16:59:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/</guid>
-      <description>&lt;p&gt;这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown
-写出格式规范的文章了。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to Push Local Git Repo to Remote Repo in GitHub</title>
-      <link>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</link>
-      <pubDate>Wed, 16 May 2018 16:22:54 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</guid>
-      <description>There are two basic cases when we push our local repo to remote repo. These two cases differ in their settings. But sometimes, we are easily confused.
+cases.&lt;/p></description></item><item><title>The Mathematics behind Font Shapes --- Bézier Curves and More</title><link>https://jdhao.github.io/2018/11/27/font_shape_mathematics_bezier_curves/</link><pubDate>Tue, 27 Nov 2018 16:14:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/27/font_shape_mathematics_bezier_curves/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20200223203853.png">
+&lt;/p></description></item><item><title>写给初学者的 Markdown 教程</title><link>https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/</link><pubDate>Fri, 21 Sep 2018 16:59:00 +0800</pubDate><guid>https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/</guid><description>&lt;p>这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown
+写出格式规范的文章了。&lt;/p></description></item><item><title>How to Push Local Git Repo to Remote Repo in GitHub</title><link>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</link><pubDate>Wed, 16 May 2018 16:22:54 +0800</pubDate><guid>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</guid><description>There are two basic cases when we push our local repo to remote repo. These two cases differ in their settings. But sometimes, we are easily confused.
 First scenario The first case is that you have created a local repo and want to store it on GitHub later. In this case, your usual work flow for local repo is:
- Initialize the local repo (git init) Write you code and document, etc.</description>
-    </item>
-    
-    <item>
-      <title>A Tutorial on Creating GitHub Pull Requests</title>
-      <link>https://jdhao.github.io/2018/05/06/first-github-pull-request/</link>
-      <pubDate>Sun, 06 May 2018 15:23:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/05/06/first-github-pull-request/</guid>
-      <description>Today I make my first ever GitHub pull request to the great Hexo theme NexT. I will summarize how to make a pull request in following post.
+Initialize the local repo (git init) Write you code and document, etc.</description></item><item><title>A Tutorial on Creating GitHub Pull Requests</title><link>https://jdhao.github.io/2018/05/06/first-github-pull-request/</link><pubDate>Sun, 06 May 2018 15:23:00 +0800</pubDate><guid>https://jdhao.github.io/2018/05/06/first-github-pull-request/</guid><description>Today I make my first ever GitHub pull request to the great Hexo theme NexT. I will summarize how to make a pull request in following post.
 Creating a fork According to GitHub documentation:
- If you don&amp;rsquo;t have write access to the repository where you&amp;rsquo;d like to create a pull request, you must create a fork, or copy, of the repository first.
- If you do not have write access to the repository you want to contribute to, the first step is to fork it.</description>
-    </item>
-    
-    <item>
-      <title>A Complete Guide on Writing and Building C&#43;&#43; Programs in Sublime Text</title>
-      <link>https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/</link>
-      <pubDate>Wed, 28 Mar 2018 21:54:23 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/</guid>
-      <description>&lt;p&gt;In this post, I will show how to write and run simple C++ programs in &lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;Sublime
-Text 3&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Set up Sublime Text as Your Ultimate LaTeX Editor</title>
-      <link>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</link>
-      <pubDate>Sat, 10 Mar 2018 12:57:05 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</guid>
-      <description>&lt;p&gt;There are a lot of &lt;a href=&#34;https://en.wikipedia.org/wiki/Comparison_of_TeX_editors&#34;&gt;front-end
-editors&lt;/a&gt; for writing
-LaTeX source, for example, &lt;a href=&#34;http://www.xm1math.net/texmaker/&#34;&gt;Texmaker&lt;/a&gt;,
-&lt;a href=&#34;https://github.com/texstudio-org/texstudio/releases&#34;&gt;TeXstudio&lt;/a&gt;,
-&lt;a href=&#34;http://www.winedt.com/&#34;&gt;WinEdt&lt;/a&gt;. I have used TeXstudio for a while, but its
-user interface is a little dull. So I decided to give &lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;Sublime
-Text&lt;/a&gt; a shot. In this post, I want to share the
+If you don&amp;rsquo;t have write access to the repository where you&amp;rsquo;d like to create a pull request, you must create a fork, or copy, of the repository first.
+If you do not have write access to the repository you want to contribute to, the first step is to fork it.</description></item><item><title>A Complete Guide on Writing and Building C++ Programs in Sublime Text</title><link>https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/</link><pubDate>Wed, 28 Mar 2018 21:54:23 +0800</pubDate><guid>https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/</guid><description>&lt;p>In this post, I will show how to write and run simple C++ programs in &lt;a href="https://www.sublimetext.com/">Sublime
+Text 3&lt;/a>.&lt;/p></description></item><item><title>Set up Sublime Text as Your Ultimate LaTeX Editor</title><link>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</link><pubDate>Sat, 10 Mar 2018 12:57:05 +0800</pubDate><guid>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</guid><description>&lt;p>There are a lot of &lt;a href="https://en.wikipedia.org/wiki/Comparison_of_TeX_editors">front-end
+editors&lt;/a> for writing
+LaTeX source, for example, &lt;a href="http://www.xm1math.net/texmaker/">Texmaker&lt;/a>,
+&lt;a href="https://github.com/texstudio-org/texstudio/releases">TeXstudio&lt;/a>,
+&lt;a href="http://www.winedt.com/">WinEdt&lt;/a>. I have used TeXstudio for a while, but its
+user interface is a little dull. So I decided to give &lt;a href="https://www.sublimetext.com/">Sublime
+Text&lt;/a> a shot. In this post, I want to share the
 configurations necessary to write and compile LaTeX source code and to preview
-the produced PDF files.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Set up X11 Forwarding with Git for Windows (git-bash)</title>
-      <link>https://jdhao.github.io/2018/03/02/Windows-connect-server-x11-with-gitbash/</link>
-      <pubDate>Fri, 02 Mar 2018 00:05:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/03/02/Windows-connect-server-x11-with-gitbash/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://jdhao.github.io/2017/12/29/cmder-usage/&#34;&gt;As I have posted earlier&lt;/a&gt;,
+the produced PDF files.&lt;/p></description></item><item><title>Set up X11 Forwarding with Git for Windows (git-bash)</title><link>https://jdhao.github.io/2018/03/02/Windows-connect-server-x11-with-gitbash/</link><pubDate>Fri, 02 Mar 2018 00:05:00 +0800</pubDate><guid>https://jdhao.github.io/2018/03/02/Windows-connect-server-x11-with-gitbash/</guid><description>&lt;p>&lt;a href="https://jdhao.github.io/2017/12/29/cmder-usage/">As I have posted earlier&lt;/a>,
 Cmder is a better option if you use Windows command line frequently. The full
-installation of Cmder comes with &lt;a href=&#34;https://gitforwindows.org/&#34;&gt;&lt;em&gt;Git for
-Windows&lt;/em&gt;&lt;/a&gt;, which is handy to provide a Linux-like
+installation of Cmder comes with &lt;a href="https://gitforwindows.org/">&lt;em>Git for
+Windows&lt;/em>&lt;/a>, which is handy to provide a Linux-like
 environment. In this post, I will write about how to use Git for Windows to
 connect to a remote CentOS server and set up X11 forwarding to use the GUI
-applications on that server.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Character set, Encoding, Locale, Font and More...</title>
-      <link>https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/</link>
-      <pubDate>Sun, 28 Jan 2018 16:39:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/</guid>
-      <description>&lt;p&gt;It is almost destined that at some point of our programming years, we will meet
+applications on that server.&lt;/p></description></item><item><title>Character set, Encoding, Locale, Font and More...</title><link>https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/</link><pubDate>Sun, 28 Jan 2018 16:39:00 +0800</pubDate><guid>https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/</guid><description>&lt;p>It is almost destined that at some point of our programming years, we will meet
 the issue of character set, encoding and all the related stuff. There are tons
-of articles which explains the meaning of &lt;code&gt;Unicode&lt;/code&gt;,  &lt;code&gt;UTF-8&lt;/code&gt;, &lt;code&gt;UTF-16&lt;/code&gt; etc. I
+of articles which explains the meaning of &lt;code>Unicode&lt;/code>, &lt;code>UTF-8&lt;/code>, &lt;code>UTF-16&lt;/code> etc. I
 am not going to repeat that here. In this post, I will write about what
-confused me when I tried to understand all this stuff.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Sublime Text 3 Markdown 写作设置</title>
-      <link>https://jdhao.github.io/2017/03/04/Sublime-Windows-Markdown/</link>
-      <pubDate>Sat, 04 Mar 2017 14:35:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2017/03/04/Sublime-Windows-Markdown/</guid>
-      <description>&lt;h1 id=&#34;引子&#34;&gt;引子&lt;/h1&gt;
-&lt;p&gt;由于受不了 VSCode 打开文件的龟速，我决定换一个编辑器，以前就大致了解有三款评价不错的编辑器，分别是 &lt;a href=&#34;https://atom.io/&#34;&gt;GitHub Atom&lt;/a&gt;, &lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;Sublime Text 3&lt;/a&gt; 以及微软的 &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;VSCode&lt;/a&gt;。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+confused me when I tried to understand all this stuff.&lt;/p></description></item><item><title>Sublime Text 3 Markdown 写作设置</title><link>https://jdhao.github.io/2017/03/04/Sublime-Windows-Markdown/</link><pubDate>Sat, 04 Mar 2017 14:35:00 +0800</pubDate><guid>https://jdhao.github.io/2017/03/04/Sublime-Windows-Markdown/</guid><description>&lt;h1 id="引子">引子&lt;/h1>
+&lt;p>由于受不了 VSCode 打开文件的龟速，我决定换一个编辑器，以前就大致了解有三款评价不错的编辑器，分别是 &lt;a href="https://atom.io/">GitHub Atom&lt;/a>, &lt;a href="https://www.sublimetext.com/">Sublime Text 3&lt;/a> 以及微软的 &lt;a href="https://code.visualstudio.com/">VSCode&lt;/a>。&lt;/p></description></item></channel></rss>

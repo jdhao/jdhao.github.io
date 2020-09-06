@@ -1,26 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>thread on jdhao&#39;s blog</title>
-    <link>https://jdhao.github.io/tags/thread/</link>
-    <description>Recent content in thread on jdhao&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>jdhao</copyright>
-    <lastBuildDate>Mon, 06 Jul 2020 23:15:25 +0800</lastBuildDate>
-    
-	<atom:link href="https://jdhao.github.io/tags/thread/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Set the Number of Threads to Use in PyTorch</title>
-      <link>https://jdhao.github.io/2020/07/06/pytorch_set_num_threads/</link>
-      <pubDate>Mon, 06 Jul 2020 23:15:25 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/07/06/pytorch_set_num_threads/</guid>
-      <description>&lt;p&gt;In this post, I will share how PyTorch set the number of the threads to use for
-its operations.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>thread on jdhao's blog</title><link>https://jdhao.github.io/tags/thread/</link><description>Recent content in thread on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Mon, 06 Jul 2020 23:15:25 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/thread/index.xml" rel="self" type="application/rss+xml"/><item><title>Set the Number of Threads to Use in PyTorch</title><link>https://jdhao.github.io/2020/07/06/pytorch_set_num_threads/</link><pubDate>Mon, 06 Jul 2020 23:15:25 +0800</pubDate><guid>https://jdhao.github.io/2020/07/06/pytorch_set_num_threads/</guid><description>&lt;p>In this post, I will share how PyTorch set the number of the threads to use for
+its operations.&lt;/p></description></item></channel></rss>

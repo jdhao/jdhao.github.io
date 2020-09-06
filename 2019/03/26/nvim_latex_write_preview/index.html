@@ -1,552 +1,142 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>A Complete Guide on Writing LaTeX with Vimtex in Neovim - jdhao&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jdhao" /><meta name="description" content="Previously, I have written a post on how to write and compile LaTeX source code in Sublime Text. Now that I am familiar with Neovim, I want to do everything related to text editing inside Neovim. In this post, I would like to share how to configure Neovim for LaTeX editing and previewing.
-" /><meta name="keywords" content="Hugo, theme, even" />
-
-
-
-<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
-
-
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
-
-
-<link rel="canonical" href="https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6058871559165202",
-    enable_page_level_ads: true
-  });
-</script>
-
-
-
-
-<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="A Complete Guide on Writing LaTeX with Vimtex in Neovim" />
-<meta property="og:description" content="Previously, I have written a post
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>A Complete Guide on Writing LaTeX with Vimtex in Neovim - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="Previously, I have written a post on how to write and compile LaTeX source code in Sublime Text. Now that I am familiar with Neovim, I want to do everything related to text editing inside Neovim. In this post, I would like to share how to configure Neovim for LaTeX editing and previewing."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="A Complete Guide on Writing LaTeX with Vimtex in Neovim"><meta property="og:description" content="Previously, I have written a post
 on how to write and compile LaTeX source code in Sublime Text. Now that I am
 familiar with Neovim, I want to do everything related to text editing inside
 Neovim. In this post, I would like to share how to configure Neovim for LaTeX
-editing and previewing." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/" />
-<meta property="article:published_time" content="2019-03-26T22:54:43+08:00" />
-<meta property="article:modified_time" content="2020-03-09T00:03:59+08:00" />
-<meta itemprop="name" content="A Complete Guide on Writing LaTeX with Vimtex in Neovim">
-<meta itemprop="description" content="Previously, I have written a post
+editing and previewing."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/"><meta property="article:published_time" content="2019-03-26T22:54:43+08:00"><meta property="article:modified_time" content="2020-03-09T00:03:59+08:00"><meta itemprop=name content="A Complete Guide on Writing LaTeX with Vimtex in Neovim"><meta itemprop=description content="Previously, I have written a post
 on how to write and compile LaTeX source code in Sublime Text. Now that I am
 familiar with Neovim, I want to do everything related to text editing inside
 Neovim. In this post, I would like to share how to configure Neovim for LaTeX
-editing and previewing.">
-<meta itemprop="datePublished" content="2019-03-26T22:54:43+08:00" />
-<meta itemprop="dateModified" content="2020-03-09T00:03:59+08:00" />
-<meta itemprop="wordCount" content="1167">
-
-
-
-<meta itemprop="keywords" content="LaTeX,PDF," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="A Complete Guide on Writing LaTeX with Vimtex in Neovim"/>
-<meta name="twitter:description" content="Previously, I have written a post
+editing and previewing."><meta itemprop=datePublished content="2019-03-26T22:54:43+08:00"><meta itemprop=dateModified content="2020-03-09T00:03:59+08:00"><meta itemprop=wordCount content="1167"><meta itemprop=keywords content="LaTeX,PDF,"><meta name=twitter:card content="summary"><meta name=twitter:title content="A Complete Guide on Writing LaTeX with Vimtex in Neovim"><meta name=twitter:description content="Previously, I have written a post
 on how to write and compile LaTeX source code in Sublime Text. Now that I am
 familiar with Neovim, I want to do everything related to text editing inside
 Neovim. In this post, I would like to share how to configure Neovim for LaTeX
-editing and previewing."/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jdhao&#39;s blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jdhao&#39;s blog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">A Complete Guide on Writing LaTeX with Vimtex in Neovim</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2019-03-26 </span>
-        <div class="post-category">
-            <a href="/categories/Nvim/"> Nvim </a>
-            </div>
-          <span class="more-meta"> 1167 words </span>
-          <span class="more-meta"> 6 mins read </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#pre-requisite">Pre-requisite</a></li>
-    <li><a href="#faster-latex-source-file-editing">Faster LaTeX source file editing</a>
-      <ul>
-        <li><a href="#auto-completion">Auto-completion</a></li>
-        <li><a href="#how-to-quickly-insert-an-environment">How to quickly insert an environment?</a></li>
-        <li><a href="#how-to-close-an-environment">How to close an environment?</a></li>
-        <li><a href="#useful-mappings-and-shortcuts">Useful mappings and shortcuts</a></li>
-        <li><a href="#jumping-between-references-and-the-definition">Jumping between references and the definition</a></li>
-        <li><a href="#useful-command">Useful command</a></li>
-      </ul>
-    </li>
-    <li><a href="#other-settings">Other settings</a>
-      <ul>
-        <li><a href="#pdf-previewing">PDF previewing</a></li>
-        <li><a href="#linting-and-syntax-checking">Linting and syntax checking</a></li>
-        <li><a href="#setting-up-table-of-contents">Setting up table of contents</a></li>
-        <li><a href="#tex-directives">TeX directives</a></li>
-      </ul>
-    </li>
-    <li><a href="#references">References</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>Previously, I have written <a href="https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/">a post</a>
+editing and previewing."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>A Complete Guide on Writing LaTeX with Vimtex in Neovim</h1><div class=post-meta><span class=post-time>2019-03-26</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>1167 words</span>
+<span class=more-meta>6 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#pre-requisite>Pre-requisite</a></li><li><a href=#faster-latex-source-file-editing>Faster LaTeX source file editing</a><ul><li><a href=#auto-completion>Auto-completion</a></li><li><a href=#how-to-quickly-insert-an-environment>How to quickly insert an environment?</a></li><li><a href=#how-to-close-an-environment>How to close an environment?</a></li><li><a href=#useful-mappings-and-shortcuts>Useful mappings and shortcuts</a></li><li><a href=#jumping-between-references-and-the-definition>Jumping between references and the definition</a></li><li><a href=#useful-command>Useful command</a></li></ul></li><li><a href=#other-settings>Other settings</a><ul><li><a href=#pdf-previewing>PDF previewing</a></li><li><a href=#linting-and-syntax-checking>Linting and syntax checking</a></li><li><a href=#setting-up-table-of-contents>Setting up table of contents</a></li><li><a href=#tex-directives>TeX directives</a></li></ul></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>Previously, I have written <a href=https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/>a post</a>
 on how to write and compile LaTeX source code in Sublime Text. Now that I am
 familiar with Neovim, I want to do everything related to text editing inside
 Neovim. In this post, I would like to share how to configure Neovim for LaTeX
-editing and previewing.</p>
-<h1 id="pre-requisite">Pre-requisite</h1>
-<p>Before we begin, you should make sure that you have installed the following
-softwares and plugins.</p>
-<ul>
-<li>TeX Distribution: <a href="https://www.tug.org/texlive/">TeX Live</a> is preferred since it is bundled with the possible many tools you will ever need for writing LaTeX.</li>
-<li>Auto-complete plugin: Since I use Neovim, so I recommend using <a href="https://github.com/Shougo/deoplete.nvim">deoplete</a>.</li>
-<li>Snippet Engine and snippet plugin: I recommend <a href="https://github.com/SirVer/ultisnips">Ultisnips</a> along with the many snippets provided by plugin <a href="https://github.com/honza/vim-snippets">vim-snippets</a>.</li>
-</ul>
-<p>Then we need to install the LaTeX plugin for Neovim.
-<a href="https://github.com/lervag/vimtex">Vimtex</a> is a great choice. To install it, we
-can use <a href="https://github.com/junegunn/vim-plug">vim-plug</a>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">Plug</span> <span class="s1">&#39;lervag/vimtex&#39;</span><span class="err">
-</span></code></pre></div><h1 id="faster-latex-source-file-editing">Faster LaTeX source file editing</h1>
-<h2 id="auto-completion">Auto-completion</h2>
-<p>In writing LaTeX source code, auto-completion is crucial for fast editing and
+editing and previewing.</p><h1 id=pre-requisite>Pre-requisite</h1><p>Before we begin, you should make sure that you have installed the following
+softwares and plugins.</p><ul><li>TeX Distribution: <a href=https://www.tug.org/texlive/>TeX Live</a> is preferred since it is bundled with the possible many tools you will ever need for writing LaTeX.</li><li>Auto-complete plugin: Since I use Neovim, so I recommend using <a href=https://github.com/Shougo/deoplete.nvim>deoplete</a>.</li><li>Snippet Engine and snippet plugin: I recommend <a href=https://github.com/SirVer/ultisnips>Ultisnips</a> along with the many snippets provided by plugin <a href=https://github.com/honza/vim-snippets>vim-snippets</a>.</li></ul><p>Then we need to install the LaTeX plugin for Neovim.
+<a href=https://github.com/lervag/vimtex>Vimtex</a> is a great choice. To install it, we
+can use <a href=https://github.com/junegunn/vim-plug>vim-plug</a>:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>Plug</span> <span class=s1>&#39;lervag/vimtex&#39;</span><span class=err>
+</span></code></pre></div><h1 id=faster-latex-source-file-editing>Faster LaTeX source file editing</h1><h2 id=auto-completion>Auto-completion</h2><p>In writing LaTeX source code, auto-completion is crucial for fast editing and
 improves our efficiency dramatically. Vimtex supports completion for citations,
 labels (for figure, equation, table, section, etc.), commands, environments,
 packages and document classes and more. For more documentation on completion,
-see <code>:h vimtex-completion</code>.</p>
-<p>Vimtex can work with several completion engines such as <a href="https://github.com/Shougo/deoplete.nvim">deoplete</a>,
-<a href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe</a>, <a href="https://github.com/ncm2/ncm2">ncm2</a>.
+see <code>:h vimtex-completion</code>.</p><p>Vimtex can work with several completion engines such as <a href=https://github.com/Shougo/deoplete.nvim>deoplete</a>,
+<a href=https://github.com/Valloric/YouCompleteMe>YouCompleteMe</a>, <a href=https://github.com/ncm2/ncm2>ncm2</a>.
 Since I use deoplete for completion, I will just introduce how to configure it
-for deoplete<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. To make vimtex work with deoplete, add the following setting
-to your <code>init.vim</code>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="c">&#34; This is new style</span><span class="err">
-</span><span class="err"></span><span class="nx">call</span> <span class="nx">deoplete</span>#<span class="nx">custom</span>#<span class="nx">var</span><span class="p">(</span><span class="s1">&#39;omni&#39;</span><span class="p">,</span> <span class="s1">&#39;input_patterns&#39;</span><span class="p">,</span> {<span class="err">
-</span><span class="err"></span>      \ <span class="s1">&#39;tex&#39;</span>: <span class="nx">g</span>:<span class="nx">vimtex</span>#<span class="nx">re</span>#<span class="nx">deoplete</span><span class="err">
-</span><span class="err"></span>      \}<span class="p">)</span><span class="err">
-</span></code></pre></div><p>After that you should be able to use auto-completion.</p>
-<h2 id="how-to-quickly-insert-an-environment">How to quickly insert an environment?</h2>
-<p>Vimtex supports autocompletion through autocompletion engines such as deoplete.
+for deoplete<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. To make vimtex work with deoplete, add the following setting
+to your <code>init.vim</code>:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; This is new style</span><span class=err>
+</span><span class=err></span><span class=nx>call</span> <span class=nx>deoplete</span>#<span class=nx>custom</span>#<span class=nx>var</span><span class=p>(</span><span class=s1>&#39;omni&#39;</span><span class=p>,</span> <span class=s1>&#39;input_patterns&#39;</span><span class=p>,</span> {<span class=err>
+</span><span class=err></span>      \ <span class=s1>&#39;tex&#39;</span>: <span class=nx>g</span>:<span class=nx>vimtex</span>#<span class=nx>re</span>#<span class=nx>deoplete</span><span class=err>
+</span><span class=err></span>      \}<span class=p>)</span><span class=err>
+</span></code></pre></div><p>After that you should be able to use auto-completion.</p><h2 id=how-to-quickly-insert-an-environment>How to quickly insert an environment?</h2><p>Vimtex supports autocompletion through autocompletion engines such as deoplete.
 After configuring vimtex to use deoplete, you should be able to use the snippet
-provided by Ultisnips<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
-<p>Ultisnips is a snippet engine, which uses
-<a href="https://github.com/honza/vim-snippets">vim-snippets</a> to provide the actual
+provided by Ultisnips<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>.</p><p>Ultisnips is a snippet engine, which uses
+<a href=https://github.com/honza/vim-snippets>vim-snippets</a> to provide the actual
 snippet for various file types. To insert an <code>figure</code> environment, type <code>fig</code>
-in insert mode and press <kbd>Tab</kbd>.</p>
-<p>To insert an <code>enumerate</code> environment, type <code>enum</code> in insert mode and press
+in insert mode and press <kbd>Tab</kbd>.</p><p>To insert an <code>enumerate</code> environment, type <code>enum</code> in insert mode and press
 <kbd>Tab</kbd>. The complete list of snippets provided by vim-snippets can be
-found <a href="https://github.com/honza/vim-snippets/blob/master/UltiSnips/tex.snippets">here</a>.</p>
-<h2 id="how-to-close-an-environment">How to close an environment?</h2>
-<p>After typing <code>\begin{ENV}</code>, how do we automatically close it with <code>\end{ENV}</code>?
-With vimtex, you can press <code>]]</code> in insert mode to auto-close an environment.</p>
-<h2 id="useful-mappings-and-shortcuts">Useful mappings and shortcuts</h2>
-<p>Vimtex provides the <code>e</code> text object to facilitate
-<a href="https://github.com/tpope/vim-surround">vim-surround</a> like features for
-manipulating an environment quickly:</p>
-<ul>
-<li><code>cse</code>: change an environment</li>
-<li><code>dse</code>: delete an environment</li>
-<li><code>tse</code>：toggle stared environment and no-star environment, e.g., change from
-<code>equation*</code> to <code>equation</code> and vice versa.</li>
-</ul>
-<p>You can also use the standard Vim motion with this object. For example, <code>vie</code>
+found <a href=https://github.com/honza/vim-snippets/blob/master/UltiSnips/tex.snippets>here</a>.</p><h2 id=how-to-close-an-environment>How to close an environment?</h2><p>After typing <code>\begin{ENV}</code>, how do we automatically close it with <code>\end{ENV}</code>?
+With vimtex, you can press <code>]]</code> in insert mode to auto-close an environment.</p><h2 id=useful-mappings-and-shortcuts>Useful mappings and shortcuts</h2><p>Vimtex provides the <code>e</code> text object to facilitate
+<a href=https://github.com/tpope/vim-surround>vim-surround</a> like features for
+manipulating an environment quickly:</p><ul><li><code>cse</code>: change an environment</li><li><code>dse</code>: delete an environment</li><li><code>tse</code>：toggle stared environment and no-star environment, e.g., change from
+<code>equation*</code> to <code>equation</code> and vice versa.</li></ul><p>You can also use the standard Vim motion with this object. For example, <code>vie</code>
 will select the <strong>inside</strong> a environment, and <code>vae</code> will select the entire
-environment (including the begin and end part).</p>
-<p>There are other shortcuts provided:</p>
-<ul>
-<li><code>]]</code>: close an environment (<strong>only work in insert mode</strong>, in normal mode, it
+environment (including the begin and end part).</p><p>There are other shortcuts provided:</p><ul><li><code>]]</code>: close an environment (<strong>only work in insert mode</strong>, in normal mode, it
 will bring cursor to next subsection instead). After you have typed
-<code>begin{ENV}</code>, use <code>]]</code> to auto-close it with <code>\end{ENV}</code></li>
-</ul>
-<p>For more mappings, see <code>:h vimtex-default-mappings</code>.</p>
-<h2 id="jumping-between-references-and-the-definition">Jumping between references and the definition</h2>
-<p>It would be nice if we can jump to the definition of a label with the native
-Vim shortcut <a href="http://vimdoc.sourceforge.net/htmldoc/tagsrch.html#CTRL-%5D"><code>Ctrl-]</code></a>. You have to do several things.</p>
-<p>First, you need to install a ctags executable. See <a href="https://github.com/jdhao/nvim-config/blob/master/README.md#ctags">here</a> on how
-to install ctags.</p>
-<p>Second, you need to install a plugin to manage tags file for you.
-<a href="https://github.com/ludovicchabant/vim-gutentags">vim-gutentags</a> is a good
+<code>begin{ENV}</code>, use <code>]]</code> to auto-close it with <code>\end{ENV}</code></li></ul><p>For more mappings, see <code>:h vimtex-default-mappings</code>.</p><h2 id=jumping-between-references-and-the-definition>Jumping between references and the definition</h2><p>It would be nice if we can jump to the definition of a label with the native
+Vim shortcut <a href=http://vimdoc.sourceforge.net/htmldoc/tagsrch.html#CTRL-%5D><code>Ctrl-]</code></a>. You have to do several things.</p><p>First, you need to install a ctags executable. See <a href=https://github.com/jdhao/nvim-config/blob/master/README.md#ctags>here</a> on how
+to install ctags.</p><p>Second, you need to install a plugin to manage tags file for you.
+<a href=https://github.com/ludovicchabant/vim-gutentags>vim-gutentags</a> is a good
 option. It will update the tags file automatically once the source file has
 been changed. To make gutentags work, you need to tell it where your project
-root is. The easiest way is to <a href="https://kbroman.org/github_tutorial/pages/init.html">make your project a git repository</a>.</p>
-<p>Open the TeX source file again, the tags file should be created automatically.
+root is. The easiest way is to <a href=https://kbroman.org/github_tutorial/pages/init.html>make your project a git repository</a>.</p><p>Open the TeX source file again, the tags file should be created automatically.
 If the cursor is in <code>\ref{some_label}</code>, you can press <code>Ctrl + ]</code> to go the
 position where <code>some_label</code> is defined. BTW, to jump back, you can use
-<code>Ctrl-T</code>.</p>
-<h2 id="useful-command">Useful command</h2>
-<ul>
-<li><code>:VimtexInfo</code>: show all relevant info about current LaTeX project.</li>
-<li><code>:VimtexTocOpen</code>: show table of contents window</li>
-<li><code>:VimtexTocToggle</code>: toggle table of contents window</li>
-<li><code>:VimtexCompile</code>: Compile the current LaTeX source file and opens the viewer after successful compilation.</li>
-<li><code>:VimtexStop</code>: Stop compilation for the current project.</li>
-<li><code>:VimtexClean</code>: clean auxiliary files generated in compliation process.</li>
-</ul>
-<h1 id="other-settings">Other settings</h1>
-<h2 id="pdf-previewing">PDF previewing</h2>
-<p>Vimtex supports several PDF viewer based on the platform. On Windows,
-<a href="https://www.sumatrapdfreader.org/free-pdf-reader.html">SumatraPDF</a> is a good
+<code>Ctrl-T</code>.</p><h2 id=useful-command>Useful command</h2><ul><li><code>:VimtexInfo</code>: show all relevant info about current LaTeX project.</li><li><code>:VimtexTocOpen</code>: show table of contents window</li><li><code>:VimtexTocToggle</code>: toggle table of contents window</li><li><code>:VimtexCompile</code>: Compile the current LaTeX source file and opens the viewer after successful compilation.</li><li><code>:VimtexStop</code>: Stop compilation for the current project.</li><li><code>:VimtexClean</code>: clean auxiliary files generated in compliation process.</li></ul><h1 id=other-settings>Other settings</h1><h2 id=pdf-previewing>PDF previewing</h2><p>Vimtex supports several PDF viewer based on the platform. On Windows,
+<a href=https://www.sumatrapdfreader.org/free-pdf-reader.html>SumatraPDF</a> is a good
 choice. Below is the settings needed for SumatraPDF to work as the default
-viewer for the compiled PDF files.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&#34; settings for sumatraPDF
+viewer for the compiled PDF files.</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>&#34; settings for sumatraPDF
 let g:vimtex_view_general_viewer = &#39;SumatraPDF&#39;
 let g:vimtex_view_general_options
     \ = &#39;-reuse-instance -forward-search @tex @line @pdf&#39;
 let g:vimtex_view_general_options_latexmk = &#39;-reuse-instance&#39;
 </code></pre></div><p>After the above settings, if you use <code>:VimtexCompile</code> command, the compiled PDF
 will be opened in sumatraPDF automatically. If it does not show up, you can
-also use <code>:VimtexView</code> to open the PDF manually.</p>
-<p>On Mac, you can install <a href="https://sourceforge.net/projects/skim-app/">Skim</a> and use it as a PDF viewer. My current settings
-for previewing PDF on Mac is:</p>
-<details>
-<summary><font color="red">Click to see the code.</font></summary>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="k">let</span> <span class="nx">g</span>:<span class="nx">vimtex_view_general_viewer</span><span class="err">
-</span><span class="err"></span>        \ <span class="p">=</span> <span class="s1">&#39;/Applications/Skim.app/Contents/SharedSupport/displayline&#39;</span><span class="err">
-</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">vimtex_view_general_options</span> <span class="p">=</span> <span class="s1">&#39;-r @line @pdf @tex&#39;</span><span class="err">
-</span><span class="err"></span><span class="c">
-</span><span class="c">&#34; This adds a callback hook that updates Skim after compilation</span><span class="err">
-</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">vimtex_compiler_callback_hooks</span> <span class="p">=</span> [<span class="s1">&#39;UpdateSkim&#39;</span>]<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">function</span><span class="p">!</span> <span class="nx">UpdateSkim</span><span class="p">(</span><span class="nx">status</span><span class="p">)</span><span class="err">
-</span><span class="err"></span>    <span class="k">if</span> <span class="p">!</span><span class="nx">a</span>:<span class="nx">status</span> <span class="p">|</span> <span class="nx">return</span> <span class="p">|</span> <span class="k">endif</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span>    <span class="k">let</span> <span class="nx">l</span>:<span class="nx">out</span> <span class="p">=</span> <span class="nx">b</span>:<span class="nx">vimtex</span>.<span class="nx">out</span><span class="p">()</span><span class="err">
-</span><span class="err"></span>    <span class="k">let</span> <span class="nx">l</span>:<span class="nx">tex</span> <span class="p">=</span> <span class="nx">expand</span><span class="p">(</span><span class="s1">&#39;%:p&#39;</span><span class="p">)</span><span class="err">
-</span><span class="err"></span>    <span class="k">let</span> <span class="nx">l</span>:<span class="nx">cmd</span> <span class="p">=</span> [<span class="nx">g</span>:<span class="nx">vimtex_view_general_viewer</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span>]<span class="err">
-</span><span class="err">
-</span><span class="err"></span>    <span class="k">if</span> <span class="p">!</span><span class="nx">empty</span><span class="p">(</span><span class="nx">system</span><span class="p">(</span><span class="s1">&#39;pgrep Skim&#39;</span><span class="p">))</span><span class="err">
-</span><span class="err"></span>        <span class="nx">call</span> <span class="nx">extend</span><span class="p">(</span><span class="nx">l</span>:<span class="nx">cmd</span><span class="p">,</span> [<span class="s1">&#39;-g&#39;</span>]<span class="p">)</span><span class="err">
-</span><span class="err"></span>    <span class="k">endif</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span>    <span class="k">if</span> <span class="nx">has</span><span class="p">(</span><span class="s1">&#39;nvim&#39;</span><span class="p">)</span><span class="err">
-</span><span class="err"></span>        <span class="nx">call</span> <span class="nx">jobstart</span><span class="p">(</span><span class="nx">l</span>:<span class="nx">cmd</span> <span class="p">+</span> [<span class="nx">line</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">),</span> <span class="nx">l</span>:<span class="nx">out</span><span class="p">,</span> <span class="nx">l</span>:<span class="nx">tex</span>]<span class="p">)</span><span class="err">
-</span><span class="err"></span>    <span class="k">elseif</span> <span class="nx">has</span><span class="p">(</span><span class="s1">&#39;job&#39;</span><span class="p">)</span><span class="err">
-</span><span class="err"></span>        <span class="nx">call</span> <span class="nx">job_start</span><span class="p">(</span><span class="nx">l</span>:<span class="nx">cmd</span> <span class="p">+</span> [<span class="nx">line</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">),</span> <span class="nx">l</span>:<span class="nx">out</span><span class="p">,</span> <span class="nx">l</span>:<span class="nx">tex</span>]<span class="p">)</span><span class="err">
-</span><span class="err"></span>    <span class="k">else</span><span class="err">
-</span><span class="err"></span>        <span class="nx">call</span> <span class="nx">system</span><span class="p">(</span><span class="nx">join</span><span class="p">(</span><span class="nx">l</span>:<span class="nx">cmd</span> <span class="p">+</span> [<span class="nx">line</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">),</span> <span class="nx">shellescape</span><span class="p">(</span><span class="nx">l</span>:<span class="nx">out</span><span class="p">),</span> <span class="nx">shellescape</span><span class="p">(</span><span class="nx">l</span>:<span class="nx">tex</span><span class="p">)</span>]<span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">))</span><span class="err">
-</span><span class="err"></span>    <span class="k">endif</span><span class="err">
-</span><span class="err"></span><span class="k">endfunction</span><span class="err">
-</span></code></pre></div></details>
-<h2 id="linting-and-syntax-checking">Linting and syntax checking</h2>
-<p>I use <a href="https://github.com/neomake/neomake">neomake</a> for syntax checking. For LaTeX source file, neomake provides
-<a href="https://github.com/neomake/neomake/wiki/Makers">several makers</a>:</p>
-<ul>
-<li><a href="https://ctan.org/pkg/lacheck?lang=en">lacheck</a></li>
-<li><a href="https://ctan.org/pkg/chktex?lang=en">chktex</a></li>
-<li><a href="https://github.com/amperser/proselint">Proselint</a></li>
-</ul>
-<p>Among the makers, lacheck and chktex are installed if you have installed Tex
-Live. Proselint can be installed via pip:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">pip install proselint
-</code></pre></div><h2 id="setting-up-table-of-contents">Setting up table of contents</h2>
-<p>Vimtex can show a nice little table of contents window on the left side if you
+also use <code>:VimtexView</code> to open the PDF manually.</p><p>On Mac, you can install <a href=https://sourceforge.net/projects/skim-app/>Skim</a> and use it as a PDF viewer. My current settings
+for previewing PDF on Mac is:</p><details><summary><font color=red>Click to see the code.</font></summary><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>vimtex_view_general_viewer</span><span class=err>
+</span><span class=err></span>        \ <span class=p>=</span> <span class=s1>&#39;/Applications/Skim.app/Contents/SharedSupport/displayline&#39;</span><span class=err>
+</span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>vimtex_view_general_options</span> <span class=p>=</span> <span class=s1>&#39;-r @line @pdf @tex&#39;</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; This adds a callback hook that updates Skim after compilation</span><span class=err>
+</span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>vimtex_compiler_callback_hooks</span> <span class=p>=</span> [<span class=s1>&#39;UpdateSkim&#39;</span>]<span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=k>function</span><span class=p>!</span> <span class=nx>UpdateSkim</span><span class=p>(</span><span class=nx>status</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=k>if</span> <span class=p>!</span><span class=nx>a</span>:<span class=nx>status</span> <span class=p>|</span> <span class=nx>return</span> <span class=p>|</span> <span class=k>endif</span><span class=err>
+</span><span class=err>
+</span><span class=err></span>    <span class=k>let</span> <span class=nx>l</span>:<span class=nx>out</span> <span class=p>=</span> <span class=nx>b</span>:<span class=nx>vimtex</span>.<span class=nx>out</span><span class=p>()</span><span class=err>
+</span><span class=err></span>    <span class=k>let</span> <span class=nx>l</span>:<span class=nx>tex</span> <span class=p>=</span> <span class=nx>expand</span><span class=p>(</span><span class=s1>&#39;%:p&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=k>let</span> <span class=nx>l</span>:<span class=nx>cmd</span> <span class=p>=</span> [<span class=nx>g</span>:<span class=nx>vimtex_view_general_viewer</span><span class=p>,</span> <span class=s1>&#39;-r&#39;</span>]<span class=err>
+</span><span class=err>
+</span><span class=err></span>    <span class=k>if</span> <span class=p>!</span><span class=nx>empty</span><span class=p>(</span><span class=nx>system</span><span class=p>(</span><span class=s1>&#39;pgrep Skim&#39;</span><span class=p>))</span><span class=err>
+</span><span class=err></span>        <span class=nx>call</span> <span class=nx>extend</span><span class=p>(</span><span class=nx>l</span>:<span class=nx>cmd</span><span class=p>,</span> [<span class=s1>&#39;-g&#39;</span>]<span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=k>endif</span><span class=err>
+</span><span class=err>
+</span><span class=err></span>    <span class=k>if</span> <span class=nx>has</span><span class=p>(</span><span class=s1>&#39;nvim&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>        <span class=nx>call</span> <span class=nx>jobstart</span><span class=p>(</span><span class=nx>l</span>:<span class=nx>cmd</span> <span class=p>+</span> [<span class=nx>line</span><span class=p>(</span><span class=s1>&#39;.&#39;</span><span class=p>),</span> <span class=nx>l</span>:<span class=nx>out</span><span class=p>,</span> <span class=nx>l</span>:<span class=nx>tex</span>]<span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=k>elseif</span> <span class=nx>has</span><span class=p>(</span><span class=s1>&#39;job&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>        <span class=nx>call</span> <span class=nx>job_start</span><span class=p>(</span><span class=nx>l</span>:<span class=nx>cmd</span> <span class=p>+</span> [<span class=nx>line</span><span class=p>(</span><span class=s1>&#39;.&#39;</span><span class=p>),</span> <span class=nx>l</span>:<span class=nx>out</span><span class=p>,</span> <span class=nx>l</span>:<span class=nx>tex</span>]<span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=k>else</span><span class=err>
+</span><span class=err></span>        <span class=nx>call</span> <span class=nx>system</span><span class=p>(</span><span class=nx>join</span><span class=p>(</span><span class=nx>l</span>:<span class=nx>cmd</span> <span class=p>+</span> [<span class=nx>line</span><span class=p>(</span><span class=s1>&#39;.&#39;</span><span class=p>),</span> <span class=nx>shellescape</span><span class=p>(</span><span class=nx>l</span>:<span class=nx>out</span><span class=p>),</span> <span class=nx>shellescape</span><span class=p>(</span><span class=nx>l</span>:<span class=nx>tex</span><span class=p>)</span>]<span class=p>,</span> <span class=s1>&#39; &#39;</span><span class=p>))</span><span class=err>
+</span><span class=err></span>    <span class=k>endif</span><span class=err>
+</span><span class=err></span><span class=k>endfunction</span><span class=err>
+</span></code></pre></div></details><h2 id=linting-and-syntax-checking>Linting and syntax checking</h2><p>I use <a href=https://github.com/neomake/neomake>neomake</a> for syntax checking. For LaTeX source file, neomake provides
+<a href=https://github.com/neomake/neomake/wiki/Makers>several makers</a>:</p><ul><li><a href="https://ctan.org/pkg/lacheck?lang=en">lacheck</a></li><li><a href="https://ctan.org/pkg/chktex?lang=en">chktex</a></li><li><a href=https://github.com/amperser/proselint>Proselint</a></li></ul><p>Among the makers, lacheck and chktex are installed if you have installed Tex
+Live. Proselint can be installed via pip:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>pip install proselint
+</code></pre></div><h2 id=setting-up-table-of-contents>Setting up table of contents</h2><p>Vimtex can show a nice little table of contents window on the left side if you
 use command <code>VimtexTocOpen</code>. By default, the lables in each section is also
 shown, which makes the TOC clutter with texts. We can customize TOC with
-following settings:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="c">&#34; TOC settings</span><span class="err">
-</span><span class="err"></span><span class="k">let</span> <span class="nx">g</span>:<span class="nx">vimtex_toc_config</span> <span class="p">=</span> {<span class="err">
-</span><span class="err"></span>      \ <span class="s1">&#39;name&#39;</span> : <span class="s1">&#39;TOC&#39;</span><span class="p">,</span><span class="err">
-</span><span class="err"></span>      \ <span class="s1">&#39;layers&#39;</span> : [<span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="s1">&#39;include&#39;</span>]<span class="p">,</span><span class="err">
-</span><span class="err"></span>      \ <span class="s1">&#39;resize&#39;</span> : <span class="m">1</span><span class="p">,</span><span class="err">
-</span><span class="err"></span>      \ <span class="s1">&#39;split_width&#39;</span> : <span class="m">50</span><span class="p">,</span><span class="err">
-</span><span class="err"></span>      \ <span class="s1">&#39;todo_sorted&#39;</span> : <span class="m">0</span><span class="p">,</span><span class="err">
-</span><span class="err"></span>      \ <span class="s1">&#39;show_help&#39;</span> : <span class="m">1</span><span class="p">,</span><span class="err">
-</span><span class="err"></span>      \ <span class="s1">&#39;show_numbers&#39;</span> : <span class="m">1</span><span class="p">,</span><span class="err">
-</span><span class="err"></span>      \ <span class="s1">&#39;mode&#39;</span> : <span class="m">2</span><span class="p">,</span><span class="err">
-</span><span class="err"></span>      \}<span class="err">
-</span></code></pre></div><p>For detailed meaning of the keys in the above dictionary, refer to <code>:h g:vimtex_toc_config</code>.</p>
-<h2 id="tex-directives">TeX directives</h2>
-<p>If you are compiling a LaTeX source file written in non-English character. You
+following settings:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; TOC settings</span><span class=err>
+</span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>vimtex_toc_config</span> <span class=p>=</span> {<span class=err>
+</span><span class=err></span>      \ <span class=s1>&#39;name&#39;</span> : <span class=s1>&#39;TOC&#39;</span><span class=p>,</span><span class=err>
+</span><span class=err></span>      \ <span class=s1>&#39;layers&#39;</span> : [<span class=s1>&#39;content&#39;</span><span class=p>,</span> <span class=s1>&#39;todo&#39;</span><span class=p>,</span> <span class=s1>&#39;include&#39;</span>]<span class=p>,</span><span class=err>
+</span><span class=err></span>      \ <span class=s1>&#39;resize&#39;</span> : <span class=m>1</span><span class=p>,</span><span class=err>
+</span><span class=err></span>      \ <span class=s1>&#39;split_width&#39;</span> : <span class=m>50</span><span class=p>,</span><span class=err>
+</span><span class=err></span>      \ <span class=s1>&#39;todo_sorted&#39;</span> : <span class=m>0</span><span class=p>,</span><span class=err>
+</span><span class=err></span>      \ <span class=s1>&#39;show_help&#39;</span> : <span class=m>1</span><span class=p>,</span><span class=err>
+</span><span class=err></span>      \ <span class=s1>&#39;show_numbers&#39;</span> : <span class=m>1</span><span class=p>,</span><span class=err>
+</span><span class=err></span>      \ <span class=s1>&#39;mode&#39;</span> : <span class=m>2</span><span class=p>,</span><span class=err>
+</span><span class=err></span>      \}<span class=err>
+</span></code></pre></div><p>For detailed meaning of the keys in the above dictionary, refer to <code>:h g:vimtex_toc_config</code>.</p><h2 id=tex-directives>TeX directives</h2><p>If you are compiling a LaTeX source file written in non-English character. You
 may want to use the TeX directive to specify the compiling program. Vimtex
 supports two TeX directives: <code>TeX root</code> and <code>TeX program</code>. <code>TeX program</code>
 directive is useful when we want to compile the LaTeX source code with
 <code>xelatex</code> instead of <code>pdflatex</code>. In order to compile your LaTeX source file
 with <code>xelatex</code>, add the following directive to the first line of the source
-code:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">%!TeX program = xelatex
-</code></pre></div><p>My complete settings for vimtex can be found <a href="https://github.com/jdhao/nvim-config/blob/master/plugins.vim#L696">here</a>.</p>
-<h1 id="references">References</h1>
-<ul>
-<li><a href="https://yufanlu.net/2018/09/03/neovim-latex/">https://yufanlu.net/2018/09/03/neovim-latex/</a></li>
-<li><a href="https://github.com/lervag/vimtex/issues/1036">https://github.com/lervag/vimtex/issues/1036</a></li>
-<li><a href="https://gist.github.com/skulumani/7ea00478c63193a832a6d3f2e661a536">Setting up PDF viewer for Mac</a>.</li>
-<li><a href="https://tex.stackexchange.com/a/266242/114857">Auto-close environment in LaTeX</a></li>
-<li><a href="https://github.com/lervag/vimtex/issues/348">https://github.com/lervag/vimtex/issues/348</a></li>
-<li><a href="https://github.com/lervag/vimtex/issues/853">https://github.com/lervag/vimtex/issues/853</a></li>
-<li><a href="https://tex.stackexchange.com/q/78101/114857">TeX directives provided by different programs</a>.</li>
-</ul>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p>For configuring vimtex to work with other completion engines, please refer to <code>:h vimtex-complete-auto</code>. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-<li id="fn:2" role="doc-endnote">
-<p>See <a href="https://jdhao.github.io/2019/04/17/neovim_snippet_s1/">this post</a> on how to configure Ultisnips for Neovim. <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">jdhao</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2020-03-09
-        
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">License</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
-        <span>wechat</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
-        <span>alipay</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/LaTeX/">LaTeX</a>
-          <a href="/tags/PDF/">PDF</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/2019/03/28/nifty_nvim_techniques_s1/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Nifty Little Nvim Techniques to Make My Life Easier -- Series 1</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2019/03/07/pillow_image_alpha_channel/">
-            <span class="next-text nav-default">Manipulating Images with Alpha Channels in Pillow</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'jdhao';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
-  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy; 
-    2017 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jdhao</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-113395108-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-
-</body>
-</html>
+code:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>%!TeX program = xelatex
+</code></pre></div><p>My complete settings for vimtex can be found <a href=https://github.com/jdhao/nvim-config/blob/master/plugins.vim#L696>here</a>.</p><h1 id=references>References</h1><ul><li><a href=https://yufanlu.net/2018/09/03/neovim-latex/>https://yufanlu.net/2018/09/03/neovim-latex/</a></li><li><a href=https://github.com/lervag/vimtex/issues/1036>https://github.com/lervag/vimtex/issues/1036</a></li><li><a href=https://gist.github.com/skulumani/7ea00478c63193a832a6d3f2e661a536>Setting up PDF viewer for Mac</a>.</li><li><a href=https://tex.stackexchange.com/a/266242/114857>Auto-close environment in LaTeX</a></li><li><a href=https://github.com/lervag/vimtex/issues/348>https://github.com/lervag/vimtex/issues/348</a></li><li><a href=https://github.com/lervag/vimtex/issues/853>https://github.com/lervag/vimtex/issues/853</a></li><li><a href=https://tex.stackexchange.com/q/78101/114857>TeX directives provided by different programs</a>.</li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>For configuring vimtex to work with other completion engines, please refer to <code>:h vimtex-complete-auto</code>. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>See <a href=https://jdhao.github.io/2019/04/17/neovim_snippet_s1/>this post</a> on how to configure Ultisnips for Neovim. <a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-03-09</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/LaTeX/>LaTeX</a>
+<a href=/tags/PDF/>PDF</a></div><nav class=post-nav><a class=prev href=/2019/03/28/nifty_nvim_techniques_s1/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Nifty Little Nvim Techniques to Make My Life Easier -- Series 1</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2019/03/07/pillow_image_alpha_channel/><span class="next-text nav-default">Manipulating Images with Alpha Channels in Pillow</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='jdhao';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+2017 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>

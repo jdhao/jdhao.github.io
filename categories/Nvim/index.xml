@@ -1,575 +1,155 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Nvim on jdhao&#39;s blog</title>
-    <link>https://jdhao.github.io/categories/Nvim/</link>
-    <description>Recent content in Nvim on jdhao&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>jdhao</copyright>
-    <lastBuildDate>Wed, 26 Aug 2020 23:24:20 +0800</lastBuildDate>
-    
-	<atom:link href="https://jdhao.github.io/categories/Nvim/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>LeaderF settings</title>
-      <link>https://jdhao.github.io/2020/08/26/leaderf_nvim_settings/</link>
-      <pubDate>Wed, 26 Aug 2020 23:24:20 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/08/26/leaderf_nvim_settings/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/Yggdroot/LeaderF&#34;&gt;LeaderF&lt;/a&gt; is Vim/Neovim plugin to
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nvim on jdhao's blog</title><link>https://jdhao.github.io/categories/Nvim/</link><description>Recent content in Nvim on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Wed, 26 Aug 2020 23:24:20 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/categories/Nvim/index.xml" rel="self" type="application/rss+xml"/><item><title>LeaderF settings</title><link>https://jdhao.github.io/2020/08/26/leaderf_nvim_settings/</link><pubDate>Wed, 26 Aug 2020 23:24:20 +0800</pubDate><guid>https://jdhao.github.io/2020/08/26/leaderf_nvim_settings/</guid><description>&lt;p>&lt;a href="https://github.com/Yggdroot/LeaderF">LeaderF&lt;/a> is Vim/Neovim plugin to
 fuzzy-search files, colorschemes, tags etc. quickly. It works across different
-platforms flawlessly. Here are some of its settings to address minor issues.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Why You Should Use Snippets in Vim/Neovim</title>
-      <link>https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/</link>
-      <pubDate>Wed, 27 May 2020 22:46:19 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/</guid>
-      <description>&lt;p&gt;If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
-you need to ask yourself if there is a better way to do it.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Highlight Yanked Region in Nvim/Vim</title>
-      <link>https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/</link>
-      <pubDate>Fri, 22 May 2020 20:48:26 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/</guid>
-      <description>&lt;p&gt;In Vim or Neovim, showing the yanked region in color gives use visual feedback
+platforms flawlessly. Here are some of its settings to address minor issues.&lt;/p></description></item><item><title>Why You Should Use Snippets in Vim/Neovim</title><link>https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/</link><pubDate>Wed, 27 May 2020 22:46:19 +0800</pubDate><guid>https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/</guid><description>&lt;p>If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
+you need to ask yourself if there is a better way to do it.&lt;/p></description></item><item><title>Highlight Yanked Region in Nvim/Vim</title><link>https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/</link><pubDate>Fri, 22 May 2020 20:48:26 +0800</pubDate><guid>https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/</guid><description>&lt;p>In Vim or Neovim, showing the yanked region in color gives use visual feedback
 on what we have copied. Here is how you can highlight yanked region in Vim or
-Neovim.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Set up for C&#43;&#43;/C Development in Neovim</title>
-      <link>https://jdhao.github.io/2020/04/19/nvim_cpp_and_c_completion/</link>
-      <pubDate>Sun, 19 Apr 2020 18:17:56 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/04/19/nvim_cpp_and_c_completion/</guid>
-      <description>&lt;p&gt;This post summarizes how to set up various plugins needed for C++/C code
-editing, linting and formatting.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Search and Replace in Multiple Files in Vim/Neovim</title>
-      <link>https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/</link>
-      <pubDate>Sat, 14 Mar 2020 23:20:06 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/</guid>
-      <description>In Sublime-Text and other editors, we can press Ctrl-Shift-F to invoke the search and replace UI. We can also accomplish this task easily in Vim or Neovim with the builtin features. Here is how.
-There are two steps involved in this task. The first step is to find the files containing the search pattern under the current project or directory. The second step is to perform replacement for each file found in 1st step.</description>
-    </item>
-    
-    <item>
-      <title>Vim 和 Neovim 的前世今生</title>
-      <link>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</link>
-      <pubDate>Sun, 12 Jan 2020 11:48:43 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</guid>
-      <description>&lt;h1 id=&#34;引子&#34;&gt;引子&lt;/h1&gt;
-&lt;p&gt;从完全使用 &lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; 进行日常&lt;a href=&#34;https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/&#34;&gt;代码开发&lt;/a&gt;与&lt;a href=&#34;https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/&#34;&gt;文档编写&lt;/a&gt;到现在，已经过去了大约一年半的时间，一年半以前，我对 Vim 的了解还处在非常初级的阶段，经过长时间的&lt;a href=&#34;https://jdhao.github.io/categories/Nvim/&#34;&gt;使用与学习&lt;/a&gt;，已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。&lt;/p&gt;
-&lt;p&gt;在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的&lt;em&gt;恩怨情仇&lt;/em&gt;也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Vim/Nvim Number Arithmetic in Substitution</title>
-      <link>https://jdhao.github.io/2020/01/10/nvim_number_arithmetic_in_substitute/</link>
-      <pubDate>Fri, 10 Jan 2020 23:48:25 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/01/10/nvim_number_arithmetic_in_substitute/</guid>
-      <description>&lt;p&gt;In this post, I want to share how to do number arithmetic quickly and get what
-you want in specified format. More specifically, the topic is:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;How do we add, subtract, multiply or divide a value to each number in a
-range?&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>Regex Keyword and Python Interpolation in Ultisnips</title>
-      <link>https://jdhao.github.io/2020/01/05/ultisnips_python_interpolation/</link>
-      <pubDate>Sun, 05 Jan 2020 18:52:03 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/01/05/ultisnips_python_interpolation/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;&#34;&gt;Vim-snippet&lt;/a&gt; provides a lot of useful Ultisnips snippets for various
+Neovim.&lt;/p></description></item><item><title>Set up for C++/C Development in Neovim</title><link>https://jdhao.github.io/2020/04/19/nvim_cpp_and_c_completion/</link><pubDate>Sun, 19 Apr 2020 18:17:56 +0800</pubDate><guid>https://jdhao.github.io/2020/04/19/nvim_cpp_and_c_completion/</guid><description>&lt;p>This post summarizes how to set up various plugins needed for C++/C code
+editing, linting and formatting.&lt;/p></description></item><item><title>Search and Replace in Multiple Files in Vim/Neovim</title><link>https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/</link><pubDate>Sat, 14 Mar 2020 23:20:06 +0800</pubDate><guid>https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/</guid><description>In Sublime-Text and other editors, we can press Ctrl-Shift-F to invoke the search and replace UI. We can also accomplish this task easily in Vim or Neovim with the builtin features. Here is how.
+There are two steps involved in this task. The first step is to find the files containing the search pattern under the current project or directory. The second step is to perform replacement for each file found in 1st step.</description></item><item><title>Vim 和 Neovim 的前世今生</title><link>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</link><pubDate>Sun, 12 Jan 2020 11:48:43 +0800</pubDate><guid>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</guid><description>&lt;h1 id="引子">引子&lt;/h1>
+&lt;p>从完全使用 &lt;a href="https://neovim.io/">Neovim&lt;/a> 进行日常&lt;a href="https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/">代码开发&lt;/a>与&lt;a href="https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/">文档编写&lt;/a>到现在，已经过去了大约一年半的时间，一年半以前，我对 Vim 的了解还处在非常初级的阶段，经过长时间的&lt;a href="https://jdhao.github.io/categories/Nvim/">使用与学习&lt;/a>，已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。&lt;/p>
+&lt;p>在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的&lt;em>恩怨情仇&lt;/em>也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。&lt;/p></description></item><item><title>Vim/Nvim Number Arithmetic in Substitution</title><link>https://jdhao.github.io/2020/01/10/nvim_number_arithmetic_in_substitute/</link><pubDate>Fri, 10 Jan 2020 23:48:25 +0800</pubDate><guid>https://jdhao.github.io/2020/01/10/nvim_number_arithmetic_in_substitute/</guid><description>&lt;p>In this post, I want to share how to do number arithmetic quickly and get what
+you want in specified format. More specifically, the topic is:&lt;/p>
+&lt;blockquote>
+&lt;p>How do we add, subtract, multiply or divide a value to each number in a
+range?&lt;/p>
+&lt;/blockquote></description></item><item><title>Regex Keyword and Python Interpolation in Ultisnips</title><link>https://jdhao.github.io/2020/01/05/ultisnips_python_interpolation/</link><pubDate>Sun, 05 Jan 2020 18:52:03 +0800</pubDate><guid>https://jdhao.github.io/2020/01/05/ultisnips_python_interpolation/</guid><description>&lt;p>&lt;a href="">Vim-snippet&lt;/a> provides a lot of useful Ultisnips snippets for various
 filetypes. For example, for Markdown, to insert level 1 header, the snippet
-trigger is &lt;code&gt;sec&lt;/code&gt;, and for level 2 and 3 header, the triggers are &lt;code&gt;ssec&lt;/code&gt; and
-&lt;code&gt;sssec&lt;/code&gt; respectively. These triggers are non-intuitive and hard to remember and
-type.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Firenvim: Neovim inside Your Browser</title>
-      <link>https://jdhao.github.io/2020/01/01/firenvim_nvim_inside_browser/</link>
-      <pubDate>Wed, 01 Jan 2020 23:51:12 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2020/01/01/firenvim_nvim_inside_browser/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;
+trigger is &lt;code>sec&lt;/code>, and for level 2 and 3 header, the triggers are &lt;code>ssec&lt;/code> and
+&lt;code>sssec&lt;/code> respectively. These triggers are non-intuitive and hard to remember and
+type.&lt;/p></description></item><item><title>Firenvim: Neovim inside Your Browser</title><link>https://jdhao.github.io/2020/01/01/firenvim_nvim_inside_browser/</link><pubDate>Wed, 01 Jan 2020 23:51:12 +0800</pubDate><guid>https://jdhao.github.io/2020/01/01/firenvim_nvim_inside_browser/</guid><description>&lt;p align="center">
 &lt;img
-src=&#34;https://blog-resource-1257868508.file.myqcloud.com/firenvim.gif&#34;&gt;
-&lt;/p&gt;
-&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Last year, I have written &lt;a href=&#34;https://jdhao.github.io/2019/05/11/nvim_text_input_browser/&#34;&gt;a post&lt;/a&gt;
+src="https://blog-resource-1257868508.file.myqcloud.com/firenvim.gif">
+&lt;/p>
+&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;p>Last year, I have written &lt;a href="https://jdhao.github.io/2019/05/11/nvim_text_input_browser/">a post&lt;/a>
 on how to edit texts inside the browser using Vim/Nvim or browser extensions
 which have Vim emulations. But none of them is satisfactory enough since they
 are either not convenient to use or lacking features compared to real Neovim
-empowered by various plugins.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Creating Markdown Front Matter with Ultisnips</title>
-      <link>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</link>
-      <pubDate>Sun, 22 Dec 2019 13:45:25 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;I write my blog posts in Markdown and build the blog using
-&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;. Hugo supports &lt;a href=&#34;https://gohugo.io/content-management/front-matter/&#34;&gt;front matter&lt;/a&gt;
+empowered by various plugins.&lt;/p></description></item><item><title>Creating Markdown Front Matter with Ultisnips</title><link>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</link><pubDate>Sun, 22 Dec 2019 13:45:25 +0800</pubDate><guid>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;p>I write my blog posts in Markdown and build the blog using
+&lt;a href="https://gohugo.io/">Hugo&lt;/a>. Hugo supports &lt;a href="https://gohugo.io/content-management/front-matter/">front matter&lt;/a>
 for Markdown so that you can attach some metadata with a post, such as title,
-date, tags, categories, etc.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Nifty Nvim Techniques That Make My Life Easier -- Series 6</title>
-      <link>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</link>
-      <pubDate>Sat, 21 Dec 2019 23:18:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</guid>
-      <description>&lt;p&gt;This post continues my &lt;a href=&#34;https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/&#34;&gt;previous post&lt;/a&gt; on nifty Nvim/Vim techniques.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Running Command Asynchronously inside Neovim</title>
-      <link>https://jdhao.github.io/2019/12/09/vim_asynchronous_command_run/</link>
-      <pubDate>Mon, 09 Dec 2019 23:27:10 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/12/09/vim_asynchronous_command_run/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;When I am writing some prototyping code inside Neovim, I want to run the script
-without going to the terminal and typing &lt;code&gt;python toy_script.py&lt;/code&gt;. Of course, we
-can use &lt;code&gt;:!python %&lt;/code&gt; in the command line to run the script (see &lt;code&gt;:h :!&lt;/code&gt;). The
+date, tags, categories, etc.&lt;/p></description></item><item><title>Nifty Nvim Techniques That Make My Life Easier -- Series 6</title><link>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</link><pubDate>Sat, 21 Dec 2019 23:18:00 +0800</pubDate><guid>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</guid><description>&lt;p>This post continues my &lt;a href="https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/">previous post&lt;/a> on nifty Nvim/Vim techniques.&lt;/p></description></item><item><title>Running Command Asynchronously inside Neovim</title><link>https://jdhao.github.io/2019/12/09/vim_asynchronous_command_run/</link><pubDate>Mon, 09 Dec 2019 23:27:10 +0800</pubDate><guid>https://jdhao.github.io/2019/12/09/vim_asynchronous_command_run/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;p>When I am writing some prototyping code inside Neovim, I want to run the script
+without going to the terminal and typing &lt;code>python toy_script.py&lt;/code>. Of course, we
+can use &lt;code>:!python %&lt;/code> in the command line to run the script (see &lt;code>:h :!&lt;/code>). The
 problem is that running external command will block Nvim/Vim, and we can not
-move the cursor until the script finishes running.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>A Hands-on Experience with Neovim&#39;s Builtin LSP Support</title>
-      <link>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</link>
-      <pubDate>Wed, 20 Nov 2019 22:41:16 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</guid>
-      <description>&lt;p&gt;Just a few days ago, the builtin &lt;a href=&#34;https://microsoft.github.io/language-server-protocol/&#34;&gt;Language Server Protocol&lt;/a&gt;
-support &lt;a href=&#34;https://github.com/neovim/neovim/pull/11336&#34;&gt;has been merged&lt;/a&gt; into Neovim master.&lt;/p&gt;
-&lt;p&gt;This post is a hands-on experience of setting up LSP support for Python with
-the &lt;a href=&#34;https://github.com/palantir/python-language-server&#34;&gt;python-language-server&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>File Backup in Neovim</title>
-      <link>https://jdhao.github.io/2019/11/16/nvim_file_backup/</link>
-      <pubDate>Sat, 16 Nov 2019 19:56:18 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/11/16/nvim_file_backup/</guid>
-      <description>&lt;p&gt;There are several options related to backup in Vim/Nvim.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;backup&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;writebackup&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;backupdir&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;backupcopy&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;backupext&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>Nifty Nvim Techniques That Make My Life Easier -- Series 5</title>
-      <link>https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/</link>
-      <pubDate>Mon, 11 Nov 2019 22:55:02 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/</guid>
-      <description>&lt;p&gt;This is the series 5 of my blog posts about some nifty techniques of using
-Nvim, which continues the &lt;a href=&#34;https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/&#34;&gt;previous
-series here&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Neovim Configuration for System-wide Use</title>
-      <link>https://jdhao.github.io/2019/11/10/install_config_neovim_system_wide/</link>
-      <pubDate>Sun, 10 Nov 2019 10:33:29 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/11/10/install_config_neovim_system_wide/</guid>
-      <description>&lt;p&gt;I have been using Neovim for personal projects for over a year. Recently, I
+move the cursor until the script finishes running.&lt;/p></description></item><item><title>A Hands-on Experience with Neovim's Builtin LSP Support</title><link>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</link><pubDate>Wed, 20 Nov 2019 22:41:16 +0800</pubDate><guid>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</guid><description>&lt;p>Just a few days ago, the builtin &lt;a href="https://microsoft.github.io/language-server-protocol/">Language Server Protocol&lt;/a>
+support &lt;a href="https://github.com/neovim/neovim/pull/11336">has been merged&lt;/a> into Neovim master.&lt;/p>
+&lt;p>This post is a hands-on experience of setting up LSP support for Python with
+the &lt;a href="https://github.com/palantir/python-language-server">python-language-server&lt;/a>.&lt;/p></description></item><item><title>File Backup in Neovim</title><link>https://jdhao.github.io/2019/11/16/nvim_file_backup/</link><pubDate>Sat, 16 Nov 2019 19:56:18 +0800</pubDate><guid>https://jdhao.github.io/2019/11/16/nvim_file_backup/</guid><description>&lt;p>There are several options related to backup in Vim/Nvim.&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>backup&lt;/code>&lt;/li>
+&lt;li>&lt;code>writebackup&lt;/code>&lt;/li>
+&lt;li>&lt;code>backupdir&lt;/code>&lt;/li>
+&lt;li>&lt;code>backupcopy&lt;/code>&lt;/li>
+&lt;li>&lt;code>backupext&lt;/code>&lt;/li>
+&lt;/ul></description></item><item><title>Nifty Nvim Techniques That Make My Life Easier -- Series 5</title><link>https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/</link><pubDate>Mon, 11 Nov 2019 22:55:02 +0800</pubDate><guid>https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/</guid><description>&lt;p>This is the series 5 of my blog posts about some nifty techniques of using
+Nvim, which continues the &lt;a href="https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/">previous
+series here&lt;/a>.&lt;/p></description></item><item><title>Neovim Configuration for System-wide Use</title><link>https://jdhao.github.io/2019/11/10/install_config_neovim_system_wide/</link><pubDate>Sun, 10 Nov 2019 10:33:29 +0800</pubDate><guid>https://jdhao.github.io/2019/11/10/install_config_neovim_system_wide/</guid><description>&lt;p>I have been using Neovim for personal projects for over a year. Recently, I
 want to set up Neovim system wide so that other users in the server can also
 use my config if they want. In this post, I will describe the necessary
-configurations.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Building A Vim Statusline from Scratch</title>
-      <link>https://jdhao.github.io/2019/11/03/vim_custom_statusline/</link>
-      <pubDate>Sun, 03 Nov 2019 14:22:20 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/11/03/vim_custom_statusline/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;
-&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20191103144006.png&#34;&gt;
-&lt;/p&gt;
-&lt;p&gt;I have been using &lt;a href=&#34;https://github.com/vim-airline/vim-airline&#34;&gt;vim-airline&lt;/a&gt; to
+configurations.&lt;/p></description></item><item><title>Building A Vim Statusline from Scratch</title><link>https://jdhao.github.io/2019/11/03/vim_custom_statusline/</link><pubDate>Sun, 03 Nov 2019 14:22:20 +0800</pubDate><guid>https://jdhao.github.io/2019/11/03/vim_custom_statusline/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20191103144006.png">
+&lt;/p>
+&lt;p>I have been using &lt;a href="https://github.com/vim-airline/vim-airline">vim-airline&lt;/a> to
 customize my Nvim statusline ever since I first started using Neovim. It works
-great. Recently, I started &lt;a href=&#34;https://github.com/jdhao/minimal_vim&#34;&gt;a repo&lt;/a&gt; to
+great. Recently, I started &lt;a href="https://github.com/jdhao/minimal_vim">a repo&lt;/a> to
 create a minimal configuration without external plugins for both Vim
 and Neovim. During the process, I learned how to build the Vim statusline from
-scratch.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Nifty Nvim Techniques That Make My Life Easier -- Series 4</title>
-      <link>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</link>
-      <pubDate>Tue, 17 Sep 2019 23:04:55 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</guid>
-      <description>&lt;p&gt;This is the series 4 of my blog posts about some nifty techniques of using
+scratch.&lt;/p></description></item><item><title>Nifty Nvim Techniques That Make My Life Easier -- Series 4</title><link>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</link><pubDate>Tue, 17 Sep 2019 23:04:55 +0800</pubDate><guid>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</guid><description>&lt;p>This is the series 4 of my blog posts about some nifty techniques of using
 Nvim, which continue my previous series
-&lt;a href=&#34;https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to Create Proper Folding for Vim/Nvim Configuration</title>
-      <link>https://jdhao.github.io/2019/08/16/nvim_config_folding/</link>
-      <pubDate>Fri, 16 Aug 2019 22:56:20 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/08/16/nvim_config_folding/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20190817223054.png&#34; alt=&#34;Folded config&#34;&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How Do I Show the Current File Path In Neovim?</title>
-      <link>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</link>
-      <pubDate>Wed, 31 Jul 2019 23:10:27 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</guid>
-      <description>&lt;p&gt;I saw on &lt;a href=&#34;https://vi.stackexchange.com/questions/104/how-can-i-see-the-full-path-of-the-current-file/20768#20768&#34;&gt;StackExchange&lt;/a&gt;
+&lt;a href="https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/">here&lt;/a>.&lt;/p></description></item><item><title>How to Create Proper Folding for Vim/Nvim Configuration</title><link>https://jdhao.github.io/2019/08/16/nvim_config_folding/</link><pubDate>Fri, 16 Aug 2019 22:56:20 +0800</pubDate><guid>https://jdhao.github.io/2019/08/16/nvim_config_folding/</guid><description>&lt;p>&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190817223054.png" alt="Folded config">&lt;/p></description></item><item><title>How Do I Show the Current File Path In Neovim?</title><link>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</link><pubDate>Wed, 31 Jul 2019 23:10:27 +0800</pubDate><guid>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</guid><description>&lt;p>I saw on &lt;a href="https://vi.stackexchange.com/questions/104/how-can-i-see-the-full-path-of-the-current-file/20768#20768">StackExchange&lt;/a>
 that someone asked about how to see the full path of current file in Vim. I
-think it would be helpful to write about how I do it.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Fast Movement and Navigation Inside Vim or Neovim</title>
-      <link>https://jdhao.github.io/2019/06/26/movement_navigation_inside_nvim/</link>
-      <pubDate>Wed, 26 Jun 2019 22:51:43 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/06/26/movement_navigation_inside_nvim/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;One key spirit of Vim is to accomplish something in as fewer key strokes as
+think it would be helpful to write about how I do it.&lt;/p></description></item><item><title>Fast Movement and Navigation Inside Vim or Neovim</title><link>https://jdhao.github.io/2019/06/26/movement_navigation_inside_nvim/</link><pubDate>Wed, 26 Jun 2019 22:51:43 +0800</pubDate><guid>https://jdhao.github.io/2019/06/26/movement_navigation_inside_nvim/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;p>One key spirit of Vim is to accomplish something in as fewer key strokes as
 possible. When we repeat a command several times to perform an action, we need
 to ask ourselves if there is a better way to do it. Only in this way, can we
 make progress in mastering Vim. For example, to delete five lines of texts, if
-we press &lt;code&gt;dd&lt;/code&gt; five times, we are certainly doing it the wrong way. After
-looking up the Vim manual, we know that we can use &lt;code&gt;5dd&lt;/code&gt; or &lt;code&gt;d4j&lt;/code&gt;: only three
-keystrokes are needed instead of ten!&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Nvim Autocompletion with Deoplete</title>
-      <link>https://jdhao.github.io/2019/06/06/nvim_deoplete_settings/</link>
-      <pubDate>Thu, 06 Jun 2019 16:40:51 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/06/06/nvim_deoplete_settings/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/Shougo/deoplete.nvim&#34;&gt;Deoplete&lt;/a&gt; is a good auto-completion
+we press &lt;code>dd&lt;/code> five times, we are certainly doing it the wrong way. After
+looking up the Vim manual, we know that we can use &lt;code>5dd&lt;/code> or &lt;code>d4j&lt;/code>: only three
+keystrokes are needed instead of ten!&lt;/p></description></item><item><title>Nvim Autocompletion with Deoplete</title><link>https://jdhao.github.io/2019/06/06/nvim_deoplete_settings/</link><pubDate>Thu, 06 Jun 2019 16:40:51 +0800</pubDate><guid>https://jdhao.github.io/2019/06/06/nvim_deoplete_settings/</guid><description>&lt;p>&lt;a href="https://github.com/Shougo/deoplete.nvim">Deoplete&lt;/a> is a good auto-completion
 plugin for Neovim. In this post, I introduce how to set up auto-completion for
-Nvim with the help of deoplete.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Exclusive and Inclusive Motion in Neovim/Vim</title>
-      <link>https://jdhao.github.io/2019/05/18/nvim_exclusive_inclusive_motion/</link>
-      <pubDate>Sat, 18 May 2019 01:18:28 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/05/18/nvim_exclusive_inclusive_motion/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Suppose that we have the following text in normal mode (cursor is indicated by
-&lt;code&gt;^&lt;/code&gt;):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;hello world
+Nvim with the help of deoplete.&lt;/p></description></item><item><title>Exclusive and Inclusive Motion in Neovim/Vim</title><link>https://jdhao.github.io/2019/05/18/nvim_exclusive_inclusive_motion/</link><pubDate>Sat, 18 May 2019 01:18:28 +0800</pubDate><guid>https://jdhao.github.io/2019/05/18/nvim_exclusive_inclusive_motion/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;p>Suppose that we have the following text in normal mode (cursor is indicated by
+&lt;code>^&lt;/code>):&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">hello world
 ^
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;if we use &lt;code&gt;dw&lt;/code&gt;, we delete &lt;code&gt;hello&amp;lt;Space&amp;gt;&lt;/code&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; and only &lt;code&gt;world&lt;/code&gt; is left; if we
-use &lt;code&gt;de&lt;/code&gt;, &lt;code&gt;hello&lt;/code&gt; is deleted and &lt;code&gt;&amp;lt;Space&amp;gt;world&lt;/code&gt; is left. Have you ever wondered
-about why &lt;code&gt;dw&lt;/code&gt; do not delete &lt;code&gt;w&lt;/code&gt; while &lt;code&gt;de&lt;/code&gt; will delete the &lt;code&gt;o&lt;/code&gt; in &lt;code&gt;hello&lt;/code&gt;? It
-seems that motion &lt;code&gt;e&lt;/code&gt; and &lt;code&gt;w&lt;/code&gt; are somewhat inconsistent in their behaviours. It
-turns out that it has something to do with the exclusivity of motions in Vim.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Nifty Nvim Techniques Which Make My Life Easier -- Series 3</title>
-      <link>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</link>
-      <pubDate>Tue, 14 May 2019 22:37:04 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</guid>
-      <description>&lt;p&gt;This is the 3rd of my blog post series about some nifty techniques of using
-Nvim. For other posts, see&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/&#34;&gt;Series 1&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/&#34;&gt;Series 2&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>Create Mappings Which Take A Count in Neovim</title>
-      <link>https://jdhao.github.io/2019/04/29/nvim_map_with_a_count/</link>
-      <pubDate>Mon, 29 Apr 2019 23:08:16 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/04/29/nvim_map_with_a_count/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20190503204410.png&#34; alt=&#34;Mappings&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Many normal mode commands accept a &lt;code&gt;count&lt;/code&gt;, which means to repeat the motion
-&lt;code&gt;count&lt;/code&gt; times. For example, &lt;code&gt;3j&lt;/code&gt; moves the cursor 3 lines below the current
-line and &lt;code&gt;4w&lt;/code&gt; will move the cursor four words forward. Usually, the
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>if we use &lt;code>dw&lt;/code>, we delete &lt;code>hello&amp;lt;Space&amp;gt;&lt;/code>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> and only &lt;code>world&lt;/code> is left; if we
+use &lt;code>de&lt;/code>, &lt;code>hello&lt;/code> is deleted and &lt;code>&amp;lt;Space&amp;gt;world&lt;/code> is left. Have you ever wondered
+about why &lt;code>dw&lt;/code> do not delete &lt;code>w&lt;/code> while &lt;code>de&lt;/code> will delete the &lt;code>o&lt;/code> in &lt;code>hello&lt;/code>? It
+seems that motion &lt;code>e&lt;/code> and &lt;code>w&lt;/code> are somewhat inconsistent in their behaviours. It
+turns out that it has something to do with the exclusivity of motions in Vim.&lt;/p></description></item><item><title>Nifty Nvim Techniques Which Make My Life Easier -- Series 3</title><link>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</link><pubDate>Tue, 14 May 2019 22:37:04 +0800</pubDate><guid>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</guid><description>&lt;p>This is the 3rd of my blog post series about some nifty techniques of using
+Nvim. For other posts, see&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">Series 1&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/">Series 2&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Create Mappings Which Take A Count in Neovim</title><link>https://jdhao.github.io/2019/04/29/nvim_map_with_a_count/</link><pubDate>Mon, 29 Apr 2019 23:08:16 +0800</pubDate><guid>https://jdhao.github.io/2019/04/29/nvim_map_with_a_count/</guid><description>&lt;p>&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190503204410.png" alt="Mappings">&lt;/p>
+&lt;p>Many normal mode commands accept a &lt;code>count&lt;/code>, which means to repeat the motion
+&lt;code>count&lt;/code> times. For example, &lt;code>3j&lt;/code> moves the cursor 3 lines below the current
+line and &lt;code>4w&lt;/code> will move the cursor four words forward. Usually, the
 user-defined mappings can not take a count. Even if they can, they will most
 probably not work the way you expect them to. In this post, I will describe
-what I have learned to make a fairly complex mapping repeatable with a count.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Spell Check in Nvim</title>
-      <link>https://jdhao.github.io/2019/04/29/nvim_spell_check/</link>
-      <pubDate>Mon, 29 Apr 2019 22:35:54 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/04/29/nvim_spell_check/</guid>
-      <description>&lt;p&gt;In this post, I want to talk about how to enable built-in spell check
-functionality in Nvim.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>English Words Completion inside Neovim/Vim</title>
-      <link>https://jdhao.github.io/2019/04/26/words_completion_nvim/</link>
-      <pubDate>Fri, 26 Apr 2019 02:15:05 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/04/26/words_completion_nvim/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;
-   &lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20190430093054.png&#34; alt=&#34;&#34;&gt;
-&lt;/p&gt;
-&lt;p&gt;Some words are hard to type, it is handy if Neovim can provide auto-completion
+what I have learned to make a fairly complex mapping repeatable with a count.&lt;/p></description></item><item><title>Spell Check in Nvim</title><link>https://jdhao.github.io/2019/04/29/nvim_spell_check/</link><pubDate>Mon, 29 Apr 2019 22:35:54 +0800</pubDate><guid>https://jdhao.github.io/2019/04/29/nvim_spell_check/</guid><description>&lt;p>In this post, I want to talk about how to enable built-in spell check
+functionality in Nvim.&lt;/p></description></item><item><title>English Words Completion inside Neovim/Vim</title><link>https://jdhao.github.io/2019/04/26/words_completion_nvim/</link><pubDate>Fri, 26 Apr 2019 02:15:05 +0800</pubDate><guid>https://jdhao.github.io/2019/04/26/words_completion_nvim/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190430093054.png" alt="">
+&lt;/p>
+&lt;p>Some words are hard to type, it is handy if Neovim can provide auto-completion
 for the words we are typing. We can achieve word completion in Neovim in two
-ways.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to Use Python Inside Vim Script with Neovim</title>
-      <link>https://jdhao.github.io/2019/04/22/mix_python_and_vim_script/</link>
-      <pubDate>Mon, 22 Apr 2019 16:05:10 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/04/22/mix_python_and_vim_script/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;I have been using &lt;a href=&#34;https://github.com/vim-airline/vim-airline&#34;&gt;Vim-airline&lt;/a&gt; for
+ways.&lt;/p></description></item><item><title>How to Use Python Inside Vim Script with Neovim</title><link>https://jdhao.github.io/2019/04/22/mix_python_and_vim_script/</link><pubDate>Mon, 22 Apr 2019 16:05:10 +0800</pubDate><guid>https://jdhao.github.io/2019/04/22/mix_python_and_vim_script/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;p>I have been using &lt;a href="https://github.com/vim-airline/vim-airline">Vim-airline&lt;/a> for
 a while to customize my statusline. We can change the theme used for statusline
 with the many themes available in
-&lt;a href=&#34;https://github.com/vim-airline/vim-airline-themes&#34;&gt;vim-airline-themes&lt;/a&gt;. Not
+&lt;a href="https://github.com/vim-airline/vim-airline-themes">vim-airline-themes&lt;/a>. Not
 all these themes looks good since it depends on the background color you use
-for Neovim and certainly your aesthetics.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 2</title>
-      <link>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</link>
-      <pubDate>Wed, 17 Apr 2019 00:49:06 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</guid>
-      <description>&lt;p&gt;This is the series 2 of the nifty Nvim techniques.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;For series 1, see &lt;a href=&#34;https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>Configuring Ultisnips for Neovim</title>
-      <link>https://jdhao.github.io/2019/04/17/neovim_snippet_s1/</link>
-      <pubDate>Wed, 17 Apr 2019 00:28:45 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/04/17/neovim_snippet_s1/</guid>
-      <description>&lt;p&gt;If you have used Sublime Text before, you may be familiar with its
-&lt;a href=&#34;http://sublimetext.info/docs/en/extensibility/snippets.html&#34;&gt;snippet&lt;/a&gt; feature.
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Snippet_(programming)&#34;&gt;Snippets&lt;/a&gt; let us type a
+for Neovim and certainly your aesthetics.&lt;/p></description></item><item><title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 2</title><link>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</link><pubDate>Wed, 17 Apr 2019 00:49:06 +0800</pubDate><guid>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</guid><description>&lt;p>This is the series 2 of the nifty Nvim techniques.&lt;/p>
+&lt;ul>
+&lt;li>For series 1, see &lt;a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">here&lt;/a>.&lt;/li>
+&lt;/ul></description></item><item><title>Configuring Ultisnips for Neovim</title><link>https://jdhao.github.io/2019/04/17/neovim_snippet_s1/</link><pubDate>Wed, 17 Apr 2019 00:28:45 +0800</pubDate><guid>https://jdhao.github.io/2019/04/17/neovim_snippet_s1/</guid><description>&lt;p>If you have used Sublime Text before, you may be familiar with its
+&lt;a href="http://sublimetext.info/docs/en/extensibility/snippets.html">snippet&lt;/a> feature.
+&lt;a href="https://en.wikipedia.org/wiki/Snippet_(programming)">Snippets&lt;/a> let us type a
 trigger word and expand it to some boilerplate code or texts that we do not
 want to repeat typing. We will increase our efficiency dramatically with the
-help of snippets.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 1</title>
-      <link>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</link>
-      <pubDate>Thu, 28 Mar 2019 00:24:33 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</guid>
-      <description>&lt;p&gt;In this post, I summarize some nifty little techniques which make my experience
-of editing in &lt;a href=&#34;https://github.com/neovim/neovim&#34;&gt;Nvim&lt;/a&gt; smoother.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>A Complete Guide on Writing LaTeX with Vimtex in Neovim</title>
-      <link>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</link>
-      <pubDate>Tue, 26 Mar 2019 22:54:43 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</guid>
-      <description>&lt;p&gt;Previously, I have written &lt;a href=&#34;https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/&#34;&gt;a post&lt;/a&gt;
+help of snippets.&lt;/p></description></item><item><title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 1</title><link>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</link><pubDate>Thu, 28 Mar 2019 00:24:33 +0800</pubDate><guid>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</guid><description>&lt;p>In this post, I summarize some nifty little techniques which make my experience
+of editing in &lt;a href="https://github.com/neovim/neovim">Nvim&lt;/a> smoother.&lt;/p></description></item><item><title>A Complete Guide on Writing LaTeX with Vimtex in Neovim</title><link>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</link><pubDate>Tue, 26 Mar 2019 22:54:43 +0800</pubDate><guid>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</guid><description>&lt;p>Previously, I have written &lt;a href="https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/">a post&lt;/a>
 on how to write and compile LaTeX source code in Sublime Text. Now that I am
 familiar with Neovim, I want to do everything related to text editing inside
 Neovim. In this post, I would like to share how to configure Neovim for LaTeX
-editing and previewing.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Nvim-qt Settings on Windows 10</title>
-      <link>https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/</link>
-      <pubDate>Thu, 17 Jan 2019 22:04:05 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/</guid>
-      <description>&lt;p&gt;To run Neovim on Windows, you can either &lt;a href=&#34;https://jdhao.github.io/2018/11/15/neovim_configuration_windows/&#34;&gt;use the terminal
-Neovim&lt;/a&gt; or
+editing and previewing.&lt;/p></description></item><item><title>Nvim-qt Settings on Windows 10</title><link>https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/</link><pubDate>Thu, 17 Jan 2019 22:04:05 +0800</pubDate><guid>https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/</guid><description>&lt;p>To run Neovim on Windows, you can either &lt;a href="https://jdhao.github.io/2018/11/15/neovim_configuration_windows/">use the terminal
+Neovim&lt;/a> or
 use a GUI for Neovim. If you use terminal Nvim, you may encounter various
 annoying issues. Based on my experience, I recommend you using a GUI client for
-Nvim instead of the terminal one.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Markdown Writing and Previewing in Neovim -- A Complete Guide</title>
-      <link>https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/</link>
-      <pubDate>Tue, 15 Jan 2019 15:27:57 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;
-&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20200214144759.png&#34; width=&#34;800&#34;&gt;
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Line Number Settings for More Efficient Movement in Neovim</title>
-      <link>https://jdhao.github.io/2019/01/11/line_number_setting_nvim/</link>
-      <pubDate>Fri, 11 Jan 2019 20:25:31 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/01/11/line_number_setting_nvim/</guid>
-      <description>&lt;p&gt;In this post, I would like to share line number settings in Neovim to move the
-cursor more efficiently.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>A Complete Guide to Setting up Neovim for Python Development on Linux</title>
-      <link>https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/</link>
-      <pubDate>Mon, 24 Dec 2018 00:14:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;
-&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-39-49.jpg&#34; width=&#34;800&#34;&gt;
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Windows 10 系统下 Neovim 安装与配置</title>
-      <link>https://jdhao.github.io/2018/11/16/neovim_configuration_windows-zh/</link>
-      <pubDate>Fri, 16 Nov 2018 01:02:37 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/11/16/neovim_configuration_windows-zh/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;
-&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20190119221237.png&#34; width=&#34;600&#34;&gt;
-&lt;/p&gt;
-&lt;p&gt;本篇文章介绍如何在 Windows 系统下安装并配置终端上的 &lt;a href=&#34;https://github.com/neovim/neovim&#34;&gt;Neovim&lt;/a&gt;。关于如何配置 Neovim 的 GUI 客户端 &lt;a href=&#34;https://github.com/equalsraf/neovim-qt&#34;&gt;nvim-qt&lt;/a&gt;，可以参考 &lt;a href=&#34;https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/&#34;&gt;这篇博客&lt;/a&gt;。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Neovim configuration on Windows 10</title>
-      <link>https://jdhao.github.io/2018/11/15/neovim_configuration_windows/</link>
-      <pubDate>Thu, 15 Nov 2018 18:08:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/11/15/neovim_configuration_windows/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;
-&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20190119221237.png&#34; width=&#34;600&#34;&gt;
-&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Updated: 2020-01-18&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;In this post, I want to share how to install and configure terminal Neovim on
-Windows 10&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;. For configurations of
-&lt;a href=&#34;https://github.com/equalsraf/neovim-qt&#34;&gt;nvim-qt&lt;/a&gt; on Windows, check &lt;a href=&#34;https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/&#34;&gt;this post&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>An Introduction to Lookaround Regular Expression in Neovim/Vim</title>
-      <link>https://jdhao.github.io/2018/10/18/regular_expression_nvim/</link>
-      <pubDate>Thu, 18 Oct 2018 19:34:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/10/18/regular_expression_nvim/</guid>
-      <description>&lt;p&gt;Today I want to use some regular expressions for searching and replacing in my
+Nvim instead of the terminal one.&lt;/p></description></item><item><title>Markdown Writing and Previewing in Neovim -- A Complete Guide</title><link>https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/</link><pubDate>Tue, 15 Jan 2019 15:27:57 +0800</pubDate><guid>https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20200214144759.png" width="800">
+&lt;/p></description></item><item><title>Line Number Settings for More Efficient Movement in Neovim</title><link>https://jdhao.github.io/2019/01/11/line_number_setting_nvim/</link><pubDate>Fri, 11 Jan 2019 20:25:31 +0800</pubDate><guid>https://jdhao.github.io/2019/01/11/line_number_setting_nvim/</guid><description>&lt;p>In this post, I would like to share line number settings in Neovim to move the
+cursor more efficiently.&lt;/p></description></item><item><title>A Complete Guide to Setting up Neovim for Python Development on Linux</title><link>https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/</link><pubDate>Mon, 24 Dec 2018 00:14:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-39-49.jpg" width="800">
+&lt;/p></description></item><item><title>Windows 10 系统下 Neovim 安装与配置</title><link>https://jdhao.github.io/2018/11/16/neovim_configuration_windows-zh/</link><pubDate>Fri, 16 Nov 2018 01:02:37 +0800</pubDate><guid>https://jdhao.github.io/2018/11/16/neovim_configuration_windows-zh/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190119221237.png" width="600">
+&lt;/p>
+&lt;p>本篇文章介绍如何在 Windows 系统下安装并配置终端上的 &lt;a href="https://github.com/neovim/neovim">Neovim&lt;/a>。关于如何配置 Neovim 的 GUI 客户端 &lt;a href="https://github.com/equalsraf/neovim-qt">nvim-qt&lt;/a>，可以参考 &lt;a href="https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/">这篇博客&lt;/a>。&lt;/p></description></item><item><title>Neovim configuration on Windows 10</title><link>https://jdhao.github.io/2018/11/15/neovim_configuration_windows/</link><pubDate>Thu, 15 Nov 2018 18:08:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/15/neovim_configuration_windows/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190119221237.png" width="600">
+&lt;/p>
+&lt;p>&lt;strong>Updated: 2020-01-18&lt;/strong>&lt;/p>
+&lt;p>In this post, I want to share how to install and configure terminal Neovim on
+Windows 10&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. For configurations of
+&lt;a href="https://github.com/equalsraf/neovim-qt">nvim-qt&lt;/a> on Windows, check &lt;a href="https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/">this post&lt;/a>.&lt;/p></description></item><item><title>An Introduction to Lookaround Regular Expression in Neovim/Vim</title><link>https://jdhao.github.io/2018/10/18/regular_expression_nvim/</link><pubDate>Thu, 18 Oct 2018 19:34:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/18/regular_expression_nvim/</guid><description>&lt;p>Today I want to use some regular expressions for searching and replacing in my
 files. But I found that Nvim/Vim regular expression engine has its own flavor,
-which is different from the regex engine used by Sublime Text&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;. I ended up
+which is different from the regex engine used by Sublime Text&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. I ended up
 learning some of the basics of Nvim-style regex. In this post, I want to share
-about how to use lookaround&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; in Nvim.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>The Fastest Way to Search A Keyword across the Project in Neovim</title>
-      <link>https://jdhao.github.io/2018/10/07/nvim_fast_keyword_search/</link>
-      <pubDate>Sun, 07 Oct 2018 17:34:01 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/10/07/nvim_fast_keyword_search/</guid>
-      <description>&lt;p&gt;When we want to find out where a method is used across the whole project, how
-do we do that in Nvim? Various tools are available, for example, &lt;a href=&#34;https://beyondgrep.com/documentation/&#34;&gt;ack&lt;/a&gt;,
-&lt;a href=&#34;https://github.com/ggreer/the_silver_searcher&#34;&gt;ag&lt;/a&gt; or &lt;a href=&#34;https://github.com/BurntSushi/ripgrep&#34;&gt;rg&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;These are the 3 most popular tools to use. In the following post, I will
-introduce how to install and use these packages in Neovim (Nvim).&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to Switch to A Buffer Quickly in Neovim/Vim</title>
-      <link>https://jdhao.github.io/2018/09/29/Switching_buffers_quickly_Neovim/</link>
-      <pubDate>Sat, 29 Sep 2018 16:41:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/09/29/Switching_buffers_quickly_Neovim/</guid>
-      <description>&lt;p&gt;When we are using Neovim, we often open several files in a window. Each file
-corresponds to a buffer. How to switch to a buffer quickly?&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to Use Tagbar in Neovim</title>
-      <link>https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/</link>
-      <pubDate>Fri, 28 Sep 2018 12:17:03 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/</guid>
-      <description>&lt;p&gt;If you have a source file with hundreds or thousands of lines of code. How to
+about how to use lookaround&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> in Nvim.&lt;/p></description></item><item><title>The Fastest Way to Search A Keyword across the Project in Neovim</title><link>https://jdhao.github.io/2018/10/07/nvim_fast_keyword_search/</link><pubDate>Sun, 07 Oct 2018 17:34:01 +0800</pubDate><guid>https://jdhao.github.io/2018/10/07/nvim_fast_keyword_search/</guid><description>&lt;p>When we want to find out where a method is used across the whole project, how
+do we do that in Nvim? Various tools are available, for example, &lt;a href="https://beyondgrep.com/documentation/">ack&lt;/a>,
+&lt;a href="https://github.com/ggreer/the_silver_searcher">ag&lt;/a> or &lt;a href="https://github.com/BurntSushi/ripgrep">rg&lt;/a>.&lt;/p>
+&lt;p>These are the 3 most popular tools to use. In the following post, I will
+introduce how to install and use these packages in Neovim (Nvim).&lt;/p></description></item><item><title>How to Switch to A Buffer Quickly in Neovim/Vim</title><link>https://jdhao.github.io/2018/09/29/Switching_buffers_quickly_Neovim/</link><pubDate>Sat, 29 Sep 2018 16:41:00 +0800</pubDate><guid>https://jdhao.github.io/2018/09/29/Switching_buffers_quickly_Neovim/</guid><description>&lt;p>When we are using Neovim, we often open several files in a window. Each file
+corresponds to a buffer. How to switch to a buffer quickly?&lt;/p></description></item><item><title>How to Use Tagbar in Neovim</title><link>https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/</link><pubDate>Fri, 28 Sep 2018 12:17:03 +0800</pubDate><guid>https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/</guid><description>&lt;p>If you have a source file with hundreds or thousands of lines of code. How to
 you see its structure and go to some classes or methods quickly in Nvim? The
-solution is to use &lt;a href=&#34;https://github.com/majutsushi/tagbar&#34;&gt;tagbar&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Use Pylint for Code Checking inside Neovim</title>
-      <link>https://jdhao.github.io/2018/09/20/disable_warning_neomake_pylint/</link>
-      <pubDate>Thu, 20 Sep 2018 17:31:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/09/20/disable_warning_neomake_pylint/</guid>
-      <description>&lt;p&gt;Pylint is a popular static code checker which can effectively find the possible
-bugs in your source code. It is easy to install pylint with conda or pip:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Intro to Nvim File Explorer Plugin Nerdtree</title>
-      <link>https://jdhao.github.io/2018/09/10/nerdtree_usage/</link>
-      <pubDate>Mon, 10 Sep 2018 11:44:43 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/09/10/nerdtree_usage/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/scrooloose/nerdtree&#34;&gt;Nerdtree&lt;/a&gt; is a file explorer for
+solution is to use &lt;a href="https://github.com/majutsushi/tagbar">tagbar&lt;/a>.&lt;/p></description></item><item><title>Use Pylint for Code Checking inside Neovim</title><link>https://jdhao.github.io/2018/09/20/disable_warning_neomake_pylint/</link><pubDate>Thu, 20 Sep 2018 17:31:00 +0800</pubDate><guid>https://jdhao.github.io/2018/09/20/disable_warning_neomake_pylint/</guid><description>&lt;p>Pylint is a popular static code checker which can effectively find the possible
+bugs in your source code. It is easy to install pylint with conda or pip:&lt;/p></description></item><item><title>Intro to Nvim File Explorer Plugin Nerdtree</title><link>https://jdhao.github.io/2018/09/10/nerdtree_usage/</link><pubDate>Mon, 10 Sep 2018 11:44:43 +0800</pubDate><guid>https://jdhao.github.io/2018/09/10/nerdtree_usage/</guid><description>&lt;p>&lt;a href="https://github.com/scrooloose/nerdtree">Nerdtree&lt;/a> is a file explorer for
 Vim/Neovim. It will generate a file navigation window just like an IDE. We can
 operate on files easily in the nerdtree window. In this post, I will summarize
-some of its configurations and usages.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Linux 下 Neovim 配置 Python 开发环境指南</title>
-      <link>https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/</link>
-      <pubDate>Wed, 05 Sep 2018 20:34:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;
-&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-39-49.jpg&#34; width=&#34;800&#34;&gt;
-&lt;/p&gt;
-&lt;p&gt;Vim 是一款主要流行于 *nix 系统上的强大的编辑器，另外一款可以与之媲美的编辑器是 Emacs，这两款编辑器广泛流行于程序员群体，&lt;a href=&#34;https://en.wikipedia.org/wiki/Editor_war&#34;&gt;关于谁是编辑器之王的争论经久不息&lt;/a&gt;。Vim 的功能虽然强大，但是作为一款「古老」的编辑器&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，也不是没有缺点：随着 Vim 代码量的增加，维护变得日益困难，不利于快速增加新功能；另外，它的主要开发者目前只有一个人，&lt;a href=&#34;https://en.wikipedia.org/wiki/Bram_Moolenaar&#34;&gt;Bram Moolenaar&lt;/a&gt;，也不符合当今开源社区多人协作的习惯。为了克服 Vim 的这些缺点，保留 Vim 的优点（最大程度兼容 Vim），让 Vim 的开发能有更快的迭代速度，&lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; 项目诞生了。本文介绍如何安装 Neovim 并配置 Python 开发环境(在以下叙述中，Neovim 和 Nvim 含义相同，不再加以区分)。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;我的完整 Neovim 配置可以在 &lt;a href=&#34;https://github.com/jdhao/nvim-config&#34;&gt;这里&lt;/a&gt; 查看。&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+some of its configurations and usages.&lt;/p></description></item><item><title>Linux 下 Neovim 配置 Python 开发环境指南</title><link>https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/</link><pubDate>Wed, 05 Sep 2018 20:34:00 +0800</pubDate><guid>https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-39-49.jpg" width="800">
+&lt;/p>
+&lt;p>Vim 是一款主要流行于 *nix 系统上的强大的编辑器，另外一款可以与之媲美的编辑器是 Emacs，这两款编辑器广泛流行于程序员群体，&lt;a href="https://en.wikipedia.org/wiki/Editor_war">关于谁是编辑器之王的争论经久不息&lt;/a>。Vim 的功能虽然强大，但是作为一款「古老」的编辑器&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>，也不是没有缺点：随着 Vim 代码量的增加，维护变得日益困难，不利于快速增加新功能；另外，它的主要开发者目前只有一个人，&lt;a href="https://en.wikipedia.org/wiki/Bram_Moolenaar">Bram Moolenaar&lt;/a>，也不符合当今开源社区多人协作的习惯。为了克服 Vim 的这些缺点，保留 Vim 的优点（最大程度兼容 Vim），让 Vim 的开发能有更快的迭代速度，&lt;a href="https://neovim.io/">Neovim&lt;/a> 项目诞生了。本文介绍如何安装 Neovim 并配置 Python 开发环境(在以下叙述中，Neovim 和 Nvim 含义相同，不再加以区分)。&lt;/p>
+&lt;p>&lt;strong>我的完整 Neovim 配置可以在 &lt;a href="https://github.com/jdhao/nvim-config">这里&lt;/a> 查看。&lt;/strong>&lt;/p></description></item></channel></rss>

@@ -1,410 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Line Number Settings for More Efficient Movement in Neovim - jdhao&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jdhao" /><meta name="description" content="In this post, I would like to share line number settings in Neovim to move the cursor more efficiently.
-" /><meta name="keywords" content="Hugo, theme, even" />
-
-
-
-<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
-
-
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
-
-
-<link rel="canonical" href="https://jdhao.github.io/2019/01/11/line_number_setting_nvim/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6058871559165202",
-    enable_page_level_ads: true
-  });
-</script>
-
-
-
-
-<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="Line Number Settings for More Efficient Movement in Neovim" />
-<meta property="og:description" content="In this post, I would like to share line number settings in Neovim to move the
-cursor more efficiently." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2019/01/11/line_number_setting_nvim/" />
-<meta property="article:published_time" content="2019-01-11T20:25:31+08:00" />
-<meta property="article:modified_time" content="2020-06-13T02:28:21+08:00" />
-<meta itemprop="name" content="Line Number Settings for More Efficient Movement in Neovim">
-<meta itemprop="description" content="In this post, I would like to share line number settings in Neovim to move the
-cursor more efficiently.">
-<meta itemprop="datePublished" content="2019-01-11T20:25:31+08:00" />
-<meta itemprop="dateModified" content="2020-06-13T02:28:21+08:00" />
-<meta itemprop="wordCount" content="461">
-
-
-
-<meta itemprop="keywords" content="Windows,CentOS,Tmux,Mac," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Line Number Settings for More Efficient Movement in Neovim"/>
-<meta name="twitter:description" content="In this post, I would like to share line number settings in Neovim to move the
-cursor more efficiently."/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jdhao&#39;s blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jdhao&#39;s blog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Line Number Settings for More Efficient Movement in Neovim</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2019-01-11 </span>
-        <div class="post-category">
-            <a href="/categories/Nvim/"> Nvim </a>
-            </div>
-          <span class="more-meta"> 461 words </span>
-          <span class="more-meta"> 3 mins read </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#absolute-number-and-relative-number-in-neovim">Absolute number and relative number in Neovim</a>
-      <ul>
-        <li><a href="#show-absolute-line-number">Show absolute line number</a></li>
-        <li><a href="#combine-absolute-number-and-relative-number">Combine absolute number and relative number</a></li>
-      </ul>
-    </li>
-    <li><a href="#automatic-toggle-of-relative-line-number">Automatic toggle of relative line number</a>
-      <ul>
-        <li><a href="#automatic-number-toggle-does-not-work-inside-tmux">Automatic number toggle does not work inside Tmux?</a></li>
-      </ul>
-    </li>
-    <li><a href="#references">References</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>In this post, I would like to share line number settings in Neovim to move the
-cursor more efficiently.</p>
-<h1 id="absolute-number-and-relative-number-in-neovim">Absolute number and relative number in Neovim</h1>
-<h2 id="show-absolute-line-number">Show absolute line number</h2>
-<p>To know where we are in a file, it is useful to show the line number on the
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Line Number Settings for More Efficient Movement in Neovim - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="In this post, I would like to share line number settings in Neovim to move the cursor more efficiently."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://jdhao.github.io/2019/01/11/line_number_setting_nvim/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Line Number Settings for More Efficient Movement in Neovim"><meta property="og:description" content="In this post, I would like to share line number settings in Neovim to move the
+cursor more efficiently."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/01/11/line_number_setting_nvim/"><meta property="article:published_time" content="2019-01-11T20:25:31+08:00"><meta property="article:modified_time" content="2020-06-13T02:28:21+08:00"><meta itemprop=name content="Line Number Settings for More Efficient Movement in Neovim"><meta itemprop=description content="In this post, I would like to share line number settings in Neovim to move the
+cursor more efficiently."><meta itemprop=datePublished content="2019-01-11T20:25:31+08:00"><meta itemprop=dateModified content="2020-06-13T02:28:21+08:00"><meta itemprop=wordCount content="461"><meta itemprop=keywords content="Windows,CentOS,Tmux,Mac,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Line Number Settings for More Efficient Movement in Neovim"><meta name=twitter:description content="In this post, I would like to share line number settings in Neovim to move the
+cursor more efficiently."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Line Number Settings for More Efficient Movement in Neovim</h1><div class=post-meta><span class=post-time>2019-01-11</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>461 words</span>
+<span class=more-meta>3 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#absolute-number-and-relative-number-in-neovim>Absolute number and relative number in Neovim</a><ul><li><a href=#show-absolute-line-number>Show absolute line number</a></li><li><a href=#combine-absolute-number-and-relative-number>Combine absolute number and relative number</a></li></ul></li><li><a href=#automatic-toggle-of-relative-line-number>Automatic toggle of relative line number</a><ul><li><a href=#automatic-number-toggle-does-not-work-inside-tmux>Automatic number toggle does not work inside Tmux?</a></li></ul></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>In this post, I would like to share line number settings in Neovim to move the
+cursor more efficiently.</p><h1 id=absolute-number-and-relative-number-in-neovim>Absolute number and relative number in Neovim</h1><h2 id=show-absolute-line-number>Show absolute line number</h2><p>To know where we are in a file, it is useful to show the line number on the
 leftmost column of the window. To show line numbers in neovim, we can set the
-<code>number</code> option:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">set</span> <span class="nx">number</span><span class="err">
+<code>number</code> option:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>set</span> <span class=nx>number</span><span class=err>
 </span></code></pre></div><p>The absolute line number will be shown at the leftmost column of current
-window.</p>
-<p align="center">
-<img src="https://blog-resource-1257868508.file.myqcloud.com/20200613021435.png" width="600">
-</p>
-<h2 id="combine-absolute-number-and-relative-number">Combine absolute number and relative number</h2>
-<p>While the <code>number</code> option is useful, it is not convenient for us to move the
+window.</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200613021435.png width=600></p><h2 id=combine-absolute-number-and-relative-number>Combine absolute number and relative number</h2><p>While the <code>number</code> option is useful, it is not convenient for us to move the
 cursor to other lines. Because cursor movement in Neovim is based on relative
 distance. For example, to go to 3 lines above or below the current line, we use
 <code>3k</code> or <code>3j</code>. If we want to go to a specific line, we have to manually
 calculate the distance between current cursor line and the destination line,
-which is cumbersome and error-prone.</p>
-<p>To alleviate this issue, Neovim also support showing relative number:</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">set</span> <span class="nx">relativenumber</span><span class="err">
+which is cumbersome and error-prone.</p><p>To alleviate this issue, Neovim also support showing relative number:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>set</span> <span class=nx>relativenumber</span><span class=err>
 </span></code></pre></div><p>This option can be combined with the <code>number</code> option. The end result is that
 only the cursor line shows absolute line number, and all the other lines show
-relative number( or distance) relative to current line.</p>
-<p align="center">
-<img src="https://blog-resource-1257868508.file.myqcloud.com/20200613022102.jpg" width="600">
-</p>
-<h1 id="automatic-toggle-of-relative-line-number">Automatic toggle of relative line number</h1>
-<p>In some situations, it is more convenient to see absolute line numbers, e.g.,
+relative number( or distance) relative to current line.</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200613022102.jpg width=600></p><h1 id=automatic-toggle-of-relative-line-number>Automatic toggle of relative line number</h1><p>In some situations, it is more convenient to see absolute line numbers, e.g.,
 when we want to debug a file and run to specific lines. We can the use plugin
-<a href="https://github.com/jeffkreeftmeijer/vim-numbertoggle">vim-numbertoggle</a> to
+<a href=https://github.com/jeffkreeftmeijer/vim-numbertoggle>vim-numbertoggle</a> to
 automatically toggle relative number based on several events. e.g., when we
-enter insert mode or lost focus of a window.</p>
-<h2 id="automatic-number-toggle-does-not-work-inside-tmux">Automatic number toggle does not work inside Tmux?</h2>
-<p>I have found that the number toggle function does not work inside tmux sessions
-by default<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. If I open two tmux panes side by side and open a file in
+enter insert mode or lost focus of a window.</p><h2 id=automatic-number-toggle-does-not-work-inside-tmux>Automatic number toggle does not work inside Tmux?</h2><p>I have found that the number toggle function does not work inside tmux sessions
+by default<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. If I open two tmux panes side by side and open a file in
 Neovim in one pane and then switch to another tmux pane, the relative line
-number in Neovim does not change to absolute number.</p>
-<p>I opened an issue on the Neovim GitHub repo and get the right answer from the
+number in Neovim does not change to absolute number.</p><p>I opened an issue on the Neovim GitHub repo and get the right answer from the
 developer. We need to turn on the <code>focus-events</code> option for tmux. From the Tmux
-documentaion:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">focus-events [on | off]
+documentaion:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>focus-events [on | off]
         When enabled, focus events are requested from the terminal if
         supported and passed through to applications running in tmux. Attached
         clients should be detached and attached again after changing this
         option.
 </code></pre></div><p>We need to edit the tmux config file <code>~/.tmux.conf</code> and add the following
-setting:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">set -g focus-events on
+setting:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>set -g focus-events on
 </code></pre></div><p>Refresh the tmux session or start a new tmux session and automatic relative
-number toggle should work as expected now.</p>
-<h1 id="references">References</h1>
-<ul>
-<li>Nvim documentation: <code>:h number_relativenumber</code>.</li>
-<li><a href="https://jeffkreeftmeijer.com/vim-number/">Automatic relative number toggle</a>.</li>
-<li><a href="https://github.com/neovim/neovim/issues/9486">Issue opened in Neovim GitHub repo</a>.</li>
-<li><a href="https://github.com/jeffkreeftmeijer/vim-numbertoggle/issues/45">Issue opened in vim-numbertoggle repo</a>.</li>
-<li><a href="https://vi.stackexchange.com/q/18515/15292">Questions on StackExchange</a>.</li>
-</ul>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p>I am using Tmux 2.8-rc <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">jdhao</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2020-06-13
-        
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">License</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
-        <span>wechat</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
-        <span>alipay</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/Windows/">Windows</a>
-          <a href="/tags/CentOS/">CentOS</a>
-          <a href="/tags/Tmux/">Tmux</a>
-          <a href="/tags/Mac/">Mac</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/2019/01/15/markdown_edit_preview_nvim/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Markdown Writing and Previewing in Neovim -- A Complete Guide</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2019/01/10/two_chinese_corpus/">
-            <span class="next-text nav-default">两个大规模中文语料库介绍以及处理</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'jdhao';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
-  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy; 
-    2017 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jdhao</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-113395108-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-
-</body>
-</html>
+number toggle should work as expected now.</p><h1 id=references>References</h1><ul><li>Nvim documentation: <code>:h number_relativenumber</code>.</li><li><a href=https://jeffkreeftmeijer.com/vim-number/>Automatic relative number toggle</a>.</li><li><a href=https://github.com/neovim/neovim/issues/9486>Issue opened in Neovim GitHub repo</a>.</li><li><a href=https://github.com/jeffkreeftmeijer/vim-numbertoggle/issues/45>Issue opened in vim-numbertoggle repo</a>.</li><li><a href=https://vi.stackexchange.com/q/18515/15292>Questions on StackExchange</a>.</li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>I am using Tmux 2.8-rc <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-06-13</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Windows/>Windows</a>
+<a href=/tags/CentOS/>CentOS</a>
+<a href=/tags/Tmux/>Tmux</a>
+<a href=/tags/Mac/>Mac</a></div><nav class=post-nav><a class=prev href=/2019/01/15/markdown_edit_preview_nvim/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Markdown Writing and Previewing in Neovim -- A Complete Guide</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2019/01/10/two_chinese_corpus/><span class="next-text nav-default">两个大规模中文语料库介绍以及处理</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='jdhao';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+2017 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>

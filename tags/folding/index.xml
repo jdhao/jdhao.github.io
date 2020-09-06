@@ -1,49 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>folding on jdhao&#39;s blog</title>
-    <link>https://jdhao.github.io/tags/folding/</link>
-    <description>Recent content in folding on jdhao&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>jdhao</copyright>
-    <lastBuildDate>Fri, 16 Aug 2019 22:56:20 +0800</lastBuildDate>
-    
-	<atom:link href="https://jdhao.github.io/tags/folding/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>How to Create Proper Folding for Vim/Nvim Configuration</title>
-      <link>https://jdhao.github.io/2019/08/16/nvim_config_folding/</link>
-      <pubDate>Fri, 16 Aug 2019 22:56:20 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2019/08/16/nvim_config_folding/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/20190817223054.png&#34; alt=&#34;Folded config&#34;&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>A Complete Guide to Setting up Neovim for Python Development on Linux</title>
-      <link>https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/</link>
-      <pubDate>Mon, 24 Dec 2018 00:14:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;
-&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-39-49.jpg&#34; width=&#34;800&#34;&gt;
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Linux 下 Neovim 配置 Python 开发环境指南</title>
-      <link>https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/</link>
-      <pubDate>Wed, 05 Sep 2018 20:34:00 +0800</pubDate>
-      
-      <guid>https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/</guid>
-      <description>&lt;p align=&#34;center&#34;&gt;
-&lt;img src=&#34;https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-39-49.jpg&#34; width=&#34;800&#34;&gt;
-&lt;/p&gt;
-&lt;p&gt;Vim 是一款主要流行于 *nix 系统上的强大的编辑器，另外一款可以与之媲美的编辑器是 Emacs，这两款编辑器广泛流行于程序员群体，&lt;a href=&#34;https://en.wikipedia.org/wiki/Editor_war&#34;&gt;关于谁是编辑器之王的争论经久不息&lt;/a&gt;。Vim 的功能虽然强大，但是作为一款「古老」的编辑器&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，也不是没有缺点：随着 Vim 代码量的增加，维护变得日益困难，不利于快速增加新功能；另外，它的主要开发者目前只有一个人，&lt;a href=&#34;https://en.wikipedia.org/wiki/Bram_Moolenaar&#34;&gt;Bram Moolenaar&lt;/a&gt;，也不符合当今开源社区多人协作的习惯。为了克服 Vim 的这些缺点，保留 Vim 的优点（最大程度兼容 Vim），让 Vim 的开发能有更快的迭代速度，&lt;a href=&#34;https://neovim.io/&#34;&gt;Neovim&lt;/a&gt; 项目诞生了。本文介绍如何安装 Neovim 并配置 Python 开发环境(在以下叙述中，Neovim 和 Nvim 含义相同，不再加以区分)。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;我的完整 Neovim 配置可以在 &lt;a href=&#34;https://github.com/jdhao/nvim-config&#34;&gt;这里&lt;/a&gt; 查看。&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>folding on jdhao's blog</title><link>https://jdhao.github.io/tags/folding/</link><description>Recent content in folding on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Fri, 16 Aug 2019 22:56:20 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/folding/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Create Proper Folding for Vim/Nvim Configuration</title><link>https://jdhao.github.io/2019/08/16/nvim_config_folding/</link><pubDate>Fri, 16 Aug 2019 22:56:20 +0800</pubDate><guid>https://jdhao.github.io/2019/08/16/nvim_config_folding/</guid><description>&lt;p>&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190817223054.png" alt="Folded config">&lt;/p></description></item><item><title>A Complete Guide to Setting up Neovim for Python Development on Linux</title><link>https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/</link><pubDate>Mon, 24 Dec 2018 00:14:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-39-49.jpg" width="800">
+&lt;/p></description></item><item><title>Linux 下 Neovim 配置 Python 开发环境指南</title><link>https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/</link><pubDate>Wed, 05 Sep 2018 20:34:00 +0800</pubDate><guid>https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-39-49.jpg" width="800">
+&lt;/p>
+&lt;p>Vim 是一款主要流行于 *nix 系统上的强大的编辑器，另外一款可以与之媲美的编辑器是 Emacs，这两款编辑器广泛流行于程序员群体，&lt;a href="https://en.wikipedia.org/wiki/Editor_war">关于谁是编辑器之王的争论经久不息&lt;/a>。Vim 的功能虽然强大，但是作为一款「古老」的编辑器&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>，也不是没有缺点：随着 Vim 代码量的增加，维护变得日益困难，不利于快速增加新功能；另外，它的主要开发者目前只有一个人，&lt;a href="https://en.wikipedia.org/wiki/Bram_Moolenaar">Bram Moolenaar&lt;/a>，也不符合当今开源社区多人协作的习惯。为了克服 Vim 的这些缺点，保留 Vim 的优点（最大程度兼容 Vim），让 Vim 的开发能有更快的迭代速度，&lt;a href="https://neovim.io/">Neovim&lt;/a> 项目诞生了。本文介绍如何安装 Neovim 并配置 Python 开发环境(在以下叙述中，Neovim 和 Nvim 含义相同，不再加以区分)。&lt;/p>
+&lt;p>&lt;strong>我的完整 Neovim 配置可以在 &lt;a href="https://github.com/jdhao/nvim-config">这里&lt;/a> 查看。&lt;/strong>&lt;/p></description></item></channel></rss>

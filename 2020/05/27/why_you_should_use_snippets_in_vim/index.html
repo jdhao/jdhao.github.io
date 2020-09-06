@@ -1,216 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Why You Should Use Snippets in Vim/Neovim - jdhao&#39;s blog</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="jdhao" /><meta name="description" content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim, you need to ask yourself if there is a better way to do it.
-" /><meta name="keywords" content="Hugo, theme, even" />
-
-
-
-<meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
-
-
-<meta name="generator" content="Hugo 0.74.3 with theme even" />
-
-
-<link rel="canonical" href="https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-6058871559165202",
-    enable_page_level_ads: true
-  });
-</script>
-
-
-
-
-<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
-
-
-<meta property="og:title" content="Why You Should Use Snippets in Vim/Neovim" />
-<meta property="og:description" content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
-you need to ask yourself if there is a better way to do it." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/" />
-<meta property="article:published_time" content="2020-05-27T22:46:19+08:00" />
-<meta property="article:modified_time" content="2020-05-28T22:27:44+08:00" />
-<meta itemprop="name" content="Why You Should Use Snippets in Vim/Neovim">
-<meta itemprop="description" content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
-you need to ask yourself if there is a better way to do it.">
-<meta itemprop="datePublished" content="2020-05-27T22:46:19+08:00" />
-<meta itemprop="dateModified" content="2020-05-28T22:27:44+08:00" />
-<meta itemprop="wordCount" content="532">
-
-
-
-<meta itemprop="keywords" content="snippet,Vim," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Why You Should Use Snippets in Vim/Neovim"/>
-<meta name="twitter:description" content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
-you need to ask yourself if there is a better way to do it."/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">jdhao&#39;s blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">jdhao&#39;s blog</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">Home</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Tags</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">About</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Why You Should Use Snippets in Vim/Neovim</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2020-05-27 </span>
-        <div class="post-category">
-            <a href="/categories/Nvim/"> Nvim </a>
-            </div>
-          <span class="more-meta"> 532 words </span>
-          <span class="more-meta"> 3 mins read </span>
-        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> times read </span>
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#generate-debian-change-log-file-signature">Generate debian change log file signature</a></li>
-    <li><a href="#generate-main-function-template-for-python">Generate main function template for Python</a></li>
-    <li><a href="#insert-center-aligned-image-in-markdown">Insert center-aligned image in Markdown</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
-you need to ask yourself if there is a better way to do it.</p>
-<p>Snippet is a good way to insert structured text: you just need to type the
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Why You Should Use Snippets in Vim/Neovim - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim, you need to ask yourself if there is a better way to do it."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Why You Should Use Snippets in Vim/Neovim"><meta property="og:description" content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
+you need to ask yourself if there is a better way to do it."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/"><meta property="article:published_time" content="2020-05-27T22:46:19+08:00"><meta property="article:modified_time" content="2020-05-28T22:27:44+08:00"><meta itemprop=name content="Why You Should Use Snippets in Vim/Neovim"><meta itemprop=description content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
+you need to ask yourself if there is a better way to do it."><meta itemprop=datePublished content="2020-05-27T22:46:19+08:00"><meta itemprop=dateModified content="2020-05-28T22:27:44+08:00"><meta itemprop=wordCount content="532"><meta itemprop=keywords content="snippet,Vim,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Why You Should Use Snippets in Vim/Neovim"><meta name=twitter:description content="If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
+you need to ask yourself if there is a better way to do it."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Why You Should Use Snippets in Vim/Neovim</h1><div class=post-meta><span class=post-time>2020-05-27</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>532 words</span>
+<span class=more-meta>3 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#generate-debian-change-log-file-signature>Generate debian change log file signature</a></li><li><a href=#generate-main-function-template-for-python>Generate main function template for Python</a></li><li><a href=#insert-center-aligned-image-in-markdown>Insert center-aligned image in Markdown</a></li></ul></nav></div></div><div class=post-content><p>If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
+you need to ask yourself if there is a better way to do it.</p><p>Snippet is a good way to insert structured text: you just need to type the
 trigger word and press the trigger key, then you have the whole text ready for
 you to edit. For example, when I am writing my blog post, I use <code>meta</code> as the
-trigger to generate the post front matter info.</p>
-<p align="center">
-<img src="https://blog-resource-1257868508.file.myqcloud.com/20200527234607.gif" width="600">
-</p>
-<p><a href="https://github.com/SirVer/ultisnips">Ultisnips</a> is a good tool to automate
+trigger to generate the post front matter info.</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200527234607.gif width=600></p><p><a href=https://github.com/SirVer/ultisnips>Ultisnips</a> is a good tool to automate
 text insertion, an it can increase your efficiency dramatically. For how to
-configure ultisnips for Neovim, refer to <a href="https://jdhao.github.io/2019/04/17/neovim_snippet_s1/">this
+configure ultisnips for Neovim, refer to <a href=https://jdhao.github.io/2019/04/17/neovim_snippet_s1/>this
 post</a>. In the following,
-I would like to show several cases of using snippet to improve my efficiency.</p>
-<h1 id="generate-debian-change-log-file-signature">Generate debian change log file signature</h1>
-<p>I saw <a href="https://vi.stackexchange.com/q/25550/15292">a post on stackExchange</a>
-that some one want to insert <a href="https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#changelog">debian change file</a>
-signature of the format:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-- Alexis Wilke &lt;alexis@example.com&gt;  Tue, 26 May 2020 18:00:09 -0800
+I would like to show several cases of using snippet to improve my efficiency.</p><h1 id=generate-debian-change-log-file-signature>Generate debian change log file signature</h1><p>I saw <a href=https://vi.stackexchange.com/q/25550/15292>a post on stackExchange</a>
+that some one want to insert <a href=https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#changelog>debian change file</a>
+signature of the format:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>-- Alexis Wilke &lt;alexis@example.com&gt;  Tue, 26 May 2020 18:00:09 -0800
 </code></pre></div><p>Each time when he writes this signature, only the date changes. The date is
 also in standard format. This is good case to show how we can save our time
-with snippet.</p>
-<p>We need create a file named <code>debchangelog.snippets</code> in our custom snippet
-directory and add the following snippet into it:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">snippet debsig &#34;debian change log signature&#34; w
+with snippet.</p><p>We need create a file named <code>debchangelog.snippets</code> in our custom snippet
+directory and add the following snippet into it:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>snippet debsig &#34;debian change log signature&#34; w
 -- Alexis Wilke &lt;alexis@example.com&gt;  `!v strftime(&#39;%a, %d %b %Y %X %z&#39;)`
 endsnippet
 </code></pre></div><p>The backticked text use the interpolation feature of Ultisnips. <code>!v</code> means to
 use Vim language interpolation, and it should be followed by valid Vim script
-expressions, like the one given above.</p>
-<p>After adding this snippet, when you open a debian changelog file<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, type
+expressions, like the one given above.</p><p>After adding this snippet, when you open a debian changelog file<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>, type
 <code>debsig</code> and press the trigger key, it will be expanded to the signature
-automatically.</p>
-<p align="center">
-<img src="https://blog-resource-1257868508.file.myqcloud.com/20200527233636.gif" width="600">
-</p>
-<h1 id="generate-main-function-template-for-python">Generate main function template for Python</h1>
-<p>If a Python module can be imported and run as standard alone script, it is often
-a good practice to use the following template:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="c1"># the main function logic here</span>
+automatically.</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200527233636.gif width=600></p><h1 id=generate-main-function-template-for-python>Generate main function template for Python</h1><p>If a Python module can be imported and run as standard alone script, it is often
+a good practice to use the following template:</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+    <span class=c1># the main function logic here</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
+<span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+    <span class=n>main</span><span class=p>()</span>
 </code></pre></div><p>It is cumbersome and time-wasting to type this every time we create a file.
 Let&rsquo;s create a snippet for it. In the file <code>python.snippet</code> under your custom
-snippet directory, add the following snippet:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">snippet main &#34;Main function boilerplate&#34; b
+snippet directory, add the following snippet:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>snippet main &#34;Main function boilerplate&#34; b
 def main():
     $0
 
@@ -219,16 +42,12 @@ if __name__ == &#34;__main__&#34;:
     main()
 endsnippet
 </code></pre></div><p>When you create a Python source file, type <code>main</code> and press trigger, the file
-template will be created automatically for you.</p>
-<h1 id="insert-center-aligned-image-in-markdown">Insert center-aligned image in Markdown</h1>
-<p>The default Markdown syntax for image can not align the image or set the image
-display size. We can use the raw HTML tag to achieve this:</p>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">p</span> <span class="na">align</span><span class="o">=</span><span class="s">&#34;center&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;image_url&#34;</span> <span class="na">width</span><span class="o">=</span><span class="s">&#34;800&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+template will be created automatically for you.</p><h1 id=insert-center-aligned-image-in-markdown>Insert center-aligned image in Markdown</h1><p>The default Markdown syntax for image can not align the image or set the image
+display size. We can use the raw HTML tag to achieve this:</p><div class=highlight><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>p</span> <span class=na>align</span><span class=o>=</span><span class=s>&#34;center&#34;</span><span class=p>&gt;</span>
+<span class=p>&lt;</span><span class=nt>img</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;image_url&#34;</span> <span class=na>width</span><span class=o>=</span><span class=s>&#34;800&#34;</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
 </code></pre></div><p>To avoid typing these HTML tags every time, we can add the following image
-snippet to the file <code>markdown.snippet</code> under our custom snippet directory:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">snippet img &#34;Aligned image using HTML tag&#34;
+snippet to the file <code>markdown.snippet</code> under our custom snippet directory:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>snippet img &#34;Aligned image using HTML tag&#34;
 &lt;p align=&#34;center&#34;&gt;
 &lt;img src=&#34;${1:URL}&#34; width=&#34;${2:800}&#34;&gt;
 &lt;/p&gt;
@@ -237,179 +56,26 @@ endsnippet
 </code></pre></div><p>Then we can use <code>img</code> to trigger the image snippet. You can then press the
 forward jump and backward jump shortcut for Ultisnips to jump back and forth
 between the predefined stop positions to insert URL and adjust the image
-display size.</p>
-<section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p>Make sure that the filetype is <code>debchangelog</code>, otherwise set the filetype to <code>debchangelog</code> manually. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">Author</span>
-    <span class="item-content">jdhao</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">LastMod</span>
-    <span class="item-content">
-        2020-05-28
-        
-    </span>
-  </p>
-  
-  <p class="copyright-item">
-    <span class="item-title">License</span>
-    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
-  </p>
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/wechat.png">
-        <span>wechat</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg">
-        <span>alipay</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/snippet/">snippet</a>
-          <a href="/tags/Vim/">Vim</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/2020/06/01/markdown_writing_tricks/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Markdown Writing Tricks</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
-        <a class="next" href="/2020/05/22/highlight_yank_region_nvim/">
-            <span class="next-text nav-default">Highlight Yanked Region in Nvim/Vim</span>
-            <span class="next-text nav-mobile">Next</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'jdhao';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="https://github.com/jdhao" class="iconfont icon-github" title="github"></a>
-  <a href="https://jdhao.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  <div class="busuanzi-footer">
-    <span id="busuanzi_container_site_pv"> site pv: <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-      <span class="division">|</span>
-    <span id="busuanzi_container_site_uv"> site uv: <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> </span>
-  </div>
-
-  <span class="copyright-year">
-    &copy; 
-    2017 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">jdhao</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
-
-
-
-<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-113395108-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<script id="baidu_push">
-  (function(){
-    if (window.location.hostname === 'localhost') return;
-    var bp = document.createElement('script'); bp.async = true;
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
-</script>
-
-
-
-
-</body>
-</html>
+display size.</p><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>Make sure that the filetype is <code>debchangelog</code>, otherwise set the filetype to <code>debchangelog</code> manually. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-05-28</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/snippet/>snippet</a>
+<a href=/tags/Vim/>Vim</a></div><nav class=post-nav><a class=prev href=/2020/06/01/markdown_writing_tricks/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Markdown Writing Tricks</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2020/05/22/highlight_yank_region_nvim/><span class="next-text nav-default">Highlight Yanked Region in Nvim/Vim</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='jdhao';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+2017 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},TeX:{equationNumbers:{autoNumber:"AMS"}},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
