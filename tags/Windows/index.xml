@@ -40,7 +40,7 @@ error when opening files in UTF-8 format:&lt;/p>
 &lt;blockquote>
 &lt;p>UnicodeDecodeError: &amp;lsquo;gbk&amp;rsquo; codec can&amp;rsquo;t decode byte 0xaf in position 5: illegal multibyte sequence&lt;/p>
 &lt;/blockquote>
-&lt;p>If you read the same file on Linux or MacOS, you will find that this file can
+&lt;p>If you read the same file on Linux or macOS, you will find that this file can
 be opened without any error. Why is there a difference? It has something to do
 with the default encoding Python chooses to use on different platforms.&lt;/p></description></item><item><title>Deoplete Failed to Load at Startup after Updating Python neovim Package</title><link>https://jdhao.github.io/2018/11/19/deoplete_failed_to_load_neovim/</link><pubDate>Mon, 19 Nov 2018 18:18:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/19/deoplete_failed_to_load_neovim/</guid><description>&lt;p>Today when I use &lt;code>:checkhealth&lt;/code> to check if there are anything wrong with my
 Neovim and related packages. I got an info that &lt;a href="https://github.com/neovim/pynvim">Python &lt;code>neovim&lt;/code>

@@ -88,7 +88,7 @@ error when opening files in UTF-8 format:&lt;/p>
 &lt;blockquote>
 &lt;p>UnicodeDecodeError: &amp;lsquo;gbk&amp;rsquo; codec can&amp;rsquo;t decode byte 0xaf in position 5: illegal multibyte sequence&lt;/p>
 &lt;/blockquote>
-&lt;p>If you read the same file on Linux or MacOS, you will find that this file can
+&lt;p>If you read the same file on Linux or macOS, you will find that this file can
 be opened without any error. Why is there a difference? It has something to do
 with the default encoding Python chooses to use on different platforms.&lt;/p></description></item><item><title>A Simple Guide on How to Use the Python Logging Module</title><link>https://jdhao.github.io/2018/10/12/python_logging_module/</link><pubDate>Fri, 12 Oct 2018 22:13:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/12/python_logging_module/</guid><description>&lt;p>In the past, I often use plain &lt;code>print()&lt;/code> to display some statistics during
 training process of my models. However, it is not convenient to save the

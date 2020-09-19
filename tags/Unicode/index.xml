@@ -24,7 +24,7 @@ error when opening files in UTF-8 format:&lt;/p>
 &lt;blockquote>
 &lt;p>UnicodeDecodeError: &amp;lsquo;gbk&amp;rsquo; codec can&amp;rsquo;t decode byte 0xaf in position 5: illegal multibyte sequence&lt;/p>
 &lt;/blockquote>
-&lt;p>If you read the same file on Linux or MacOS, you will find that this file can
+&lt;p>If you read the same file on Linux or macOS, you will find that this file can
 be opened without any error. Why is there a difference? It has something to do
 with the default encoding Python chooses to use on different platforms.&lt;/p></description></item><item><title>How to Plot Unicode Characters with Matplotlib</title><link>https://jdhao.github.io/2018/04/08/matplotlib-unicode-character/</link><pubDate>Sun, 08 Apr 2018 22:33:46 +0800</pubDate><guid>https://jdhao.github.io/2018/04/08/matplotlib-unicode-character/</guid><description>&lt;p>This is a post which follows up my previous post on &lt;a href="https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/">how to use Chinese
 characters with

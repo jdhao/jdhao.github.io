@@ -4,7 +4,7 @@ error when opening files in UTF-8 format:&lt;/p>
 &lt;blockquote>
 &lt;p>UnicodeDecodeError: &amp;lsquo;gbk&amp;rsquo; codec can&amp;rsquo;t decode byte 0xaf in position 5: illegal multibyte sequence&lt;/p>
 &lt;/blockquote>
-&lt;p>If you read the same file on Linux or MacOS, you will find that this file can
+&lt;p>If you read the same file on Linux or macOS, you will find that this file can
 be opened without any error. Why is there a difference? It has something to do
 with the default encoding Python chooses to use on different platforms.&lt;/p></description></item><item><title>Character set, Encoding, Locale, Font and More...</title><link>https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/</link><pubDate>Sun, 28 Jan 2018 16:39:00 +0800</pubDate><guid>https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/</guid><description>&lt;p>It is almost destined that at some point of our programming years, we will meet
 the issue of character set, encoding and all the related stuff. There are tons
