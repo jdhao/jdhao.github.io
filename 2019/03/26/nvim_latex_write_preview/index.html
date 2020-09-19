@@ -2,11 +2,11 @@
 on how to write and compile LaTeX source code in Sublime Text. Now that I am
 familiar with Neovim, I want to do everything related to text editing inside
 Neovim. In this post, I would like to share how to configure Neovim for LaTeX
-editing and previewing."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/"><meta property="article:published_time" content="2019-03-26T22:54:43+08:00"><meta property="article:modified_time" content="2020-03-09T00:03:59+08:00"><meta itemprop=name content="A Complete Guide on Writing LaTeX with Vimtex in Neovim"><meta itemprop=description content="Previously, I have written a post
+editing and previewing."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/"><meta property="article:published_time" content="2019-03-26T22:54:43+08:00"><meta property="article:modified_time" content="2020-09-20T01:57:55+08:00"><meta itemprop=name content="A Complete Guide on Writing LaTeX with Vimtex in Neovim"><meta itemprop=description content="Previously, I have written a post
 on how to write and compile LaTeX source code in Sublime Text. Now that I am
 familiar with Neovim, I want to do everything related to text editing inside
 Neovim. In this post, I would like to share how to configure Neovim for LaTeX
-editing and previewing."><meta itemprop=datePublished content="2019-03-26T22:54:43+08:00"><meta itemprop=dateModified content="2020-03-09T00:03:59+08:00"><meta itemprop=wordCount content="1167"><meta itemprop=keywords content="LaTeX,PDF,"><meta name=twitter:card content="summary"><meta name=twitter:title content="A Complete Guide on Writing LaTeX with Vimtex in Neovim"><meta name=twitter:description content="Previously, I have written a post
+editing and previewing."><meta itemprop=datePublished content="2019-03-26T22:54:43+08:00"><meta itemprop=dateModified content="2020-09-20T01:57:55+08:00"><meta itemprop=wordCount content="1167"><meta itemprop=keywords content="LaTeX,PDF,"><meta name=twitter:card content="summary"><meta name=twitter:title content="A Complete Guide on Writing LaTeX with Vimtex in Neovim"><meta name=twitter:description content="Previously, I have written a post
 on how to write and compile LaTeX source code in Sublime Text. Now that I am
 familiar with Neovim, I want to do everything related to text editing inside
 Neovim. In this post, I would like to share how to configure Neovim for LaTeX
@@ -24,15 +24,16 @@ can use <a href=https://github.com/junegunn/vim-plug>vim-plug</a>:</p><div class
 improves our efficiency dramatically. Vimtex supports completion for citations,
 labels (for figure, equation, table, section, etc.), commands, environments,
 packages and document classes and more. For more documentation on completion,
-see <code>:h vimtex-completion</code>.</p><p>Vimtex can work with several completion engines such as <a href=https://github.com/Shougo/deoplete.nvim>deoplete</a>,
-<a href=https://github.com/Valloric/YouCompleteMe>YouCompleteMe</a>, <a href=https://github.com/ncm2/ncm2>ncm2</a>.
-Since I use deoplete for completion, I will just introduce how to configure it
-for deoplete<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. To make vimtex work with deoplete, add the following setting
-to your <code>init.vim</code>:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; This is new style</span><span class=err>
+see <code>:h vimtex-completion</code>.</p><p>Vimtex can work with several completion engines such as
+<a href=https://github.com/Shougo/deoplete.nvim>deoplete</a>,
+<a href=https://github.com/Valloric/YouCompleteMe>YouCompleteMe</a>,
+<a href=https://github.com/ncm2/ncm2>ncm2</a>. Since I use deoplete for completion, I
+will just introduce how to configure it for deoplete<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. To make vimtex work
+with deoplete, add the following setting to your <code>init.vim</code>:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; This is new style</span><span class=err>
 </span><span class=err></span><span class=nx>call</span> <span class=nx>deoplete</span>#<span class=nx>custom</span>#<span class=nx>var</span><span class=p>(</span><span class=s1>&#39;omni&#39;</span><span class=p>,</span> <span class=s1>&#39;input_patterns&#39;</span><span class=p>,</span> {<span class=err>
 </span><span class=err></span>      \ <span class=s1>&#39;tex&#39;</span>: <span class=nx>g</span>:<span class=nx>vimtex</span>#<span class=nx>re</span>#<span class=nx>deoplete</span><span class=err>
 </span><span class=err></span>      \}<span class=p>)</span><span class=err>
-</span></code></pre></div><p>After that you should be able to use auto-completion.</p><h2 id=how-to-quickly-insert-an-environment>How to quickly insert an environment?</h2><p>Vimtex supports autocompletion through autocompletion engines such as deoplete.
+</span></code></pre></div><p>After that, you should be able to use auto-completion.</p><h2 id=how-to-quickly-insert-an-environment>How to quickly insert an environment?</h2><p>Vimtex supports autocompletion through autocompletion engines such as deoplete.
 After configuring vimtex to use deoplete, you should be able to use the snippet
 provided by Ultisnips<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>.</p><p>Ultisnips is a snippet engine, which uses
 <a href=https://github.com/honza/vim-snippets>vim-snippets</a> to provide the actual
@@ -44,8 +45,8 @@ With vimtex, you can press <code>]]</code> in insert mode to auto-close an envir
 <a href=https://github.com/tpope/vim-surround>vim-surround</a> like features for
 manipulating an environment quickly:</p><ul><li><code>cse</code>: change an environment</li><li><code>dse</code>: delete an environment</li><li><code>tse</code>：toggle stared environment and no-star environment, e.g., change from
 <code>equation*</code> to <code>equation</code> and vice versa.</li></ul><p>You can also use the standard Vim motion with this object. For example, <code>vie</code>
-will select the <strong>inside</strong> a environment, and <code>vae</code> will select the entire
-environment (including the begin and end part).</p><p>There are other shortcuts provided:</p><ul><li><code>]]</code>: close an environment (<strong>only work in insert mode</strong>, in normal mode, it
+will select the <strong>inside</strong> an environment, and <code>vae</code> will select the entire
+environment (including the begin and end commands).</p><p>There are other shortcuts provided:</p><ul><li><code>]]</code>: close an environment (<strong>only work in insert mode</strong>, in normal mode, it
 will bring cursor to next subsection instead). After you have typed
 <code>begin{ENV}</code>, use <code>]]</code> to auto-close it with <code>\end{ENV}</code></li></ul><p>For more mappings, see <code>:h vimtex-default-mappings</code>.</p><h2 id=jumping-between-references-and-the-definition>Jumping between references and the definition</h2><p>It would be nice if we can jump to the definition of a label with the native
 Vim shortcut <a href=http://vimdoc.sourceforge.net/htmldoc/tagsrch.html#CTRL-%5D><code>Ctrl-]</code></a>. You have to do several things.</p><p>First, you need to install a ctags executable. See <a href=https://github.com/jdhao/nvim-config/blob/master/README.md#ctags>here</a> on how
@@ -110,7 +111,7 @@ following settings:</p><div class=highlight><pre class=chroma><code class=langua
 </span><span class=err></span>      \ <span class=s1>&#39;show_numbers&#39;</span> : <span class=m>1</span><span class=p>,</span><span class=err>
 </span><span class=err></span>      \ <span class=s1>&#39;mode&#39;</span> : <span class=m>2</span><span class=p>,</span><span class=err>
 </span><span class=err></span>      \}<span class=err>
-</span></code></pre></div><p>For detailed meaning of the keys in the above dictionary, refer to <code>:h g:vimtex_toc_config</code>.</p><h2 id=tex-directives>TeX directives</h2><p>If you are compiling a LaTeX source file written in non-English character. You
+</span></code></pre></div><p>For detailed meaning of the keys in the above dictionary, refer to <code>:h g:vimtex_toc_config</code>.</p><h2 id=tex-directives>TeX directives</h2><p>If you are compiling a LaTeX source file written in non-English character, you
 may want to use the TeX directive to specify the compiling program. Vimtex
 supports two TeX directives: <code>TeX root</code> and <code>TeX program</code>. <code>TeX program</code>
 directive is useful when we want to compile the LaTeX source code with
@@ -119,7 +120,7 @@ with <code>xelatex</code>, add the following directive to the first line of the 
 code:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>%!TeX program = xelatex
 </code></pre></div><p>My complete settings for vimtex can be found <a href=https://github.com/jdhao/nvim-config/blob/master/plugins.vim#L696>here</a>.</p><h1 id=references>References</h1><ul><li><a href=https://yufanlu.net/2018/09/03/neovim-latex/>https://yufanlu.net/2018/09/03/neovim-latex/</a></li><li><a href=https://github.com/lervag/vimtex/issues/1036>https://github.com/lervag/vimtex/issues/1036</a></li><li><a href=https://gist.github.com/skulumani/7ea00478c63193a832a6d3f2e661a536>Setting up PDF viewer for Mac</a>.</li><li><a href=https://tex.stackexchange.com/a/266242/114857>Auto-close environment in LaTeX</a></li><li><a href=https://github.com/lervag/vimtex/issues/348>https://github.com/lervag/vimtex/issues/348</a></li><li><a href=https://github.com/lervag/vimtex/issues/853>https://github.com/lervag/vimtex/issues/853</a></li><li><a href=https://tex.stackexchange.com/q/78101/114857>TeX directives provided by different programs</a>.</li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>For configuring vimtex to work with other completion engines, please refer to <code>:h vimtex-complete-auto</code>. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>See <a href=https://jdhao.github.io/2019/04/17/neovim_snippet_s1/>this post</a> on how to configure Ultisnips for Neovim. <a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
 <span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2020-03-09</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content>2020-09-20</span></p><p class=copyright-item><span class=item-title>License</span>
 <span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
 <label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
 <span>wechat</span></label>
