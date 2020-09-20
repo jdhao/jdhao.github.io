@@ -6,14 +6,14 @@ WSGI (Web Server
 Gateway Interface) specification and can work with any web server that conforms
 to WSGI.
 In this post, I want share how to run Flask applications using
-uWSGI &mdash; a popular WSGI-compliant server."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/06/13/flask_serving_via_wsgi_server/"><meta property="article:published_time" content="2020-06-13T21:44:44+08:00"><meta property="article:modified_time" content="2020-07-19T20:05:07+08:00"><meta itemprop=name content="Serving Flask Applications with uWSGI"><meta itemprop=description content="In my old post, I have
+uWSGI &mdash; a popular WSGI-compliant server."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/06/13/flask_serving_via_wsgi_server/"><meta property="article:published_time" content="2020-06-13T21:44:44+08:00"><meta property="article:modified_time" content="2020-09-20T12:13:44+08:00"><meta itemprop=name content="Serving Flask Applications with uWSGI"><meta itemprop=description content="In my old post, I have
 shared how to run the builtin development server to serve the web API. For
 production, we need to use more powerful web servers. Flask complies to the
 WSGI (Web Server
 Gateway Interface) specification and can work with any web server that conforms
 to WSGI.
 In this post, I want share how to run Flask applications using
-uWSGI &mdash; a popular WSGI-compliant server."><meta itemprop=datePublished content="2020-06-13T21:44:44+08:00"><meta itemprop=dateModified content="2020-07-19T20:05:07+08:00"><meta itemprop=wordCount content="704"><meta itemprop=keywords content="Flask,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Serving Flask Applications with uWSGI"><meta name=twitter:description content="In my old post, I have
+uWSGI &mdash; a popular WSGI-compliant server."><meta itemprop=datePublished content="2020-06-13T21:44:44+08:00"><meta itemprop=dateModified content="2020-09-20T12:13:44+08:00"><meta itemprop=wordCount content="704"><meta itemprop=keywords content="Flask,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Serving Flask Applications with uWSGI"><meta name=twitter:description content="In my old post, I have
 shared how to run the builtin development server to serve the web API. For
 production, we need to use more powerful web servers. Flask complies to the
 WSGI (Web Server
@@ -51,7 +51,7 @@ can also use an <code>ini</code> file to config uWSGI like this:</p><div class=h
 <span class=na>pidfile</span><span class=o>=</span><span class=s>demo.pid</span>
 </code></pre></div><p>Save this file as <code>uwsgi.ini</code> (or whatever you like), and then run the
 application using <code>uwsgi --ini uwsgi.ini</code>. If the extention of config file is
-<code>ini</code>, we also directly run uWSGI as this: <code>uwsgi uwsgi.ini</code>.</p><p>Below are meanings of the some of these options:</p><h2 id=chdir>chdir</h2><p>The <code>chdir</code> option specifies the directory to run the application.</p><h2 id=wsgi-file-and-callable>wsgi-file and callable</h2><p><code>wsgi-file</code> specify the source file where your application resides. <code>callable</code>
+<code>ini</code>, we also directly run uWSGI as this: <code>uwsgi uwsgi.ini</code>.</p><p>Below are the meanings of some of these options:</p><h2 id=chdir>chdir</h2><p>The <code>chdir</code> option specifies the directory to run the application.</p><h2 id=wsgi-file-and-callable>wsgi-file and callable</h2><p><code>wsgi-file</code> specify the source file where your application resides. <code>callable</code>
 are the name of your application. For example, if you define your application
 like this: <code>app = Flask(__name__)</code>, then you should set <code>callable = app</code>.</p><h2 id=master>master</h2><p>With master mode on, the master process will restart a worker process if it
 dies. Generally, it is good idea to turn master mode on with <code>master = true</code>.</p><p>See also: <a href=https://stackoverflow.com/q/35072176/6064933>https://stackoverflow.com/q/35072176/6064933</a></p><h2 id=single-interpreter>single-interpreter</h2><p>By default, uwsgi will enable multiple interpreter mode, i.e., running
@@ -61,9 +61,10 @@ Instead, uWSGI will reload a process if it were killed. This may not be what
 you want.</p><h2 id=need-app>need-app</h2><p>if <code>need-app = true</code>, uWSGI will not run if it can not find the application to
 run. Otherwise, it will load even without an application. When you request the
 service, you will get HTTP 500 responses.</p><h2 id=lazy-apps>lazy-apps</h2><p>With <code>lazy-apps=true</code>, each process will initialize applications indepently of
-each other. If you do not set this option, you may run into troubles. For example,
-someone report that <a href=https://discuss.pytorch.org/t/basic-operations-do-not-work-in-1-1-0-with-uwsgi-flask/50257/7>PyTorch model are not runnning properly using uWSGI and flask
-if <code>lazy-apps</code> option is not set</a>.</p><p>See also official discussion <a href=https://uwsgi-docs.readthedocs.io/en/latest/articles/TheArtOfGracefulReloading.html#preforking-vs-lazy-apps-vs-lazy>here</a>.</p><h2 id=proc-name-spaced>proc-name-spaced</h2><p>It will add a custom prefix to uwsgi process so that you can find the process
+each other. If you do not set this option, you may run into troubles. For
+example, someone reported that <a href=https://discuss.pytorch.org/t/basic-operations-do-not-work-in-1-1-0-with-uwsgi-flask/50257/7>PyTorch model are not runnning properly using
+uWSGI and flask if <code>lazy-apps</code> option is not
+set</a>.</p><p>See also official discussion <a href=https://uwsgi-docs.readthedocs.io/en/latest/articles/TheArtOfGracefulReloading.html#preforking-vs-lazy-apps-vs-lazy>here</a>.</p><h2 id=proc-name-spaced>proc-name-spaced</h2><p>It will add a custom prefix to uwsgi process so that you can find the process
 for a specific application easily.</p><div class=highlight><pre class=chroma><code class=language-ini data-lang=ini><span class=na>proc-name-spaced</span> <span class=o>=</span> <span class=s>demo</span>
 </code></pre></div><p>will produce the following output:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>jdhao 29516  1.0  0.0 110104 14852 pts/31   S+   21:16   0:00 demo uWSGI master
 jdhao 29520  5.5  0.0 186184 28080 pts/31   S+   21:16   0:00 demo uWSGI worker 1
@@ -84,7 +85,7 @@ and set it to a small value:</p><div class=highlight><pre class=chroma><code cla
 killing it brutally.</p><p>Then when you start uwsgi, you will see the following log message:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>your mercy for graceful operations on workers is 5 seconds
 </code></pre></div><p>Ref:</p><ul><li><a href=https://www.mail-archive.com/uwsgi@lists.unbit.it/msg05155.html>https://www.mail-archive.com/uwsgi@lists.unbit.it/msg05155.html</a></li><li><a href=https://github.com/unbit/uwsgi/issues/844#issuecomment-455756013>https://github.com/unbit/uwsgi/issues/844#issuecomment-455756013</a></li><li><a href=https://stackoverflow.com/q/37846202/6064933>https://stackoverflow.com/q/37846202/6064933</a></li></ul><h1 id=references>References</h1><ul><li><a href=https://uwsgi-docs.readthedocs.io/en/latest/ParsingOrder.html>https://uwsgi-docs.readthedocs.io/en/latest/ParsingOrder.html</a></li><li><a href=https://www.techatbloomberg.com/blog/configuring-uwsgi-production-deployment/>https://www.techatbloomberg.com/blog/configuring-uwsgi-production-deployment/</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
 <span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2020-07-19</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content>2020-09-20</span></p><p class=copyright-item><span class=item-title>License</span>
 <span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
 <label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
 <span>wechat</span></label>
