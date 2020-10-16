@@ -79,8 +79,9 @@ window to a smaller size, which is super annoying.&lt;/p>
 use &lt;code>Ctrl-W&lt;/code> as prefix for window-related operations. However, the default
 prefix is &lt;code>Ctrl-B&lt;/code> in Tmux. As a result, I often mistakenly press &lt;code>Ctrl-W&lt;/code> when
 trying to change panes inside Tmux, which is annoying. Why not change tmux
-prefix to be more vim-like?&lt;/p></description></item><item><title>How to Switch to A Buffer Quickly in Neovim/Vim</title><link>https://jdhao.github.io/2018/09/29/Switching_buffers_quickly_Neovim/</link><pubDate>Sat, 29 Sep 2018 16:41:00 +0800</pubDate><guid>https://jdhao.github.io/2018/09/29/Switching_buffers_quickly_Neovim/</guid><description>&lt;p>When we are using Neovim, we often open several files in a window. Each file
-corresponds to a buffer. How to switch to a buffer quickly?&lt;/p></description></item><item><title>Intro to Nvim File Explorer Plugin Nerdtree</title><link>https://jdhao.github.io/2018/09/10/nerdtree_usage/</link><pubDate>Mon, 10 Sep 2018 11:44:43 +0800</pubDate><guid>https://jdhao.github.io/2018/09/10/nerdtree_usage/</guid><description>&lt;p>&lt;a href="https://github.com/scrooloose/nerdtree">Nerdtree&lt;/a> is a file explorer for
+prefix to be more vim-like?&lt;/p></description></item><item><title>How to Switch between Buffers Quickly in Neovim/Vim</title><link>https://jdhao.github.io/2018/09/29/Switching_buffers_quickly_Neovim/</link><pubDate>Sat, 29 Sep 2018 16:41:00 +0800</pubDate><guid>https://jdhao.github.io/2018/09/29/Switching_buffers_quickly_Neovim/</guid><description>&lt;p>When working on real projects using Neovim, we often open several files in a
+window. Each file corresponds to a buffer. How to switch between these buffers
+quickly?&lt;/p></description></item><item><title>Intro to Nvim File Explorer Plugin Nerdtree</title><link>https://jdhao.github.io/2018/09/10/nerdtree_usage/</link><pubDate>Mon, 10 Sep 2018 11:44:43 +0800</pubDate><guid>https://jdhao.github.io/2018/09/10/nerdtree_usage/</guid><description>&lt;p>&lt;a href="https://github.com/scrooloose/nerdtree">Nerdtree&lt;/a> is a file explorer for
 Vim/Neovim. It will generate a file navigation window just like an IDE. We can
 operate on files easily in the nerdtree window. In this post, I will summarize
 some of its configurations and usages.&lt;/p></description></item></channel></rss>
