@@ -59,7 +59,7 @@ move the cursor until the script finishes running.&lt;/p></description></item><i
 &lt;p>Just a few days ago, the builtin &lt;a href="https://microsoft.github.io/language-server-protocol/">Language Server Protocol&lt;/a>
 support &lt;a href="https://github.com/neovim/neovim/pull/11336">has been merged&lt;/a> into Neovim master.&lt;/p>
 &lt;p>This post is a hands-on experience of setting up LSP support for Python with
-the &lt;a href="https://github.com/palantir/python-language-server">python-language-server&lt;/a>.&lt;/p></description></item><item><title>File Backup in Neovim</title><link>https://jdhao.github.io/2019/11/16/nvim_file_backup/</link><pubDate>Sat, 16 Nov 2019 19:56:18 +0800</pubDate><guid>https://jdhao.github.io/2019/11/16/nvim_file_backup/</guid><description>&lt;p>There are several options related to backup in Vim/Nvim.&lt;/p>
+the &lt;a href="https://github.com/palantir/python-language-server">python-language-server&lt;/a>.&lt;/p></description></item><item><title>File Backup in Neovim</title><link>https://jdhao.github.io/2019/11/16/nvim_file_backup/</link><pubDate>Sat, 16 Nov 2019 19:56:18 +0800</pubDate><guid>https://jdhao.github.io/2019/11/16/nvim_file_backup/</guid><description>&lt;p>There are several options related to back up in Vim/Nvim.&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>backup&lt;/code>&lt;/li>
 &lt;li>&lt;code>writebackup&lt;/code>&lt;/li>
