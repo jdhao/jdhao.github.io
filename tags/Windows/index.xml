@@ -62,10 +62,14 @@ my Windows machine, I encounter an error message:&lt;/p>
 &lt;p>In this post, I will write about what I have learned from this error.&lt;/p></description></item><item><title>Neovim configuration on Windows 10</title><link>https://jdhao.github.io/2018/11/15/neovim_configuration_windows/</link><pubDate>Thu, 15 Nov 2018 18:08:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/15/neovim_configuration_windows/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190119221237.png" width="600">
 &lt;/p>
-&lt;p>&lt;strong>Updated: 2020-01-18&lt;/strong>&lt;/p>
-&lt;p>In this post, I want to share how to install and configure terminal Neovim on
-Windows 10&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. For configurations of
-&lt;a href="https://github.com/equalsraf/neovim-qt">nvim-qt&lt;/a> on Windows, check &lt;a href="https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/">this post&lt;/a>.&lt;/p></description></item><item><title>Execellent Development Experience with Cygwin and Mintty Terminal on Windows 10</title><link>https://jdhao.github.io/2018/10/23/cygwin_install_and_use/</link><pubDate>Tue, 23 Oct 2018 15:00:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/23/cygwin_install_and_use/</guid><description>&lt;p>Linux is great for programming compared to Windows. If you miss the experience
+&lt;p>&lt;font color="blue">update: 2020-11-15, add detailed instruction for Neovim config location.&lt;/font>&lt;/p>
+&lt;p>&lt;strong>TL;DR&lt;/strong>: After nearly one year of using Neovim on Windows, I find that the
+best experience one can get on Windows is to use GUI Neovim client such as
+&lt;a href="https://github.com/equalsraf/neovim-qt">Nvim-qt&lt;/a> or &lt;a href="https://github.com/yatli/fvim">fvim&lt;/a>,
+not the terminal Nvim&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
+&lt;p>In this post, I want to share how to install and configure Neovim on Windows
+10&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>. For configurations of &lt;a href="https://github.com/equalsraf/neovim-qt">nvim-qt&lt;/a>
+on Windows, check &lt;a href="https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/">this post&lt;/a>.&lt;/p></description></item><item><title>Execellent Development Experience with Cygwin and Mintty Terminal on Windows 10</title><link>https://jdhao.github.io/2018/10/23/cygwin_install_and_use/</link><pubDate>Tue, 23 Oct 2018 15:00:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/23/cygwin_install_and_use/</guid><description>&lt;p>Linux is great for programming compared to Windows. If you miss the experience
 you get on Linux, maybe you should try &lt;a href="https://www.cygwin.com/">Cygwin&lt;/a>, which
 set up a Linux-like environment on Windows platform. In this post, I want to
 talk about how to configure Cygwin and how to use mintty terminal on Windows 10
