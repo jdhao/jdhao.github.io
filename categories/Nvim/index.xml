@@ -119,7 +119,7 @@ Nvim. For other posts, see&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">Series 1&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/">Series 2&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Create Mappings Which Take A Count in Neovim</title><link>https://jdhao.github.io/2019/04/29/nvim_map_with_a_count/</link><pubDate>Mon, 29 Apr 2019 23:08:16 +0800</pubDate><guid>https://jdhao.github.io/2019/04/29/nvim_map_with_a_count/</guid><description>&lt;p>&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190503204410.png" alt="Mappings">&lt;/p>
+&lt;/ul></description></item><item><title>Create Mappings That Take A Count in Neovim</title><link>https://jdhao.github.io/2019/04/29/nvim_map_with_a_count/</link><pubDate>Mon, 29 Apr 2019 23:08:16 +0800</pubDate><guid>https://jdhao.github.io/2019/04/29/nvim_map_with_a_count/</guid><description>&lt;p>&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190503204410.png" alt="Mappings">&lt;/p>
 &lt;p>Many normal mode commands accept a &lt;code>count&lt;/code>, which means to repeat the motion
 &lt;code>count&lt;/code> times. For example, &lt;code>3j&lt;/code> moves the cursor 3 lines below the current
 line and &lt;code>4w&lt;/code> will move the cursor four words forward. Usually, the
