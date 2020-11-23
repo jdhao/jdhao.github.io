@@ -1,0 +1,113 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>A Better Mapping to Leave Insert Mode than jk - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="A very popular insert mode mapping for Neovim/Vim to map jk or kj or jj to &amp;lt;ESC&amp;gt; for quicker escaping from the insert mode. I have used the following mapping for quite some time:
+inoremap jk &amp;lt;ESC&amp;gt;"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2020/11/23/neovim_better_mapping_for_leaving_insert_mode/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="A Better Mapping to Leave Insert Mode than jk"><meta property="og:description" content="A very popular insert mode mapping
+for Neovim/Vim to map jk or kj or jj to <ESC> for quicker escaping from
+the insert mode. I have used the following mapping for quite some time:
+inoremap jk <ESC>"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/11/23/neovim_better_mapping_for_leaving_insert_mode/"><meta property="article:published_time" content="2020-11-23T22:26:19+08:00"><meta property="article:modified_time" content="2020-11-24T00:11:35+08:00"><meta itemprop=name content="A Better Mapping to Leave Insert Mode than jk"><meta itemprop=description content="A very popular insert mode mapping
+for Neovim/Vim to map jk or kj or jj to <ESC> for quicker escaping from
+the insert mode. I have used the following mapping for quite some time:
+inoremap jk <ESC>"><meta itemprop=datePublished content="2020-11-23T22:26:19+08:00"><meta itemprop=dateModified content="2020-11-24T00:11:35+08:00"><meta itemprop=wordCount content="582"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="A Better Mapping to Leave Insert Mode than jk"><meta name=twitter:description content="A very popular insert mode mapping
+for Neovim/Vim to map jk or kj or jj to <ESC> for quicker escaping from
+the insert mode. I have used the following mapping for quite some time:
+inoremap jk <ESC>"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>A Better Mapping to Leave Insert Mode than jk</h1><div class=post-meta><span class=post-time>2020-11-23</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>582 words</span>
+<span class=more-meta>2 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>A <a href=https://vi.stackexchange.com/q/300/15292>very popular insert mode mapping</a>
+for Neovim/Vim to map <code>jk</code> or <code>kj</code> or <code>jj</code> to <code>&lt;ESC></code> for quicker escaping from
+the insert mode. I have used the following mapping for quite some time:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>inoremap</span> <span class=nx>jk</span> <span class=p>&lt;</span><span class=nx>ESC</span><span class=p>&gt;</span><span class=err>
+</span></code></pre></div><p>However, it will cause lag whenever we press <code>j</code> in insert mode. Because Vim
+will wait for <a href="https://neovim.io/doc/user/options.html#'timeoutlen'"><code>timeoutlen</code></a>
+milliseconds to see if you want to enter <code>j</code> or if you mean the map <code>jk</code>.</p><p>Of course, you can reduce <code>timeoutlen</code> option to very small values, but it is
+not user-friendly to type mappings that consists of several key strokes. Before
+you can press the next key in your mapping, Vim may have already time out.</p><p>I saw on Reddit the other day that someone propose to check the character
+before the current one and leave insert mode based on some conditions. I
+thought this might be a better way. The idea is to have an insert mode mapping
+for <code>k</code>, when we press <code>k</code>, we then check the character before k. If that
+character is <code>j</code>, we will erase j and leave insert mode. Otherwise, we will
+insert k as is.</p><p>Here is a crude implementation of that idea:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>scriptencoding</span> <span class=nx>utf</span><span class=m>-8</span><span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=nx>inoremap</span> <span class=p>&lt;</span><span class=nx>expr</span><span class=p>&gt;</span> <span class=nx>k</span> <span class=nx>EscapeInsertOrNot</span><span class=p>()</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; some test text</span><span class=err>
+</span><span class=err></span><span class=k>function</span><span class=p>!</span> <span class=nx>EscapeInsertOrNot</span><span class=p>()</span> <span class=nx>abort</span><span class=err>
+</span><span class=err></span><span class=c>  &#34; If k is preceded by j, then remove j and go to normal mode.</span><span class=err>
+</span><span class=err></span>  <span class=k>let</span> <span class=nx>line_text</span> <span class=p>=</span> <span class=nx>getline</span><span class=p>(</span><span class=s1>&#39;.&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=k>let</span> <span class=nx>cur_ch_idx</span> <span class=p>=</span> <span class=nx>GetCursorCharIdx</span><span class=p>()</span><span class=err>
+</span><span class=err></span>  <span class=k>let</span> <span class=nx>pre_char</span> <span class=p>=</span> <span class=nx>strcharpart</span><span class=p>(</span><span class=nx>line_text</span><span class=p>,</span> <span class=nx>cur_ch_idx</span><span class=m>-1</span><span class=p>,</span> <span class=m>1</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>echom</span> <span class=s1>&#39;pre_char is:&#39;</span> <span class=nx>pre_char</span><span class=err>
+</span><span class=err></span>  <span class=k>if</span> <span class=nx>pre_char</span> <span class=p>==</span># <span class=s1>&#39;j&#39;</span><span class=err>
+</span><span class=err></span>    <span class=nx>return</span> <span class=s2>&#34;\&lt;BS&gt;\&lt;ESC&gt;&#34;</span><span class=err>
+</span><span class=err></span>  <span class=k>else</span><span class=err>
+</span><span class=err></span>    <span class=nx>return</span> <span class=s1>&#39;k&#39;</span><span class=err>
+</span><span class=err></span>  <span class=k>endif</span><span class=err>
+</span><span class=err></span><span class=k>endfunction</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>
+</span><span class=c>&#34; split(line_text, &#39;\zs&#39;) can split string into separate char</span><span class=err>
+</span><span class=err></span><span class=c>&#34;汉字测试这是一些汉字 some char</span><span class=err>
+</span><span class=err></span><span class=c>&#34; byte index of 这 is 14 (using col(&#39;.&#39;))</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; let my_str = &#39;你好吗&#39;</span><span class=err>
+</span><span class=err></span><span class=c>&#34; strcharpart(my_str, 0, 1) is the first char in my_str (it is like my_str[0] in Python)</span><span class=err>
+</span><span class=err></span><span class=c>&#34; strcharpart(my_str, 1, 1) is the second char in my_str</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; let ch = &#39;你&#39;</span><span class=err>
+</span><span class=err></span><span class=c>&#34; byteidx(ch, 1) is the number of byte in UTF-8 encoding for ch (suppose</span><span class=err>
+</span><span class=err></span><span class=c>&#34; that the character encoding is UTF-8)</span><span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=k>function</span><span class=p>!</span> <span class=nx>GetCursorCharIdx</span><span class=p>()</span> <span class=nx>abort</span><span class=err>
+</span><span class=err></span><span class=c>  &#34; This function returns the character-based index for character under</span><span class=err>
+</span><span class=err></span><span class=c>  &#34; cursor.</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>  &#34; Get the character under cursor</span><span class=err>
+</span><span class=err></span>  <span class=k>let</span> <span class=nx>line_text</span> <span class=p>=</span> <span class=nx>getline</span><span class=p>(</span><span class=s1>&#39;.&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=k>let</span> <span class=nx>cur_byte_idx</span> <span class=p>=</span> <span class=nx>col</span><span class=p>(</span><span class=s1>&#39;.&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>  <span class=nx>echo</span> <span class=s1>&#39;cur_byte_idx:&#39;</span> <span class=nx>cur_byte_idx</span><span class=err>
+</span><span class=err>
+</span><span class=err></span>  <span class=k>if</span> <span class=nx>cur_byte_idx</span> <span class=p>==</span> <span class=m>1</span><span class=err>
+</span><span class=err></span>    <span class=nx>echomsg</span> <span class=s1>&#39;cursor char idx:&#39;</span> <span class=m>0</span><span class=err>
+</span><span class=err></span>    <span class=nx>return</span> <span class=m>0</span><span class=err>
+</span><span class=err></span>  <span class=k>endif</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>  &#34; character index starts from zero</span><span class=err>
+</span><span class=err></span>  <span class=k>let</span> [<span class=nx>ch_idx</span><span class=p>,</span> <span class=nx>byte_idx</span>] <span class=p>=</span> [<span class=m>-1</span><span class=p>,</span> <span class=m>0</span>]<span class=err>
+</span><span class=err>
+</span><span class=err></span>  <span class=nx>for</span> <span class=nx>c</span> <span class=nx>in</span> <span class=nx>split</span><span class=p>(</span><span class=nx>line_text</span><span class=p>,</span> <span class=s1>&#39;\zs&#39;</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=k>let</span> <span class=nx>ch_idx</span> <span class=p>+=</span> <span class=m>1</span><span class=err>
+</span><span class=err></span>    <span class=k>let</span> <span class=nx>byte_idx</span> <span class=p>+=</span> <span class=nx>byteidx</span><span class=p>(</span><span class=nx>c</span><span class=p>,</span> <span class=m>1</span><span class=p>)</span><span class=err>
+</span><span class=err></span>    <span class=nx>echomsg</span> <span class=nx>ch_idx</span> <span class=nx>c</span> <span class=nx>byte_idx</span><span class=err>
+</span><span class=err>
+</span><span class=err></span>    <span class=k>if</span> <span class=nx>byte_idx</span><span class=p>+</span><span class=m>1</span> <span class=p>==</span> <span class=nx>cur_byte_idx</span><span class=err>
+</span><span class=err></span>      <span class=k>let</span> <span class=nx>pre_char</span> <span class=p>=</span> <span class=nx>strcharpart</span><span class=p>(</span><span class=nx>line_text</span><span class=p>,</span> <span class=nx>ch_idx</span><span class=p>,</span> <span class=m>1</span><span class=p>)</span><span class=err>
+</span><span class=err></span>      <span class=nx>echomsg</span> <span class=s1>&#39;pre char is:&#39;</span> <span class=nx>pre_char</span> <span class=s1>&#39;pre char index:&#39;</span> <span class=nx>ch_idx</span><span class=err>
+</span><span class=err>
+</span><span class=err></span>      <span class=k>let</span> <span class=nx>cursor_char</span> <span class=p>=</span> <span class=nx>strcharpart</span><span class=p>(</span><span class=nx>line_text</span><span class=p>,</span> <span class=nx>ch_idx</span><span class=p>+</span><span class=m>1</span><span class=p>,</span> <span class=m>1</span><span class=p>)</span><span class=err>
+</span><span class=err></span>      <span class=nx>echomsg</span> <span class=s1>&#39;cursor char&#39;</span> <span class=nx>cursor_char</span> <span class=s1>&#39;index:&#39;</span> <span class=nx>ch_idx</span><span class=p>+</span><span class=m>1</span><span class=err>
+</span><span class=err>
+</span><span class=err></span>      <span class=nx>return</span> <span class=nx>ch_idx</span> <span class=p>+</span> <span class=m>1</span><span class=err>
+</span><span class=err></span>    <span class=k>endif</span><span class=err>
+</span><span class=err></span>  <span class=nx>endfor</span><span class=err>
+</span><span class=err></span><span class=k>endfunction</span><span class=err>
+</span></code></pre></div><p>Note that the above script is a little complex, because we need to take
+non-ASCII characters into account. I have tested that it works for pure ASCII
+text and text containing non-ASCII characters.</p><p>One issue is that if you want to insert <code>jk</code> literally, you can not just type
+<code>j</code> followed by <code>k</code>. It will be interpreted as escaping the insert mode. To
+insert k, we can press <code>Ctrl-V</code>, then press <code>k</code>. This works, because Vim will
+not consider character after <code>Ctrl-v</code> for mappings. See also <code>:h i_CTRL-V</code> for
+the details. Since I rarely use <code>jk</code> in my writing, I am fine with this issue.</p><h1 id=references>References</h1><ul><li><a href=http://derekwyatt.org/2015/07/27/getting-character-under-cursor-in-vim/>http://derekwyatt.org/2015/07/27/getting-character-under-cursor-in-vim/</a></li><li><a href=https://stackoverflow.com/q/7560911/6064933>https://stackoverflow.com/q/7560911/6064933</a></li><li><a href=https://stackoverflow.com/q/23323747/6064933>https://stackoverflow.com/q/23323747/6064933</a></li><li><a href=https://vi.stackexchange.com/q/11476/15292>https://vi.stackexchange.com/q/11476/15292</a></li><li><a href=https://vi.stackexchange.com/q/19694/15292>https://vi.stackexchange.com/q/19694/15292</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-11-24</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span></label></div></div><footer class=post-footer><nav class=post-nav><a class=next href=/2020/11/22/python_list_of_empty_list_pitfall/><span class="next-text nav-default">Creating List of Empty List in Python</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='jdhao';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<span class=division>|</span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+2017 -
+2020<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
+else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
+var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
