@@ -128,8 +128,8 @@ API with Flask and how to post image to this web API and get response.&lt;/p></d
 applications to get info from the web server. For Python,
 &lt;a href="https://flask.palletsprojects.com/en/1.1.x/">Flask&lt;/a> can be used to build web
 applications. In this post, I want to share how to build web APIs with Flask.&lt;/p></description></item><item><title>Convert PPTX Slides to JPEG Images on Linux</title><link>https://jdhao.github.io/2020/03/30/pptx_to_image/</link><pubDate>Mon, 30 Mar 2020 22:30:20 +0800</pubDate><guid>https://jdhao.github.io/2020/03/30/pptx_to_image/</guid><description>&lt;p>A short post on how to convert PPTX file to images. There are two steps. The
-first step is to from PPTX to PDF, and the second step is from PDF to JPEG
-image.&lt;/p></description></item><item><title>Conversion between base64 and OpenCV or PIL Image</title><link>https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/</link><pubDate>Tue, 17 Mar 2020 23:08:32 +0800</pubDate><guid>https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/</guid><description>&lt;p>When we are building web services using Python, we often send or receive images
+first step is to convert PPTX to PDF, and the second step is convert PDF to
+JPEG image.&lt;/p></description></item><item><title>Conversion between base64 and OpenCV or PIL Image</title><link>https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/</link><pubDate>Tue, 17 Mar 2020 23:08:32 +0800</pubDate><guid>https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/</guid><description>&lt;p>When we are building web services using Python, we often send or receive images
 in &lt;a href="https://docs.python.org/3/library/base64.html">base64&lt;/a> encoded format.
 However, when we are doing image processing tasks, we need to use PIL or
 OpenCV. In this post, I will share how to convert between OpenCV or PIL image
