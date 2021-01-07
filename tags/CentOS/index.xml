@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CentOS on jdhao's blog</title><link>https://jdhao.github.io/tags/CentOS/</link><description>Recent content in CentOS on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Fri, 27 Sep 2019 23:56:47 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/CentOS/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting Up Locale in Linux</title><link>https://jdhao.github.io/2019/09/27/linux_locale_settings/</link><pubDate>Fri, 27 Sep 2019 23:56:47 +0800</pubDate><guid>https://jdhao.github.io/2019/09/27/linux_locale_settings/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;p>When I logged into a Ubuntu server, the system interface and messages are shown
+all shown in Chinese. I want them to be displayed in English. After some
+searching, I found out that we can change the
+&lt;a href="https://en.wikipedia.org/wiki/Locale_(computer_software)">locale&lt;/a> settings.&lt;/p></description></item><item><title>Tmux Plugin Install and Management</title><link>https://jdhao.github.io/2019/01/17/tmux_plugin_management/</link><pubDate>Thu, 17 Jan 2019 22:03:16 +0800</pubDate><guid>https://jdhao.github.io/2019/01/17/tmux_plugin_management/</guid><description>&lt;p>In this post, I want to share how to manage tmux plugins with Tmux plugin
+manager (i.e., tpm) and also mention a few useful plugins.&lt;/p></description></item><item><title>Line Number Settings for More Efficient Movement in Neovim</title><link>https://jdhao.github.io/2019/01/11/line_number_setting_nvim/</link><pubDate>Fri, 11 Jan 2019 20:25:31 +0800</pubDate><guid>https://jdhao.github.io/2019/01/11/line_number_setting_nvim/</guid><description>&lt;p>In this post, I would like to share line number settings in Neovim to move the
+cursor more efficiently.&lt;/p></description></item><item><title>Deoplete Failed to Load at Startup after Updating Python neovim Package</title><link>https://jdhao.github.io/2018/11/19/deoplete_failed_to_load_neovim/</link><pubDate>Mon, 19 Nov 2018 18:18:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/19/deoplete_failed_to_load_neovim/</guid><description>&lt;p>Today when I use &lt;code>:checkhealth&lt;/code> to check if there are anything wrong with my
+Neovim and related packages. I got an info that &lt;a href="https://github.com/neovim/pynvim">Python &lt;code>neovim&lt;/code>
+package&lt;/a> is not up to date. So I tried to
+update neovim with &lt;code>pip install --upgrade neovim&lt;/code>. This is the start of a
+disaster which wastes me several hours.&lt;/p></description></item><item><title>How to Use shutil.move() on Windows and Linux</title><link>https://jdhao.github.io/2018/11/15/shutil_linux_windows_usage/</link><pubDate>Thu, 15 Nov 2018 20:58:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/15/shutil_linux_windows_usage/</guid><description>&lt;p>Today when I try to move a file using
+&lt;a href="https://docs.python.org/3/library/shutil.html#shutil.move">&lt;code>shutil.move()&lt;/code>&lt;/a> on
+my Windows machine, I encounter an error message:&lt;/p>
+&lt;blockquote>
+&lt;p>PermissionError: [WinError 32] The process cannot access the file because it is being used by another process&lt;/p>
+&lt;/blockquote>
+&lt;p>In this post, I will write about what I have learned from this error.&lt;/p></description></item><item><title>Why Doesn't Visdom Work Fine on CentOS?</title><link>https://jdhao.github.io/2017/10/16/fuck-my-great-country/</link><pubDate>Mon, 16 Oct 2017 23:37:33 +0800</pubDate><guid>https://jdhao.github.io/2017/10/16/fuck-my-great-country/</guid><description>&lt;p>Today, I came across the open source project
+&lt;a href="https://github.com/facebookresearch/visdom">visdom&lt;/a> and hope to use it in my
+future &lt;a href="http://pytorch.org/">PyTorch&lt;/a> project. I installed it on my Linux
+server and met with an issue that I have no way to deal with. I would like to
+share it in case someone also meet it.&lt;/p></description></item><item><title>How to Compile and Install Latest Version of GCC on CentOS 7</title><link>https://jdhao.github.io/2017/09/04/install-gcc-newer-version-on-centos/</link><pubDate>Mon, 04 Sep 2017 22:41:10 +0800</pubDate><guid>https://jdhao.github.io/2017/09/04/install-gcc-newer-version-on-centos/</guid><description>&lt;p>The default GCC that comes with the CentOS 7.2 is GCC 4.8.5, which does not
+support the complete C++11 standard, for example, it does not fully support
+&lt;a href="http://en.cppreference.com/w/cpp/regex">regular expressions&lt;/a>. In order to use
+regular expression functions, &lt;a href="https://stackoverflow.com/a/8061172/6064933">we need to install at least GCC
+4.9.0&lt;/a>. The following installation
+procedure is applicable to CentOS 7 and are not tested on other Linux systems.
+Also you have to make sure that you have root privelege.&lt;/p></description></item><item><title>CentOS 7 系统安装 Shadowsocks 并且开启多用户模式指南</title><link>https://jdhao.github.io/2017/08/06/vps-ss-issue-solution/</link><pubDate>Sun, 06 Aug 2017 20:38:00 +0800</pubDate><guid>https://jdhao.github.io/2017/08/06/vps-ss-issue-solution/</guid><description>&lt;p>据说墙升级了，本来用得很流畅的服务也不行了，时不时断掉，让人很恼火。有必要升级一下梯子了，于是我也研究了一下利用 VPS 自建梯子的方法。本文总结一下安装中遇到的问题和解决办法，只针对 CentOS 7 系统，其他 Linux 系统配置方法是类似的。&lt;/p></description></item><item><title>Install feh Image Viewer from Source on CentOS 7</title><link>https://jdhao.github.io/2017/05/06/install-feh-image-viewer-on-centos/</link><pubDate>Sat, 06 May 2017 16:04:00 +0800</pubDate><guid>https://jdhao.github.io/2017/05/06/install-feh-image-viewer-on-centos/</guid><description>&lt;p>On my CentOS system, I usually use &lt;a href="https://github.com/GNOME/eog">eog&lt;/a> to view
+images in the console. But I am a little upset by its speed of opening an
+image. I do not need such functionality besides viewing an image. So I decided
+to find another lightweight replacement.&lt;/p></description></item></channel></rss>

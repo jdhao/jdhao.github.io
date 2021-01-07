@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GCC on jdhao's blog</title><link>https://jdhao.github.io/tags/GCC/</link><description>Recent content in GCC on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Thu, 10 Dec 2020 23:22:57 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/GCC/index.xml" rel="self" type="application/rss+xml"/><item><title>Why Do Some Libraries Are Linked by Default, but Some Are Not by GCC?</title><link>https://jdhao.github.io/2020/12/10/gcc_library_link_issue/</link><pubDate>Thu, 10 Dec 2020 23:22:57 +0800</pubDate><guid>https://jdhao.github.io/2020/12/10/gcc_library_link_issue/</guid><description>&lt;p>Different behavior of linking between Clang and GCC.&lt;/p></description></item><item><title>Commonly-used Building Options Explained</title><link>https://jdhao.github.io/2018/11/07/option_flag_meaning_build_packages_from_source/</link><pubDate>Wed, 07 Nov 2018 21:38:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/07/option_flag_meaning_build_packages_from_source/</guid><description>&lt;p>On Linux system, if we do not have root priviledge, we can not use package
+managers to install a package to its default location (usually under &lt;code>/usr&lt;/code>).
+Besides, the packages installed by the package managers are often too old to
+have the latest features. Or, even if we have root priviledge, we do not want
+to mess up with the system-wide packages and just want to experiment with a
+package locally. On these ocassions, we may want to install the package to a
+custom location.&lt;/p></description></item><item><title>How to Compile and Install Latest Version of GCC on CentOS 7</title><link>https://jdhao.github.io/2017/09/04/install-gcc-newer-version-on-centos/</link><pubDate>Mon, 04 Sep 2017 22:41:10 +0800</pubDate><guid>https://jdhao.github.io/2017/09/04/install-gcc-newer-version-on-centos/</guid><description>&lt;p>The default GCC that comes with the CentOS 7.2 is GCC 4.8.5, which does not
+support the complete C++11 standard, for example, it does not fully support
+&lt;a href="http://en.cppreference.com/w/cpp/regex">regular expressions&lt;/a>. In order to use
+regular expression functions, &lt;a href="https://stackoverflow.com/a/8061172/6064933">we need to install at least GCC
+4.9.0&lt;/a>. The following installation
+procedure is applicable to CentOS 7 and are not tested on other Linux systems.
+Also you have to make sure that you have root privelege.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Unicode on jdhao's blog</title><link>https://jdhao.github.io/tags/Unicode/</link><description>Recent content in Unicode on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Wed, 07 Oct 2020 16:57:53 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/Unicode/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Insert Unicode Characters in Neovim/Vim</title><link>https://jdhao.github.io/2020/10/07/nvim_insert_unicode_char/</link><pubDate>Wed, 07 Oct 2020 16:57:53 +0800</pubDate><guid>https://jdhao.github.io/2020/10/07/nvim_insert_unicode_char/</guid><description>&lt;p>Except those ASCII characters, it is often not straightforward to insert
+Unicode characters into Vim/Neovim. Below I will summarize different ways to
+enter Unicode character inside Neovim/Vim.&lt;/p></description></item><item><title>Space for CJK Languages (CJK 语言中的空格)</title><link>https://jdhao.github.io/2020/05/16/space_for_cjk/</link><pubDate>Sat, 16 May 2020 22:04:23 +0800</pubDate><guid>https://jdhao.github.io/2020/05/16/space_for_cjk/</guid><description>&lt;p>I was doing some typograph for Chinese text and want to insert a space equal to
+the width of a Chinese character.&lt;/p>
+&lt;p>&lt;font color="red">最近在做一些中文排版的工作，有一个需求是在中文字符之间插入空格，并且空格的宽度等于中文字符的宽度，在某些情况下这样排版显得更加美观。&lt;/font>&lt;/p></description></item><item><title>解决 Matplotlib 使用中文乱码问题</title><link>https://jdhao.github.io/2020/02/22/guide-on-how-to-use-chinese-with-matplotlib_zh/</link><pubDate>Sat, 22 Feb 2020 11:41:09 +0800</pubDate><guid>https://jdhao.github.io/2020/02/22/guide-on-how-to-use-chinese-with-matplotlib_zh/</guid><description>&lt;p>注：这是一篇&lt;a href="https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/">旧文&lt;/a>的中文翻译版本。&lt;/p>
+&lt;p>前不久，我在使用 Matplotlib 画图的时候，发现一些 Unicode 字符(例如，汉字) 无法正常显示：在生成的图片中，汉字是乱码的，显示为一个方框。经过大量的查找和阅读，我终于明白了如何在使用 Matplotlib 时，正确渲染 Unicode 字符&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。&lt;/p></description></item><item><title>How to Read and Write Images with Unicode Paths in OpenCV</title><link>https://jdhao.github.io/2019/09/11/opencv_unicode_image_path/</link><pubDate>Wed, 11 Sep 2019 00:23:41 +0800</pubDate><guid>https://jdhao.github.io/2019/09/11/opencv_unicode_image_path/</guid><description>&lt;p>The other day, when I was using OpenCV to read some images and print the image
+shape, I got an error:&lt;/p>
+&lt;blockquote>
+&lt;p>&amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;.&lt;/p>
+&lt;/blockquote>
+&lt;p>I was confused and do not know why since the image path is valid. It tooks me a
+while to understand the cause.&lt;/p></description></item><item><title>Converting Markdown to Beautiful PDF with Pandoc</title><link>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</link><pubDate>Thu, 30 May 2019 17:02:57 +0800</pubDate><guid>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</guid><description>&lt;p>Over the past few years, I have been using some dedicated note-taking software
+to manage my notes. But all these tools I have tried are unsatisfactory: they
+are either slow or cumbersome when I want to search my notes. Finally, I
+decided to take my notes in Markdown and convert them to PDF using Pandoc for
+reading. In this post, I will summarize how I do it.&lt;/p>
+&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/">这里&lt;/a>。&lt;/p></description></item><item><title>Nifty Nvim Techniques Which Make My Life Easier -- Series 3</title><link>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</link><pubDate>Tue, 14 May 2019 22:37:04 +0800</pubDate><guid>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</guid><description>&lt;p>This is the 3rd of my blog post series about some nifty techniques of using
+Nvim. For other posts, see&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">Series 1&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/">Series 2&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Two Issues Related to ImageFont Module in PIL</title><link>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</link><pubDate>Tue, 04 Dec 2018 22:48:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</guid><description>&lt;p>In this post, I want to write about two issues related to the
+&lt;a href="https://pillow.readthedocs.io/en/5.1.x/reference/ImageFont.html">ImageFont&lt;/a>
+module in the &lt;a href="https://github.com/python-pillow/Pillow">PIL&lt;/a> package.&lt;/p></description></item><item><title>Reading and Writing Text Files on Windows</title><link>https://jdhao.github.io/2018/12/03/text_file_read_write_on_windows/</link><pubDate>Mon, 03 Dec 2018 13:06:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/03/text_file_read_write_on_windows/</guid><description>&lt;p>If you are using Python 3 on Windows, you may have seen a Unicode decoding
+error when opening files in UTF-8 format:&lt;/p>
+&lt;blockquote>
+&lt;p>UnicodeDecodeError: &amp;lsquo;gbk&amp;rsquo; codec can&amp;rsquo;t decode byte 0xaf in position 5: illegal multibyte sequence&lt;/p>
+&lt;/blockquote>
+&lt;p>If you read the same file on Linux or macOS, you will find that this file can
+be opened without any error. Why is there a difference? It has something to do
+with the default encoding Python chooses to use on different platforms.&lt;/p></description></item><item><title>How to Plot Unicode Characters with Matplotlib</title><link>https://jdhao.github.io/2018/04/08/matplotlib-unicode-character/</link><pubDate>Sun, 08 Apr 2018 22:33:46 +0800</pubDate><guid>https://jdhao.github.io/2018/04/08/matplotlib-unicode-character/</guid><description>&lt;p>This is a post which follows up my previous post on &lt;a href="https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/">how to use Chinese
+characters with
+Matplotlib&lt;/a>.&lt;/p></description></item><item><title>Character set, Encoding, Locale, Font and More...</title><link>https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/</link><pubDate>Sun, 28 Jan 2018 16:39:00 +0800</pubDate><guid>https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/</guid><description>&lt;p>It is almost destined that at some point of our programming years, we will meet
+the issue of character set, encoding and all the related stuff. There are tons
+of articles which explains the meaning of &lt;code>Unicode&lt;/code>, &lt;code>UTF-8&lt;/code>, &lt;code>UTF-16&lt;/code> etc. I
+am not going to repeat that here. In this post, I will write about what
+confused me when I tried to understand all this stuff.&lt;/p></description></item><item><title>Cmder --- The Ultimate Command Line Tool for Windows</title><link>https://jdhao.github.io/2017/12/29/cmder-usage/</link><pubDate>Fri, 29 Dec 2017 20:04:00 +0800</pubDate><guid>https://jdhao.github.io/2017/12/29/cmder-usage/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/18-1-1/79824514.jpg"
+title="A glimpse of Cmder">
+&lt;/p></description></item><item><title>纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件</title><link>https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/</link><pubDate>Sun, 10 Dec 2017 00:10:00 +0800</pubDate><guid>https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/</guid><description>&lt;p>&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/18-1-7/731510.jpg"
+title="生成的 PDF 截图"
+style="float: middle;">&lt;/p>
+&lt;p>For English version of this post, click &lt;a href="https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/">here&lt;/a>.&lt;/p>
+&lt;p>更新时间：2019-11-18&lt;/p>
+&lt;p>本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。&lt;/p></description></item><item><title>A Guide on Using Unicode Characters in Matplotlib</title><link>https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/</link><pubDate>Sat, 13 May 2017 21:36:26 +0800</pubDate><guid>https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/</guid><description>&lt;p>A few days ago, I found that Matplotlib can not show some Unicode characters
+(some Chinese characters) using its default settings. In the rendered output
+image, Chinese characters are shown as blank boxes. After reading a lot of
+posts on this issue, I am finally clear about how to use Unicode characters
+properly in Matplotlib.&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p></description></item></channel></rss>
