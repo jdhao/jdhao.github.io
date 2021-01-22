@@ -260,10 +260,9 @@ install zplug inside docker container and met some issues. In this post, I want
 to share how to install &lt;a href="https://github.com/zplug/zplug">zplug&lt;/a> and other
 plugins inside the Docker container.&lt;/p></description></item><item><title>Why don't settings inside bashrc or bash_profile take effect?</title><link>https://jdhao.github.io/2019/09/29/linux_login_setup/</link><pubDate>Sun, 29 Sep 2019 21:40:28 +0800</pubDate><guid>https://jdhao.github.io/2019/09/29/linux_login_setup/</guid><description>&lt;p>In this post, I would like to share causes and solutions to a few issues
 related to login shell.&lt;/p></description></item><item><title>Setting Up Locale in Linux</title><link>https://jdhao.github.io/2019/09/27/linux_locale_settings/</link><pubDate>Fri, 27 Sep 2019 23:56:47 +0800</pubDate><guid>https://jdhao.github.io/2019/09/27/linux_locale_settings/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
-&lt;p>When I logged into a Ubuntu server, the system interface and messages are shown
-all shown in Chinese. I want them to be displayed in English. After some
-searching, I found out that we can change the
-&lt;a href="https://en.wikipedia.org/wiki/Locale_(computer_software)">locale&lt;/a> settings.&lt;/p></description></item><item><title>谷歌 Adsense 申请及在 Hugo 中的配置</title><link>https://jdhao.github.io/2019/09/22/google_adsense_hugo_config/</link><pubDate>Sun, 22 Sep 2019 12:11:18 +0800</pubDate><guid>https://jdhao.github.io/2019/09/22/google_adsense_hugo_config/</guid><description>&lt;p align="center">
+&lt;p>When I logged into a Ubuntu server, the system interface and messages are all
+shown in Chinese. I want them to be displayed in English. After some searching,
+I found out that we can change the &lt;a href="https://en.wikipedia.org/wiki/Locale_(computer_software)">locale&lt;/a> settings.&lt;/p></description></item><item><title>谷歌 Adsense 申请及在 Hugo 中的配置</title><link>https://jdhao.github.io/2019/09/22/google_adsense_hugo_config/</link><pubDate>Sun, 22 Sep 2019 12:11:18 +0800</pubDate><guid>https://jdhao.github.io/2019/09/22/google_adsense_hugo_config/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/GA-L.jpg", width="600">
 &lt;/p>
 &lt;p>我的博客目前利用 GitHub pages 服务托管，不需要付费，但是博客的图床选用了腾讯云的对象存储，每个月还需要付一笔流量费用。为了保持收支平衡，也为了好玩，决定申请谷歌的 Adsense 一试。本文记录申请 Adsense 以及在 Hugo 博客中配置 Adsense 的过程。&lt;/p></description></item><item><title>How to Write Algorithm Pseudo Code in LaTeX</title><link>https://jdhao.github.io/2019/09/21/latex_algorithm_pseudo_code/</link><pubDate>Sat, 21 Sep 2019 22:44:19 +0800</pubDate><guid>https://jdhao.github.io/2019/09/21/latex_algorithm_pseudo_code/</guid><description>&lt;p align="center">

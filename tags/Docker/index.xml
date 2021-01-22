@@ -5,7 +5,6 @@ my daily programming tools inside
 install zplug inside docker container and met some issues. In this post, I want
 to share how to install &lt;a href="https://github.com/zplug/zplug">zplug&lt;/a> and other
 plugins inside the Docker container.&lt;/p></description></item><item><title>Setting Up Locale in Linux</title><link>https://jdhao.github.io/2019/09/27/linux_locale_settings/</link><pubDate>Fri, 27 Sep 2019 23:56:47 +0800</pubDate><guid>https://jdhao.github.io/2019/09/27/linux_locale_settings/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
-&lt;p>When I logged into a Ubuntu server, the system interface and messages are shown
-all shown in Chinese. I want them to be displayed in English. After some
-searching, I found out that we can change the
-&lt;a href="https://en.wikipedia.org/wiki/Locale_(computer_software)">locale&lt;/a> settings.&lt;/p></description></item></channel></rss>
+&lt;p>When I logged into a Ubuntu server, the system interface and messages are all
+shown in Chinese. I want them to be displayed in English. After some searching,
+I found out that we can change the &lt;a href="https://en.wikipedia.org/wiki/Locale_(computer_software)">locale&lt;/a> settings.&lt;/p></description></item></channel></rss>

@@ -11,10 +11,9 @@ well.&lt;/p>
 &lt;a href="https://github.com/mintty/mintty">mintty&lt;/a> and other tools for starting WSL
 sessions. Recently, when I start clicking the WSL Terminal icon, it start a
 Window and then quit silently.&lt;/p></description></item><item><title>Setting Up Locale in Linux</title><link>https://jdhao.github.io/2019/09/27/linux_locale_settings/</link><pubDate>Fri, 27 Sep 2019 23:56:47 +0800</pubDate><guid>https://jdhao.github.io/2019/09/27/linux_locale_settings/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
-&lt;p>When I logged into a Ubuntu server, the system interface and messages are shown
-all shown in Chinese. I want them to be displayed in English. After some
-searching, I found out that we can change the
-&lt;a href="https://en.wikipedia.org/wiki/Locale_(computer_software)">locale&lt;/a> settings.&lt;/p></description></item><item><title>Display Image with Pillow inside Ubuntu on Windows</title><link>https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/</link><pubDate>Sat, 16 Feb 2019 11:42:55 +0800</pubDate><guid>https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/</guid><description>&lt;p>With the help of &lt;a href="https://docs.microsoft.com/en-us/windows/wsl/about">Windows Subsystem for Linux (WSL, for
+&lt;p>When I logged into a Ubuntu server, the system interface and messages are all
+shown in Chinese. I want them to be displayed in English. After some searching,
+I found out that we can change the &lt;a href="https://en.wikipedia.org/wiki/Locale_(computer_software)">locale&lt;/a> settings.&lt;/p></description></item><item><title>Display Image with Pillow inside Ubuntu on Windows</title><link>https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/</link><pubDate>Sat, 16 Feb 2019 11:42:55 +0800</pubDate><guid>https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/</guid><description>&lt;p>With the help of &lt;a href="https://docs.microsoft.com/en-us/windows/wsl/about">Windows Subsystem for Linux (WSL, for
 short)&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, we can use the
 &lt;em>nearly full&lt;/em> Linux environment on Windows system. In this post, I would like
 to share how to display images inside Ubuntu on Windows, which is one of the
