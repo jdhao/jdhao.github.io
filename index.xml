@@ -409,8 +409,13 @@ cursor more efficiently.&lt;/p></description></item><item><title>两个大规模
 &lt;p>工欲善其事，必先利其器，好的工具能使人效率倍增，这篇博客介绍本人常用的一些提升效率的工具，希望能够帮到读者。&lt;/p></description></item><item><title>我的 2018 阅读清单</title><link>https://jdhao.github.io/2018/12/25/my_reading_list_2018/</link><pubDate>Tue, 25 Dec 2018 01:12:25 +0800</pubDate><guid>https://jdhao.github.io/2018/12/25/my_reading_list_2018/</guid><description>&lt;p>2018 年对于我来说，是变化很大的一年，我很高兴自己能够下定决心做一些决定。这一年读书的数量并不多，因为有几部比较大部头，读完花费了相当多的时间。年初寒假的时候，买了最新款的 &lt;a href="https://goo.gl/g2rYKZ">Kindle Oasis2&lt;/a>，替换了几年前买的 Kindle Paper White&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>。最值得高兴的事情是现在可以完全无压力阅读英文原版书籍，没有阅读的障碍。&lt;/p></description></item><item><title>A Complete Guide to Neovim Configuration for Python Development</title><link>https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/</link><pubDate>Mon, 24 Dec 2018 00:14:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-39-49.jpg" width="800">
 &lt;/p>
-&lt;p>&lt;font color="blue">Update 2020-12-01: Add detailed guide on installing Neovim on Linux&lt;/font>
-&lt;font color="blue">Update 2021-01-17: Install nvim via tar ball instead of appimage&lt;/font>&lt;/p></description></item><item><title>How Is Newline Handled in Python and Various Editors?</title><link>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</link><pubDate>Sat, 08 Dec 2018 22:30:50 +0800</pubDate><guid>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</guid><description>&lt;p align="center">
+&lt;details>
+&lt;summary>&lt;font size="3" color="blue">Change log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2021-01-17: Install nvim via tar ball instead of appimage&lt;/font>&lt;/li>
+&lt;li>&lt;font color="blue">2020-12-01: Add detailed guide on installing Neovim on Linux&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details></description></item><item><title>How Is Newline Handled in Python and Various Editors?</title><link>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</link><pubDate>Sat, 08 Dec 2018 22:30:50 +0800</pubDate><guid>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223253.png" width="800">
 &lt;/p>
 &lt;p>Every programmer knows newline character, but may be not so familiar. In this
@@ -480,12 +485,11 @@ often too old. So I decided to install the latest version of Tmux that supports
 true colors from source. Since I do not have root privilege on the system, I
 have to build Tmux and install it under my &lt;code>HOME&lt;/code>. If that is also what you
 want, keep reading.&lt;/p></description></item><item><title>Building Zsh from Source and Configuring It on CentOS</title><link>https://jdhao.github.io/2018/10/13/centos_zsh_install_use/</link><pubDate>Sat, 13 Oct 2018 18:29:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/13/centos_zsh_install_use/</guid><description>&lt;p>&lt;strong>Update&lt;/strong>: this is my first post on Zsh install and configuration. For a list
-of useful plugins I use to boost my productivity, see &lt;a href="https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/">this
-post&lt;/a>.&lt;/p>
+of useful plugins I use to boost my productivity, see &lt;a href="https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/">this post&lt;/a>.&lt;/p>
 &lt;p>&lt;a href="http://www.zsh.org/">Zsh&lt;/a> is a powerful shell with better auto-completion and
-richer functions. There are also various plugins to enrich your experience of
-using shell. In this post, I will introduce the installation and simple
-configurations for zsh.&lt;/p></description></item><item><title>Mechanical Keyboard Set up For Mac</title><link>https://jdhao.github.io/2018/10/13/mac_external_keyboard_setup/</link><pubDate>Sat, 13 Oct 2018 02:32:21 +0800</pubDate><guid>https://jdhao.github.io/2018/10/13/mac_external_keyboard_setup/</guid><description>&lt;p>Recently I bought a MacBook Pro 2018. While it is a good design overall, its
+richer features. There are also various plugins to enrich your experience of
+using Zsh. In this post, I will give a brief summary on how to install and set
+up zsh.&lt;/p></description></item><item><title>Mechanical Keyboard Set up For Mac</title><link>https://jdhao.github.io/2018/10/13/mac_external_keyboard_setup/</link><pubDate>Sat, 13 Oct 2018 02:32:21 +0800</pubDate><guid>https://jdhao.github.io/2018/10/13/mac_external_keyboard_setup/</guid><description>&lt;p>Recently I bought a MacBook Pro 2018. While it is a good design overall, its
 built-in keyboard is not so great AFAIK. So I bought a mechanical keyboard
 &lt;a href="http://www.ikbc.com.tw/c87">ikbc c87&lt;/a>. The mechanical keyboard is designed for
 the Windows operating systems. I have to make a few tweaks to make my typing

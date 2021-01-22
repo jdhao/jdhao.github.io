@@ -20,8 +20,13 @@ to share how to display images inside Ubuntu on Windows, which is one of the
 popular distrubtions.&lt;/p></description></item><item><title>两个大规模中文语料库介绍以及处理</title><link>https://jdhao.github.io/2019/01/10/two_chinese_corpus/</link><pubDate>Thu, 10 Jan 2019 00:27:00 +0800</pubDate><guid>https://jdhao.github.io/2019/01/10/two_chinese_corpus/</guid><description>&lt;p>目前进行的工作需要大规模的语料库来生成中文文本图像，因此查找资料，找了一些中文语料库。本文介绍其中的两个最大的语料库，THUCNews 语料库和中文维基百科语料库，以及如何对原始语料库文件进行简单预处理。&lt;/p></description></item><item><title>A Complete Guide to Neovim Configuration for Python Development</title><link>https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/</link><pubDate>Mon, 24 Dec 2018 00:14:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-39-49.jpg" width="800">
 &lt;/p>
-&lt;p>&lt;font color="blue">Update 2020-12-01: Add detailed guide on installing Neovim on Linux&lt;/font>
-&lt;font color="blue">Update 2021-01-17: Install nvim via tar ball instead of appimage&lt;/font>&lt;/p></description></item><item><title>Two Issues Related to ImageFont Module in PIL</title><link>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</link><pubDate>Tue, 04 Dec 2018 22:48:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</guid><description>&lt;p>In this post, I want to write about two issues related to the
+&lt;details>
+&lt;summary>&lt;font size="3" color="blue">Change log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2021-01-17: Install nvim via tar ball instead of appimage&lt;/font>&lt;/li>
+&lt;li>&lt;font color="blue">2020-12-01: Add detailed guide on installing Neovim on Linux&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details></description></item><item><title>Two Issues Related to ImageFont Module in PIL</title><link>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</link><pubDate>Tue, 04 Dec 2018 22:48:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</guid><description>&lt;p>In this post, I want to write about two issues related to the
 &lt;a href="https://pillow.readthedocs.io/en/5.1.x/reference/ImageFont.html">ImageFont&lt;/a>
 module in the &lt;a href="https://github.com/python-pillow/Pillow">PIL&lt;/a> package.&lt;/p></description></item><item><title>What Is The Difference between pip, pip3 and pip3.6 Shipped with Anaconda3?</title><link>https://jdhao.github.io/2018/11/19/anaconda3_windows_difference_between_pip_pip3/</link><pubDate>Mon, 19 Nov 2018 16:30:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/19/anaconda3_windows_difference_between_pip_pip3/</guid><description>&lt;p>On Windows system, if you install Python3 via
 &lt;a href="https://www.anaconda.com/download/#windows">Anaconda&lt;/a>. Under Anaconda root directory,

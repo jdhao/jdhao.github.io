@@ -40,12 +40,11 @@ often too old. So I decided to install the latest version of Tmux that supports
 true colors from source. Since I do not have root privilege on the system, I
 have to build Tmux and install it under my &lt;code>HOME&lt;/code>. If that is also what you
 want, keep reading.&lt;/p></description></item><item><title>Building Zsh from Source and Configuring It on CentOS</title><link>https://jdhao.github.io/2018/10/13/centos_zsh_install_use/</link><pubDate>Sat, 13 Oct 2018 18:29:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/13/centos_zsh_install_use/</guid><description>&lt;p>&lt;strong>Update&lt;/strong>: this is my first post on Zsh install and configuration. For a list
-of useful plugins I use to boost my productivity, see &lt;a href="https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/">this
-post&lt;/a>.&lt;/p>
+of useful plugins I use to boost my productivity, see &lt;a href="https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/">this post&lt;/a>.&lt;/p>
 &lt;p>&lt;a href="http://www.zsh.org/">Zsh&lt;/a> is a powerful shell with better auto-completion and
-richer functions. There are also various plugins to enrich your experience of
-using shell. In this post, I will introduce the installation and simple
-configurations for zsh.&lt;/p></description></item><item><title>Vim-like Settings for Tmux</title><link>https://jdhao.github.io/2018/09/30/tmux_settings_for_vim_users/</link><pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate><guid>https://jdhao.github.io/2018/09/30/tmux_settings_for_vim_users/</guid><description>&lt;p>I am a &lt;a href="https://neovim.io/">Neovim&lt;/a> (or Nvim in abbreviation) user. In Nvim, we
+richer features. There are also various plugins to enrich your experience of
+using Zsh. In this post, I will give a brief summary on how to install and set
+up zsh.&lt;/p></description></item><item><title>Vim-like Settings for Tmux</title><link>https://jdhao.github.io/2018/09/30/tmux_settings_for_vim_users/</link><pubDate>Sun, 30 Sep 2018 00:00:00 +0000</pubDate><guid>https://jdhao.github.io/2018/09/30/tmux_settings_for_vim_users/</guid><description>&lt;p>I am a &lt;a href="https://neovim.io/">Neovim&lt;/a> (or Nvim in abbreviation) user. In Nvim, we
 use &lt;code>Ctrl-W&lt;/code> as prefix for window-related operations. However, the default
 prefix is &lt;code>Ctrl-B&lt;/code> in Tmux. As a result, I often mistakenly press &lt;code>Ctrl-W&lt;/code> when
 trying to change panes inside Tmux, which is annoying. Why not change tmux

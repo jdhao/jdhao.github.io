@@ -10,9 +10,8 @@ productivity.&lt;/p></description></item><item><title>Faster Directory Navigatio
 to directories, especially when directory names are very long.
 &lt;a href="https://github.com/skywind3000/z.lua">z.lua&lt;/a> is such a tool to make your life
 easier by jumping to the desired directory &lt;em>smartly&lt;/em>.&lt;/p></description></item><item><title>Fzf Installation and Usage</title><link>https://jdhao.github.io/2018/11/05/fzf_install_use/</link><pubDate>Mon, 05 Nov 2018 23:54:29 +0800</pubDate><guid>https://jdhao.github.io/2018/11/05/fzf_install_use/</guid><description>&lt;script id="asciicast-218493" src="https://asciinema.org/a/218493.js" async>&lt;/script></description></item><item><title>Building Zsh from Source and Configuring It on CentOS</title><link>https://jdhao.github.io/2018/10/13/centos_zsh_install_use/</link><pubDate>Sat, 13 Oct 2018 18:29:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/13/centos_zsh_install_use/</guid><description>&lt;p>&lt;strong>Update&lt;/strong>: this is my first post on Zsh install and configuration. For a list
-of useful plugins I use to boost my productivity, see &lt;a href="https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/">this
-post&lt;/a>.&lt;/p>
+of useful plugins I use to boost my productivity, see &lt;a href="https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/">this post&lt;/a>.&lt;/p>
 &lt;p>&lt;a href="http://www.zsh.org/">Zsh&lt;/a> is a powerful shell with better auto-completion and
-richer functions. There are also various plugins to enrich your experience of
-using shell. In this post, I will introduce the installation and simple
-configurations for zsh.&lt;/p></description></item></channel></rss>
+richer features. There are also various plugins to enrich your experience of
+using Zsh. In this post, I will give a brief summary on how to install and set
+up zsh.&lt;/p></description></item></channel></rss>
