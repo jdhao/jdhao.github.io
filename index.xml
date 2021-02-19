@@ -365,11 +365,19 @@ for Neovim and certainly your aesthetics.&lt;/p></description></item><item><titl
 trigger word and expand it to some boilerplate code or texts that we do not
 want to repeat typing. We will increase our efficiency dramatically with the
 help of snippets.&lt;/p></description></item><item><title>Mac 上罗技 M590 鼠标设置</title><link>https://jdhao.github.io/2019/04/02/mac_logitech_mouse_setting/</link><pubDate>Tue, 02 Apr 2019 01:50:31 +0800</pubDate><guid>https://jdhao.github.io/2019/04/02/mac_logitech_mouse_setting/</guid><description>&lt;p>本文简单总结 Macbook Pro 上&lt;a href="https://item.jd.com/4462453.html">罗技 M590 鼠标&lt;/a>的设置。&lt;/p></description></item><item><title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 1</title><link>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</link><pubDate>Thu, 28 Mar 2019 00:24:33 +0800</pubDate><guid>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</guid><description>&lt;p>In this post, I will share some nifty little techniques that make my editing
-experience in &lt;a href="https://github.com/neovim/neovim">Neovim&lt;/a> smoother.&lt;/p></description></item><item><title>A Complete Guide on Writing LaTeX with Vimtex in Neovim</title><link>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</link><pubDate>Tue, 26 Mar 2019 22:54:43 +0800</pubDate><guid>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</guid><description>&lt;p>Previously, I have written &lt;a href="https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/">a post&lt;/a>
+experience in &lt;a href="https://github.com/neovim/neovim">Neovim&lt;/a> smoother.&lt;/p></description></item><item><title>A Complete Guide on Writing LaTeX with Vimtex in Neovim</title><link>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</link><pubDate>Tue, 26 Mar 2019 22:54:43 +0800</pubDate><guid>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">Update log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2021-02-20: Add inverse search settings on Windows and macOS&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;p>Previously, I have written &lt;a href="https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/">a post&lt;/a>
 on how to write and compile LaTeX source code in Sublime Text. Now that I am
 familiar with Neovim, I want to do everything related to text editing inside
 Neovim. In this post, I would like to share how to configure Neovim for LaTeX
-editing and previewing.&lt;/p></description></item><item><title>Manipulating Images with Alpha Channels in Pillow</title><link>https://jdhao.github.io/2019/03/07/pillow_image_alpha_channel/</link><pubDate>Thu, 07 Mar 2019 16:21:57 +0800</pubDate><guid>https://jdhao.github.io/2019/03/07/pillow_image_alpha_channel/</guid><description>&lt;p>In image processing, &lt;a href="https://www.makeuseof.com/tag/alpha-channel-images-mean/">alpha
+editing and previewing.&lt;/p>
+&lt;p>My complete config for vimtex can be found &lt;a href="https://github.com/jdhao/nvim-config/blob/master/core/plugins.vim">here&lt;/a> (search vimtex)
+on my nvim-config repo .&lt;/p></description></item><item><title>Manipulating Images with Alpha Channels in Pillow</title><link>https://jdhao.github.io/2019/03/07/pillow_image_alpha_channel/</link><pubDate>Thu, 07 Mar 2019 16:21:57 +0800</pubDate><guid>https://jdhao.github.io/2019/03/07/pillow_image_alpha_channel/</guid><description>&lt;p>In image processing, &lt;a href="https://www.makeuseof.com/tag/alpha-channel-images-mean/">alpha
 channel&lt;/a> is usually
 used to control the transparency of an image. In itself, the alpha channel is
 just a gray level image&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. In this post, I want to talk about how to add an

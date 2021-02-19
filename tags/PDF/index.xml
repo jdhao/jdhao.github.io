@@ -4,11 +4,19 @@ to manage my notes. But all these tools I have tried are unsatisfactory: they
 are either slow or cumbersome when I want to search my notes. Finally, I
 decided to take my notes in Markdown and convert them to PDF using Pandoc for
 reading. In this post, I will summarize how I do it.&lt;/p>
-&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/">这里&lt;/a>。&lt;/p></description></item><item><title>A Complete Guide on Writing LaTeX with Vimtex in Neovim</title><link>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</link><pubDate>Tue, 26 Mar 2019 22:54:43 +0800</pubDate><guid>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</guid><description>&lt;p>Previously, I have written &lt;a href="https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/">a post&lt;/a>
+&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/">这里&lt;/a>。&lt;/p></description></item><item><title>A Complete Guide on Writing LaTeX with Vimtex in Neovim</title><link>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</link><pubDate>Tue, 26 Mar 2019 22:54:43 +0800</pubDate><guid>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">Update log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2021-02-20: Add inverse search settings on Windows and macOS&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;p>Previously, I have written &lt;a href="https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/">a post&lt;/a>
 on how to write and compile LaTeX source code in Sublime Text. Now that I am
 familiar with Neovim, I want to do everything related to text editing inside
 Neovim. In this post, I would like to share how to configure Neovim for LaTeX
-editing and previewing.&lt;/p></description></item><item><title>How to Replace A Page of PDF File with Another PDF</title><link>https://jdhao.github.io/2018/06/04/insert-image-page-to-pdf/</link><pubDate>Mon, 04 Jun 2018 14:18:34 +0800</pubDate><guid>https://jdhao.github.io/2018/06/04/insert-image-page-to-pdf/</guid><description>&lt;p>In this post, I want to write about how to replace one page of existing PDF
+editing and previewing.&lt;/p>
+&lt;p>My complete config for vimtex can be found &lt;a href="https://github.com/jdhao/nvim-config/blob/master/core/plugins.vim">here&lt;/a> (search vimtex)
+on my nvim-config repo .&lt;/p></description></item><item><title>How to Replace A Page of PDF File with Another PDF</title><link>https://jdhao.github.io/2018/06/04/insert-image-page-to-pdf/</link><pubDate>Mon, 04 Jun 2018 14:18:34 +0800</pubDate><guid>https://jdhao.github.io/2018/06/04/insert-image-page-to-pdf/</guid><description>&lt;p>In this post, I want to write about how to replace one page of existing PDF
 files with a new PDF image.&lt;/p></description></item><item><title>如何从 PowerPoint 幻灯片导出没有多余白边的图像或者 PDF 文件</title><link>https://jdhao.github.io/2018/02/06/export-borderless-img-pdf-from-powerpoint/</link><pubDate>Tue, 06 Feb 2018 16:20:00 +0800</pubDate><guid>https://jdhao.github.io/2018/02/06/export-borderless-img-pdf-from-powerpoint/</guid><description>&lt;p>PowerPoint 是一个方便的绘图工具，可以完成一些简单的绘图工作，并且支持将 slide
 导出为图片或者 PDF 格式，方便插入到其他文档中，但是默认导出的图片或者 PDF 文件
 通常会有大量冗余的白边。如何设置，才能使得导出的文件中的白边尽可能少呢？本文将
