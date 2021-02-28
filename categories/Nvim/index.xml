@@ -105,11 +105,10 @@ configurations.&lt;/p></description></item><item><title>Building A Vim Statuslin
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20191103144006.png">
 &lt;/p>
 &lt;p>I have been using &lt;a href="https://github.com/vim-airline/vim-airline">vim-airline&lt;/a> to
-customize my Nvim statusline ever since I first started using Neovim. It works
-great. Recently, I started &lt;a href="https://github.com/jdhao/minimal_vim">a repo&lt;/a> to
-create a minimal configuration without external plugins for both Vim
-and Neovim. During the process, I learned how to build the Vim statusline from
-scratch.&lt;/p></description></item><item><title>Nifty Nvim Techniques That Make My Life Easier -- Series 4</title><link>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</link><pubDate>Tue, 17 Sep 2019 23:04:55 +0800</pubDate><guid>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</guid><description>&lt;p>This is the series 4 of my blog posts about some nifty techniques of using
+customize my statusline ever since I started using Neovim. It works great.
+Recently, I started &lt;a href="https://github.com/jdhao/minimal_vim">a repo&lt;/a> to create a
+minimal configuration without external plugins for both Vim and Neovim. During
+the process, I learned how to build a custom statusline from scratch.&lt;/p></description></item><item><title>Nifty Nvim Techniques That Make My Life Easier -- Series 4</title><link>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</link><pubDate>Tue, 17 Sep 2019 23:04:55 +0800</pubDate><guid>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</guid><description>&lt;p>This is the series 4 of my blog posts about some nifty techniques of using
 Nvim, which continue my previous series
 &lt;a href="https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/">here&lt;/a>.&lt;/p></description></item><item><title>How to Create Proper Folding for Vim/Nvim Configuration</title><link>https://jdhao.github.io/2019/08/16/nvim_config_folding/</link><pubDate>Fri, 16 Aug 2019 22:56:20 +0800</pubDate><guid>https://jdhao.github.io/2019/08/16/nvim_config_folding/</guid><description>&lt;p>&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190817223054.png" alt="Folded config">&lt;/p></description></item><item><title>How Do I Show the Current File Path In Neovim?</title><link>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</link><pubDate>Wed, 31 Jul 2019 23:10:27 +0800</pubDate><guid>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</guid><description>&lt;p>I saw on &lt;a href="https://vi.stackexchange.com/questions/104/how-can-i-see-the-full-path-of-the-current-file/20768#20768">StackExchange&lt;/a>
 that someone asked about how to see the full path of current file in Vim. I

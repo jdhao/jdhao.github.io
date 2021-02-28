@@ -26,11 +26,10 @@ move the cursor until the script finishes running.&lt;/p></description></item><i
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20191103144006.png">
 &lt;/p>
 &lt;p>I have been using &lt;a href="https://github.com/vim-airline/vim-airline">vim-airline&lt;/a> to
-customize my Nvim statusline ever since I first started using Neovim. It works
-great. Recently, I started &lt;a href="https://github.com/jdhao/minimal_vim">a repo&lt;/a> to
-create a minimal configuration without external plugins for both Vim
-and Neovim. During the process, I learned how to build the Vim statusline from
-scratch.&lt;/p></description></item><item><title>Generating Table of Contents for Markdown with Tagbar</title><link>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</link><pubDate>Tue, 15 Oct 2019 01:01:01 +0800</pubDate><guid>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</guid><description>&lt;p align="center">
+customize my statusline ever since I started using Neovim. It works great.
+Recently, I started &lt;a href="https://github.com/jdhao/minimal_vim">a repo&lt;/a> to create a
+minimal configuration without external plugins for both Vim and Neovim. During
+the process, I learned how to build a custom statusline from scratch.&lt;/p></description></item><item><title>Generating Table of Contents for Markdown with Tagbar</title><link>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</link><pubDate>Tue, 15 Oct 2019 01:01:01 +0800</pubDate><guid>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20191015001602.png">
 &lt;/p>
 &lt;p>I have been using Vim plugin Tagbar for viewing and navigating tags inside my
