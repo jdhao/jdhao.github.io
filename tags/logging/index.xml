@@ -2,12 +2,11 @@
 terminal using a stream handler.&lt;/p></description></item><item><title>Duplicate Logging Messages in Python</title><link>https://jdhao.github.io/2020/06/20/python_duplicate_logging_messages/</link><pubDate>Sat, 20 Jun 2020 00:45:12 +0800</pubDate><guid>https://jdhao.github.io/2020/06/20/python_duplicate_logging_messages/</guid><description>&lt;p>When I am working on a project, I find that the logging message is printed
 twice. The following minimal code can reproduce this issue:&lt;/p></description></item><item><title>How to Use Unified Logging Config Across the Project</title><link>https://jdhao.github.io/2020/04/24/python_logging_for_multiple_modules/</link><pubDate>Fri, 24 Apr 2020 01:12:43 +0800</pubDate><guid>https://jdhao.github.io/2020/04/24/python_logging_for_multiple_modules/</guid><description>&lt;p>When we are working on a project, we often need to log some message for easier
 debugging. How do we configure the logging settings once and use it across the
-project?&lt;/p></description></item><item><title>A Simple Guide on How to Use the Python Logging Module</title><link>https://jdhao.github.io/2018/10/12/python_logging_module/</link><pubDate>Fri, 12 Oct 2018 22:13:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/12/python_logging_module/</guid><description>&lt;p>In the past, I often use plain &lt;code>print()&lt;/code> to display some statistics during
-training process of my models. However, it is not convenient to save the
-statistics in a file for later inspection. Once the program is finished, we do
-not have an overview of the training process. I am aware that there are
-packages such as &lt;a href="https://github.com/lanpa/tensorboardX">tensorboardX&lt;/a> and
-&lt;a href="https://github.com/facebookresearch/visdom">visdom&lt;/a>, which are specifically
-designed for inspecting the various statistics during training. Right now, I
-would rather keep the program plain simple and usable. So I decided to give
-&lt;a href="https://docs.python.org/3/library/logging.html">Python logging pacakge&lt;/a> a try.&lt;/p></description></item></channel></rss>
+project?&lt;/p></description></item><item><title>A Simple Guide on How to Use the Python Logging Module</title><link>https://jdhao.github.io/2018/10/12/python_logging_module/</link><pubDate>Fri, 12 Oct 2018 22:13:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/12/python_logging_module/</guid><description>&lt;p>In the past, I use plain &lt;code>print()&lt;/code> to display some statistics during training
+process of my models. However, it is not convenient to save the statistics in a
+file for later inspection. Once the program is finished, we do not have an
+overview of the training process. I am aware that there are packages such as
+&lt;a href="https://github.com/lanpa/tensorboardX">tensorboardX&lt;/a> and &lt;a href="https://github.com/facebookresearch/visdom">visdom&lt;/a>, which are specifically designed for
+inspecting the various statistics during training. Right now, I would rather
+keep the program plain simple and usable. So I decided to give &lt;a href="https://docs.python.org/3/library/logging.html">Python logging
+pacakge&lt;/a> a try.&lt;/p></description></item></channel></rss>

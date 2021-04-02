@@ -98,15 +98,14 @@ error when opening files in UTF-8 format:&lt;/p>
 &lt;/blockquote>
 &lt;p>If you read the same file on Linux or macOS, you will find that this file can
 be opened without any error. Why is there a difference? It has something to do
-with the default encoding Python chooses to use on different platforms.&lt;/p></description></item><item><title>A Simple Guide on How to Use the Python Logging Module</title><link>https://jdhao.github.io/2018/10/12/python_logging_module/</link><pubDate>Fri, 12 Oct 2018 22:13:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/12/python_logging_module/</guid><description>&lt;p>In the past, I often use plain &lt;code>print()&lt;/code> to display some statistics during
-training process of my models. However, it is not convenient to save the
-statistics in a file for later inspection. Once the program is finished, we do
-not have an overview of the training process. I am aware that there are
-packages such as &lt;a href="https://github.com/lanpa/tensorboardX">tensorboardX&lt;/a> and
-&lt;a href="https://github.com/facebookresearch/visdom">visdom&lt;/a>, which are specifically
-designed for inspecting the various statistics during training. Right now, I
-would rather keep the program plain simple and usable. So I decided to give
-&lt;a href="https://docs.python.org/3/library/logging.html">Python logging pacakge&lt;/a> a try.&lt;/p></description></item><item><title>Set up the Default Value for Boolean Option in Argparse</title><link>https://jdhao.github.io/2018/10/11/python_argparse_set_boolean_params/</link><pubDate>Thu, 11 Oct 2018 16:33:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/11/python_argparse_set_boolean_params/</guid><description>&lt;p>TL;DR&lt;/p>
+with the default encoding Python chooses to use on different platforms.&lt;/p></description></item><item><title>A Simple Guide on How to Use the Python Logging Module</title><link>https://jdhao.github.io/2018/10/12/python_logging_module/</link><pubDate>Fri, 12 Oct 2018 22:13:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/12/python_logging_module/</guid><description>&lt;p>In the past, I use plain &lt;code>print()&lt;/code> to display some statistics during training
+process of my models. However, it is not convenient to save the statistics in a
+file for later inspection. Once the program is finished, we do not have an
+overview of the training process. I am aware that there are packages such as
+&lt;a href="https://github.com/lanpa/tensorboardX">tensorboardX&lt;/a> and &lt;a href="https://github.com/facebookresearch/visdom">visdom&lt;/a>, which are specifically designed for
+inspecting the various statistics during training. Right now, I would rather
+keep the program plain simple and usable. So I decided to give &lt;a href="https://docs.python.org/3/library/logging.html">Python logging
+pacakge&lt;/a> a try.&lt;/p></description></item><item><title>Set up the Default Value for Boolean Option in Argparse</title><link>https://jdhao.github.io/2018/10/11/python_argparse_set_boolean_params/</link><pubDate>Thu, 11 Oct 2018 16:33:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/11/python_argparse_set_boolean_params/</guid><description>&lt;p>TL;DR&lt;/p>
 &lt;p>If you want to set a parameter&amp;rsquo;s default value to &lt;code>True&lt;/code> using argparse, use&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-fallback" data-lang="fallback">parser.add_argument(&amp;#39;--param&amp;#39;, action=&amp;#39;store_false&amp;#39;)
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Otherwise, use&lt;/p>
