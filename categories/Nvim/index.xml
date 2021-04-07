@@ -84,11 +84,18 @@ date, tags, categories, etc.&lt;/p></description></item><item><title>Nifty Nvim 
 without going to the terminal and typing &lt;code>python toy_script.py&lt;/code>. Of course, we
 can use &lt;code>:!python %&lt;/code> in the command line to run the script (see &lt;code>:h :!&lt;/code>). The
 problem is that running external command will block Nvim/Vim, and we can not
-move the cursor until the script finishes running.&lt;/p></description></item><item><title>A Hands-on Experience with Neovim's Builtin LSP Support</title><link>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</link><pubDate>Wed, 20 Nov 2019 22:41:16 +0800</pubDate><guid>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</guid><description>&lt;p>&lt;strong>Updated (2020-09-14): update lsp config to reflect the latest changes and add more plugins.&lt;/strong>&lt;/p>
+move the cursor until the script finishes running.&lt;/p></description></item><item><title>A Hands-on Experience with Neovim's Builtin LSP Support</title><link>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</link><pubDate>Wed, 20 Nov 2019 22:41:16 +0800</pubDate><guid>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2020-09-14: update lsp config to reflect the latest changes and add more plugins.&lt;/font>&lt;/li>
+&lt;li>&lt;font color="blue">2021-04-08: update post based on latest version of Neovim-lsp.&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
 &lt;p>Just a few days ago, the builtin &lt;a href="https://microsoft.github.io/language-server-protocol/">Language Server Protocol&lt;/a>
 support &lt;a href="https://github.com/neovim/neovim/pull/11336">has been merged&lt;/a> into Neovim master.&lt;/p>
 &lt;p>This post is a hands-on experience of setting up LSP support for Python with
-the &lt;a href="https://github.com/palantir/python-language-server">python-language-server&lt;/a>.&lt;/p></description></item><item><title>File Backup in Neovim</title><link>https://jdhao.github.io/2019/11/16/nvim_file_backup/</link><pubDate>Sat, 16 Nov 2019 19:56:18 +0800</pubDate><guid>https://jdhao.github.io/2019/11/16/nvim_file_backup/</guid><description>&lt;p>There are several options related to file backups in Vim/Nvim.&lt;/p>
+the &lt;a href="https://github.com/palantir/python-language-server">python-language-server&lt;/a>.&lt;/p>
+&lt;p>Note that settings here may be obsolete due to rapid evolving of the builtin lsp.&lt;/p></description></item><item><title>File Backup in Neovim</title><link>https://jdhao.github.io/2019/11/16/nvim_file_backup/</link><pubDate>Sat, 16 Nov 2019 19:56:18 +0800</pubDate><guid>https://jdhao.github.io/2019/11/16/nvim_file_backup/</guid><description>&lt;p>There are several options related to file backups in Vim/Nvim.&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>backup&lt;/code>&lt;/li>
 &lt;li>&lt;code>writebackup&lt;/code>&lt;/li>

@@ -5,8 +5,15 @@ pop-up completion menu seems to be selected base on prefix matching.&lt;/p></des
 However, I haven&amp;rsquo;t touch on an important part of writing code: linting. It
 turns out that configure it correctly is harder than I thought.&lt;/p></description></item><item><title>Replace Deoplete-jedi with LSP Finally</title><link>https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/</link><pubDate>Wed, 04 Nov 2020 00:10:03 +0800</pubDate><guid>https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/</guid><description>&lt;p>After using deoplete along with deoplete-jedi for more than two years, I have
 finally decided to try something new for code completion. Yeah, you guess it,
-the &lt;a href="https://langserver.org/">Language Server Protocol&lt;/a> (LSP in short).&lt;/p></description></item><item><title>A Hands-on Experience with Neovim's Builtin LSP Support</title><link>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</link><pubDate>Wed, 20 Nov 2019 22:41:16 +0800</pubDate><guid>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</guid><description>&lt;p>&lt;strong>Updated (2020-09-14): update lsp config to reflect the latest changes and add more plugins.&lt;/strong>&lt;/p>
+the &lt;a href="https://langserver.org/">Language Server Protocol&lt;/a> (LSP in short).&lt;/p></description></item><item><title>A Hands-on Experience with Neovim's Builtin LSP Support</title><link>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</link><pubDate>Wed, 20 Nov 2019 22:41:16 +0800</pubDate><guid>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2020-09-14: update lsp config to reflect the latest changes and add more plugins.&lt;/font>&lt;/li>
+&lt;li>&lt;font color="blue">2021-04-08: update post based on latest version of Neovim-lsp.&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
 &lt;p>Just a few days ago, the builtin &lt;a href="https://microsoft.github.io/language-server-protocol/">Language Server Protocol&lt;/a>
 support &lt;a href="https://github.com/neovim/neovim/pull/11336">has been merged&lt;/a> into Neovim master.&lt;/p>
 &lt;p>This post is a hands-on experience of setting up LSP support for Python with
-the &lt;a href="https://github.com/palantir/python-language-server">python-language-server&lt;/a>.&lt;/p></description></item></channel></rss>
+the &lt;a href="https://github.com/palantir/python-language-server">python-language-server&lt;/a>.&lt;/p>
+&lt;p>Note that settings here may be obsolete due to rapid evolving of the builtin lsp.&lt;/p></description></item></channel></rss>
