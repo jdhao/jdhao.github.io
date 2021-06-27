@@ -45,8 +45,13 @@ title="Different math symbols produced by Matplotlib and LaTeX"
 style="float: middle;">&lt;/p></description></item><item><title>纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件</title><link>https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/</link><pubDate>Sun, 10 Dec 2017 00:10:00 +0800</pubDate><guid>https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/</guid><description>&lt;p>&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/18-1-7/731510.jpg"
 title="生成的 PDF 截图"
 style="float: middle;">&lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2021-06-27: 补充标题如何生成的说明。&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
 &lt;p>For English version of this post, click &lt;a href="https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/">here&lt;/a>.&lt;/p>
-&lt;p>更新时间：2019-11-18&lt;/p>
 &lt;p>本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。&lt;/p></description></item><item><title>A Guide on Using Unicode Characters in Matplotlib</title><link>https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/</link><pubDate>Sat, 13 May 2017 21:36:26 +0800</pubDate><guid>https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/</guid><description>&lt;p>A few days ago, I found that Matplotlib can not show some Unicode characters
 (some Chinese characters) using its default settings. In the rendered output
 image, Chinese characters are shown as blank boxes. After reading a lot of

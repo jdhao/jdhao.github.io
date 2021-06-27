@@ -27,8 +27,13 @@ am not going to repeat that here. In this post, I will write about what
 confused me when I tried to understand all this stuff.&lt;/p></description></item><item><title>纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件</title><link>https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/</link><pubDate>Sun, 10 Dec 2017 00:10:00 +0800</pubDate><guid>https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/</guid><description>&lt;p>&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/18-1-7/731510.jpg"
 title="生成的 PDF 截图"
 style="float: middle;">&lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2021-06-27: 补充标题如何生成的说明。&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
 &lt;p>For English version of this post, click &lt;a href="https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/">here&lt;/a>.&lt;/p>
-&lt;p>更新时间：2019-11-18&lt;/p>
 &lt;p>本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。&lt;/p></description></item><item><title>Sublime Text Tips and Tricks That Will Make Your Life Easier</title><link>https://jdhao.github.io/2017/10/21/useful-sublime-shortcut-and-plugin/</link><pubDate>Sat, 21 Oct 2017 17:34:00 +0800</pubDate><guid>https://jdhao.github.io/2017/10/21/useful-sublime-shortcut-and-plugin/</guid><description>&lt;p>In this post I will share some tips on how to use Sublime Text on Windows.
 These tips are collected over time and will be updated frequently
 (hopefully).&lt;/p></description></item><item><title>Sublime Text 3 使用相关问题及解决办法</title><link>https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/</link><pubDate>Sun, 19 Mar 2017 19:01:00 +0800</pubDate><guid>https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/</guid><description>&lt;p>这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
