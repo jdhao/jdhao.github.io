@@ -20,8 +20,7 @@ pretty powerful for this task.&lt;/p></description></item><item><title>How to Us
 slim ssh tool with rich features. It is widely used to connect to the remote
 servers. I will summarize some of its settings and usages in this post.&lt;/p></description></item><item><title>Set up X11 Forwarding with Git for Windows (git-bash)</title><link>https://jdhao.github.io/2018/03/02/Windows-connect-server-x11-with-gitbash/</link><pubDate>Fri, 02 Mar 2018 00:05:00 +0800</pubDate><guid>https://jdhao.github.io/2018/03/02/Windows-connect-server-x11-with-gitbash/</guid><description>&lt;p>&lt;a href="https://jdhao.github.io/2017/12/29/cmder-usage/">As I have posted earlier&lt;/a>,
 Cmder is a better option if you use Windows command line frequently. The full
-installation of Cmder comes with &lt;a href="https://gitforwindows.org/">&lt;em>Git for
-Windows&lt;/em>&lt;/a>, which is handy to provide a Linux-like
+installation of Cmder comes with &lt;a href="https://gitforwindows.org/">&lt;em>Git for Windows&lt;/em>&lt;/a>, which is handy to provide a Linux-like
 environment. In this post, I will write about how to use Git for Windows to
 connect to a remote CentOS server and set up X11 forwarding to use the GUI
 applications on that server.&lt;/p></description></item></channel></rss>
