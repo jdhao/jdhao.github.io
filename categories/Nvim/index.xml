@@ -18,7 +18,10 @@ solving this issue.&lt;/font>&lt;/p>
 for Neovim/Vim is to map &lt;code>jk&lt;/code> or &lt;code>kj&lt;/code> or &lt;code>jj&lt;/code> to &lt;code>&amp;lt;ESC&amp;gt;&lt;/code> for quicker escaping
 from the insert mode. I have used the following mapping for quite some time:&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-vim" data-lang="vim">&lt;span class="nx">inoremap&lt;/span> &lt;span class="nx">jk&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nx">ESC&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="err">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Set up Fuzzy Completion for Vim-lsp</title><link>https://jdhao.github.io/2020/11/16/vim_lsp_fuzzy_completion/</link><pubDate>Mon, 16 Nov 2020 22:37:02 +0800</pubDate><guid>https://jdhao.github.io/2020/11/16/vim_lsp_fuzzy_completion/</guid><description>&lt;p>In my &lt;a href="https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/">older post&lt;/a>, I have shared how to set up
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Set up Fuzzy Completion for Vim-lsp</title><link>https://jdhao.github.io/2020/11/16/vim_lsp_fuzzy_completion/</link><pubDate>Mon, 16 Nov 2020 22:37:02 +0800</pubDate><guid>https://jdhao.github.io/2020/11/16/vim_lsp_fuzzy_completion/</guid><description>&lt;p>&lt;font color="red">Update 2021-07-15: Note that pyls has been deprecated. There
+is new fork of it called &lt;a href="https://github.com/python-lsp/python-lsp-server">pylsp&lt;/a>, which is maintained by the
+community.&lt;/font>&lt;/p>
+&lt;p>In my &lt;a href="https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/">older post&lt;/a>, I have shared how to set up
 auto-completion for vim-lsp with the help of deoplete. One annoyance is that I
 can not use fuzzy matching for auto-completion: the completion items in the
 pop-up completion menu seems to be selected base on prefix matching.&lt;/p></description></item><item><title>How Do I Create New Text Objects in Neovim/Vim</title><link>https://jdhao.github.io/2020/11/15/nvim_text_objects/</link><pubDate>Sun, 15 Nov 2020 15:00:06 +0800</pubDate><guid>https://jdhao.github.io/2020/11/15/nvim_text_objects/</guid><description>&lt;p>Shortly after I started using &lt;a href="https://github.com/neovim/neovim">Neovim&lt;/a>, I
@@ -27,9 +30,15 @@ For example, when the cursor is inside a pair of &lt;code>[]&lt;/code>, we can u
 change text inside them. This is definitely one of the greatest moments on my
 road of learning Vim. However, I haven&amp;rsquo;t really thought about how does text
 object really work.&lt;/p></description></item><item><title>Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 8</title><link>https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/</link><pubDate>Wed, 11 Nov 2020 22:43:47 +0800</pubDate><guid>https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/</guid><description>&lt;p>This post continues my &lt;a href="https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/">previous post&lt;/a>
-on nifty Nvim/Vim techniques.&lt;/p></description></item><item><title>Set Up Lisp Dev Environment in Neovim</title><link>https://jdhao.github.io/2020/11/08/nvim_lisp_env_setup/</link><pubDate>Sun, 08 Nov 2020 23:43:20 +0800</pubDate><guid>https://jdhao.github.io/2020/11/08/nvim_lisp_env_setup/</guid><description>&lt;p>A quick summary on how to set up Lisp Development environment in Neovim.&lt;/p></description></item><item><title>Flake8 Config in Pyls for Code Linting.</title><link>https://jdhao.github.io/2020/11/05/pyls_flake8_setup/</link><pubDate>Thu, 05 Nov 2020 00:27:36 +0800</pubDate><guid>https://jdhao.github.io/2020/11/05/pyls_flake8_setup/</guid><description>&lt;p>In my &lt;a href="https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/">previous post&lt;/a>, I have go over the basic setup to make vim-lsp work.
+on nifty Nvim/Vim techniques.&lt;/p></description></item><item><title>Set Up Lisp Dev Environment in Neovim</title><link>https://jdhao.github.io/2020/11/08/nvim_lisp_env_setup/</link><pubDate>Sun, 08 Nov 2020 23:43:20 +0800</pubDate><guid>https://jdhao.github.io/2020/11/08/nvim_lisp_env_setup/</guid><description>&lt;p>A quick summary on how to set up Lisp Development environment in Neovim.&lt;/p></description></item><item><title>Flake8 Config in Pyls for Code Linting.</title><link>https://jdhao.github.io/2020/11/05/pyls_flake8_setup/</link><pubDate>Thu, 05 Nov 2020 00:27:36 +0800</pubDate><guid>https://jdhao.github.io/2020/11/05/pyls_flake8_setup/</guid><description>&lt;p>&lt;font color="red">Update 2021-07-15: Note that pyls has been deprecated. There
+is new fork of it called &lt;a href="https://github.com/python-lsp/python-lsp-server">pylsp&lt;/a>, which is maintained by the
+community.&lt;/font>&lt;/p>
+&lt;p>In my &lt;a href="https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/">previous post&lt;/a>, I have go over the basic setup to make vim-lsp work.
 However, I haven&amp;rsquo;t touch on an important part of writing code: linting. It
-turns out that configure it correctly is harder than I thought.&lt;/p></description></item><item><title>Replace Deoplete-jedi with LSP Finally</title><link>https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/</link><pubDate>Wed, 04 Nov 2020 00:10:03 +0800</pubDate><guid>https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/</guid><description>&lt;p>After using deoplete along with deoplete-jedi for more than two years, I have
+turns out that configure it correctly is harder than I thought.&lt;/p></description></item><item><title>Replace Deoplete-jedi with LSP Finally</title><link>https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/</link><pubDate>Wed, 04 Nov 2020 00:10:03 +0800</pubDate><guid>https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/</guid><description>&lt;p>&lt;font color="red">Update 2021-07-15: Note that pyls has been deprecated. There
+is new fork of it called &lt;a href="https://github.com/python-lsp/python-lsp-server">pylsp&lt;/a>, which is maintained by the
+community.&lt;/font>&lt;/p>
+&lt;p>After using deoplete along with deoplete-jedi for more than two years, I have
 finally decided to try something new for code completion. Yeah, you guess it,
 the &lt;a href="https://langserver.org/">Language Server Protocol&lt;/a> (LSP in short).&lt;/p></description></item><item><title>Edit Multiple Files at once in Neovim</title><link>https://jdhao.github.io/2020/10/28/edit_multiple_files_nvim/</link><pubDate>Wed, 28 Oct 2020 00:21:30 +0800</pubDate><guid>https://jdhao.github.io/2020/10/28/edit_multiple_files_nvim/</guid><description>&lt;p>When I was in a folder and tried to edit multiple files using glob pattern with the
 following Neovim command:&lt;/p>
@@ -90,14 +99,15 @@ problem is that running external command will block Nvim/Vim, and we can not
 move the cursor until the script finishes running.&lt;/p></description></item><item><title>A Hands-on Experience with Neovim's Builtin LSP Support</title><link>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</link><pubDate>Wed, 20 Nov 2019 22:41:16 +0800</pubDate><guid>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</guid><description>&lt;details>
 &lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
 &lt;ul>
-&lt;li>&lt;font color="blue">2020-09-14: update lsp config to reflect the latest changes and add more plugins.&lt;/font>&lt;/li>
+&lt;li>&lt;font color="blue">2021-07-15: use pylsp instead of pyls since pyls is obsolete.&lt;/font>&lt;/li>
 &lt;li>&lt;font color="blue">2021-04-08: update post based on latest version of Neovim-lsp.&lt;/font>&lt;/li>
+&lt;li>&lt;font color="blue">2020-09-14: update lsp config to reflect the latest changes and add more plugins.&lt;/font>&lt;/li>
 &lt;/ul>
 &lt;/details>
 &lt;p>Just a few days ago, the builtin &lt;a href="https://microsoft.github.io/language-server-protocol/">Language Server Protocol&lt;/a>
 support &lt;a href="https://github.com/neovim/neovim/pull/11336">has been merged&lt;/a> into Neovim master.&lt;/p>
 &lt;p>This post is a hands-on experience of setting up LSP support for Python with
-the &lt;a href="https://github.com/palantir/python-language-server">python-language-server&lt;/a>.&lt;/p>
+the &lt;a href="https://github.com/python-lsp/python-lsp-server">python-lsp-server&lt;/a>.&lt;/p>
 &lt;p>Note that settings here may be obsolete due to rapid evolving of the builtin lsp.&lt;/p></description></item><item><title>File Backup in Neovim</title><link>https://jdhao.github.io/2019/11/16/nvim_file_backup/</link><pubDate>Sat, 16 Nov 2019 19:56:18 +0800</pubDate><guid>https://jdhao.github.io/2019/11/16/nvim_file_backup/</guid><description>&lt;p>There are several options related to file backups in Vim/Nvim.&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>backup&lt;/code>&lt;/li>
