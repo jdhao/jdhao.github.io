@@ -4,10 +4,9 @@ filetypes. For example, for Markdown, to insert level 1 header, the snippet
 trigger is &lt;code>sec&lt;/code>, and for level 2 and 3 header, the triggers are &lt;code>ssec&lt;/code> and
 &lt;code>sssec&lt;/code> respectively. These triggers are non-intuitive and hard to remember and
 type.&lt;/p></description></item><item><title>Creating Markdown Front Matter with Ultisnips</title><link>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</link><pubDate>Sun, 22 Dec 2019 13:45:25 +0800</pubDate><guid>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
-&lt;p>I write my blog posts in Markdown and build the blog using
-&lt;a href="https://gohugo.io/">Hugo&lt;/a>. Hugo supports &lt;a href="https://gohugo.io/content-management/front-matter/">front matter&lt;/a>
-for Markdown so that you can attach some metadata with a post, such as title,
-date, tags, categories, etc.&lt;/p></description></item><item><title>Configuring Ultisnips for Neovim</title><link>https://jdhao.github.io/2019/04/17/neovim_snippet_s1/</link><pubDate>Wed, 17 Apr 2019 00:28:45 +0800</pubDate><guid>https://jdhao.github.io/2019/04/17/neovim_snippet_s1/</guid><description>&lt;p>If you have used Sublime Text before, you may be familiar with its
+&lt;p>Currently, I write my blog posts in Markdown and build the blog using
+&lt;a href="https://gohugo.io/">Hugo&lt;/a>. Hugo supports &lt;a href="https://gohugo.io/content-management/front-matter/">front matter&lt;/a> for Markdown so that you can
+attach metadata for a post, such as title, date, tags, categories, etc.&lt;/p></description></item><item><title>Configuring Ultisnips for Neovim</title><link>https://jdhao.github.io/2019/04/17/neovim_snippet_s1/</link><pubDate>Wed, 17 Apr 2019 00:28:45 +0800</pubDate><guid>https://jdhao.github.io/2019/04/17/neovim_snippet_s1/</guid><description>&lt;p>If you have used Sublime Text before, you may be familiar with its
 &lt;a href="http://sublimetext.info/docs/en/extensibility/snippets.html">snippet&lt;/a> feature.
 &lt;a href="https://en.wikipedia.org/wiki/Snippet_(programming)">Snippets&lt;/a> let us type a
 trigger word and expand it to some boilerplate code or texts that we do not

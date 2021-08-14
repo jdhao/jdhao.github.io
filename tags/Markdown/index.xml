@@ -4,10 +4,9 @@ have also observed that level 1 header written in Markdown is not rendered in
 the generated &lt;abbr title="Table of Content">TOC&lt;/abbr>.&lt;/p></description></item><item><title>Content inside HTML tags missing in Latest Hugo?</title><link>https://jdhao.github.io/2019/12/29/hugo_html_not_shown/</link><pubDate>Sun, 29 Dec 2019 17:57:05 +0800</pubDate><guid>https://jdhao.github.io/2019/12/29/hugo_html_not_shown/</guid><description>&lt;p>Due to Markdown&amp;rsquo;s inability to center and resize image properly, I use the raw
 HTML tags inside markdown file to include images:&lt;/p>
 &lt;p>&lt;font color="red">由于 Markdown 格式无法很好居中和设定图像尺寸，我使用 HTML tags 来添加图像(图像可以很好居中以及设定显示大小):&lt;/font>&lt;/p></description></item><item><title>Creating Markdown Front Matter with Ultisnips</title><link>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</link><pubDate>Sun, 22 Dec 2019 13:45:25 +0800</pubDate><guid>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
-&lt;p>I write my blog posts in Markdown and build the blog using
-&lt;a href="https://gohugo.io/">Hugo&lt;/a>. Hugo supports &lt;a href="https://gohugo.io/content-management/front-matter/">front matter&lt;/a>
-for Markdown so that you can attach some metadata with a post, such as title,
-date, tags, categories, etc.&lt;/p></description></item><item><title>Generating Table of Contents for Markdown with Tagbar</title><link>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</link><pubDate>Tue, 15 Oct 2019 01:01:01 +0800</pubDate><guid>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</guid><description>&lt;p align="center">
+&lt;p>Currently, I write my blog posts in Markdown and build the blog using
+&lt;a href="https://gohugo.io/">Hugo&lt;/a>. Hugo supports &lt;a href="https://gohugo.io/content-management/front-matter/">front matter&lt;/a> for Markdown so that you can
+attach metadata for a post, such as title, date, tags, categories, etc.&lt;/p></description></item><item><title>Generating Table of Contents for Markdown with Tagbar</title><link>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</link><pubDate>Tue, 15 Oct 2019 01:01:01 +0800</pubDate><guid>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20191015001602.png">
 &lt;/p>
 &lt;p>I have been using Vim plugin Tagbar for viewing and navigating tags inside my
