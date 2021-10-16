@@ -5,12 +5,12 @@ following Neovim command:
 :edit *.vim
 I was surprised to find that Neovim gives the following error message:
 
-E77: Too many file names."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/10/28/edit_multiple_files_nvim/"><meta property="article:published_time" content="2020-10-28T00:21:30+08:00"><meta property="article:modified_time" content="2020-11-06T22:12:02+08:00"><meta itemprop=name content="Edit Multiple Files at once in Neovim"><meta itemprop=description content="When I was in a folder and tried to edit multiple files using glob pattern with the
+E77: Too many file names."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/10/28/edit_multiple_files_nvim/"><meta property="article:published_time" content="2020-10-28T00:21:30+08:00"><meta property="article:modified_time" content="2021-10-16T21:43:14+08:00"><meta itemprop=name content="Edit Multiple Files at once in Neovim"><meta itemprop=description content="When I was in a folder and tried to edit multiple files using glob pattern with the
 following Neovim command:
 :edit *.vim
 I was surprised to find that Neovim gives the following error message:
 
-E77: Too many file names."><meta itemprop=datePublished content="2020-10-28T00:21:30+08:00"><meta itemprop=dateModified content="2020-11-06T22:12:02+08:00"><meta itemprop=wordCount content="247"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Edit Multiple Files at once in Neovim"><meta name=twitter:description content="When I was in a folder and tried to edit multiple files using glob pattern with the
+E77: Too many file names."><meta itemprop=datePublished content="2020-10-28T00:21:30+08:00"><meta itemprop=dateModified content="2021-10-16T21:43:14+08:00"><meta itemprop=wordCount content="247"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Edit Multiple Files at once in Neovim"><meta name=twitter:description content="When I was in a folder and tried to edit multiple files using glob pattern with the
 following Neovim command:
 :edit *.vim
 I was surprised to find that Neovim gives the following error message:
@@ -20,7 +20,7 @@ E77: Too many file names."><!--[if lte IE 9]><script src=https://cdnjs.cloudflar
 <span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#use-argument-list>Use argument list</a></li><li><a href=#define-your-own-custom-command>Define your own custom command</a></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>When I was in a folder and tried to edit multiple files using glob pattern with the
 following Neovim command:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=p>:</span><span class=nx>edit</span> *.<span class=nx>vim</span><span class=err>
 </span></code></pre></div><p>I was surprised to find that Neovim gives the following error message:</p><blockquote><p>E77: Too many file names.</p></blockquote><p>This is because the command <code>:edit</code> only supports editing one file. There are
-several ways to open multiple files at once.</p><h1 id=use-argument-list>Use argument list</h1><p>We can Neovim&rsquo;s builtin in argument list feature to open multiple files. When
+several ways to open multiple files at once.</p><h1 id=use-argument-list>Use argument list</h1><p>We can Neovim&rsquo;s built-in in argument list feature to open multiple files. When
 we open Neovim from command line with multiple files, argument list will be
 filled with a list of file names. To replace the argument list with new file
 names, we can use <code>:args {glob_pattern}</code> or <code>:next {glob_pattern}</code>.</p><p>For example, to open all files in current directory with extension <code>.vim</code>, use
@@ -36,7 +36,7 @@ patterns. Something like the following should work:</p><div class=highlight><pre
 </span><span class=err></span><span class=nx>command</span><span class=p>!</span> <span class=p>-</span><span class=nx>bar</span> <span class=p>-</span><span class=nx>bang</span> <span class=p>-</span><span class=nx>nargs</span><span class=p>=+</span> <span class=p>-</span><span class=nx>complete</span><span class=p>=</span><span class=nx>file</span> <span class=nx>Edit</span> <span class=nx>call</span> <span class=nx>MultipleEdit</span><span class=p>(</span>[<span class=p>&lt;</span><span class=nx>f</span><span class=p>-</span><span class=nx>args</span><span class=p>&gt;</span>]<span class=p>)</span><span class=err>
 </span></code></pre></div><p>Then we can use <code>:Edit *.vim</code> or <code>:Edit *.vim *.py</code> to open multiple files.</p><h1 id=references>References</h1><ul><li><a href=https://vi.stackexchange.com/q/2108/15292>How can I open multiple tabs at once?</a></li><li><a href=https://vi.stackexchange.com/q/2607/15292>How to open multiple files matching a wildcard expression?</a></li><li><a href=https://stackoverflow.com/q/3468763/6064933>How do I make vim open all files matching a pattern in different tabs?</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
 <span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2020-11-06</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content>2021-10-16</span></p><p class=copyright-item><span class=item-title>License</span>
 <span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
 <label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
 <span>wechat</span></label>

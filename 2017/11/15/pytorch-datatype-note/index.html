@@ -3,12 +3,12 @@ Tensor is the
 primary object that we deal with (Variable is just a thin wrapper class for
 Tensor). In this post, I will give a summary of pitfalls that we should avoid
 when using Tensors. Since FloatTensor and LongTensor are the most popular
-Tensor types in PyTorch, I will focus on these two data types."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2017/11/15/pytorch-datatype-note/"><meta property="article:published_time" content="2017-11-15T21:22:45+08:00"><meta property="article:modified_time" content="2019-07-10T23:38:01+08:00"><meta itemprop=name content="Notes on PyTorch Tensor Data Types"><meta itemprop=description content="In PyTorch,
+Tensor types in PyTorch, I will focus on these two data types."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2017/11/15/pytorch-datatype-note/"><meta property="article:published_time" content="2017-11-15T21:22:45+08:00"><meta property="article:modified_time" content="2021-10-16T21:43:12+08:00"><meta itemprop=name content="Notes on PyTorch Tensor Data Types"><meta itemprop=description content="In PyTorch,
 Tensor is the
 primary object that we deal with (Variable is just a thin wrapper class for
 Tensor). In this post, I will give a summary of pitfalls that we should avoid
 when using Tensors. Since FloatTensor and LongTensor are the most popular
-Tensor types in PyTorch, I will focus on these two data types."><meta itemprop=datePublished content="2017-11-15T21:22:45+08:00"><meta itemprop=dateModified content="2019-07-10T23:38:01+08:00"><meta itemprop=wordCount content="745"><meta itemprop=keywords content="PyTorch,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Notes on PyTorch Tensor Data Types"><meta name=twitter:description content="In PyTorch,
+Tensor types in PyTorch, I will focus on these two data types."><meta itemprop=datePublished content="2017-11-15T21:22:45+08:00"><meta itemprop=dateModified content="2021-10-16T21:43:12+08:00"><meta itemprop=wordCount content="745"><meta itemprop=keywords content="PyTorch,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Notes on PyTorch Tensor Data Types"><meta name=twitter:description content="In PyTorch,
 Tensor is the
 primary object that we deal with (Variable is just a thin wrapper class for
 Tensor). In this post, I will give a summary of pitfalls that we should avoid
@@ -51,7 +51,7 @@ as numpy array of type <code>np.float64</code>, it will trigger a deep copy.</p>
 <code>Tensor</code>. Below is a table showing NumPy data types which is convertable to
 torch <code>Tensor</code> type.</p><table><thead><tr><th>NumPy data type</th><th>Tensor data type</th></tr></thead><tbody><tr><td><code>numpy.uint8</code></td><td><code>torch.ByteTensor</code></td></tr><tr><td><code>numpy.int16</code></td><td><code>torch.ShortTensor</code></td></tr><tr><td><code>numpy.int32</code></td><td><code>torch.IntTensor</code></td></tr><tr><td><code>numpy.int</code></td><td><code>torch.LongTensor</code></td></tr><tr><td><code>numpy.int64</code></td><td><code>torch.LongTensor</code></td></tr><tr><td><code>numpy.float32</code></td><td><code>torch.FloatTensor</code></td></tr><tr><td><code>numpy.float</code></td><td><code>torch.DoubleTensor</code></td></tr><tr><td><code>numpy.float64</code></td><td><code>torch.DoubleTensor</code></td></tr></tbody></table><h2 id=speed-comparison-between-numpy-and-torch-operations>Speed comparison between NumPy and torch operations</h2><p>I am curious to know the speed difference between torch Tensor operation and
 equivalent NumPy ndarray operations. I do it in Jupyter-console using the
-builtin magic <code>%timeit</code>.</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>torch</span>
+built-in magic <code>%timeit</code>.</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>torch</span>
 <span class=kn>import</span> <span class=nn>numpy</span> <span class=kn>as</span> <span class=nn>np</span>
 
 <span class=c1># torch Tensor on CPU</span>
@@ -80,7 +80,7 @@ Instead, the produced <code>Tensor</code> is something like</p><blockquote><p>1.
 [torch.FloatTensor of size 1]</p></blockquote><p>To achieve what you want, you have to provide a list with single element 1 to
 the <code>Tensor</code> constructor.</p><h1 id=references>References</h1><ul><li><a href=https://github.com/pytorch/pytorch/issues/845>Integer type Tensor only works with integer, but float type Tensor works both with integer and float</a>.</li><li><a href=https://discuss.pytorch.org/t/problems-with-weight-array-of-floattensor-type-in-loss-function/381>Tensor types must match</a>.</li><li><a href=https://discuss.pytorch.org/t/problems-with-target-arrays-of-int-int32-types-in-loss-functions/140/3>Some loss functions require target to be LongTensor</a>.</li><li><a href=https://github.com/pytorch/pytorch/issues/2246>NumPy and torch Tensor conversion, shared memory or not?</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
 <span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2019-07-10</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content>2021-10-16</span></p><p class=copyright-item><span class=item-title>License</span>
 <span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
 <label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
 <span>wechat</span></label>

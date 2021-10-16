@@ -2,11 +2,11 @@
 you get on Linux, maybe you should try Cygwin, which
 set up a Linux-like environment on Windows platform. In this post, I want to
 talk about how to configure Cygwin and how to use mintty terminal on Windows 10
-to get excellent programming experience."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2018/10/23/cygwin_install_and_use/"><meta property="article:published_time" content="2018-10-23T15:00:00+08:00"><meta property="article:modified_time" content="2021-01-05T23:25:20+08:00"><meta itemprop=name content="Execellent Development Experience with Cygwin and Mintty Terminal on Windows 10"><meta itemprop=description content="Linux is great for programming compared to Windows. If you miss the experience
+to get excellent programming experience."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2018/10/23/cygwin_install_and_use/"><meta property="article:published_time" content="2018-10-23T15:00:00+08:00"><meta property="article:modified_time" content="2021-10-16T21:45:35+08:00"><meta itemprop=name content="Execellent Development Experience with Cygwin and Mintty Terminal on Windows 10"><meta itemprop=description content="Linux is great for programming compared to Windows. If you miss the experience
 you get on Linux, maybe you should try Cygwin, which
 set up a Linux-like environment on Windows platform. In this post, I want to
 talk about how to configure Cygwin and how to use mintty terminal on Windows 10
-to get excellent programming experience."><meta itemprop=datePublished content="2018-10-23T15:00:00+08:00"><meta itemprop=dateModified content="2021-01-05T23:25:20+08:00"><meta itemprop=wordCount content="544"><meta itemprop=keywords content="Windows,ssh,mintty,Cygwin,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Execellent Development Experience with Cygwin and Mintty Terminal on Windows 10"><meta name=twitter:description content="Linux is great for programming compared to Windows. If you miss the experience
+to get excellent programming experience."><meta itemprop=datePublished content="2018-10-23T15:00:00+08:00"><meta itemprop=dateModified content="2021-10-16T21:45:35+08:00"><meta itemprop=wordCount content="544"><meta itemprop=keywords content="Windows,ssh,mintty,Cygwin,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Execellent Development Experience with Cygwin and Mintty Terminal on Windows 10"><meta name=twitter:description content="Linux is great for programming compared to Windows. If you miss the experience
 you get on Linux, maybe you should try Cygwin, which
 set up a Linux-like environment on Windows platform. In this post, I want to
 talk about how to configure Cygwin and how to use mintty terminal on Windows 10
@@ -20,7 +20,7 @@ to get excellent programming experience.</p><h1 id=how-to-install-new-packages>H
 tool one more time and select the package you want to install. It will not
 rewrite the package you have installed, only the new package will be installed.</p><p>If the package download speed is slow, you can choose a local mirror for
 Cygwin. In China, <a href=https://mirror.tuna.tsinghua.edu.cn/help/cygwin/>TUNA</a> is
-good.</p><h2 id=reference>Reference</h2><ul><li><a href=https://superuser.com/a/304543/736190>https://superuser.com/a/304543/736190</a></li></ul><h1 id=when-i-use-ssh-to-connect-to-my-server-i-got-an-error-message-pseudo-terminal-will-not-be-allocated-because-stdin-is-not-a-terminal>When I use ssh to connect to my server, I got an error message &ldquo;Pseudo-terminal will not be allocated because stdin is not a terminal&rdquo;</h1><p>On Windows 10, there is a builtin ssh program under
+good.</p><h2 id=reference>Reference</h2><ul><li><a href=https://superuser.com/a/304543/736190>https://superuser.com/a/304543/736190</a></li></ul><h1 id=when-i-use-ssh-to-connect-to-my-server-i-got-an-error-message-pseudo-terminal-will-not-be-allocated-because-stdin-is-not-a-terminal>When I use ssh to connect to my server, I got an error message &ldquo;Pseudo-terminal will not be allocated because stdin is not a terminal&rdquo;</h1><p>On Windows 10, there is a built-in ssh program under
 <code>C:/Windows/System32/OpenSSH/ssh.exe</code>. You are probably using this program. If
 that is the case, you have to install <code>openssh</code> yourself. Just run the Cygwin
 setup program one more time to install the additional package. Then this issue
@@ -28,7 +28,7 @@ should disappear.</p><h2 id=reference-1>Reference</h2><ul><li><a href=https://st
 terminal emulator. In this part, I document several settings related to mintty.</p><h2 id=how-do-i-set-up-the-mintty-terminal-emulator-type-ie-term-variable>How do I set up the mintty terminal emulator type, i.e., <code>TERM</code> variable?</h2><p>Right-click Cygwin window title and choose <code>Options...</code>, go to <code>Terminal</code>, and
 choose Type to be <code>xterm-256color</code>. That is all.</p><h2 id=how-to-use-an-external-color-theme-for-mintty>How to use an external color theme for mintty?</h2><p>By default, mintty provides a few color themes. The color theme for mintty are
 just a list of settings for different colors. There are several places where
-you can find mintty themes. A non-exhaustive list is:</p><ul><li><a href=https://github.com/oumu/mintty-color-schemes>https://github.com/oumu/mintty-color-schemes</a></li><li>A python tool with several builtin color themes, <a href=https://github.com/joakimkarlsson/mintty-colors>https://github.com/joakimkarlsson/mintty-colors</a></li><li><a href=https://superuser.com/q/223198/736190>How do I change colors on-the-fly in mintty?</a></li></ul><p>Save the color theme file under <code>$CYGWIN_ROOT/usr/share/mintty/themes</code>. Open
+you can find mintty themes. A non-exhaustive list is:</p><ul><li><a href=https://github.com/oumu/mintty-color-schemes>https://github.com/oumu/mintty-color-schemes</a></li><li>A python tool with several built-in color themes, <a href=https://github.com/joakimkarlsson/mintty-colors>https://github.com/joakimkarlsson/mintty-colors</a></li><li><a href=https://superuser.com/q/223198/736190>How do I change colors on-the-fly in mintty?</a></li></ul><p>Save the color theme file under <code>$CYGWIN_ROOT/usr/share/mintty/themes</code>. Open
 mintty options (right click on Cygwin title bar), go to <code>Looks</code> pane and choose
 from the <code>Theme</code> pull-down menu a color theme you want to use.</p><p>Alternatively, create a <code>.minttyrc</code> file under your HOME. Paste the content of
 color theme in this file and save it. The next time you open Cygwin, mintty
@@ -41,7 +41,7 @@ Neovim and Tmux, to open a URL in browser, I have to use
 can open a URL with just <kbd>Ctrl</kbd>+<code>click</code>.</p><h3 id=references-1>References</h3><ul><li><a href=https://github.com/mintty/mintty/issues/694>https://github.com/mintty/mintty/issues/694</a></li><li><a href=https://github.com/mintty/mintty/issues/164>https://github.com/mintty/mintty/issues/164</a></li></ul><h2 id=how-to-update-mintty>How to update mintty?</h2><p>It is the same as you install or update other packages. Run <code>setup_x86_64.exe</code>
 and install the latest version of Mintty.</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
 <span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2021-01-05</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content>2021-10-16</span></p><p class=copyright-item><span class=item-title>License</span>
 <span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
 <label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
 <span>wechat</span></label>
