@@ -59,7 +59,7 @@ Nvim. For other posts, see&lt;/p>
 &lt;/ul></description></item><item><title>Vim-like Editing inside Browser</title><link>https://jdhao.github.io/2019/05/11/nvim_text_input_browser/</link><pubDate>Sat, 11 May 2019 12:14:06 +0800</pubDate><guid>https://jdhao.github.io/2019/05/11/nvim_text_input_browser/</guid><description>&lt;p>Vim/Nvim has powerful ability in editing texts. But if you are in a browser and
 want to input some text, can we somehow utilize the editing power of Vim? In
 this post, I would like to share several ways to use Vim or Vim-like editing
-when you are working inside a browser.&lt;/p></description></item><item><title>Spell Check in Nvim</title><link>https://jdhao.github.io/2019/04/29/nvim_spell_check/</link><pubDate>Mon, 29 Apr 2019 22:35:54 +0800</pubDate><guid>https://jdhao.github.io/2019/04/29/nvim_spell_check/</guid><description>&lt;p>In this post, I want to talk about how to enable the built-in spell check
+when you are working inside a browser.&lt;/p></description></item><item><title>Spell Checking in Nvim</title><link>https://jdhao.github.io/2019/04/29/nvim_spell_check/</link><pubDate>Mon, 29 Apr 2019 22:35:54 +0800</pubDate><guid>https://jdhao.github.io/2019/04/29/nvim_spell_check/</guid><description>&lt;p>In this post, I want to talk about how to enable the built-in spell checking
 feature in Nvim.&lt;/p></description></item><item><title>English Words Completion inside Neovim/Vim</title><link>https://jdhao.github.io/2019/04/26/words_completion_nvim/</link><pubDate>Fri, 26 Apr 2019 02:15:05 +0800</pubDate><guid>https://jdhao.github.io/2019/04/26/words_completion_nvim/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190430093054.png" alt="">
 &lt;/p>

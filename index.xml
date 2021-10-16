@@ -423,7 +423,7 @@ when you are working inside a browser.&lt;/p></description></item><item><title>M
 line and &lt;code>4w&lt;/code> will move the cursor four words forward. Usually, the
 user-defined mappings can not take a count. Even if they can, they will most
 probably not work the way you expect them to. In this post, I will describe
-what I have learned to make a fairly complex mapping repeatable with a count.&lt;/p></description></item><item><title>Spell Check in Nvim</title><link>https://jdhao.github.io/2019/04/29/nvim_spell_check/</link><pubDate>Mon, 29 Apr 2019 22:35:54 +0800</pubDate><guid>https://jdhao.github.io/2019/04/29/nvim_spell_check/</guid><description>&lt;p>In this post, I want to talk about how to enable the built-in spell check
+what I have learned to make a fairly complex mapping repeatable with a count.&lt;/p></description></item><item><title>Spell Checking in Nvim</title><link>https://jdhao.github.io/2019/04/29/nvim_spell_check/</link><pubDate>Mon, 29 Apr 2019 22:35:54 +0800</pubDate><guid>https://jdhao.github.io/2019/04/29/nvim_spell_check/</guid><description>&lt;p>In this post, I want to talk about how to enable the built-in spell checking
 feature in Nvim.&lt;/p></description></item><item><title>English Words Completion inside Neovim/Vim</title><link>https://jdhao.github.io/2019/04/26/words_completion_nvim/</link><pubDate>Fri, 26 Apr 2019 02:15:05 +0800</pubDate><guid>https://jdhao.github.io/2019/04/26/words_completion_nvim/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190430093054.png" alt="">
 &lt;/p>
