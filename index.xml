@@ -99,9 +99,12 @@ solving this issue.&lt;/font>&lt;/p>
 for Neovim/Vim is to map &lt;code>jk&lt;/code> or &lt;code>kj&lt;/code> or &lt;code>jj&lt;/code> to &lt;code>&amp;lt;ESC&amp;gt;&lt;/code> for quicker escaping
 from the insert mode. I have used the following mapping for quite some time:&lt;/p>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-vim" data-lang="vim">&lt;span class="nx">inoremap&lt;/span> &lt;span class="nx">jk&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nx">ESC&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="err">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Creating List of Empty List in Python</title><link>https://jdhao.github.io/2020/11/22/python_list_of_empty_list_pitfall/</link><pubDate>Sun, 22 Nov 2020 14:57:00 +0800</pubDate><guid>https://jdhao.github.io/2020/11/22/python_list_of_empty_list_pitfall/</guid><description>&lt;p>I wrote some code for my project and found that the result isn&amp;rsquo;t correct. So I
-spent quite some time debugging the whole working process this program and
-found that it is because I have initialized a list wrongly.&lt;/p></description></item><item><title>几种中文分词工具对比</title><link>https://jdhao.github.io/2020/11/20/chinese_text_seg_tools/</link><pubDate>Fri, 20 Nov 2020 23:01:15 +0800</pubDate><guid>https://jdhao.github.io/2020/11/20/chinese_text_seg_tools/</guid><description>&lt;details>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>The Correct Way to Create List of Empty List in Python</title><link>https://jdhao.github.io/2020/11/22/python_list_of_empty_list_pitfall/</link><pubDate>Sun, 22 Nov 2020 14:57:00 +0800</pubDate><guid>https://jdhao.github.io/2020/11/22/python_list_of_empty_list_pitfall/</guid><description>&lt;p>I wrote some Python code for my project and found that the result isn&amp;rsquo;t
+correct. So I spent quite some time debugging the whole working process of this
+program, and found sadly that the culprit is a list of empty list, which is
+wrongly initialized.&lt;/p>
+&lt;p>TL;DR: do not use list multiplication to initialize an empty list of list, or
+you will end up wasting hours debugging your program.&lt;/p></description></item><item><title>几种中文分词工具对比</title><link>https://jdhao.github.io/2020/11/20/chinese_text_seg_tools/</link><pubDate>Fri, 20 Nov 2020 23:01:15 +0800</pubDate><guid>https://jdhao.github.io/2020/11/20/chinese_text_seg_tools/</guid><description>&lt;details>
 &lt;summary>&lt;font size="2" color="red">Update log&lt;/font>&lt;/summary>
 &lt;ul>
 &lt;li>&lt;font color="blue">2021-10-23: fix typo，更新链接。&lt;/font>&lt;/li>
