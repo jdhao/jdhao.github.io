@@ -14,7 +14,11 @@ phone is not recognized. Unlike Windows, Apple&amp;rsquo;s Mac is not so friendl
 Android devices. Of course, you can install &lt;a href="https://www.android.com/filetransfer/">Android File Transfer&lt;/a>
 provided by Google and connect your phone to Mac. But it is kinda cumbersome
 and does work so well. In this post, I want to share several ways to transfer
-files between Android and Mac wirelessly.&lt;/p></description></item><item><title>Setting up True Color Support for Neovim and Tmux on Mac</title><link>https://jdhao.github.io/2018/10/19/tmux_nvim_true_color/</link><pubDate>Fri, 19 Oct 2018 01:08:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/19/tmux_nvim_true_color/</guid><description>&lt;p>In this post, I want to share how to set up true color support in Tmux, Nvim
+files between Android and Mac wirelessly.&lt;/p></description></item><item><title>Setting up True Color Support for Neovim and Tmux on Mac</title><link>https://jdhao.github.io/2018/10/19/tmux_nvim_true_color/</link><pubDate>Fri, 19 Oct 2018 01:08:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/19/tmux_nvim_true_color/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">Update log&lt;/font>&lt;/summary>
+&lt;p>&lt;font color="blue">2021-11-23: update tmux and nvim version to the latest and fix other issues.&lt;/font>&lt;/p>
+&lt;/details>
+&lt;p>In this post, I want to share how to set up true color support in Tmux, Nvim
 and the shell to make them work nicely together.&lt;/p></description></item><item><title>Mechanical Keyboard Set up For Mac</title><link>https://jdhao.github.io/2018/10/13/mac_external_keyboard_setup/</link><pubDate>Sat, 13 Oct 2018 02:32:21 +0800</pubDate><guid>https://jdhao.github.io/2018/10/13/mac_external_keyboard_setup/</guid><description>&lt;p>Recently I bought a MacBook Pro 2018. While it is a good design overall, its
 built-in keyboard is not so great AFAIK. So I bought a mechanical keyboard
 &lt;a href="http://www.ikbc.com.tw/c87">ikbc c87&lt;/a>. The mechanical keyboard is designed for
