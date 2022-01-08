@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tags on jdhao's blog</title><link>https://jdhao.github.io/tags/tags/</link><description>Recent content in tags on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Tue, 15 Oct 2019 01:01:01 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/tags/index.xml" rel="self" type="application/rss+xml"/><item><title>Generating Table of Contents for Markdown with Tagbar</title><link>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</link><pubDate>Tue, 15 Oct 2019 01:01:01 +0800</pubDate><guid>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20191015001602.png">
+&lt;/p>
+&lt;p>I have been using Vim plugin Tagbar for viewing and navigating tags inside my
+source file. However, for Markdown files, there is no support out of the box.
+In this post, I would like to share how to set up tagbar to show tags for
+Markdown.&lt;/p></description></item><item><title>How to Use Tagbar in Neovim</title><link>https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/</link><pubDate>Fri, 28 Sep 2018 12:17:03 +0800</pubDate><guid>https://jdhao.github.io/2018/09/28/nvim_tagbar_install_use/</guid><description>&lt;p>If you have a source file with hundreds or thousands of lines of code. How to
+you see its structure and go to some classes or methods quickly in Nvim? The
+solution is to use &lt;a href="https://github.com/majutsushi/tagbar">tagbar&lt;/a>.&lt;/p></description></item></channel></rss>
