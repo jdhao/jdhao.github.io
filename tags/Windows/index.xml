@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows on jdhao's blog</title><link>https://jdhao.github.io/tags/Windows/</link><description>Recent content in Windows on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Sun, 26 Apr 2020 22:44:37 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/Windows/index.xml" rel="self" type="application/rss+xml"/><item><title>解决 Windows 下文件管理器中右键单击无响应问题</title><link>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</link><pubDate>Sun, 26 Apr 2020 22:44:37 +0800</pubDate><guid>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</guid><description>&lt;h1 id="引子">引子&lt;/h1>
+&lt;p>最近使用工作电脑的时候，不知道为什么，在文件资源管理器里面鼠标右键单击打开菜单(也叫&lt;a href="https://en.wikipedia.org/wiki/Context_menu">context menu&lt;/a>)的时候，系统很大概率会卡顿，鼠标指针开始转圈，文件管理器白屏，然后会提示&amp;quot;未响应&amp;quot;,过一会儿，右键菜单才会出现。以至于我每次点击右键之前，都很烦躁，希望不要出现卡顿的情况。&lt;/p></description></item><item><title>Convert Python Script to Exe on Windows with Pyinstaller</title><link>https://jdhao.github.io/2019/10/14/python_script_to_exe/</link><pubDate>Mon, 14 Oct 2019 21:46:55 +0800</pubDate><guid>https://jdhao.github.io/2019/10/14/python_script_to_exe/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;p>I have a use case where I want to convert my Python script to standalone
+executable so that I do not need to type &lt;code>python&lt;/code> before it to run the script.
+On Linux, it is easy to achieve with the help of
+&lt;a href="https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scripts-and-what-form-should-it-take">shebang&lt;/a>.
+However, on Windows, it does not work. Then I thought I might convert the
+script to Windows executable.&lt;/p></description></item><item><title>Manipulating Images with Alpha Channels in Pillow</title><link>https://jdhao.github.io/2019/03/07/pillow_image_alpha_channel/</link><pubDate>Thu, 07 Mar 2019 16:21:57 +0800</pubDate><guid>https://jdhao.github.io/2019/03/07/pillow_image_alpha_channel/</guid><description>&lt;p>In image processing, &lt;a href="https://www.makeuseof.com/tag/alpha-channel-images-mean/">alpha
+channel&lt;/a> is usually
+used to control the transparency of an image. In itself, the alpha channel is
+just a gray level image&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. In this post, I want to talk about how to add an
+alpha channel to RGB image and show it using the Pillow package.&lt;/p></description></item><item><title>最新版 Rime 输入法使用</title><link>https://jdhao.github.io/2019/02/18/rime_configuration_intro/</link><pubDate>Mon, 18 Feb 2019 00:32:40 +0800</pubDate><guid>https://jdhao.github.io/2019/02/18/rime_configuration_intro/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190217233344.png" width="800">
+&lt;/p>
+&lt;p>之前一直听说过 &lt;a href="https://rime.im/">Rime&lt;/a> 这个神级输入法的大名，却一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，却造成 &lt;a href="https://www.v2ex.com/t/535393">Chrome 浏览器频频崩溃&lt;/a>，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。&lt;/p></description></item><item><title>Display Image with Pillow inside Ubuntu on Windows</title><link>https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/</link><pubDate>Sat, 16 Feb 2019 11:42:55 +0800</pubDate><guid>https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/</guid><description>&lt;p>With the help of &lt;a href="https://docs.microsoft.com/en-us/windows/wsl/about">Windows Subsystem for Linux (WSL, for
+short)&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, we can use the
+&lt;em>nearly full&lt;/em> Linux environment on Windows system. In this post, I would like
+to share how to display images inside Ubuntu on Windows, which is one of the
+popular distrubtions.&lt;/p></description></item><item><title>Faster Directory Navigation with z.lua</title><link>https://jdhao.github.io/2019/02/14/fast_dir_navigation_zlua/</link><pubDate>Thu, 14 Feb 2019 18:35:05 +0800</pubDate><guid>https://jdhao.github.io/2019/02/14/fast_dir_navigation_zlua/</guid><description>&lt;p>If you work with terminals extensively, you may be tired of typing &lt;code>cd&lt;/code> to go
+to directories, especially when directory names are very long.
+&lt;a href="https://github.com/skywind3000/z.lua">z.lua&lt;/a> is such a tool to make your life
+easier by jumping to the desired directory &lt;em>smartly&lt;/em>.&lt;/p></description></item><item><title>Cmder Advanced Configurations</title><link>https://jdhao.github.io/2019/02/03/cmder_advanced_configuration/</link><pubDate>Sun, 03 Feb 2019 18:16:51 +0800</pubDate><guid>https://jdhao.github.io/2019/02/03/cmder_advanced_configuration/</guid><description>&lt;p>In this post, I summarize some of the advanced configurations of
+&lt;a href="https://jdhao.github.io/2017/12/29/cmder-usage/">Cmder&lt;/a>.&lt;/p></description></item><item><title>Nvim-qt Settings on Windows 10</title><link>https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/</link><pubDate>Thu, 17 Jan 2019 22:04:05 +0800</pubDate><guid>https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/</guid><description>&lt;p>To run Neovim on Windows, you can either &lt;a href="https://jdhao.github.io/2018/11/15/neovim_configuration_windows/">use the terminal
+Neovim&lt;/a> or
+use a GUI for Neovim. If you use terminal Nvim, you may encounter various
+annoying issues. Based on my experience, I recommend you using a GUI client for
+Nvim instead of the terminal one.&lt;/p></description></item><item><title>Line Number Settings for More Efficient Movement in Neovim</title><link>https://jdhao.github.io/2019/01/11/line_number_setting_nvim/</link><pubDate>Fri, 11 Jan 2019 20:25:31 +0800</pubDate><guid>https://jdhao.github.io/2019/01/11/line_number_setting_nvim/</guid><description>&lt;p>In this post, I would like to share line number settings in Neovim to move the
+cursor more efficiently.&lt;/p></description></item><item><title>Windows 系统下几款程序员不可不用的神器</title><link>https://jdhao.github.io/2019/01/07/windows_tools_for_programmers/</link><pubDate>Mon, 07 Jan 2019 10:08:00 +0800</pubDate><guid>https://jdhao.github.io/2019/01/07/windows_tools_for_programmers/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/listary_search_file_apps.gif" width="800">
+&lt;/p>
+&lt;p>工欲善其事，必先利其器，好的工具能使人效率倍增，这篇博客介绍本人常用的一些提升效率的工具，希望能够帮到读者。&lt;/p></description></item><item><title>How Is Newline Handled in Python and Various Editors?</title><link>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</link><pubDate>Sat, 08 Dec 2018 22:30:50 +0800</pubDate><guid>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223253.png" width="800">
+&lt;/p>
+&lt;p>Every programmer knows newline character, but may be not so familiar. In this
+post, I want to share what I have learned about newline handling in various
+cases.&lt;/p></description></item><item><title>Two Issues Related to ImageFont Module in PIL</title><link>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</link><pubDate>Tue, 04 Dec 2018 22:48:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</guid><description>&lt;p>In this post, I want to write about two issues related to the
+&lt;a href="https://pillow.readthedocs.io/en/5.1.x/reference/ImageFont.html">ImageFont&lt;/a>
+module in the &lt;a href="https://github.com/python-pillow/Pillow">PIL&lt;/a> package.&lt;/p></description></item><item><title>在 Listary 中调用 GoldenDict 或欧路词典查单词</title><link>https://jdhao.github.io/2018/12/04/golden_dict_install_usage/</link><pubDate>Tue, 04 Dec 2018 15:03:38 +0800</pubDate><guid>https://jdhao.github.io/2018/12/04/golden_dict_install_usage/</guid><description>&lt;p>&lt;a href="https://github.com/goldendict/goldendict">GoldenDict&lt;/a> 是一款开源字典应用，功能强大，支持多种字典格式，同时也支持网络资源。&lt;a href="https://www.eudic.net/v4/en/app/eudic">欧路词典&lt;/a> 是一款国产的查词软件，产品做得也很不错，同样支持多种字典格式。本文介绍 GoldenDict 以及欧路词典的配置, 以及如何在Listary 中调用它们实现查词功能。&lt;/p></description></item><item><title>Reading and Writing Text Files on Windows</title><link>https://jdhao.github.io/2018/12/03/text_file_read_write_on_windows/</link><pubDate>Mon, 03 Dec 2018 13:06:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/03/text_file_read_write_on_windows/</guid><description>&lt;p>If you are using Python 3 on Windows, you may have seen a Unicode decoding
+error when opening files in UTF-8 format:&lt;/p>
+&lt;blockquote>
+&lt;p>UnicodeDecodeError: &amp;lsquo;gbk&amp;rsquo; codec can&amp;rsquo;t decode byte 0xaf in position 5: illegal multibyte sequence&lt;/p>
+&lt;/blockquote>
+&lt;p>If you read the same file on Linux or macOS, you will find that this file can
+be opened without any error. Why is there a difference? It has something to do
+with the default encoding Python chooses to use on different platforms.&lt;/p></description></item><item><title>Deoplete Failed to Load at Startup after Updating Python neovim Package</title><link>https://jdhao.github.io/2018/11/19/deoplete_failed_to_load_neovim/</link><pubDate>Mon, 19 Nov 2018 18:18:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/19/deoplete_failed_to_load_neovim/</guid><description>&lt;p>Today when I use &lt;code>:checkhealth&lt;/code> to check if there are anything wrong with my
+Neovim and related packages. I got an info that &lt;a href="https://github.com/neovim/pynvim">Python &lt;code>neovim&lt;/code>
+package&lt;/a> is not up to date. So I tried to
+update neovim with &lt;code>pip install --upgrade neovim&lt;/code>. This is the start of a
+disaster which wastes me several hours.&lt;/p></description></item><item><title>What Is The Difference between pip, pip3 and pip3.6 Shipped with Anaconda3?</title><link>https://jdhao.github.io/2018/11/19/anaconda3_windows_difference_between_pip_pip3/</link><pubDate>Mon, 19 Nov 2018 16:30:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/19/anaconda3_windows_difference_between_pip_pip3/</guid><description>&lt;p>On Windows system, if you install Python3 via
+&lt;a href="https://www.anaconda.com/download/#windows">Anaconda&lt;/a>. Under Anaconda root directory,
+there is a directory named &lt;code>Scripts&lt;/code>, in which &lt;code>pip.exe&lt;/code>, &lt;code>pip3.exe&lt;/code> and
+&lt;code>pip3.6.exe&lt;/code> all exist. When we want to install a package, a natural question
+arises, is there any difference if I use &lt;code>pip install PACKAGE&lt;/code> or &lt;code>pip3 install PACKAGE&lt;/code>?&lt;/p></description></item><item><title>Windows 10 系统下 Neovim 安装与配置</title><link>https://jdhao.github.io/2018/11/16/neovim_configuration_windows-zh/</link><pubDate>Fri, 16 Nov 2018 01:02:37 +0800</pubDate><guid>https://jdhao.github.io/2018/11/16/neovim_configuration_windows-zh/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190119221237.png" width="600">
+&lt;/p>
+&lt;p>本篇文章介绍如何在 Windows 系统下安装并配置终端上的 &lt;a href="https://github.com/neovim/neovim">Neovim&lt;/a>。关于如何配置 Neovim 的 GUI 客户端 &lt;a href="https://github.com/equalsraf/neovim-qt">nvim-qt&lt;/a>，可以参考 &lt;a href="https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/">这篇博客&lt;/a>。&lt;/p></description></item><item><title>How to Use shutil.move() on Windows and Linux</title><link>https://jdhao.github.io/2018/11/15/shutil_linux_windows_usage/</link><pubDate>Thu, 15 Nov 2018 20:58:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/15/shutil_linux_windows_usage/</guid><description>&lt;p>Today when I try to move a file using
+&lt;a href="https://docs.python.org/3/library/shutil.html#shutil.move">&lt;code>shutil.move()&lt;/code>&lt;/a> on
+my Windows machine, I encounter an error message:&lt;/p>
+&lt;blockquote>
+&lt;p>PermissionError: [WinError 32] The process cannot access the file because it is being used by another process&lt;/p>
+&lt;/blockquote>
+&lt;p>In this post, I will write about what I have learned from this error.&lt;/p></description></item><item><title>Neovim configuration on Windows 10</title><link>https://jdhao.github.io/2018/11/15/neovim_configuration_windows/</link><pubDate>Thu, 15 Nov 2018 18:08:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/15/neovim_configuration_windows/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190119221237.png" width="600">
+&lt;/p>
+&lt;p>&lt;font color="blue">update: 2020-11-15, add detailed instruction for Neovim config location.&lt;/font>&lt;/p>
+&lt;p>&lt;strong>TL;DR&lt;/strong>: After nearly one year of using Neovim on Windows, I find that the
+best experience one can get on Windows is to use GUI Neovim client such as
+&lt;a href="https://github.com/equalsraf/neovim-qt">Nvim-qt&lt;/a> or &lt;a href="https://github.com/yatli/fvim">fvim&lt;/a>,
+not the terminal Nvim&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
+&lt;p>In this post, I want to share how to install and configure Neovim on Windows
+10&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>. For configurations of &lt;a href="https://github.com/equalsraf/neovim-qt">nvim-qt&lt;/a>
+on Windows, check &lt;a href="https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/">this post&lt;/a>.&lt;/p></description></item><item><title>Execellent Development Experience with Cygwin and Mintty Terminal on Windows 10</title><link>https://jdhao.github.io/2018/10/23/cygwin_install_and_use/</link><pubDate>Tue, 23 Oct 2018 15:00:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/23/cygwin_install_and_use/</guid><description>&lt;p>Linux is great for programming compared to Windows. If you miss the experience
+you get on Linux, maybe you should try &lt;a href="https://www.cygwin.com/">Cygwin&lt;/a>, which
+set up a Linux-like environment on Windows platform. In this post, I want to
+talk about how to configure Cygwin and how to use mintty terminal on Windows 10
+to get excellent programming experience.&lt;/p></description></item><item><title>Server Autologin with Expect</title><link>https://jdhao.github.io/2018/10/08/server_autologin_with_expect/</link><pubDate>Mon, 08 Oct 2018 23:01:24 +0800</pubDate><guid>https://jdhao.github.io/2018/10/08/server_autologin_with_expect/</guid><description>&lt;p>I use a Windows 10 machine and need to connect to Linux servers. After using
+several &lt;a href="https://www.slant.co/topics/149/~best-ssh-clients-for-windows">ssh clients&lt;/a>
+for connecting to the server, I finally settled for
+&lt;a href="https://www.cygwin.com/">Cygwin&lt;/a> and
+&lt;a href="https://github.com/mintty/wsltty">Wsltty&lt;/a>, which is open-sourced and use the
+well-known &lt;a href="https://github.com/mintty/mintty">mintty terminal&lt;/a>.&lt;/p>
+&lt;p>But one feature I miss from the SSH tools such as MobaXterm or Xshell is that
+these tools can save the server IP, port, user name and even password, so that
+you can log into the server with just a click.&lt;/p>
+&lt;p>With mintty terminal, I have to manually ssh to my server each time, which is
+tedious and time consuming. Fortunately, I have found the
+&lt;a href="https://en.wikipedia.org/wiki/Expect">Expect&lt;/a> scripting language which is
+pretty powerful for this task.&lt;/p></description></item><item><title>How to Use Putty on Windows</title><link>https://jdhao.github.io/2018/04/12/putty-windows-x11-forwarding-setup/</link><pubDate>Thu, 12 Apr 2018 00:20:26 +0800</pubDate><guid>https://jdhao.github.io/2018/04/12/putty-windows-x11-forwarding-setup/</guid><description>&lt;p>&lt;a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/">Putty&lt;/a> is a powerful and
+slim ssh tool with rich features. It is widely used to connect to the remote
+servers. I will summarize some of its settings and usages in this post.&lt;/p></description></item><item><title>Set up X11 Forwarding with Git for Windows (git-bash)</title><link>https://jdhao.github.io/2018/03/02/Windows-connect-server-x11-with-gitbash/</link><pubDate>Fri, 02 Mar 2018 00:05:00 +0800</pubDate><guid>https://jdhao.github.io/2018/03/02/Windows-connect-server-x11-with-gitbash/</guid><description>&lt;p>&lt;a href="https://jdhao.github.io/2017/12/29/cmder-usage/">As I have posted earlier&lt;/a>,
+Cmder is a better option if you use Windows command line frequently. The full
+installation of Cmder comes with &lt;a href="https://gitforwindows.org/">&lt;em>Git for Windows&lt;/em>&lt;/a>, which is handy to provide a Linux-like
+environment. In this post, I will write about how to use Git for Windows to
+connect to a remote CentOS server and set up X11 forwarding to use the GUI
+applications on that server.&lt;/p></description></item><item><title>Cmder --- The Ultimate Command Line Tool for Windows</title><link>https://jdhao.github.io/2017/12/29/cmder-usage/</link><pubDate>Fri, 29 Dec 2017 20:04:00 +0800</pubDate><guid>https://jdhao.github.io/2017/12/29/cmder-usage/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/18-1-1/79824514.jpg"
+title="A glimpse of Cmder">
+&lt;/p></description></item><item><title>Windows 系统下 Python 以及 Pip 的安装和使用</title><link>https://jdhao.github.io/2015/10/21/python-pip-install/</link><pubDate>Wed, 21 Oct 2015 14:29:00 +0800</pubDate><guid>https://jdhao.github.io/2015/10/21/python-pip-install/</guid><description>&lt;p>本文主要介绍在 Windows 系统下，如何安装 Python 和 Pip, 以及 Pip 的简单使用。&lt;/p></description></item><item><title>Windows 下 LaTeX 手动安装宏包（package）以及生成帮助文档整套流程</title><link>https://jdhao.github.io/2015/09/23/latex_install_package_manually/</link><pubDate>Wed, 23 Sep 2015 14:09:00 +0800</pubDate><guid>https://jdhao.github.io/2015/09/23/latex_install_package_manually/</guid><description>本文简单介绍如何手动安装一个 LaTeX 宏包。 一般来说，下载的 TeX 发行版已经自带了很多宏包，可以满足绝大部分需求，但是偶尔我们也可能碰到需要使用的宏包碰</description></item></channel></rss>

@@ -18,6 +18,8 @@ is important.&lt;/p></description></item><item><title>小米 2018 校招算法�
 addition and multiplication. In this post, I will show how to solve such
 problems in C++.&lt;/p></description></item><item><title>Find Longest Subarray Whose Sum Is Divisible by K</title><link>https://jdhao.github.io/2017/09/01/longest-subarray-modulo-K/</link><pubDate>Fri, 01 Sep 2017 00:05:38 +0800</pubDate><guid>https://jdhao.github.io/2017/09/01/longest-subarray-modulo-K/</guid><description>&lt;p>The problem is as follows:&lt;/p>
 &lt;blockquote>
-&lt;p>Given an array $A$ of length $N$, $A[i] \ge 0$ ( $0 \le i \le N-1$) , and a number $K$. Find the longest subarray whose sum is divisible by $K$, if there are no such subarray, return 0;&lt;/p>
+&lt;p>Given an array $A$ of length $N$, $A[i] \ge 0$ ( $0 \le i \le N-1$) , and a
+number $K$. Find the longest subarray whose sum is divisible by $K$, if there
+are no such subarray, return 0;&lt;/p>
 &lt;/blockquote></description></item><item><title>从二分搜索实现中的一个 bug 说起</title><link>https://jdhao.github.io/2017/08/27/binary-search-overflow-issue/</link><pubDate>Sun, 27 Aug 2017 22:01:50 +0800</pubDate><guid>https://jdhao.github.io/2017/08/27/binary-search-overflow-issue/</guid><description>&lt;h1 id="一道二分搜索问题">一道二分搜索问题&lt;/h1>
 &lt;p>下午做了&lt;a href="https://leetcode.com/problems/first-bad-version/description/">一道 Leetcode 的编程题目&lt;/a>，牵扯出了二分搜索实现中需要特别注意的一个问题，题目如下&lt;/p></description></item></channel></rss>
