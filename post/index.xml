@@ -294,11 +294,10 @@ type.&lt;/p></description></item><item><title>Firenvim: Neovim inside Your Brows
 src="https://blog-resource-1257868508.file.myqcloud.com/firenvim.gif">
 &lt;/p>
 &lt;h1 id="introduction">Introduction&lt;/h1>
-&lt;p>Last year, I have written &lt;a href="https://jdhao.github.io/2019/05/11/nvim_text_input_browser/">a post&lt;/a>
-on how to edit texts inside the browser using Vim/Nvim or browser extensions
-which have Vim emulations. But none of them is satisfactory enough since they
-are either not convenient to use or lacking features compared to real Neovim
-empowered by various plugins.&lt;/p></description></item><item><title>Content inside HTML tags missing in Latest Hugo?</title><link>https://jdhao.github.io/2019/12/29/hugo_html_not_shown/</link><pubDate>Sun, 29 Dec 2019 17:57:05 +0800</pubDate><guid>https://jdhao.github.io/2019/12/29/hugo_html_not_shown/</guid><description>&lt;p>Due to Markdown&amp;rsquo;s inability to center and resize image properly, I use the raw
+&lt;p>Last year, I have written &lt;a href="https://jdhao.github.io/2019/05/11/nvim_text_input_browser/">a post&lt;/a> on how to edit texts inside the browser
+using Vim/Nvim or browser extensions that have Vim emulations.
+However, none of them is good enough, since they are either not convenient to use
+or lacking features compared to real Neovim empowered by various plugins.&lt;/p></description></item><item><title>Content inside HTML tags missing in Latest Hugo?</title><link>https://jdhao.github.io/2019/12/29/hugo_html_not_shown/</link><pubDate>Sun, 29 Dec 2019 17:57:05 +0800</pubDate><guid>https://jdhao.github.io/2019/12/29/hugo_html_not_shown/</guid><description>&lt;p>Due to Markdown&amp;rsquo;s inability to center and resize image properly, I use the raw
 HTML tags inside markdown file to include images:&lt;/p>
 &lt;p>&lt;font color="red">由于 Markdown 格式无法很好居中和设定图像尺寸，我使用 HTML tags 来添加图像(图像可以很好居中以及设定显示大小):&lt;/font>&lt;/p></description></item><item><title>Creating Markdown Front Matter with Ultisnips</title><link>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</link><pubDate>Sun, 22 Dec 2019 13:45:25 +0800</pubDate><guid>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
 &lt;p>Currently, I write my blog posts in Markdown and build the blog using
@@ -592,11 +591,9 @@ my Windows machine, I encounter an error message:&lt;/p>
 &lt;p>&lt;font color="blue">update: 2020-11-15, add detailed instruction for Neovim config location.&lt;/font>&lt;/p>
 &lt;p>&lt;strong>TL;DR&lt;/strong>: After nearly one year of using Neovim on Windows, I find that the
 best experience one can get on Windows is to use GUI Neovim client such as
-&lt;a href="https://github.com/equalsraf/neovim-qt">Nvim-qt&lt;/a> or &lt;a href="https://github.com/yatli/fvim">fvim&lt;/a>,
-not the terminal Nvim&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
-&lt;p>In this post, I want to share how to install and configure Neovim on Windows
-10&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>. For configurations of &lt;a href="https://github.com/equalsraf/neovim-qt">nvim-qt&lt;/a>
-on Windows, check &lt;a href="https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/">this post&lt;/a>.&lt;/p></description></item><item><title>Commonly-used Building Options Explained</title><link>https://jdhao.github.io/2018/11/07/option_flag_meaning_build_packages_from_source/</link><pubDate>Wed, 07 Nov 2018 21:38:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/07/option_flag_meaning_build_packages_from_source/</guid><description>&lt;p>On Linux system, if we do not have root priviledge, we can not use package
+&lt;a href="https://github.com/equalsraf/neovim-qt">Nvim-qt&lt;/a> or &lt;a href="https://github.com/yatli/fvim">fvim&lt;/a>, not the terminal Nvim&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
+&lt;p>In this post, I want to share how to install and configure Neovim on Windows 10&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>.
+For configurations of &lt;a href="https://github.com/equalsraf/neovim-qt">nvim-qt&lt;/a> on Windows, check &lt;a href="https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/">this post&lt;/a>.&lt;/p></description></item><item><title>Commonly-used Building Options Explained</title><link>https://jdhao.github.io/2018/11/07/option_flag_meaning_build_packages_from_source/</link><pubDate>Wed, 07 Nov 2018 21:38:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/07/option_flag_meaning_build_packages_from_source/</guid><description>&lt;p>On Linux system, if we do not have root priviledge, we can not use package
 managers to install a package to its default location (usually under &lt;code>/usr&lt;/code>).
 Besides, the packages installed by the package managers are often too old to
 have the latest features. Or, even if we have root priviledge, we do not want

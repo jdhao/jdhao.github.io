@@ -100,11 +100,10 @@ type.&lt;/p></description></item><item><title>Firenvim: Neovim inside Your Brows
 src="https://blog-resource-1257868508.file.myqcloud.com/firenvim.gif">
 &lt;/p>
 &lt;h1 id="introduction">Introduction&lt;/h1>
-&lt;p>Last year, I have written &lt;a href="https://jdhao.github.io/2019/05/11/nvim_text_input_browser/">a post&lt;/a>
-on how to edit texts inside the browser using Vim/Nvim or browser extensions
-which have Vim emulations. But none of them is satisfactory enough since they
-are either not convenient to use or lacking features compared to real Neovim
-empowered by various plugins.&lt;/p></description></item><item><title>Creating Markdown Front Matter with Ultisnips</title><link>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</link><pubDate>Sun, 22 Dec 2019 13:45:25 +0800</pubDate><guid>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;p>Last year, I have written &lt;a href="https://jdhao.github.io/2019/05/11/nvim_text_input_browser/">a post&lt;/a> on how to edit texts inside the browser
+using Vim/Nvim or browser extensions that have Vim emulations.
+However, none of them is good enough, since they are either not convenient to use
+or lacking features compared to real Neovim empowered by various plugins.&lt;/p></description></item><item><title>Creating Markdown Front Matter with Ultisnips</title><link>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</link><pubDate>Sun, 22 Dec 2019 13:45:25 +0800</pubDate><guid>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
 &lt;p>Currently, I write my blog posts in Markdown and build the blog using
 &lt;a href="https://gohugo.io/">Hugo&lt;/a>. Hugo supports &lt;a href="https://gohugo.io/content-management/front-matter/">front matter&lt;/a> for Markdown so that you can
 attach metadata for a post, such as title, date, tags, categories, etc.&lt;/p></description></item><item><title>Nifty Nvim Techniques That Make My Life Easier -- Series 6</title><link>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</link><pubDate>Sat, 21 Dec 2019 23:18:00 +0800</pubDate><guid>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</guid><description>&lt;p>This post continues my &lt;a href="https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/">previous post&lt;/a> on nifty Nvim/Vim techniques.&lt;/p></description></item><item><title>Running Command Asynchronously inside Neovim</title><link>https://jdhao.github.io/2019/12/09/vim_asynchronous_command_run/</link><pubDate>Mon, 09 Dec 2019 23:27:10 +0800</pubDate><guid>https://jdhao.github.io/2019/12/09/vim_asynchronous_command_run/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
@@ -237,11 +236,9 @@ cursor more efficiently.&lt;/p></description></item><item><title>A Complete Guid
 &lt;p>&lt;font color="blue">update: 2020-11-15, add detailed instruction for Neovim config location.&lt;/font>&lt;/p>
 &lt;p>&lt;strong>TL;DR&lt;/strong>: After nearly one year of using Neovim on Windows, I find that the
 best experience one can get on Windows is to use GUI Neovim client such as
-&lt;a href="https://github.com/equalsraf/neovim-qt">Nvim-qt&lt;/a> or &lt;a href="https://github.com/yatli/fvim">fvim&lt;/a>,
-not the terminal Nvim&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
-&lt;p>In this post, I want to share how to install and configure Neovim on Windows
-10&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>. For configurations of &lt;a href="https://github.com/equalsraf/neovim-qt">nvim-qt&lt;/a>
-on Windows, check &lt;a href="https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/">this post&lt;/a>.&lt;/p></description></item><item><title>An Introduction to Lookaround Regular Expression in Neovim/Vim</title><link>https://jdhao.github.io/2018/10/18/regular_expression_nvim/</link><pubDate>Thu, 18 Oct 2018 19:34:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/18/regular_expression_nvim/</guid><description>&lt;p>Today I want to use some regular expressions for searching and replacing in my
+&lt;a href="https://github.com/equalsraf/neovim-qt">Nvim-qt&lt;/a> or &lt;a href="https://github.com/yatli/fvim">fvim&lt;/a>, not the terminal Nvim&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
+&lt;p>In this post, I want to share how to install and configure Neovim on Windows 10&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>.
+For configurations of &lt;a href="https://github.com/equalsraf/neovim-qt">nvim-qt&lt;/a> on Windows, check &lt;a href="https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/">this post&lt;/a>.&lt;/p></description></item><item><title>An Introduction to Lookaround Regular Expression in Neovim/Vim</title><link>https://jdhao.github.io/2018/10/18/regular_expression_nvim/</link><pubDate>Thu, 18 Oct 2018 19:34:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/18/regular_expression_nvim/</guid><description>&lt;p>Today I want to use some regular expressions for searching and replacing in my
 files. But I found that Nvim/Vim regular expression engine has its own flavor,
 which is different from the regex engine used by Sublime Text&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. I ended up
 learning some of the basics of Nvim-style regex. In this post, I want to share
