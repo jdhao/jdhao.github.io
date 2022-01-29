@@ -555,10 +555,18 @@ cursor more efficiently.&lt;/p></description></item><item><title>两个大规模
 &lt;details>
 &lt;summary>&lt;font size="3" color="blue">Change log&lt;/font>&lt;/summary>
 &lt;ul>
+&lt;li>&lt;font color="blue">2022-01-29: Add deprecation notice&lt;/font>&lt;/li>
 &lt;li>&lt;font color="blue">2021-01-17: Install nvim via tar ball instead of appimage&lt;/font>&lt;/li>
 &lt;li>&lt;font color="blue">2020-12-01: Add detailed guide on installing Neovim on Linux&lt;/font>&lt;/li>
 &lt;/ul>
-&lt;/details></description></item><item><title>How Is Newline Handled in Python and Various Editors?</title><link>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</link><pubDate>Sat, 08 Dec 2018 22:30:50 +0800</pubDate><guid>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</guid><description>&lt;p align="center">
+&lt;/details>
+&lt;p>TL;DR: My complete nvim configuration is &lt;a href="https://github.com/jdhao/nvim-config">here&lt;/a>. Follow the guide there on how to
+use it. Most of the config below also applies to Windows and Mac. For how to
+configure Neovim on Windows, you may also be interested in &lt;a href="https://jdhao.github.io/2018/11/15/neovim_configuration_windows/">this post&lt;/a>.&lt;/p>
+&lt;p>&lt;strong>2022-01-29: Note that this post is written more than three years ago.
+Some of the plugins mentioned here may not be maintained or may not be the best fit for Neovim,
+or even not need anymore, e.g., &lt;a href="https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/#neovim-only">highlighted yank is builtin in Neovim since May 2020&lt;/a>.
+I have shared some of the plugin changes in &lt;a href="https://jdhao.github.io/2021/12/31/using_nvim_after_three_years/#what-remains-what-has-changed-and-some-new-plugins">this post&lt;/a>.&lt;/strong>&lt;/p></description></item><item><title>How Is Newline Handled in Python and Various Editors?</title><link>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</link><pubDate>Sat, 08 Dec 2018 22:30:50 +0800</pubDate><guid>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223253.png" width="800">
 &lt;/p>
 &lt;p>Every programmer knows newline character, but may be not so familiar. In this
@@ -686,6 +694,7 @@ some of its configurations and usages.&lt;/p></description></item><item><title>�
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-39-49.jpg" width="800">
 &lt;/p>
 &lt;p>我的完整 Neovim 配置可以点&lt;a href="https://github.com/jdhao/nvim-config">这里&lt;/a>查看。&lt;/p>
+&lt;p>&lt;strong>2022-01-29: 本文写于三年以前，其中提到的一些插件已经不再维护，或者对于 Neovim 不是最佳选择，甚至还有一些插件被 Nvim 自带的功能所替代，例如，&lt;a href="https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/#neovim-only">从 2020.05 开始，highlighted yank 开始内置&lt;/a>。我在 &lt;a href="https://jdhao.github.io/2021/12/31/using_nvim_after_three_years/#what-remains-what-has-changed-and-some-new-plugins"> 这篇博文&lt;/a> 分享了一些插件迁移的事情。&lt;/strong>&lt;/p>
 &lt;p>Vim 是一款主要流行于 *nix 系统上的强大的编辑器，另外一款可以与之媲美的编辑器是 Emacs，这两款编辑器广泛流行于程序员群体，&lt;a href="https://en.wikipedia.org/wiki/Editor_war">关于谁是编辑器之王的争论经久不息&lt;/a>。Vim 的功能虽然强大，但是作为一款「古老」的编辑器&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>，也不是没有缺点：随着 Vim 代码量的增加，维护变得日益困难，不利于快速增加新功能；另外，它的主要开发者目前只有一个人，&lt;a href="https://en.wikipedia.org/wiki/Bram_Moolenaar">Bram Moolenaar&lt;/a>，也不符合当今开源社区多人协作的习惯。为了克服 Vim 的这些缺点，保留 Vim 的优点（最大程度兼容 Vim），让 Vim 的开发能有更快的迭代速度，&lt;a href="https://neovim.io/">Neovim&lt;/a> 项目诞生了。本文介绍如何安装 Neovim 并配置 Python 开发环境(在以下叙述中，Neovim 和 Nvim 含义相同，不再加以区分)&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>。&lt;/p></description></item><item><title>How to Replace A Page of PDF File with Another PDF</title><link>https://jdhao.github.io/2018/06/04/insert-image-page-to-pdf/</link><pubDate>Mon, 04 Jun 2018 14:18:34 +0800</pubDate><guid>https://jdhao.github.io/2018/06/04/insert-image-page-to-pdf/</guid><description>&lt;p>In this post, I want to write about how to replace one page of existing PDF
 files with a new PDF image.&lt;/p></description></item><item><title>How to Change Intersection Point of X and Y Axis in Matplotlib</title><link>https://jdhao.github.io/2018/05/21/matplotlib-change-axis-intersection-point/</link><pubDate>Mon, 21 May 2018 11:02:09 +0800</pubDate><guid>https://jdhao.github.io/2018/05/21/matplotlib-change-axis-intersection-point/</guid><description>In this post, I will share how to position the intersection of x and y axis at a specific point using Matplotlib.
 The spines In order to re-position x and y axis, we need to understand an important concept in Matplotlib &amp;mdash;spines. According to Matplotlib documentation:
