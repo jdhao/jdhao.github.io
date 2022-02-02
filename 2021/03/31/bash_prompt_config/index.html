@@ -1,28 +1,168 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Creating Beautiful Bash Prompts - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="This post summarize how to change the Bash shell prompt to a better look. The end result is shown in the title image."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2021/03/31/bash_prompt_config/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Creating Beautiful Bash Prompts"><meta property="og:description" content="This post summarize how to change the Bash shell prompt to a better look. The
-end result is shown in the title image."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2021/03/31/bash_prompt_config/"><meta property="article:published_time" content="2021-03-31T23:00:26+08:00"><meta property="article:modified_time" content="2021-04-01T00:50:28+08:00"><meta itemprop=name content="Creating Beautiful Bash Prompts"><meta itemprop=description content="This post summarize how to change the Bash shell prompt to a better look. The
-end result is shown in the title image."><meta itemprop=datePublished content="2021-03-31T23:00:26+08:00"><meta itemprop=dateModified content="2021-04-01T00:50:28+08:00"><meta itemprop=wordCount content="398"><meta itemprop=keywords content="Bash,shell,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Creating Beautiful Bash Prompts"><meta name=twitter:description content="This post summarize how to change the Bash shell prompt to a better look. The
-end result is shown in the title image."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Creating Beautiful Bash Prompts</h1><div class=post-meta><span class=post-time>2021-03-31</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>398 words</span>
-<span class=more-meta>2 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#bash-special-escape-sequence>Bash Special escape sequence</a></li><li><a href=#using-colors>Using colors</a></li><li><a href=#putting-all-together----the-use-of-prompt_command>Putting all together &ndash; the use of PROMPT_COMMAND</a></li></ul></nav></div></div><div class=post-content><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20210331231139.jpg width=400></p><p>This post summarize how to change the Bash shell prompt to a better look. The
-end result is shown in the title image.</p><h1 id=bash-special-escape-sequence>Bash Special escape sequence</h1><p>To change the bash prompt, we can directly change <code>PS1</code> variable. Some special
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Creating Beautiful Bash Prompts - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="This post summarize how to change the Bash shell prompt to a better look. The end result is shown in the title image.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2021/03/31/bash_prompt_config/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="Creating Beautiful Bash Prompts">
+<meta property="og:description" content="
+
+
+This post summarize how to change the Bash shell prompt to a better look. The
+end result is shown in the title image.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2021/03/31/bash_prompt_config/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-03-31T23:00:26+08:00">
+<meta property="article:modified_time" content="2021-04-01T00:50:28+08:00">
+<meta itemprop=name content="Creating Beautiful Bash Prompts">
+<meta itemprop=description content="
+
+
+This post summarize how to change the Bash shell prompt to a better look. The
+end result is shown in the title image."><meta itemprop=datePublished content="2021-03-31T23:00:26+08:00">
+<meta itemprop=dateModified content="2021-04-01T00:50:28+08:00">
+<meta itemprop=wordCount content="397">
+<meta itemprop=keywords content="Bash,shell,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Creating Beautiful Bash Prompts">
+<meta name=twitter:description content="
+
+
+This post summarize how to change the Bash shell prompt to a better look. The
+end result is shown in the title image."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>Creating Beautiful Bash Prompts</h1>
+<div class=post-meta>
+<span class=post-time> 2021-03-31 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 397 words </span>
+<span class=more-meta> 2 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#bash-special-escape-sequence>Bash Special escape sequence</a></li>
+<li><a href=#using-colors>Using colors</a></li>
+<li><a href=#putting-all-together----the-use-of-prompt_command>Putting all together &ndash; the use of PROMPT_COMMAND</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20210331231139.jpg width=400>
+</p>
+<p>This post summarize how to change the Bash shell prompt to a better look. The
+end result is shown in the title image.</p>
+<h1 id=bash-special-escape-sequence>Bash Special escape sequence</h1>
+<p>To change the bash prompt, we can directly change <code>PS1</code> variable. Some special
 escape sequences<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> are predefined by Bash to have special meaning, e.g.,
-<code>\u</code> means the current user name.</p><p>Set <code>PS1</code> to <code>[\u@\h \w]</code> and start bash, the prompt looks like the following:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>[jdhao@jdhao-MBP ~/Projects/trial_error]
-</code></pre></div><h1 id=using-colors>Using colors</h1><p>Colors are important for us to create beautiful prompts. For example, <code>echo -e "\033[4;32mtest\033[0m"</code> will print green <code>test</code> with underline effect. In this
+<code>\u</code> means the current user name.</p>
+<p>Set <code>PS1</code> to <code>[\u@\h \w]</code> and start bash, the prompt looks like the following:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>[jdhao@jdhao-MBP ~/Projects/trial_error]
+</code></pre></div><h1 id=using-colors>Using colors</h1>
+<p>Colors are important for us to create beautiful prompts. For example, <code>echo -e "\033[4;32mtest\033[0m"</code> will print green <code>test</code> with underline effect. In this
 command, <code>\033</code> is the octal representation of <code>ESCAPE</code> control character,
 which starts an <a href=https://en.wikipedia.org/wiki/ANSI_escape_code>ANSI escape code</a> to control the terminal behavior. You
 can also use <code>\x1b</code>, which is the hex value of ESCAPE control character.
-See <a href=https://misc.flogisoft.com/bash/tip_colors_and_formatting>this post</a> on how to use colors in terminal.</p><p>A little trick I learned is to define a color for easier reuse:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>GREEN=&#34;\e[0;32m&#34;
+See <a href=https://misc.flogisoft.com/bash/tip_colors_and_formatting>this post</a> on how to use colors in terminal.</p>
+<p>A little trick I learned is to define a color for easier reuse:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>GREEN=&#34;\e[0;32m&#34;
 COLOR_NONE=&#34;\e[0m&#34;
 </code></pre></div><p>When we want to use a color, we can now use the new name instead of the lengthy
-and obscure escape code.</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=nv>GREEN</span><span class=o>=</span><span class=s2>&#34;\e[0;32m&#34;</span>
+and obscure escape code.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nv>GREEN</span><span class=o>=</span><span class=s2>&#34;\e[0;32m&#34;</span>
 <span class=nv>COLOR_NONE</span><span class=o>=</span><span class=s2>&#34;\e[0m&#34;</span>
 
 <span class=nb>printf</span> <span class=s2>&#34;</span><span class=si>${</span><span class=nv>GREEN</span><span class=si>}</span><span class=s2>Green text</span><span class=si>${</span><span class=nv>COLOR_NONE</span><span class=si>}</span><span class=s2>&#34;</span>
-</code></pre></div><h1 id=putting-all-together----the-use-of-prompt_command>Putting all together &ndash; the use of PROMPT_COMMAND</h1><p>We can of course write all the logic to set the <code>PS1</code> variable in one command,
+</code></pre></div><h1 id=putting-all-together----the-use-of-prompt_command>Putting all together &ndash; the use of PROMPT_COMMAND</h1>
+<p>We can of course write all the logic to set the <code>PS1</code> variable in one command,
 but it could be messy and unreadable. Instead, we can set <code>PS1</code> via the env
 variable <a href=https://stackoverflow.com/a/3058366/6064933><code>PROMPT_COMMAND</code></a>. The
 value of <code>PROMPT_COMMAND</code> will be executed by Bash as command each time before
-Bash tries to show the actual prompt.</p><p>The following Bash script shows my final working prompt configuration:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=nv>GRAY</span><span class=o>=</span><span class=s2>&#34;\e[2;37m&#34;</span>
+Bash tries to show the actual prompt.</p>
+<p>The following Bash script shows my final working prompt configuration:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nv>GRAY</span><span class=o>=</span><span class=s2>&#34;\e[2;37m&#34;</span>
 <span class=nv>GREEN</span><span class=o>=</span><span class=s2>&#34;\e[0;32m&#34;</span>
 <span class=nv>PURPLE</span><span class=o>=</span><span class=s2>&#34;\e[1;35m&#34;</span>
 <span class=nv>COLOR_NONE</span><span class=o>=</span><span class=s2>&#34;\e[0m&#34;</span>
@@ -62,25 +202,115 @@ Bash tries to show the actual prompt.</p><p>The following Bash script shows my f
 <span class=o>}</span>
 
 <span class=nb>export</span> <span class=nv>PROMPT_COMMAND</span><span class=o>=</span>set_bash_prompt
-</code></pre></div><p>Ref:</p><ul><li><a href=https://wiki.archlinux.org/index.php/Bash/Prompt_customization#Prompts>https://wiki.archlinux.org/index.php/Bash/Prompt_customization#Prompts</a></li><li><a href=https://stackoverflow.com/q/4842424/6064933>List of ANSI color escape sequences</a></li><li>Pretty Colored Bash Prompt: <a href=https://gist.github.com/milyord/4108547>https://gist.github.com/milyord/4108547</a></li><li>Git current git branch name: <a href=https://stackoverflow.com/q/6245570/6064933>https://stackoverflow.com/q/6245570/6064933</a></li><li>Check if we are in git repo: <a href=https://stackoverflow.com/q/2180270/6064933>https://stackoverflow.com/q/2180270/6064933</a></li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>A list of escape sequences and their meanings can be found <a href=https://www.gnu.org/software/bash/manual/html_node/Controlling-the-Prompt.html>here</a>. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2021-04-01</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Bash/>Bash</a>
-<a href=/tags/shell/>shell</a></div><nav class=post-nav><a class=prev href=/2021/04/01/python_log_message_missing/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Why is My Log Message Missing in Python?</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2021/03/27/upgrade_git_on_linux/><span class="next-text nav-default">How To Install Latest Version of Git on Linux</span>
+</code></pre></div><p>Ref:</p>
+<ul>
+<li><a href=https://wiki.archlinux.org/index.php/Bash/Prompt_customization#Prompts>https://wiki.archlinux.org/index.php/Bash/Prompt_customization#Prompts</a></li>
+<li><a href=https://stackoverflow.com/q/4842424/6064933>List of ANSI color escape sequences</a></li>
+<li>Pretty Colored Bash Prompt: <a href=https://gist.github.com/milyord/4108547>https://gist.github.com/milyord/4108547</a></li>
+<li>Git current git branch name: <a href=https://stackoverflow.com/q/6245570/6064933>https://stackoverflow.com/q/6245570/6064933</a></li>
+<li>Check if we are in git repo: <a href=https://stackoverflow.com/q/2180270/6064933>https://stackoverflow.com/q/2180270/6064933</a></li>
+</ul>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>A list of escape sequences and their meanings can be found <a href=https://www.gnu.org/software/bash/manual/html_node/Controlling-the-Prompt.html>here</a>.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2021-04-01
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/Bash/>Bash</a>
+<a href=/tags/shell/>shell</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/2021/04/01/python_log_message_missing/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Why is My Log Message Missing in Python?</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2021/03/27/upgrade_git_on_linux/>
+<span class="next-text nav-default">How To Install Latest Version of Git on Linux</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

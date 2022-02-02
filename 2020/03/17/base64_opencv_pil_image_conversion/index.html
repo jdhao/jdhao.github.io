@@ -1,22 +1,152 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Conversion between base64 and OpenCV or PIL Image - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="When we are building web services using Python, we often send or receive images in base64 encoded format. However, when we are doing image processing tasks, we need to use PIL or OpenCV. In this post, I will share how to convert between OpenCV or PIL image and base64 encoded image."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Conversion between base64 and OpenCV or PIL Image"><meta property="og:description" content="When we are building web services using Python, we often send or receive images
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Conversion between base64 and OpenCV or PIL Image - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="When we are building web services using Python, we often send or receive images in base64 encoded format. However, when we are doing image processing tasks, we need to use PIL or OpenCV. In this post, I will share how to convert between OpenCV or PIL image and base64 encoded image.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="Conversion between base64 and OpenCV or PIL Image">
+<meta property="og:description" content="When we are building web services using Python, we often send or receive images
 in base64 encoded format.
 However, when we are doing image processing tasks, we need to use PIL or
 OpenCV. In this post, I will share how to convert between OpenCV or PIL image
-and base64 encoded image."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/"><meta property="article:published_time" content="2020-03-17T23:08:32+08:00"><meta property="article:modified_time" content="2021-05-08T00:21:28+08:00"><meta itemprop=name content="Conversion between base64 and OpenCV or PIL Image"><meta itemprop=description content="When we are building web services using Python, we often send or receive images
+and base64 encoded image.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2020-03-17T23:08:32+08:00">
+<meta property="article:modified_time" content="2021-05-08T00:21:28+08:00">
+<meta itemprop=name content="Conversion between base64 and OpenCV or PIL Image">
+<meta itemprop=description content="When we are building web services using Python, we often send or receive images
 in base64 encoded format.
 However, when we are doing image processing tasks, we need to use PIL or
 OpenCV. In this post, I will share how to convert between OpenCV or PIL image
-and base64 encoded image."><meta itemprop=datePublished content="2020-03-17T23:08:32+08:00"><meta itemprop=dateModified content="2021-05-08T00:21:28+08:00"><meta itemprop=wordCount content="375"><meta itemprop=keywords content="PIL,OpenCV,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Conversion between base64 and OpenCV or PIL Image"><meta name=twitter:description content="When we are building web services using Python, we often send or receive images
+and base64 encoded image."><meta itemprop=datePublished content="2020-03-17T23:08:32+08:00">
+<meta itemprop=dateModified content="2021-05-08T00:21:28+08:00">
+<meta itemprop=wordCount content="375">
+<meta itemprop=keywords content="PIL,OpenCV,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Conversion between base64 and OpenCV or PIL Image">
+<meta name=twitter:description content="When we are building web services using Python, we often send or receive images
 in base64 encoded format.
 However, when we are doing image processing tasks, we need to use PIL or
 OpenCV. In this post, I will share how to convert between OpenCV or PIL image
-and base64 encoded image."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Conversion between base64 and OpenCV or PIL Image</h1><div class=post-meta><span class=post-time>2020-03-17</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>375 words</span>
-<span class=more-meta>2 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#base64-to-pil-or-opencv-image>base64 to PIL or OpenCV image</a><ul><li><a href=#base64-to-pil-image>base64 to PIL Image</a></li><li><a href=#base64-to-opencv-image>base64 to OpenCV Image</a></li></ul></li><li><a href=#pil-or-opencv-image-to-base64>PIL or OpenCV image to base64</a><ul><li><a href=#pil-image-to-base64>PIL Image to base64</a></li><li><a href=#opencv-to-base64-image>OpenCV to base64 image</a></li></ul></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>When we are building web services using Python, we often send or receive images
+and base64 encoded image."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>Conversion between base64 and OpenCV or PIL Image</h1>
+<div class=post-meta>
+<span class=post-time> 2020-03-17 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 375 words </span>
+<span class=more-meta> 2 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#base64-to-pil-or-opencv-image>base64 to PIL or OpenCV image</a>
+<ul>
+<li><a href=#base64-to-pil-image>base64 to PIL Image</a></li>
+<li><a href=#base64-to-opencv-image>base64 to OpenCV Image</a></li>
+</ul>
+</li>
+<li><a href=#pil-or-opencv-image-to-base64>PIL or OpenCV image to base64</a>
+<ul>
+<li><a href=#pil-image-to-base64>PIL Image to base64</a></li>
+<li><a href=#opencv-to-base64-image>OpenCV to base64 image</a></li>
+</ul>
+</li>
+<li><a href=#references>References</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>When we are building web services using Python, we often send or receive images
 in <a href=https://docs.python.org/3/library/base64.html>base64</a> encoded format.
 However, when we are doing image processing tasks, we need to use PIL or
 OpenCV. In this post, I will share how to convert between OpenCV or PIL image
-and base64 encoded image.</p><h1 id=base64-to-pil-or-opencv-image>base64 to PIL or OpenCV image</h1><h2 id=base64-to-pil-image>base64 to PIL Image</h2><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>base64</span>
+and base64 encoded image.</p>
+<h1 id=base64-to-pil-or-opencv-image>base64 to PIL or OpenCV image</h1>
+<h2 id=base64-to-pil-image>base64 to PIL Image</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>base64</span>
 <span class=kn>from</span> <span class=nn>io</span> <span class=kn>import</span> <span class=n>BytesIO</span>
 <span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span>
 
@@ -28,8 +158,10 @@ and base64 encoded image.</p><h1 id=base64-to-pil-or-opencv-image>base64 to PIL 
 <span class=n>img</span> <span class=o>=</span> <span class=n>Image</span><span class=o>.</span><span class=n>open</span><span class=p>(</span><span class=n>im_file</span><span class=p>)</span>   <span class=c1># img is now PIL Image object</span>
 </code></pre></div><p>In the above code, since <code>Image.open()</code> only accepts image path or file-like
 object, we first convert the base64 encoded image to <code>BytesIO</code> object and then
-read the image using PIL.</p><h2 id=base64-to-opencv-image>base64 to OpenCV Image</h2><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>base64</span>
-<span class=kn>import</span> <span class=nn>numpy</span> <span class=kn>as</span> <span class=nn>np</span>
+read the image using PIL.</p>
+<h2 id=base64-to-opencv-image>base64 to OpenCV Image</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>base64</span>
+<span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
 <span class=kn>import</span> <span class=nn>cv2</span>
 
 <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=s2>&#34;test.jpg&#34;</span><span class=p>,</span> <span class=s2>&#34;rb&#34;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
@@ -41,19 +173,24 @@ read the image using PIL.</p><h2 id=base64-to-opencv-image>base64 to OpenCV Imag
 </code></pre></div><p>In the above code, we first convert binary image to Numpy array, then decode
 the array with
 <a href=https://docs.opencv.org/3.4/d4/da8/group__imgcodecs.html#ga26a67788faa58ade337f8d28ba0eb19e><code>cv2.imdecode()</code></a>.
-The final <code>img</code> is an OpenCV image in Numpy ndarray format.</p><h1 id=pil-or-opencv-image-to-base64>PIL or OpenCV image to base64</h1><h2 id=pil-image-to-base64>PIL Image to base64</h2><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>base64</span>
+The final <code>img</code> is an OpenCV image in Numpy ndarray format.</p>
+<h1 id=pil-or-opencv-image-to-base64>PIL or OpenCV image to base64</h1>
+<h2 id=pil-image-to-base64>PIL Image to base64</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>base64</span>
 <span class=kn>from</span> <span class=nn>io</span> <span class=kn>import</span> <span class=n>BytesIO</span>
 <span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span>
 
 <span class=n>img</span> <span class=o>=</span> <span class=n>Image</span><span class=o>.</span><span class=n>open</span><span class=p>(</span><span class=s1>&#39;test.jpg&#39;</span><span class=p>)</span>
 <span class=n>im_file</span> <span class=o>=</span> <span class=n>BytesIO</span><span class=p>()</span>
-<span class=n>img</span><span class=o>.</span><span class=n>save</span><span class=p>(</span><span class=n>im_file</span><span class=p>,</span> <span class=n>format</span><span class=o>=</span><span class=s2>&#34;JPEG&#34;</span><span class=p>)</span>
+<span class=n>img</span><span class=o>.</span><span class=n>save</span><span class=p>(</span><span class=n>im_file</span><span class=p>,</span> <span class=nb>format</span><span class=o>=</span><span class=s2>&#34;JPEG&#34;</span><span class=p>)</span>
 <span class=n>im_bytes</span> <span class=o>=</span> <span class=n>im_file</span><span class=o>.</span><span class=n>getvalue</span><span class=p>()</span>  <span class=c1># im_bytes: image in binary format.</span>
 <span class=n>im_b64</span> <span class=o>=</span> <span class=n>base64</span><span class=o>.</span><span class=n>b64encode</span><span class=p>(</span><span class=n>im_bytes</span><span class=p>)</span>
 </code></pre></div><p>In the above code, instead of saving the PIL Image object <code>img</code> to the disk, we
 save it to <code>im_file</code> which is a file-like object. Note that in this case, we
-need to specify the image format in <code>img.save()</code>.</p><h2 id=opencv-to-base64-image>OpenCV to base64 image</h2><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>base64</span>
-<span class=kn>import</span> <span class=nn>numpy</span> <span class=kn>as</span> <span class=nn>np</span>
+need to specify the image format in <code>img.save()</code>.</p>
+<h2 id=opencv-to-base64-image>OpenCV to base64 image</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>base64</span>
+<span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
 <span class=kn>import</span> <span class=nn>cv2</span>
 
 <span class=n>img</span> <span class=o>=</span> <span class=n>cv2</span><span class=o>.</span><span class=n>imread</span><span class=p>(</span><span class=s1>&#39;test.jpg&#39;</span><span class=p>)</span>
@@ -63,25 +200,107 @@ need to specify the image format in <code>img.save()</code>.</p><h2 id=opencv-to
 </code></pre></div><p>In the above code, we first save the image in Numpy ndarray format to <code>im_arr</code>
 which is a one-dim Numpy array. We then get the image in binary format by
 using the <a href=https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.tobytes.html><code>tobytes()</code></a>
-method of this array.</p><h1 id=references>References</h1><ul><li><a href=https://jdhao.github.io/2019/07/06/python_opencv_pil_image_to_bytes/>Convert OpenCV or PIL image to bytes</a>.</li><li><a href=https://stackoverflow.com/a/26079673/6064933>base64 image to PIL Image</a>.</li><li><a href=https://stackoverflow.com/a/50444666/6064933>Byte array to OpenCV image</a>.</li><li><a href=https://stackoverflow.com/q/40928205/6064933>OpenCV image to base64</a>.</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2021-05-08</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/PIL/>PIL</a>
-<a href=/tags/OpenCV/>OpenCV</a></div><nav class=post-nav><a class=prev href=/2020/03/30/pptx_to_image/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Convert PPTX Slides to JPEG Images on Linux</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2020/03/16/tencent_cos_cdn_setup/><span class="next-text nav-default">腾讯云对象存储博客图床开启 CDN 加速(不需要购买额外域名)</span>
+method of this array.</p>
+<h1 id=references>References</h1>
+<ul>
+<li><a href=https://jdhao.github.io/2019/07/06/python_opencv_pil_image_to_bytes/>Convert OpenCV or PIL image to bytes</a>.</li>
+<li><a href=https://stackoverflow.com/a/26079673/6064933>base64 image to PIL Image</a>.</li>
+<li><a href=https://stackoverflow.com/a/50444666/6064933>Byte array to OpenCV image</a>.</li>
+<li><a href=https://stackoverflow.com/q/40928205/6064933>OpenCV image to base64</a>.</li>
+</ul>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2021-05-08
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/PIL/>PIL</a>
+<a href=/tags/OpenCV/>OpenCV</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/2020/03/30/pptx_to_image/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Convert PPTX Document to JPEG Images on Ubuntu</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2020/03/16/tencent_cos_cdn_setup/>
+<span class="next-text nav-default">腾讯云对象存储博客图床开启 CDN 加速(不需要购买额外域名)</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

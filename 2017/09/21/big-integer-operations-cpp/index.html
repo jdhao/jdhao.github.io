@@ -1,19 +1,141 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Some Programming Questions Related to Operations with Big Integers - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="The C++ standard library doesn&amp;rsquo;t support big integer operations such as addition and multiplication. In this post, I will show how to solve such problems in C++."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2017/09/21/big-integer-operations-cpp/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Some Programming Questions Related to Operations with Big Integers"><meta property="og:description" content="The C++ standard library doesn&rsquo;t support big integer operations such as
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Some Programming Questions Related to Operations with Big Integers - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="The C++ standard library doesn&amp;rsquo;t support big integer operations such as addition and multiplication. In this post, I will show how to solve such problems in C++.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2017/09/21/big-integer-operations-cpp/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="Some Programming Questions Related to Operations with Big Integers">
+<meta property="og:description" content="The C++ standard library doesn&rsquo;t support big integer operations such as
 addition and multiplication. In this post, I will show how to solve such
-problems in C++."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2017/09/21/big-integer-operations-cpp/"><meta property="article:published_time" content="2017-09-21T10:23:46+08:00"><meta property="article:modified_time" content="2021-09-08T21:50:31+08:00"><meta itemprop=name content="Some Programming Questions Related to Operations with Big Integers"><meta itemprop=description content="The C++ standard library doesn&rsquo;t support big integer operations such as
+problems in C++.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2017/09/21/big-integer-operations-cpp/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2017-09-21T10:23:46+08:00">
+<meta property="article:modified_time" content="2021-09-08T21:50:31+08:00">
+<meta itemprop=name content="Some Programming Questions Related to Operations with Big Integers">
+<meta itemprop=description content="The C++ standard library doesn&rsquo;t support big integer operations such as
 addition and multiplication. In this post, I will show how to solve such
-problems in C++."><meta itemprop=datePublished content="2017-09-21T10:23:46+08:00"><meta itemprop=dateModified content="2021-09-08T21:50:31+08:00"><meta itemprop=wordCount content="738"><meta itemprop=keywords content="algorithms,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Some Programming Questions Related to Operations with Big Integers"><meta name=twitter:description content="The C++ standard library doesn&rsquo;t support big integer operations such as
+problems in C++."><meta itemprop=datePublished content="2017-09-21T10:23:46+08:00">
+<meta itemprop=dateModified content="2021-09-08T21:50:31+08:00">
+<meta itemprop=wordCount content="738">
+<meta itemprop=keywords content="algorithms,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Some Programming Questions Related to Operations with Big Integers">
+<meta name=twitter:description content="The C++ standard library doesn&rsquo;t support big integer operations such as
 addition and multiplication. In this post, I will show how to solve such
-problems in C++."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Some Programming Questions Related to Operations with Big Integers</h1><div class=post-meta><span class=post-time>2017-09-21</span><div class=post-category><a href=/categories/Programming/>Programming</a></div><span class=more-meta>738 words</span>
-<span class=more-meta>4 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#big-integer-addition>Big integer addition</a></li><li><a href=#big-integer-multiplication>Big integer multiplication</a></li><li><a href=#factorial-of-n>Factorial of n</a></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>The C++ standard library doesn&rsquo;t support big integer operations such as
+problems in C++."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>Some Programming Questions Related to Operations with Big Integers</h1>
+<div class=post-meta>
+<span class=post-time> 2017-09-21 </span>
+<div class=post-category>
+<a href=/categories/Programming/> Programming </a>
+</div>
+<span class=more-meta> 738 words </span>
+<span class=more-meta> 4 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#big-integer-addition>Big integer addition</a></li>
+<li><a href=#big-integer-multiplication>Big integer multiplication</a></li>
+<li><a href=#factorial-of-n>Factorial of n</a></li>
+<li><a href=#references>References</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>The C++ standard library doesn&rsquo;t support big integer operations such as
 addition and multiplication. In this post, I will show how to solve such
-problems in C++.</p><h1 id=big-integer-addition>Big integer addition</h1><p>The built in integer types in C++ are mainly <code>short</code>, <code>int</code>, <code>long</code> and <code>long long</code>. These types can only represent relatively small integers. If we store
+problems in C++.</p>
+<h1 id=big-integer-addition>Big integer addition</h1>
+<p>The built in integer types in C++ are mainly <code>short</code>, <code>int</code>, <code>long</code> and <code>long long</code>. These types can only represent relatively small integers. If we store
 big integers in these types, <a href=https://en.wikipedia.org/wiki/Integer_overflow>integer
 overflow</a> may happen. As a
 solution, we can store big integers as strings and do integer addition the same
-way as we do in paper.</p><p>The following code accepts two integers represented as strings and return their
-sum as a string,</p><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>string</span> <span class=nf>bigIntAddition</span><span class=p>(</span><span class=k>const</span> <span class=n>string</span><span class=o>&amp;</span> <span class=n>num1</span><span class=p>,</span> <span class=k>const</span> <span class=n>string</span><span class=o>&amp;</span> <span class=n>num2</span><span class=p>){</span>
+way as we do in paper.</p>
+<p>The following code accepts two integers represented as strings and return their
+sum as a string,</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=n>string</span> <span class=nf>bigIntAddition</span><span class=p>(</span><span class=k>const</span> <span class=n>string</span><span class=o>&amp;</span> <span class=n>num1</span><span class=p>,</span> <span class=k>const</span> <span class=n>string</span><span class=o>&amp;</span> <span class=n>num2</span><span class=p>){</span>
     <span class=n>string</span> <span class=n>result</span><span class=p>;</span>
     <span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=k>static_cast</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=p>(</span><span class=n>num1</span><span class=p>.</span><span class=n>size</span><span class=p>()</span> <span class=o>-</span> <span class=mi>1</span><span class=p>);</span>
     <span class=kt>int</span> <span class=n>j</span> <span class=o>=</span> <span class=k>static_cast</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=p>(</span><span class=n>num2</span><span class=p>.</span><span class=n>size</span><span class=p>()</span> <span class=o>-</span> <span class=mi>1</span><span class=p>);</span>
@@ -27,17 +149,24 @@ sum as a string,</p><div class=highlight><pre class=chroma><code class=language-
 
     <span class=k>return</span> <span class=n>result</span><span class=p>;</span>
 <span class=p>}</span>
-</code></pre></div><h1 id=big-integer-multiplication>Big integer multiplication</h1><p>Integer multiplication is bit more complex, if two integers have $m$ and $n$
+</code></pre></div><h1 id=big-integer-multiplication>Big integer multiplication</h1>
+<p>Integer multiplication is bit more complex, if two integers have $m$ and $n$
 digits, then <a href=https://math.stackexchange.com/questions/857424/estimate-or-calculate-the-number-of-digits-of-a-multiplication>the final result have a maximum of $m +
 n$</a>
 digits. <a href=https://discuss.leetcode.com/topic/30508/easiest-java-solution-with-graph-explanation>One post on
 leetcode</a>
 gives an excellent explanation of how to do mulitiplication manually, digit by
-digit. The basic idea is this</p><blockquote><p>Start from the least significant digit of both
+digit. The basic idea is this</p>
+<blockquote>
+<p>Start from the least significant digit of both
 integers, and calculate their product. If the indices of the digits are $i$,
-$j$, then the product will be added to indices $i+j$ and $i+j+1$.</p></blockquote><p>This is a repeated process where each digit in the result is gradually built by
+$j$, then the product will be added to indices $i+j$ and $i+j+1$.</p>
+</blockquote>
+<p>This is a repeated process where each digit in the result is gradually built by
 addition. Until we finished the process, the digits are changing their values
-continuously.</p><p>Following is the code to do interger(expresses as string) multiplications,</p><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>string</span> <span class=nf>bigIntMultiplication</span><span class=p>(</span><span class=k>const</span> <span class=n>string</span><span class=o>&amp;</span> <span class=n>num1</span><span class=p>,</span> <span class=k>const</span> <span class=n>string</span><span class=o>&amp;</span> <span class=n>num2</span><span class=p>){</span>
+continuously.</p>
+<p>Following is the code to do interger(expresses as string) multiplications,</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=n>string</span> <span class=nf>bigIntMultiplication</span><span class=p>(</span><span class=k>const</span> <span class=n>string</span><span class=o>&amp;</span> <span class=n>num1</span><span class=p>,</span> <span class=k>const</span> <span class=n>string</span><span class=o>&amp;</span> <span class=n>num2</span><span class=p>){</span>
     <span class=k>if</span> <span class=p>(</span><span class=n>num1</span> <span class=o>==</span> <span class=s>&#34;0&#34;</span> <span class=n>or</span> <span class=n>num2</span> <span class=o>==</span> <span class=s>&#34;0&#34;</span><span class=p>){</span>
         <span class=k>return</span> <span class=s>&#34;0&#34;</span><span class=p>;</span>
     <span class=p>}</span>
@@ -64,18 +193,37 @@ continuously.</p><p>Following is the code to do interger(expresses as string) mu
 
     <span class=k>return</span> <span class=n>out</span><span class=p>.</span><span class=n>str</span><span class=p>();</span>
 <span class=p>}</span>
-</code></pre></div><h1 id=factorial-of-n>Factorial of n</h1><p>Factorial increases really fast, for example, the factorial of <code>100!</code> has 158
+</code></pre></div><h1 id=factorial-of-n>Factorial of n</h1>
+<p>Factorial increases really fast, for example, the factorial of <code>100!</code> has 158
 digits. In order to represent such big integer, we can use an array to store
-its digit separately. Below is an algorithm to find the factorial of <code>n</code>,</p><ol><li><p>create an array <code>res[N]</code> big enough to store all the digits in <code>n!</code>,
-initialize <code>res[0]</code> to 1</p></li><li><p>let <code>m</code> be the number of digits that current result takes up, the initialize
-<code>m</code> to be 1</p></li><li><p>for <code>num</code> from 2 to n</p><ol><li>initialize <code>carry</code> to 0</li><li>for each digit in current result (i.e., from res[0] to res[m-1]),
+its digit separately. Below is an algorithm to find the factorial of <code>n</code>,</p>
+<ol>
+<li>
+<p>create an array <code>res[N]</code> big enough to store all the digits in <code>n!</code>,
+initialize <code>res[0]</code> to 1</p>
+</li>
+<li>
+<p>let <code>m</code> be the number of digits that current result takes up, the initialize
+<code>m</code> to be 1</p>
+</li>
+<li>
+<p>for <code>num</code> from 2 to n</p>
+<ol>
+<li>initialize <code>carry</code> to 0</li>
+<li>for each digit in current result (i.e., from res[0] to res[m-1]),
 let cur = num*res[j] + carry, put last digit of cur in res[j], put other
-digit in cur in carry.</li><li>if carry is not zero, put every digit in carry into res by incresing m</li></ol></li></ol><p>In order to simplify computation, we store all the digits of the result in
+digit in cur in carry.</li>
+<li>if carry is not zero, put every digit in carry into res by incresing m</li>
+</ol>
+</li>
+</ol>
+<p>In order to simplify computation, we store all the digits of the result in
 reverse order, which means that the least significant digit is stored in the
 smallest index of the array, kind of like <a href=https://en.wikipedia.org/wiki/Endianness>&ldquo;small
 endian&rdquo;</a>. In each iteration, we also
 keep track of how many digits the current result takes up. The following code
-is an implementation of this idea,</p><div class=highlight><pre class=chroma><code class=language-cpp data-lang=cpp><span class=n>string</span> <span class=nf>factorial</span><span class=p>(</span><span class=kt>int</span> <span class=n>n</span><span class=p>){</span>
+is an implementation of this idea,</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=n>string</span> <span class=nf>factorial</span><span class=p>(</span><span class=kt>int</span> <span class=n>n</span><span class=p>){</span>
     <span class=k>const</span> <span class=kt>int</span> <span class=n>N</span> <span class=o>=</span> <span class=mi>10000</span><span class=p>;</span>
     <span class=kt>int</span><span class=o>*</span> <span class=n>digits</span> <span class=o>=</span> <span class=k>new</span> <span class=kt>int</span><span class=p>[</span><span class=n>N</span><span class=p>];</span>
     <span class=n>digits</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
@@ -105,24 +253,104 @@ is an implementation of this idea,</p><div class=highlight><pre class=chroma><co
 
     <span class=k>return</span> <span class=n>out</span><span class=p>.</span><span class=n>str</span><span class=p>();</span>
 <span class=p>}</span>
-</code></pre></div><h1 id=references>References</h1><ol><li><a href=https://leetcode.com/problems/add-strings/description/>Leetcode, add two strings.</a></li><li><a href=https://leetcode.com/problems/multiply-strings/description/>Leetcode, string multiplication.</a></li><li><a href=https://geekfactorial.blogspot.com/2016/08/factorial-of-large-numbers-in-c-or-cpp.html>Calculating factorials of big intergers.</a></li></ol></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2021-09-08</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/algorithms/>algorithms</a></div><nav class=post-nav><a class=prev href=/2017/09/21/xiaomi201818-pattern-match/><i class="iconfont icon-left"></i><span class="prev-text nav-default">小米 2018 校招算法工程师编程之字符串匹配</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2017/09/04/install-gcc-newer-version-on-centos/><span class="next-text nav-default">How to Compile and Install Latest Version of GCC on CentOS 7</span>
+</code></pre></div><h1 id=references>References</h1>
+<ol>
+<li><a href=https://leetcode.com/problems/add-strings/description/>Leetcode, add two strings.</a></li>
+<li><a href=https://leetcode.com/problems/multiply-strings/description/>Leetcode, string multiplication.</a></li>
+<li><a href=https://geekfactorial.blogspot.com/2016/08/factorial-of-large-numbers-in-c-or-cpp.html>Calculating factorials of big intergers.</a></li>
+</ol>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2021-09-08
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/algorithms/>algorithms</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/2017/09/21/xiaomi201818-pattern-match/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">小米 2018 校招算法工程师编程之字符串匹配</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2017/09/04/install-gcc-newer-version-on-centos/>
+<span class="next-text nav-default">How to Compile and Install Latest Version of GCC on CentOS 7</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>
