@@ -18,9 +18,14 @@ Python script.&lt;/p></description></item><item><title>Switch Command with updat
 same software. To use a specific version, we may need to create a sym link to
 that version of the executable.&lt;/p></description></item><item><title>Set Timezone inside Docker Container</title><link>https://jdhao.github.io/2020/06/11/linux_set_timezone/</link><pubDate>Thu, 11 Jun 2020 00:03:30 +0800</pubDate><guid>https://jdhao.github.io/2020/06/11/linux_set_timezone/</guid><description>&lt;p>After running a Ubuntu docker container, I found that the default time zone is
 UTC. I want to change it to my local timezone.&lt;/p></description></item><item><title>Bash Script Note 1</title><link>https://jdhao.github.io/2020/04/27/bash_script_notes_s1/</link><pubDate>Mon, 27 Apr 2020 22:00:48 +0800</pubDate><guid>https://jdhao.github.io/2020/04/27/bash_script_notes_s1/</guid><description>&lt;h1 id="writing-robust-script">Writing robust script&lt;/h1>
-&lt;p>We should use the following options in our bash script for better quality:&lt;/p></description></item><item><title>Convert PPTX Slides to JPEG Images on Linux</title><link>https://jdhao.github.io/2020/03/30/pptx_to_image/</link><pubDate>Mon, 30 Mar 2020 22:30:20 +0800</pubDate><guid>https://jdhao.github.io/2020/03/30/pptx_to_image/</guid><description>&lt;p>A short post on how to convert PPTX file to images. There are two steps. The
-first step is to convert PPTX to PDF, and the second step is convert PDF to
-JPEG image.&lt;/p></description></item><item><title>My Experience with Several Zsh Plugin Managers</title><link>https://jdhao.github.io/2019/10/08/zsh_plugin_managers_compare/</link><pubDate>Tue, 08 Oct 2019 00:02:01 +0800</pubDate><guid>https://jdhao.github.io/2019/10/08/zsh_plugin_managers_compare/</guid><description>&lt;p>In this post, I share my experience and opinions on several popular Zsh plugin
+&lt;p>We should use the following options in our bash script for better quality:&lt;/p></description></item><item><title>Convert PPTX Document to JPEG Images on Ubuntu</title><link>https://jdhao.github.io/2020/03/30/pptx_to_image/</link><pubDate>Mon, 30 Mar 2020 22:30:20 +0800</pubDate><guid>https://jdhao.github.io/2020/03/30/pptx_to_image/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">Changelog&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2020-12-24: Add how to convert pptx to pdf using unoconv.&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;p>In this post, I will share how to convert PPTX file to images. There are two steps.
+The first step is to convert PPTX to PDF, and the second step is to convert PDF to JPEG.&lt;/p></description></item><item><title>My Experience with Several Zsh Plugin Managers</title><link>https://jdhao.github.io/2019/10/08/zsh_plugin_managers_compare/</link><pubDate>Tue, 08 Oct 2019 00:02:01 +0800</pubDate><guid>https://jdhao.github.io/2019/10/08/zsh_plugin_managers_compare/</guid><description>&lt;p>In this post, I share my experience and opinions on several popular Zsh plugin
 managers.&lt;/p></description></item><item><title>How to Install zplug inside Docker Container</title><link>https://jdhao.github.io/2019/10/01/zplug_install_docker_container/</link><pubDate>Tue, 01 Oct 2019 00:01:25 +0800</pubDate><guid>https://jdhao.github.io/2019/10/01/zplug_install_docker_container/</guid><description>&lt;p>In the past few days, I tried to dockerize my development environment and put
 my daily programming tools inside
 &lt;a href="https://www.docker.com/resources/what-container">container&lt;/a>. I tried to

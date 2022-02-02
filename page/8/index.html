@@ -1,59 +1,601 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/><link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's blog"><link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's blog"><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="jdhao's blog"><meta property="og:description" content="A blog for the patient and curious people"><meta property="og:type" content="website"><meta property="og:url" content="https://jdhao.github.io/"><meta property="og:updated_time" content="2022-02-02T11:17:51+08:00"><meta itemprop=name content="jdhao's blog"><meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary"><meta name=twitter:title content="jdhao's blog"><meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><section id=posts class=posts><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/08/18/context_manager_for_measuring_runtime/>Measuring Code Running Time with contextmanager</a></h1><div class=post-meta><span class=post-time>2020-08-18</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>181 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>In Python, context manager is a great way to handle the closing of resources. It
-makes sure that resources are correctly closed after their use.</p></div><div class=read-more><a href=/2020/08/18/context_manager_for_measuring_runtime/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/08/18/pillow_create_text_outline/>Create Outline Text in Python with Pillow</a></h1><div class=post-meta><span class=post-time>2020-08-18</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>168 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200818221311.png width=400></p><p>Sometimes, we may want to add surrounding color to text strokes in Python.
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/>
+<link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's blog">
+<link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's blog">
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="jdhao's blog">
+<meta property="og:description" content="A blog for the patient and curious people">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jdhao.github.io/">
+<meta itemprop=name content="jdhao's blog">
+<meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="jdhao's blog">
+<meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<section id=posts class=posts>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/08/18/context_manager_for_measuring_runtime/>Measuring Code Running Time with contextmanager</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-08-18 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 181 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In Python, context manager is a great way to handle the closing of resources. It
+makes sure that resources are correctly closed after their use.</p>
+</div>
+<div class=read-more>
+<a href=/2020/08/18/context_manager_for_measuring_runtime/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/08/18/pillow_create_text_outline/>Create Outline Text in Python with Pillow</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-08-18 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 168 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20200818221311.png width=400>
+</p>
+<p>Sometimes, we may want to add surrounding color to text strokes in Python.
 Prior to version 6.2.0, we can not do this in Pillow. Fortunately, starting from version 6.2.0,
-pillow now supports text outlines natively in the <a href=https://pillow.readthedocs.io/en/stable/reference/ImageDraw.html#PIL.ImageDraw.ImageDraw.text><code>ImageDraw.text()</code></a> method.</p></div><div class=read-more><a href=/2020/08/18/pillow_create_text_outline/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/08/14/warmup_maskrcnn_how_does_it_work/>Warmup in Maskrcnn-benchmark and how does it work?</a></h1><div class=post-meta><span class=post-time>2020-08-14</span><div class=post-category><a href=/categories/machine-learning/>machine-learning</a></div><span class=more-meta>504 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>In <a href=https://github.com/facebookresearch/maskrcnn-benchmark>maskrcnn-benchmark</a>, there is some config parameters about warmup in solver
-(<code>WARMUP_FACTOR</code>, <code>WARMUP_ITERS</code>, <code>WARMUP_METHOD</code>). But what is warmup, and how does it work?</p></div><div class=read-more><a href=/2020/08/14/warmup_maskrcnn_how_does_it_work/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/08/06/miui12_clipboard_issue/>MIUI 12 输入法无法复制文本到剪切板</a></h1><div class=post-meta><span class=post-time>2020-08-06</span><div class=post-category><a href=/categories/Android/>Android</a></div><span class=more-meta>356 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>MIUI 12 更新以后，新增了更加细致的权限管理和隐私保护功能。</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200806235442.jpeg width=200></p></div><div class=read-more><a href=/2020/08/06/miui12_clipboard_issue/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/08/04/fontsize_point_pixel_relationship/>Note on font size</a></h1><div class=post-meta><span class=post-time>2020-08-04</span><div class=post-category><a href=/categories/technique/>technique</a></div><span class=more-meta>330 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary>Relationship between point and pixel size In digital typography, the size of text is commonly specified in points (pt). What is a point? A point is 1/72 of an inch (25.4 mm), i.e., 0.3528 mm (25.4/72). Therefor, point is a physical unit that has absolute value.
-Pixels are the smallest unit on screen to display images and graphics. It is not a physical unit. So there is no fixed relationship between point and pixel.</div><div class=read-more><a href=/2020/08/04/fontsize_point_pixel_relationship/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/07/29/pip_bad_interpreter/>pip bad interpreter issue</a></h1><div class=post-meta><span class=post-time>2020-07-29</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>98 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>I am using pip installed via <a href=https://docs.conda.io/en/latest/miniconda.html>minconda</a>. I installed it
+pillow now supports text outlines natively in the <a href=https://pillow.readthedocs.io/en/stable/reference/ImageDraw.html#PIL.ImageDraw.ImageDraw.text><code>ImageDraw.text()</code></a> method.</p>
+</div>
+<div class=read-more>
+<a href=/2020/08/18/pillow_create_text_outline/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/08/14/warmup_maskrcnn_how_does_it_work/>Warmup in Maskrcnn-benchmark and how does it work?</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-08-14 </span>
+<div class=post-category>
+<a href=/categories/machine-learning/> machine-learning </a>
+</div>
+<span class=more-meta> 504 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In <a href=https://github.com/facebookresearch/maskrcnn-benchmark>maskrcnn-benchmark</a>, there is some config parameters about warmup in solver
+(<code>WARMUP_FACTOR</code>, <code>WARMUP_ITERS</code>, <code>WARMUP_METHOD</code>). But what is warmup, and how does it work?</p>
+</div>
+<div class=read-more>
+<a href=/2020/08/14/warmup_maskrcnn_how_does_it_work/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/08/06/miui12_clipboard_issue/>MIUI 12 输入法无法复制文本到剪切板</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-08-06 </span>
+<div class=post-category>
+<a href=/categories/Android/> Android </a>
+</div>
+<span class=more-meta> 356 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>MIUI 12 更新以后，新增了更加细致的权限管理和隐私保护功能。</p>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20200806235442.jpeg width=200>
+</p>
+</div>
+<div class=read-more>
+<a href=/2020/08/06/miui12_clipboard_issue/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/08/04/fontsize_point_pixel_relationship/>Note on font size</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-08-04 </span>
+<div class=post-category>
+<a href=/categories/technique/> technique </a>
+</div>
+<span class=more-meta> 330 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+Relationship between point and pixel size In digital typography, the size of text is commonly specified in points (pt). What is a point? A point is 1/72 of an inch (25.4 mm), i.e., 0.3528 mm (25.4/72). Therefor, point is a physical unit that has absolute value.
+Pixels are the smallest unit on screen to display images and graphics. It is not a physical unit. So there is no fixed relationship between point and pixel.
+</div>
+<div class=read-more>
+<a href=/2020/08/04/fontsize_point_pixel_relationship/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/07/29/pip_bad_interpreter/>pip bad interpreter issue</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-07-29 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 98 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>I am using pip installed via <a href=https://docs.conda.io/en/latest/miniconda.html>minconda</a>. I installed it
 under <code>~/miniconda3</code> and then move the installation directory to
 <code>~/tools/miniconda3</code>. After that, I changed the <code>PATH</code> accordingly. However,
-when I use pip, I am seeing the following error:</p></div><div class=read-more><a href=/2020/07/29/pip_bad_interpreter/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/07/27/python_multiprocessing/>Using Multiprocessing in Python</a></h1><div class=post-meta><span class=post-time>2020-07-27</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>599 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>One way to achieve parallelism is to use multi-processing, where we can
+when I use pip, I am seeing the following error:</p>
+</div>
+<div class=read-more>
+<a href=/2020/07/29/pip_bad_interpreter/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/07/27/python_multiprocessing/>Using Multiprocessing in Python</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-07-27 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 599 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>One way to achieve parallelism is to use multi-processing, where we can
 execute tasks in different cores of the CPU to reduce the total processing
-time. Python provides the <a href=https://docs.python.org/3/library/multiprocessing.html>multiprocessing</a> package to facilitate this.</p><p>This post summarizes some of the questions I have when I learn to use
-multiprocessing in Python.</p></div><div class=read-more><a href=/2020/07/27/python_multiprocessing/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/07/23/linux_command_cheat_sheet_s2/>Linux Tips and Tricks -- s2</a></h1><div class=post-meta><span class=post-time>2020-07-23</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>625 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>A list of Linux command for common operations.</p></div><div class=read-more><a href=/2020/07/23/linux_command_cheat_sheet_s2/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/07/15/python_can_got_env_variable_value/>Why Cannot I Get the Value of A Env Variable in Python?</a></h1><div class=post-meta><span class=post-time>2020-07-15</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>674 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>I found a strange issue when I wanted to get the value of an env variable from
-Python script.</p></div><div class=read-more><a href=/2020/07/15/python_can_got_env_variable_value/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/07/09/requests_notes/>Note on Using requests package</a></h1><div class=post-meta><span class=post-time>2020-07-09</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>379 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary>How to check request header and body? When making requests, we may want to see exactly what are being requested. With requests, it is easy do access the request header and request body:
+time. Python provides the <a href=https://docs.python.org/3/library/multiprocessing.html>multiprocessing</a> package to facilitate this.</p>
+<p>This post summarizes some of the questions I have when I learn to use
+multiprocessing in Python.</p>
+</div>
+<div class=read-more>
+<a href=/2020/07/27/python_multiprocessing/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/07/23/linux_command_cheat_sheet_s2/>Linux Tips and Tricks -- s2</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-07-23 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 625 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>A list of Linux command for common operations.</p>
+</div>
+<div class=read-more>
+<a href=/2020/07/23/linux_command_cheat_sheet_s2/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/07/15/python_can_got_env_variable_value/>Why Cannot I Get the Value of A Env Variable in Python?</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-07-15 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 674 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>I found a strange issue when I wanted to get the value of an env variable from
+Python script.</p>
+</div>
+<div class=read-more>
+<a href=/2020/07/15/python_can_got_env_variable_value/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/07/09/requests_notes/>Note on Using requests package</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-07-09 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 379 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+How to check request header and body? When making requests, we may want to see exactly what are being requested. With requests, it is easy do access the request header and request body:
 import requests url = "http://httpbin.org/post" payload = {"apple": 10, "pear": [20, 30], "img": "http://example.com/demo.jpg"} r = requests.post(url, json=payload) print(f"request headers: {r.request.headers}") print(f"request body: {r.request.body}") A sample output is:
-request headers: {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '69', 'Content-Type': 'application/json'} request body: b'{"apple": 10, "pear": [20, 30], "img": "http://example.</div><div class=read-more><a href=/2020/07/09/requests_notes/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/07/06/pytorch_set_num_threads/>Set the Number of Threads to Use in PyTorch</a></h1><div class=post-meta><span class=post-time>2020-07-06</span><div class=post-category><a href=/categories/machine-learning/>machine-learning</a></div><span class=more-meta>244 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>In this post, I will share how PyTorch set the number of the threads to use for
-its operations.</p></div><div class=read-more><a href=/2020/07/06/pytorch_set_num_threads/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/07/05/how_to_find_casue_of_technical_issues/>如何找到技术问题根源？</a></h1><div class=post-meta><span class=post-time>2020-07-05</span><div class=post-category><a href=/categories/thought/>thought</a></div><span class=more-meta>639 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>在实际编程中，我们总会遇到各种各样的代码运行问题，如何快速发现问题的根源需要一些系统的方法，构造一个最小的能够复现错误的环境至关重要，也就是所谓的 <a href=https://stackoverflow.com/help/minimal-reproducible-example>MWE</a>，minimal working example。</p></div><div class=read-more><a href=/2020/07/05/how_to_find_casue_of_technical_issues/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/07/02/ubuntu_update_alternatives/>Switch Command with update-alternatives on Ubuntu</a></h1><div class=post-meta><span class=post-time>2020-07-02</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>456 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>To build different projects, we may need to install different versions of the
+request headers: {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '69', 'Content-Type': 'application/json'} request body: b'{"apple": 10, "pear": [20, 30], "img": "http://example.
+</div>
+<div class=read-more>
+<a href=/2020/07/09/requests_notes/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/07/06/pytorch_set_num_threads/>Set the Number of Threads to Use in PyTorch</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-07-06 </span>
+<div class=post-category>
+<a href=/categories/machine-learning/> machine-learning </a>
+</div>
+<span class=more-meta> 244 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In this post, I will share how PyTorch set the number of the threads to use for
+its operations.</p>
+</div>
+<div class=read-more>
+<a href=/2020/07/06/pytorch_set_num_threads/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/07/05/how_to_find_casue_of_technical_issues/>如何找到技术问题根源？</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-07-05 </span>
+<div class=post-category>
+<a href=/categories/thought/> thought </a>
+</div>
+<span class=more-meta> 639 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>在实际编程中，我们总会遇到各种各样的代码运行问题，如何快速发现问题的根源需要一些系统的方法，构造一个最小的能够复现错误的环境至关重要，也就是所谓的 <a href=https://stackoverflow.com/help/minimal-reproducible-example>MWE</a>，minimal working example。</p>
+</div>
+<div class=read-more>
+<a href=/2020/07/05/how_to_find_casue_of_technical_issues/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/07/02/ubuntu_update_alternatives/>Switch Command with update-alternatives on Ubuntu</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-07-02 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 456 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>To build different projects, we may need to install different versions of the
 same software. To use a specific version, we may need to create a sym link to
-that version of the executable.</p></div><div class=read-more><a href=/2020/07/02/ubuntu_update_alternatives/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/07/02/uwsgi_install_use_issue/>uWSGI Install and Use Issues</a></h1><div class=post-meta><span class=post-time>2020-07-02</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>626 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>My notes on several issues when installing and running
-<a href=https://uwsgi-docs.readthedocs.io/en/latest/>uWSGI</a>.</p></div><div class=read-more><a href=/2020/07/02/uwsgi_install_use_issue/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/06/21/faster_im_download_with_requests/>Downloading Images Faster with requests Sessions</a></h1><div class=post-meta><span class=post-time>2020-06-21</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>452 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>In my <a href=https://jdhao.github.io/2020/06/17/download_image_from_url_python/>previous post</a>,
+that version of the executable.</p>
+</div>
+<div class=read-more>
+<a href=/2020/07/02/ubuntu_update_alternatives/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/07/02/uwsgi_install_use_issue/>uWSGI Install and Use Issues</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-07-02 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 626 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>My notes on several issues when installing and running
+<a href=https://uwsgi-docs.readthedocs.io/en/latest/>uWSGI</a>.</p>
+</div>
+<div class=read-more>
+<a href=/2020/07/02/uwsgi_install_use_issue/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/06/21/faster_im_download_with_requests/>Downloading Images Faster with requests Sessions</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-06-21 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 452 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In my <a href=https://jdhao.github.io/2020/06/17/download_image_from_url_python/>previous post</a>,
 I write about how to download an image from URL using <a href=https://github.com/psf/requests>requests</a>.
-In this post, I want to share ways to make the download speed faster.</p></div><div class=read-more><a href=/2020/06/21/faster_im_download_with_requests/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/06/20/irfanview_usage/>IrfanView Settings</a></h1><div class=post-meta><span class=post-time>2020-06-20</span><div class=post-category><a href=/categories/tools/>tools</a></div><span class=more-meta>769 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p><a href=https://www.irfanview.com/>IrfanView</a> is a lightweight, fast and powerful
-image viewer for Windows. Here are some settings to make it more useful.</p></div><div class=read-more><a href=/2020/06/20/irfanview_usage/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/06/20/python_duplicate_logging_messages/>Duplicate Logging Messages in Python</a></h1><div class=post-meta><span class=post-time>2020-06-20</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>263 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>When I am working on a project, I find that the same message is printed twice.
-The following minimal code can reproduce this issue:</p></div><div class=read-more><a href=/2020/06/20/python_duplicate_logging_messages/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/06/17/download_image_from_url_python/>Download Image from URL using Python</a></h1><div class=post-meta><span class=post-time>2020-06-17</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>322 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>Recently, I want to download some images using Python. This is what I&rsquo;ve
-learned after survey.</p></div><div class=read-more><a href=/2020/06/17/download_image_from_url_python/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/06/14/kitty_tmux_open_terminal_fail/>Tmux: Open Terminal Failed in Kitty Terminal</a></h1><div class=post-meta><span class=post-time>2020-06-14</span><div class=post-category><a href=/categories/Mac/>Mac</a></div><span class=more-meta>256 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>I have several terminal emulators installed on my Mac: <a href=https://sw.kovidgoyal.net/kitty/>kitty</a>,
+In this post, I want to share ways to make the download speed faster.</p>
+</div>
+<div class=read-more>
+<a href=/2020/06/21/faster_im_download_with_requests/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/06/20/irfanview_usage/>IrfanView Settings</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-06-20 </span>
+<div class=post-category>
+<a href=/categories/tools/> tools </a>
+</div>
+<span class=more-meta> 768 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p><a href=https://www.irfanview.com/>IrfanView</a> is a lightweight, fast and powerful
+image viewer for Windows. Here are some settings to make it more useful.</p>
+</div>
+<div class=read-more>
+<a href=/2020/06/20/irfanview_usage/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/06/20/python_duplicate_logging_messages/>Duplicate Logging Messages in Python</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-06-20 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 263 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>When I am working on a project, I find that the same message is printed twice.
+The following minimal code can reproduce this issue:</p>
+</div>
+<div class=read-more>
+<a href=/2020/06/20/python_duplicate_logging_messages/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/06/17/download_image_from_url_python/>Download Image from URL using Python</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-06-17 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 321 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Recently, I want to download some images using Python. This is what I&rsquo;ve
+learned after survey.</p>
+</div>
+<div class=read-more>
+<a href=/2020/06/17/download_image_from_url_python/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/06/14/kitty_tmux_open_terminal_fail/>Tmux: Open Terminal Failed in Kitty Terminal</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-06-14 </span>
+<div class=post-category>
+<a href=/categories/Mac/> Mac </a>
+</div>
+<span class=more-meta> 256 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>I have several terminal emulators installed on my Mac: <a href=https://sw.kovidgoyal.net/kitty/>kitty</a>,
 <a href=https://github.com/alacritty/alacritty>Alacritty</a> and <a href=https://www.iterm2.com/>iterm2</a>.
 When I start a Tmux session in Alacritty and try to create another tmux session
-in kitty, I noticed this strange error that I have never met before:</p></div><div class=read-more><a href=/2020/06/14/kitty_tmux_open_terminal_fail/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/06/13/flask_serving_via_wsgi_server/>Serving Flask Applications with uWSGI</a></h1><div class=post-meta><span class=post-time>2020-06-13</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>748 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>In my <a href=https://jdhao.github.io/2020/04/06/build_webapi_with_flask_s1/>older post</a>, I have shared how to run the built-in development server to serve the web service. For production, we need to use more powerful web servers. Flask complies to the <a href=https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface>WSGI</a> (Web Server Gateway Interface) specification and can work with any web server that conforms to WSGI.</p><p>In this post, I want share how to run Flask applications using
-<a href=https://uwsgi-docs.readthedocs.io/en/latest/>uWSGI</a> &mdash; a popular WSGI-compliant server.</p></div><div class=read-more><a href=/2020/06/13/flask_serving_via_wsgi_server/ class=read-more-link>Read more...</a></div></div></article></section><nav class=pagination><a class=prev href=/page/7/><i class="iconfont icon-left"></i><span class=prev-text>Prev</span></a>
-<a class=next href=/page/9/><span class=next-text>Next</span>
-<i class="iconfont icon-right"></i></a></nav></div></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+in kitty, I noticed this strange error that I have never met before:</p>
+</div>
+<div class=read-more>
+<a href=/2020/06/14/kitty_tmux_open_terminal_fail/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/06/13/flask_serving_via_wsgi_server/>Serving Flask Applications with uWSGI</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-06-13 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 748 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In my <a href=https://jdhao.github.io/2020/04/06/build_webapi_with_flask_s1/>older post</a>, I have shared how to run the built-in development server to serve the web service. For production, we need to use more powerful web servers. Flask complies to the <a href=https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface>WSGI</a> (Web Server Gateway Interface) specification and can work with any web server that conforms to WSGI.</p>
+<p>In this post, I want share how to run Flask applications using
+<a href=https://uwsgi-docs.readthedocs.io/en/latest/>uWSGI</a> &mdash; a popular WSGI-compliant server.</p>
+</div>
+<div class=read-more>
+<a href=/2020/06/13/flask_serving_via_wsgi_server/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+</section>
+<nav class=pagination>
+<a class=prev href=/page/7/>
+<i class="iconfont icon-left"></i>
+<span class=prev-text>Prev</span>
+</a>
+<a class=next href=/page/9/>
+<span class=next-text>Next</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

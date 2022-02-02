@@ -1,24 +1,157 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>uWSGI Install and Use Issues - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="My notes on several issues when installing and running uWSGI."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2020/07/02/uwsgi_install_use_issue/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="uWSGI Install and Use Issues"><meta property="og:description" content="My notes on several issues when installing and running
-uWSGI."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/07/02/uwsgi_install_use_issue/"><meta property="article:published_time" content="2020-07-02T01:02:17+08:00"><meta property="article:modified_time" content="2020-09-20T01:42:39+08:00"><meta itemprop=name content="uWSGI Install and Use Issues"><meta itemprop=description content="My notes on several issues when installing and running
-uWSGI."><meta itemprop=datePublished content="2020-07-02T01:02:17+08:00"><meta itemprop=dateModified content="2020-09-20T01:42:39+08:00"><meta itemprop=wordCount content="626"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="uWSGI Install and Use Issues"><meta name=twitter:description content="My notes on several issues when installing and running
-uWSGI."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>uWSGI Install and Use Issues</h1><div class=post-meta><span class=post-time>2020-07-02</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>626 words</span>
-<span class=more-meta>3 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#pip-install-uwsgi-error>pip install uwsgi error</a></li><li><a href=#uwsgi-can-not-find-shared-object>uwsgi can not find shared object</a></li><li><a href=#uwsgi-segmentation-fault>uwsgi segmentation fault</a></li><li><a href=#symbol-not-found-on-macos>symbol not found on macOS</a></li></ul></nav></div></div><div class=post-content><p>My notes on several issues when installing and running
-<a href=https://uwsgi-docs.readthedocs.io/en/latest/>uWSGI</a>.</p><h1 id=pip-install-uwsgi-error>pip install uwsgi error</h1><p>When I try to install uwsgi using pip, there are compilation errors. After some
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>uWSGI Install and Use Issues - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="My notes on several issues when installing and running uWSGI.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2020/07/02/uwsgi_install_use_issue/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="uWSGI Install and Use Issues">
+<meta property="og:description" content="My notes on several issues when installing and running
+uWSGI.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2020/07/02/uwsgi_install_use_issue/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2020-07-02T01:02:17+08:00">
+<meta property="article:modified_time" content="2020-09-20T01:42:39+08:00">
+<meta itemprop=name content="uWSGI Install and Use Issues">
+<meta itemprop=description content="My notes on several issues when installing and running
+uWSGI."><meta itemprop=datePublished content="2020-07-02T01:02:17+08:00">
+<meta itemprop=dateModified content="2020-09-20T01:42:39+08:00">
+<meta itemprop=wordCount content="626">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="uWSGI Install and Use Issues">
+<meta name=twitter:description content="My notes on several issues when installing and running
+uWSGI."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>uWSGI Install and Use Issues</h1>
+<div class=post-meta>
+<span class=post-time> 2020-07-02 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 626 words </span>
+<span class=more-meta> 3 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#pip-install-uwsgi-error>pip install uwsgi error</a></li>
+<li><a href=#uwsgi-can-not-find-shared-object>uwsgi can not find shared object</a></li>
+<li><a href=#uwsgi-segmentation-fault>uwsgi segmentation fault</a></li>
+<li><a href=#symbol-not-found-on-macos>symbol not found on macOS</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>My notes on several issues when installing and running
+<a href=https://uwsgi-docs.readthedocs.io/en/latest/>uWSGI</a>.</p>
+<h1 id=pip-install-uwsgi-error>pip install uwsgi error</h1>
+<p>When I try to install uwsgi using pip, there are compilation errors. After some
 search, based on discussions
 <a href=https://github.com/unbit/uwsgi/issues/1770#issuecomment-411674051>here</a>, I
 find the cause of this issue is that the version of gcc is too hight. I am
-using Ubuntu 18.04, and the default gcc version is 7.4.0.</p><p>Based on <a href=https://askubuntu.com/a/1084932/768311>this post</a>, the minimum gcc
+using Ubuntu 18.04, and the default gcc version is 7.4.0.</p>
+<p>Based on <a href=https://askubuntu.com/a/1084932/768311>this post</a>, the minimum gcc
 we can install from the default Ubuntu 18.04 remote repo is gcc-4.8. There is
-no gcc-4.7 available for install. It turns out that gcc-4.8 works fine:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>apt-get update <span class=o>&amp;&amp;</span> apt-get install gcc-4.8 g++-4.8
-</code></pre></div><p>Then we need to change the gcc command to point to gcc-4.8:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>rm /usr/bin/gcc <span class=o>&amp;&amp;</span> ln -s /usr/bin/gcc-4.8 /usr/bin/gcc
+no gcc-4.7 available for install. It turns out that gcc-4.8 works fine:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>apt-get update <span class=o>&amp;&amp;</span> apt-get install gcc-4.8 g++-4.8
+</code></pre></div><p>Then we need to change the gcc command to point to gcc-4.8:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>rm /usr/bin/gcc <span class=o>&amp;&amp;</span> ln -s /usr/bin/gcc-4.8 /usr/bin/gcc
 </code></pre></div><p>After that, I can install uwsgi successfully using pip. Finally, let&rsquo;s revert
-the gcc version to its old state:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>rm /usr/bin/gcc <span class=o>&amp;&amp;</span> ln -s /usr/bin/gcc-7 /usr/bin/gcc
-</code></pre></div><h1 id=uwsgi-can-not-find-shared-object>uwsgi can not find shared object</h1><p>I use the following command to install uwsgi with conda:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>conda create -n py36 -c conda-forge <span class=nv>python</span><span class=o>==</span>3.6.5 uwsgi
-</code></pre></div><p>When I run <code>uwsgi --version</code>, I am seeing the following error message:</p><blockquote><p>error while loading shared libraries: libicui18n.so.58: cannot open shared
-object file: No such file or directory</p></blockquote><p>The solution is to run <code>conda install icu=58</code>, ref <a href=https://github.com/conda-forge/uwsgi-feedstock/issues/26>here</a>.</p><h1 id=uwsgi-segmentation-fault>uwsgi segmentation fault</h1><p>I am using uwsgi 2.0.18 (installed via <code>conda install -c conda-forge uwsgi</code>)
+the gcc version to its old state:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>rm /usr/bin/gcc <span class=o>&amp;&amp;</span> ln -s /usr/bin/gcc-7 /usr/bin/gcc
+</code></pre></div><h1 id=uwsgi-can-not-find-shared-object>uwsgi can not find shared object</h1>
+<p>I use the following command to install uwsgi with conda:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>conda create -n py36 -c conda-forge <span class=nv>python</span><span class=o>==</span>3.6.5 uwsgi
+</code></pre></div><p>When I run <code>uwsgi --version</code>, I am seeing the following error message:</p>
+<blockquote>
+<p>error while loading shared libraries: libicui18n.so.58: cannot open shared
+object file: No such file or directory</p>
+</blockquote>
+<p>The solution is to run <code>conda install icu=58</code>, ref <a href=https://github.com/conda-forge/uwsgi-feedstock/issues/26>here</a>.</p>
+<h1 id=uwsgi-segmentation-fault>uwsgi segmentation fault</h1>
+<p>I am using uwsgi 2.0.18 (installed via <code>conda install -c conda-forge uwsgi</code>)
 with python 3.7.7 from Miniconda. When I use uwsgi to server a simple Flask
-application, I am seeing segmentation errors below:</p><div class=highlight><pre class=chroma><code class=language-txt data-lang=txt>uwsgi(uwsgi_backtrace+0x2c) [0x5638f8685bbc]
+application, I am seeing segmentation errors below:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-txt data-lang=txt>uwsgi(uwsgi_backtrace+0x2c) [0x5638f8685bbc]
 uwsgi(uwsgi_segfault+0x32) [0x5638f8685ff2]
 /lib/x86_64-linux-gnu/libc.so.6(+0x3ef20) [0x7f8c09c22f20]
 /opt/miniconda/lib/python3.7/lib-dynload/_queue.cpython-37m-x86_64-linux-gnu.so(+0x2932) [0x7f8c07fe9932]
@@ -58,13 +191,14 @@ uwsgi(uwsgi_run+0x525) [0x5638f868b575]
 /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xe7) [0x7f8c09c05b97]
 uwsgi(+0x21abed) [0x5638f8632bed]
 *** end of backtrace ***
-</code></pre></div><p>My MWE flask application:</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>concurrent.futures</span>
+</code></pre></div><p>My MWE flask application:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>concurrent.futures</span>
 
 <span class=kn>from</span> <span class=nn>flask</span> <span class=kn>import</span> <span class=n>Flask</span>
 
 <span class=n>app</span> <span class=o>=</span> <span class=n>Flask</span><span class=p>(</span><span class=vm>__name__</span><span class=p>)</span>
 
-<span class=nd>@app.route</span><span class=p>(</span><span class=s2>&#34;/toy&#34;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s2>&#34;GET&#34;</span><span class=p>])</span>
+<span class=nd>@app</span><span class=o>.</span><span class=n>route</span><span class=p>(</span><span class=s2>&#34;/toy&#34;</span><span class=p>,</span> <span class=n>methods</span><span class=o>=</span><span class=p>[</span><span class=s2>&#34;GET&#34;</span><span class=p>])</span>
 <span class=k>def</span> <span class=nf>process_request</span><span class=p>():</span>
     <span class=n>results</span> <span class=o>=</span> <span class=n>do_concurrent</span><span class=p>()</span>
 
@@ -84,46 +218,136 @@ uwsgi(+0x21abed) [0x5638f8632bed]
         <span class=n>results</span> <span class=o>=</span> <span class=nb>list</span><span class=p>(</span><span class=n>executor</span><span class=o>.</span><span class=n>map</span><span class=p>(</span><span class=n>simple_task</span><span class=p>,</span> <span class=n>dummy_list</span><span class=p>))</span>
 
     <span class=k>return</span> <span class=n>results</span>
-</code></pre></div><p>The uwsgi command to run flask application:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>uwsgi --http 0.0.0.0:6012 --wsgi-file flask_demo.py --callable app --processes <span class=m>1</span> --threads <span class=m>1</span>
-</code></pre></div><p>The scrip to test this service:</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>requests</span>
+</code></pre></div><p>The uwsgi command to run flask application:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>uwsgi --http 0.0.0.0:6012 --wsgi-file flask_demo.py --callable app --processes <span class=m>1</span> --threads <span class=m>1</span>
+</code></pre></div><p>The scrip to test this service:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>requests</span>
 
 
 <span class=n>url</span> <span class=o>=</span> <span class=s2>&#34;http://0.0.0.0:6012/toy&#34;</span>
 
 <span class=n>r</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=n>url</span><span class=p>,</span> <span class=n>timeout</span><span class=o>=</span><span class=mi>5</span><span class=p>)</span>
-<span class=k>print</span><span class=p>(</span><span class=n>r</span><span class=p>)</span>
-</code></pre></div><p>When I request the service, I am seeing the above segmentation errors.</p><p>If I create a conda virtual env with python version 3.6:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>conda create -n py36 -c conda-forge <span class=nv>python</span><span class=o>==</span>3.6.5 uwsgi <span class=nv>icu</span><span class=o>=</span><span class=m>58</span> flask
-</code></pre></div><p>run the service using uwsgi and request again, the error disappears.</p><p>If I do not use <code>concurrent.futures</code>, I see no errors both for python 3.7 and
+<span class=nb>print</span><span class=p>(</span><span class=n>r</span><span class=p>)</span>
+</code></pre></div><p>When I request the service, I am seeing the above segmentation errors.</p>
+<p>If I create a conda virtual env with python version 3.6:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>conda create -n py36 -c conda-forge <span class=nv>python</span><span class=o>==</span>3.6.5 uwsgi <span class=nv>icu</span><span class=o>=</span><span class=m>58</span> flask
+</code></pre></div><p>run the service using uwsgi and request again, the error disappears.</p>
+<p>If I do not use <code>concurrent.futures</code>, I see no errors both for python 3.7 and
 python 3.6. I am not knowledgeable enough to know the exact cause of this
 issue. It seems there is some compatibility issue with uwsgi, python version
-and concurrent package.</p><h1 id=symbol-not-found-on-macos>symbol not found on macOS</h1><p>I am using Python 3.7 installed via Anaconda, and uWSGI is installed via pip.</p><p>When I run my simple Flask application, I see the following error:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>ImportError: dlopen(/Users/jdhao/anaconda3/lib/python3.7/lib-dynload/math.cpython-37m-darwin.so, 2): Symbol not found: _PyExc_MemoryErrorImportError: dlopen(/Users/jdhao/anaconda3/lib/python3.7/lib-dynload/math.cpython-37m-darwin.so, 2): Symbol not found: _PyExc_MemoryError
+and concurrent package.</p>
+<h1 id=symbol-not-found-on-macos>symbol not found on macOS</h1>
+<p>I am using Python 3.7 installed via Anaconda, and uWSGI is installed via pip.</p>
+<p>When I run my simple Flask application, I see the following error:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>ImportError: dlopen(/Users/jdhao/anaconda3/lib/python3.7/lib-dynload/math.cpython-37m-darwin.so, 2): Symbol not found: _PyExc_MemoryErrorImportError: dlopen(/Users/jdhao/anaconda3/lib/python3.7/lib-dynload/math.cpython-37m-darwin.so, 2): Symbol not found: _PyExc_MemoryError
   Referenced from: /Users/jdhao/anaconda3/lib/python3.7/lib-dynload/math.cpython-37m-darwin.so
   Expected in: flat namespace
 </code></pre></div><p>This seems to be a compatibility issue between uWSGI and Anaconda python. There
-are two solutions:</p><ol><li><p>Uninstall uWSGI installed via pip and install it using conda:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=c1># uWSGI is provided by the conda-forge channel</span>
+are two solutions:</p>
+<ol>
+<li>
+<p>Uninstall uWSGI installed via pip and install it using conda:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># uWSGI is provided by the conda-forge channel</span>
 conda install -c conda-forge uwsgi
-</code></pre></div></li><li><p>Using Python 3.6 with uWSGI. We can create a new virtual env with Python 3.6.5
-and intall uWSGI inside.</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>conda create -n py36 <span class=nv>python</span><span class=o>==</span>3.6.5 flask
-</code></pre></div><p>After that, activate the virtual env and install uWSGI inside:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>conda activate py36
+</code></pre></div></li>
+<li>
+<p>Using Python 3.6 with uWSGI. We can create a new virtual env with Python 3.6.5
+and intall uWSGI inside.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>conda create -n py36 <span class=nv>python</span><span class=o>==</span>3.6.5 flask
+</code></pre></div><p>After that, activate the virtual env and install uWSGI inside:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>conda activate py36
 pip install uwsgi
-</code></pre></div></li></ol></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2020-09-20</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><nav class=post-nav><a class=prev href=/2020/07/02/ubuntu_update_alternatives/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Switch Command with update-alternatives on Ubuntu</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2020/06/21/faster_im_download_with_requests/><span class="next-text nav-default">Downloading Images Faster with requests Sessions</span>
+</code></pre></div></li>
+</ol>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2020-09-20
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<nav class=post-nav>
+<a class=prev href=/2020/07/02/ubuntu_update_alternatives/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Switch Command with update-alternatives on Ubuntu</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2020/06/21/faster_im_download_with_requests/>
+<span class="next-text nav-default">Downloading Images Faster with requests Sessions</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

@@ -1,25 +1,260 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>macOS 下如何为视频制作字幕 - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 Vim Conf 2018 上的主题报告，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2019/12/15/mac_video_subtitle_make/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="macOS 下如何为视频制作字幕"><meta property="og:description" content="几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 Vim Conf 2018 上的主题报告，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/12/15/mac_video_subtitle_make/"><meta property="article:published_time" content="2019-12-15T18:24:34+08:00"><meta property="article:modified_time" content="2020-09-20T01:42:28+08:00"><meta itemprop=name content="macOS 下如何为视频制作字幕"><meta itemprop=description content="几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 Vim Conf 2018 上的主题报告，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。"><meta itemprop=datePublished content="2019-12-15T18:24:34+08:00"><meta itemprop=dateModified content="2020-09-20T01:42:28+08:00"><meta itemprop=wordCount content="1316"><meta itemprop=keywords content="Vim,video,"><meta name=twitter:card content="summary"><meta name=twitter:title content="macOS 下如何为视频制作字幕"><meta name=twitter:description content="几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 Vim Conf 2018 上的主题报告，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>macOS 下如何为视频制作字幕</h1><div class=post-meta><span class=post-time>2019-12-15</span><div class=post-category><a href=/categories/Mac/>Mac</a></div><span class=more-meta>1316 words</span>
-<span class=more-meta>3 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#制作字幕稿>制作字幕稿</a></li><li><a href=#匹配字幕稿和视频时间轴>匹配字幕稿和视频时间轴</a></li><li><a href=#收尾与完成>收尾与完成</a><ul><li><a href=#字幕换行>字幕换行</a></li><li><a href=#字幕字体编辑>字幕字体编辑</a></li></ul></li><li><a href=#字幕导出与视频生成>字幕导出与视频生成</a></li><li><a href=#参考>参考</a></li></ul></nav></div></div><div class=post-content><p>几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 <a href=https://vimconf.org/2018/>Vim Conf 2018</a> 上的<a href="https://www.youtube.com/watch?v=ES1L2SPgIDI">主题报告</a>，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。</p><p>要制作字幕，需要字幕制作软件的协助，在网上查了一圈，发现<a href=https://arctime.org/>arctime</a> 是一款不错的字幕制作软件，经过比较，最后选择arctime 来制作字幕。</p><p>由于之前没有制作过字幕，对如何制作字幕没有任何概念，也走了一些弯路。做完了 Bram的这个演讲视频以后，对字幕制作过程有了一定了解。字幕制作大致分为两个过程：</p><ul><li>制作字幕稿</li><li>匹配字幕稿和视频的时间轴</li></ul><h1 id=制作字幕稿>制作字幕稿</h1><p>这一步其实和 arctime 没有任何关系，简单来说，制作字幕稿，就是把视频中人物的讲话，按照一行一句或者一行一个分句的格式转变为文字。值得注意的是，每一行的文字不宜过长，因为字幕是要显示在视频上的，一方面视频画面放不下太长的字幕，需要转行，另外太长的字幕，读者可能来不及看完，视频就跳到了下一句了。根据我的经验，如果讲话者一句话比较短，可以作为一行文本，如果一句话较长，最好分为两行或者三行来书写，在合适的地方断开即可。</p><p>字幕稿制作这一步是最耗时的，Bram 的演讲大约有 59 分钟，我转写为字幕稿的时间大约是周末两天再加平时下班以后的好几天时间，总时长估计有 10 小时。</p><p>字幕稿制作完成以后，保存为文本文件即可，最好使用 UTF-8 编码。</p><h1 id=匹配字幕稿和视频时间轴>匹配字幕稿和视频时间轴</h1><p>这一步就是把字幕稿的每一行文本和视频中的每一小段时间对应起来。打开 arctime，先导入视频，然后再导入字幕稿(可以直接拖拽视频和字幕稿导入)，视频会显示在左边，字幕稿内容会显示在右边。</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20191215190805.png></p><p>点击视频左下方工具栏的 &ldquo;视频快速拖拽创建工具&rdquo;，即可开始匹配字幕稿和时间轴，点击播放以后，时间轴会快速移动，等时间轴移动到字幕稿当前行文字的结尾，暂停播放，然后拖动鼠标，可以在时间轴上形成一个字幕块，对应于当前字幕稿行。把鼠标移动到字幕块的开头或者结尾，还可以微调字幕块的开始和结束时间，便于校准字幕块。制作字幕块的时候，可以用工具栏的“标记点”标记文本的起点和终点，方便拉取字幕块的时候确定当前文本对应时间轴的起始位置。</p><p>重复以上过程，就可以制作其他的字幕块，直到所有字幕块制作完成。</p><h1 id=收尾与完成>收尾与完成</h1><p>字幕块完成制作以后，可以把时间轴的光标移动到视频开头，开始播放，查看制作的字幕的效果，对字幕块进行精调。</p><h2 id=字幕换行>字幕换行</h2><p>如果播放中，发现某一个字幕太长，可以暂停播放，双击该字幕块，然后在合适的地方插入换行符 <code>\n</code> 即可把字幕分为两行。另外，如果发现字幕中有文字错误，也可以直接点击字幕块对文字进行修改。修改字幕块以后，别忘了点击右边的对号确定修改。
-修改字幕块以后，可以按 <kbd>F5</kbd> 刷新字幕，查看新的字幕样式。</p><h2 id=字幕字体编辑>字幕字体编辑</h2><p>点击 “样式管理“ &mdash;> “编辑选定样式“ 可以对字幕的字体进行设置，包括字体的颜色，大小，位置等等。</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20191215193202.png></p><h1 id=字幕导出与视频生成>字幕导出与视频生成</h1><p>如果只需要生成外挂字幕，可以选择 “导出” &mdash;> “字幕稿”，设置导出的字幕格式。</p><p>如果需要把字幕固化到视频中，需要压制视频，选择“导出”菜单中的 “快速压制视频” 选项，根据自己的需要压制视频即可。</p><p>导出的字幕稿或者压制的视频和原视频都位于同一根目录下面。</p><p>最后，压制的视频已经上传到了 bilibili 上，点击 <a href=https://www.bilibili.com/video/av79242778>这里</a> 可以查看。</p><h1 id=参考>参考</h1><ul><li><a href=https://www.zhihu.com/question/19910859>Mac 下字幕制作软件推荐</a></li><li><a href=https://arctime.org/guide.html>arctime 官方教程</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2020-09-20</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Vim/>Vim</a>
-<a href=/tags/video/>video</a></div><nav class=post-nav><a class=prev href=/2019/12/21/nifty_nvim_techniques_s6/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Nifty Nvim Techniques That Make My Life Easier -- Series 6</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2019/12/09/vim_asynchronous_command_run/><span class="next-text nav-default">Running Command Asynchronously inside Neovim</span>
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>macOS 下如何为视频制作字幕 - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 Vim Conf 2018 上的主题报告，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2019/12/15/mac_video_subtitle_make/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="macOS 下如何为视频制作字幕">
+<meta property="og:description" content="几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 Vim Conf 2018 上的主题报告，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2019/12/15/mac_video_subtitle_make/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2019-12-15T18:24:34+08:00">
+<meta property="article:modified_time" content="2020-09-20T01:42:28+08:00">
+<meta itemprop=name content="macOS 下如何为视频制作字幕">
+<meta itemprop=description content="几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 Vim Conf 2018 上的主题报告，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。"><meta itemprop=datePublished content="2019-12-15T18:24:34+08:00">
+<meta itemprop=dateModified content="2020-09-20T01:42:28+08:00">
+<meta itemprop=wordCount content="1316">
+<meta itemprop=keywords content="Vim,video,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="macOS 下如何为视频制作字幕">
+<meta name=twitter:description content="几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 Vim Conf 2018 上的主题报告，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>macOS 下如何为视频制作字幕</h1>
+<div class=post-meta>
+<span class=post-time> 2019-12-15 </span>
+<div class=post-category>
+<a href=/categories/Mac/> Mac </a>
+</div>
+<span class=more-meta> 1316 words </span>
+<span class=more-meta> 3 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#制作字幕稿>制作字幕稿</a></li>
+<li><a href=#匹配字幕稿和视频时间轴>匹配字幕稿和视频时间轴</a></li>
+<li><a href=#收尾与完成>收尾与完成</a>
+<ul>
+<li><a href=#字幕换行>字幕换行</a></li>
+<li><a href=#字幕字体编辑>字幕字体编辑</a></li>
+</ul>
+</li>
+<li><a href=#字幕导出与视频生成>字幕导出与视频生成</a></li>
+<li><a href=#参考>参考</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 <a href=https://vimconf.org/2018/>Vim Conf 2018</a> 上的<a href="https://www.youtube.com/watch?v=ES1L2SPgIDI">主题报告</a>，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。</p>
+<p>要制作字幕，需要字幕制作软件的协助，在网上查了一圈，发现<a href=https://arctime.org/>arctime</a> 是一款不错的字幕制作软件，经过比较，最后选择arctime 来制作字幕。</p>
+<p>由于之前没有制作过字幕，对如何制作字幕没有任何概念，也走了一些弯路。做完了 Bram的这个演讲视频以后，对字幕制作过程有了一定了解。字幕制作大致分为两个过程：</p>
+<ul>
+<li>制作字幕稿</li>
+<li>匹配字幕稿和视频的时间轴</li>
+</ul>
+<h1 id=制作字幕稿>制作字幕稿</h1>
+<p>这一步其实和 arctime 没有任何关系，简单来说，制作字幕稿，就是把视频中人物的讲话，按照一行一句或者一行一个分句的格式转变为文字。值得注意的是，每一行的文字不宜过长，因为字幕是要显示在视频上的，一方面视频画面放不下太长的字幕，需要转行，另外太长的字幕，读者可能来不及看完，视频就跳到了下一句了。根据我的经验，如果讲话者一句话比较短，可以作为一行文本，如果一句话较长，最好分为两行或者三行来书写，在合适的地方断开即可。</p>
+<p>字幕稿制作这一步是最耗时的，Bram 的演讲大约有 59 分钟，我转写为字幕稿的时间大约是周末两天再加平时下班以后的好几天时间，总时长估计有 10 小时。</p>
+<p>字幕稿制作完成以后，保存为文本文件即可，最好使用 UTF-8 编码。</p>
+<h1 id=匹配字幕稿和视频时间轴>匹配字幕稿和视频时间轴</h1>
+<p>这一步就是把字幕稿的每一行文本和视频中的每一小段时间对应起来。打开 arctime，先导入视频，然后再导入字幕稿(可以直接拖拽视频和字幕稿导入)，视频会显示在左边，字幕稿内容会显示在右边。</p>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20191215190805.png>
+</p>
+<p>点击视频左下方工具栏的 &ldquo;视频快速拖拽创建工具&rdquo;，即可开始匹配字幕稿和时间轴，点击播放以后，时间轴会快速移动，等时间轴移动到字幕稿当前行文字的结尾，暂停播放，然后拖动鼠标，可以在时间轴上形成一个字幕块，对应于当前字幕稿行。把鼠标移动到字幕块的开头或者结尾，还可以微调字幕块的开始和结束时间，便于校准字幕块。制作字幕块的时候，可以用工具栏的“标记点”标记文本的起点和终点，方便拉取字幕块的时候确定当前文本对应时间轴的起始位置。</p>
+<p>重复以上过程，就可以制作其他的字幕块，直到所有字幕块制作完成。</p>
+<h1 id=收尾与完成>收尾与完成</h1>
+<p>字幕块完成制作以后，可以把时间轴的光标移动到视频开头，开始播放，查看制作的字幕的效果，对字幕块进行精调。</p>
+<h2 id=字幕换行>字幕换行</h2>
+<p>如果播放中，发现某一个字幕太长，可以暂停播放，双击该字幕块，然后在合适的地方插入换行符 <code>\n</code> 即可把字幕分为两行。另外，如果发现字幕中有文字错误，也可以直接点击字幕块对文字进行修改。修改字幕块以后，别忘了点击右边的对号确定修改。
+修改字幕块以后，可以按 <kbd>F5</kbd> 刷新字幕，查看新的字幕样式。</p>
+<h2 id=字幕字体编辑>字幕字体编辑</h2>
+<p>点击 “样式管理“ &mdash;> “编辑选定样式“ 可以对字幕的字体进行设置，包括字体的颜色，大小，位置等等。</p>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20191215193202.png>
+</p>
+<h1 id=字幕导出与视频生成>字幕导出与视频生成</h1>
+<p>如果只需要生成外挂字幕，可以选择 “导出” &mdash;> “字幕稿”，设置导出的字幕格式。</p>
+<p>如果需要把字幕固化到视频中，需要压制视频，选择“导出”菜单中的 “快速压制视频” 选项，根据自己的需要压制视频即可。</p>
+<p>导出的字幕稿或者压制的视频和原视频都位于同一根目录下面。</p>
+<p>最后，压制的视频已经上传到了 bilibili 上，点击 <a href=https://www.bilibili.com/video/av79242778>这里</a> 可以查看。</p>
+<h1 id=参考>参考</h1>
+<ul>
+<li><a href=https://www.zhihu.com/question/19910859>Mac 下字幕制作软件推荐</a></li>
+<li><a href=https://arctime.org/guide.html>arctime 官方教程</a></li>
+</ul>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2020-09-20
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/Vim/>Vim</a>
+<a href=/tags/video/>video</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/2019/12/21/nifty_nvim_techniques_s6/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Nifty Nvim Techniques That Make My Life Easier -- Series 6</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2019/12/09/vim_asynchronous_command_run/>
+<span class="next-text nav-default">Running Command Asynchronously inside Neovim</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

@@ -1,16 +1,158 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Nifty Nvim Techniques That Make My Life Easier -- Series 5 - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="This is the series 5 of my blog posts about some nifty techniques of using Nvim, which continues my previous series here."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Nifty Nvim Techniques That Make My Life Easier -- Series 5"><meta property="og:description" content="This is the series 5 of my blog posts about some nifty techniques of using
-Nvim, which continues my previous series here."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/"><meta property="article:published_time" content="2019-11-11T22:55:02+08:00"><meta property="article:modified_time" content="2021-07-18T12:54:30+08:00"><meta itemprop=name content="Nifty Nvim Techniques That Make My Life Easier -- Series 5"><meta itemprop=description content="This is the series 5 of my blog posts about some nifty techniques of using
-Nvim, which continues my previous series here."><meta itemprop=datePublished content="2019-11-11T22:55:02+08:00"><meta itemprop=dateModified content="2021-07-18T12:54:30+08:00"><meta itemprop=wordCount content="690"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Nifty Nvim Techniques That Make My Life Easier -- Series 5"><meta name=twitter:description content="This is the series 5 of my blog posts about some nifty techniques of using
-Nvim, which continues my previous series here."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Nifty Nvim Techniques That Make My Life Easier -- Series 5</h1><div class=post-meta><span class=post-time>2019-11-11</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>690 words</span>
-<span class=more-meta>4 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#how-do-i-source-other-files-in-the-same-directory-as-my-config>How do I source other files in the same directory as my config?</a><ul><li><a href=#references>References</a></li></ul></li><li><a href=#how-to-search-a-pattern-only-in-a-line-range>How to search a pattern only in a line range</a><ul><li><a href=#references-1>References</a></li></ul></li><li><a href=#add-highlight-to-a-pattern>Add highlight to a pattern</a><ul><li><a href=#references-2>References</a></li></ul></li><li><a href=#how-to-get-the-path-of-currently-sourced-file>How to get the path of currently sourced file?</a><ul><li><a href=#references-3>References</a></li></ul></li><li><a href=#turn-tabs-to-spaces-in-a-buffer-quickly>Turn tabs to spaces in a buffer quickly</a><ul><li><a href=#references-4>References</a></li></ul></li></ul></nav></div></div><div class=post-content><p>This is the series 5 of my blog posts about some nifty techniques of using
-Nvim, which continues my <a href=https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/>previous series here</a>.</p><h1 id=how-do-i-source-other-files-in-the-same-directory-as-my-config>How do I source other files in the same directory as my config?</h1><p>As my config becomes longer and longer, I decided to split it into several Vim
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Nifty Nvim Techniques That Make My Life Easier -- Series 5 - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="This is the series 5 of my blog posts about some nifty techniques of using Nvim, which continues my previous series here.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="Nifty Nvim Techniques That Make My Life Easier -- Series 5">
+<meta property="og:description" content="This is the series 5 of my blog posts about some nifty techniques of using
+Nvim, which continues my previous series here.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2019-11-11T22:55:02+08:00">
+<meta property="article:modified_time" content="2021-07-18T12:54:30+08:00">
+<meta itemprop=name content="Nifty Nvim Techniques That Make My Life Easier -- Series 5">
+<meta itemprop=description content="This is the series 5 of my blog posts about some nifty techniques of using
+Nvim, which continues my previous series here."><meta itemprop=datePublished content="2019-11-11T22:55:02+08:00">
+<meta itemprop=dateModified content="2021-07-18T12:54:30+08:00">
+<meta itemprop=wordCount content="689">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Nifty Nvim Techniques That Make My Life Easier -- Series 5">
+<meta name=twitter:description content="This is the series 5 of my blog posts about some nifty techniques of using
+Nvim, which continues my previous series here."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>Nifty Nvim Techniques That Make My Life Easier -- Series 5</h1>
+<div class=post-meta>
+<span class=post-time> 2019-11-11 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 689 words </span>
+<span class=more-meta> 4 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#how-do-i-source-other-files-in-the-same-directory-as-my-config>How do I source other files in the same directory as my config?</a>
+<ul>
+<li><a href=#references>References</a></li>
+</ul>
+</li>
+<li><a href=#how-to-search-a-pattern-only-in-a-line-range>How to search a pattern only in a line range</a>
+<ul>
+<li><a href=#references-1>References</a></li>
+</ul>
+</li>
+<li><a href=#add-highlight-to-a-pattern>Add highlight to a pattern</a>
+<ul>
+<li><a href=#references-2>References</a></li>
+</ul>
+</li>
+<li><a href=#how-to-get-the-path-of-currently-sourced-file>How to get the path of currently sourced file?</a>
+<ul>
+<li><a href=#references-3>References</a></li>
+</ul>
+</li>
+<li><a href=#turn-tabs-to-spaces-in-a-buffer-quickly>Turn tabs to spaces in a buffer quickly</a>
+<ul>
+<li><a href=#references-4>References</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>This is the series 5 of my blog posts about some nifty techniques of using
+Nvim, which continues my <a href=https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/>previous series here</a>.</p>
+<h1 id=how-do-i-source-other-files-in-the-same-directory-as-my-config>How do I source other files in the same directory as my config?</h1>
+<p>As my config becomes longer and longer, I decided to split it into several Vim
 scripts. I can then source those files in my <code>init.vim</code>. Initially, I wrote
 something like <code>source xxxx.vim</code>. To my surprise, Nvim complained that it could
 not find those Vim script. After searching on the internet, I find that
 <code>source</code> command works relatively to your current work directory. In order to
 source certain Vim script in the same directory as <code>init.vim</code>, we have to use
-their absolute paths. Here is what I come up with:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>nvim_config_root</span> <span class=p>=</span> <span class=nx>stdpath</span><span class=p>(</span><span class=s1>&#39;config&#39;</span><span class=p>)</span><span class=err>
+their absolute paths. Here is what I come up with:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>nvim_config_root</span> <span class=p>=</span> <span class=nx>stdpath</span><span class=p>(</span><span class=s1>&#39;config&#39;</span><span class=p>)</span><span class=err>
 </span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>config_file_list</span> <span class=p>=</span> [<span class=s1>&#39;variables.vim&#39;</span><span class=p>,</span><span class=err>
 </span><span class=err></span>\ <span class=s1>&#39;options.vim&#39;</span><span class=p>,</span><span class=err>
 </span><span class=err></span>\ <span class=s1>&#39;autocommands.vim&#39;</span><span class=p>,</span><span class=err>
@@ -26,59 +168,176 @@ their absolute paths. Here is what I come up with:</p><div class=highlight><pre 
 <a href=https://neovim.io/doc/user/eval.html#stdpath%28%29>stdpath()</a> function to get
 the directory of nvim config directory, which is rather convenient and works
 across platforms. Then we loop the files we want to source and source them one
-by one.</p><h2 id=references>References</h2><ul><li><a href=https://stackoverflow.com/q/4500748/6064933>Source all vim files in a directory.</a></li><li><a href=https://stackoverflow.com/q/46964475/6064933>How to source relative to a file?</a></li></ul><h1 id=how-to-search-a-pattern-only-in-a-line-range>How to search a pattern only in a line range</h1><p>Sometimes, we only want to search in a range of lines, i.e., search from line n
+by one.</p>
+<h2 id=references>References</h2>
+<ul>
+<li><a href=https://stackoverflow.com/q/4500748/6064933>Source all vim files in a directory.</a></li>
+<li><a href=https://stackoverflow.com/q/46964475/6064933>How to source relative to a file?</a></li>
+</ul>
+<h1 id=how-to-search-a-pattern-only-in-a-line-range>How to search a pattern only in a line range</h1>
+<p>Sometimes, we only want to search in a range of lines, i.e., search from line n
 to line m. The syntax can be best explained by giving a concrete example.
 Suppose we want to search for the word <code>search</code> from line 10 to line 20, we can
-use the following search pattern:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim>/\%<span class=p>&gt;</span><span class=m>10</span>l\%<span class=p>&lt;</span><span class=m>20</span>lsearch<span class=err>
+use the following search pattern:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim>/\%<span class=p>&gt;</span><span class=m>10</span>l\%<span class=p>&lt;</span><span class=m>20</span>lsearch<span class=err>
 </span></code></pre></div><p>The start line is given by <code>\%>10l</code> and the end line is given by <code>\%&lt;20l</code>. For
-more info, see <code>:h search-range</code> and <code>:h /\%l</code>.</p><h2 id=references-1>References</h2><ul><li><a href=https://stackoverflow.com/a/3264176/6064933>Search in a range</a>.</li></ul><h1 id=add-highlight-to-a-pattern>Add highlight to a pattern</h1><p>To highlight some patterns, we can use the <code>:match</code> command. For example, in
-order to highlight trailing white spaces, we may use the following command:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=p>:</span><span class=nx>match</span> <span class=nx>WarningMsg</span> <span class=sr>/\s\+$/</span><span class=err>
+more info, see <code>:h search-range</code> and <code>:h /\%l</code>.</p>
+<h2 id=references-1>References</h2>
+<ul>
+<li><a href=https://stackoverflow.com/a/3264176/6064933>Search in a range</a>.</li>
+</ul>
+<h1 id=add-highlight-to-a-pattern>Add highlight to a pattern</h1>
+<p>To highlight some patterns, we can use the <code>:match</code> command. For example, in
+order to highlight trailing white spaces, we may use the following command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=p>:</span><span class=nx>match</span> <span class=nx>WarningMsg</span> <span class=sr>/\s\+$/</span><span class=err>
 </span></code></pre></div><p>The 1st argument to <code>:match</code> is a valid highlight group<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. In the 2nd
-argument, the highlight pattern is inside <code>//</code>. For more info, see <code>:h match-highlight</code>.</p><p>The problem is that we can only highlight one pattern using this command. This
+argument, the highlight pattern is inside <code>//</code>. For more info, see <code>:h match-highlight</code>.</p>
+<p>The problem is that we can only highlight one pattern using this command. This
 means that if we want to highlight another pattern with <code>:match</code> command, only
 one pattern get highlighted. Vim provides additional <code>:2match</code> and <code>:3match</code>
 command to some avail. So in total, you can highlight three different patterns
-using this command.</p><p>Fortunately, Vim also provides the <code>matchadd()</code> function which works similarly
+using this command.</p>
+<p>Fortunately, Vim also provides the <code>matchadd()</code> function which works similarly
 to <code>:match</code>, except that there is no limit on the number of patterns to match.
 For example, to match both trailing white spaces and leading tab characters,
-use the following setting:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>call</span> <span class=nx>matchadd</span><span class=p>(</span><span class=s1>&#39;Warnings&#39;</span><span class=p>,</span> <span class=s1>&#39;\s\+$&#39;</span><span class=p>)</span><span class=err>
+use the following setting:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>call</span> <span class=nx>matchadd</span><span class=p>(</span><span class=s1>&#39;Warnings&#39;</span><span class=p>,</span> <span class=s1>&#39;\s\+$&#39;</span><span class=p>)</span><span class=err>
 </span><span class=err></span><span class=nx>call</span> <span class=nx>matchadd</span><span class=p>(</span><span class=s1>&#39;Warnings&#39;</span><span class=p>,</span> <span class=s1>&#39;^\t\+&#39;</span><span class=p>)</span><span class=err>
 </span></code></pre></div><p>In the above settings, it is important that you quote the pattern to match with
 single quote. If you use double quotes, those backslashes will get translated
-so that the regex pattern will not right.</p><h2 id=references-2>References</h2><ul><li><a href=https://vi.stackexchange.com/a/17184/15292>Why does the pattern in matchadd() is not matched?</a></li><li><a href=https://vi.stackexchange.com/q/9706/15292>Difference between single quote and double quote in Vim.</a></li></ul><h1 id=how-to-get-the-path-of-currently-sourced-file>How to get the path of currently sourced file?</h1><p>When Vim is sourcing a file, you can use <code>&lt;sfile></code> inside function <code>expand()</code>
+so that the regex pattern will not right.</p>
+<h2 id=references-2>References</h2>
+<ul>
+<li><a href=https://vi.stackexchange.com/a/17184/15292>Why does the pattern in matchadd() is not matched?</a></li>
+<li><a href=https://vi.stackexchange.com/q/9706/15292>Difference between single quote and double quote in Vim.</a></li>
+</ul>
+<h1 id=how-to-get-the-path-of-currently-sourced-file>How to get the path of currently sourced file?</h1>
+<p>When Vim is sourcing a file, you can use <code>&lt;sfile></code> inside function <code>expand()</code>
 to get the path of the script. To get other info about the sourced file, use
-<code>filename-modifiers</code> (see <code>:h filename-modifiers</code>).</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; absolute path of currently sourced file</span><span class=err>
+<code>filename-modifiers</code> (see <code>:h filename-modifiers</code>).</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; absolute path of currently sourced file</span><span class=err>
 </span><span class=err></span><span class=nx>echo</span> <span class=nx>expand</span><span class=p>(</span><span class=s1>&#39;&lt;sfile&gt;:p&#39;</span><span class=p>)</span><span class=err>
 </span><span class=err></span><span class=c>
 </span><span class=c>&#34; directory containing currently sourced file</span><span class=err>
 </span><span class=err></span><span class=nx>echo</span> <span class=nx>expand</span><span class=p>(</span><span class=s1>&#39;&lt;sfile&gt;:p:h&#39;</span><span class=p>)</span><span class=err>
-</span></code></pre></div><h2 id=references-3>References</h2><ul><li><a href=https://stackoverflow.com/q/4976776/6064933>Get the path to the current vimscript being executed.</a></li></ul><h1 id=turn-tabs-to-spaces-in-a-buffer-quickly>Turn tabs to spaces in a buffer quickly</h1><p>I do not like tabs in my source file so I have set up the following settings in
-my config:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>set</span> <span class=nx>tabstop</span><span class=p>=</span><span class=m>4</span><span class=err>
+</span></code></pre></div><h2 id=references-3>References</h2>
+<ul>
+<li><a href=https://stackoverflow.com/q/4976776/6064933>Get the path to the current vimscript being executed.</a></li>
+</ul>
+<h1 id=turn-tabs-to-spaces-in-a-buffer-quickly>Turn tabs to spaces in a buffer quickly</h1>
+<p>I do not like tabs in my source file so I have set up the following settings in
+my config:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>set</span> <span class=nx>tabstop</span><span class=p>=</span><span class=m>4</span><span class=err>
 </span><span class=err></span><span class=nx>set</span> <span class=nx>softtabstop</span><span class=p>=</span><span class=m>4</span><span class=err>
 </span><span class=err></span><span class=nx>set</span> <span class=nx>expandtabs</span><span class=err>
 </span><span class=err></span><span class=nx>set</span> <span class=nx>shiftwidth</span><span class=p>=</span><span class=m>4</span><span class=err>
 </span></code></pre></div><p>This setting works great when I am editing source code. However, for existing
 code using tabs, Vim/Nvim will not convert tabs into spaces automatically.
 Usually, I just replace tabs with four spaces manually: <code>:s/\t/ /g</code>. But it
-is tedious to type all this.</p><p>There is a quicker way to turn tabs into spaces using the <code>:retab</code> command. It
-will turn tabs into 4 spaces if you use the above settings.</p><h2 id=references-4>References</h2><ul><li><a href=https://stackoverflow.com/a/427004/6064933>Replace tabs with spaces in vim</a></li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>You can show all the available highlight groups with <code>:highlight</code> command. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2021-07-18</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><nav class=post-nav><a class=prev href=/2019/11/14/convert_pdf_to_images_pdftoppm/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Converting PDF Pages to Images with Poppler</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2019/11/10/install_config_neovim_system_wide/><span class="next-text nav-default">Neovim Configuration for System-wide Use</span>
+is tedious to type all this.</p>
+<p>There is a quicker way to turn tabs into spaces using the <code>:retab</code> command. It
+will turn tabs into 4 spaces if you use the above settings.</p>
+<h2 id=references-4>References</h2>
+<ul>
+<li><a href=https://stackoverflow.com/a/427004/6064933>Replace tabs with spaces in vim</a></li>
+</ul>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>You can show all the available highlight groups with <code>:highlight</code> command.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2021-07-18
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<nav class=post-nav>
+<a class=prev href=/2019/11/14/convert_pdf_to_images_pdftoppm/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Converting PDF Pages to Images with Poppler</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2019/11/10/install_config_neovim_system_wide/>
+<span class="next-text nav-default">Neovim Configuration for System-wide Use</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

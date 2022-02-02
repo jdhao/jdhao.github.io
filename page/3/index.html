@@ -1,57 +1,597 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/><link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's blog"><link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's blog"><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="jdhao's blog"><meta property="og:description" content="A blog for the patient and curious people"><meta property="og:type" content="website"><meta property="og:url" content="https://jdhao.github.io/"><meta property="og:updated_time" content="2022-02-02T11:17:51+08:00"><meta itemprop=name content="jdhao's blog"><meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary"><meta name=twitter:title content="jdhao's blog"><meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><section id=posts class=posts><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/08/20/the_root_cause/>问题根源是什么？</a></h1><div class=post-meta><span class=post-time>2021-08-20</span><div class=post-category><a href=/categories/thought/>thought</a></div><span class=more-meta>563 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>一件关于思维的小事，值得记录。</p></div><div class=read-more><a href=/2021/08/20/the_root_cause/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/08/17/pybind11_first_impression/>Pybind11 hands on</a></h1><div class=post-meta><span class=post-time>2021-08-17</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>413 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>To accelerate the execution of some performance critical code, we can write the
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/>
+<link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's blog">
+<link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's blog">
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="jdhao's blog">
+<meta property="og:description" content="A blog for the patient and curious people">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jdhao.github.io/">
+<meta itemprop=name content="jdhao's blog">
+<meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="jdhao's blog">
+<meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<section id=posts class=posts>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/08/20/the_root_cause/>问题根源是什么？</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-08-20 </span>
+<div class=post-category>
+<a href=/categories/thought/> thought </a>
+</div>
+<span class=more-meta> 584 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>一件关于思维的小事，值得记录。</p>
+</div>
+<div class=read-more>
+<a href=/2021/08/20/the_root_cause/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/08/17/pybind11_first_impression/>Pybind11 hands on</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-08-17 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 412 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>To accelerate the execution of some performance critical code, we can write the
 code in C++ with the help of <a href=https://github.com/pybind/pybind11>pybind11</a> and
 export the C++ code as shared library<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. Then we can import the shared
-library as a module and enjoy speed boost.</p></div><div class=read-more><a href=/2021/08/17/pybind11_first_impression/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/08/15/hugo_even_add_utterance/>给 Hugo even 主题添加 utterances 评论系统</a></h1><div class=post-meta><span class=post-time>2021-08-15</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>526 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>建立博客以来，试用了多款评论系统，不过最终还是用了 disqus，但是 disqus 令人讨厌的是默认添加很多烦人的广告，牛皮癣一样，而且在国内无法加载，必须翻墙才能显示。<a href=https://utteranc.es/>utterances</a> 是一款基于 github issues 的评论系统，简洁，避免了 disqus 的广告以及加载问题。这篇文章总结如何给 <a href=https://github.com/olOwOlo/hugo-theme-even>Hugo-even</a> 主题添加 utterances 评论系统。</p></div><div class=read-more><a href=/2021/08/15/hugo_even_add_utterance/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/08/15/mac_operation_not_permitted/>macOS Operation Not Permitted?</a></h1><div class=post-meta><span class=post-time>2021-08-15</span><div class=post-category><a href=/categories/Mac/>Mac</a></div><span class=more-meta>197 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>Some permission related issue on macOS.</p></div><div class=read-more><a href=/2021/08/15/mac_operation_not_permitted/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/08/12/nvim_sumneko_lua_conf/>Setting up sumneko lua for Nvim-lsp</a></h1><div class=post-meta><span class=post-time>2021-08-12</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>299 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/202202020047792.jpg width=600></p><p>In this post, I will share how to set up <a href=https://github.com/sumneko/lua-language-server>sumneko lua</a> for <a href=https://github.com/neovim/nvim-lspconfig>nvim-lspconfig</a>.</p></div><div class=read-more><a href=/2021/08/12/nvim_sumneko_lua_conf/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/08/11/is_github_down/>Is GitHub Down Today?</a></h1><div class=post-meta><span class=post-time>2021-08-11</span><div class=post-category><a href=/categories/Git/>Git</a></div><span class=more-meta>130 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary>update:
+library as a module and enjoy speed boost.</p>
+</div>
+<div class=read-more>
+<a href=/2021/08/17/pybind11_first_impression/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/08/15/hugo_even_add_utterance/>给 Hugo even 主题添加 utterances 评论系统</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-08-15 </span>
+<div class=post-category>
+<a href=/categories/Blog/> Blog </a>
+</div>
+<span class=more-meta> 526 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>建立博客以来，试用了多款评论系统，不过最终还是用了 disqus，但是 disqus 令人讨厌的是默认添加很多烦人的广告，牛皮癣一样，而且在国内无法加载，必须翻墙才能显示。<a href=https://utteranc.es/>utterances</a> 是一款基于 github issues 的评论系统，简洁，避免了 disqus 的广告以及加载问题。这篇文章总结如何给 <a href=https://github.com/olOwOlo/hugo-theme-even>Hugo-even</a> 主题添加 utterances 评论系统。</p>
+</div>
+<div class=read-more>
+<a href=/2021/08/15/hugo_even_add_utterance/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/08/15/mac_operation_not_permitted/>macOS Operation Not Permitted?</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-08-15 </span>
+<div class=post-category>
+<a href=/categories/Mac/> Mac </a>
+</div>
+<span class=more-meta> 197 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Some permission related issue on macOS.</p>
+</div>
+<div class=read-more>
+<a href=/2021/08/15/mac_operation_not_permitted/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/08/12/nvim_sumneko_lua_conf/>Setting up sumneko lua for Nvim-lsp</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-08-12 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 299 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/202202020047792.jpg width=600>
+</p>
+<p>In this post, I will share how to set up <a href=https://github.com/sumneko/lua-language-server>sumneko lua</a> for <a href=https://github.com/neovim/nvim-lspconfig>nvim-lspconfig</a>.</p>
+</div>
+<div class=read-more>
+<a href=/2021/08/12/nvim_sumneko_lua_conf/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/08/11/is_github_down/>Is GitHub Down Today?</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-08-11 </span>
+<div class=post-category>
+<a href=/categories/Git/> Git </a>
+</div>
+<span class=more-meta> 129 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+update:
 On 2021-11-28, we expericence another GitHub outage which lasts more than two hours, see here. On 2021-08-10 23:30 CST, I observed that I cannot push to my GitHub repo even with --force. After checking the GitHub status site, it seems that the GitHub API is down1.
-It is not the first time that GitHub is down. There has been several failure reports last year (2020), due to MySQL and other issues.</div><div class=read-more><a href=/2021/08/11/is_github_down/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/08/09/macos_work_tools/>macOS 上常用工具</a></h1><div class=post-meta><span class=post-time>2021-08-09</span><div class=post-category><a href=/categories/Mac/>Mac</a></div><span class=more-meta>837 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>记录我在 macOS 下常用到的工具。</p></div><div class=read-more><a href=/2021/08/09/macos_work_tools/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/08/06/microsoft_windows_terminal_conf/>Configure Windows Terminal in 2021</a></h1><div class=post-meta><span class=post-time>2021-08-06</span><div class=post-category><a href=/categories/tools/>tools</a></div><span class=more-meta>204 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>After updating my Windows system to the latest version. I can finally use the
-new <a href=https://github.com/microsoft/terminal>Windows Terminal</a>.</p></div><div class=read-more><a href=/2021/08/06/microsoft_windows_terminal_conf/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/08/02/the_youtube_content_id_system/>How Does The YouTube Content ID System Work?</a></h1><div class=post-meta><span class=post-time>2021-08-02</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>430 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>Google introduced the <a href="https://support.google.com/youtube/answer/2797370?hl=en">content ID system</a> in 2007 to cope with the
+It is not the first time that GitHub is down. There has been several failure reports last year (2020), due to MySQL and other issues.
+</div>
+<div class=read-more>
+<a href=/2021/08/11/is_github_down/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/08/09/macos_work_tools/>macOS 上常用工具</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-08-09 </span>
+<div class=post-category>
+<a href=/categories/Mac/> Mac </a>
+</div>
+<span class=more-meta> 837 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>记录我在 macOS 下常用到的工具。</p>
+</div>
+<div class=read-more>
+<a href=/2021/08/09/macos_work_tools/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/08/06/microsoft_windows_terminal_conf/>Configure Windows Terminal in 2021</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-08-06 </span>
+<div class=post-category>
+<a href=/categories/tools/> tools </a>
+</div>
+<span class=more-meta> 204 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>After updating my Windows system to the latest version. I can finally use the
+new <a href=https://github.com/microsoft/terminal>Windows Terminal</a>.</p>
+</div>
+<div class=read-more>
+<a href=/2021/08/06/microsoft_windows_terminal_conf/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/08/02/the_youtube_content_id_system/>How Does The YouTube Content ID System Work?</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-08-02 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 429 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Google introduced the <a href="https://support.google.com/youtube/answer/2797370?hl=en">content ID system</a> in 2007 to cope with the
 unauthorized use of copyrighted music and video content. The content ID system
 has successfully helped the copyright owners to find the pirated content and
-paid billions of dollars to the copyright owners<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</p></div><div class=read-more><a href=/2021/08/02/the_youtube_content_id_system/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/07/24/application_of_duplicate_video_retrieval/>基于内容的视频检索/视频指纹的应用</a></h1><div class=post-meta><span class=post-time>2021-07-24</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>774 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>基于内容的视频检索（或视频指纹），是指根据视频内容，从数据库中找到和当前视频在画面上重复高的视频。</p></div><div class=read-more><a href=/2021/07/24/application_of_duplicate_video_retrieval/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/07/24/vector_search_tools/>向量搜索引擎/工具</a></h1><div class=post-meta><span class=post-time>2021-07-24</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>1314 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>无论是推荐还是检索任务，都离不开向量检索引擎，当向量数量巨大(上千万或者上亿规模)的时候，使用精确搜索(exhaustive search)的时间成本对于用户来说无法接受，这时我们必须用到近似最邻近搜索（approximate nearest neighbor, 简称 ANN)。本文总结了一些常见的实现了 ANN 搜索的向量搜索引擎/工具。</p></div><div class=read-more><a href=/2021/07/24/vector_search_tools/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/07/24/git_show_diff_when_commiting/>Show Git Diff When Doing Git Commit</a></h1><div class=post-meta><span class=post-time>2021-07-24</span><div class=post-category><a href=/categories/Git/>Git</a></div><span class=more-meta>257 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20210724122638.jpg width=800></p><p>I saw on YouTube <a href="https://www.youtube.com/watch?v=xv9cp7NyK5Y">a video</a> made by
+paid billions of dollars to the copyright owners<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</p>
+</div>
+<div class=read-more>
+<a href=/2021/08/02/the_youtube_content_id_system/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/07/24/application_of_duplicate_video_retrieval/>基于内容的视频检索/视频指纹的应用</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-07-24 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 837 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>基于内容的视频检索（或视频指纹），是指根据视频内容，从数据库中找到和当前视频在画面上重复高的视频。</p>
+</div>
+<div class=read-more>
+<a href=/2021/07/24/application_of_duplicate_video_retrieval/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/07/24/vector_search_tools/>向量搜索引擎/工具</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-07-24 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 1333 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>无论是推荐还是检索任务，都离不开向量检索引擎，当向量数量巨大(上千万或者上亿规模)的时候，使用精确搜索(exhaustive search)的时间成本对于用户来说无法接受，这时我们必须用到近似最邻近搜索（approximate nearest neighbor, 简称 ANN)。本文总结了一些常见的实现了 ANN 搜索的向量搜索引擎/工具。</p>
+</div>
+<div class=read-more>
+<a href=/2021/07/24/vector_search_tools/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/07/24/git_show_diff_when_commiting/>Show Git Diff When Doing Git Commit</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-07-24 </span>
+<div class=post-category>
+<a href=/categories/Git/> Git </a>
+</div>
+<span class=more-meta> 257 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20210724122638.jpg width=800>
+</p>
+<p>I saw on YouTube <a href="https://www.youtube.com/watch?v=xv9cp7NyK5Y">a video</a> made by
 <a href=https://github.com/tjdevries>TJ DeVries</a> on how to contribute to the <a href=https://neovim.io/>neovim
 project</a>. There is a scene where he commit via <code>git commit</code>,
 and whoa, a Neovim instance appeared with three split, with top left the commit
 message area, top right the git-status area, and on the right the git-diff info,
-which is really cool.</p></div><div class=read-more><a href=/2021/07/24/git_show_diff_when_commiting/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/07/20/py_redis_cluster_delete_key_with_pattern/>Delete Keys Matching A Pattern with py-redis-cluster</a></h1><div class=post-meta><span class=post-time>2021-07-20</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>178 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>We have a Python web service where we store some <code>key-val</code> pairs in redis.
+which is really cool.</p>
+</div>
+<div class=read-more>
+<a href=/2021/07/24/git_show_diff_when_commiting/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/07/20/py_redis_cluster_delete_key_with_pattern/>Delete Keys Matching A Pattern with py-redis-cluster</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-07-20 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 178 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>We have a Python web service where we store some <code>key-val</code> pairs in redis.
 Occasionally, I want to delete some of the keys matching a certain pattern.
-Current, we are using <a href=https://github.com/Grokzen/redis-py-cluster>redis-py-cluster</a> for redis-related operations.</p></div><div class=read-more><a href=/2021/07/20/py_redis_cluster_delete_key_with_pattern/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/07/11/from_vim_plug_to_packer/>From vim-plug to Packer.nvim</a></h1><div class=post-meta><span class=post-time>2021-07-11</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>990 words</span>
-<span class=more-meta>5 mins read</span></div></header><div class=post-content><div class=post-summary><p>Over the past two years, I have been using <a href=https://github.com/junegunn/vim-plug>vim-plug</a> as my Nvim plugin manager.
+Current, we are using <a href=https://github.com/Grokzen/redis-py-cluster>redis-py-cluster</a> for redis-related operations.</p>
+</div>
+<div class=read-more>
+<a href=/2021/07/20/py_redis_cluster_delete_key_with_pattern/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/07/11/from_vim_plug_to_packer/>From vim-plug to Packer.nvim</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-07-11 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 988 words </span>
+<span class=more-meta> 5 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Over the past two years, I have been using <a href=https://github.com/junegunn/vim-plug>vim-plug</a> as my Nvim plugin manager.
 Vim-plug is powerful, fast and amazing, especially considering that all its
 features are contained in a single vim script. It uses the old way to manage
-plugins, i.e., it will manage the loading of plugins directly.</p></div><div class=read-more><a href=/2021/07/11/from_vim_plug_to_packer/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/07/10/quick_sort_impl/>快排(quick sort) C++ 实现</a></h1><div class=post-meta><span class=post-time>2021-07-10</span><div class=post-category><a href=/categories/Programming/>Programming</a></div><span class=more-meta>1222 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>快排是一种快速排序算法，原理是从数组中选择一个 pivot，数组中小于等于 pivot 的元素放到左边，大于 pivot 的元素放到右边。然后对左边和右边数组分别递归进行快速排序，最后整个数组就成为排序好的数组。</p></div><div class=read-more><a href=/2021/07/10/quick_sort_impl/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/07/04/cpp_container_cheatsheet/>Cpp Container/Adapter and Common Structure CheatSheet</a></h1><div class=post-meta><span class=post-time>2021-07-04</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>748 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>I use Python in my work, and rarely need C++. So I need to compile this C++
-cheatsheet for common STL containers/adapters just in case I need them.</p></div><div class=read-more><a href=/2021/07/04/cpp_container_cheatsheet/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/07/04/static_and_dynamic_linking_cpp/>Static and Dynamic Linkage in C++</a></h1><div class=post-meta><span class=post-time>2021-07-04</span><div class=post-category><a href=/categories/Programming/>Programming</a></div><span class=more-meta>384 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>In C++, we can build a library either statically or dynamically. In this post,
-I want to summarize how to build a static and a shared/dynamic library<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</p></div><div class=read-more><a href=/2021/07/04/static_and_dynamic_linking_cpp/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/07/04/pretty_fmt_in_cpp/>Pretty Output Format in C++</a></h1><div class=post-meta><span class=post-time>2021-07-04</span><div class=post-category><a href=/categories/Programming/>Programming</a></div><span class=more-meta>227 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>Although <code>std::cout</code> in C++ is powerful, it lacks the ease of use of <a href=https://docs.python.org/3/tutorial/inputoutput.html#the-string-format-method>format
+plugins, i.e., it will manage the loading of plugins directly.</p>
+</div>
+<div class=read-more>
+<a href=/2021/07/11/from_vim_plug_to_packer/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/07/10/quick_sort_impl/>快排(quick sort) C++ 实现</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-07-10 </span>
+<div class=post-category>
+<a href=/categories/Programming/> Programming </a>
+</div>
+<span class=more-meta> 1222 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>快排是一种快速排序算法，原理是从数组中选择一个 pivot，数组中小于等于 pivot 的元素放到左边，大于 pivot 的元素放到右边。然后对左边和右边数组分别递归进行快速排序，最后整个数组就成为排序好的数组。</p>
+</div>
+<div class=read-more>
+<a href=/2021/07/10/quick_sort_impl/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/07/04/cpp_container_cheatsheet/>Cpp Container/Adapter and Common Structure CheatSheet</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-07-04 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 748 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>I use Python in my work, and rarely need C++. So I need to compile this C++
+cheatsheet for common STL containers/adapters just in case I need them.</p>
+</div>
+<div class=read-more>
+<a href=/2021/07/04/cpp_container_cheatsheet/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/07/04/static_and_dynamic_linking_cpp/>Static and Dynamic Linkage in C++</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-07-04 </span>
+<div class=post-category>
+<a href=/categories/Programming/> Programming </a>
+</div>
+<span class=more-meta> 383 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In C++, we can build a library either statically or dynamically. In this post,
+I want to summarize how to build a static and a shared/dynamic library<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</p>
+</div>
+<div class=read-more>
+<a href=/2021/07/04/static_and_dynamic_linking_cpp/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/07/04/pretty_fmt_in_cpp/>Pretty Output Format in C++</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-07-04 </span>
+<div class=post-category>
+<a href=/categories/Programming/> Programming </a>
+</div>
+<span class=more-meta> 227 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Although <code>std::cout</code> in C++ is powerful, it lacks the ease of use of <a href=https://docs.python.org/3/tutorial/inputoutput.html#the-string-format-method>format
 string</a> in Python. Fortunately, the 3rd party package <a href=https://github.com/fmtlib/fmt>fmt</a>
-provides a similar feature for C++.</p></div><div class=read-more><a href=/2021/07/04/pretty_fmt_in_cpp/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/07/03/install_clangd_on_linux/>Install Clangd on CentOS 7</a></h1><div class=post-meta><span class=post-time>2021-07-03</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>437 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p><a href=https://clangd.llvm.org/>Clangd</a> is a language server for C++/C etc. On
-CentOS 7, I try to use clangd 12 for C++ code auto-completion.</p></div><div class=read-more><a href=/2021/07/03/install_clangd_on_linux/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2021/07/03/ld_library_path_empty_item/>Empty Entry in LD_LIBRARY_PATH May Lead to Security Issues</a></h1><div class=post-meta><span class=post-time>2021-07-03</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>177 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>When I want to build glibc using the provided configure script (<code>./configure --prefix=xxx</code>),
-I saw the following error message:</p></div><div class=read-more><a href=/2021/07/03/ld_library_path_empty_item/ class=read-more-link>Read more...</a></div></div></article></section><nav class=pagination><a class=prev href=/page/2/><i class="iconfont icon-left"></i><span class=prev-text>Prev</span></a>
-<a class=next href=/page/4/><span class=next-text>Next</span>
-<i class="iconfont icon-right"></i></a></nav></div></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+provides a similar feature for C++.</p>
+</div>
+<div class=read-more>
+<a href=/2021/07/04/pretty_fmt_in_cpp/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/07/03/install_clangd_on_linux/>Install Clangd on CentOS 7</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-07-03 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 437 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p><a href=https://clangd.llvm.org/>Clangd</a> is a language server for C++/C etc. On
+CentOS 7, I try to use clangd 12 for C++ code auto-completion.</p>
+</div>
+<div class=read-more>
+<a href=/2021/07/03/install_clangd_on_linux/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2021/07/03/ld_library_path_empty_item/>Empty Entry in LD_LIBRARY_PATH May Lead to Security Issues</a></h1>
+<div class=post-meta>
+<span class=post-time> 2021-07-03 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 177 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>When I want to build glibc using the provided configure script (<code>./configure --prefix=xxx</code>),
+I saw the following error message:</p>
+</div>
+<div class=read-more>
+<a href=/2021/07/03/ld_library_path_empty_item/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+</section>
+<nav class=pagination>
+<a class=prev href=/page/2/>
+<i class="iconfont icon-left"></i>
+<span class=prev-text>Prev</span>
+</a>
+<a class=next href=/page/4/>
+<span class=next-text>Next</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

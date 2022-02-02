@@ -1,31 +1,167 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>From vim-plug to Packer.nvim - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="Over the past two years, I have been using vim-plug as my Nvim plugin manager. Vim-plug is powerful, fast and amazing, especially considering that all its features are contained in a single vim script. It uses the old way to manage plugins, i.e., it will manage the loading of plugins directly."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2021/07/11/from_vim_plug_to_packer/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="From vim-plug to Packer.nvim"><meta property="og:description" content="Over the past two years, I have been using vim-plug as my Nvim plugin manager.
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>From vim-plug to Packer.nvim - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="Over the past two years, I have been using vim-plug as my Nvim plugin manager. Vim-plug is powerful, fast and amazing, especially considering that all its features are contained in a single vim script. It uses the old way to manage plugins, i.e., it will manage the loading of plugins directly.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2021/07/11/from_vim_plug_to_packer/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="From vim-plug to Packer.nvim">
+<meta property="og:description" content="Over the past two years, I have been using vim-plug as my Nvim plugin manager.
 Vim-plug is powerful, fast and amazing, especially considering that all its
 features are contained in a single vim script. It uses the old way to manage
-plugins, i.e., it will manage the loading of plugins directly."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2021/07/11/from_vim_plug_to_packer/"><meta property="article:published_time" content="2021-07-11T23:05:22+08:00"><meta property="article:modified_time" content="2021-07-17T01:48:04+08:00"><meta itemprop=name content="From vim-plug to Packer.nvim"><meta itemprop=description content="Over the past two years, I have been using vim-plug as my Nvim plugin manager.
+plugins, i.e., it will manage the loading of plugins directly.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2021/07/11/from_vim_plug_to_packer/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-07-11T23:05:22+08:00">
+<meta property="article:modified_time" content="2021-07-17T01:48:04+08:00">
+<meta itemprop=name content="From vim-plug to Packer.nvim">
+<meta itemprop=description content="Over the past two years, I have been using vim-plug as my Nvim plugin manager.
 Vim-plug is powerful, fast and amazing, especially considering that all its
 features are contained in a single vim script. It uses the old way to manage
-plugins, i.e., it will manage the loading of plugins directly."><meta itemprop=datePublished content="2021-07-11T23:05:22+08:00"><meta itemprop=dateModified content="2021-07-17T01:48:04+08:00"><meta itemprop=wordCount content="990"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="From vim-plug to Packer.nvim"><meta name=twitter:description content="Over the past two years, I have been using vim-plug as my Nvim plugin manager.
+plugins, i.e., it will manage the loading of plugins directly."><meta itemprop=datePublished content="2021-07-11T23:05:22+08:00">
+<meta itemprop=dateModified content="2021-07-17T01:48:04+08:00">
+<meta itemprop=wordCount content="988">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="From vim-plug to Packer.nvim">
+<meta name=twitter:description content="Over the past two years, I have been using vim-plug as my Nvim plugin manager.
 Vim-plug is powerful, fast and amazing, especially considering that all its
 features are contained in a single vim script. It uses the old way to manage
-plugins, i.e., it will manage the loading of plugins directly."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>From vim-plug to Packer.nvim</h1><div class=post-meta><span class=post-time>2021-07-11</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>990 words</span>
-<span class=more-meta>5 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#packages-in-vim>Packages in Vim</a></li><li><a href=#now-enter-packernvim>Now enter packer.nvim!</a></li><li><a href=#some-issues-i-met-during-transition>Some issues I met during transition</a><ul><li><a href=#issues-for-lazy-loaded-plugins>Issues for lazy-loaded plugins</a></li><li><a href=#forget-to-run-packercompile-after-changing-plugin-setings>Forget to run PackerCompile after changing plugin setings</a></li><li><a href=#no-way-to-retry-plugins-that-failed-during-installation>No way to retry plugins that failed during installation</a></li><li><a href=#plugin-loading-order>Plugin loading order</a></li><li><a href=#issues-related-to-lazy-loaded-remote-plugins>Issues related to lazy-loaded remote plugins</a></li><li><a href=#specify-the-plugin-url-format>Specify the plugin url format</a></li></ul></li><li><a href=#conclusion>Conclusion</a></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>Over the past two years, I have been using <a href=https://github.com/junegunn/vim-plug>vim-plug</a> as my Nvim plugin manager.
+plugins, i.e., it will manage the loading of plugins directly."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>From vim-plug to Packer.nvim</h1>
+<div class=post-meta>
+<span class=post-time> 2021-07-11 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 988 words </span>
+<span class=more-meta> 5 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#packages-in-vim>Packages in Vim</a></li>
+<li><a href=#now-enter-packernvim>Now enter packer.nvim!</a></li>
+<li><a href=#some-issues-i-met-during-transition>Some issues I met during transition</a>
+<ul>
+<li><a href=#issues-for-lazy-loaded-plugins>Issues for lazy-loaded plugins</a></li>
+<li><a href=#forget-to-run-packercompile-after-changing-plugin-setings>Forget to run PackerCompile after changing plugin setings</a></li>
+<li><a href=#no-way-to-retry-plugins-that-failed-during-installation>No way to retry plugins that failed during installation</a></li>
+<li><a href=#plugin-loading-order>Plugin loading order</a></li>
+<li><a href=#issues-related-to-lazy-loaded-remote-plugins>Issues related to lazy-loaded remote plugins</a></li>
+<li><a href=#specify-the-plugin-url-format>Specify the plugin url format</a></li>
+</ul>
+</li>
+<li><a href=#conclusion>Conclusion</a></li>
+<li><a href=#references>References</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>Over the past two years, I have been using <a href=https://github.com/junegunn/vim-plug>vim-plug</a> as my Nvim plugin manager.
 Vim-plug is powerful, fast and amazing, especially considering that all its
 features are contained in a single vim script. It uses the old way to manage
-plugins, i.e., it will manage the loading of plugins directly.</p><h1 id=packages-in-vim>Packages in Vim</h1><p>In Vim/Nvim, we also have another way to manage plugins, that is, by using
+plugins, i.e., it will manage the loading of plugins directly.</p>
+<h1 id=packages-in-vim>Packages in Vim</h1>
+<p>In Vim/Nvim, we also have another way to manage plugins, that is, by using
 <code>packages</code>. It is a new way of organizing plugins. We can split plugins into
 two types, <code>opt</code> plugins and <code>start</code> plugins. If we put plugins in <code>opt</code>
 directory under a package, the plugins will not be loaded during
 initialization. If we want to use plugin <code>foo</code> later, we use <code>:packadd foo</code> to
 load it. For plugins under <code>start</code> directory, they will be loaded<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> by Vim
-automatically after initialization.</p><p>For <code>opt</code> plugin <code>foo</code>, Vim will look for <code>pack/xxx/opt/foo</code> under paths in the
+automatically after initialization.</p>
+<p>For <code>opt</code> plugin <code>foo</code>, Vim will look for <code>pack/xxx/opt/foo</code> under paths in the
 option <code>packpath</code>. For <code>start</code> plugins, Vim will look for them under
-<code>pack/xxx/start/</code> directory under paths in <code>packpath</code>.</p><h1 id=now-enter-packernvim>Now enter packer.nvim!</h1><p>Actually, there are several plugin managers that use the package feature to
-manage plugins, for example, <a href=https://github.com/k-takata/minpac>minpac</a> and <a href=https://github.com/kristijanhusak/vim-packager>vim-packager</a>, which are written in pure vim script.</p><p>With the release of the long overdue <a href=https://github.com/neovim/neovim/releases/tag/v0.5.0>Nvim 0.5.0</a> and increasing importance of
+<code>pack/xxx/start/</code> directory under paths in <code>packpath</code>.</p>
+<h1 id=now-enter-packernvim>Now enter packer.nvim!</h1>
+<p>Actually, there are several plugin managers that use the package feature to
+manage plugins, for example, <a href=https://github.com/k-takata/minpac>minpac</a> and <a href=https://github.com/kristijanhusak/vim-packager>vim-packager</a>, which are written in pure vim script.</p>
+<p>With the release of the long overdue <a href=https://github.com/neovim/neovim/releases/tag/v0.5.0>Nvim 0.5.0</a> and increasing importance of
 Lua in configuring and developing Nvim. I would like to try a plugin manager
 written in Lua, which also supports packages. After some survey, I decide to
 give <a href=https://github.com/wbthomason/packer.nvim>packer.nvim</a> a try, which is
-by far the most powerful and feature-rich plugin manager written in Lua<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>.</p><p>I use the following script to install packer.nvim in my computer:</p><div class=highlight><pre class=chroma><code class=language-lua data-lang=lua><span class=kd>local</span> <span class=n>execute</span> <span class=o>=</span> <span class=n>vim.api</span><span class=p>.</span><span class=n>nvim_command</span>
+by far the most powerful and feature-rich plugin manager written in Lua<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>.</p>
+<p>I use the following script to install packer.nvim in my computer:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-lua data-lang=lua><span class=kd>local</span> <span class=n>execute</span> <span class=o>=</span> <span class=n>vim.api</span><span class=p>.</span><span class=n>nvim_command</span>
 <span class=kd>local</span> <span class=n>fn</span> <span class=o>=</span> <span class=n>vim.fn</span>
 
 <span class=kd>local</span> <span class=n>packer_install_dir</span> <span class=o>=</span> <span class=n>fn.stdpath</span><span class=p>(</span><span class=s1>&#39;data&#39;</span><span class=p>)</span><span class=o>..</span><span class=s1>&#39;/site/pack/packer/start/packer.nvim&#39;</span>
@@ -52,33 +188,59 @@ by far the most powerful and feature-rich plugin manager written in Lua<sup id=f
 <span class=c1>-- ....</span>
 </code></pre></div><p>I put it under <code>~/.config/nvim/lua/plugins.lua</code> and in my <code>init.vim</code>, I just
 require it: <code>lua require('plugins.lua')</code>. With the above script, packer will be
-automatically installed if it hasn&rsquo;t.</p><h1 id=some-issues-i-met-during-transition>Some issues I met during transition</h1><h2 id=issues-for-lazy-loaded-plugins>Issues for lazy-loaded plugins</h2><p>Packer&rsquo;s lazy loading of plugins based on some conditions is really cool, but
+automatically installed if it hasn&rsquo;t.</p>
+<h1 id=some-issues-i-met-during-transition>Some issues I met during transition</h1>
+<h2 id=issues-for-lazy-loaded-plugins>Issues for lazy-loaded plugins</h2>
+<p>Packer&rsquo;s lazy loading of plugins based on some conditions is really cool, but
 is also error-prone for newbies. All lazy-loaded plugins are put under <code>opt</code>
 directory, and they are only added to runtimepath by packer when the specified
 conditions are met. This is the root cause of many issues related to missing
-function or modules, etc.</p><p>For example, if we use <a href=https://github.com/hrsh7th/nvim-compe>nvim-compe</a> and
+function or modules, etc.</p>
+<p>For example, if we use <a href=https://github.com/hrsh7th/nvim-compe>nvim-compe</a> and
 lazy-load it, but we require its config during Nvim initialization, we will see
-errors during nvim startup:</p><blockquote><p>module &lsquo;compe&rsquo; not found.</p></blockquote><p>One way to fix this is to use <code>config</code> key after the plugin has been loaded.
-See for example <a href=https://github.com/wbthomason/dotfiles/blob/linux/neovim/.config/nvim/lua/plugins.lua#L123>here</a>.</p><div class=highlight><pre class=chroma><code class=language-lua data-lang=lua><span class=n>use</span> <span class=p>{</span> <span class=s1>&#39;hrsh7th/nvim-compe&#39;</span><span class=p>,</span> <span class=n>event</span> <span class=o>=</span> <span class=s1>&#39;InsertEnter *&#39;</span><span class=p>,</span> <span class=n>config</span> <span class=o>=</span> <span class=s>[[require(&#39;config.compe&#39;)]]</span> <span class=p>}</span>
-</code></pre></div><h2 id=forget-to-run-packercompile-after-changing-plugin-setings>Forget to run PackerCompile after changing plugin setings</h2><p>After changing plugin configuration, we <strong>must</strong> run <code>:PackerCompile</code>. It will
+errors during nvim startup:</p>
+<blockquote>
+<p>module &lsquo;compe&rsquo; not found.</p>
+</blockquote>
+<p>One way to fix this is to use <code>config</code> key after the plugin has been loaded.
+See for example <a href=https://github.com/wbthomason/dotfiles/blob/linux/neovim/.config/nvim/lua/plugins.lua#L123>here</a>.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-lua data-lang=lua><span class=n>use</span> <span class=p>{</span> <span class=s1>&#39;hrsh7th/nvim-compe&#39;</span><span class=p>,</span> <span class=n>event</span> <span class=o>=</span> <span class=s1>&#39;InsertEnter *&#39;</span><span class=p>,</span> <span class=n>config</span> <span class=o>=</span> <span class=s>[[require(&#39;config.compe&#39;)]]</span> <span class=p>}</span>
+</code></pre></div><h2 id=forget-to-run-packercompile-after-changing-plugin-setings>Forget to run PackerCompile after changing plugin setings</h2>
+<p>After changing plugin configuration, we <strong>must</strong> run <code>:PackerCompile</code>. It will
 produce a file named <code>packer_compiled.vim</code> or <code>packer_compile.lua</code> under the
-directory <code>~/.config/nvim/plugin</code>.</p><p>When something went wrong, always check if you have run <code>:PackerCompile</code> and
-restarted nvim. 90% time, the issue is gone.</p><h2 id=no-way-to-retry-plugins-that-failed-during-installation>No way to retry plugins that failed during installation</h2><p>Unlike vim-plug, when plugin installation fails, there is no re-try mechanism.
-We have to manually run <code>:PackerInstall</code> to re-install the failed plugins.</p><h2 id=plugin-loading-order>Plugin loading order</h2><p>When we want to load plugin A after plugin B and they are both lazy-loaded,
-there is no need to use event for the plugin A, the <code>after</code> condition is enough:</p><div class=highlight><pre class=chroma><code class=language-lua data-lang=lua><span class=n>use</span> <span class=p>{</span><span class=s1>&#39;foo/bar&#39;</span><span class=p>,</span> <span class=n>event</span> <span class=o>=</span> <span class=s1>&#39;VimEnter&#39;</span><span class=p>}</span>
+directory <code>~/.config/nvim/plugin</code>.</p>
+<p>When something went wrong, always check if you have run <code>:PackerCompile</code> and
+restarted nvim. 90% time, the issue is gone.</p>
+<h2 id=no-way-to-retry-plugins-that-failed-during-installation>No way to retry plugins that failed during installation</h2>
+<p>Unlike vim-plug, when plugin installation fails, there is no re-try mechanism.
+We have to manually run <code>:PackerInstall</code> to re-install the failed plugins.</p>
+<h2 id=plugin-loading-order>Plugin loading order</h2>
+<p>When we want to load plugin A after plugin B and they are both lazy-loaded,
+there is no need to use event for the plugin A, the <code>after</code> condition is enough:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-lua data-lang=lua><span class=n>use</span> <span class=p>{</span><span class=s1>&#39;foo/bar&#39;</span><span class=p>,</span> <span class=n>event</span> <span class=o>=</span> <span class=s1>&#39;VimEnter&#39;</span><span class=p>}</span>
 <span class=n>use</span> <span class=p>{</span><span class=s1>&#39;foo/baz&#39;</span><span class=p>,</span> <span class=n>after</span> <span class=o>=</span> <span class=s1>&#39;bar&#39;</span><span class=p>}</span>
 </code></pre></div><p>If we use <code>event</code> for both <code>foo/bar</code> and <code>foo/baz</code>, <code>foo/baz</code> may not be loaded
-after <code>foo/bar</code> due to the firing of autocmd event. See also <a href=https://github.com/wbthomason/packer.nvim/issues/461>this issue</a>.</p><h2 id=issues-related-to-lazy-loaded-remote-plugins>Issues related to lazy-loaded remote plugins</h2><p>For nvim remote plugins, we need to run command <code>:UpdateRemotePlugins</code> to make
+after <code>foo/bar</code> due to the firing of autocmd event. See also <a href=https://github.com/wbthomason/packer.nvim/issues/461>this issue</a>.</p>
+<h2 id=issues-related-to-lazy-loaded-remote-plugins>Issues related to lazy-loaded remote plugins</h2>
+<p>For nvim remote plugins, we need to run command <code>:UpdateRemotePlugins</code> to make
 them work properly. By running this command, a minifest file called
 <code>rplugin.vim</code> will be generated under <code>~/.local/share/nvim/</code>, which records what
-kinds of commands a plugin provides (also see <code>:h remote-plugin</code>).</p><p>For example, for remote plugin semshi, my initial setup is:</p><div class=highlight><pre class=chroma><code class=language-lua data-lang=lua><span class=n>use</span> <span class=p>{</span><span class=s1>&#39;numirias/semshi&#39;</span><span class=p>,</span> <span class=n>run</span> <span class=o>=</span> <span class=s1>&#39;:UpdateRemotePlugins&#39;</span><span class=p>,</span> <span class=n>ft</span> <span class=o>=</span> <span class=s1>&#39;python&#39;</span><span class=p>}</span>
+kinds of commands a plugin provides (also see <code>:h remote-plugin</code>).</p>
+<p>For example, for remote plugin semshi, my initial setup is:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-lua data-lang=lua><span class=n>use</span> <span class=p>{</span><span class=s1>&#39;numirias/semshi&#39;</span><span class=p>,</span> <span class=n>run</span> <span class=o>=</span> <span class=s1>&#39;:UpdateRemotePlugins&#39;</span><span class=p>,</span> <span class=n>ft</span> <span class=o>=</span> <span class=s1>&#39;python&#39;</span><span class=p>}</span>
 </code></pre></div><p>It does not work well. When we run <code>:PackerUpdate</code> (it will run <code>: UpdateRemotePlugins</code> every time we update plugins), semshi may not be in
 runtimepath. So semshi-related command will be missing in <code>rplugin.vim</code>.
-Afterwards, when we open a Python file, we see errors that command <code>Semshi enable</code> is not available.</p><p>The correct way is to run <code>:UpdateRemotePlugins</code> after semshi is loaded:</p><div class=highlight><pre class=chroma><code class=language-lua data-lang=lua><span class=n>use</span> <span class=p>{</span><span class=s1>&#39;numirias/semshi&#39;</span><span class=p>,</span> <span class=n>ft</span> <span class=o>=</span> <span class=s1>&#39;python&#39;</span><span class=p>,</span> <span class=n>config</span> <span class=o>=</span> <span class=s1>&#39;vim.cmd [[UpdateRemotePlugins]]&#39;</span><span class=p>}</span>
-</code></pre></div><p>This way, we insure that semshi will be work properly.</p><h2 id=specify-the-plugin-url-format>Specify the plugin url format</h2><p>By default, when we use <code>use 'aaa/bbb'</code>, packer will try to clone <code>https://github.com/aaa/bbb.git</code>.
+Afterwards, when we open a Python file, we see errors that command <code>Semshi enable</code> is not available.</p>
+<p>The correct way is to run <code>:UpdateRemotePlugins</code> after semshi is loaded:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-lua data-lang=lua><span class=n>use</span> <span class=p>{</span><span class=s1>&#39;numirias/semshi&#39;</span><span class=p>,</span> <span class=n>ft</span> <span class=o>=</span> <span class=s1>&#39;python&#39;</span><span class=p>,</span> <span class=n>config</span> <span class=o>=</span> <span class=s1>&#39;vim.cmd [[UpdateRemotePlugins]]&#39;</span><span class=p>}</span>
+</code></pre></div><p>This way, we insure that semshi will be work properly.</p>
+<h2 id=specify-the-plugin-url-format>Specify the plugin url format</h2>
+<p>By default, when we use <code>use 'aaa/bbb'</code>, packer will try to clone <code>https://github.com/aaa/bbb.git</code>.
 However, due to speed issue accessing github in certain areas, the user may want to use a mirror site
 of GitHub, for example, <a href=https://fastgit.org/>fastgit</a>. Fortunately, this feature has been added recently,
-<a href=https://github.com/wbthomason/packer.nvim/issues/433>under the request of me</a> 😃.</p><p>Now, you can do the following:</p><div class=highlight><pre class=chroma><code class=language-lua data-lang=lua><span class=n>require</span><span class=p>(</span><span class=s1>&#39;packer&#39;</span><span class=p>).</span><span class=n>startup</span><span class=p>(</span>
+<a href=https://github.com/wbthomason/packer.nvim/issues/433>under the request of me</a> 😃.</p>
+<p>Now, you can do the following:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-lua data-lang=lua><span class=n>require</span><span class=p>(</span><span class=s1>&#39;packer&#39;</span><span class=p>).</span><span class=n>startup</span><span class=p>(</span>
 <span class=p>{</span>
   <span class=kr>function</span><span class=p>(</span><span class=n>use</span><span class=p>)</span>
     <span class=n>use</span> <span class=s1>&#39;aaa/bbb&#39;</span>
@@ -91,28 +253,120 @@ of GitHub, for example, <a href=https://fastgit.org/>fastgit</a>. Fortunately, t
     <span class=p>}</span>
   <span class=p>}</span>
 <span class=p>})</span>
-</code></pre></div><p>All your plugins will be clone from fastgit instead of GitHub.</p><h1 id=conclusion>Conclusion</h1><p>Although there are small issues when switching from vim-plug to packer, it is
+</code></pre></div><p>All your plugins will be clone from fastgit instead of GitHub.</p>
+<h1 id=conclusion>Conclusion</h1>
+<p>Although there are small issues when switching from vim-plug to packer, it is
 mainly because I am new to its lazy-loading feature. Overall, packer.nvim is a
 great choice if you want to manage plugins in lua. Considering that packer is a
 young plugin and the active development happening in its GitHub repo, I am sure
-that is will be maturer in short time.</p><p>My packer.nvim config can be found <a href=https://github.com/jdhao/nvim-config/blob/nvim-lsp/lua/plugins.lua>here</a>.</p><h1 id=references>References</h1><ul><li><a href=https://github.com/wbthomason/dotfiles/blob/linux/neovim/.config/nvim/lua/plugins.lua>https://github.com/wbthomason/dotfiles/blob/linux/neovim/.config/nvim/lua/plugins.lua</a></li><li>Plugin not found issue: <a href=https://github.com/lervag/vimtex/issues/1785>https://github.com/lervag/vimtex/issues/1785</a></li><li>Plugin functions not available in init.vim: <a href=https://github.com/wbthomason/packer.nvim/issues/4>https://github.com/wbthomason/packer.nvim/issues/4</a></li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>Here, <code>loaded</code> means the plugin directory will be added the runtimepath. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>If you want to minimal plugin manager in lua, try <a href=https://github.com/savq/paq-nvim>paq</a>. <a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2021-07-17</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><nav class=post-nav><a class=prev href=/2021/07/20/py_redis_cluster_delete_key_with_pattern/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Delete Keys Matching A Pattern with py-redis-cluster</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2021/07/10/quick_sort_impl/><span class="next-text nav-default">快排(quick sort) C++ 实现</span>
+that is will be maturer in short time.</p>
+<p>My packer.nvim config can be found <a href=https://github.com/jdhao/nvim-config/blob/nvim-lsp/lua/plugins.lua>here</a>.</p>
+<h1 id=references>References</h1>
+<ul>
+<li><a href=https://github.com/wbthomason/dotfiles/blob/linux/neovim/.config/nvim/lua/plugins.lua>https://github.com/wbthomason/dotfiles/blob/linux/neovim/.config/nvim/lua/plugins.lua</a></li>
+<li>Plugin not found issue: <a href=https://github.com/lervag/vimtex/issues/1785>https://github.com/lervag/vimtex/issues/1785</a></li>
+<li>Plugin functions not available in init.vim: <a href=https://github.com/wbthomason/packer.nvim/issues/4>https://github.com/wbthomason/packer.nvim/issues/4</a></li>
+</ul>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>Here, <code>loaded</code> means the plugin directory will be added the runtimepath.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p>If you want to minimal plugin manager in lua, try <a href=https://github.com/savq/paq-nvim>paq</a>.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2021-07-17
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<nav class=post-nav>
+<a class=prev href=/2021/07/20/py_redis_cluster_delete_key_with_pattern/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Delete Keys Matching A Pattern with py-redis-cluster</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2021/07/10/quick_sort_impl/>
+<span class="next-text nav-default">快排(quick sort) C++ 实现</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

@@ -1,50 +1,248 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Markdown Writing and Previewing in Neovim -- A Complete Guide - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Markdown Writing and Previewing in Neovim -- A Complete Guide"><meta property="og:description" content><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/"><meta property="article:published_time" content="2019-01-15T15:27:57+08:00"><meta property="article:modified_time" content="2021-03-01T00:31:11+08:00"><meta itemprop=name content="Markdown Writing and Previewing in Neovim -- A Complete Guide"><meta itemprop=description content><meta itemprop=datePublished content="2019-01-15T15:27:57+08:00"><meta itemprop=dateModified content="2021-03-01T00:31:11+08:00"><meta itemprop=wordCount content="997"><meta itemprop=keywords content="Markdown,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Markdown Writing and Previewing in Neovim -- A Complete Guide"><meta name=twitter:description content><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Markdown Writing and Previewing in Neovim -- A Complete Guide</h1><div class=post-meta><span class=post-time>2019-01-15</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>997 words</span>
-<span class=more-meta>5 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#introduction>Introduction</a></li><li><a href=#markdown-editing>Markdown editing</a><ul><li><a href=#distraction-free-writing>Distraction-free writing</a></li></ul></li><li><a href=#markdown-syntax-highlighting>Markdown syntax highlighting</a></li><li><a href=#markdown-previewing>Markdown previewing</a></li><li><a href=#summary>Summary</a></li></ul></nav></div></div><div class=post-content><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200214144759.png width=800></p><h1 id=introduction>Introduction</h1><p>As a Neovim user who has been using Sublime Text for code editing for some
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Markdown Writing and Previewing in Neovim -- A Complete Guide - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="Markdown Writing and Previewing in Neovim -- A Complete Guide">
+<meta property="og:description" content="
+
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2019-01-15T15:27:57+08:00">
+<meta property="article:modified_time" content="2021-03-01T00:31:11+08:00">
+<meta itemprop=name content="Markdown Writing and Previewing in Neovim -- A Complete Guide">
+<meta itemprop=description content="
+
+"><meta itemprop=datePublished content="2019-01-15T15:27:57+08:00">
+<meta itemprop=dateModified content="2021-03-01T00:31:11+08:00">
+<meta itemprop=wordCount content="996">
+<meta itemprop=keywords content="Markdown,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Markdown Writing and Previewing in Neovim -- A Complete Guide">
+<meta name=twitter:description content="
+
+"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>Markdown Writing and Previewing in Neovim -- A Complete Guide</h1>
+<div class=post-meta>
+<span class=post-time> 2019-01-15 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 996 words </span>
+<span class=more-meta> 5 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#introduction>Introduction</a></li>
+<li><a href=#markdown-editing>Markdown editing</a>
+<ul>
+<li><a href=#distraction-free-writing>Distraction-free writing</a></li>
+</ul>
+</li>
+<li><a href=#markdown-syntax-highlighting>Markdown syntax highlighting</a></li>
+<li><a href=#markdown-previewing>Markdown previewing</a></li>
+<li><a href=#summary>Summary</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20200214144759.png width=800>
+</p>
+<h1 id=introduction>Introduction</h1>
+<p>As a Neovim user who has been using Sublime Text for code editing for some
 time, I miss the experience I get when dealing with Markdown files with the
 help plugins such as <a href=https://github.com/SublimeText-Markdown/MarkdownEditing>MarkdownEditing</a> and <a href=https://github.com/facelessuser/MarkdownPreview>MarkdownPreview</a>. In this
 post, I would like to share my settings for Markdown editing inside Neovim to
-get similar experience, even better!</p><h1 id=markdown-editing>Markdown editing</h1><p>When we are editing Markdown files, it is nice to have some code snippets to
+get similar experience, even better!</p>
+<h1 id=markdown-editing>Markdown editing</h1>
+<p>When we are editing Markdown files, it is nice to have some code snippets to
 improve efficiency. Fortunately,
 <a href=https://github.com/SirVer/ultisnips>UltiSnips</a> combined with <a href=https://github.com/honza/vim-snippets>vim-snippets</a><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> provides a lot of
-useful snippets for Markdown files.</p><p>The two plugins can be install by <a href=https://github.com/junegunn/vim-plug>vim-plug</a>:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>Plug</span> <span class=s1>&#39;SirVer/ultisnips&#39;</span><span class=err>
+useful snippets for Markdown files.</p>
+<p>The two plugins can be install by <a href=https://github.com/junegunn/vim-plug>vim-plug</a>:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>Plug</span> <span class=s1>&#39;SirVer/ultisnips&#39;</span><span class=err>
 </span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;honza/vim-snippets&#39;</span><span class=err>
-</span></code></pre></div><p>We need to set up UltiSnips to use it. The following is an example setting:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; Trigger configuration. Do not use &lt;tab&gt; if you use https://github.com/Valloric/YouCompleteMe.</span><span class=err>
+</span></code></pre></div><p>We need to set up UltiSnips to use it. The following is an example setting:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; Trigger configuration. Do not use &lt;tab&gt; if you use https://github.com/Valloric/YouCompleteMe.</span><span class=err>
 </span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>UltiSnipsExpandTrigger</span><span class=p>=</span><span class=s2>&#34;&lt;tab&gt;&#34;</span>  <span class=c>&#34; use &lt;Tab&gt; to trigger autocompletion</span><span class=err>
 </span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>UltiSnipsJumpForwardTrigger</span><span class=p>=</span><span class=s2>&#34;&lt;c-j&gt;&#34;</span><span class=err>
 </span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>UltiSnipsJumpBackwardTrigger</span><span class=p>=</span><span class=s2>&#34;&lt;c-k&gt;&#34;</span><span class=err>
 </span></code></pre></div><p>In the above setting, we use <kbd>Tab</kbd> to trigger snippet expansion,
 which means that after entering the snippet keyword for a particular snippet,
 using <code>&lt;Tab></code> will expand the keyword to the full snippet template. If you have used <kbd>Tab</kbd> for other
-mappings, you can set other snippet trigger, e.g., <kbd>Ctrl</kbd> + <kbd>J</kbd>:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>UltiSnipsExpandTrigger</span><span class=p>=</span><span class=s2>&#34;&lt;C-J&gt;&#34;</span><span class=err>
+mappings, you can set other snippet trigger, e.g., <kbd>Ctrl</kbd> + <kbd>J</kbd>:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>UltiSnipsExpandTrigger</span><span class=p>=</span><span class=s2>&#34;&lt;C-J&gt;&#34;</span><span class=err>
 </span></code></pre></div><p>For example, if we type <code>link</code> and then press <code>&lt;Tab></code>, it will be expanded to
-the following text:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>[Text](http://www.url.com)
+the following text:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>[Text](http://www.url.com)
 </code></pre></div><p>Your cursor will be placed at <code>Text</code>, with <code>Text</code> being in selection mode and
 waiting for you to enter the real link text. The setting
 <code>UltiSnipsJumpForwardTrigger</code> and <code>UltiSnipsJumpBackTrigger</code> set up the
 shortcut key to go to next and previous text area of a snippet, making the
 snippet editing more convenient. Take the above inline link snippet for an
 example. Suppose we want to add an inline link to Neovim official website (the
-address is <a href=https://neovim.io/),>https://neovim.io/),</a> we can follow the steps below:</p><ol><li>Enter <code>link</code> and press <code>&lt;Tab></code> to get the link template.</li><li>Start typing <code>Neovim</code> and <code>Text</code> will be replaced by <code>Neovim</code>.</li><li>Press <code>&lt;Ctrl-F></code>. <code>www.url.com</code> will be selected.</li><li>Start typing <code>https://neovim.io/</code>.</li></ol><p>There are many more snippets you can use. Some of the commonly used snippet
-keywords are listed below:</p><ul><li>Header:<ul><li>Level 1: <code>sec</code></li><li>Level 2: <code>ssec</code></li><li>Level 3: <code>sssec</code></li><li>Level 4: <code>par</code></li><li>Level 5: <code>spar</code></li></ul></li><li>Links:<ul><li>Inline link: <code>link</code></li><li>Reference link: <code>refl</code></li><li>Image link: <code>img</code></li></ul></li><li>Code:<ul><li>Code block: <code>cbl</code></li><li>Inline code: <code>ilc</code></li></ul></li><li>Text rendering:<ul><li>Italic text: <code>*</code></li><li>Bold text: <code>**</code></li><li>Italic and bold text: <code>***</code></li></ul></li><li>General:<ul><li>date: <code>date</code></li><li>time: <code>time</code></li><li>date and exact time: <code>datetime</code></li><li>date in ISO format: <code>diso</code></li></ul></li></ul><p>Often times, you will find you want to more snippets to cover your use cases.
+address is <a href=https://neovim.io/)>https://neovim.io/)</a>, we can follow the steps below:</p>
+<ol>
+<li>Enter <code>link</code> and press <code>&lt;Tab></code> to get the link template.</li>
+<li>Start typing <code>Neovim</code> and <code>Text</code> will be replaced by <code>Neovim</code>.</li>
+<li>Press <code>&lt;Ctrl-F></code>. <code>www.url.com</code> will be selected.</li>
+<li>Start typing <code>https://neovim.io/</code>.</li>
+</ol>
+<p>There are many more snippets you can use. Some of the commonly used snippet
+keywords are listed below:</p>
+<ul>
+<li>Header:
+<ul>
+<li>Level 1: <code>sec</code></li>
+<li>Level 2: <code>ssec</code></li>
+<li>Level 3: <code>sssec</code></li>
+<li>Level 4: <code>par</code></li>
+<li>Level 5: <code>spar</code></li>
+</ul>
+</li>
+<li>Links:
+<ul>
+<li>Inline link: <code>link</code></li>
+<li>Reference link: <code>refl</code></li>
+<li>Image link: <code>img</code></li>
+</ul>
+</li>
+<li>Code:
+<ul>
+<li>Code block: <code>cbl</code></li>
+<li>Inline code: <code>ilc</code></li>
+</ul>
+</li>
+<li>Text rendering:
+<ul>
+<li>Italic text: <code>*</code></li>
+<li>Bold text: <code>**</code></li>
+<li>Italic and bold text: <code>***</code></li>
+</ul>
+</li>
+<li>General:
+<ul>
+<li>date: <code>date</code></li>
+<li>time: <code>time</code></li>
+<li>date and exact time: <code>datetime</code></li>
+<li>date in ISO format: <code>diso</code></li>
+</ul>
+</li>
+</ul>
+<p>Often times, you will find you want to more snippets to cover your use cases.
 For example, I have set up a snippet <code>meta</code> which can generate the Markdown
 front matter fore me, see <a href=https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/>here</a>
-for more details.</p><p>For how to set up Ultisnips and writing your own snippets, see <a href=https://jdhao.github.io/2019/04/17/neovim_snippet_s1/>this
-post</a>.</p><h2 id=distraction-free-writing>Distraction-free writing</h2><p>When we are writing Markdown files, we may wish to focus on the task and
+for more details.</p>
+<p>For how to set up Ultisnips and writing your own snippets, see <a href=https://jdhao.github.io/2019/04/17/neovim_snippet_s1/>this
+post</a>.</p>
+<h2 id=distraction-free-writing>Distraction-free writing</h2>
+<p>When we are writing Markdown files, we may wish to focus on the task and
 temporarily disable the distraction elements in Neovim. The plugin
 <a href=https://github.com/junegunn/goyo.vim>goyo</a> is designed specifically for this
-purpose. We can install it via vim-plug:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>Plug &#39;junegunn/goyo.vim&#39;
+purpose. We can install it via vim-plug:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Plug &#39;junegunn/goyo.vim&#39;
 </code></pre></div><p>After installing this plugin, we can use <code>Goyo</code> command to toggle between the
-normal mode and distraction-free mode.</p><p>The author also suggests installing
+normal mode and distraction-free mode.</p>
+<p>The author also suggests installing
 <a href=https://github.com/junegunn/limelight.vim>limelight</a>, which will dim all
-lines except the current line when turned on.</p><p>First, install it with vim-plug:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>Plug &#39;junegunn/limelight.vim&#39;
+lines except the current line when turned on.</p>
+<p>First, install it with vim-plug:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Plug &#39;junegunn/limelight.vim&#39;
 </code></pre></div><p>After install, we can use <code>Limelight</code> to activate it. To deactivate, use
-<code>Limelight!</code>.</p><p>We can also integrate goyo and limelight together with the following setting:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>autocmd</span><span class=p>!</span> <span class=nx>User</span> <span class=nx>GoyoEnter</span> <span class=nx>Limelight</span><span class=err>
+<code>Limelight!</code>.</p>
+<p>We can also integrate goyo and limelight together with the following setting:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>autocmd</span><span class=p>!</span> <span class=nx>User</span> <span class=nx>GoyoEnter</span> <span class=nx>Limelight</span><span class=err>
 </span><span class=err></span><span class=nx>autocmd</span><span class=p>!</span> <span class=nx>User</span> <span class=nx>GoyoLeave</span> <span class=nx>Limelight</span><span class=p>!</span><span class=err>
-</span></code></pre></div><p>when you turn on/off goyo, limelight will also be turn on/off.</p><h1 id=markdown-syntax-highlighting>Markdown syntax highlighting</h1><p>Code highlighting is also important, which helps us to see the structure of the
+</span></code></pre></div><p>when you turn on/off goyo, limelight will also be turn on/off.</p>
+<h1 id=markdown-syntax-highlighting>Markdown syntax highlighting</h1>
+<p>Code highlighting is also important, which helps us to see the structure of the
 source code more clearly. The first plugin we should install is
 <a href=https://github.com/plasticboy/vim-markdown>vim-markdown</a>. We can install it
-via vim-plug:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; tabular plugin is used to format tables</span><span class=err>
+via vim-plug:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; tabular plugin is used to format tables</span><span class=err>
 </span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;godlygeek/tabular&#39;</span><span class=err>
 </span><span class=err></span><span class=c>&#34; JSON front matter highlight plugin</span><span class=err>
 </span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;elzr/vim-json&#39;</span><span class=err>
@@ -52,7 +250,8 @@ via vim-plug:</p><div class=highlight><pre class=chroma><code class=language-vim
 </span></code></pre></div><p>Vim-markdown provides a lot of functionalities such as folding,
 <a href=http://vimdoc.sourceforge.net/htmldoc/syntax.html#conceal>conceal</a> etc. Here,
 we mainly use its syntax highlighting feature. Below are some settings for
-vim-markdown:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; disable header folding</span><span class=err>
+vim-markdown:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; disable header folding</span><span class=err>
 </span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>vim_markdown_folding_disabled</span> <span class=p>=</span> <span class=m>1</span><span class=err>
 </span><span class=err></span><span class=c>
 </span><span class=c>&#34; do not use conceal feature, the implementation is not so good</span><span class=err>
@@ -66,51 +265,162 @@ vim-markdown:</p><div class=highlight><pre class=chroma><code class=language-vim
 </span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>vim_markdown_frontmatter</span> <span class=p>=</span> <span class=m>1</span>  <span class=c>&#34; for YAML format</span><span class=err>
 </span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>vim_markdown_toml_frontmatter</span> <span class=p>=</span> <span class=m>1</span>  <span class=c>&#34; for TOML format</span><span class=err>
 </span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>vim_markdown_json_frontmatter</span> <span class=p>=</span> <span class=m>1</span>  <span class=c>&#34; for JSON format</span><span class=err>
-</span></code></pre></div><p>This plugin also provides a few shortcuts and commands:</p><ul><li>Shortcut:<ul><li><code>]]</code>: go to next header</li><li><code>[[</code>: go to previous header</li></ul></li><li>Command:<ul><li><code>Toc</code>: create a vertical window of table of contents</li><li><code>TableFormat</code>: format the table under current cursor</li></ul></li></ul><p>For more settings about these plugins, please consult their documentations.</p><p>Another good Markdown syntax plugin I recommend is
+</span></code></pre></div><p>This plugin also provides a few shortcuts and commands:</p>
+<ul>
+<li>Shortcut:
+<ul>
+<li><code>]]</code>: go to next header</li>
+<li><code>[[</code>: go to previous header</li>
+</ul>
+</li>
+<li>Command:
+<ul>
+<li><code>Toc</code>: create a vertical window of table of contents</li>
+<li><code>TableFormat</code>: format the table under current cursor</li>
+</ul>
+</li>
+</ul>
+<p>For more settings about these plugins, please consult their documentations.</p>
+<p>Another good Markdown syntax plugin I recommend is
 <a href=https://github.com/vim-pandoc/vim-pandoc-syntax>vim-pandoc-syntax</a>. It
 provides more syntax highlight and better conceal features. First, install it
-via vim-plug:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>Plug</span> <span class=s1>&#39;vim-pandoc/vim-pandoc-syntax&#39;</span><span class=err>
+via vim-plug:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>Plug</span> <span class=s1>&#39;vim-pandoc/vim-pandoc-syntax&#39;</span><span class=err>
 </span></code></pre></div><p>It is designed to work with
 <a href=https://github.com/vim-pandoc/vim-pandoc>vim-pandoc</a>. To use it as a
 standalone plugin, we should add the following settings in our Neovim
-configuration file:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>augroup</span> <span class=nx>pandoc_syntax</span><span class=err>
+configuration file:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>augroup</span> <span class=nx>pandoc_syntax</span><span class=err>
 </span><span class=err></span>    <span class=nx>au</span><span class=p>!</span> <span class=nx>BufNewFile</span><span class=p>,</span><span class=nx>BufFilePre</span><span class=p>,</span><span class=nx>BufRead</span> *.<span class=nx>md</span> <span class=nx>set</span> <span class=nx>filetype</span><span class=p>=</span><span class=nx>markdown</span>.<span class=nx>pandoc</span><span class=err>
 </span><span class=err></span><span class=nx>augroup</span> <span class=nx>END</span><span class=err>
 </span></code></pre></div><p>After all this settings, your Markdown file will be like what is shown in the
-following image:</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190115233114.png width=600></p><h1 id=markdown-previewing>Markdown previewing</h1><p>There are several Markdown previewer for Neovim on GitHub. I have tried
+following image:</p>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20190115233114.png width=600>
+</p>
+<h1 id=markdown-previewing>Markdown previewing</h1>
+<p>There are several Markdown previewer for Neovim on GitHub. I have tried
 <a href=https://github.com/previm/previm>previm</a> and
 <a href=https://github.com/iamcco/markdown-preview.nvim>markdown-preview.nvim</a>, both
 of which have cross-platform support for Nvim (Windows, Linux and macOS are
 supported). After some trail, I think markdown-preview is superior in terms of
 speed, functionality provided and rendering result. It is easy to install with
-vim-plug:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; if you don&#39;t have node and yarn, use pre build</span><span class=err>
+vim-plug:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; if you don&#39;t have node and yarn, use pre build</span><span class=err>
 </span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;iamcco/markdown-preview.nvim&#39;</span><span class=p>,</span> { <span class=s1>&#39;do&#39;</span>: { <span class=p>-&gt;</span> <span class=nx>mkdp</span>#<span class=nx>util</span>#<span class=nx>install</span><span class=p>()</span> }}<span class=err>
-</span></code></pre></div><p>Here is my setting for this plugin:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; do not close the preview tab when switching to other buffers</span><span class=err>
+</span></code></pre></div><p>Here is my setting for this plugin:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; do not close the preview tab when switching to other buffers</span><span class=err>
 </span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>mkdp_auto_close</span> <span class=p>=</span> <span class=m>0</span><span class=err>
 </span></code></pre></div><p>To start previewing a markdown file, use <code>MarkdowPreview</code> command. Your default
 browser will be opened automatically. You can also add a custom key mapping for
-this command:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>nnoremap</span> <span class=p>&lt;</span><span class=nx>M</span><span class=p>-</span><span class=nx>m</span><span class=p>&gt;</span> :<span class=nx>MarkdownPreview</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;</span><span class=err>
+this command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>nnoremap</span> <span class=p>&lt;</span><span class=nx>M</span><span class=p>-</span><span class=nx>m</span><span class=p>&gt;</span> :<span class=nx>MarkdownPreview</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;</span><span class=err>
 </span></code></pre></div><p>For other custom settings, see <a href=https://github.com/iamcco/markdown-preview.nvim#install--usage>its
-documentation</a>.</p><h1 id=summary>Summary</h1><p>In this post, I introduced the plugins and settings I use for Markdown editing,
+documentation</a>.</p>
+<h1 id=summary>Summary</h1>
+<p>In this post, I introduced the plugins and settings I use for Markdown editing,
 syntax highlighting and previewing. The end result is the smooth writing
-experience I get.</p><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>UltiSnips is the snippet engine, while vim-snippets provides the actual snippet. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2021-03-01</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Markdown/>Markdown</a></div><nav class=post-nav><a class=prev href=/2019/01/16/debug_python_in_terminal/><i class="iconfont icon-left"></i><span class="prev-text nav-default">How to Debug Python Code in Terminal</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2019/01/11/line_number_setting_nvim/><span class="next-text nav-default">Line Number Settings for More Efficient Movement in Neovim</span>
+experience I get.</p>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>UltiSnips is the snippet engine, while vim-snippets provides the actual snippet.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2021-03-01
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/Markdown/>Markdown</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/2019/01/16/debug_python_in_terminal/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">How to Debug Python Code in Terminal</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2019/01/11/line_number_setting_nvim/>
+<span class="next-text nav-default">Line Number Settings for More Efficient Movement in Neovim</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

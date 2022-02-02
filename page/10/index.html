@@ -1,57 +1,603 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/><link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's blog"><link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's blog"><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="jdhao's blog"><meta property="og:description" content="A blog for the patient and curious people"><meta property="og:type" content="website"><meta property="og:url" content="https://jdhao.github.io/"><meta property="og:updated_time" content="2022-02-02T11:17:51+08:00"><meta itemprop=name content="jdhao's blog"><meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary"><meta name=twitter:title content="jdhao's blog"><meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><section id=posts class=posts><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/04/17/python_datetime_timezone/>Get Current Time with Time Zone Info in Python</a></h1><div class=post-meta><span class=post-time>2020-04-17</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>192 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>I am trying to generate a custom time format using the Python <code>datetime</code>
-package. My original code is:</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>datetime</span> <span class=kn>import</span> <span class=n>datetime</span>
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/>
+<link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's blog">
+<link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's blog">
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="jdhao's blog">
+<meta property="og:description" content="A blog for the patient and curious people">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jdhao.github.io/">
+<meta itemprop=name content="jdhao's blog">
+<meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="jdhao's blog">
+<meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<section id=posts class=posts>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/04/17/python_datetime_timezone/>Get Current Time with Time Zone Info in Python</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-04-17 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 192 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>I am trying to generate a custom time format using the Python <code>datetime</code>
+package. My original code is:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>datetime</span> <span class=kn>import</span> <span class=n>datetime</span>
 
-<span class=k>print</span><span class=p>(</span><span class=n>datetime</span><span class=o>.</span><span class=n>now</span><span class=p>()</span><span class=o>.</span><span class=n>strftime</span><span class=p>(</span><span class=s2>&#34;%Y-%m-</span><span class=si>%d</span><span class=s2> %H:%M:%S%z&#34;</span><span class=p>))</span>
-</code></pre></div></div><div class=read-more><a href=/2020/04/17/python_datetime_timezone/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/04/13/build_webapi_with_flask_s3/>Build Web API with Flask --- Work with JSON-like Dict</a></h1><div class=post-meta><span class=post-time>2020-04-13</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>430 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>This is a simple post about how to send JSON-like Dict data to a Flask server
-via <a href=https://requests.readthedocs.io/en/master/>requests</a> package.</p></div><div class=read-more><a href=/2020/04/13/build_webapi_with_flask_s3/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/04/12/build_webapi_with_flask_s2/>Build Web API with Flask -- Post and Receive Image</a></h1><div class=post-meta><span class=post-time>2020-04-12</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>651 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>In this post, I want to write about how to build a simple image processing web
+<span class=nb>print</span><span class=p>(</span><span class=n>datetime</span><span class=o>.</span><span class=n>now</span><span class=p>()</span><span class=o>.</span><span class=n>strftime</span><span class=p>(</span><span class=s2>&#34;%Y-%m-</span><span class=si>%d</span><span class=s2> %H:%M:%S%z&#34;</span><span class=p>))</span>
+</code></pre></div>
+</div>
+<div class=read-more>
+<a href=/2020/04/17/python_datetime_timezone/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/04/13/build_webapi_with_flask_s3/>Build Web API with Flask --- Work with JSON-like Dict</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-04-13 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 430 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>This is a simple post about how to send JSON-like Dict data to a Flask server
+via <a href=https://requests.readthedocs.io/en/master/>requests</a> package.</p>
+</div>
+<div class=read-more>
+<a href=/2020/04/13/build_webapi_with_flask_s3/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/04/12/build_webapi_with_flask_s2/>Build Web API with Flask -- Post and Receive Image</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-04-12 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 651 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In this post, I want to write about how to build a simple image processing web
 API that returns the size of an image. The topics include how to build this web
-API with Flask and how to post image to this web API and get response.</p></div><div class=read-more><a href=/2020/04/12/build_webapi_with_flask_s2/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/04/06/build_webapi_with_flask_s1/>Build A Web API Service Using Flask -- The Basics</a></h1><div class=post-meta><span class=post-time>2020-04-06</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>1005 words</span>
-<span class=more-meta>5 mins read</span></div></header><div class=post-content><div class=post-summary><p>Web API is a kind of web application. Simply put, web APIs are built for other
+API with Flask and how to post image to this web API and get response.</p>
+</div>
+<div class=read-more>
+<a href=/2020/04/12/build_webapi_with_flask_s2/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/04/06/build_webapi_with_flask_s1/>Build A Web API Service Using Flask -- The Basics</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-04-06 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 1005 words </span>
+<span class=more-meta> 5 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Web API is a kind of web application. Simply put, web APIs are built for other
 applications to get info from the web server. For Python,
 <a href=https://flask.palletsprojects.com/en/1.1.x/>Flask</a> can be used to build web
-applications. In this post, I want to share how to build web APIs with Flask.</p></div><div class=read-more><a href=/2020/04/06/build_webapi_with_flask_s1/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/03/30/pptx_to_image/>Convert PPTX Slides to JPEG Images on Linux</a></h1><div class=post-meta><span class=post-time>2020-03-30</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>520 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>A short post on how to convert PPTX file to images. There are two steps. The
-first step is to convert PPTX to PDF, and the second step is convert PDF to
-JPEG image.</p></div><div class=read-more><a href=/2020/03/30/pptx_to_image/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/03/17/base64_opencv_pil_image_conversion/>Conversion between base64 and OpenCV or PIL Image</a></h1><div class=post-meta><span class=post-time>2020-03-17</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>375 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>When we are building web services using Python, we often send or receive images
+applications. In this post, I want to share how to build web APIs with Flask.</p>
+</div>
+<div class=read-more>
+<a href=/2020/04/06/build_webapi_with_flask_s1/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/03/30/pptx_to_image/>Convert PPTX Document to JPEG Images on Ubuntu</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-03-30 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 533 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<details>
+<summary><font size=2 color=red>Changelog</font></summary>
+<ul>
+<li><font color=blue>2020-12-24: Add how to convert pptx to pdf using unoconv.</font></li>
+</ul>
+</details>
+<p>In this post, I will share how to convert PPTX file to images. There are two steps.
+The first step is to convert PPTX to PDF, and the second step is to convert PDF to JPEG.</p>
+</div>
+<div class=read-more>
+<a href=/2020/03/30/pptx_to_image/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/03/17/base64_opencv_pil_image_conversion/>Conversion between base64 and OpenCV or PIL Image</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-03-17 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 375 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>When we are building web services using Python, we often send or receive images
 in <a href=https://docs.python.org/3/library/base64.html>base64</a> encoded format.
 However, when we are doing image processing tasks, we need to use PIL or
 OpenCV. In this post, I will share how to convert between OpenCV or PIL image
-and base64 encoded image.</p></div><div class=read-more><a href=/2020/03/17/base64_opencv_pil_image_conversion/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/03/16/tencent_cos_cdn_setup/>腾讯云对象存储博客图床开启 CDN 加速(不需要购买额外域名)</a></h1><div class=post-meta><span class=post-time>2020-03-16</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>1443 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>本文主要分享腾讯云对象存储开启 CDN 的方法，不需要购买额外的域名。</p></div><div class=read-more><a href=/2020/03/16/tencent_cos_cdn_setup/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/03/14/nvim_search_replace_multiple_file/>Search and Replace in Multiple Files in Vim/Neovim</a></h1><div class=post-meta><span class=post-time>2020-03-14</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>631 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary>In Sublime-Text and other editors, we can press Ctrl-Shift-F to invoke the search and replace UI. We can also accomplish this task easily in Vim or Neovim with the built-in features. Here is how.
-There are two steps involved in this task. The first step is to find the files containing the search pattern under the current project or directory. The second step is to perform replacement for each file found in 1st step.</div><div class=read-more><a href=/2020/03/14/nvim_search_replace_multiple_file/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/03/08/change_table_column_width_latex/>Change Table Column Width in LaTeX</a></h1><div class=post-meta><span class=post-time>2020-03-08</span><div class=post-category><a href=/categories/LaTeX/>LaTeX</a></div><span class=more-meta>659 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>When we <a href=https://jdhao.github.io/2019/08/27/latex_table_with_booktabs/>create tables in LaTeX</a>,
+and base64 encoded image.</p>
+</div>
+<div class=read-more>
+<a href=/2020/03/17/base64_opencv_pil_image_conversion/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/03/16/tencent_cos_cdn_setup/>腾讯云对象存储博客图床开启 CDN 加速(不需要购买额外域名)</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-03-16 </span>
+<div class=post-category>
+<a href=/categories/Blog/> Blog </a>
+</div>
+<span class=more-meta> 1443 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>本文主要分享腾讯云对象存储开启 CDN 的方法，不需要购买额外的域名。</p>
+</div>
+<div class=read-more>
+<a href=/2020/03/16/tencent_cos_cdn_setup/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/03/14/nvim_search_replace_multiple_file/>Search and Replace in Multiple Files in Vim/Neovim</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-03-14 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 629 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+In Sublime-Text and other editors, we can press Ctrl-Shift-F to invoke the search and replace UI. We can also accomplish this task easily in Vim or Neovim with the built-in features. Here is how.
+There are two steps involved in this task. The first step is to find the files containing the search pattern under the current project or directory. The second step is to perform replacement for each file found in 1st step.
+</div>
+<div class=read-more>
+<a href=/2020/03/14/nvim_search_replace_multiple_file/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/03/08/change_table_column_width_latex/>Change Table Column Width in LaTeX</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-03-08 </span>
+<div class=post-category>
+<a href=/categories/LaTeX/> LaTeX </a>
+</div>
+<span class=more-meta> 659 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>When we <a href=https://jdhao.github.io/2019/08/27/latex_table_with_booktabs/>create tables in LaTeX</a>,
 the table column width will be automatically decided based on the content in
 the table cell. Sometimes, maybe we are not satisfied with the default column
 width and want to customize the column width. In this post, we will explain how
-to it in LaTeX.</p></div><div class=read-more><a href=/2020/03/08/change_table_column_width_latex/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/03/07/latex_figure_table_side_by_side_en/>Image or Table Side by Side in LaTeX</a></h1><div class=post-meta><span class=post-time>2020-03-07</span><div class=post-category><a href=/categories/LaTeX/>LaTeX</a></div><span class=more-meta>677 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>When we are writing articles using LaTeX, we often need to create side-by-side images or tables. In this post,
-I summarize several methods to achieve that.</p></div><div class=read-more><a href=/2020/03/07/latex_figure_table_side_by_side_en/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/03/07/latex_figure_table_side_by_side_zh/>LaTeX 并排显示图像或表格</a></h1><div class=post-meta><span class=post-time>2020-03-07</span><div class=post-category><a href=/categories/LaTeX/>LaTeX</a></div><span class=more-meta>1214 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>使用 LaTeX 写文章的时候，经常需要并排显示图片或者表格，本文总结几种实现方法。</p></div><div class=read-more><a href=/2020/03/07/latex_figure_table_side_by_side_zh/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/03/06/latex_writing_tips_s2/>Tips on Writing Papers in LaTeX</a></h1><div class=post-meta><span class=post-time>2020-03-06</span><div class=post-category><a href=/categories/LaTeX/>LaTeX</a></div><span class=more-meta>288 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>Some useful tips on writing papers in LaTeX.</p></div><div class=read-more><a href=/2020/03/06/latex_writing_tips_s2/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/02/23/point_to_line_dist_2d/>Point to Line Distance in 2D Plane</a></h1><div class=post-meta><span class=post-time>2020-02-23</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>492 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>Suppose that we have a straight line formed by point B and C, and we have another point A. What is the distance from point A to line BC?</p></div><div class=read-more><a href=/2020/02/23/point_to_line_dist_2d/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/02/22/guide-on-how-to-use-chinese-with-matplotlib_zh/>解决 Matplotlib 使用中文乱码问题</a></h1><div class=post-meta><span class=post-time>2020-02-22</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>1280 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>注：这是一篇<a href=https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/>旧文</a>的中文翻译版本。</p><p>前不久，我在使用 Matplotlib 画图的时候，发现一些 Unicode 字符(例如，汉字) 无法正常显示：在生成的图片中，汉字是乱码的，显示为一个方框。经过大量的查找和阅读，我终于明白了如何在使用 Matplotlib 时，正确渲染 Unicode 字符<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>。</p></div><div class=read-more><a href=/2020/02/22/guide-on-how-to-use-chinese-with-matplotlib_zh/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/02/21/food_during_SARS-CoV-2/>疫情时期的食物</a></h1><div class=post-meta><span class=post-time>2020-02-21</span><div class=post-category><a href=/categories/life/>life</a></div><span class=more-meta>1511 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>新型冠状病毒疫情已经持续了差不多一个月，一切还没有恢复正常，3 号从家里回到深圳，正是疫情严重的时刻，大家都如临大敌。住处附近的餐馆都关了门，想在外面吃饭也不行了。为了减少外出，降低感染的风险，于是尽量从网上买菜。疫情之前，已经开始用<a href=http://www.dingdongmc.com/>叮咚买菜</a>和<a href=https://www.pupumall.com/>朴朴超市</a>，不过用的频率不高，疫情来了，更依赖这些在线服务，感谢这些疫情期间仍然开张的在线服务和送菜的小哥们。</p></div><div class=read-more><a href=/2020/02/21/food_during_SARS-CoV-2/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/02/16/ripgrep_cheat_sheet/>Ripgrep Searching CheatSheet</a></h1><div class=post-meta><span class=post-time>2020-02-16</span><div class=post-category><a href=/categories/tools/>tools</a></div><span class=more-meta>329 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p><a href=https://github.com/BurntSushi/ripgrep>Ripgrep</a> is a command line tools that searches patterns under your current directory, like the good old <a href=https://en.wikipedia.org/wiki/Grep>grep</a>, but <a href=https://blog.burntsushi.net/ripgrep/>with faster speed</a>. In this post, I list some of the commonly-used flags for ripgrep.</p></div><div class=read-more><a href=/2020/02/16/ripgrep_cheat_sheet/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/02/09/mac_connect_windows_remotely/>Mac 系统如何远程连接控制 Windows 电脑</a></h1><div class=post-meta><span class=post-time>2020-02-09</span><div class=post-category><a href=/categories/Mac/>Mac</a></div><span class=more-meta>984 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>本文简单总结 macOS 系统远程连接 Windows 电脑需要的工具以及简单设置。</p></div><div class=read-more><a href=/2020/02/09/mac_connect_windows_remotely/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/22/why_use_english_and_google/>为什么要用英语以及谷歌？</a></h1><div class=post-meta><span class=post-time>2020-01-22</span><div class=post-category><a href=/categories/thought/>thought</a></div><span class=more-meta>910 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p><a href=https://www.v2ex.com/>V2ex</a> 是一个程序员聚集的论坛，也是我经常访问的一个论坛，经常有人在论坛上提问技术问题。前两天遇到<a href=https://v2ex.com/t/637584>一个帖子</a>，问的是 vscode 如何取消按下点以后自动补全第一个候选项。</p></div><div class=read-more><a href=/2020/01/22/why_use_english_and_google/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/19/hugo_toc_header_missing/>Missing Level 1 Header in TOC in Latest Hugo</a></h1><div class=post-meta><span class=post-time>2020-01-19</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>109 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>After updating Hugo to the latest version (v0.62), apart from the issue of
+to it in LaTeX.</p>
+</div>
+<div class=read-more>
+<a href=/2020/03/08/change_table_column_width_latex/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/03/07/latex_figure_table_side_by_side_en/>Image or Table Side by Side in LaTeX</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-03-07 </span>
+<div class=post-category>
+<a href=/categories/LaTeX/> LaTeX </a>
+</div>
+<span class=more-meta> 676 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>When we are writing articles using LaTeX, we often need to create side-by-side images or tables. In this post,
+I summarize several methods to achieve that.</p>
+</div>
+<div class=read-more>
+<a href=/2020/03/07/latex_figure_table_side_by_side_en/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/03/07/latex_figure_table_side_by_side_zh/>LaTeX 并排显示图像或表格</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-03-07 </span>
+<div class=post-category>
+<a href=/categories/LaTeX/> LaTeX </a>
+</div>
+<span class=more-meta> 1214 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>使用 LaTeX 写文章的时候，经常需要并排显示图片或者表格，本文总结几种实现方法。</p>
+</div>
+<div class=read-more>
+<a href=/2020/03/07/latex_figure_table_side_by_side_zh/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/03/06/latex_writing_tips_s2/>Tips on Writing Papers in LaTeX</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-03-06 </span>
+<div class=post-category>
+<a href=/categories/LaTeX/> LaTeX </a>
+</div>
+<span class=more-meta> 288 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Some useful tips on writing papers in LaTeX.</p>
+</div>
+<div class=read-more>
+<a href=/2020/03/06/latex_writing_tips_s2/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/02/23/point_to_line_dist_2d/>Point to Line Distance in 2D Plane</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-02-23 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 492 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Suppose that we have a straight line formed by point B and C, and we have another point A. What is the distance from point A to line BC?</p>
+</div>
+<div class=read-more>
+<a href=/2020/02/23/point_to_line_dist_2d/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/02/22/guide-on-how-to-use-chinese-with-matplotlib_zh/>解决 Matplotlib 使用中文乱码问题</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-02-22 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 1322 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>注：这是一篇<a href=https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/>旧文</a>的中文翻译版本。</p>
+<p>前不久，我在使用 Matplotlib 画图的时候，发现一些 Unicode 字符(例如，汉字) 无法正常显示：在生成的图片中，汉字是乱码的，显示为一个方框。经过大量的查找和阅读，我终于明白了如何在使用 Matplotlib 时，正确渲染 Unicode 字符<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>。</p>
+</div>
+<div class=read-more>
+<a href=/2020/02/22/guide-on-how-to-use-chinese-with-matplotlib_zh/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/02/21/food_during_SARS-CoV-2/>疫情时期的食物</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-02-21 </span>
+<div class=post-category>
+<a href=/categories/life/> life </a>
+</div>
+<span class=more-meta> 1511 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>新型冠状病毒疫情已经持续了差不多一个月，一切还没有恢复正常，3 号从家里回到深圳，正是疫情严重的时刻，大家都如临大敌。住处附近的餐馆都关了门，想在外面吃饭也不行了。为了减少外出，降低感染的风险，于是尽量从网上买菜。疫情之前，已经开始用<a href=http://www.dingdongmc.com/>叮咚买菜</a>和<a href=https://www.pupumall.com/>朴朴超市</a>，不过用的频率不高，疫情来了，更依赖这些在线服务，感谢这些疫情期间仍然开张的在线服务和送菜的小哥们。</p>
+</div>
+<div class=read-more>
+<a href=/2020/02/21/food_during_SARS-CoV-2/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/02/16/ripgrep_cheat_sheet/>Ripgrep Searching CheatSheet</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-02-16 </span>
+<div class=post-category>
+<a href=/categories/tools/> tools </a>
+</div>
+<span class=more-meta> 328 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p><a href=https://github.com/BurntSushi/ripgrep>Ripgrep</a> is a command line tools that searches patterns under your current directory, like the good old <a href=https://en.wikipedia.org/wiki/Grep>grep</a>, but <a href=https://blog.burntsushi.net/ripgrep/>with faster speed</a>. In this post, I list some of the commonly-used flags for ripgrep.</p>
+</div>
+<div class=read-more>
+<a href=/2020/02/16/ripgrep_cheat_sheet/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/02/09/mac_connect_windows_remotely/>Mac 系统如何远程连接控制 Windows 电脑</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-02-09 </span>
+<div class=post-category>
+<a href=/categories/Mac/> Mac </a>
+</div>
+<span class=more-meta> 1026 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>本文简单总结 macOS 系统远程连接 Windows 电脑需要的工具以及简单设置。</p>
+</div>
+<div class=read-more>
+<a href=/2020/02/09/mac_connect_windows_remotely/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/01/22/why_use_english_and_google/>为什么要用英语以及谷歌？</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-01-22 </span>
+<div class=post-category>
+<a href=/categories/thought/> thought </a>
+</div>
+<span class=more-meta> 910 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p><a href=https://www.v2ex.com/>V2ex</a> 是一个程序员聚集的论坛，也是我经常访问的一个论坛，经常有人在论坛上提问技术问题。前两天遇到<a href=https://v2ex.com/t/637584>一个帖子</a>，问的是 vscode 如何取消按下点以后自动补全第一个候选项。</p>
+</div>
+<div class=read-more>
+<a href=/2020/01/22/why_use_english_and_google/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/01/19/hugo_toc_header_missing/>Missing Level 1 Header in TOC in Latest Hugo</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-01-19 </span>
+<div class=post-category>
+<a href=/categories/Blog/> Blog </a>
+</div>
+<span class=more-meta> 109 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>After updating Hugo to the latest version (v0.62), apart from the issue of
 <a href=https://jdhao.github.io/2019/12/29/hugo_html_not_shown/>missing HTML code</a>, I
 have also observed that level 1 header written in Markdown is not rendered in
-the generated <abbr title="Table of Content">TOC</abbr>.</p></div><div class=read-more><a href=/2020/01/19/hugo_toc_header_missing/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/12/vim_nvim_history_development/>Vim 和 Neovim 的前世今生</a></h1><div class=post-meta><span class=post-time>2020-01-12</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>3174 words</span>
-<span class=more-meta>7 mins read</span></div></header><div class=post-content><div class=post-summary><h1 id=引子>引子</h1><p>从完全使用 <a href=https://neovim.io/>Neovim</a> 进行日常<a href=https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/>项目开发</a>与<a href=https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/>文档写作</a>到现在，已经过去大约一年半的时间。一年半以前，我对 Vim 的了解还处在非常初级的阶段，甚至还不知道 Neovim，经过长时间的<a href=https://jdhao.github.io/categories/Nvim/>使用与学习</a>，目前已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。</p><p>在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的<em>恩怨情仇</em>也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。</p></div><div class=read-more><a href=/2020/01/12/vim_nvim_history_development/ class=read-more-link>Read more...</a></div></div></article></section><nav class=pagination><a class=prev href=/page/9/><i class="iconfont icon-left"></i><span class=prev-text>Prev</span></a>
-<a class=next href=/page/11/><span class=next-text>Next</span>
-<i class="iconfont icon-right"></i></a></nav></div></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+the generated <abbr title="Table of Content">TOC</abbr>.</p>
+</div>
+<div class=read-more>
+<a href=/2020/01/19/hugo_toc_header_missing/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/01/12/vim_nvim_history_development/>Vim 和 Neovim 的前世今生</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-01-12 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 3236 words </span>
+<span class=more-meta> 7 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/202202021242998.jpg width=800>
+</p>
+<h1 id=引子>引子</h1>
+<p>从完全使用 <a href=https://neovim.io/>Neovim</a> 进行日常<a href=https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/>项目开发</a>与<a href=https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/>文档写作</a>到现在，已经过去大约一年半的时间。一年半以前，我对 Vim 的了解还处在非常初级的阶段，甚至还不知道 Neovim，经过长时间的<a href=https://jdhao.github.io/categories/Nvim/>使用与学习</a>，目前已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。</p>
+<p>在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的<em>恩怨情仇</em>也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。</p>
+</div>
+<div class=read-more>
+<a href=/2020/01/12/vim_nvim_history_development/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+</section>
+<nav class=pagination>
+<a class=prev href=/page/9/>
+<i class="iconfont icon-left"></i>
+<span class=prev-text>Prev</span>
+</a>
+<a class=next href=/page/11/>
+<span class=next-text>Next</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

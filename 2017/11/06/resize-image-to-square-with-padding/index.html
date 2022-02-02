@@ -1,38 +1,166 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>How to Resize, Pad Image to Square Shape and Keep Its Aspect Ratio in Python - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="When we are using convolutional neural networks, most of the time, we need to fix the input image size to feed it to the network. The usual practice is to resize the input image to the given size (the image aspect ratio is no longer kept) and then crop a fixed size patch randomly from the resized image. This practice may work well for image classification where fine details may not be necessary. But for Image retrieval, we want to keep the image aspect ration unchanged. In this post, I will summarize ways to resize an image to square shape with padding and keep its aspect ratio."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2017/11/06/resize-image-to-square-with-padding/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="How to Resize, Pad Image to Square Shape and Keep Its Aspect Ratio in Python"><meta property="og:description" content="When we are using convolutional neural networks, most of the time, we need to
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>How to Resize, Pad Image to Square Shape and Keep Its Aspect Ratio in Python - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="When we are using convolutional neural networks, most of the time, we need to fix the input image size to feed it to the network. The usual practice is to resize the input image to the given size (the image aspect ratio is no longer kept) and then crop a fixed size patch randomly from the resized image. This practice may work well for image classification where fine details may not be necessary. But for Image retrieval, we want to keep the image aspect ration unchanged. In this post, I will summarize ways to resize an image to square shape with padding and keep its aspect ratio.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2017/11/06/resize-image-to-square-with-padding/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="How to Resize, Pad Image to Square Shape and Keep Its Aspect Ratio in Python">
+<meta property="og:description" content="When we are using convolutional neural networks, most of the time, we need to
 fix the input image size to feed it to the network. The usual practice is to
 resize the input image to the given size (the image aspect ratio is no longer
 kept) and then crop a fixed size patch randomly from the resized image. This
 practice may work well for image classification where fine details may not be
 necessary. But for Image retrieval, we want to keep the image aspect ration
 unchanged. In this post, I will summarize ways to resize an image to square
-shape with padding and keep its aspect ratio."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2017/11/06/resize-image-to-square-with-padding/"><meta property="article:published_time" content="2017-11-06T10:00:45+08:00"><meta property="article:modified_time" content="2020-03-21T00:19:36+08:00"><meta itemprop=name content="How to Resize, Pad Image to Square Shape and Keep Its Aspect Ratio in Python"><meta itemprop=description content="When we are using convolutional neural networks, most of the time, we need to
+shape with padding and keep its aspect ratio.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2017/11/06/resize-image-to-square-with-padding/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2017-11-06T10:00:45+08:00">
+<meta property="article:modified_time" content="2020-03-21T00:19:36+08:00">
+<meta itemprop=name content="How to Resize, Pad Image to Square Shape and Keep Its Aspect Ratio in Python">
+<meta itemprop=description content="When we are using convolutional neural networks, most of the time, we need to
 fix the input image size to feed it to the network. The usual practice is to
 resize the input image to the given size (the image aspect ratio is no longer
 kept) and then crop a fixed size patch randomly from the resized image. This
 practice may work well for image classification where fine details may not be
 necessary. But for Image retrieval, we want to keep the image aspect ration
 unchanged. In this post, I will summarize ways to resize an image to square
-shape with padding and keep its aspect ratio."><meta itemprop=datePublished content="2017-11-06T10:00:45+08:00"><meta itemprop=dateModified content="2020-03-21T00:19:36+08:00"><meta itemprop=wordCount content="486"><meta itemprop=keywords content="OpenCV,PIL,"><meta name=twitter:card content="summary"><meta name=twitter:title content="How to Resize, Pad Image to Square Shape and Keep Its Aspect Ratio in Python"><meta name=twitter:description content="When we are using convolutional neural networks, most of the time, we need to
+shape with padding and keep its aspect ratio."><meta itemprop=datePublished content="2017-11-06T10:00:45+08:00">
+<meta itemprop=dateModified content="2020-03-21T00:19:36+08:00">
+<meta itemprop=wordCount content="486">
+<meta itemprop=keywords content="OpenCV,PIL,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="How to Resize, Pad Image to Square Shape and Keep Its Aspect Ratio in Python">
+<meta name=twitter:description content="When we are using convolutional neural networks, most of the time, we need to
 fix the input image size to feed it to the network. The usual practice is to
 resize the input image to the given size (the image aspect ratio is no longer
 kept) and then crop a fixed size patch randomly from the resized image. This
 practice may work well for image classification where fine details may not be
 necessary. But for Image retrieval, we want to keep the image aspect ration
 unchanged. In this post, I will summarize ways to resize an image to square
-shape with padding and keep its aspect ratio."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>How to Resize, Pad Image to Square Shape and Keep Its Aspect Ratio in Python</h1><div class=post-meta><span class=post-time>2017-11-06</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>486 words</span>
-<span class=more-meta>3 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#using-pil>Using PIL</a><ul><li><a href=#resize-and-pad-with-image-module>Resize and pad with <code>Image</code> module</a></li><li><a href=#resize-and-pad-with-imageops-module>Resize and pad with <code>ImageOps</code> module</a></li></ul></li><li><a href=#using-opencv>Using OpenCV</a></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>When we are using convolutional neural networks, most of the time, we need to
+shape with padding and keep its aspect ratio."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>How to Resize, Pad Image to Square Shape and Keep Its Aspect Ratio in Python</h1>
+<div class=post-meta>
+<span class=post-time> 2017-11-06 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 486 words </span>
+<span class=more-meta> 3 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#using-pil>Using PIL</a>
+<ul>
+<li><a href=#resize-and-pad-with-image-module>Resize and pad with <code>Image</code> module</a></li>
+<li><a href=#resize-and-pad-with-imageops-module>Resize and pad with <code>ImageOps</code> module</a></li>
+</ul>
+</li>
+<li><a href=#using-opencv>Using OpenCV</a></li>
+<li><a href=#references>References</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>When we are using convolutional neural networks, most of the time, we need to
 fix the input image size to feed it to the network. The usual practice is to
 resize the input image to the given size (the image aspect ratio is no longer
 kept) and then crop a fixed size patch randomly from the resized image. This
 practice may work well for image classification where fine details may not be
 necessary. But for Image retrieval, we want to keep the image aspect ration
 unchanged. In this post, I will summarize ways to resize an image to square
-shape with padding and keep its aspect ratio.</p><p>The main idea is to first resize the input image so that its maximum size
+shape with padding and keep its aspect ratio.</p>
+<p>The main idea is to first resize the input image so that its maximum size
 equals to the given size. Then we pad the resized image to make it square. A
-number of packages in Python can easily achieves this.</p><h1 id=using-pil>Using PIL</h1><p>PIL is a popular image processing package in Python. We can use either <code>Image</code>
-module or the <code>ImageOps</code> module to achieve what we want.</p><h2 id=resize-and-pad-with-image-module>Resize and pad with <code>Image</code> module</h2><p>First we create a blank square image, then we paste the resized image on it to
-form a new image. The code is:</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span><span class=p>,</span> <span class=n>ImageOps</span>
+number of packages in Python can easily achieves this.</p>
+<h1 id=using-pil>Using PIL</h1>
+<p>PIL is a popular image processing package in Python. We can use either <code>Image</code>
+module or the <code>ImageOps</code> module to achieve what we want.</p>
+<h2 id=resize-and-pad-with-image-module>Resize and pad with <code>Image</code> module</h2>
+<p>First we create a blank square image, then we paste the resized image on it to
+form a new image. The code is:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span><span class=p>,</span> <span class=n>ImageOps</span>
 
 <span class=n>desired_size</span> <span class=o>=</span> <span class=mi>368</span>
 <span class=n>im_pth</span> <span class=o>=</span> <span class=s2>&#34;/home/jdhao/test.jpg&#34;</span>
@@ -56,18 +184,22 @@ form a new image. The code is:</p><div class=highlight><pre class=chroma><code c
                     <span class=p>(</span><span class=n>desired_size</span><span class=o>-</span><span class=n>new_size</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span><span class=o>//</span><span class=mi>2</span><span class=p>))</span>
 
 <span class=n>new_im</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre></div><h2 id=resize-and-pad-with-imageops-module>Resize and pad with <code>ImageOps</code> module</h2><p>The PIL <code>ImageOps</code> module has a <a href=https://pillow.readthedocs.io/en/stable/reference/ImageOps.html#PIL.ImageOps.expand><code>expand() function</code></a>
+</code></pre></div><h2 id=resize-and-pad-with-imageops-module>Resize and pad with <code>ImageOps</code> module</h2>
+<p>The PIL <code>ImageOps</code> module has a <a href=https://pillow.readthedocs.io/en/stable/reference/ImageOps.html#PIL.ImageOps.expand><code>expand() function</code></a>
 that will add borders to the 4 side of an image. We need to calculate the
-padding length in 4 side of the resized image before applying this method.</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=n>delta_w</span> <span class=o>=</span> <span class=n>desired_size</span> <span class=o>-</span> <span class=n>new_size</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span>
+padding length in 4 side of the resized image before applying this method.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>delta_w</span> <span class=o>=</span> <span class=n>desired_size</span> <span class=o>-</span> <span class=n>new_size</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span>
 <span class=n>delta_h</span> <span class=o>=</span> <span class=n>desired_size</span> <span class=o>-</span> <span class=n>new_size</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span>
 <span class=n>padding</span> <span class=o>=</span> <span class=p>(</span><span class=n>delta_w</span><span class=o>//</span><span class=mi>2</span><span class=p>,</span> <span class=n>delta_h</span><span class=o>//</span><span class=mi>2</span><span class=p>,</span> <span class=n>delta_w</span><span class=o>-</span><span class=p>(</span><span class=n>delta_w</span><span class=o>//</span><span class=mi>2</span><span class=p>),</span> <span class=n>delta_h</span><span class=o>-</span><span class=p>(</span><span class=n>elta_h</span><span class=o>//</span><span class=mi>2</span><span class=p>))</span>
 <span class=n>new_im</span> <span class=o>=</span> <span class=n>ImageOps</span><span class=o>.</span><span class=n>expand</span><span class=p>(</span><span class=n>im</span><span class=p>,</span> <span class=n>padding</span><span class=p>)</span>
 
 <span class=n>new_im</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre></div><h1 id=using-opencv>Using OpenCV</h1><p>In OpenCV, we have
+</code></pre></div><h1 id=using-opencv>Using OpenCV</h1>
+<p>In OpenCV, we have
 <a href=https://docs.opencv.org/3.1.0/d3/df2/tutorial_py_basic_ops.html><code>copyMakeBorder</code></a>
 which is handy in making borders. The full code to resize and pad an image is
-as follows:</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>cv2</span>
+as follows:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>cv2</span>
 
 <span class=n>desired_size</span> <span class=o>=</span> <span class=mi>368</span>
 <span class=n>im_pth</span> <span class=o>=</span> <span class=s2>&#34;/home/jdhao/test.jpg&#34;</span>
@@ -95,25 +227,106 @@ as follows:</p><div class=highlight><pre class=chroma><code class=language-pytho
 <span class=n>cv2</span><span class=o>.</span><span class=n>waitKey</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
 <span class=n>cv2</span><span class=o>.</span><span class=n>destroyAllWindows</span><span class=p>()</span>
 </code></pre></div><p>I have upload the whole script to GitHub and you can download it
-<a href=https://gist.github.com/jdhao/f8422980355301ba30b6774f610484f2>here</a>.</p><h1 id=references>References</h1><ul><li><a href=https://stackoverflow.com/questions/11142851/adding-borders-to-an-image-using-python/39321668#39321668>Stack Overflow post on how to add borders to an image.</a></li><li><a href=https://docs.opencv.org/3.1.0/d3/df2/tutorial_py_basic_ops.html>OpenCV copyMakeBorder() method usage</a></li><li><a href=https://stackoverflow.com/questions/273946/how-do-i-resize-an-image-using-pil-and-maintain-its-aspect-ratio>Resize an image using PIL</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2020-03-21</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/OpenCV/>OpenCV</a>
-<a href=/tags/PIL/>PIL</a></div><nav class=post-nav><a class=prev href=/2017/11/12/pytorch-computation-graph/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Understanding Computational Graphs in PyTorch</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2017/10/24/image-similarity-measure-image-retrieval/><span class="next-text nav-default">Similarity Measurement in Image Retrieval</span>
+<a href=https://gist.github.com/jdhao/f8422980355301ba30b6774f610484f2>here</a>.</p>
+<h1 id=references>References</h1>
+<ul>
+<li><a href=https://stackoverflow.com/questions/11142851/adding-borders-to-an-image-using-python/39321668#39321668>Stack Overflow post on how to add borders to an image.</a></li>
+<li><a href=https://docs.opencv.org/3.1.0/d3/df2/tutorial_py_basic_ops.html>OpenCV copyMakeBorder() method usage</a></li>
+<li><a href=https://stackoverflow.com/questions/273946/how-do-i-resize-an-image-using-pil-and-maintain-its-aspect-ratio>Resize an image using PIL</a></li>
+</ul>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2020-03-21
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/OpenCV/>OpenCV</a>
+<a href=/tags/PIL/>PIL</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/2017/11/12/pytorch-computation-graph/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Understanding Computational Graphs in PyTorch</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2017/10/24/image-similarity-measure-image-retrieval/>
+<span class="next-text nav-default">Similarity Measurement in Image Retrieval</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

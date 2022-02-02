@@ -1,33 +1,159 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Replace Deoplete-jedi with LSP Finally - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="Update 2021-07-15: Note that pyls has been deprecated. There is new fork of it called pylsp, which is maintained by the community.
-After using deoplete along with deoplete-jedi for more than two years, I have finally decided to try something new for code completion. Yeah, you guess it, the Language Server Protocol (LSP in short)."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Replace Deoplete-jedi with LSP Finally"><meta property="og:description" content="Update 2021-07-15: Note that pyls has been deprecated. There
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Replace Deoplete-jedi with LSP Finally - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="Update 2021-07-15: Note that pyls has been deprecated. There is new fork of it called pylsp, which is maintained by the community.
+After using deoplete along with deoplete-jedi for more than two years, I have finally decided to try something new for code completion. Yeah, you guess it, the Language Server Protocol (LSP in short).
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="Replace Deoplete-jedi with LSP Finally">
+<meta property="og:description" content="Update 2021-07-15: Note that pyls has been deprecated. There
 is new fork of it called pylsp, which is maintained by the
 community.
 After using deoplete along with deoplete-jedi for more than two years, I have
 finally decided to try something new for code completion. Yeah, you guess it,
-the Language Server Protocol (LSP in short)."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/"><meta property="article:published_time" content="2020-11-04T00:10:03+08:00"><meta property="article:modified_time" content="2021-10-16T21:45:38+08:00"><meta itemprop=name content="Replace Deoplete-jedi with LSP Finally"><meta itemprop=description content="Update 2021-07-15: Note that pyls has been deprecated. There
+the Language Server Protocol (LSP in short).">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2020-11-04T00:10:03+08:00">
+<meta property="article:modified_time" content="2021-10-16T21:45:38+08:00">
+<meta itemprop=name content="Replace Deoplete-jedi with LSP Finally">
+<meta itemprop=description content="Update 2021-07-15: Note that pyls has been deprecated. There
 is new fork of it called pylsp, which is maintained by the
 community.
 After using deoplete along with deoplete-jedi for more than two years, I have
 finally decided to try something new for code completion. Yeah, you guess it,
-the Language Server Protocol (LSP in short)."><meta itemprop=datePublished content="2020-11-04T00:10:03+08:00"><meta itemprop=dateModified content="2021-10-16T21:45:38+08:00"><meta itemprop=wordCount content="511"><meta itemprop=keywords content="LSP,pyls,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Replace Deoplete-jedi with LSP Finally"><meta name=twitter:description content="Update 2021-07-15: Note that pyls has been deprecated. There
+the Language Server Protocol (LSP in short)."><meta itemprop=datePublished content="2020-11-04T00:10:03+08:00">
+<meta itemprop=dateModified content="2021-10-16T21:45:38+08:00">
+<meta itemprop=wordCount content="511">
+<meta itemprop=keywords content="LSP,pyls,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Replace Deoplete-jedi with LSP Finally">
+<meta name=twitter:description content="Update 2021-07-15: Note that pyls has been deprecated. There
 is new fork of it called pylsp, which is maintained by the
 community.
 After using deoplete along with deoplete-jedi for more than two years, I have
 finally decided to try something new for code completion. Yeah, you guess it,
-the Language Server Protocol (LSP in short)."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Replace Deoplete-jedi with LSP Finally</h1><div class=post-meta><span class=post-time>2020-11-04</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>511 words</span>
-<span class=more-meta>3 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents></nav></div></div><div class=post-content><p><font color=red>Update 2021-07-15: Note that pyls has been deprecated. There
+the Language Server Protocol (LSP in short)."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>Replace Deoplete-jedi with LSP Finally</h1>
+<div class=post-meta>
+<span class=post-time> 2020-11-04 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 511 words </span>
+<span class=more-meta> 3 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents></nav>
+</div>
+</div>
+<div class=post-content>
+<p><font color=red>Update 2021-07-15: Note that pyls has been deprecated. There
 is new fork of it called <a href=https://github.com/python-lsp/python-lsp-server>pylsp</a>, which is maintained by the
-community.</font></p><p>After using deoplete along with deoplete-jedi for more than two years, I have
+community.</font></p>
+<p>After using deoplete along with deoplete-jedi for more than two years, I have
 finally decided to try something new for code completion. Yeah, you guess it,
-the <a href=https://langserver.org/>Language Server Protocol</a> (LSP in short).</p><p>LSP is not new. It has been around for several years. Especially with the
-<a href=https://neovim.io/doc/user/lsp.html>official LSP support in Neovim</a> core, I think it is time to go for LSP.</p><p>To use LSP, there are two parts involved. First, we need to install a language
+the <a href=https://langserver.org/>Language Server Protocol</a> (LSP in short).</p>
+<p>LSP is not new. It has been around for several years. Especially with the
+<a href=https://neovim.io/doc/user/lsp.html>official LSP support in Neovim</a> core, I think it is time to go for LSP.</p>
+<p>To use LSP, there are two parts involved. First, we need to install a language
 server for the language we use. Second, we need to use a plugin that acts as an
-LSP client that communicates with this server.</p><p>There are quite a few LSP clients out there. Some of the most popular ones are:</p><ul><li><a href=https://github.com/neoclide/coc.nvim>coc.nvim</a></li><li><a href=https://github.com/prabirshrestha/vim-lsp>vim-lsp</a></li><li><a href=https://github.com/autozimu/LanguageClient-neovim>LanguageClient-neovim</a></li><li><a href=https://github.com/natebosch/vim-lsc>vim-lsc</a></li><li>Neovim built-in LSP client (you need to install <a href=https://github.com/neovim/nvim-lspconfig>nvim-lspconfig</a> for easier configuration)</li></ul><p>I want something simple to set up, powerful, and yet not too monolithic. So I
+LSP client that communicates with this server.</p>
+<p>There are quite a few LSP clients out there. Some of the most popular ones are:</p>
+<ul>
+<li><a href=https://github.com/neoclide/coc.nvim>coc.nvim</a></li>
+<li><a href=https://github.com/prabirshrestha/vim-lsp>vim-lsp</a></li>
+<li><a href=https://github.com/autozimu/LanguageClient-neovim>LanguageClient-neovim</a></li>
+<li><a href=https://github.com/natebosch/vim-lsc>vim-lsc</a></li>
+<li>Neovim built-in LSP client (you need to install <a href=https://github.com/neovim/nvim-lspconfig>nvim-lspconfig</a> for easier configuration)</li>
+</ul>
+<p>I want something simple to set up, powerful, and yet not too monolithic. So I
 choose vim-lsp for a try. Here is how to configure it for Python
-auto-completion and more.</p><p>First, we need to install a language server for Python.
-<a href=https://github.com/palantir/python-language-server>pyls</a> is good choice. First, install pyls:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>pip install <span class=s2>&#34;python-language-server[all]&#34;</span>
-</code></pre></div><p>After that, we need to install several plugins and configure it a bit:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>Plug</span> <span class=s1>&#39;prabirshrestha/vim-lsp&#39;</span><span class=err>
+auto-completion and more.</p>
+<p>First, we need to install a language server for Python.
+<a href=https://github.com/palantir/python-language-server>pyls</a> is good choice. First, install pyls:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>pip install <span class=s2>&#34;python-language-server[all]&#34;</span>
+</code></pre></div><p>After that, we need to install several plugins and configure it a bit:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>Plug</span> <span class=s1>&#39;prabirshrestha/vim-lsp&#39;</span><span class=err>
 </span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;Shougo/deoplete.nvim&#39;</span><span class=err>
 </span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;lighttiger2505/deoplete-vim-lsp&#39;</span><span class=err>
 </span><span class=err></span><span class=c>
@@ -63,13 +189,18 @@ auto-completion and more.</p><p>First, we need to install a language server for 
 </span><span class=err></span><span class=nx>augroup</span> <span class=nx>END</span><span class=err>
 </span></code></pre></div><p>By default, vim-lsp does not provide auto-completion feature, you need to use
 <code>omnifunc</code> and trigger completion yourself. If you like this, uncomment the
-following line in above config:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>    &#34; setlocal omnifunc=lsp#complete
+following line in above config:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>    &#34; setlocal omnifunc=lsp#complete
 </code></pre></div><p>Then trigger completion via <code>CTRL-X_CTRL-O</code> (<code>Ctrl-X</code> followed by <code>Ctrl-O</code>) in
-insert mode.</p><p>Plugin <code>deoplete.nvim</code> and <code>lighttiger2505/deoplete-vim-lsp</code> are used to
-provide IDE-like auto-completion feature.</p><p>There are other plugins that provide auto-completion support based on vim-lsp, for example,
-<a href=https://github.com/prabirshrestha/asyncomplete.vim><code>asyncomplete.vim</code></a> along with <code>asyncomplete-lsp.vim</code>.</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>Plug</span> <span class=s1>&#39;prabirshrestha/asyncomplete.vim&#39;</span><span class=err>
+insert mode.</p>
+<p>Plugin <code>deoplete.nvim</code> and <code>lighttiger2505/deoplete-vim-lsp</code> are used to
+provide IDE-like auto-completion feature.</p>
+<p>There are other plugins that provide auto-completion support based on vim-lsp, for example,
+<a href=https://github.com/prabirshrestha/asyncomplete.vim><code>asyncomplete.vim</code></a> along with <code>asyncomplete-lsp.vim</code>.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>Plug</span> <span class=s1>&#39;prabirshrestha/asyncomplete.vim&#39;</span><span class=err>
 </span><span class=err></span><span class=nx>Plug</span> <span class=s1>&#39;prabirshrestha/asyncomplete-lsp.vim&#39;</span><span class=err>
-</span></code></pre></div><p>vim-lsp has a lot of options to tweak, some of the configs are:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; whether to enable diagnostics for vim-lsp (we may want to use ALE for other</span><span class=err>
+</span></code></pre></div><p>vim-lsp has a lot of options to tweak, some of the configs are:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; whether to enable diagnostics for vim-lsp (we may want to use ALE for other</span><span class=err>
 </span><span class=err></span><span class=c>&#34; plugins for that.</span><span class=err>
 </span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>lsp_diagnostics_enabled</span> <span class=p>=</span> <span class=m>1</span><span class=err>
 </span><span class=err></span><span class=c>
@@ -88,26 +219,102 @@ provide IDE-like auto-completion feature.</p><p>There are other plugins that pro
 </span><span class=err></span><span class=c>&#34; whether to enable highlight a symbol and its references</span><span class=err>
 </span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>lsp_highlight_references_enabled</span> <span class=p>=</span> <span class=m>1</span><span class=err>
 </span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>lsp_preview_max_width</span> <span class=p>=</span> <span class=m>80</span><span class=err>
-</span></code></pre></div><p>See <code>:h vim-lsp</code> for more details.</p><p>After all these settings, we should get a Python auto-completion, diagnostics
-etc. using LSP.</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2021-10-16</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/LSP/>LSP</a>
-<a href=/tags/pyls/>pyls</a></div><nav class=post-nav><a class=prev href=/2020/11/05/pyls_flake8_setup/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Flake8 Config in Pyls for Code Linting.</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2020/10/31/busuanzi_pv_count_error/><span class="next-text nav-default">解决不蒜子 (busuanzi) 文章计数出错问题</span>
+</span></code></pre></div><p>See <code>:h vim-lsp</code> for more details.</p>
+<p>After all these settings, we should get a Python auto-completion, diagnostics
+etc. using LSP.</p>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2021-10-16
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/LSP/>LSP</a>
+<a href=/tags/pyls/>pyls</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/2020/11/05/pyls_flake8_setup/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Flake8 Config in Pyls for Code Linting.</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2020/10/31/busuanzi_pv_count_error/>
+<span class="next-text nav-default">解决不蒜子 (busuanzi) 文章计数出错问题</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

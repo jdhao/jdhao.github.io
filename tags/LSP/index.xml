@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LSP on jdhao's blog</title><link>https://jdhao.github.io/tags/LSP/</link><description>Recent content in LSP on jdhao's blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Wed, 01 Dec 2021 22:25:30 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/LSP/index.xml" rel="self" type="application/rss+xml"/><item><title>Migration from Nvim 0.5.1 to Nvim 0.6.0</title><link>https://jdhao.github.io/2021/12/01/nvim_v06_released/</link><pubDate>Wed, 01 Dec 2021 22:25:30 +0800</pubDate><guid>https://jdhao.github.io/2021/12/01/nvim_v06_released/</guid><description>&lt;p>About five months ago, the biggest update of Nvim comes with its &lt;a href="https://github.com/neovim/neovim/releases/tag/v0.5.0">v0.5.0
+release&lt;/a>. With v0.5, we finally get the official LSP support in Nvim core and
+better Lua support, among other features and bug fixes&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.&lt;/p>
+&lt;p>TL;DR: My LSP-related config can be found &lt;a href="https://github.com/jdhao/nvim-config/blob/master/lua/config/lsp.lua">here&lt;/a>.&lt;/p></description></item><item><title>Setting up sumneko lua for Nvim-lsp</title><link>https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/</link><pubDate>Thu, 12 Aug 2021 00:14:12 +0800</pubDate><guid>https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202202020047792.jpg" width="600">
+&lt;/p>
+&lt;p>In this post, I will share how to set up &lt;a href="https://github.com/sumneko/lua-language-server">sumneko lua&lt;/a> for &lt;a href="https://github.com/neovim/nvim-lspconfig">nvim-lspconfig&lt;/a>.&lt;/p></description></item><item><title>Setting up Neovim for C++ Development with LSP</title><link>https://jdhao.github.io/2020/11/29/neovim_cpp_dev_setup/</link><pubDate>Sun, 29 Nov 2020 23:55:52 +0800</pubDate><guid>https://jdhao.github.io/2020/11/29/neovim_cpp_dev_setup/</guid><description>&lt;p>In this post, I would like to share how to set up Neovim for writing simple C++
+programs.&lt;/p></description></item><item><title>Set up Fuzzy Completion for Vim-lsp</title><link>https://jdhao.github.io/2020/11/16/vim_lsp_fuzzy_completion/</link><pubDate>Mon, 16 Nov 2020 22:37:02 +0800</pubDate><guid>https://jdhao.github.io/2020/11/16/vim_lsp_fuzzy_completion/</guid><description>&lt;p>&lt;font color="red">Update 2021-07-15: Note that pyls has been deprecated. There
+is new fork of it called &lt;a href="https://github.com/python-lsp/python-lsp-server">pylsp&lt;/a>, which is maintained by the
+community.&lt;/font>&lt;/p>
+&lt;p>In my &lt;a href="https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/">older post&lt;/a>, I have shared how to set up
+auto-completion for vim-lsp with the help of deoplete. One annoyance is that I
+can not use fuzzy matching for auto-completion: the completion items in the
+pop-up completion menu seems to be selected base on prefix matching.&lt;/p></description></item><item><title>Flake8 Config in Pyls for Code Linting.</title><link>https://jdhao.github.io/2020/11/05/pyls_flake8_setup/</link><pubDate>Thu, 05 Nov 2020 00:27:36 +0800</pubDate><guid>https://jdhao.github.io/2020/11/05/pyls_flake8_setup/</guid><description>&lt;p>&lt;font color="red">Update 2021-07-15: Note that pyls has been deprecated. There
+is new fork of it called &lt;a href="https://github.com/python-lsp/python-lsp-server">pylsp&lt;/a>, which is maintained by the
+community.&lt;/font>&lt;/p>
+&lt;p>In my &lt;a href="https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/">previous post&lt;/a>, I have go over the basic setup to make vim-lsp work.
+However, I haven&amp;rsquo;t touch on an important part of writing code: linting. It
+turns out that configure it correctly is harder than I thought.&lt;/p></description></item><item><title>Replace Deoplete-jedi with LSP Finally</title><link>https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/</link><pubDate>Wed, 04 Nov 2020 00:10:03 +0800</pubDate><guid>https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/</guid><description>&lt;p>&lt;font color="red">Update 2021-07-15: Note that pyls has been deprecated. There
+is new fork of it called &lt;a href="https://github.com/python-lsp/python-lsp-server">pylsp&lt;/a>, which is maintained by the
+community.&lt;/font>&lt;/p>
+&lt;p>After using deoplete along with deoplete-jedi for more than two years, I have
+finally decided to try something new for code completion. Yeah, you guess it,
+the &lt;a href="https://langserver.org/">Language Server Protocol&lt;/a> (LSP in short).&lt;/p></description></item><item><title>Vim 和 Neovim 的前世今生</title><link>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</link><pubDate>Sun, 12 Jan 2020 11:48:43 +0800</pubDate><guid>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202202021242998.jpg" width="800">
+&lt;/p>
+&lt;h1 id="引子">引子&lt;/h1>
+&lt;p>从完全使用 &lt;a href="https://neovim.io/">Neovim&lt;/a> 进行日常&lt;a href="https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/">项目开发&lt;/a>与&lt;a href="https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/">文档写作&lt;/a>到现在，已经过去大约一年半的时间。一年半以前，我对 Vim 的了解还处在非常初级的阶段，甚至还不知道 Neovim，经过长时间的&lt;a href="https://jdhao.github.io/categories/Nvim/">使用与学习&lt;/a>，目前已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。&lt;/p>
+&lt;p>在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的&lt;em>恩怨情仇&lt;/em>也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。&lt;/p></description></item><item><title>A Hands-on Experience with Neovim's Built-in LSP Support</title><link>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</link><pubDate>Wed, 20 Nov 2019 22:41:16 +0800</pubDate><guid>https://jdhao.github.io/2019/11/20/neovim_builtin_lsp_hands_on/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2021-07-15: use pylsp instead of pyls since pyls is obsolete.&lt;/font>&lt;/li>
+&lt;li>&lt;font color="blue">2021-04-08: update post based on latest version of Neovim-lsp.&lt;/font>&lt;/li>
+&lt;li>&lt;font color="blue">2020-09-14: update lsp config to reflect the latest changes and add more plugins.&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;p>Just a few days ago, the built-in &lt;a href="https://microsoft.github.io/language-server-protocol/">Language Server Protocol&lt;/a>
+support &lt;a href="https://github.com/neovim/neovim/pull/11336">has been merged&lt;/a> into Neovim master.&lt;/p>
+&lt;p>This post is a hands-on experience of setting up LSP support for Python with
+the &lt;a href="https://github.com/python-lsp/python-lsp-server">python-lsp-server&lt;/a>.&lt;/p>
+&lt;p>Note that settings here may be obsolete due to rapid evolving of the built-in lsp.&lt;/p></description></item></channel></rss>

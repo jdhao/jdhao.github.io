@@ -1,39 +1,172 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>How To Put Legend outside of Axes Properly in Matplotlib? - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="When we want to put legend somewhere in a figure using Matplotlib, most of the time, the option loc='best' will produce the desired results. However, sometimes, we may want to have finer control over where the legend should be in the image. For example, we may want to put the legend outside of the axes, which is impossible using loc='best'."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2018/01/23/matplotlib-legend-outside-of-axes/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="How To Put Legend outside of Axes Properly in Matplotlib?"><meta property="og:description" content="When we want to put legend somewhere in a figure using Matplotlib, most of the
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>How To Put Legend outside of Axes Properly in Matplotlib? - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="When we want to put legend somewhere in a figure using Matplotlib, most of the time, the option loc='best' will produce the desired results. However, sometimes, we may want to have finer control over where the legend should be in the image. For example, we may want to put the legend outside of the axes, which is impossible using loc='best'.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2018/01/23/matplotlib-legend-outside-of-axes/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="How To Put Legend outside of Axes Properly in Matplotlib?">
+<meta property="og:description" content="When we want to put legend somewhere in a figure using Matplotlib, most of the
 time, the option loc='best' will produce the desired results. However,
 sometimes, we may want to have finer control over where the legend should be in
 the image. For example, we may want to put the legend outside of the axes,
-which is impossible using loc='best'."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2018/01/23/matplotlib-legend-outside-of-axes/"><meta property="article:published_time" content="2018-01-23T14:51:45+08:00"><meta property="article:modified_time" content="2020-03-19T00:56:41+08:00"><meta itemprop=name content="How To Put Legend outside of Axes Properly in Matplotlib?"><meta itemprop=description content="When we want to put legend somewhere in a figure using Matplotlib, most of the
+which is impossible using loc='best'.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2018/01/23/matplotlib-legend-outside-of-axes/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2018-01-23T14:51:45+08:00">
+<meta property="article:modified_time" content="2020-03-19T00:56:41+08:00">
+<meta itemprop=name content="How To Put Legend outside of Axes Properly in Matplotlib?">
+<meta itemprop=description content="When we want to put legend somewhere in a figure using Matplotlib, most of the
 time, the option loc='best' will produce the desired results. However,
 sometimes, we may want to have finer control over where the legend should be in
 the image. For example, we may want to put the legend outside of the axes,
-which is impossible using loc='best'."><meta itemprop=datePublished content="2018-01-23T14:51:45+08:00"><meta itemprop=dateModified content="2020-03-19T00:56:41+08:00"><meta itemprop=wordCount content="714"><meta itemprop=keywords content="Matplotlib,"><meta name=twitter:card content="summary"><meta name=twitter:title content="How To Put Legend outside of Axes Properly in Matplotlib?"><meta name=twitter:description content="When we want to put legend somewhere in a figure using Matplotlib, most of the
+which is impossible using loc='best'."><meta itemprop=datePublished content="2018-01-23T14:51:45+08:00">
+<meta itemprop=dateModified content="2020-03-19T00:56:41+08:00">
+<meta itemprop=wordCount content="714">
+<meta itemprop=keywords content="Matplotlib,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="How To Put Legend outside of Axes Properly in Matplotlib?">
+<meta name=twitter:description content="When we want to put legend somewhere in a figure using Matplotlib, most of the
 time, the option loc='best' will produce the desired results. However,
 sometimes, we may want to have finer control over where the legend should be in
 the image. For example, we may want to put the legend outside of the axes,
-which is impossible using loc='best'."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>How To Put Legend outside of Axes Properly in Matplotlib?</h1><div class=post-meta><span class=post-time>2018-01-23</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>714 words</span>
-<span class=more-meta>4 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#put-legend-in-your-desired-position>Put legend in your desired position</a><ul><li><a href=#when-there-are-four-values-for-bbox_to_anchor>When there are four values for <code>bbox_to_anchor</code></a></li><li><a href=#when-there-are-only-two-values-for-bbox_to_anchor>When there are only two values for <code>bbox_to_anchor</code></a></li></ul></li><li><a href=#put-legend-outside-of-the-axes-box>Put legend outside of the axes box</a><ul><li><a href=#caveat>Caveat</a></li></ul></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>When we want to put legend somewhere in a figure using Matplotlib, most of the
+which is impossible using loc='best'."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>How To Put Legend outside of Axes Properly in Matplotlib?</h1>
+<div class=post-meta>
+<span class=post-time> 2018-01-23 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 714 words </span>
+<span class=more-meta> 4 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#put-legend-in-your-desired-position>Put legend in your desired position</a>
+<ul>
+<li><a href=#when-there-are-four-values-for-bbox_to_anchor>When there are four values for <code>bbox_to_anchor</code></a></li>
+<li><a href=#when-there-are-only-two-values-for-bbox_to_anchor>When there are only two values for <code>bbox_to_anchor</code></a></li>
+</ul>
+</li>
+<li><a href=#put-legend-outside-of-the-axes-box>Put legend outside of the axes box</a>
+<ul>
+<li><a href=#caveat>Caveat</a></li>
+</ul>
+</li>
+<li><a href=#references>References</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>When we want to put legend somewhere in a figure using Matplotlib, most of the
 time, the option <code>loc='best'</code> will produce the desired results. However,
 sometimes, we may want to have finer control over where the legend should be in
 the image. For example, we may want to put the legend outside of the axes,
-which is impossible using <code>loc='best'</code>.</p><h1 id=put-legend-in-your-desired-position>Put legend in your desired position</h1><p>According to the
+which is impossible using <code>loc='best'</code>.</p>
+<h1 id=put-legend-in-your-desired-position>Put legend in your desired position</h1>
+<p>According to the
 <a href=https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.legend.html#matplotlib-axes-axes-legend>documentation</a>
 of Axes.legend() method, we can use the parameters <code>loc</code> and <code>bbox_to_anchor</code>
 to control the position of the legend. Unfortunately, the documentation for the
-two parameters are not very clear.</p><p>In plain words, <code>bbox_to_anchor</code> accepts a list of four values: <code>(x0, y0, width, height)</code>. It will create a bounding box on the axes, inside which the
+two parameters are not very clear.</p>
+<p>In plain words, <code>bbox_to_anchor</code> accepts a list of four values: <code>(x0, y0, width, height)</code>. It will create a bounding box on the axes, inside which the
 actual legend will be placed. The lower left coordinate of the bounding box is
 <code>(x0, y0)</code>. Its width and height are given by <code>width</code> and <code>height</code>,
 respectively. Often, you will see that a list of only two values are given to
 <code>bbox_to_anchor</code>, which means that the width and height of the bounding box is
-zero.</p><p>The parameter <code>loc</code> denotes the alignment relationship between the actual
+zero.</p>
+<p>The parameter <code>loc</code> denotes the alignment relationship between the actual
 legend box and the bounding box. It means that different position indicated by
 <code>loc</code> in both the legend box and bounding box will be put at the same point.
 For example, if <code>loc='center'</code>, the center of legend box and the bounding box
 will be at the same point. If <code>loc='center right'</code>, the center of the right
 edge of the legend box and the bounding box will be aligned (i.e., at the same
-point).</p><p>So much for the text. Let&rsquo;s take some examples to better illustrate the idea.</p><h2 id=when-there-are-four-values-for-bbox_to_anchor>When there are four values for <code>bbox_to_anchor</code></h2><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=kn>as</span> <span class=nn>plt</span>
-<span class=kn>import</span> <span class=nn>numpy</span> <span class=kn>as</span> <span class=nn>np</span>
-<span class=kn>import</span> <span class=nn>matplotlib.patches</span> <span class=kn>as</span> <span class=nn>patches</span>
+point).</p>
+<p>So much for the text. Let&rsquo;s take some examples to better illustrate the idea.</p>
+<h2 id=when-there-are-four-values-for-bbox_to_anchor>When there are four values for <code>bbox_to_anchor</code></h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
+<span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+<span class=kn>import</span> <span class=nn>matplotlib.patches</span> <span class=k>as</span> <span class=nn>patches</span>
 
 <span class=n>locs</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;upper right&#39;</span><span class=p>,</span> <span class=s1>&#39;lower left&#39;</span><span class=p>,</span> <span class=s1>&#39;center left&#39;</span><span class=p>,</span> <span class=s1>&#39;lower center&#39;</span><span class=p>,</span> <span class=s1>&#39;center&#39;</span><span class=p>,</span>
         <span class=s1>&#39;right&#39;</span><span class=p>]</span>
@@ -49,26 +182,33 @@ point).</p><p>So much for the text. Let&rsquo;s take some examples to better ill
 <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>2</span><span class=p>):</span>
     <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>3</span><span class=p>):</span>
         <span class=n>ax</span> <span class=o>=</span> <span class=n>fig</span><span class=o>.</span><span class=n>add_subplot</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=n>idx</span><span class=p>)</span>
-        <span class=n>ax</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>,</span> <span class=n>label</span><span class=o>=</span><span class=sa>r</span><span class=s1>&#39;$\frac{1}{x}$&#39;</span><span class=p>)</span>
+        <span class=n>ax</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>,</span> <span class=n>label</span><span class=o>=</span><span class=sa>r</span><span class=s1>&#39;$\frac</span><span class=si>{1}{x}</span><span class=s1>$&#39;</span><span class=p>)</span>
         <span class=n>ax</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>loc</span><span class=o>=</span><span class=n>locs</span><span class=p>[</span><span class=n>idx</span><span class=o>-</span><span class=mi>1</span><span class=p>],</span> <span class=n>bbox_to_anchor</span><span class=o>=</span><span class=p>(</span><span class=n>x0</span><span class=p>,</span> <span class=n>y0</span><span class=p>,</span> <span class=n>width</span><span class=p>,</span> <span class=n>height</span><span class=p>),</span>
             <span class=n>edgecolor</span><span class=o>=</span><span class=s1>&#39;g&#39;</span><span class=p>,</span> <span class=n>fontsize</span><span class=o>=</span><span class=s1>&#39;large&#39;</span><span class=p>,</span> <span class=n>framealpha</span><span class=o>=</span><span class=mf>0.5</span><span class=p>,</span>
             <span class=n>borderaxespad</span><span class=o>=</span><span class=mi>0</span><span class=p>)</span>
         <span class=n>ax</span><span class=o>.</span><span class=n>add_patch</span><span class=p>(</span>
             <span class=n>patches</span><span class=o>.</span><span class=n>Rectangle</span><span class=p>((</span><span class=n>x0</span><span class=p>,</span> <span class=n>y0</span><span class=p>),</span> <span class=n>width</span><span class=p>,</span> <span class=n>height</span><span class=p>,</span> <span class=n>color</span><span class=o>=</span><span class=s1>&#39;r&#39;</span><span class=p>,</span>
-                            <span class=n>fill</span><span class=o>=</span><span class=bp>False</span><span class=p>,</span> <span class=n>transform</span><span class=o>=</span><span class=n>ax</span><span class=o>.</span><span class=n>transAxes</span><span class=p>)</span>
+                            <span class=n>fill</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>transform</span><span class=o>=</span><span class=n>ax</span><span class=o>.</span><span class=n>transAxes</span><span class=p>)</span>
         <span class=p>)</span>
-        <span class=n>ax</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.6</span><span class=p>,</span> <span class=mf>0.2</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=s2>&#34;loc = &#39;{}&#39;&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>locs</span><span class=p>[</span><span class=n>idx</span><span class=o>-</span><span class=mi>1</span><span class=p>]),</span>
+        <span class=n>ax</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.6</span><span class=p>,</span> <span class=mf>0.2</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=s2>&#34;loc = &#39;</span><span class=si>{}</span><span class=s2>&#39;&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>locs</span><span class=p>[</span><span class=n>idx</span><span class=o>-</span><span class=mi>1</span><span class=p>]),</span>
         <span class=n>transform</span><span class=o>=</span><span class=n>ax</span><span class=o>.</span><span class=n>transAxes</span><span class=p>)</span>
         <span class=n>idx</span> <span class=o>+=</span> <span class=mi>1</span>
 
 <span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre></div><p>The above code will produce the image below</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/18-1-24/74094605.jpg width=600></p><p>In the above image, the red box is the bounding box, and the green box is the
+</code></pre></div><p>The above code will produce the image below</p>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/18-1-24/74094605.jpg width=600>
+</p>
+<p>In the above image, the red box is the bounding box, and the green box is the
 legend box. <code>loc</code> in each subplot indicates the alignment between the two
-boxes.</p><h2 id=when-there-are-only-two-values-for-bbox_to_anchor>When there are only two values for <code>bbox_to_anchor</code></h2><p>When there are only two values given to <code>bbox_to_anchor</code>, the bounding box
+boxes.</p>
+<h2 id=when-there-are-only-two-values-for-bbox_to_anchor>When there are only two values for <code>bbox_to_anchor</code></h2>
+<p>When there are only two values given to <code>bbox_to_anchor</code>, the bounding box
 width and height are set to zero. So the bounding box will become a tiny little
-point. Let&rsquo;s modify the above code slightly,</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=kn>as</span> <span class=nn>plt</span>
-<span class=kn>import</span> <span class=nn>numpy</span> <span class=kn>as</span> <span class=nn>np</span>
-<span class=kn>import</span> <span class=nn>matplotlib.patches</span> <span class=kn>as</span> <span class=nn>patches</span>
+point. Let&rsquo;s modify the above code slightly,</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
+<span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
+<span class=kn>import</span> <span class=nn>matplotlib.patches</span> <span class=k>as</span> <span class=nn>patches</span>
 
 <span class=n>locs</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;upper right&#39;</span><span class=p>,</span> <span class=s1>&#39;lower left&#39;</span><span class=p>,</span> <span class=s1>&#39;center left&#39;</span><span class=p>,</span> <span class=s1>&#39;lower center&#39;</span><span class=p>,</span> <span class=s1>&#39;center&#39;</span><span class=p>,</span>
         <span class=s1>&#39;right&#39;</span><span class=p>]</span>
@@ -84,23 +224,29 @@ point. Let&rsquo;s modify the above code slightly,</p><div class=highlight><pre 
 <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>2</span><span class=p>):</span>
     <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>3</span><span class=p>):</span>
         <span class=n>ax</span> <span class=o>=</span> <span class=n>fig</span><span class=o>.</span><span class=n>add_subplot</span><span class=p>(</span><span class=mi>3</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=n>idx</span><span class=p>)</span>
-        <span class=n>ax</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>,</span> <span class=n>label</span><span class=o>=</span><span class=sa>r</span><span class=s1>&#39;$\frac{1}{x}$&#39;</span><span class=p>)</span>
+        <span class=n>ax</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>,</span> <span class=n>label</span><span class=o>=</span><span class=sa>r</span><span class=s1>&#39;$\frac</span><span class=si>{1}{x}</span><span class=s1>$&#39;</span><span class=p>)</span>
         <span class=n>ax</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>loc</span><span class=o>=</span><span class=n>locs</span><span class=p>[</span><span class=n>idx</span><span class=o>-</span><span class=mi>1</span><span class=p>],</span> <span class=n>bbox_to_anchor</span><span class=o>=</span><span class=p>(</span><span class=n>x0</span><span class=p>,</span> <span class=n>y0</span><span class=p>,</span> <span class=n>width</span><span class=p>,</span> <span class=n>height</span><span class=p>),</span>
             <span class=n>edgecolor</span><span class=o>=</span><span class=s1>&#39;g&#39;</span><span class=p>,</span> <span class=n>fontsize</span><span class=o>=</span><span class=s1>&#39;large&#39;</span><span class=p>,</span> <span class=n>framealpha</span><span class=o>=</span><span class=mf>0.5</span><span class=p>,</span>
             <span class=n>borderaxespad</span><span class=o>=</span><span class=mi>0</span><span class=p>)</span>
         <span class=n>ax</span><span class=o>.</span><span class=n>add_patch</span><span class=p>(</span>
             <span class=n>patches</span><span class=o>.</span><span class=n>Rectangle</span><span class=p>((</span><span class=n>x0</span><span class=p>,</span> <span class=n>y0</span><span class=p>),</span> <span class=n>width</span><span class=p>,</span> <span class=n>height</span><span class=p>,</span> <span class=n>color</span><span class=o>=</span><span class=s1>&#39;r&#39;</span><span class=p>,</span>
-                            <span class=n>fill</span><span class=o>=</span><span class=bp>False</span><span class=p>,</span> <span class=n>transform</span><span class=o>=</span><span class=n>ax</span><span class=o>.</span><span class=n>transAxes</span><span class=p>)</span>
+                            <span class=n>fill</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>transform</span><span class=o>=</span><span class=n>ax</span><span class=o>.</span><span class=n>transAxes</span><span class=p>)</span>
         <span class=p>)</span>
-        <span class=n>ax</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.6</span><span class=p>,</span> <span class=mf>0.2</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=s2>&#34;loc = &#39;{}&#39;&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>locs</span><span class=p>[</span><span class=n>idx</span><span class=o>-</span><span class=mi>1</span><span class=p>]),</span>
+        <span class=n>ax</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.6</span><span class=p>,</span> <span class=mf>0.2</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=s2>&#34;loc = &#39;</span><span class=si>{}</span><span class=s2>&#39;&#34;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>locs</span><span class=p>[</span><span class=n>idx</span><span class=o>-</span><span class=mi>1</span><span class=p>]),</span>
         <span class=n>transform</span><span class=o>=</span><span class=n>ax</span><span class=o>.</span><span class=n>transAxes</span><span class=p>)</span>
         <span class=n>ax</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>x0</span><span class=p>,</span> <span class=n>y0</span><span class=p>,</span> <span class=s1>&#39;r.&#39;</span><span class=p>,</span> <span class=n>markersize</span><span class=o>=</span><span class=mi>8</span><span class=p>,</span> <span class=n>transform</span><span class=o>=</span><span class=n>ax</span><span class=o>.</span><span class=n>transAxes</span><span class=p>)</span>
         <span class=n>idx</span> <span class=o>+=</span> <span class=mi>1</span>
 
 <span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre></div><p>Now, the produced image becomes</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/18-1-24/72324168.jpg width=600></p><h1 id=put-legend-outside-of-the-axes-box>Put legend outside of the axes box</h1><p>Now that we know how to position the legend, it is trivial to put it outside of
-the axes. See the example code below on how to do it,</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=kn>as</span> <span class=nn>plt</span>
-<span class=kn>import</span> <span class=nn>numpy</span> <span class=kn>as</span> <span class=nn>np</span>
+</code></pre></div><p>Now, the produced image becomes</p>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/18-1-24/72324168.jpg width=600>
+</p>
+<h1 id=put-legend-outside-of-the-axes-box>Put legend outside of the axes box</h1>
+<p>Now that we know how to position the legend, it is trivial to put it outside of
+the axes. See the example code below on how to do it,</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
+<span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
 
 <span class=n>x</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>arange</span><span class=p>(</span><span class=o>-</span><span class=mi>5</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mf>0.1</span><span class=p>)</span>
 <span class=n>y1</span> <span class=o>=</span> <span class=n>np</span><span class=o>.</span><span class=n>sin</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
@@ -111,32 +257,118 @@ the axes. See the example code below on how to do it,</p><div class=highlight><p
 <span class=n>ax</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y2</span><span class=p>,</span> <span class=n>label</span><span class=o>=</span><span class=s1>&#39;cos(x)&#39;</span><span class=p>)</span>
 
 <span class=n>ax</span><span class=o>.</span><span class=n>legend</span><span class=p>(</span><span class=n>loc</span><span class=o>=</span><span class=s1>&#39;lower left&#39;</span><span class=p>,</span> <span class=n>bbox_to_anchor</span><span class=o>=</span> <span class=p>(</span><span class=mf>0.0</span><span class=p>,</span> <span class=mf>1.01</span><span class=p>),</span> <span class=n>ncol</span><span class=o>=</span><span class=mi>2</span><span class=p>,</span>
-            <span class=n>borderaxespad</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>frameon</span><span class=o>=</span><span class=bp>False</span><span class=p>)</span>
+            <span class=n>borderaxespad</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>frameon</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
 
 <span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre></div><p>The produced image is</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/18-1-24/49012892.jpg width=400></p><h2 id=caveat>Caveat</h2><p>There is also a <code>fig.legend()</code> method which does similar things as the
+</code></pre></div><p>The produced image is</p>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/18-1-24/49012892.jpg width=400>
+</p>
+<h2 id=caveat>Caveat</h2>
+<p>There is also a <code>fig.legend()</code> method which does similar things as the
 <code>ax.legend()</code> method, i.e., it can also put the legend outside of the axes.
 But, if you try to save the figure with its legend produced by <code>fig.legend()</code>
 using the option <code>bbox_inches='tight'</code>, the <a href=https://stackoverflow.com/q/48128546/6064933>legend may not be present in the
 generate image file</a>. This is a
-bug of Matplotlib. Right now, just stick to the <code>axes.legend()</code> method.</p><h1 id=references>References</h1><ul><li><a href=https://stackoverflow.com/questions/39803385/what-does-a-4-element-tuple-argument-for-bbox-to-anchor-mean-in-matplotlib/48405821#48405821>https://stackoverflow.com/questions/39803385/what-does-a-4-element-tuple-argument-for-bbox-to-anchor-mean-in-matplotlib/48405821#48405821</a></li><li><a href="https://stackoverflow.com/questions/4700614/how-to-put-the-legend-out-of-the-plot?noredirect=1&lq=1">https://stackoverflow.com/questions/4700614/how-to-put-the-legend-out-of-the-plot?noredirect=1&lq=1</a></li><li><a href=https://stackoverflow.com/questions/48128546/why-is-the-legend-not-present-in-the-generated-image-if-i-use-tight-for-bbox-i>https://stackoverflow.com/questions/48128546/why-is-the-legend-not-present-in-the-generated-image-if-i-use-tight-for-bbox-i</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2020-03-19</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Matplotlib/>Matplotlib</a></div><nav class=post-nav><a class=prev href=/2018/01/25/hexo-mathjax-equation-number/><i class="iconfont icon-left"></i><span class="prev-text nav-default">LaTeX Equation Numbering Done Right in Hexo</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2018/01/18/mpl-plotting-notes-201801/><span class="next-text nav-default">Working with Fonts in Matplotlib</span>
+bug of Matplotlib. Right now, just stick to the <code>axes.legend()</code> method.</p>
+<h1 id=references>References</h1>
+<ul>
+<li><a href=https://stackoverflow.com/questions/39803385/what-does-a-4-element-tuple-argument-for-bbox-to-anchor-mean-in-matplotlib/48405821#48405821>https://stackoverflow.com/questions/39803385/what-does-a-4-element-tuple-argument-for-bbox-to-anchor-mean-in-matplotlib/48405821#48405821</a></li>
+<li><a href="https://stackoverflow.com/questions/4700614/how-to-put-the-legend-out-of-the-plot?noredirect=1&lq=1">https://stackoverflow.com/questions/4700614/how-to-put-the-legend-out-of-the-plot?noredirect=1&lq=1</a></li>
+<li><a href=https://stackoverflow.com/questions/48128546/why-is-the-legend-not-present-in-the-generated-image-if-i-use-tight-for-bbox-i>https://stackoverflow.com/questions/48128546/why-is-the-legend-not-present-in-the-generated-image-if-i-use-tight-for-bbox-i</a></li>
+</ul>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2020-03-19
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/Matplotlib/>Matplotlib</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/2018/01/25/hexo-mathjax-equation-number/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">LaTeX Equation Numbering Done Right in Hexo</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2018/01/18/mpl-plotting-notes-201801/>
+<span class="next-text nav-default">Working with Fonts in Matplotlib</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

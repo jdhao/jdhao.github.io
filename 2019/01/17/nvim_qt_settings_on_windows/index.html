@@ -1,87 +1,353 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Nvim-qt Settings on Windows 10 - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="To run Neovim on Windows, you can either use the terminal Neovim or use a GUI for Neovim. If you use terminal Nvim, you may encounter various annoying issues. Based on my experience, I recommend you using a GUI client for Nvim instead of the terminal one."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Nvim-qt Settings on Windows 10"><meta property="og:description" content="To run Neovim on Windows, you can either use the terminal
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Nvim-qt Settings on Windows 10 - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="To run Neovim on Windows, you can either use the terminal Neovim or use a GUI for Neovim. If you use terminal Nvim, you may encounter various annoying issues. Based on my experience, I recommend you using a GUI client for Nvim instead of the terminal one.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="Nvim-qt Settings on Windows 10">
+<meta property="og:description" content="To run Neovim on Windows, you can either use the terminal
 Neovim or
 use a GUI for Neovim. If you use terminal Nvim, you may encounter various
 annoying issues. Based on my experience, I recommend you using a GUI client for
-Nvim instead of the terminal one."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/"><meta property="article:published_time" content="2019-01-17T22:04:05+08:00"><meta property="article:modified_time" content="2020-03-23T23:49:56+08:00"><meta itemprop=name content="Nvim-qt Settings on Windows 10"><meta itemprop=description content="To run Neovim on Windows, you can either use the terminal
+Nvim instead of the terminal one.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2019-01-17T22:04:05+08:00">
+<meta property="article:modified_time" content="2020-03-23T23:49:56+08:00">
+<meta itemprop=name content="Nvim-qt Settings on Windows 10">
+<meta itemprop=description content="To run Neovim on Windows, you can either use the terminal
 Neovim or
 use a GUI for Neovim. If you use terminal Nvim, you may encounter various
 annoying issues. Based on my experience, I recommend you using a GUI client for
-Nvim instead of the terminal one."><meta itemprop=datePublished content="2019-01-17T22:04:05+08:00"><meta itemprop=dateModified content="2020-03-23T23:49:56+08:00"><meta itemprop=wordCount content="719"><meta itemprop=keywords content="Windows,font,字体,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Nvim-qt Settings on Windows 10"><meta name=twitter:description content="To run Neovim on Windows, you can either use the terminal
+Nvim instead of the terminal one."><meta itemprop=datePublished content="2019-01-17T22:04:05+08:00">
+<meta itemprop=dateModified content="2020-03-23T23:49:56+08:00">
+<meta itemprop=wordCount content="718">
+<meta itemprop=keywords content="Windows,font,字体,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Nvim-qt Settings on Windows 10">
+<meta name=twitter:description content="To run Neovim on Windows, you can either use the terminal
 Neovim or
 use a GUI for Neovim. If you use terminal Nvim, you may encounter various
 annoying issues. Based on my experience, I recommend you using a GUI client for
-Nvim instead of the terminal one."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Nvim-qt Settings on Windows 10</h1><div class=post-meta><span class=post-time>2019-01-17</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>719 words</span>
-<span class=more-meta>2 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#general-settings>General settings</a><ul><li><a href=#where-should-i-put-configurations-related-to-nvim-qt>Where should I put configurations related to nvim-qt?</a></li><li><a href=#how-do-i-pass-options-to-neovim-when-starting-nvim-qt-on-the-command-line>How do I pass options to neovim when starting nvim-qt on the command line?</a></li><li><a href=#shiftinsert-does-not-work-in-nvim-qt>Shift+Insert does not work in nvim-qt</a></li></ul></li><li><a href=#gui-settings>GUI settings</a><ul><li><a href=#how-to-change-the-font-used>How to change the font used?</a></li><li><a href=#how-to-turn-off-the-gui-tabline>How to turn off the GUI tabline?</a></li><li><a href=#how-to-turn-off-gui-completion-menu>How to turn off GUI completion menu?</a></li><li><a href=#how-to-reduce-line-space>How to reduce line space?</a></li><li><a href=#how-to-open-nvim-qt-with-maximized-window>How to open nvim-qt with maximized window?</a></li><li><a href=#how-to-change-cursor-color-in-nvim-qt>How to change cursor color in nvim-qt?</a></li></ul></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>To run Neovim on Windows, you can either <a href=https://jdhao.github.io/2018/11/15/neovim_configuration_windows/>use the terminal
+Nvim instead of the terminal one."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>Nvim-qt Settings on Windows 10</h1>
+<div class=post-meta>
+<span class=post-time> 2019-01-17 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 718 words </span>
+<span class=more-meta> 2 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#general-settings>General settings</a>
+<ul>
+<li><a href=#where-should-i-put-configurations-related-to-nvim-qt>Where should I put configurations related to nvim-qt?</a></li>
+<li><a href=#how-do-i-pass-options-to-neovim-when-starting-nvim-qt-on-the-command-line>How do I pass options to neovim when starting nvim-qt on the command line?</a></li>
+<li><a href=#shiftinsert-does-not-work-in-nvim-qt>Shift+Insert does not work in nvim-qt</a></li>
+</ul>
+</li>
+<li><a href=#gui-settings>GUI settings</a>
+<ul>
+<li><a href=#how-to-change-the-font-used>How to change the font used?</a></li>
+<li><a href=#how-to-turn-off-the-gui-tabline>How to turn off the GUI tabline?</a></li>
+<li><a href=#how-to-turn-off-gui-completion-menu>How to turn off GUI completion menu?</a></li>
+<li><a href=#how-to-reduce-line-space>How to reduce line space?</a></li>
+<li><a href=#how-to-open-nvim-qt-with-maximized-window>How to open nvim-qt with maximized window?</a></li>
+<li><a href=#how-to-change-cursor-color-in-nvim-qt>How to change cursor color in nvim-qt?</a></li>
+</ul>
+</li>
+<li><a href=#references>References</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>To run Neovim on Windows, you can either <a href=https://jdhao.github.io/2018/11/15/neovim_configuration_windows/>use the terminal
 Neovim</a> or
 use a GUI for Neovim. If you use terminal Nvim, you may encounter various
 annoying issues. Based on my experience, I recommend you using a GUI client for
-Nvim instead of the terminal one.</p><p><a href=https://github.com/equalsraf/neovim-qt>Nvim-qt</a> is one of the <a href=https://github.com/neovim/neovim/wiki/Related-projects#gui>many GUI front
+Nvim instead of the terminal one.</p>
+<p><a href=https://github.com/equalsraf/neovim-qt>Nvim-qt</a> is one of the <a href=https://github.com/neovim/neovim/wiki/Related-projects#gui>many GUI front
 end</a> for Neovim,
 and it is packaged with Neovim by default on Windows platform. In this post, I
 will give a summary on how to solve a few issues with
-<a href=https://github.com/equalsraf/neovim-qt>Nvim-qt</a>.</p><h1 id=general-settings>General settings</h1><h2 id=where-should-i-put-configurations-related-to-nvim-qt>Where should I put configurations related to nvim-qt?</h2><p>Nvim-qt will use your Nvim configurations as well as a GUI configuration
+<a href=https://github.com/equalsraf/neovim-qt>Nvim-qt</a>.</p>
+<h1 id=general-settings>General settings</h1>
+<h2 id=where-should-i-put-configurations-related-to-nvim-qt>Where should I put configurations related to nvim-qt?</h2>
+<p>Nvim-qt will use your Nvim configurations as well as a GUI configuration
 file<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. The GUI config file is named <code>ginit.vim</code>, and you should put it under
 the same directory as <code>init.vim</code>. The directory is something like
 <code>C:\Users\Administrator\AppData\Local\nvim</code> on Windows. If you are inside
 Neovim, you can also use the command <code>:echo stdpath('config')</code> to show the
-exact directory.</p><h2 id=how-do-i-pass-options-to-neovim-when-starting-nvim-qt-on-the-command-line>How do I pass options to neovim when starting nvim-qt on the command line?</h2><p>Since nvim-qt has its own options, it will get confused if you simply provide
+exact directory.</p>
+<h2 id=how-do-i-pass-options-to-neovim-when-starting-nvim-qt-on-the-command-line>How do I pass options to neovim when starting nvim-qt on the command line?</h2>
+<p>Since nvim-qt has its own options, it will get confused if you simply provide
 it with nvim startup options. You need to specify nvim options after <code>--</code>. For
 example, to <a href=https://www.mankier.com/1/nvim#-u>open a file using specific
-configuration</a>, use the following command:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>nvim-qt some_file.txt -- -u init.vim
-</code></pre></div><h2 id=shiftinsert-does-not-work-in-nvim-qt>Shift+Insert does not work in nvim-qt</h2><p>In Nvim-qt, when we press <kbd>Shift</kbd>+<kbd>Insert</kbd> in insert mode, it
+configuration</a>, use the following command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>nvim-qt some_file.txt -- -u init.vim
+</code></pre></div><h2 id=shiftinsert-does-not-work-in-nvim-qt>Shift+Insert does not work in nvim-qt</h2>
+<p>In Nvim-qt, when we press <kbd>Shift</kbd>+<kbd>Insert</kbd> in insert mode, it
 will add a literal <code>&lt;S-Insert></code>, instead of placing the text on the system
 clipboard to the cursor position. To fix this issue, we can use the following
-mapping:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>inoremap</span> <span class=p>&lt;</span><span class=nx>silent</span><span class=p>&gt;</span>  <span class=p>&lt;</span><span class=nx>S</span><span class=p>-</span><span class=nx>Insert</span><span class=p>&gt;</span>  <span class=p>&lt;</span><span class=nx>C</span><span class=p>-</span><span class=nx>R</span><span class=p>&gt;+</span><span class=err>
-</span></code></pre></div><h1 id=gui-settings>GUI settings</h1><p>Nvim-qt has also provided a list of its own command to configure its behaviors.
-I list some of the settings in the following sections.</p><h2 id=how-to-change-the-font-used>How to change the font used?</h2><p>You can change the font Nvim-qt uses by default. To check the default font
+mapping:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>inoremap</span> <span class=p>&lt;</span><span class=nx>silent</span><span class=p>&gt;</span>  <span class=p>&lt;</span><span class=nx>S</span><span class=p>-</span><span class=nx>Insert</span><span class=p>&gt;</span>  <span class=p>&lt;</span><span class=nx>C</span><span class=p>-</span><span class=nx>R</span><span class=p>&gt;+</span><span class=err>
+</span></code></pre></div><h1 id=gui-settings>GUI settings</h1>
+<p>Nvim-qt has also provided a list of its own command to configure its behaviors.
+I list some of the settings in the following sections.</p>
+<h2 id=how-to-change-the-font-used>How to change the font used?</h2>
+<p>You can change the font Nvim-qt uses by default. To check the default font
 used, use <code>GuiFont</code> command without argument inside nvim-qt. On my system, the
-output is <code>Consolas:h11</code>.</p><p>According to <a href=https://github.com/equalsraf/neovim-qt/blob/master/src/gui/runtime/doc/nvim_gui_shim.txt>nvim-qt documentation</a>,
-the following attributes for fonts are available:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>hXX - height is XX in points
+output is <code>Consolas:h11</code>.</p>
+<p>According to <a href=https://github.com/equalsraf/neovim-qt/blob/master/src/gui/runtime/doc/nvim_gui_shim.txt>nvim-qt documentation</a>,
+the following attributes for fonts are available:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>hXX - height is XX in points
 b   - bold weight
 l   - light weight
 i   - italic
 </code></pre></div><p>You can chain different attribute with <code>:</code> character. For example, to use font
 <a href=https://sourcefoundry.org/hack/>Hack</a> in 10 point and light weight, use the
-following command:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>:GuiFont Hack:h10:l
-</code></pre></div><p>After issuing the above command, you may see the following warning message:</p><blockquote><p>Warning: Font &ldquo;Hack&rdquo; reports bad fixed pitch metrics.</p></blockquote><p>To suppress this message, use the <code>bang</code> version of <code>GuiFont</code> command instead:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>:GuiFont! Hack:h10:l
-</code></pre></div><h2 id=how-to-turn-off-the-gui-tabline>How to turn off the GUI tabline?</h2><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190117221204.png></p><p>The GUI tabline of nvim-qt is ugly. We can use <code>GuiTabline 0</code> inside
-<code>ginit.vim</code> to disable GUI tabline and use the TUI tabline.</p><p>Although we have set <code>GuiTabline 0</code> in <code>ginit.vim</code>, but it seems that it is
+following command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>:GuiFont Hack:h10:l
+</code></pre></div><p>After issuing the above command, you may see the following warning message:</p>
+<blockquote>
+<p>Warning: Font &ldquo;Hack&rdquo; reports bad fixed pitch metrics.</p>
+</blockquote>
+<p>To suppress this message, use the <code>bang</code> version of <code>GuiFont</code> command instead:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>:GuiFont! Hack:h10:l
+</code></pre></div><h2 id=how-to-turn-off-the-gui-tabline>How to turn off the GUI tabline?</h2>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20190117221204.png>
+</p>
+<p>The GUI tabline of nvim-qt is ugly. We can use <code>GuiTabline 0</code> inside
+<code>ginit.vim</code> to disable GUI tabline and use the TUI tabline.</p>
+<p>Although we have set <code>GuiTabline 0</code> in <code>ginit.vim</code>, but it seems that it is
 still not disabled completely. If you open up a file with nvim-qt, the GUI
-tabline appears and then disappears quickly.</p><p>To disable it completely, i.e., not showing at all, there are two ways
+tabline appears and then disappears quickly.</p>
+<p>To disable it completely, i.e., not showing at all, there are two ways
 currently. One way is to use the <code>--no-ext-tabline</code> option when invoking
-nvim-qt:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>nvim-qt --no-ext-tabline
+nvim-qt:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>nvim-qt --no-ext-tabline
 </code></pre></div><p>The second way is to edit the Windows registry for nvim-qt. Go to
 <code>Computer\HKEY_CURRENT_USER\Software\nvim-qt\nvim-qt</code> and add a new <code>String Value</code>. The Name field should be <code>ext_tabline</code> and the Data field should be
-<code>false</code>. Then the GUI tabline should disappear completely.</p><h2 id=how-to-turn-off-gui-completion-menu>How to turn off GUI completion menu?</h2><p>The GUI completion menu is also ugly and too long, since it shows the detailed
-docstrings of object methods (see image below).</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190117221305.png width=400></p><p>You can disable it by adding the following setting in <code>ginit.vim</code>:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=nx>GuiPopupmenu</span> <span class=m>0</span><span class=err>
-</span></code></pre></div><h2 id=how-to-reduce-line-space>How to reduce line space?</h2><p>You can use command <code>GuiLinespace</code> to control the line space in nvim-qt, for
-example, <code>GuiLinespace 1</code>.</p><h2 id=how-to-open-nvim-qt-with-maximized-window>How to open nvim-qt with maximized window?</h2><p>Add the following settings to your <code>ginit.vim</code> file:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>call GuiWindowMaximized(1)
-</code></pre></div><h2 id=how-to-change-cursor-color-in-nvim-qt>How to change cursor color in nvim-qt?</h2><p>According to <a href=https://github.com/equalsraf/neovim-qt/issues/599>this issue</a>,
+<code>false</code>. Then the GUI tabline should disappear completely.</p>
+<h2 id=how-to-turn-off-gui-completion-menu>How to turn off GUI completion menu?</h2>
+<p>The GUI completion menu is also ugly and too long, since it shows the detailed
+docstrings of object methods (see image below).</p>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20190117221305.png width=400>
+</p>
+<p>You can disable it by adding the following setting in <code>ginit.vim</code>:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>GuiPopupmenu</span> <span class=m>0</span><span class=err>
+</span></code></pre></div><h2 id=how-to-reduce-line-space>How to reduce line space?</h2>
+<p>You can use command <code>GuiLinespace</code> to control the line space in nvim-qt, for
+example, <code>GuiLinespace 1</code>.</p>
+<h2 id=how-to-open-nvim-qt-with-maximized-window>How to open nvim-qt with maximized window?</h2>
+<p>Add the following settings to your <code>ginit.vim</code> file:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>call GuiWindowMaximized(1)
+</code></pre></div><h2 id=how-to-change-cursor-color-in-nvim-qt>How to change cursor color in nvim-qt?</h2>
+<p>According to <a href=https://github.com/equalsraf/neovim-qt/issues/599>this issue</a>,
 currently, it is not possible to change the cursor position color in nvim-qt.
-Nvim-qt just sets the cursor to the reverse of background color.</p><p><strong>My complete configurations for Neovim can be found in <a href=https://github.com/jdhao/nvim-config>my GitHub
+Nvim-qt just sets the cursor to the reverse of background color.</p>
+<p><strong>My complete configurations for Neovim can be found in <a href=https://github.com/jdhao/nvim-config>my GitHub
 repo</a>. For How to configure Neovim for
 Python development, see
-<a href=https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/>this post</a>.</strong></p><h1 id=references>References</h1><ul><li><a href=https://github.com/equalsraf/neovim-qt/issues/125>nvim-qt does not recognize neovim options?</a></li><li><a href=https://github.com/equalsraf/neovim-qt/issues/449>nvim-qt and nvim options</a></li><li><a href=https://github.com/equalsraf/neovim-qt/issues/361>Disable GUI tabline</a></li><li><a href=https://github.com/equalsraf/neovim-qt/issues/164>Suppress font warning in nvim-qt</a></li><li><a href=https://github.com/equalsraf/neovim-gui-shim/issues/1>Suppress font warning in nvim-qt</a></li><li><a href=https://github.com/equalsraf/neovim-qt/blob/master/src/gui/runtime/doc/nvim_gui_shim.txt>Nvim-qt documentation</a></li><li><a href=https://github.com/equalsraf/neovim-qt/issues/83#issuecomment-211997944>Open nvim-qt with maximized window</a></li><li><a href=https://github.com/equalsraf/neovim-qt/issues/589>How to disable GUI tabline completely?</a></li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>See also <code>:h ginit.vim</code> <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2020-03-23</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Windows/>Windows</a>
+<a href=https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/>this post</a>.</strong></p>
+<h1 id=references>References</h1>
+<ul>
+<li><a href=https://github.com/equalsraf/neovim-qt/issues/125>nvim-qt does not recognize neovim options?</a></li>
+<li><a href=https://github.com/equalsraf/neovim-qt/issues/449>nvim-qt and nvim options</a></li>
+<li><a href=https://github.com/equalsraf/neovim-qt/issues/361>Disable GUI tabline</a></li>
+<li><a href=https://github.com/equalsraf/neovim-qt/issues/164>Suppress font warning in nvim-qt</a></li>
+<li><a href=https://github.com/equalsraf/neovim-gui-shim/issues/1>Suppress font warning in nvim-qt</a></li>
+<li><a href=https://github.com/equalsraf/neovim-qt/blob/master/src/gui/runtime/doc/nvim_gui_shim.txt>Nvim-qt documentation</a></li>
+<li><a href=https://github.com/equalsraf/neovim-qt/issues/83#issuecomment-211997944>Open nvim-qt with maximized window</a></li>
+<li><a href=https://github.com/equalsraf/neovim-qt/issues/589>How to disable GUI tabline completely?</a></li>
+</ul>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>See also <code>:h ginit.vim</code>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2020-03-23
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/Windows/>Windows</a>
 <a href=/tags/font/>font</a>
-<a href=/tags/%E5%AD%97%E4%BD%93/>字体</a></div><nav class=post-nav><a class=prev href=/2019/02/03/cmder_advanced_configuration/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Cmder Advanced Configurations</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2019/01/17/tmux_plugin_management/><span class="next-text nav-default">Tmux Plugin Install and Management</span>
+<a href=/tags/%E5%AD%97%E4%BD%93/>字体</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/2019/02/03/cmder_advanced_configuration/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Cmder Advanced Configurations</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2019/01/17/tmux_plugin_management/>
+<span class="next-text nav-default">Tmux Plugin Install and Management</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

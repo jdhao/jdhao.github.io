@@ -1,57 +1,279 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>LeaderF settings - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="LeaderF is Vim/Neovim plugin to fuzzy-search files, colorschemes, tags etc. quickly. It works across different platforms flawlessly. Here are some of its settings to address minor issues."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2020/08/26/leaderf_nvim_settings/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="LeaderF settings"><meta property="og:description" content="LeaderF is Vim/Neovim plugin to
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>LeaderF settings - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="LeaderF is Vim/Neovim plugin to fuzzy-search files, colorschemes, tags etc. quickly. It works across different platforms flawlessly. Here are some of its settings to address minor issues.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2020/08/26/leaderf_nvim_settings/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="LeaderF settings">
+<meta property="og:description" content="LeaderF is Vim/Neovim plugin to
 fuzzy-search files, colorschemes, tags etc. quickly. It works across different
-platforms flawlessly. Here are some of its settings to address minor issues."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/08/26/leaderf_nvim_settings/"><meta property="article:published_time" content="2020-08-26T23:24:20+08:00"><meta property="article:modified_time" content="2021-01-29T00:44:45+08:00"><meta itemprop=name content="LeaderF settings"><meta itemprop=description content="LeaderF is Vim/Neovim plugin to
+platforms flawlessly. Here are some of its settings to address minor issues.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2020/08/26/leaderf_nvim_settings/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2020-08-26T23:24:20+08:00">
+<meta property="article:modified_time" content="2021-01-29T00:44:45+08:00">
+<meta itemprop=name content="LeaderF settings">
+<meta itemprop=description content="LeaderF is Vim/Neovim plugin to
 fuzzy-search files, colorschemes, tags etc. quickly. It works across different
-platforms flawlessly. Here are some of its settings to address minor issues."><meta itemprop=datePublished content="2020-08-26T23:24:20+08:00"><meta itemprop=dateModified content="2021-01-29T00:44:45+08:00"><meta itemprop=wordCount content="459"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="LeaderF settings"><meta name=twitter:description content="LeaderF is Vim/Neovim plugin to
+platforms flawlessly. Here are some of its settings to address minor issues."><meta itemprop=datePublished content="2020-08-26T23:24:20+08:00">
+<meta itemprop=dateModified content="2021-01-29T00:44:45+08:00">
+<meta itemprop=wordCount content="459">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="LeaderF settings">
+<meta name=twitter:description content="LeaderF is Vim/Neovim plugin to
 fuzzy-search files, colorschemes, tags etc. quickly. It works across different
-platforms flawlessly. Here are some of its settings to address minor issues."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>LeaderF settings</h1><div class=post-meta><span class=post-time>2020-08-26</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>459 words</span>
-<span class=more-meta>1 min read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#file-names-with-non-ascii-characters-shown-as-escaped-number>File names with non-ASCII characters shown as escaped number?</a></li><li><a href=#can-not-search-files-in-a-git-submodule>Can not search files in a git submodule</a></li><li><a href=#do-not-show-fancy-filetype-icons>Do not show fancy filetype icons</a></li><li><a href=#set-working-directory-for-git-repository>Set working directory for git repository</a></li><li><a href=#refresh-file-indexing-every-time-we-use-leaderf>Refresh file indexing every time we use LeaderF?</a></li></ul></nav></div></div><div class=post-content><p><a href=https://github.com/Yggdroot/LeaderF>LeaderF</a> is Vim/Neovim plugin to
+platforms flawlessly. Here are some of its settings to address minor issues."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>LeaderF settings</h1>
+<div class=post-meta>
+<span class=post-time> 2020-08-26 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 459 words </span>
+<span class=more-meta> 1 min read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#file-names-with-non-ascii-characters-shown-as-escaped-number>File names with non-ASCII characters shown as escaped number?</a></li>
+<li><a href=#can-not-search-files-in-a-git-submodule>Can not search files in a git submodule</a></li>
+<li><a href=#do-not-show-fancy-filetype-icons>Do not show fancy filetype icons</a></li>
+<li><a href=#set-working-directory-for-git-repository>Set working directory for git repository</a></li>
+<li><a href=#refresh-file-indexing-every-time-we-use-leaderf>Refresh file indexing every time we use LeaderF?</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p><a href=https://github.com/Yggdroot/LeaderF>LeaderF</a> is Vim/Neovim plugin to
 fuzzy-search files, colorschemes, tags etc. quickly. It works across different
-platforms flawlessly. Here are some of its settings to address minor issues.</p><h1 id=file-names-with-non-ascii-characters-shown-as-escaped-number>File names with non-ASCII characters shown as escaped number?</h1><p>When I am inside a git repository and use <code>:Leaderf file</code>, I find that files
+platforms flawlessly. Here are some of its settings to address minor issues.</p>
+<h1 id=file-names-with-non-ascii-characters-shown-as-escaped-number>File names with non-ASCII characters shown as escaped number?</h1>
+<p>When I am inside a git repository and use <code>:Leaderf file</code>, I find that files
 whose names containing non-ASCII characters are shown as escaped numbers. For
-example, <code>测试.md</code> is shown as <code>\346\265\213\350\257\225.md</code>.</p><p>This is because <code>Leaderf file</code> use <code>git</code> to index files under git repos by
+example, <code>测试.md</code> is shown as <code>\346\265\213\350\257\225.md</code>.</p>
+<p>This is because <code>Leaderf file</code> use <code>git</code> to index files under git repos by
 default. Git shows non-ASCII characters as escaped numbers. To fix this, run
-the following command:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>git config --global core.quotePath <span class=nb>false</span>
-</code></pre></div><p>Ref:</p><ul><li><a href=https://github.com/Yggdroot/LeaderF/issues/203>https://github.com/Yggdroot/LeaderF/issues/203</a></li><li><a href=https://stackoverflow.com/q/34549040/6064933>git not displaying unicode file names</a></li></ul><h1 id=can-not-search-files-in-a-git-submodule>Can not search files in a git submodule</h1><p>In a git repo that has
+the following command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git config --global core.quotePath <span class=nb>false</span>
+</code></pre></div><p>Ref:</p>
+<ul>
+<li><a href=https://github.com/Yggdroot/LeaderF/issues/203>https://github.com/Yggdroot/LeaderF/issues/203</a></li>
+<li><a href=https://stackoverflow.com/q/34549040/6064933>git not displaying unicode file names</a></li>
+</ul>
+<h1 id=can-not-search-files-in-a-git-submodule>Can not search files in a git submodule</h1>
+<p>In a git repo that has
 <a href=https://github.blog/2016-02-01-working-with-submodules/>submodules</a> in it, I
-find that command <code>Leaderf file</code> can not list files under these submodules.</p><p>Why? Because in a git repository, <a href=https://github.com/Yggdroot/LeaderF/issues/99>LeaderF will the command <code>git ls-files</code> to
+find that command <code>Leaderf file</code> can not list files under these submodules.</p>
+<p>Why? Because in a git repository, <a href=https://github.com/Yggdroot/LeaderF/issues/99>LeaderF will the command <code>git ls-files</code> to
 list files</a>, which by default
-will exclude files inside git submodules.</p><p>If we are using Git 2.11 or later, we can set the following options:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>Lf_RecurseSubmodules</span> <span class=p>=</span> <span class=m>1</span><span class=err>
-</span></code></pre></div><p>Under the hood, it uses the <a href=https://stackoverflow.com/a/40311391/6064933><code>--recurse-submodules</code></a> option to list files in submodules.</p><p>If we are using older version of Git, we can use the following option:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>Lf_UseVersionControlTool</span> <span class=p>=</span> <span class=m>0</span><span class=err>
-</span></code></pre></div><p>It will disable using <code>git</code> to index files.</p><h1 id=do-not-show-fancy-filetype-icons>Do not show fancy filetype icons</h1><p>By default, LeaderF will try to show fancy filetype icons before file names
+will exclude files inside git submodules.</p>
+<p>If we are using Git 2.11 or later, we can set the following options:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>Lf_RecurseSubmodules</span> <span class=p>=</span> <span class=m>1</span><span class=err>
+</span></code></pre></div><p>Under the hood, it uses the <a href=https://stackoverflow.com/a/40311391/6064933><code>--recurse-submodules</code></a> option to list files in submodules.</p>
+<p>If we are using older version of Git, we can use the following option:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>Lf_UseVersionControlTool</span> <span class=p>=</span> <span class=m>0</span><span class=err>
+</span></code></pre></div><p>It will disable using <code>git</code> to index files.</p>
+<h1 id=do-not-show-fancy-filetype-icons>Do not show fancy filetype icons</h1>
+<p>By default, LeaderF will try to show fancy filetype icons before file names
 when we use <code>:Leaderf file</code>. However, due to font issues, some of the icons may
-not show properly. To disable this feature, add the following option:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>Lf_ShowDevIcons</span> <span class=p>=</span> <span class=m>0</span><span class=err>
-</span></code></pre></div><h1 id=set-working-directory-for-git-repository>Set working directory for git repository</h1><p>In a Git repository, I want to always search files under the project root, even
+not show properly. To disable this feature, add the following option:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>Lf_ShowDevIcons</span> <span class=p>=</span> <span class=m>0</span><span class=err>
+</span></code></pre></div><h1 id=set-working-directory-for-git-repository>Set working directory for git repository</h1>
+<p>In a Git repository, I want to always search files under the project root, even
 though my current working directory may not be in the project root. We can set
 <code>g:Lf_WorkingDirectoryMode</code> to customize how the project root directory is
-found.</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>Lf_WorkingDirectoryMode</span> <span class=p>=</span> <span class=s1>&#39;a&#39;</span><span class=err>
+found.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>Lf_WorkingDirectoryMode</span> <span class=p>=</span> <span class=s1>&#39;a&#39;</span><span class=err>
 </span></code></pre></div><p>If we use the above setting, LeaderF will find ancestor of current directory
-that contains <code>.git</code> or other root indicators. See <code>:h g:Lf_WorkingDirectoryMode</code> for more help.</p><p>Ref:</p><ul><li><a href=https://github.com/Yggdroot/LeaderF/issues/702>https://github.com/Yggdroot/LeaderF/issues/702</a></li></ul><h1 id=refresh-file-indexing-every-time-we-use-leaderf>Refresh file indexing every time we use LeaderF?</h1><p>I created a new source file under the current project. After a while, I started
+that contains <code>.git</code> or other root indicators. See <code>:h g:Lf_WorkingDirectoryMode</code> for more help.</p>
+<p>Ref:</p>
+<ul>
+<li><a href=https://github.com/Yggdroot/LeaderF/issues/702>https://github.com/Yggdroot/LeaderF/issues/702</a></li>
+</ul>
+<h1 id=refresh-file-indexing-every-time-we-use-leaderf>Refresh file indexing every time we use LeaderF?</h1>
+<p>I created a new source file under the current project. After a while, I started
 LeaderF and found that I can not search the newly created file without
 refreshing LeaderF (i.e., press <code>F5</code> to refresh). This is because LeaderF will
 cache your project files once you start using LeaderF for the first time, to
 save some precious time. To disable this behavior, that is, to indexing files
-every time you invoke LeaderF, add the following setting:</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>Lf_UseMemoryCache</span> <span class=p>=</span> <span class=m>0</span><span class=err>
+every time you invoke LeaderF, add the following setting:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>Lf_UseMemoryCache</span> <span class=p>=</span> <span class=m>0</span><span class=err>
 </span></code></pre></div><p>For very large project, it may take quite some time to finish indexing files.
-So you should use this option with care.</p><p>Ref:</p><ul><li><a href=https://github.com/Yggdroot/LeaderF/issues/161>https://github.com/Yggdroot/LeaderF/issues/161</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2021-01-29</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><nav class=post-nav><a class=prev href=/2020/09/03/git_branch_operations/><i class="iconfont icon-left"></i><span class="prev-text nav-default">How to Use Git branches</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2020/08/24/thought_on_product_design/><span class="next-text nav-default">从产品猜测设计</span>
+So you should use this option with care.</p>
+<p>Ref:</p>
+<ul>
+<li><a href=https://github.com/Yggdroot/LeaderF/issues/161>https://github.com/Yggdroot/LeaderF/issues/161</a></li>
+</ul>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2021-01-29
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<nav class=post-nav>
+<a class=prev href=/2020/09/03/git_branch_operations/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">How to Use Git branches</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2020/08/24/thought_on_product_design/>
+<span class="next-text nav-default">从产品猜测设计</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

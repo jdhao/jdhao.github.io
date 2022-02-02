@@ -1,18 +1,194 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>把博客从 Hexo 迁移到 Hugo - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="这个博客于 2017 年 2 月开始搭建运行，最初使用的是 Hexo 搭建，配合精美的 NexT 主题，经过鼓捣，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 Hugo。"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2018/10/10/hexo_to_hugo/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="把博客从 Hexo 迁移到 Hugo"><meta property="og:description" content="这个博客于 2017 年 2 月开始搭建运行，最初使用的是 Hexo 搭建，配合精美的 NexT 主题，经过鼓捣，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 Hugo。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2018/10/10/hexo_to_hugo/"><meta property="article:published_time" content="2018-10-10T23:09:57+08:00"><meta property="article:modified_time" content="2022-01-19T21:26:28+08:00"><meta itemprop=name content="把博客从 Hexo 迁移到 Hugo"><meta itemprop=description content="这个博客于 2017 年 2 月开始搭建运行，最初使用的是 Hexo 搭建，配合精美的 NexT 主题，经过鼓捣，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 Hugo。"><meta itemprop=datePublished content="2018-10-10T23:09:57+08:00"><meta itemprop=dateModified content="2022-01-19T21:26:28+08:00"><meta itemprop=wordCount content="3116"><meta itemprop=keywords content="Hugo,Hexo,MathJax,LaTeX,Pandoc,Markdown,"><meta name=twitter:card content="summary"><meta name=twitter:title content="把博客从 Hexo 迁移到 Hugo"><meta name=twitter:description content="这个博客于 2017 年 2 月开始搭建运行，最初使用的是 Hexo 搭建，配合精美的 NexT 主题，经过鼓捣，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 Hugo。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>把博客从 Hexo 迁移到 Hugo</h1><div class=post-meta><span class=post-time>2018-10-10</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>3116 words</span>
-<span class=more-meta>7 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#hugo-安装与配置>Hugo 安装与配置</a><ul><li><a href=#hugo-安装>Hugo 安装</a></li><li><a href=#建立博客站点>建立博客站点</a></li><li><a href=#安装主题>安装主题</a></li><li><a href=#新建博文>新建博文</a></li><li><a href=#查看生成效果>查看生成效果</a></li><li><a href=#部署到-github-pages>部署到 github pages</a></li></ul></li><li><a href=#主题设置与迁移细节>主题设置与迁移细节</a><ul><li><a href=#时间格式>时间格式</a></li><li><a href=#文章的-permalinks-设置>文章的 permalinks 设置</a></li><li><a href=#大小写问题>大小写问题</a></li><li><a href=#如何完美支持-latex-公式>如何完美支持 LaTeX 公式</a><ul><li><a href=#使用-mmark-格式>使用 mmark 格式</a></li><li><a href=#使用-pandoc>使用 Pandoc</a></li><li><a href=#小问题>小问题</a><ul><li><a href=#参考>参考</a></li></ul></li></ul></li><li><a href=#文章缩略的格式>文章缩略的格式</a></li><li><a href=#个人文件的位置>个人文件的位置</a></li></ul></li><li><a href=#busuanzi-博客计数失效>busuanzi 博客计数失效？</a></li><li><a href=#参考-1>参考</a></li></ul></nav></div></div><div class=post-content><p>这个博客于 2017 年 2 月开始搭建运行，最初使用的是 <a href=https://hexo.io/zh-cn/>Hexo</a> 搭建，配合精美的 <a href=https://github.com/theme-next/hexo-theme-next>NexT</a> 主题，经过<a href=https://jdhao.github.io/tags/Hexo/>鼓捣</a>，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 <a href=https://gohugo.io/>Hugo</a>。</p><h1 id=hugo-安装与配置>Hugo 安装与配置</h1><h2 id=hugo-安装>Hugo 安装</h2><p>首先<a href=https://gohugo.io/getting-started/installing>安装 Hugo</a>，在不同系统上安装都很简单，在 Mac 上，使用 Homebrew 可以安装 Hugo：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>brew install hugo
-</code></pre></div><h2 id=建立博客站点>建立博客站点</h2><p>安装以后，首先我们需要建立一个博客目录，下面存放的是博客的所有配置以及博文等资料，例如要建立一个名为 <code>Blog</code> 的站点，使用下面的命令：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>hugo new site Blog
-</code></pre></div><p>会看到以下提示内容：</p><blockquote><p>Congratulations! Your new Hugo site is created in /Users/jdhao/Blog.</p><p>Just a few more steps and you&rsquo;re ready to go:</p><ol><li>Download a theme into the same-named folder.
-Choose a theme from <a href=https://themes.gohugo.io/,>https://themes.gohugo.io/,</a> or
-create your own with the &ldquo;hugo new theme <themename>&rdquo; command.</li><li>Perhaps you want to add some content. You can add single files
-with &ldquo;hugo new <sectionname>/<filename>.<format>&rdquo;.</li><li>Start the built-in live server via &ldquo;hugo server&rdquo;.</li></ol><p>Visit <a href=https://gohugo.io/>https://gohugo.io/</a> for quickstart guide and full documentation.</p></blockquote><p>建立站点以后，博客根目录下默认有这些文件和子目录：</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>archetypes/  config.toml  content/     data/        layouts/     static/      themes/
-</code></pre></div><p><code>config.toml</code> 就是博客的配置文件，<code>archetypes</code> 目录下有一个 <code>default.md</code>，存放的是建立新博文时候默认使用的模板，可以根据自己需求修改。<code>content</code> 目录用来存放博文，<code>static</code> 可以存放一些自己的文件，<code>themes</code> 文件夹用于存放不同的主题。</p><h2 id=安装主题>安装主题</h2><p>建立站点以后，我们需要安装主题，Hugo 提供了一个<a href=https://themes.gohugo.io/>主题浏览网站</a>，可以浏览各种主题的效果，找了一圈，没有发现自己特别中意的。也可以直接在 GitHub 上搜索 Hugo 的主题，最后经过各种查找比较，选择了 <a href=https://github.com/olOwOlo/hugo-theme-even>even</a> 主题。</p><p>在博客根目录下，使用以下命令安装 even 主题：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>git init
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>把博客从 Hexo 迁移到 Hugo - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="这个博客于 2017 年 2 月开始搭建运行，最初使用的是 Hexo 搭建，配合精美的 NexT 主题，经过鼓捣，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 Hugo。
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2018/10/10/hexo_to_hugo/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="把博客从 Hexo 迁移到 Hugo">
+<meta property="og:description" content="这个博客于 2017 年 2 月开始搭建运行，最初使用的是 Hexo 搭建，配合精美的 NexT 主题，经过鼓捣，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 Hugo。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2018/10/10/hexo_to_hugo/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2018-10-10T23:09:57+08:00">
+<meta property="article:modified_time" content="2022-01-19T21:26:28+08:00">
+<meta itemprop=name content="把博客从 Hexo 迁移到 Hugo">
+<meta itemprop=description content="这个博客于 2017 年 2 月开始搭建运行，最初使用的是 Hexo 搭建，配合精美的 NexT 主题，经过鼓捣，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 Hugo。"><meta itemprop=datePublished content="2018-10-10T23:09:57+08:00">
+<meta itemprop=dateModified content="2022-01-19T21:26:28+08:00">
+<meta itemprop=wordCount content="3137">
+<meta itemprop=keywords content="Hugo,Hexo,MathJax,LaTeX,Pandoc,Markdown,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="把博客从 Hexo 迁移到 Hugo">
+<meta name=twitter:description content="这个博客于 2017 年 2 月开始搭建运行，最初使用的是 Hexo 搭建，配合精美的 NexT 主题，经过鼓捣，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 Hugo。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>把博客从 Hexo 迁移到 Hugo</h1>
+<div class=post-meta>
+<span class=post-time> 2018-10-10 </span>
+<div class=post-category>
+<a href=/categories/Blog/> Blog </a>
+</div>
+<span class=more-meta> 3137 words </span>
+<span class=more-meta> 7 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#hugo-安装与配置>Hugo 安装与配置</a>
+<ul>
+<li><a href=#hugo-安装>Hugo 安装</a></li>
+<li><a href=#建立博客站点>建立博客站点</a></li>
+<li><a href=#安装主题>安装主题</a></li>
+<li><a href=#新建博文>新建博文</a></li>
+<li><a href=#查看生成效果>查看生成效果</a></li>
+<li><a href=#部署到-github-pages>部署到 github pages</a></li>
+</ul>
+</li>
+<li><a href=#主题设置与迁移细节>主题设置与迁移细节</a>
+<ul>
+<li><a href=#时间格式>时间格式</a></li>
+<li><a href=#文章的-permalinks-设置>文章的 permalinks 设置</a></li>
+<li><a href=#大小写问题>大小写问题</a></li>
+<li><a href=#如何完美支持-latex-公式>如何完美支持 LaTeX 公式</a>
+<ul>
+<li><a href=#使用-mmark-格式>使用 mmark 格式</a></li>
+<li><a href=#使用-pandoc>使用 Pandoc</a></li>
+<li><a href=#小问题>小问题</a>
+<ul>
+<li><a href=#参考>参考</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=#文章缩略的格式>文章缩略的格式</a></li>
+<li><a href=#个人文件的位置>个人文件的位置</a></li>
+</ul>
+</li>
+<li><a href=#busuanzi-博客计数失效>busuanzi 博客计数失效？</a></li>
+<li><a href=#参考-1>参考</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>这个博客于 2017 年 2 月开始搭建运行，最初使用的是 <a href=https://hexo.io/zh-cn/>Hexo</a> 搭建，配合精美的 <a href=https://github.com/theme-next/hexo-theme-next>NexT</a> 主题，经过<a href=https://jdhao.github.io/tags/Hexo/>鼓捣</a>，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 <a href=https://gohugo.io/>Hugo</a>。</p>
+<h1 id=hugo-安装与配置>Hugo 安装与配置</h1>
+<h2 id=hugo-安装>Hugo 安装</h2>
+<p>首先<a href=https://gohugo.io/getting-started/installing>安装 Hugo</a>，在不同系统上安装都很简单，在 Mac 上，使用 Homebrew 可以安装 Hugo：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>brew install hugo
+</code></pre></div><h2 id=建立博客站点>建立博客站点</h2>
+<p>安装以后，首先我们需要建立一个博客目录，下面存放的是博客的所有配置以及博文等资料，例如要建立一个名为 <code>Blog</code> 的站点，使用下面的命令：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>hugo new site Blog
+</code></pre></div><p>会看到以下提示内容：</p>
+<blockquote>
+<p>Congratulations! Your new Hugo site is created in /Users/jdhao/Blog.</p>
+<p>Just a few more steps and you&rsquo;re ready to go:</p>
+<ol>
+<li>Download a theme into the same-named folder.
+Choose a theme from <a href=https://themes.gohugo.io/>https://themes.gohugo.io/</a>, or
+create your own with the &ldquo;hugo new theme <themename>&rdquo; command.</li>
+<li>Perhaps you want to add some content. You can add single files
+with &ldquo;hugo new <sectionname>/<filename>.<format>&rdquo;.</li>
+<li>Start the built-in live server via &ldquo;hugo server&rdquo;.</li>
+</ol>
+<p>Visit <a href=https://gohugo.io/>https://gohugo.io/</a> for quickstart guide and full documentation.</p>
+</blockquote>
+<p>建立站点以后，博客根目录下默认有这些文件和子目录：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>archetypes/  config.toml  content/     data/        layouts/     static/      themes/
+</code></pre></div><p><code>config.toml</code> 就是博客的配置文件，<code>archetypes</code> 目录下有一个 <code>default.md</code>，存放的是建立新博文时候默认使用的模板，可以根据自己需求修改。<code>content</code> 目录用来存放博文，<code>static</code> 可以存放一些自己的文件，<code>themes</code> 文件夹用于存放不同的主题。</p>
+<h2 id=安装主题>安装主题</h2>
+<p>建立站点以后，我们需要安装主题，Hugo 提供了一个<a href=https://themes.gohugo.io/>主题浏览网站</a>，可以浏览各种主题的效果，找了一圈，没有发现自己特别中意的。也可以直接在 GitHub 上搜索 Hugo 的主题，最后经过各种查找比较，选择了 <a href=https://github.com/olOwOlo/hugo-theme-even>even</a> 主题。</p>
+<p>在博客根目录下，使用以下命令安装 even 主题：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git init
 git submodule add https://github.com/olOwOlo/hugo-theme-even.git themes/even
-</code></pre></div><p>然后编辑 <code>config.toml</code>，设置主题为 even:</p><div class=highlight><pre class=chroma><code class=language-toml data-lang=toml><span class=nx>theme</span> <span class=p>=</span> <span class=s2>&#34;even&#34;</span>
-</code></pre></div><h2 id=新建博文>新建博文</h2><p>要建立新的博文 <code>test.md</code>，使用下面的命令：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>hugo new post/test.md
-</code></pre></div><p>这个命令会在 <code>content</code> 目录下建立 <code>post</code> 目录，并在 <code>post</code> 下生成 <code>test.md</code> 文件，博文书写就在这个文件里使用 Markdown 语法完成。博文的 front matter 里 <code>draft</code> 选项默认为 <code>true</code>，需要改为 <code>false</code> 才能发表博文，建议直接更改上面说的<code>archetypes</code> 目录下的 <code>default</code> 文件，把 <code>draft: true</code> 改为 <code>draft: false</code>，这样生成的博文就是默认可以发表的。</p><p>和 Hexo 一样，在 front matter 里面，使用 <code>tags</code> 指定文章的 tag，使用 <code>categories</code> 指定文章的类别，示例如下：</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=nt>tags</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=l>LaTeX, Hexo, font]</span><span class=w>
+</code></pre></div><p>然后编辑 <code>config.toml</code>，设置主题为 even:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=nx>theme</span> <span class=p>=</span> <span class=s2>&#34;even&#34;</span>
+</code></pre></div><h2 id=新建博文>新建博文</h2>
+<p>要建立新的博文 <code>test.md</code>，使用下面的命令：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>hugo new post/test.md
+</code></pre></div><p>这个命令会在 <code>content</code> 目录下建立 <code>post</code> 目录，并在 <code>post</code> 下生成 <code>test.md</code> 文件，博文书写就在这个文件里使用 Markdown 语法完成。博文的 front matter 里 <code>draft</code> 选项默认为 <code>true</code>，需要改为 <code>false</code> 才能发表博文，建议直接更改上面说的<code>archetypes</code> 目录下的 <code>default</code> 文件，把 <code>draft: true</code> 改为 <code>draft: false</code>，这样生成的博文就是默认可以发表的。</p>
+<p>和 Hexo 一样，在 front matter 里面，使用 <code>tags</code> 指定文章的 tag，使用 <code>categories</code> 指定文章的类别，示例如下：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>tags</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=l>LaTeX, Hexo, font]</span><span class=w>
 </span><span class=w></span><span class=nt>categories</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=l>Mac, Linux]</span><span class=w>
-</span></code></pre></div><p>把 Hexo 博客里的所有博文 Markdown 文件拷贝到 <code>content/post/</code> 目录下，就完成了博文的迁移。</p><h2 id=查看生成效果>查看生成效果</h2><p>为了查看生成的博客的效果，可以使用 <code>hugo server</code> 命令，示例输出如下：</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>                   | EN
+</span></code></pre></div><p>把 Hexo 博客里的所有博文 Markdown 文件拷贝到 <code>content/post/</code> 目录下，就完成了博文的迁移。</p>
+<h2 id=查看生成效果>查看生成效果</h2>
+<p>为了查看生成的博客的效果，可以使用 <code>hugo server</code> 命令，示例输出如下：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>                   | EN
 +------------------+-----+
   Pages            | 196
   Paginator pages  |   9
@@ -30,14 +206,23 @@ Serving pages from memory
 Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
 Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
-</code></pre></div><p>博客有七十多篇文章，生成时间才 90 ms，速度果然惊人。该命令会建立一个本地的博客服务器，直接在浏览器访问网址 http://localhost:1313/ 即可查看生成的博客效果。</p><h2 id=部署到-github-pages>部署到 github pages</h2><p>确定生成的博客效果无误后，就可以将博客部署到服务器了，我使用的是免费的 <a href=https://pages.github.com/>GitHub pages</a> 服务。本部分假定我们在 github pages 建立的是 <em>User/Organization Pages</em> ，地址名称形式为<code>https://&lt;USERNAME|ORGANIZATION>.github.io/</code>，如果不是这种类型地址，请参考 Hugo <a href=https://gohugo.io/hosting-and-deployment/hosting-on-github/>官方指导</a>。</p><p>如果之前已经建立了 xxxx.github.io 这种形式的仓库，并且使用 Hexo 往这个仓库部署过，但是不想要之前的东西了，在博客的根目录下，运行下面的命令即可：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>mkdir public
+</code></pre></div><p>博客有七十多篇文章，生成时间才 90 ms，速度果然惊人。该命令会建立一个本地的博客服务器，直接在浏览器访问网址 http://localhost:1313/ 即可查看生成的博客效果。</p>
+<h2 id=部署到-github-pages>部署到 github pages</h2>
+<p>确定生成的博客效果无误后，就可以将博客部署到服务器了，我使用的是免费的 <a href=https://pages.github.com/>GitHub pages</a> 服务。本部分假定我们在 github pages 建立的是 <em>User/Organization Pages</em> ，地址名称形式为<code>https://&lt;USERNAME|ORGANIZATION>.github.io/</code>，如果不是这种类型地址，请参考 Hugo <a href=https://gohugo.io/hosting-and-deployment/hosting-on-github/>官方指导</a>。</p>
+<p>如果之前已经建立了 xxxx.github.io 这种形式的仓库，并且使用 Hexo 往这个仓库部署过，但是不想要之前的东西了，在博客的根目录下，运行下面的命令即可：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>mkdir public
 <span class=nb>cd</span> public
 git init
 git remote add upstream https://github.com/jdhao/jdhao.github.io.git
-</code></pre></div><p>执行 <code>hugo -t even</code>，hugo 会生成 blog 内容，放到 public 目录。然后，我们把 public 下面的内容 push 到 github 即可。</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>git add .
+</code></pre></div><p>执行 <code>hugo -t even</code>，hugo 会生成 blog 内容，放到 public 目录。然后，我们把 public 下面的内容 push 到 github 即可。</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git add .
 git commit -m  <span class=s2>&#34;switch to hugo&#34;</span>
 git push -f upstream master <span class=c1># 第一次 push 必须使用 -f，因为此时远程仓库非空，和本地有冲突</span>
-</code></pre></div><p>这样就部署成功了，一般等待几分钟，访问自己的博客，就能看到更新以后的内容。</p><p>每次部署都输入一大堆命令，很繁琐，参考<a href=https://gohugo.io/hosting-and-deployment/hosting-on-github/>官方教程</a>，做一个 <code>deploy.sh</code> 脚本，方便每次把博客 push 到 github。我的 <code>deploy.sh</code> 脚本内容为：</p><details><summary><font color=red>点击查看脚本内容。</font></summary><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
+</code></pre></div><p>这样就部署成功了，一般等待几分钟，访问自己的博客，就能看到更新以后的内容。</p>
+<p>每次部署都输入一大堆命令，很繁琐，参考<a href=https://gohugo.io/hosting-and-deployment/hosting-on-github/>官方教程</a>，做一个 <code>deploy.sh</code> 脚本，方便每次把博客 push 到 github。我的 <code>deploy.sh</code> 脚本内容为：</p>
+<details>
+<summary><font color=red>点击查看脚本内容。</font></summary>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=cp>#!/bin/bash
 </span><span class=cp></span>
 <span class=nb>echo</span> -e <span class=s2>&#34;\033[0;32mDeploying updates to GitHub...\033[0m&#34;</span>
 
@@ -63,39 +248,169 @@ git push upstream master
 <span class=c1># come back to blog root</span>
 
 <span class=nb>cd</span> ..
-</code></pre></div></details><p>赋予 <code>deploy.sh</code> 文件执行权限：</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>chmod u+x deploy.sh
-</code></pre></div><p>以后执行 <code>./deploy.sh</code> 就可以部署博客到 github 了。</p><p>注：第一次 push 需要使用 <code>-f</code>，以后 push 就不需要该参数了，force push 以后，github 仓库的 commit 数量会清零，原有的 commit 信息会丢失，不过这个仓库就是为了存放博客，不需要和其他人合作，所以 commit 信息丢失问题不大。</p><h1 id=主题设置与迁移细节>主题设置与迁移细节</h1><h2 id=时间格式>时间格式</h2><p>Hexo 中时间格式与 Hugo 格式不太相同，Hugo 对时间格式的要求比较严格，Hexo 中<code>YYYY-MM-DD HH:MM</code> 格式的时间在 Hugo 中无法被正确识别。<a href=https://scripter.co/time-formatting-in-go/>Hugo 中使用的时间格式</a>如下：</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>YYYY-MM-DD HH:MM:SS +0800
-</code></pre></div><p>最后的 <code>+0800</code> 代表<a href=https://zh.wikipedia.org/wiki/%E5%8C%97%E4%BA%AC%E6%97%B6%E9%97%B4>中国的时区是GMT+8</a>。</p><p>另外，Hexo 中 front matter 代表博客更新时间的 <code>updated</code> 选项在 Hugo 中是 <code>lastmod</code>。</p><p>具体时间格式的替换，我采用 Sublime Text 配合正则表达式匹配来替换。</p><h2 id=文章的-permalinks-设置>文章的 permalinks 设置</h2><p>Hexo 中，文章的链接都是 <code>YYYY/MM/DD/post_name/</code> 的格式，在 Hugo 中，可以通过设置 <code>permalinks</code> 参数来实现平滑过渡，在 <code>config.toml</code> 中加入以下设置：</p><div class=highlight><pre class=chroma><code class=language-toml data-lang=toml><span class=p>[</span><span class=nx>permalinks</span><span class=p>]</span>
+</code></pre></div></details>
+<p>赋予 <code>deploy.sh</code> 文件执行权限：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>chmod u+x deploy.sh
+</code></pre></div><p>以后执行 <code>./deploy.sh</code> 就可以部署博客到 github 了。</p>
+<p>注：第一次 push 需要使用 <code>-f</code>，以后 push 就不需要该参数了，force push 以后，github 仓库的 commit 数量会清零，原有的 commit 信息会丢失，不过这个仓库就是为了存放博客，不需要和其他人合作，所以 commit 信息丢失问题不大。</p>
+<h1 id=主题设置与迁移细节>主题设置与迁移细节</h1>
+<h2 id=时间格式>时间格式</h2>
+<p>Hexo 中时间格式与 Hugo 格式不太相同，Hugo 对时间格式的要求比较严格，Hexo 中<code>YYYY-MM-DD HH:MM</code> 格式的时间在 Hugo 中无法被正确识别。<a href=https://scripter.co/time-formatting-in-go/>Hugo 中使用的时间格式</a>如下：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>YYYY-MM-DD HH:MM:SS +0800
+</code></pre></div><p>最后的 <code>+0800</code> 代表<a href=https://zh.wikipedia.org/wiki/%E5%8C%97%E4%BA%AC%E6%97%B6%E9%97%B4>中国的时区是GMT+8</a>。</p>
+<p>另外，Hexo 中 front matter 代表博客更新时间的 <code>updated</code> 选项在 Hugo 中是 <code>lastmod</code>。</p>
+<p>具体时间格式的替换，我采用 Sublime Text 配合正则表达式匹配来替换。</p>
+<h2 id=文章的-permalinks-设置>文章的 permalinks 设置</h2>
+<p>Hexo 中，文章的链接都是 <code>YYYY/MM/DD/post_name/</code> 的格式，在 Hugo 中，可以通过设置 <code>permalinks</code> 参数来实现平滑过渡，在 <code>config.toml</code> 中加入以下设置：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=p>[</span><span class=nx>permalinks</span><span class=p>]</span>
   <span class=nx>post</span> <span class=p>=</span> <span class=s2>&#34;/:year/:month/:day/:filename/&#34;</span>
-</code></pre></div><h2 id=大小写问题>大小写问题</h2><p><a href=https://discourse.gohugo.io/t/disable-hugo-case-sensitive-url-matching/2498/4>Hugo 默认会把 url 中的大写字符转为小写</a>，如果不想转换，在配置文件中加入</p><div class=highlight><pre class=chroma><code class=language-toml data-lang=toml><span class=nx>disablePathToLower</span> <span class=p>=</span> <span class=kc>true</span>
-</code></pre></div><p>Hugo 默认会把分类（<code>categories</code>）名称转为小写，如果不想转换，在配置中加入，</p><div class=highlight><pre class=chroma><code class=language-toml data-lang=toml><span class=nx>preserveTaxonomyNames</span> <span class=p>=</span> <span class=kc>true</span>
-</code></pre></div><h2 id=如何完美支持-latex-公式>如何完美支持 LaTeX 公式</h2><p>由于 Markdown 中的 \，<code>_</code> 等字符在 LaTeX 公式也有特殊含义，两者会有冲突，之前为了配置 Hexo 博客的数学公式支持也费了很大功夫，具体过程可以参考<a href=https://jdhao.github.io/2018/01/25/hexo-mathjax-equation-number/>这篇博客</a>。迁移到Hugo以后，经过搜索、查找与验证，找到了两种比较好的解决方法。</p><h3 id=使用-mmark-格式>使用 mmark 格式</h3><p><a href=https://github.com/miekg/mmark>Mmark</a> 是一个 Markdown 引擎，Hugo 原生支持。对于包含 LaTeX 公式的文档，首先把后缀名改为 <code>mmark</code>（即名称由 <code>*.md</code> &ndash;> <code>*.mmark</code>），然后在文章的 front matter，加上一行设置</p><div class=highlight><pre class=chroma><code class=language-toml data-lang=toml><span class=nx>markup</span><span class=err>:</span> <span class=nx>mmark</span>
-</code></pre></div><h3 id=使用-pandoc>使用 Pandoc</h3><p>Hugo 也支持使用外部的处理程序来处理 Markdown 文件，例如 asciidoc，reStructuredText 和 Pandoc。这里选择 Pandoc，首先<a href=https://pandoc.org/installing.html>安装Pandoc</a>。然后把包含 LaTeX 公式的博文后缀为<code>pdc</code>，重新生成博客即可，不需要其他设置。</p><h3 id=小问题>小问题</h3><p>Hugo 中，为了支持 LaTeX，如果使用 mmark 或者 pandoc 来处理 Markdown，生成的博客没有目录。对于 mmark 格式，<a href=https://discourse.gohugo.io/t/table-of-contents-for-mmark/7713/8>暂时不支持目录</a>；对于Pandoc，无法生成 TOC 是因为 hugo 在调用 Pandoc 将 Markdown 文件转换为 HTML 的时候，只使用了 <code>--mathjax</code> 选项，没有使用 <code>--toc</code> 选项，具体 code 见 <a href=https://github.com/gohugoio/hugo/blob/master/helpers/content.go#L735>这里</a>, 如果加上 <code>--toc</code> 选项应该是可以生成 TOC 的。不妨试着加上 <code>--toc</code> 选项，然后 <a href=https://github.com/gohugoio/hugo#build-and-install-the-binaries-from-source-advanced-install>自己编译hugo</a>看看能不能生成 TOC。</p><h4 id=参考>参考</h4><ul><li><a href=https://github.com/gohugoio/hugo/pull/4060>https://github.com/gohugoio/hugo/pull/4060</a></li><li><a href=https://stackoverflow.com/questions/37533412/md-with-latex-to-html-with-mathjax-with-pandoc/55106932#55106932>https://stackoverflow.com/questions/37533412/md-with-latex-to-html-with-mathjax-with-pandoc/55106932#55106932</a></li><li><a href=https://github.com/olOwOlo/hugo-theme-even/issues/139>https://github.com/olOwOlo/hugo-theme-even/issues/139</a></li></ul><h2 id=文章缩略的格式>文章缩略的格式</h2><p>要在文章某个地方缩略，要使用 <code>&lt;!--more--></code>。注意 <code>more</code> 的周围不要有空格，Hugo无法识别这种有空格的缩略格式，<a href=https://www.smslit.top/2018/07/07/hexo2hugo/#%E5%85%B6%E5%AE%83%E9%97%AE%E9%A2%98>这里</a>的记录也证实了这个情况。同时，也可以参考<a href=https://gohugo.io/content-management/summaries/#manual-summary-splitting>Hugo 官方文档的说明</a>。</p><h2 id=个人文件的位置>个人文件的位置</h2><p>如果博客中有一些文章设定了下载链接，建议把文件放在博客根目录下的 <code>static</code> 目录，可以在该目录下建立名为 <code>files</code> 的目录（该名称仅仅是举例，可以根据自己喜好更改），然后把文件放在 <code>files</code> 目录下。假如 <code>files</code> 目录下有一个文件 <code>test.pdf</code>，参考<a href=https://discourse.gohugo.io/t/link-to-static-file/78>这里</a>，在博客中引用它的正确方式是:</p><div class=highlight><pre class=chroma><code class=language-markdown data-lang=markdown>[<span class=nt>点击这里下载 test.pdf</span>](<span class=na>/files/test.pdf</span>)
-</code></pre></div><p>完整的配置文件见<a href=https://gist.github.com/jdhao/c512109907b55debd24623641c4e8fef>这里</a>。</p><h1 id=busuanzi-博客计数失效>busuanzi 博客计数失效？</h1><p>Even 主题默认使用 <a href=http://busuanzi.ibruce.info/>busuanzi</a> 服务来给博客的 pv 和sv 计数，最近打开博客，发现计数部分的数字无法显示，一直在转圈。查了一下，原来是busuanzi 在七牛云上的域名失效了，所以服务挂了。</p><p>解决办法如下，打开 even 主题的目录，打开主题目录下<code>/layouts/partials/head.html</code> 这个文件，把<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>&lt;script async src=&#34;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&#34;&gt;&lt;/script&gt;
-</code></pre></div><p>改为</p><div class=highlight><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>script</span> <span class=na>async</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
-</code></pre></div><p>然后重新生成博客，部署到博客托管网站服务器即可。</p><h1 id=参考-1>参考</h1><ul><li>Hugo quick start, <a href=https://gohugo.io/getting-started/quick-start/>https://gohugo.io/getting-started/quick-start/</a></li><li><a href=http://www.flysnow.org/2018/07/29/from-hexo-to-hugo.html>http://www.flysnow.org/2018/07/29/from-hexo-to-hugo.html</a></li><li>禁止转换分类名称为小写，https://discourse.gohugo.io/t/solved-disablepathtolower-doesnt-work-for-taxonomic-terms/9429</li><li>Hugo configuration, <a href=https://gohugo.io/getting-started/configuration/>https://gohugo.io/getting-started/configuration/</a></li><li>Hugo 支持的博文格式，内有详细介绍，https://gohugo.io/content-management/formats/</li><li>Hugo 对 Pandoc 的支持，https://github.com/gohugoio/hugo/pull/4060</li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>如何快速定位到这个文件，参考<a href=https://jdhao.github.io/2018/10/07/nvim_fast_keyword_search/>这篇文章</a> <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2022-01-19</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Hugo/>Hugo</a>
+</code></pre></div><h2 id=大小写问题>大小写问题</h2>
+<p><a href=https://discourse.gohugo.io/t/disable-hugo-case-sensitive-url-matching/2498/4>Hugo 默认会把 url 中的大写字符转为小写</a>，如果不想转换，在配置文件中加入</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=nx>disablePathToLower</span> <span class=p>=</span> <span class=kc>true</span>
+</code></pre></div><p>Hugo 默认会把分类（<code>categories</code>）名称转为小写，如果不想转换，在配置中加入，</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=nx>preserveTaxonomyNames</span> <span class=p>=</span> <span class=kc>true</span>
+</code></pre></div><h2 id=如何完美支持-latex-公式>如何完美支持 LaTeX 公式</h2>
+<p>由于 Markdown 中的 \，<code>_</code> 等字符在 LaTeX 公式也有特殊含义，两者会有冲突，之前为了配置 Hexo 博客的数学公式支持也费了很大功夫，具体过程可以参考<a href=https://jdhao.github.io/2018/01/25/hexo-mathjax-equation-number/>这篇博客</a>。迁移到Hugo以后，经过搜索、查找与验证，找到了两种比较好的解决方法。</p>
+<h3 id=使用-mmark-格式>使用 mmark 格式</h3>
+<p><a href=https://github.com/miekg/mmark>Mmark</a> 是一个 Markdown 引擎，Hugo 原生支持。对于包含 LaTeX 公式的文档，首先把后缀名改为 <code>mmark</code>（即名称由 <code>*.md</code> &ndash;> <code>*.mmark</code>），然后在文章的 front matter，加上一行设置</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=nx>markup</span><span class=err>:</span> <span class=nx>mmark</span>
+</code></pre></div><h3 id=使用-pandoc>使用 Pandoc</h3>
+<p>Hugo 也支持使用外部的处理程序来处理 Markdown 文件，例如 asciidoc，reStructuredText 和 Pandoc。这里选择 Pandoc，首先<a href=https://pandoc.org/installing.html>安装Pandoc</a>。然后把包含 LaTeX 公式的博文后缀为<code>pdc</code>，重新生成博客即可，不需要其他设置。</p>
+<h3 id=小问题>小问题</h3>
+<p>Hugo 中，为了支持 LaTeX，如果使用 mmark 或者 pandoc 来处理 Markdown，生成的博客没有目录。对于 mmark 格式，<a href=https://discourse.gohugo.io/t/table-of-contents-for-mmark/7713/8>暂时不支持目录</a>；对于Pandoc，无法生成 TOC 是因为 hugo 在调用 Pandoc 将 Markdown 文件转换为 HTML 的时候，只使用了 <code>--mathjax</code> 选项，没有使用 <code>--toc</code> 选项，具体 code 见 <a href=https://github.com/gohugoio/hugo/blob/master/helpers/content.go#L735>这里</a>, 如果加上 <code>--toc</code> 选项应该是可以生成 TOC 的。不妨试着加上 <code>--toc</code> 选项，然后 <a href=https://github.com/gohugoio/hugo#build-and-install-the-binaries-from-source-advanced-install>自己编译hugo</a>看看能不能生成 TOC。</p>
+<h4 id=参考>参考</h4>
+<ul>
+<li><a href=https://github.com/gohugoio/hugo/pull/4060>https://github.com/gohugoio/hugo/pull/4060</a></li>
+<li><a href=https://stackoverflow.com/questions/37533412/md-with-latex-to-html-with-mathjax-with-pandoc/55106932#55106932>https://stackoverflow.com/questions/37533412/md-with-latex-to-html-with-mathjax-with-pandoc/55106932#55106932</a></li>
+<li><a href=https://github.com/olOwOlo/hugo-theme-even/issues/139>https://github.com/olOwOlo/hugo-theme-even/issues/139</a></li>
+</ul>
+<h2 id=文章缩略的格式>文章缩略的格式</h2>
+<p>要在文章某个地方缩略，要使用 <code>&lt;!--more--></code>。注意 <code>more</code> 的周围不要有空格，Hugo无法识别这种有空格的缩略格式，<a href=https://www.smslit.top/2018/07/07/hexo2hugo/#%E5%85%B6%E5%AE%83%E9%97%AE%E9%A2%98>这里</a>的记录也证实了这个情况。同时，也可以参考<a href=https://gohugo.io/content-management/summaries/#manual-summary-splitting>Hugo 官方文档的说明</a>。</p>
+<h2 id=个人文件的位置>个人文件的位置</h2>
+<p>如果博客中有一些文章设定了下载链接，建议把文件放在博客根目录下的 <code>static</code> 目录，可以在该目录下建立名为 <code>files</code> 的目录（该名称仅仅是举例，可以根据自己喜好更改），然后把文件放在 <code>files</code> 目录下。假如 <code>files</code> 目录下有一个文件 <code>test.pdf</code>，参考<a href=https://discourse.gohugo.io/t/link-to-static-file/78>这里</a>，在博客中引用它的正确方式是:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-markdown data-lang=markdown>[<span class=nt>点击这里下载 test.pdf</span>](<span class=na>/files/test.pdf</span>)
+</code></pre></div><p>完整的配置文件见<a href=https://gist.github.com/jdhao/c512109907b55debd24623641c4e8fef>这里</a>。</p>
+<h1 id=busuanzi-博客计数失效>busuanzi 博客计数失效？</h1>
+<p>Even 主题默认使用 <a href=http://busuanzi.ibruce.info/>busuanzi</a> 服务来给博客的 pv 和sv 计数，最近打开博客，发现计数部分的数字无法显示，一直在转圈。查了一下，原来是busuanzi 在七牛云上的域名失效了，所以服务挂了。</p>
+<p>解决办法如下，打开 even 主题的目录，打开主题目录下<code>/layouts/partials/head.html</code> 这个文件，把<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>&lt;script async src=&#34;//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js&#34;&gt;&lt;/script&gt;
+</code></pre></div><p>改为</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>script</span> <span class=na>async</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></div><p>然后重新生成博客，部署到博客托管网站服务器即可。</p>
+<h1 id=参考-1>参考</h1>
+<ul>
+<li>Hugo quick start, <a href=https://gohugo.io/getting-started/quick-start/>https://gohugo.io/getting-started/quick-start/</a></li>
+<li><a href=http://www.flysnow.org/2018/07/29/from-hexo-to-hugo.html>http://www.flysnow.org/2018/07/29/from-hexo-to-hugo.html</a></li>
+<li>禁止转换分类名称为小写，https://discourse.gohugo.io/t/solved-disablepathtolower-doesnt-work-for-taxonomic-terms/9429</li>
+<li>Hugo configuration, <a href=https://gohugo.io/getting-started/configuration/>https://gohugo.io/getting-started/configuration/</a></li>
+<li>Hugo 支持的博文格式，内有详细介绍，https://gohugo.io/content-management/formats/</li>
+<li>Hugo 对 Pandoc 的支持，https://github.com/gohugoio/hugo/pull/4060</li>
+</ul>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>如何快速定位到这个文件，参考<a href=https://jdhao.github.io/2018/10/07/nvim_fast_keyword_search/>这篇文章</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2022-01-19
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/Hugo/>Hugo</a>
 <a href=/tags/Hexo/>Hexo</a>
 <a href=/tags/MathJax/>MathJax</a>
 <a href=/tags/LaTeX/>LaTeX</a>
 <a href=/tags/Pandoc/>Pandoc</a>
-<a href=/tags/Markdown/>Markdown</a></div><nav class=post-nav><a class=prev href=/2018/10/11/python_argparse_set_boolean_params/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Set up the Default Value for Boolean Option in Argparse</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2018/10/09/nerdtree_windows_issue_bd_vim/><span class="next-text nav-default">Fixing the nerdtree Window Problem with `bd` Command in Nvim</span>
+<a href=/tags/Markdown/>Markdown</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/2018/10/11/python_argparse_set_boolean_params/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Set up the Default Value for Boolean Option in Argparse</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2018/10/09/nerdtree_windows_issue_bd_vim/>
+<span class="next-text nav-default">Fixing the nerdtree Window Problem with `bd` Command in Nvim</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

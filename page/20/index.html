@@ -1,48 +1,588 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/><link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's blog"><link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's blog"><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="jdhao's blog"><meta property="og:description" content="A blog for the patient and curious people"><meta property="og:type" content="website"><meta property="og:url" content="https://jdhao.github.io/"><meta property="og:updated_time" content="2022-02-02T11:17:51+08:00"><meta itemprop=name content="jdhao's blog"><meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary"><meta name=twitter:title content="jdhao's blog"><meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><section id=posts class=posts><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2017/05/06/install-feh-image-viewer-on-centos/>Install feh Image Viewer from Source on CentOS 7</a></h1><div class=post-meta><span class=post-time>2017-05-06</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>368 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>On my CentOS system, I usually use <a href=https://github.com/GNOME/eog>eog</a> to view
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/>
+<link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's blog">
+<link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's blog">
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="jdhao's blog">
+<meta property="og:description" content="A blog for the patient and curious people">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jdhao.github.io/">
+<meta itemprop=name content="jdhao's blog">
+<meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="jdhao's blog">
+<meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<section id=posts class=posts>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2017/05/06/install-feh-image-viewer-on-centos/>Install feh Image Viewer from Source on CentOS 7</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-05-06 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 368 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>On my CentOS system, I usually use <a href=https://github.com/GNOME/eog>eog</a> to view
 images in the console. But I am a little upset by its speed of opening an
 image. I do not need such functionality besides viewing an image. So I decided
-to find another lightweight replacement.</p></div><div class=read-more><a href=/2017/05/06/install-feh-image-viewer-on-centos/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2017/04/30/apply-for-hk-visa/>申请香港通行证</a></h1><div class=post-meta><span class=post-time>2017-04-30</span><div class=post-category><a href=/categories/life/>life</a></div><span class=more-meta>3254 words</span>
-<span class=more-meta>7 mins read</span></div></header><div class=post-content><div class=post-summary><p>这个月中旬，ICME Workshop 的投稿结果公布，我投的论文被接收了，忙完 camera-ready 论文的提交和注册，我开始办理香港签证相关的东西。</p></div><div class=read-more><a href=/2017/04/30/apply-for-hk-visa/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2017/03/26/transfer-file-android-windows/>如何使用 Android 文件管理器在电脑与手机之间无线传输文件</a></h1><div class=post-meta><span class=post-time>2017-03-26</span><div class=post-category><a href=/categories/Android/>Android</a></div><span class=more-meta>1736 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>最近换了一台新的手机 OnePlus 3T，这个手机简洁是简洁，预装的应用非常少，自带的文件管理功能不是很全，所以我研究了一下 Android 上常用的一些文件管理 APP。</p></div><div class=read-more><a href=/2017/03/26/transfer-file-android-windows/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2017/03/19/windows-sublime-usage-related-issue/>Sublime Text 3 使用相关问题及解决办法</a></h1><div class=post-meta><span class=post-time>2017-03-19</span><div class=post-category><a href=/categories/tools/>tools</a></div><span class=more-meta>2224 words</span>
-<span class=more-meta>5 mins read</span></div></header><div class=post-content><div class=post-summary><p>这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
-同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。</p></div><div class=read-more><a href=/2017/03/19/windows-sublime-usage-related-issue/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2017/03/13/some_loss_and_explanations/>Some Loss Functions and Their Intuitive Explanations</a></h1><div class=post-meta><span class=post-time>2017-03-13</span><div class=post-category><a href=/categories/academic/>academic</a></div><span class=more-meta>535 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>Loss functions are frequently used in supervised machine learning to minimize the differences between the predicted output of the model and the ground truth labels. In other words, it is used to measure how good our model can predict the true class of a sample from the dataset. Here I would like to list some frequently-used loss functions and give my intuitive explanation.</p></div><div class=read-more><a href=/2017/03/13/some_loss_and_explanations/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2017/03/06/Windows-xelatex-slow/>Why Did XeLaTeX Suddenly Run Insanely Slow?</a></h1><div class=post-meta><span class=post-time>2017-03-06</span><div class=post-category><a href=/categories/LaTeX/>LaTeX</a></div><span class=more-meta>221 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>Today I found that compiling LaTeX source is insanely slow(took me several
+to find another lightweight replacement.</p>
+</div>
+<div class=read-more>
+<a href=/2017/05/06/install-feh-image-viewer-on-centos/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2017/04/30/apply-for-hk-visa/>申请香港通行证</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-04-30 </span>
+<div class=post-category>
+<a href=/categories/life/> life </a>
+</div>
+<span class=more-meta> 3254 words </span>
+<span class=more-meta> 7 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>这个月中旬，ICME Workshop 的投稿结果公布，我投的论文被接收了，忙完 camera-ready 论文的提交和注册，我开始办理香港签证相关的东西。</p>
+</div>
+<div class=read-more>
+<a href=/2017/04/30/apply-for-hk-visa/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2017/03/26/transfer-file-android-windows/>如何使用 Android 文件管理器在电脑与手机之间无线传输文件</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-03-26 </span>
+<div class=post-category>
+<a href=/categories/Android/> Android </a>
+</div>
+<span class=more-meta> 1776 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>最近换了一台新的手机 OnePlus 3T，这个手机简洁是简洁，预装的应用非常少，自带的文件管理功能不是很全，所以我研究了一下 Android 上常用的一些文件管理 APP。</p>
+</div>
+<div class=read-more>
+<a href=/2017/03/26/transfer-file-android-windows/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2017/03/19/windows-sublime-usage-related-issue/>Sublime Text 3 使用相关问题及解决办法</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-03-19 </span>
+<div class=post-category>
+<a href=/categories/tools/> tools </a>
+</div>
+<span class=more-meta> 2224 words </span>
+<span class=more-meta> 5 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
+同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。</p>
+</div>
+<div class=read-more>
+<a href=/2017/03/19/windows-sublime-usage-related-issue/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2017/03/13/some_loss_and_explanations/>Some Loss Functions and Their Intuitive Explanations</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-03-13 </span>
+<div class=post-category>
+<a href=/categories/academic/> academic </a>
+</div>
+<span class=more-meta> 535 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Loss functions are frequently used in supervised machine learning to minimize the differences between the predicted output of the model and the ground truth labels. In other words, it is used to measure how good our model can predict the true class of a sample from the dataset. Here I would like to list some frequently-used loss functions and give my intuitive explanation.</p>
+</div>
+<div class=read-more>
+<a href=/2017/03/13/some_loss_and_explanations/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2017/03/06/Windows-xelatex-slow/>Why Did XeLaTeX Suddenly Run Insanely Slow?</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-03-06 </span>
+<div class=post-category>
+<a href=/categories/LaTeX/> LaTeX </a>
+</div>
+<span class=more-meta> 221 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Today I found that compiling LaTeX source is insanely slow(took me several
 minutes to compile a simple file). After a lot of trial and error, I found the
-reason.</p></div><div class=read-more><a href=/2017/03/06/Windows-xelatex-slow/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2017/03/04/Sublime-Windows-Markdown/>Sublime Text 3 Markdown 写作设置</a></h1><div class=post-meta><span class=post-time>2017-03-04</span><div class=post-category><a href=/categories/technique/>technique</a></div><span class=more-meta>1799 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><h1 id=引子>引子</h1><p>由于受不了 VSCode 打开文件的龟速，我决定换一个编辑器，以前就大致了解有三款评价不错的编辑器，分别是 <a href=https://atom.io/>GitHub Atom</a>, <a href=https://www.sublimetext.com/>Sublime Text 3</a> 以及微软的 <a href=https://code.visualstudio.com/>VSCode</a>。</p></div><div class=read-more><a href=/2017/03/04/Sublime-Windows-Markdown/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2017/03/01/Listary_intro/>An Introduction to Listary: A Blazing Fast Search Tool</a></h1><div class=post-meta><span class=post-time>2017-03-01</span><div class=post-category><a href=/categories/tools/>tools</a></div><span class=more-meta>808 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>I came across this amazing tool called <a href=http://www.listary.com/>Listary</a>
+reason.</p>
+</div>
+<div class=read-more>
+<a href=/2017/03/06/Windows-xelatex-slow/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2017/03/04/Sublime-Windows-Markdown/>Sublime Text 3 Markdown 写作设置</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-03-04 </span>
+<div class=post-category>
+<a href=/categories/technique/> technique </a>
+</div>
+<span class=more-meta> 1841 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h1 id=引子>引子</h1>
+<p>由于受不了 VSCode 打开文件的龟速，我决定换一个编辑器，以前就大致了解有三款评价不错的编辑器，分别是 <a href=https://atom.io/>GitHub Atom</a>, <a href=https://www.sublimetext.com/>Sublime Text 3</a> 以及微软的 <a href=https://code.visualstudio.com/>VSCode</a>。</p>
+</div>
+<div class=read-more>
+<a href=/2017/03/04/Sublime-Windows-Markdown/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2017/03/01/Listary_intro/>An Introduction to Listary: A Blazing Fast Search Tool</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-03-01 </span>
+<div class=post-category>
+<a href=/categories/tools/> tools </a>
+</div>
+<span class=more-meta> 808 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>I came across this amazing tool called <a href=http://www.listary.com/>Listary</a>
 yesterday and found that it is just an amazing piece of software that will
-change my experience on Windows fundamentally!</p></div><div class=read-more><a href=/2017/03/01/Listary_intro/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2017/02/26/hexo-use-markdown-writing-issue/>Hexo 使用，博客写作相关问题及解决方法</a></h1><div class=post-meta><span class=post-time>2017-02-26</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>3049 words</span>
-<span class=more-meta>7 mins read</span></div></header><div class=post-content><div class=post-summary><p>本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考<a href=https://jdhao.github.io/2017/02/26/hexo-install-use-issue/>这篇文章</a>。</p></div><div class=read-more><a href=/2017/02/26/hexo-use-markdown-writing-issue/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2017/02/26/hexo-install-use-issue/>How to Install Hexo and Theme NexT from Scratch on Windows</a></h1><div class=post-meta><span class=post-time>2017-02-26</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>1115 words</span>
-<span class=more-meta>6 mins read</span></div></header><div class=post-content><div class=post-summary>In this post, I will describe the complete step to install both Hexo and theme NexT on Windows.
+change my experience on Windows fundamentally!</p>
+</div>
+<div class=read-more>
+<a href=/2017/03/01/Listary_intro/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2017/02/26/hexo-use-markdown-writing-issue/>Hexo 使用，博客写作相关问题及解决方法</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-02-26 </span>
+<div class=post-category>
+<a href=/categories/Blog/> Blog </a>
+</div>
+<span class=more-meta> 3049 words </span>
+<span class=more-meta> 7 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考<a href=https://jdhao.github.io/2017/02/26/hexo-install-use-issue/>这篇文章</a>。</p>
+</div>
+<div class=read-more>
+<a href=/2017/02/26/hexo-use-markdown-writing-issue/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2017/02/26/hexo-install-use-issue/>How to Install Hexo and Theme NexT from Scratch on Windows</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-02-26 </span>
+<div class=post-category>
+<a href=/categories/Blog/> Blog </a>
+</div>
+<span class=more-meta> 1115 words </span>
+<span class=more-meta> 6 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+In this post, I will describe the complete step to install both Hexo and theme NexT on Windows.
 Install Hexo and deploy your post First, we need to install the Hexo framework. The main steps are as follows:
-Install Node.js and Cmder We need to install Node.js and git for Windows. You can skip installing git for Windows if you choose to install Cmder(highly recommended on Windows). Choose the Full package if you decide to install Cmder (only the full package contains git for Windows).</div><div class=read-more><a href=/2017/02/26/hexo-install-use-issue/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2017/02/25/spring_festival_in_wh/>在武汉过春节</a></h1><div class=post-meta><span class=post-time>2017-02-25</span><div class=post-category><a href=/categories/life/>life</a></div><span class=more-meta>2427 words</span>
-<span class=more-meta>5 mins read</span></div></header><div class=post-content><div class=post-summary>1 月 26 日大清早起床赶到北京西站，坐上了早上八点半左右的火车，前往武汉，晚上大约七点半到达武昌火车站。在武汉呆了整整一周，2 月 3 号中午坐车回的</div><div class=read-more><a href=/2017/02/25/spring_festival_in_wh/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2017/02/24/my_first_post/>A New Start</a></h1><div class=post-meta><span class=post-time>2017-02-24</span><div class=post-category><a href=/categories/life/>life</a></div><span class=more-meta>496 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary>去年的时候还是前年，在谷歌上搜索东西，看到了很多人的博客都是用 GitHub 托管的，使用 GitHub 提供的 GitHub Pages 功能。我一看就喜欢上这种开源并且简洁的方式，却没有立</div><div class=read-more><a href=/2017/02/24/my_first_post/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2017/01/05/thought_on_diginity/>关于「尊严」</a></h1><div class=post-meta><span class=post-time>2017-01-05</span><div class=post-category><a href=/categories/thought/>thought</a></div><span class=more-meta>414 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>前一段时间和一个同学谈到了尊严，就用 A 来表示吧。A 认为人在弱小的时候，谈不上尊严，你只有放弃自己的尊严，才能活下来，强者才有尊严，或者说强者的尊严比弱者多。A 的话，让我想到了"弱肉强食"这个词：如果你弱小，那么不要谈尊严，你只是别人盘里的菜而已，尊严对你来说太奢侈了。</p></div><div class=read-more><a href=/2017/01/05/thought_on_diginity/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2016/11/25/thought-on-optimization-for-cnn/>关于神经网络优化的一些思考</a></h1><div class=post-meta><span class=post-time>2016-11-25</span><div class=post-category><a href=/categories/academic/>academic</a></div><span class=more-meta>359 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>优化的方法有很多种，在深度学习中，占有绝对主导地位的还是 stochastic gradient
+Install Node.js and Cmder We need to install Node.js and git for Windows. You can skip installing git for Windows if you choose to install Cmder(highly recommended on Windows). Choose the Full package if you decide to install Cmder (only the full package contains git for Windows).
+</div>
+<div class=read-more>
+<a href=/2017/02/26/hexo-install-use-issue/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2017/02/25/spring_festival_in_wh/>在武汉过春节</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-02-25 </span>
+<div class=post-category>
+<a href=/categories/life/> life </a>
+</div>
+<span class=more-meta> 2448 words </span>
+<span class=more-meta> 5 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+1 月 26 日大清早起床赶到北京西站，坐上了早上八点半左右的火车，前往武汉，晚上大约七点半到达武昌火车站。在武汉呆了整整一周，2 月 3 号中午坐车回的
+</div>
+<div class=read-more>
+<a href=/2017/02/25/spring_festival_in_wh/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2017/02/24/my_first_post/>A New Start</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-02-24 </span>
+<div class=post-category>
+<a href=/categories/life/> life </a>
+</div>
+<span class=more-meta> 496 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+去年的时候还是前年，在谷歌上搜索东西，看到了很多人的博客都是用 GitHub 托管的，使用 GitHub 提供的 GitHub Pages 功能。我一看就喜欢上这种开源并且简洁的方式，却没有立
+</div>
+<div class=read-more>
+<a href=/2017/02/24/my_first_post/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2017/01/05/thought_on_diginity/>关于「尊严」</a></h1>
+<div class=post-meta>
+<span class=post-time> 2017-01-05 </span>
+<div class=post-category>
+<a href=/categories/thought/> thought </a>
+</div>
+<span class=more-meta> 414 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>前一段时间和一个同学谈到了尊严，就用 A 来表示吧。A 认为人在弱小的时候，谈不上尊严，你只有放弃自己的尊严，才能活下来，强者才有尊严，或者说强者的尊严比弱者多。A 的话，让我想到了"弱肉强食"这个词：如果你弱小，那么不要谈尊严，你只是别人盘里的菜而已，尊严对你来说太奢侈了。</p>
+</div>
+<div class=read-more>
+<a href=/2017/01/05/thought_on_diginity/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2016/11/25/thought-on-optimization-for-cnn/>关于神经网络优化的一些思考</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-11-25 </span>
+<div class=post-category>
+<a href=/categories/academic/> academic </a>
+</div>
+<span class=more-meta> 359 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>优化的方法有很多种，在深度学习中，占有绝对主导地位的还是 stochastic gradient
 optimization (简称 SGD) 以及它的一些变种，如 SGD with momentum，Adam 等。 SGD
 是一种基于一阶梯度信息的优化方法，仅从优化的速度上来讲，效率不是最高的，一些利
 用二阶信息的优化方法，理论上优化速度更快，但是，SGD 反而是在深度学习的优化中使
 用的最多的优化方法，为什么其他类型的优化方法在深度学习中不经常使用呢？它们相比
 SGD 有什么缺点？或者说 SGD 有什么优点呢？ 这篇文章试图对这个问题给出自己的思考
-与总结。</p></div><div class=read-more><a href=/2016/11/25/thought-on-optimization-for-cnn/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2016/09/05/thought_on_raising_children/>关于孩子</a></h1><div class=post-meta><span class=post-time>2016-09-05</span><div class=post-category><a href=/categories/thought/>thought</a></div><span class=more-meta>855 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>坐火车回北京，我坐在过道边，过道另一边是一个老人家带着她的孙子，小孩子约一岁，能说模糊不清的字。小孩子一路上都在吵吵闹闹，一刻不停歇，写作此文时候的举动是把前面座位上贴的布给扯掉，扔在地上，他的奶奶似乎无动于衷，也不批评，也不行动，过了一会儿，打扫卫生的人员过来了，把布捡起来，又贴在了原位置。小孩子仍然不满足，继续进行他的游戏，又把布扯掉扔在地上，奶奶似乎也有点不满意了，把布捡起来粘在了原处，然后小孩和他的奶奶重复这个回合若干次，奶奶并未对孩子讲这样做有什么不对，只是寄希望于小孩别再拽掉那块可怜的布了。</p></div><div class=read-more><a href=/2016/09/05/thought_on_raising_children/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2016/07/16/thought_on_patriotism/>「汉奸走狗」与「关我*事」</a></h1><div class=post-meta><span class=post-time>2016-07-16</span><div class=post-category><a href=/categories/thought/>thought</a></div><span class=more-meta>724 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>公元 2016 年，真是一个多事之年啊，各种事件接踵而至，纷至沓来，仿佛排演好的一般，不断在现实与虚拟空间制造着冲突、对抗，也制造着话题。</p></div><div class=read-more><a href=/2016/07/16/thought_on_patriotism/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2016/05/30/i_am_awaken/>I Am Awaken</a></h1><div class=post-meta><span class=post-time>2016-05-30</span><div class=post-category><a href=/categories/thought/>thought</a></div><span class=more-meta>1057 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>人的想法转变可能是一瞬间的。</p></div><div class=read-more><a href=/2016/05/30/i_am_awaken/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2016/04/18/our_worry_and_anxiety/>我们的焦躁与不安</a></h1><div class=post-meta><span class=post-time>2016-04-18</span><div class=post-category><a href=/categories/thought/>thought</a></div><span class=more-meta>1051 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190528010725.png width=800></p><p>从乡下搬到市里不到一年，时间不是很长，注意到了两个事情，让我总是想写点什么来说一说。</p></div><div class=read-more><a href=/2016/04/18/our_worry_and_anxiety/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2016/04/11/thought_on_motor_ban/>从「禁摩限电」说起</a></h1><div class=post-meta><span class=post-time>2016-04-11</span><div class=post-category><a href=/categories/life/>life</a></div><span class=more-meta>1642 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190528010420.png width=800></p></div><div class=read-more><a href=/2016/04/11/thought_on_motor_ban/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2016/03/26/are_your_hungry_about_vaccine/>你饿不饿？来吃点东西好吗</a></h1><div class=post-meta><span class=post-time>2016-03-26</span><div class=post-category><a href=/categories/life/>life</a></div><span class=more-meta>1570 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>想起了一个很好笑的笑话，有人在网上提问：“老婆怀孕了，但是隔壁邻居家里有wifi，我该怎么办，在线等，急！”有人回答：“送邻居一个仙人掌，能防wifi。”生活中，你也经常听到有人对你说，新买的手机必须完全放电，然后才能充满电，必须重复这样几次；还有人对你说，手机电池必须用到快没有电再去充电才行，否则会损伤电池。</p></div><div class=read-more><a href=/2016/03/26/are_your_hungry_about_vaccine/ class=read-more-link>Read more...</a></div></div></article></section><nav class=pagination><a class=prev href=/page/19/><i class="iconfont icon-left"></i><span class=prev-text>Prev</span></a>
-<a class=next href=/page/21/><span class=next-text>Next</span>
-<i class="iconfont icon-right"></i></a></nav></div></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+与总结。</p>
+</div>
+<div class=read-more>
+<a href=/2016/11/25/thought-on-optimization-for-cnn/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2016/09/05/thought_on_raising_children/>关于孩子</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-09-05 </span>
+<div class=post-category>
+<a href=/categories/thought/> thought </a>
+</div>
+<span class=more-meta> 855 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>坐火车回北京，我坐在过道边，过道另一边是一个老人家带着她的孙子，小孩子约一岁，能说模糊不清的字。小孩子一路上都在吵吵闹闹，一刻不停歇，写作此文时候的举动是把前面座位上贴的布给扯掉，扔在地上，他的奶奶似乎无动于衷，也不批评，也不行动，过了一会儿，打扫卫生的人员过来了，把布捡起来，又贴在了原位置。小孩子仍然不满足，继续进行他的游戏，又把布扯掉扔在地上，奶奶似乎也有点不满意了，把布捡起来粘在了原处，然后小孩和他的奶奶重复这个回合若干次，奶奶并未对孩子讲这样做有什么不对，只是寄希望于小孩别再拽掉那块可怜的布了。</p>
+</div>
+<div class=read-more>
+<a href=/2016/09/05/thought_on_raising_children/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2016/07/16/thought_on_patriotism/>「汉奸走狗」与「关我*事」</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-07-16 </span>
+<div class=post-category>
+<a href=/categories/thought/> thought </a>
+</div>
+<span class=more-meta> 724 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>公元 2016 年，真是一个多事之年啊，各种事件接踵而至，纷至沓来，仿佛排演好的一般，不断在现实与虚拟空间制造着冲突、对抗，也制造着话题。</p>
+</div>
+<div class=read-more>
+<a href=/2016/07/16/thought_on_patriotism/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2016/05/30/i_am_awaken/>I Am Awaken</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-05-30 </span>
+<div class=post-category>
+<a href=/categories/thought/> thought </a>
+</div>
+<span class=more-meta> 1057 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>人的想法转变可能是一瞬间的。</p>
+</div>
+<div class=read-more>
+<a href=/2016/05/30/i_am_awaken/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2016/04/18/our_worry_and_anxiety/>我们的焦躁与不安</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-04-18 </span>
+<div class=post-category>
+<a href=/categories/thought/> thought </a>
+</div>
+<span class=more-meta> 1051 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20190528010725.png width=800>
+</p>
+<p>从乡下搬到市里不到一年，时间不是很长，注意到了两个事情，让我总是想写点什么来说一说。</p>
+</div>
+<div class=read-more>
+<a href=/2016/04/18/our_worry_and_anxiety/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2016/04/11/thought_on_motor_ban/>从「禁摩限电」说起</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-04-11 </span>
+<div class=post-category>
+<a href=/categories/life/> life </a>
+</div>
+<span class=more-meta> 1642 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20190528010420.png width=800>
+</p>
+</div>
+<div class=read-more>
+<a href=/2016/04/11/thought_on_motor_ban/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2016/03/26/are_your_hungry_about_vaccine/>你饿不饿？来吃点东西好吗</a></h1>
+<div class=post-meta>
+<span class=post-time> 2016-03-26 </span>
+<div class=post-category>
+<a href=/categories/life/> life </a>
+</div>
+<span class=more-meta> 1570 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>想起了一个很好笑的笑话，有人在网上提问：“老婆怀孕了，但是隔壁邻居家里有wifi，我该怎么办，在线等，急！”有人回答：“送邻居一个仙人掌，能防wifi。”生活中，你也经常听到有人对你说，新买的手机必须完全放电，然后才能充满电，必须重复这样几次；还有人对你说，手机电池必须用到快没有电再去充电才行，否则会损伤电池。</p>
+</div>
+<div class=read-more>
+<a href=/2016/03/26/are_your_hungry_about_vaccine/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+</section>
+<nav class=pagination>
+<a class=prev href=/page/19/>
+<i class="iconfont icon-left"></i>
+<span class=prev-text>Prev</span>
+</a>
+<a class=next href=/page/21/>
+<span class=next-text>Next</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

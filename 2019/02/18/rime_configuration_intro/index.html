@@ -1,6 +1,162 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>最新版 Rime 输入法使用 - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="之前一直听说过 Rime 这个神级输入法的大名，却一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，却造成 Chrome 浏览器频频崩溃，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2019/02/18/rime_configuration_intro/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="最新版 Rime 输入法使用"><meta property="og:description" content="之前一直听说过 Rime 这个神级输入法的大名，却一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，却造成 Chrome 浏览器频频崩溃，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/02/18/rime_configuration_intro/"><meta property="article:published_time" content="2019-02-18T00:32:40+08:00"><meta property="article:modified_time" content="2020-06-01T22:23:38+08:00"><meta itemprop=name content="最新版 Rime 输入法使用"><meta itemprop=description content="之前一直听说过 Rime 这个神级输入法的大名，却一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，却造成 Chrome 浏览器频频崩溃，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。"><meta itemprop=datePublished content="2019-02-18T00:32:40+08:00"><meta itemprop=dateModified content="2020-06-01T22:23:38+08:00"><meta itemprop=wordCount content="3631"><meta itemprop=keywords content="Windows,Mac,"><meta name=twitter:card content="summary"><meta name=twitter:title content="最新版 Rime 输入法使用"><meta name=twitter:description content="之前一直听说过 Rime 这个神级输入法的大名，却一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，却造成 Chrome 浏览器频频崩溃，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>最新版 Rime 输入法使用</h1><div class=post-meta><span class=post-time>2019-02-18</span><div class=post-category><a href=/categories/tools/>tools</a></div><span class=more-meta>3631 words</span>
-<span class=more-meta>8 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#用户文件夹下如何配置>用户文件夹下如何配置</a></li><li><a href=#添加新的颜色主题>添加新的颜色主题</a></li><li><a href=#符号自定义>符号自定义</a><ul><li><a href=#输入直角引号>输入直角引号</a></li></ul></li><li><a href=#给沧月简体增加词典>给沧月简体增加词典</a><ul><li><a href=#词典的格式>词典的格式</a></li><li><a href=#a-namevert_quote_chara直角引号><a name=vert_quote_char></a>直角引号</a></li></ul></li><li><a href=#安装并启用小鹤双拼>安装并启用小鹤双拼</a></li><li><a href=#安装表情-emoji>安装表情 emoji</a></li><li><a href=#沧月简体默认输出英文>沧月简体默认输出英文</a></li><li><a href=#一些小问题>一些小问题</a><ul><li><a href=#各种配置到底放在哪里啊>各种配置到底放在哪里啊？</a></li><li><a href=#有的配置怎么不生效>有的配置怎么不生效？</a></li><li><a href=#为什么设置候选词竖排显示无效>为什么设置候选词竖排显示无效？</a></li></ul></li><li><a href=#参考>参考</a></li></ul></nav></div></div><div class=post-content><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190217233344.png width=800></p><p>之前一直听说过 <a href=https://rime.im/>Rime</a> 这个神级输入法的大名，却一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，却造成 <a href=https://www.v2ex.com/t/535393>Chrome 浏览器频频崩溃</a>，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。</p><h1 id=用户文件夹下如何配置>用户文件夹下如何配置</h1><p>网上的很多教程教用户直接在 <a href=https://github.com/rime/home/wiki/UserData#%E7%94%A8%E6%88%B6%E6%96%87%E4%BB%B6%E5%A4%BE>用户文件夹</a>的 build 目录下修改 <code>default.yaml</code> ,<code>输入方案.schema.yaml</code>（这里 <code>输入方案</code> 只是某种具体方案的代称）, <code>weasel.yaml</code> 等文件，这是不正确的方式，因为 Rime 升级时，这些文件会被覆盖。</p><p>正确的方式是，在用户文件夹下建立 <code>default.custom.yaml</code> 和 <code>输入方案.custom.yaml</code>, <code>weasel.custom.yaml</code> 文件，这些文件相当于是补丁，部署以后会更新到默认的配置里面。<a href=https://github.com/rime/home/wiki/CustomizationGuide#%E5%AE%9A%E8%A3%BD%E6%8C%87%E5%8D%97>定制指南</a>里面也有明确提到。</p><h1 id=添加新的颜色主题>添加新的颜色主题</h1><p>Rime 中，输入法的显示效果称为「颜色主题」(color scheme)。在网上看到一个有趣的主题，如何添加到 Rime 中使用呢？以 Windows 平台为例，假如我们要加入<a href=https://zhuanlan.zhihu.com/p/28516904>这里</a>提供的「丹青」主题，在系统 custom 设置文件 (即 <code>weasel.custom.yaml</code>) 中加入以下配置即可：</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=nt>&#34;preset_color_schemes/tantsing&#34;: </span><span class=w> </span><span class=c># 在配色方案列表裏加入標識爲 tantsing 的新方案</span><span class=w>
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>最新版 Rime 输入法使用 - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="之前一直听说过 Rime 这个神级输入法的大名，却一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，却造成 Chrome 浏览器频频崩溃，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2019/02/18/rime_configuration_intro/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="最新版 Rime 输入法使用">
+<meta property="og:description" content="
+
+
+之前一直听说过 Rime 这个神级输入法的大名，却一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，却造成 Chrome 浏览器频频崩溃，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2019/02/18/rime_configuration_intro/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2019-02-18T00:32:40+08:00">
+<meta property="article:modified_time" content="2020-06-01T22:23:38+08:00">
+<meta itemprop=name content="最新版 Rime 输入法使用">
+<meta itemprop=description content="
+
+
+之前一直听说过 Rime 这个神级输入法的大名，却一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，却造成 Chrome 浏览器频频崩溃，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。"><meta itemprop=datePublished content="2019-02-18T00:32:40+08:00">
+<meta itemprop=dateModified content="2020-06-01T22:23:38+08:00">
+<meta itemprop=wordCount content="3673">
+<meta itemprop=keywords content="Windows,Mac,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="最新版 Rime 输入法使用">
+<meta name=twitter:description content="
+
+
+之前一直听说过 Rime 这个神级输入法的大名，却一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，却造成 Chrome 浏览器频频崩溃，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>最新版 Rime 输入法使用</h1>
+<div class=post-meta>
+<span class=post-time> 2019-02-18 </span>
+<div class=post-category>
+<a href=/categories/tools/> tools </a>
+</div>
+<span class=more-meta> 3673 words </span>
+<span class=more-meta> 8 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#用户文件夹下如何配置>用户文件夹下如何配置</a></li>
+<li><a href=#添加新的颜色主题>添加新的颜色主题</a></li>
+<li><a href=#符号自定义>符号自定义</a>
+<ul>
+<li><a href=#输入直角引号>输入直角引号</a></li>
+</ul>
+</li>
+<li><a href=#给沧月简体增加词典>给沧月简体增加词典</a>
+<ul>
+<li><a href=#词典的格式>词典的格式</a></li>
+<li><a href=#a-namevert_quote_chara直角引号><a name=vert_quote_char></a>直角引号</a></li>
+</ul>
+</li>
+<li><a href=#安装并启用小鹤双拼>安装并启用小鹤双拼</a></li>
+<li><a href=#安装表情-emoji>安装表情 emoji</a></li>
+<li><a href=#沧月简体默认输出英文>沧月简体默认输出英文</a></li>
+<li><a href=#一些小问题>一些小问题</a>
+<ul>
+<li><a href=#各种配置到底放在哪里啊>各种配置到底放在哪里啊？</a></li>
+<li><a href=#有的配置怎么不生效>有的配置怎么不生效？</a></li>
+<li><a href=#为什么设置候选词竖排显示无效>为什么设置候选词竖排显示无效？</a></li>
+</ul>
+</li>
+<li><a href=#参考>参考</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20190217233344.png width=800>
+</p>
+<p>之前一直听说过 <a href=https://rime.im/>Rime</a> 这个神级输入法的大名，却一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，却造成 <a href=https://www.v2ex.com/t/535393>Chrome 浏览器频频崩溃</a>，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。</p>
+<h1 id=用户文件夹下如何配置>用户文件夹下如何配置</h1>
+<p>网上的很多教程教用户直接在 <a href=https://github.com/rime/home/wiki/UserData#%E7%94%A8%E6%88%B6%E6%96%87%E4%BB%B6%E5%A4%BE>用户文件夹</a>的 build 目录下修改 <code>default.yaml</code> ,<code>输入方案.schema.yaml</code>（这里 <code>输入方案</code> 只是某种具体方案的代称）, <code>weasel.yaml</code> 等文件，这是不正确的方式，因为 Rime 升级时，这些文件会被覆盖。</p>
+<p>正确的方式是，在用户文件夹下建立 <code>default.custom.yaml</code> 和 <code>输入方案.custom.yaml</code>, <code>weasel.custom.yaml</code> 文件，这些文件相当于是补丁，部署以后会更新到默认的配置里面。<a href=https://github.com/rime/home/wiki/CustomizationGuide#%E5%AE%9A%E8%A3%BD%E6%8C%87%E5%8D%97>定制指南</a>里面也有明确提到。</p>
+<h1 id=添加新的颜色主题>添加新的颜色主题</h1>
+<p>Rime 中，输入法的显示效果称为「颜色主题」(color scheme)。在网上看到一个有趣的主题，如何添加到 Rime 中使用呢？以 Windows 平台为例，假如我们要加入<a href=https://zhuanlan.zhihu.com/p/28516904>这里</a>提供的「丹青」主题，在系统 custom 设置文件 (即 <code>weasel.custom.yaml</code>) 中加入以下配置即可：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>&#34;preset_color_schemes/tantsing&#34;: </span><span class=w> </span><span class=c># 在配色方案列表裏加入標識爲 tantsing 的新方案</span><span class=w>
 </span><span class=w>    </span><span class=nt>author</span><span class=p>:</span><span class=w> </span><span class=l>Mijiag</span><span class=w>
 </span><span class=w>    </span><span class=nt>back_color</span><span class=p>:</span><span class=w> </span><span class=l>0xE3E3E3</span><span class=w>
 </span><span class=w>    </span><span class=nt>border_color</span><span class=p>:</span><span class=w> </span><span class=m>0x000000</span><span class=w>
@@ -12,19 +168,47 @@
 </span><span class=w>    </span><span class=nt>hilited_text_color</span><span class=p>:</span><span class=w> </span><span class=l>0xE3E3E3</span><span class=w>
 </span><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;丹青／Tantsing&#34;</span><span class=w>
 </span><span class=w>    </span><span class=nt>text_color</span><span class=p>:</span><span class=w> </span><span class=m>0x000000</span><span class=w>
-</span></code></pre></div><p>引用该主题的时候，使用名字 <code>tantsing</code>，效果如下：</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190217233503.png width=200></p><p>如果要自己制作 Rime 主题，<a href=https://gjrobert.github.io/Rime-See-Me-squirrel/>「Rime 西米」</a>是一款网页端工具，可以辅助制作，实时渲染颜色，便于查看最终显示效果。<a href=https://github.com/rime-aca/color_schemes>这里</a>有一些预定义的主题可供使用。</p><h1 id=符号自定义>符号自定义</h1><p>首先从 Rime 安装根目录下的 <code>data</code> 子目录拷贝 <code>symbols.yaml</code> 文件到 Rime 用户目录<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>（安装 Rime 以后，我的用户目录并没有像网上教程所说的包含 <code>symbols.yaml</code>文件），并且把该文件重命名为 <code>symbols.custom.yaml</code>。</p><p>然后仿照里面的例子，我们就可以自定义自己的符号了，例如，下面是我增加的一些符号：</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=c># 个人常用信息</span><span class=w>
+</span></code></pre></div><p>引用该主题的时候，使用名字 <code>tantsing</code>，效果如下：</p>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20190217233503.png width=200>
+</p>
+<p>如果要自己制作 Rime 主题，<a href=https://gjrobert.github.io/Rime-See-Me-squirrel/>「Rime 西米」</a>是一款网页端工具，可以辅助制作，实时渲染颜色，便于查看最终显示效果。<a href=https://github.com/rime-aca/color_schemes>这里</a>有一些预定义的主题可供使用。</p>
+<h1 id=符号自定义>符号自定义</h1>
+<p>首先从 Rime 安装根目录下的 <code>data</code> 子目录拷贝 <code>symbols.yaml</code> 文件到 Rime 用户目录<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>（安装 Rime 以后，我的用户目录并没有像网上教程所说的包含 <code>symbols.yaml</code>文件），并且把该文件重命名为 <code>symbols.custom.yaml</code>。</p>
+<p>然后仿照里面的例子，我们就可以自定义自己的符号了，例如，下面是我增加的一些符号：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=c># 个人常用信息</span><span class=w>
 </span><span class=w>    </span><span class=nt>&#39;/gr&#39;</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=l>jdhao@hotmail.com, 132******68, jdhao]</span><span class=w>
 </span><span class=w></span><span class=c># 快速输入勾和叉</span><span class=w>
 </span><span class=w>    </span><span class=nt>&#39;/gc&#39;</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=l>✓, 🗹, ✗, ☒]</span><span class=w>
-</span></code></pre></div><p>然后，在新建的 <code>luna_pinyin_simp.custom.yaml</code> (<code>luna_pinyin_simp</code> 是沧月简体输入方案的代号)里面，加入下面的设置即可：</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=nt>patch</span><span class=p>:</span><span class=w>
+</span></code></pre></div><p>然后，在新建的 <code>luna_pinyin_simp.custom.yaml</code> (<code>luna_pinyin_simp</code> 是沧月简体输入方案的代号)里面，加入下面的设置即可：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>patch</span><span class=p>:</span><span class=w>
 </span><span class=w>  </span><span class=c># 引用 `symbols.custom` 文件里面的符号</span><span class=w>
 </span><span class=w>  </span><span class=nt>&#39;punctuator/import_preset&#39;</span><span class=p>:</span><span class=w> </span><span class=l>symbols.custom</span><span class=w>
 </span><span class=w>  </span><span class=nt>&#39;recognizer/patterns/punct&#39;</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;^/([a-z]+|[0-9])$&#34;</span><span class=w>
-</span></code></pre></div><p>然后在中文模式下，输入 <code>/gc</code>，就会显示出自定义的符号，输入对应的数字，符号就会上屏。</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190217233600.png width=200></p><h2 id=输入直角引号>输入直角引号</h2><p>有的人喜欢在写作的时候使用直角引号：<code>「」</code>和<code>『』</code>，Rime 在 <code>symbols.yaml</code> 里面，已经提供了这个功能，不过是在 <code>[</code> 和 <code>]</code> 按键上提供的，中文输入法状态下，按下<code>[</code> (<code>]</code>)，返回的结果中包含 <code>「</code> (<code>」</code>)，如果按住 <tab>Shift</tab> 键，按下 <code>[</code> (<code>]</code>)，返回的结果中包含 <code>『</code> (<code>』</code>)。</p><p>但是因为这毕竟是引号，最好是按下引号的时候，能够输出直角引号，在<code>symbols.custom.yaml</code> 中，找到 <code>punctuator</code> 部分下的 <code>hafl_shape</code> (半角的意思)下面，</p><p>把下面的映射</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>    &#39;&#39;&#39;&#39; : { pair: [ &#39;‘&#39;, &#39;’&#39; ] }
+</span></code></pre></div><p>然后在中文模式下，输入 <code>/gc</code>，就会显示出自定义的符号，输入对应的数字，符号就会上屏。</p>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20190217233600.png width=200>
+</p>
+<h2 id=输入直角引号>输入直角引号</h2>
+<p>有的人喜欢在写作的时候使用直角引号：<code>「」</code>和<code>『』</code>，Rime 在 <code>symbols.yaml</code> 里面，已经提供了这个功能，不过是在 <code>[</code> 和 <code>]</code> 按键上提供的，中文输入法状态下，按下<code>[</code> (<code>]</code>)，返回的结果中包含 <code>「</code> (<code>」</code>)，如果按住 <tab>Shift</tab> 键，按下 <code>[</code> (<code>]</code>)，返回的结果中包含 <code>『</code> (<code>』</code>)。</p>
+<p>但是因为这毕竟是引号，最好是按下引号的时候，能够输出直角引号，在<code>symbols.custom.yaml</code> 中，找到 <code>punctuator</code> 部分下的 <code>hafl_shape</code> (半角的意思)下面，</p>
+<p>把下面的映射</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>    &#39;&#39;&#39;&#39; : { pair: [ &#39;‘&#39;, &#39;’&#39; ] }
     &#39;&#34;&#39; : { pair: [ &#39;“&#39;, &#39;”&#39; ] }
-</code></pre></div><p>改成</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>    &#39;&#39;&#39;&#39; : { pair: [ &#39;『&#39;, &#39;』&#39; ] }
+</code></pre></div><p>改成</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>    &#39;&#39;&#39;&#39; : { pair: [ &#39;『&#39;, &#39;』&#39; ] }
     &#39;&#34;&#39; : { pair: [ &#39;「&#39;, &#39;」&#39; ] }
-</code></pre></div><p>这样就可以直接输入直角引号了，另外一种方式就是后文将要提到的<a href=#vert_quote_char>在词典中添加直角引号映射</a>。</p><h1 id=给沧月简体增加词典>给沧月简体增加词典</h1><p>在<a href=https://github.com/rime-aca/dictionaries>这里</a>可以下载用于沧月拼音方案的词库，只下载下面几个文件即可：</p><ul><li><code>luna_pinyin.cn_en.dict.yaml</code></li><li><code>luna_pinyin.extended.dict.yaml</code></li><li><code>luna_pinyin.hanyu.dict.yaml</code></li><li><code>luna_pinyin.poetry.dict.yaml</code></li></ul><p>这几个文件都是一些词典文件，然后我们可以仿照这些词典文件建立自己额外的词典，增加自己的词汇。例如，建立名为 <code>jdhao.dict.yaml</code> 的文件，然后添加几个自己常用的词汇，文件内容如下：</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=c># jdhao.dict.yaml 文件内容</span><span class=w>
+</code></pre></div><p>这样就可以直接输入直角引号了，另外一种方式就是后文将要提到的<a href=#vert_quote_char>在词典中添加直角引号映射</a>。</p>
+<h1 id=给沧月简体增加词典>给沧月简体增加词典</h1>
+<p>在<a href=https://github.com/rime-aca/dictionaries>这里</a>可以下载用于沧月拼音方案的词库，只下载下面几个文件即可：</p>
+<ul>
+<li><code>luna_pinyin.cn_en.dict.yaml</code></li>
+<li><code>luna_pinyin.extended.dict.yaml</code></li>
+<li><code>luna_pinyin.hanyu.dict.yaml</code></li>
+<li><code>luna_pinyin.poetry.dict.yaml</code></li>
+</ul>
+<p>这几个文件都是一些词典文件，然后我们可以仿照这些词典文件建立自己额外的词典，增加自己的词汇。例如，建立名为 <code>jdhao.dict.yaml</code> 的文件，然后添加几个自己常用的词汇，文件内容如下：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=c># jdhao.dict.yaml 文件内容</span><span class=w>
 </span><span class=w></span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>jdhao</span><span class=w>
 </span><span class=w></span><span class=nt>version</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;2019-02-16&#34;</span><span class=w>
 </span><span class=w></span><span class=nt>sort</span><span class=p>:</span><span class=w> </span><span class=l>by_weight</span><span class=w>
@@ -39,9 +223,28 @@
 </span><span class=w>
 </span><span class=w></span><span class=l>GitHub	github	100</span><span class=w>
 </span><span class=w></span><span class=l>Stack Overflow	so	1000</span><span class=w>
-</span></code></pre></div><p>上述文件中，我们通过 <code>import_tables</code> 把刚才下载的所有词典还有 luna 本身的词典都给包含进来了，然后在下面再加上我们自己建立的词汇。</p><h2 id=词典的格式>词典的格式</h2><p>词典的格式为: <code>词汇&lt;Tab>编码&lt;Tab>词频</code>，各个项目之间<strong>必须用 Tab（也就是制表符）分割</strong>，刚开始我不知道，结果使用了空格，自己添加的词汇总是不成功，需要注意。如果使用的是 Sublime Text 来编辑这个 YAML 文件一定要注意不要开启<code>translate_tabs_to_spaces</code> 选项。词频部分可以不要。</p><p>一切添加妥当之后，重新部署。然后试着输入，<code>up</code>，候选列表会出现 <code>U盘</code>，输入 <code>yizhanghong</code>，出现 <code>一丈红</code>，说明词汇已经添加成功了！</p><h2 id=a-namevert_quote_chara直角引号><a name=vert_quote_char></a>直角引号</h2><p>前面提到了修改自带的引号映射来输入直角引号的方式，但是修改以后，如果想要输入中文的单引号，双引号就不太方便了。利用词典的功能，我们也可以输入直角引号，在<code>jdhao.dict.yaml</code> 中加入下面的映射即可：</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>「」	syh	1000
+</span></code></pre></div><p>上述文件中，我们通过 <code>import_tables</code> 把刚才下载的所有词典还有 luna 本身的词典都给包含进来了，然后在下面再加上我们自己建立的词汇。</p>
+<h2 id=词典的格式>词典的格式</h2>
+<p>词典的格式为: <code>词汇&lt;Tab>编码&lt;Tab>词频</code>，各个项目之间<strong>必须用 Tab（也就是制表符）分割</strong>，刚开始我不知道，结果使用了空格，自己添加的词汇总是不成功，需要注意。如果使用的是 Sublime Text 来编辑这个 YAML 文件一定要注意不要开启<code>translate_tabs_to_spaces</code> 选项。词频部分可以不要。</p>
+<p>一切添加妥当之后，重新部署。然后试着输入，<code>up</code>，候选列表会出现 <code>U盘</code>，输入 <code>yizhanghong</code>，出现 <code>一丈红</code>，说明词汇已经添加成功了！</p>
+<h2 id=a-namevert_quote_chara直角引号><a name=vert_quote_char></a>直角引号</h2>
+<p>前面提到了修改自带的引号映射来输入直角引号的方式，但是修改以后，如果想要输入中文的单引号，双引号就不太方便了。利用词典的功能，我们也可以输入直角引号，在<code>jdhao.dict.yaml</code> 中加入下面的映射即可：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>「」	syh	1000
 『』	dyh	1000
-</code></pre></div><p>效果如下图所示</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190217233924.png width=400></p><h1 id=安装并启用小鹤双拼>安装并启用小鹤双拼</h1><p>最新版 weasel 并不带有小鹤双拼输入方案，需要自己下载，步骤如下：</p><ul><li>右键任务栏小狼毫的图标，打开菜单，选择「输入法设定」，进入输入法选择界面：</li></ul><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190217233952.png width=400></p><p>然后点击「获取更多输入方案」，会打开一个 Cmd 窗口,内容如下：</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=nx>Rime</span> <span class=kn>package</span> <span class=nx>installer</span>
+</code></pre></div><p>效果如下图所示</p>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20190217233924.png width=400>
+</p>
+<h1 id=安装并启用小鹤双拼>安装并启用小鹤双拼</h1>
+<p>最新版 weasel 并不带有小鹤双拼输入方案，需要自己下载，步骤如下：</p>
+<ul>
+<li>右键任务栏小狼毫的图标，打开菜单，选择「输入法设定」，进入输入法选择界面：</li>
+</ul>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20190217233952.png width=400>
+</p>
+<p>然后点击「获取更多输入方案」，会打开一个 Cmd 窗口,内容如下：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>Rime</span> <span class=kn>package</span> <span class=nx>installer</span>
 
 <span class=nx>Working</span> <span class=nx>directory</span><span class=p>:</span> <span class=nx>d</span><span class=p>:</span><span class=err>\</span><span class=nx>Program</span> <span class=nf>Files</span> <span class=p>(</span><span class=nx>x86</span><span class=p>)</span><span class=err>\</span><span class=nx>Rime</span><span class=err>\</span><span class=nx>weasel</span><span class=o>-</span><span class=mf>0.13.0</span>
 <span class=nx>Package</span> <span class=nx>installer</span> <span class=nx>directory</span><span class=p>:</span> <span class=nx>d</span><span class=p>:</span><span class=err>\</span><span class=nx>Program</span> <span class=nf>Files</span> <span class=p>(</span><span class=nx>x86</span><span class=p>)</span><span class=err>\</span><span class=nx>Rime</span><span class=err>\</span><span class=nx>weasel</span><span class=o>-</span><span class=mf>0.13.0</span>\
@@ -50,9 +253,18 @@
 
 
 <span class=nx>Enter</span> <span class=kn>package</span> <span class=nx>name</span><span class=p>,</span> <span class=nx>URL</span><span class=p>,</span> <span class=nx>user</span><span class=o>/</span><span class=nx>repo</span> <span class=nx>or</span> <span class=nx>downloaded</span> <span class=nx>ZIP</span> <span class=nx>to</span> <span class=nx>install</span><span class=p>:</span>
-</code></pre></div><ul><li>输入要下载的输入法方案即可，双拼方案在<a href=https://github.com/rime/rime-double-pinyin>这里</a>可以找到，名称为 <code>double-pinyin</code>，在上面的对话框输入以后就可以下载 Rime 提供的双拼方案。</li></ul><p>然后在上图的输入方案选择界面，选择要启用的输入方案。在输入汉字的界面，按 <kbd>F4</kbd> 选择小鹤双拼，即可启用。</p><h1 id=安装表情-emoji>安装表情 emoji</h1><p>Rime 提供了很多表情，地址在 <a href=https://github.com/rime/rime-emoji>这里</a>，但是对如何安装这些表情却有点语焉不详。</p><p>Rime 最新版提供了 <a href=https://github.com/rime/plum>东方破</a> 来安装输入方案，<a href=https://github.com/rime/plum#windows-bootstrap-script>这里</a> 也给出了 Windows 系统上使用的方法，但是下载安装以后，在 Cmd 使用如下命令安装 emoji，</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>rime-install emoji
-</code></pre></div><p>或者使用</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>rime-install.bat emoji
-</code></pre></div><p>都会输出下面的错误信息：</p><div class=highlight><pre class=chroma><code class=language-go data-lang=go><span class=nx>Rime</span> <span class=kn>package</span> <span class=nx>installer</span>
+</code></pre></div><ul>
+<li>输入要下载的输入法方案即可，双拼方案在<a href=https://github.com/rime/rime-double-pinyin>这里</a>可以找到，名称为 <code>double-pinyin</code>，在上面的对话框输入以后就可以下载 Rime 提供的双拼方案。</li>
+</ul>
+<p>然后在上图的输入方案选择界面，选择要启用的输入方案。在输入汉字的界面，按 <kbd>F4</kbd> 选择小鹤双拼，即可启用。</p>
+<h1 id=安装表情-emoji>安装表情 emoji</h1>
+<p>Rime 提供了很多表情，地址在 <a href=https://github.com/rime/rime-emoji>这里</a>，但是对如何安装这些表情却有点语焉不详。</p>
+<p>Rime 最新版提供了 <a href=https://github.com/rime/plum>东方破</a> 来安装输入方案，<a href=https://github.com/rime/plum#windows-bootstrap-script>这里</a> 也给出了 Windows 系统上使用的方法，但是下载安装以后，在 Cmd 使用如下命令安装 emoji，</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>rime-install emoji
+</code></pre></div><p>或者使用</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>rime-install.bat emoji
+</code></pre></div><p>都会输出下面的错误信息：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=nx>Rime</span> <span class=kn>package</span> <span class=nx>installer</span>
 
 <span class=nx>Working</span> <span class=nx>directory</span><span class=p>:</span> <span class=nx>C</span><span class=p>:</span><span class=err>\</span><span class=nx>Users</span><span class=err>\</span><span class=nx>Administrator</span><span class=err>\</span><span class=nx>AppData</span><span class=err>\</span><span class=nx>Roaming</span><span class=err>\</span><span class=nx>plum</span>
 <span class=nx>Package</span> <span class=nx>installer</span> <span class=nx>directory</span><span class=p>:</span> <span class=nx>C</span><span class=p>:</span><span class=err>\</span><span class=nx>Users</span><span class=err>\</span><span class=nx>Administrator</span><span class=err>\</span><span class=nx>AppData</span><span class=err>\</span><span class=nx>Roaming</span><span class=err>\</span><span class=nx>plum</span>\
@@ -62,36 +274,183 @@
 <span class=nx>rime</span><span class=o>-</span><span class=nx>install</span><span class=p>:</span> <span class=nx>line</span> <span class=mi>2</span><span class=p>:</span> <span class=err>$</span><span class=sc>&#39;\r&#39;</span><span class=p>:</span> <span class=nx>command</span> <span class=nx>not</span> <span class=nx>found</span>
 <span class=nx>rime</span><span class=o>-</span><span class=nx>install</span><span class=p>:</span> <span class=nx>line</span> <span class=mi>53</span><span class=p>:</span> <span class=nx>syntax</span> <span class=kt>error</span> <span class=nx>near</span> <span class=nx>unexpected</span> <span class=nx>token</span> <span class=s>`$&#39;do\r&#39;&#39;
 </span><span class=s>&#39;ime-install: line 53: `</span><span class=k>for</span> <span class=nx>target</span> <span class=nx>in</span> <span class=s>&#34;${targets[@]}&#34;</span><span class=p>;</span> <span class=nx>do</span>
-</code></pre></div><p>这个脚本在 cmd 上运行不了。必须使用 bash 环境才能运行，可以安装 <a href=https://git-scm.com/download/win>git for Windows</a>。</p><p>安装以后，cd 到刚才安装 plum 所在的目录，首先运行以下命令安装 emoji，</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>bash rime-install emoji
-</code></pre></div><p>然后，使用下面的命令给输入方案打 patch，我使用的输入方案是 <code>luna_pinyin_simp</code>，所以参考 <a href=https://github.com/rime/rime-emoji>这里</a> 的命令：</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>bash rime-install emoji:customize:schema=luna_pinyin_simp
-</code></pre></div><p>这样才会 patch 成功，这时，位于 <code>%appdata%/rime</code> 目录下的<code>luna_pinyin_simp.custom.yaml</code> 文件中会增加以下配置：</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=nt>__patch</span><span class=p>:</span><span class=w>
+</code></pre></div><p>这个脚本在 cmd 上运行不了。必须使用 bash 环境才能运行，可以安装 <a href=https://git-scm.com/download/win>git for Windows</a>。</p>
+<p>安装以后，cd 到刚才安装 plum 所在的目录，首先运行以下命令安装 emoji，</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>bash rime-install emoji
+</code></pre></div><p>然后，使用下面的命令给输入方案打 patch，我使用的输入方案是 <code>luna_pinyin_simp</code>，所以参考 <a href=https://github.com/rime/rime-emoji>这里</a> 的命令：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>bash rime-install emoji:customize:schema=luna_pinyin_simp
+</code></pre></div><p>这样才会 patch 成功，这时，位于 <code>%appdata%/rime</code> 目录下的<code>luna_pinyin_simp.custom.yaml</code> 文件中会增加以下配置：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>__patch</span><span class=p>:</span><span class=w>
 </span><span class=w></span><span class=c># Rx: emoji:customize:schema=luna_pinyin_simp {</span><span class=w>
 </span><span class=w>  </span>- <span class=nt>patch/+</span><span class=p>:</span><span class=w>
 </span><span class=w>      </span><span class=nt>__include</span><span class=p>:</span><span class=w> </span><span class=l>emoji_suggestion:/patch</span><span class=w>
 </span><span class=w></span><span class=c># }</span><span class=w>
-</span></code></pre></div><p>然后重新部署，emoji 添加成功了！</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200430135706.png width=200></p><h1 id=沧月简体默认输出英文>沧月简体默认输出英文</h1><p>如果经常和英语打交道，偶尔输入汉字，可以把沧月拼音初始状态设为英语，这样就不用在需要输入英文时切换输入状态了。参考 <a href=https://github.com/rime/home/wiki/CustomizationGuide#%E4%B8%80%E4%BE%8B%E9%BB%98%E8%AA%8D%E8%8B%B1%E6%96%87%E8%BC%B8%E5%87%BA>这里</a>给出的说明，在 <code>luna_pinyin_simp.custom.yaml</code> 文件中加入下面的设置：</p><div class=highlight><pre class=chroma><code class=language-YAML data-lang=YAML><span class=nt>patch</span><span class=p>:</span><span class=w>
+</span></code></pre></div><p>然后重新部署，emoji 添加成功了！</p>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20200430135706.png width=200>
+</p>
+<h1 id=沧月简体默认输出英文>沧月简体默认输出英文</h1>
+<p>如果经常和英语打交道，偶尔输入汉字，可以把沧月拼音初始状态设为英语，这样就不用在需要输入英文时切换输入状态了。参考 <a href=https://github.com/rime/home/wiki/CustomizationGuide#%E4%B8%80%E4%BE%8B%E9%BB%98%E8%AA%8D%E8%8B%B1%E6%96%87%E8%BC%B8%E5%87%BA>这里</a>给出的说明，在 <code>luna_pinyin_simp.custom.yaml</code> 文件中加入下面的设置：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-YAML data-lang=YAML><span class=nt>patch</span><span class=p>:</span><span class=w>
 </span><span class=w>  </span><span class=nt>&#34;switches/@0/reset&#34;: </span><span class=m>1</span><span class=w>  </span><span class=c># 初始的 ascii mode 设置为「西文」</span><span class=w>
-</span></code></pre></div><h1 id=一些小问题>一些小问题</h1><h2 id=各种配置到底放在哪里啊>各种配置到底放在哪里啊？</h2><p>有的配置是某个平台独有的，要放在平台相关的，有的配置只想某个输入方案独有，放在方案的配置里面，如果各个方案都想试用某个配置，就放在 <code>default.custom.yaml</code> 里面，参考<a href=https://github.com/rime/weasel/issues/6>这里</a>.</p><h2 id=有的配置怎么不生效>有的配置怎么不生效？</h2><p>很有可能是忘记部署了，任何更改，都必须在部署以后才能生效。当然，也可能是配置填写的时候没有按照格式规范书写，写错了，Rime 的 log 文件地址：</p><ul><li>【中州韻】 <code>/tmp/rime.ibus.*</code></li><li>【小狼毫】 <code>%TEMP%\rime.weasel.*</code></li><li>【鼠鬚管】 <code>$TMPDIR/rime.squirrel.*</code></li></ul><p>通过查看最近的 log 文件，也许能发现具体错误在哪里。</p><h2 id=为什么设置候选词竖排显示无效>为什么设置候选词竖排显示无效？</h2><p>很多教程中说到，在 <code>weasel.custom.yaml</code> 里面使用如下的设置，使候选词竖排显示：</p><div class=highlight><pre class=chroma><code class=language-yaml data-lang=yaml><span class=nt>patch</span><span class=p>:</span><span class=w>
+</span></code></pre></div><h1 id=一些小问题>一些小问题</h1>
+<h2 id=各种配置到底放在哪里啊>各种配置到底放在哪里啊？</h2>
+<p>有的配置是某个平台独有的，要放在平台相关的，有的配置只想某个输入方案独有，放在方案的配置里面，如果各个方案都想试用某个配置，就放在 <code>default.custom.yaml</code> 里面，参考<a href=https://github.com/rime/weasel/issues/6>这里</a>.</p>
+<h2 id=有的配置怎么不生效>有的配置怎么不生效？</h2>
+<p>很有可能是忘记部署了，任何更改，都必须在部署以后才能生效。当然，也可能是配置填写的时候没有按照格式规范书写，写错了，Rime 的 log 文件地址：</p>
+<ul>
+<li>【中州韻】 <code>/tmp/rime.ibus.*</code></li>
+<li>【小狼毫】 <code>%TEMP%\rime.weasel.*</code></li>
+<li>【鼠鬚管】 <code>$TMPDIR/rime.squirrel.*</code></li>
+</ul>
+<p>通过查看最近的 log 文件，也许能发现具体错误在哪里。</p>
+<h2 id=为什么设置候选词竖排显示无效>为什么设置候选词竖排显示无效？</h2>
+<p>很多教程中说到，在 <code>weasel.custom.yaml</code> 里面使用如下的设置，使候选词竖排显示：</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>patch</span><span class=p>:</span><span class=w>
 </span><span class=w>  </span><span class=nt>&#34;style/horizontal&#34;: </span><span class=kc>false</span><span class=w>
-</span></code></pre></div><p>但是部署以后，候选词还是横排显示，这是为何？可能是因为某些 color_scheme 本身把候选词设为了横排显示，例如 Rime 鼠须管有多款主题都在主题设置中把候选词设置为横排<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>，可以查看主题的配置来确定。</p><h1 id=参考>参考</h1><ul><li>教程&指南<ul><li><a href=https://github.com/rime/home/wiki/UserGuide>Rime 用户指南</a> (官方文档，需要认真研读)</li><li><a href=https://www.zybuluo.com/eternity/note/81763>致第一次安装 Rime 的你</a></li><li><a href=https://mogeko.github.io/2018/031/>https://mogeko.github.io/2018/031/</a></li><li><a href=https://xinlu.ink/tech/rime.html>https://xinlu.ink/tech/rime.html</a></li></ul></li></ul><ul><li>添加表情<ul><li><a href=https://github.com/rime/rime-emoji/issues/6>https://github.com/rime/rime-emoji/issues/6</a></li><li><a href=https://github.com/rime/rime-emoji/issues/4>https://github.com/rime/rime-emoji/issues/4</a></li></ul></li></ul><ul><li>词典相关<ul><li><a href=https://github.com/rime-aca/dictionaries>Rime 额外的词典（针对沧月输入方案）</a></li><li><a href=https://github.com/xiaoTaoist/rime-dict>另外的一些做好的词典</a></li><li><a href=https://www.jianshu.com/p/300bbe1602d4>Rime 添加词典</a></li><li><a href=https://github.com/studyzy/imewlconverter>输入法词库转换程序 GitHub 仓库</a></li><li><a href=https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md#dictyaml-%E8%A9%B3%E8%A7%A3>Rime 词典格式详解</a></li><li><a href=http://tieba.baidu.com/p/2757690418>导入词库</a>(写在贴吧里面，格式不好，看着费劲)</li></ul></li><li>排版<ul><li><a href=https://juejin.im/entry/569da374d342d30053b4cd91>中文排版指南(关于直角引号使用)</a></li><li><a href=https://sspai.com/post/45516>排版（少数派文章）</a></li></ul></li></ul><p>** 题图截取自 <a href=https://rime.im/>Rime 官方网站</a>。</p><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>在我的系统上，根目录地址为 <code>D:\Program Files (x86)\Rime\weasel-0.13.0</code>，用户目录地址为 <code>C:\Users\Administrator\AppData\Roaming\Rime</code>。 <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>Mac 上鼠须管默认提供的主题可以在<a href=https://github.com/rime/squirrel/blob/master/data/squirrel.yaml>这里</a>查看。 <a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2020-06-01</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Windows/>Windows</a>
-<a href=/tags/Mac/>Mac</a></div><nav class=post-nav><a class=prev href=/2019/02/19/zsh_advanced_configuration/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Boosting Your Productivity on Terminal with Zsh and Plugins</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2019/02/16/pillow_show_image_on_wls/><span class="next-text nav-default">Display Image with Pillow inside Ubuntu on Windows</span>
+</span></code></pre></div><p>但是部署以后，候选词还是横排显示，这是为何？可能是因为某些 color_scheme 本身把候选词设为了横排显示，例如 Rime 鼠须管有多款主题都在主题设置中把候选词设置为横排<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>，可以查看主题的配置来确定。</p>
+<h1 id=参考>参考</h1>
+<ul>
+<li>教程&指南
+<ul>
+<li><a href=https://github.com/rime/home/wiki/UserGuide>Rime 用户指南</a> (官方文档，需要认真研读)</li>
+<li><a href=https://www.zybuluo.com/eternity/note/81763>致第一次安装 Rime 的你</a></li>
+<li><a href=https://mogeko.github.io/2018/031/>https://mogeko.github.io/2018/031/</a></li>
+<li><a href=https://xinlu.ink/tech/rime.html>https://xinlu.ink/tech/rime.html</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>添加表情
+<ul>
+<li><a href=https://github.com/rime/rime-emoji/issues/6>https://github.com/rime/rime-emoji/issues/6</a></li>
+<li><a href=https://github.com/rime/rime-emoji/issues/4>https://github.com/rime/rime-emoji/issues/4</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>词典相关
+<ul>
+<li><a href=https://github.com/rime-aca/dictionaries>Rime 额外的词典（针对沧月输入方案）</a></li>
+<li><a href=https://github.com/xiaoTaoist/rime-dict>另外的一些做好的词典</a></li>
+<li><a href=https://www.jianshu.com/p/300bbe1602d4>Rime 添加词典</a></li>
+<li><a href=https://github.com/studyzy/imewlconverter>输入法词库转换程序 GitHub 仓库</a></li>
+<li><a href=https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md#dictyaml-%E8%A9%B3%E8%A7%A3>Rime 词典格式详解</a></li>
+<li><a href=http://tieba.baidu.com/p/2757690418>导入词库</a>(写在贴吧里面，格式不好，看着费劲)</li>
+</ul>
+</li>
+<li>排版
+<ul>
+<li><a href=https://juejin.im/entry/569da374d342d30053b4cd91>中文排版指南(关于直角引号使用)</a></li>
+<li><a href=https://sspai.com/post/45516>排版（少数派文章）</a></li>
+</ul>
+</li>
+</ul>
+<p>** 题图截取自 <a href=https://rime.im/>Rime 官方网站</a>。</p>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>在我的系统上，根目录地址为 <code>D:\Program Files (x86)\Rime\weasel-0.13.0</code>，用户目录地址为 <code>C:\Users\Administrator\AppData\Roaming\Rime</code>。&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p>Mac 上鼠须管默认提供的主题可以在<a href=https://github.com/rime/squirrel/blob/master/data/squirrel.yaml>这里</a>查看。&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2020-06-01
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/Windows/>Windows</a>
+<a href=/tags/Mac/>Mac</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/2019/02/19/zsh_advanced_configuration/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Boosting Your Productivity on Terminal with Zsh and Plugins</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2019/02/16/pillow_show_image_on_wls/>
+<span class="next-text nav-default">Display Image with Pillow inside Ubuntu on Windows</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

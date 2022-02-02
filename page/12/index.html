@@ -1,71 +1,621 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/><link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's blog"><link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's blog"><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="jdhao's blog"><meta property="og:description" content="A blog for the patient and curious people"><meta property="og:type" content="website"><meta property="og:url" content="https://jdhao.github.io/"><meta property="og:updated_time" content="2022-02-02T11:17:51+08:00"><meta itemprop=name content="jdhao's blog"><meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary"><meta name=twitter:title content="jdhao's blog"><meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><section id=posts class=posts><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/11/06/python_sort_list_of_list/>How to sort a list of tuple or list in Python -- lambda or itemgetter?</a></h1><div class=post-meta><span class=post-time>2019-11-06</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>311 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>In Python, when we want to sort a list of tuples or lists, we may want to sort
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/>
+<link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's blog">
+<link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's blog">
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="jdhao's blog">
+<meta property="og:description" content="A blog for the patient and curious people">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jdhao.github.io/">
+<meta itemprop=name content="jdhao's blog">
+<meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="jdhao's blog">
+<meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<section id=posts class=posts>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/11/06/python_sort_list_of_list/>How to sort a list of tuple or list in Python -- lambda or itemgetter?</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-11-06 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 311 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In Python, when we want to sort a list of tuples or lists, we may want to sort
 it based on certain element in each sub-list, for example, sort the list based
-on the first element in each sub-list.</p></div><div class=read-more><a href=/2019/11/06/python_sort_list_of_list/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/11/03/vim_custom_statusline/>Building A Vim Statusline from Scratch</a></h1><div class=post-meta><span class=post-time>2019-11-03</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>791 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20191103144006.png></p><p>I have been using <a href=https://github.com/vim-airline/vim-airline>vim-airline</a> to
+on the first element in each sub-list.</p>
+</div>
+<div class=read-more>
+<a href=/2019/11/06/python_sort_list_of_list/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/11/03/vim_custom_statusline/>Building A Vim Statusline from Scratch</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-11-03 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 791 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20191103144006.png>
+</p>
+<p>I have been using <a href=https://github.com/vim-airline/vim-airline>vim-airline</a> to
 customize my statusline ever since I started using Neovim. It works great.
 Recently, I started <a href=https://github.com/jdhao/minimal_vim>a repo</a> named
 <code>minimal_vim</code> to create a minimal configuration without external plugins for
 both Vim and Neovim. During the process, I learned how to build a custom
-statusline from scratch.</p></div><div class=read-more><a href=/2019/11/03/vim_custom_statusline/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/11/02/thought_on_making_of_atomic_bomb/>人类第一颗原子弹爆炸始末</a></h1><div class=post-meta><span class=post-time>2019-11-02</span><div class=post-category><a href=/categories/reading/>reading</a></div><span class=more-meta>3384 words</span>
-<span class=more-meta>7 mins read</span></div></header><div class=post-content><div class=post-summary><p>花了差不多两个月时间，于上周看完了《The making of the atomic bomb》(中文名叫<a href=https://book.douban.com/subject/3449736//>《原子弹秘史》</a>)，这本书是 1988 年美国普利策非虚构类最佳图书奖获奖作品。整本书很长，上百万字，作者在书中全景式展现了人类第一颗原子弹爆炸的完整历史，把原子物理学、核物理发现，犹太人的历史，原子弹的制造，还有科学家的成长历程，融为一体讲述，考证详实，虽然有大量的历史细节，读起来却很过瘾，一点也不枯燥。</p></div><div class=read-more><a href=/2019/11/02/thought_on_making_of_atomic_bomb/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/11/01/pytorch_distributed_training/>Distributed Training in PyTorch with Horovod</a></h1><div class=post-meta><span class=post-time>2019-11-01</span><div class=post-category><a href=/categories/machine-learning/>machine-learning</a></div><span class=more-meta>821 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p><a href=https://github.com/horovod/horovod>Horovod</a> is the distributed training
+statusline from scratch.</p>
+</div>
+<div class=read-more>
+<a href=/2019/11/03/vim_custom_statusline/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/11/02/thought_on_making_of_atomic_bomb/>人类第一颗原子弹爆炸始末</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-11-02 </span>
+<div class=post-category>
+<a href=/categories/reading/> reading </a>
+</div>
+<span class=more-meta> 3468 words </span>
+<span class=more-meta> 7 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>花了差不多两个月时间，于上周看完了《The making of the atomic bomb》(中文名叫<a href=https://book.douban.com/subject/3449736//>《原子弹秘史》</a>)，这本书是 1988 年美国普利策非虚构类最佳图书奖获奖作品。整本书很长，上百万字，作者在书中全景式展现了人类第一颗原子弹爆炸的完整历史，把原子物理学、核物理发现，犹太人的历史，原子弹的制造，还有科学家的成长历程，融为一体讲述，考证详实，虽然有大量的历史细节，读起来却很过瘾，一点也不枯燥。</p>
+</div>
+<div class=read-more>
+<a href=/2019/11/02/thought_on_making_of_atomic_bomb/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/11/01/pytorch_distributed_training/>Distributed Training in PyTorch with Horovod</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-11-01 </span>
+<div class=post-category>
+<a href=/categories/machine-learning/> machine-learning </a>
+</div>
+<span class=more-meta> 821 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p><a href=https://github.com/horovod/horovod>Horovod</a> is the distributed training
 framework developed by Uber. It support training distributed programs with
-little modification for both TensorFlow, PyTorch, MXNet and keras.</p></div><div class=read-more><a href=/2019/11/01/pytorch_distributed_training/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/10/29/expect_script_learning/>Learning Expect Programming</a></h1><div class=post-meta><span class=post-time>2019-10-29</span><div class=post-category><a href=/categories/technique/>technique</a></div><span class=more-meta>979 words</span>
-<span class=more-meta>5 mins read</span></div></header><div class=post-content><div class=post-summary><p>In <a href=https://jdhao.github.io/2018/10/08/server_autologin_with_expect/>my previous post</a>,
+little modification for both TensorFlow, PyTorch, MXNet and keras.</p>
+</div>
+<div class=read-more>
+<a href=/2019/11/01/pytorch_distributed_training/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/10/29/expect_script_learning/>Learning Expect Programming</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-10-29 </span>
+<div class=post-category>
+<a href=/categories/technique/> technique </a>
+</div>
+<span class=more-meta> 962 words </span>
+<span class=more-meta> 5 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In <a href=https://jdhao.github.io/2018/10/08/server_autologin_with_expect/>my previous post</a>,
 I talked about how to automate the server login process with the help of Expect
-programming language. This post continues my learning process.</p></div><div class=read-more><a href=/2019/10/29/expect_script_learning/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/10/27/ssh_essential_knowledge/>Essential Knowledge about SSH</a></h1><div class=post-meta><span class=post-time>2019-10-27</span><div class=post-category><a href=/categories/technique/>technique</a></div><span class=more-meta>958 words</span>
-<span class=more-meta>5 mins read</span></div></header><div class=post-content><div class=post-summary><p>Although I use SSH (secure shell) every day, I seem to know little about it
+programming language. This post continues my learning process.</p>
+</div>
+<div class=read-more>
+<a href=/2019/10/29/expect_script_learning/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/10/27/ssh_essential_knowledge/>Essential Knowledge about SSH</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-10-27 </span>
+<div class=post-category>
+<a href=/categories/technique/> technique </a>
+</div>
+<span class=more-meta> 955 words </span>
+<span class=more-meta> 5 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Although I use SSH (secure shell) every day, I seem to know little about it
 except the fact that I can use <code>ssh</code> command to log into my remote servers.
-Recently, I found myself some time to learn how does it work.</p></div><div class=read-more><a href=/2019/10/27/ssh_essential_knowledge/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/10/22/latex_techniques_s1/>Nifty LaTeX Techniques -- Series 1</a></h1><div class=post-meta><span class=post-time>2019-10-22</span><div class=post-category><a href=/categories/LaTeX/>LaTeX</a></div><span class=more-meta>295 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><h1 id=change-font-size>Change font size</h1><p>By default, LaTeX provides several command to change the font size to
+Recently, I found myself some time to learn how does it work.</p>
+</div>
+<div class=read-more>
+<a href=/2019/10/27/ssh_essential_knowledge/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/10/22/latex_techniques_s1/>Nifty LaTeX Techniques -- Series 1</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-10-22 </span>
+<div class=post-category>
+<a href=/categories/LaTeX/> LaTeX </a>
+</div>
+<span class=more-meta> 295 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h1 id=change-font-size>Change font size</h1>
+<p>By default, LaTeX provides several command to change the font size to
 predefined size. Those command include <code>\scriptsize</code>, <code>\large</code>, <code>\Huge</code> etc.
 However, even the font size provided by the <code>\Huge</code> command may not be large
-enough.</p></div><div class=read-more><a href=/2019/10/22/latex_techniques_s1/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/10/22/adsense_change_address_resend_pin/>更改 Adsense 邮寄地址，重新寄送 PIN</a></h1><div class=post-meta><span class=post-time>2019-10-22</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>541 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p><a href=https://jdhao.github.io/2019/09/22/google_adsense_hugo_config/#%E5%85%B6%E4%BB%96>之前的文章</a>提到过，当 Adsense 帐号的收入达到 10 美元阈值的时候，谷歌会向你注册 Adsense 登记的地址发送一封邮件，里面有验证的 PIN 码，只有验证了 PIN 码，后续才能收到谷歌的付款。</p></div><div class=read-more><a href=/2019/10/22/adsense_change_address_resend_pin/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/10/16/useful_mintty_tips_configs/>Mintty Tips and Configurations</a></h1><div class=post-meta><span class=post-time>2019-10-16</span><div class=post-category><a href=/categories/tools/>tools</a></div><span class=more-meta>238 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>In this post, I want to share some useful tips and configurations about <a href=https://github.com/mintty/mintty>mintty</a>.</p></div><div class=read-more><a href=/2019/10/16/useful_mintty_tips_configs/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/10/15/tagbar_markdown_setup/>Generating Table of Contents for Markdown with Tagbar</a></h1><div class=post-meta><span class=post-time>2019-10-15</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>353 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20191015001602.png></p><p>I have been using Vim plugin Tagbar for viewing and navigating tags inside my
+enough.</p>
+</div>
+<div class=read-more>
+<a href=/2019/10/22/latex_techniques_s1/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/10/22/adsense_change_address_resend_pin/>更改 Adsense 邮寄地址，重新寄送 PIN</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-10-22 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 541 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p><a href=https://jdhao.github.io/2019/09/22/google_adsense_hugo_config/#%E5%85%B6%E4%BB%96>之前的文章</a>提到过，当 Adsense 帐号的收入达到 10 美元阈值的时候，谷歌会向你注册 Adsense 登记的地址发送一封邮件，里面有验证的 PIN 码，只有验证了 PIN 码，后续才能收到谷歌的付款。</p>
+</div>
+<div class=read-more>
+<a href=/2019/10/22/adsense_change_address_resend_pin/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/10/16/useful_mintty_tips_configs/>Mintty Tips and Configurations</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-10-16 </span>
+<div class=post-category>
+<a href=/categories/tools/> tools </a>
+</div>
+<span class=more-meta> 238 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In this post, I want to share some useful tips and configurations about <a href=https://github.com/mintty/mintty>mintty</a>.</p>
+</div>
+<div class=read-more>
+<a href=/2019/10/16/useful_mintty_tips_configs/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/10/15/tagbar_markdown_setup/>Generating Table of Contents for Markdown with Tagbar</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-10-15 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 351 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20191015001602.png>
+</p>
+<p>I have been using Vim plugin Tagbar for viewing and navigating tags inside my
 source file. However, for Markdown files, there is no support out of the box.
 In this post, I would like to share how to set up tagbar to show tags for
-Markdown.</p></div><div class=read-more><a href=/2019/10/15/tagbar_markdown_setup/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/10/14/python_script_to_exe/>Convert Python Script to Exe on Windows with Pyinstaller</a></h1><div class=post-meta><span class=post-time>2019-10-14</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>433 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><h1 id=introduction>Introduction</h1><p>I have a use case where I want to convert my Python script to standalone
+Markdown.</p>
+</div>
+<div class=read-more>
+<a href=/2019/10/15/tagbar_markdown_setup/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/10/14/python_script_to_exe/>Convert Python Script to Exe on Windows with Pyinstaller</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-10-14 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 433 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h1 id=introduction>Introduction</h1>
+<p>I have a use case where I want to convert my Python script to standalone
 executable so that I do not need to type <code>python</code> before it to run the script.
 On Linux, it is easy to achieve with the help of
 <a href=https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scripts-and-what-form-should-it-take>shebang</a>.
 However, on Windows, it does not work. Then I thought I might convert the
-script to Windows executable.</p></div><div class=read-more><a href=/2019/10/14/python_script_to_exe/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/10/11/wsl_distro_deleted_after_windows_update/>Ubuntu on Windows Missing after Windows Update</a></h1><div class=post-meta><span class=post-time>2019-10-11</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>282 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>I have been using Ubuntu on Windows via WSL for about a year and it works quite
-well.</p><p>The terminal I use for Ubuntu on Windows is
+script to Windows executable.</p>
+</div>
+<div class=read-more>
+<a href=/2019/10/14/python_script_to_exe/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/10/11/wsl_distro_deleted_after_windows_update/>Ubuntu on Windows Missing after Windows Update</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-10-11 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 282 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>I have been using Ubuntu on Windows via WSL for about a year and it works quite
+well.</p>
+<p>The terminal I use for Ubuntu on Windows is
 <a href=https://github.com/mintty/wsltty>wsltty</a>, which is a thin wrapper around
 <a href=https://github.com/mintty/mintty>mintty</a> and other tools for starting WSL
 sessions. Recently, when I start clicking the WSL Terminal icon, it start a
-Window and then quit silently.</p></div><div class=read-more><a href=/2019/10/11/wsl_distro_deleted_after_windows_update/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/10/10/mac_proxy_in_terminal/>使用代理加速 Mac 终端下载速度</a></h1><div class=post-meta><span class=post-time>2019-10-10</span><div class=post-category><a href=/categories/Mac/>Mac</a></div><span class=more-meta>392 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>在 Mac 的终端 (terminal) 下载文件或者 clone git 仓库的时候，明显感觉速度特别慢，即使把梯子的全局模式打开也无济于事，需要在终端设置代理才能加快下载速度，本文简要总结需要的配置。</p></div><div class=read-more><a href=/2019/10/10/mac_proxy_in_terminal/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/10/08/zsh_plugin_managers_compare/>My Experience with Several Zsh Plugin Managers</a></h1><div class=post-meta><span class=post-time>2019-10-08</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>471 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>In this post, I share my experience and opinions on several popular Zsh plugin
-managers.</p></div><div class=read-more><a href=/2019/10/08/zsh_plugin_managers_compare/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/10/02/shenzhen_house_rent/>深圳租房小记</a></h1><div class=post-meta><span class=post-time>2019-10-02</span><div class=post-category><a href=/categories/life/>life</a></div><span class=more-meta>1445 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>作为深漂，大概每个人都要为租房费一番功夫。</p></div><div class=read-more><a href=/2019/10/02/shenzhen_house_rent/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/10/01/zplug_install_docker_container/>How to Install zplug inside Docker Container</a></h1><div class=post-meta><span class=post-time>2019-10-01</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>301 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>In the past few days, I tried to dockerize my development environment and put
+Window and then quit silently.</p>
+</div>
+<div class=read-more>
+<a href=/2019/10/11/wsl_distro_deleted_after_windows_update/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/10/10/mac_proxy_in_terminal/>使用代理加速 Mac 终端下载速度</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-10-10 </span>
+<div class=post-category>
+<a href=/categories/Mac/> Mac </a>
+</div>
+<span class=more-meta> 392 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>在 Mac 的终端 (terminal) 下载文件或者 clone git 仓库的时候，明显感觉速度特别慢，即使把梯子的全局模式打开也无济于事，需要在终端设置代理才能加快下载速度，本文简要总结需要的配置。</p>
+</div>
+<div class=read-more>
+<a href=/2019/10/10/mac_proxy_in_terminal/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/10/08/zsh_plugin_managers_compare/>My Experience with Several Zsh Plugin Managers</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-10-08 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 471 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In this post, I share my experience and opinions on several popular Zsh plugin
+managers.</p>
+</div>
+<div class=read-more>
+<a href=/2019/10/08/zsh_plugin_managers_compare/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/10/02/shenzhen_house_rent/>深圳租房小记</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-10-02 </span>
+<div class=post-category>
+<a href=/categories/life/> life </a>
+</div>
+<span class=more-meta> 1487 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>作为深漂，大概每个人都要为租房费一番功夫。</p>
+</div>
+<div class=read-more>
+<a href=/2019/10/02/shenzhen_house_rent/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/10/01/zplug_install_docker_container/>How to Install zplug inside Docker Container</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-10-01 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 301 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In the past few days, I tried to dockerize my development environment and put
 my daily programming tools inside
 <a href=https://www.docker.com/resources/what-container>container</a>. I tried to
 install zplug inside docker container and met some issues. In this post, I want
 to share how to install <a href=https://github.com/zplug/zplug>zplug</a> and other
-plugins inside the Docker container.</p></div><div class=read-more><a href=/2019/10/01/zplug_install_docker_container/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/09/29/linux_login_setup/>Why don't settings inside bashrc or bash_profile take effect?</a></h1><div class=post-meta><span class=post-time>2019-09-29</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>999 words</span>
-<span class=more-meta>5 mins read</span></div></header><div class=post-content><div class=post-summary><p>In this post, I would like to share causes and solutions to a few issues
-related to login shell.</p></div><div class=read-more><a href=/2019/09/29/linux_login_setup/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/09/27/linux_locale_settings/>Setting Up Locale in Linux</a></h1><div class=post-meta><span class=post-time>2019-09-27</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>708 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><h1 id=introduction>Introduction</h1><p>When I logged into a Ubuntu server, the system interface and messages are all
+plugins inside the Docker container.</p>
+</div>
+<div class=read-more>
+<a href=/2019/10/01/zplug_install_docker_container/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/09/29/linux_login_setup/>Why don't settings inside bashrc or bash_profile take effect?</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-09-29 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 998 words </span>
+<span class=more-meta> 5 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In this post, I would like to share causes and solutions to a few issues
+related to login shell.</p>
+</div>
+<div class=read-more>
+<a href=/2019/09/29/linux_login_setup/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/09/27/linux_locale_settings/>Setting Up Locale in Linux</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-09-27 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 708 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h1 id=introduction>Introduction</h1>
+<p>When I logged into a Ubuntu server, the system interface and messages are all
 shown in Chinese. I want them to be displayed in English. After some searching,
-I found out that we can change the <a href=https://en.wikipedia.org/wiki/Locale_(computer_software)>locale</a> settings.</p></div><div class=read-more><a href=/2019/09/27/linux_locale_settings/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/09/22/google_adsense_hugo_config/>谷歌 Adsense 申请及在 Hugo 中的配置</a></h1><div class=post-meta><span class=post-time>2019-09-22</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>820 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/GA-L.jpg , width=600></p><p>我的博客目前利用 GitHub pages 服务托管，不需要付费，但是博客的图床选用了腾讯云的对象存储，每个月还需要付一笔流量费用。为了保持收支平衡，也为了好玩，决定申请谷歌的 Adsense 一试。本文记录申请 Adsense 以及在 Hugo 博客中配置 Adsense 的过程。</p></div><div class=read-more><a href=/2019/09/22/google_adsense_hugo_config/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/09/21/latex_algorithm_pseudo_code/>How to Write Algorithm Pseudo Code in LaTeX</a></h1><div class=post-meta><span class=post-time>2019-09-21</span><div class=post-category><a href=/categories/LaTeX/>LaTeX</a></div><span class=more-meta>640 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190921212617.png></p><p>In this post, I want to summarize what I have learned about creating
-algorithmic pseudo code in LaTeX.</p></div><div class=read-more><a href=/2019/09/21/latex_algorithm_pseudo_code/ class=read-more-link>Read more...</a></div></div></article></section><nav class=pagination><a class=prev href=/page/11/><i class="iconfont icon-left"></i><span class=prev-text>Prev</span></a>
-<a class=next href=/page/13/><span class=next-text>Next</span>
-<i class="iconfont icon-right"></i></a></nav></div></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+I found out that we can change the <a href=https://en.wikipedia.org/wiki/Locale_(computer_software)>locale</a> settings.</p>
+</div>
+<div class=read-more>
+<a href=/2019/09/27/linux_locale_settings/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/09/22/google_adsense_hugo_config/>谷歌 Adsense 申请及在 Hugo 中的配置</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-09-22 </span>
+<div class=post-category>
+<a href=/categories/Blog/> Blog </a>
+</div>
+<span class=more-meta> 820 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/GA-L.jpg , width=600>
+</p>
+<p>我的博客目前利用 GitHub pages 服务托管，不需要付费，但是博客的图床选用了腾讯云的对象存储，每个月还需要付一笔流量费用。为了保持收支平衡，也为了好玩，决定申请谷歌的 Adsense 一试。本文记录申请 Adsense 以及在 Hugo 博客中配置 Adsense 的过程。</p>
+</div>
+<div class=read-more>
+<a href=/2019/09/22/google_adsense_hugo_config/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/09/21/latex_algorithm_pseudo_code/>How to Write Algorithm Pseudo Code in LaTeX</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-09-21 </span>
+<div class=post-category>
+<a href=/categories/LaTeX/> LaTeX </a>
+</div>
+<span class=more-meta> 639 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/20190921212617.png>
+</p>
+<p>In this post, I want to summarize what I have learned about creating
+algorithmic pseudo code in LaTeX.</p>
+</div>
+<div class=read-more>
+<a href=/2019/09/21/latex_algorithm_pseudo_code/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+</section>
+<nav class=pagination>
+<a class=prev href=/page/11/>
+<i class="iconfont icon-left"></i>
+<span class=prev-text>Prev</span>
+</a>
+<a class=next href=/page/13/>
+<span class=next-text>Next</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

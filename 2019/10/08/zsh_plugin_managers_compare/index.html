@@ -1,17 +1,160 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>My Experience with Several Zsh Plugin Managers - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="In this post, I share my experience and opinions on several popular Zsh plugin managers."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2019/10/08/zsh_plugin_managers_compare/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="My Experience with Several Zsh Plugin Managers"><meta property="og:description" content="In this post, I share my experience and opinions on several popular Zsh plugin
-managers."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/10/08/zsh_plugin_managers_compare/"><meta property="article:published_time" content="2019-10-08T00:02:01+08:00"><meta property="article:modified_time" content="2021-01-13T22:48:19+08:00"><meta itemprop=name content="My Experience with Several Zsh Plugin Managers"><meta itemprop=description content="In this post, I share my experience and opinions on several popular Zsh plugin
-managers."><meta itemprop=datePublished content="2019-10-08T00:02:01+08:00"><meta itemprop=dateModified content="2021-01-13T22:48:19+08:00"><meta itemprop=wordCount content="471"><meta itemprop=keywords content="Zsh,"><meta name=twitter:card content="summary"><meta name=twitter:title content="My Experience with Several Zsh Plugin Managers"><meta name=twitter:description content="In this post, I share my experience and opinions on several popular Zsh plugin
-managers."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>My Experience with Several Zsh Plugin Managers</h1><div class=post-meta><span class=post-time>2019-10-08</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>471 words</span>
-<span class=more-meta>3 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#zplug>zplug</a><ul><li><a href=#my-feeling>My feeling</a></li></ul></li><li><a href=#antibody>Antibody</a><ul><li><a href=#how-to-use>How to use</a></li><li><a href=#my-feeling-1>My feeling</a></li></ul></li><li><a href=#zinit>zinit</a><ul><li><a href=#how-to-use-1>How to use</a></li><li><a href=#install-oh-my-zsh-plugins>Install oh-my-zsh plugins</a></li><li><a href=#my-feeling-2>My feeling</a></li></ul></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>In this post, I share my experience and opinions on several popular Zsh plugin
-managers.</p><h1 id=zplug>zplug</h1><p>I have written about <a href=https://github.com/zplug/zplug>zplug</a> in <a href=https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/#plugin-management-with-zplug>this post</a>.
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>My Experience with Several Zsh Plugin Managers - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="In this post, I share my experience and opinions on several popular Zsh plugin managers.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2019/10/08/zsh_plugin_managers_compare/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="My Experience with Several Zsh Plugin Managers">
+<meta property="og:description" content="In this post, I share my experience and opinions on several popular Zsh plugin
+managers.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2019/10/08/zsh_plugin_managers_compare/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2019-10-08T00:02:01+08:00">
+<meta property="article:modified_time" content="2021-01-13T22:48:19+08:00">
+<meta itemprop=name content="My Experience with Several Zsh Plugin Managers">
+<meta itemprop=description content="In this post, I share my experience and opinions on several popular Zsh plugin
+managers."><meta itemprop=datePublished content="2019-10-08T00:02:01+08:00">
+<meta itemprop=dateModified content="2021-01-13T22:48:19+08:00">
+<meta itemprop=wordCount content="471">
+<meta itemprop=keywords content="Zsh,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="My Experience with Several Zsh Plugin Managers">
+<meta name=twitter:description content="In this post, I share my experience and opinions on several popular Zsh plugin
+managers."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>My Experience with Several Zsh Plugin Managers</h1>
+<div class=post-meta>
+<span class=post-time> 2019-10-08 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 471 words </span>
+<span class=more-meta> 3 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#zplug>zplug</a>
+<ul>
+<li><a href=#my-feeling>My feeling</a></li>
+</ul>
+</li>
+<li><a href=#antibody>Antibody</a>
+<ul>
+<li><a href=#how-to-use>How to use</a></li>
+<li><a href=#my-feeling-1>My feeling</a></li>
+</ul>
+</li>
+<li><a href=#zinit>zinit</a>
+<ul>
+<li><a href=#how-to-use-1>How to use</a></li>
+<li><a href=#install-oh-my-zsh-plugins>Install oh-my-zsh plugins</a></li>
+<li><a href=#my-feeling-2>My feeling</a></li>
+</ul>
+</li>
+<li><a href=#references>References</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>In this post, I share my experience and opinions on several popular Zsh plugin
+managers.</p>
+<h1 id=zplug>zplug</h1>
+<p>I have written about <a href=https://github.com/zplug/zplug>zplug</a> in <a href=https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/#plugin-management-with-zplug>this post</a>.
 According to <a href=https://gist.github.com/laggardkernel/4a4c4986ccdcaf47b91e8227f9868ded>this gist</a>,
-zplug is slow in loading plugins due to its poor design.</p><h2 id=my-feeling>My feeling</h2><p>It has a lot of features. The speed of installing plugins is acceptable but not
-so fast. Other than that, it is enough for daily usage.</p><h1 id=antibody>Antibody</h1><p><a href=https://github.com/getantibody/antibody>Antibody</a> is proposed to solve the
-performance issues with antigen. First, we need to install antibody:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>curl -sfL git.io/antibody <span class=p>|</span> sh -s - -b <span class=nv>$HOME</span>/local/bin
+zplug is slow in loading plugins due to its poor design.</p>
+<h2 id=my-feeling>My feeling</h2>
+<p>It has a lot of features. The speed of installing plugins is acceptable but not
+so fast. Other than that, it is enough for daily usage.</p>
+<h1 id=antibody>Antibody</h1>
+<p><a href=https://github.com/getantibody/antibody>Antibody</a> is proposed to solve the
+performance issues with antigen. First, we need to install antibody:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -sfL git.io/antibody <span class=p>|</span> sh -s - -b <span class=nv>$HOME</span>/local/bin
 </code></pre></div><p>The <code>-b</code> option specify where you want to install antibody. Antibody will be
-installed under <code>$HOME/local/bin</code>.</p><h2 id=how-to-use>How to use</h2><p>After installing antibody, a typical way to install plugins is like the
-following:</p><div class=highlight><pre class=chroma><code class=language-zsh data-lang=zsh><span class=c1># initialize antibody</span>
+installed under <code>$HOME/local/bin</code>.</p>
+<h2 id=how-to-use>How to use</h2>
+<p>After installing antibody, a typical way to install plugins is like the
+following:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-zsh data-lang=zsh><span class=c1># initialize antibody</span>
 <span class=nb>source</span> &lt; <span class=o>(</span>antibody init<span class=o>)</span>
 
 antibody bundle zsh-users/zsh-completions
@@ -20,52 +163,151 @@ antibody bundle caarlos0/zsh-open-github-pr
 antibody bundle robbyrussell/oh-my-zsh path:plugins/aws
 antibody bundle zsh-users/zsh-syntax-highlighting
 </code></pre></div><p>Antibody can use plugins from the oh-my-zsh repo with the <code>path</code> annotations
-shown above.</p><h2 id=my-feeling-1>My feeling</h2><p>Antibody is fast in installing the plugins, but it seems that there is no hint
+shown above.</p>
+<h2 id=my-feeling-1>My feeling</h2>
+<p>Antibody is fast in installing the plugins, but it seems that there is no hint
 or progress bar informing the user of the progress. It also has less feature
-compared to other plugin managers.</p><p>Ref:</p><ul><li><a href=https://callstack.com/blog/supercharge-your-terminal-with-zsh/>Supercharge your Terminal with Zsh</a></li></ul><h1 id=zinit>zinit</h1><p><font color=blue>Update-2020-07-28: Previously zinit is known as zplugin, but the author has
+compared to other plugin managers.</p>
+<p>Ref:</p>
+<ul>
+<li><a href=https://callstack.com/blog/supercharge-your-terminal-with-zsh/>Supercharge your Terminal with Zsh</a></li>
+</ul>
+<h1 id=zinit>zinit</h1>
+<p><font color=blue>Update-2020-07-28: Previously zinit is known as zplugin, but the author has
 decided to rename it to zinit. For more details, see
-<a href=https://github.com/zdharma/zinit/issues/235>here</a>, <a href=https://github.com/zdharma/zinit/issues/290>here</a> and <a href=https://www.reddit.com/r/zsh/comments/dgw2ss/newname_poll_for_the_zplugin_project/>here</a>.</font></p><p><a href=https://github.com/zdharma/zinit>zinit</a> is also an advanced plugin manager
+<a href=https://github.com/zdharma/zinit/issues/235>here</a>, <a href=https://github.com/zdharma/zinit/issues/290>here</a> and <a href=https://www.reddit.com/r/zsh/comments/dgw2ss/newname_poll_for_the_zplugin_project/>here</a>.
+</font></p>
+<p><a href=https://github.com/zdharma/zinit>zinit</a> is also an advanced plugin manager
 with rich features. In fact, I was overwhelmed when I started using it. It is
-simple to install, just run the below command:</p><div class=highlight><pre class=chroma><code class=language-zsh data-lang=zsh>sh -c <span class=s2>&#34;</span><span class=k>$(</span>curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh<span class=k>)</span><span class=s2>&#34;</span>
-</code></pre></div><h2 id=how-to-use-1>How to use</h2><p>To install normal plugins, zinit works like other plugin managers:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>zinit load softmoth/zsh-vim-mode
+simple to install, just run the below command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-zsh data-lang=zsh>sh -c <span class=s2>&#34;</span><span class=k>$(</span>curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh<span class=k>)</span><span class=s2>&#34;</span>
+</code></pre></div><h2 id=how-to-use-1>How to use</h2>
+<p>To install normal plugins, zinit works like other plugin managers:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>zinit load softmoth/zsh-vim-mode
 zinit load zsh-users/zsh-autosuggestions
 zinit load zdharma/fast-syntax-highlighting
 </code></pre></div><p>zinit also has the so-called <a href=https://github.com/zdharma/zinit#ice-modifiers>ice modifiers</a>,
 which are used to modify the behaviour of the plugin installation command
 below. For example, to install the <a href=https://github.com/sindresorhus/pure>pure</a>
-theme, we can use the following command:</p><div class=highlight><pre class=chroma><code class=language-zsh data-lang=zsh>zinit ice pick<span class=s2>&#34;async.zsh&#34;</span> src<span class=s2>&#34;pure.zsh&#34;</span>
+theme, we can use the following command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-zsh data-lang=zsh>zinit ice pick<span class=s2>&#34;async.zsh&#34;</span> src<span class=s2>&#34;pure.zsh&#34;</span>
 zinit light sindresorhus/pure
 </code></pre></div><p>It means that we will first source <code>async.zsh</code> under the repo and then source
-<code>pure.zsh</code>.</p><h2 id=install-oh-my-zsh-plugins>Install oh-my-zsh plugins</h2><p>To install oh-my-zsh plugins, we need to use <code>zinit snippet</code> command.
+<code>pure.zsh</code>.</p>
+<h2 id=install-oh-my-zsh-plugins>Install oh-my-zsh plugins</h2>
+<p>To install oh-my-zsh plugins, we need to use <code>zinit snippet</code> command.
 Oh-my-zsh plugins start with the <code>OMZ::</code> prefix. Below I show how to install
-single-files OMZ plugin and multiple-file OMZ plugins.</p><div class=highlight><pre class=chroma><code class=language-zsh data-lang=zsh> <span class=c1># Install a OMZ plugin with multiple files</span>
+single-files OMZ plugin and multiple-file OMZ plugins.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-zsh data-lang=zsh> <span class=c1># Install a OMZ plugin with multiple files</span>
  zinit ice svn lucid
  zinit snippet OMZ::plugins/pip
 
  <span class=c1># Install a OMZ plugin with single file</span>
  zinit ice <span class=nb>wait</span> lucid
  zinit snippet OMZ::plugins/fzf/fzf.plugin.zsh
-</code></pre></div><h2 id=my-feeling-2>My feeling</h2><p>zinit has so many ice modifiers and so many features that new users may find it
+</code></pre></div><h2 id=my-feeling-2>My feeling</h2>
+<p>zinit has so many ice modifiers and so many features that new users may find it
 hard to understand all of this. It also has a lot of commands that I do not
 understand. In summary, it has steeper learning curves compared to other plugin
-managers.</p><h1 id=references>References</h1><ul><li><a href=http://zdharma.org/zinit/wiki/INTRODUCTION/>zinit wiki</a>.</li><li><a href=https://www.reddit.com/r/zplugin/comments/ahpddw/how_to_load_an_ohmyzsh_plugin_from_a_folder/>Load oh-my-zsh plugin from a folder</a>.</li><li><a href=https://gist.github.com/laggardkernel/4a4c4986ccdcaf47b91e8227f9868ded>Comparison of different zsh plugin managers</a>.</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2021-01-13</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Zsh/>Zsh</a></div><nav class=post-nav><a class=prev href=/2019/10/10/mac_proxy_in_terminal/><i class="iconfont icon-left"></i><span class="prev-text nav-default">使用代理加速 Mac 终端下载速度</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2019/10/02/shenzhen_house_rent/><span class="next-text nav-default">深圳租房小记</span>
+managers.</p>
+<h1 id=references>References</h1>
+<ul>
+<li><a href=http://zdharma.org/zinit/wiki/INTRODUCTION/>zinit wiki</a>.</li>
+<li><a href=https://www.reddit.com/r/zplugin/comments/ahpddw/how_to_load_an_ohmyzsh_plugin_from_a_folder/>Load oh-my-zsh plugin from a folder</a>.</li>
+<li><a href=https://gist.github.com/laggardkernel/4a4c4986ccdcaf47b91e8227f9868ded>Comparison of different zsh plugin managers</a>.</li>
+</ul>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2021-01-13
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/Zsh/>Zsh</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/2019/10/10/mac_proxy_in_terminal/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">使用代理加速 Mac 终端下载速度</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2019/10/02/shenzhen_house_rent/>
+<span class="next-text nav-default">深圳租房小记</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

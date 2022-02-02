@@ -1,14 +1,148 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Using Neovim for Three Years - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="I started using Neovim (nvim for short) about three years ago, in Sep. 2018. At that time, nvim had just released version 0.3.1. Over the years, I have been an adamant nvim user, constantly learning new knowledge, and sharing tips, tricks and interesting plugins in my blog posts."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2021/12/31/using_nvim_after_three_years/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Using Neovim for Three Years"><meta property="og:description" content="I started using Neovim (nvim for short) about three years ago, in Sep. 2018.
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Using Neovim for Three Years - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="I started using Neovim (nvim for short) about three years ago, in Sep. 2018. At that time, nvim had just released version 0.3.1. Over the years, I have been an adamant nvim user, constantly learning new knowledge, and sharing tips, tricks and interesting plugins in my blog posts.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2021/12/31/using_nvim_after_three_years/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="Using Neovim for Three Years">
+<meta property="og:description" content="I started using Neovim (nvim for short) about three years ago, in Sep. 2018.
 At that time, nvim had just released version 0.3.1. Over the years, I have been an adamant nvim user,
-constantly learning new knowledge, and sharing tips, tricks and interesting plugins in my blog posts."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2021/12/31/using_nvim_after_three_years/"><meta property="article:published_time" content="2021-12-31T14:54:38+08:00"><meta property="article:modified_time" content="2022-01-10T23:48:21+08:00"><meta itemprop=name content="Using Neovim for Three Years"><meta itemprop=description content="I started using Neovim (nvim for short) about three years ago, in Sep. 2018.
+constantly learning new knowledge, and sharing tips, tricks and interesting plugins in my blog posts.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2021/12/31/using_nvim_after_three_years/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-12-31T14:54:38+08:00">
+<meta property="article:modified_time" content="2022-01-10T23:48:21+08:00">
+<meta itemprop=name content="Using Neovim for Three Years">
+<meta itemprop=description content="I started using Neovim (nvim for short) about three years ago, in Sep. 2018.
 At that time, nvim had just released version 0.3.1. Over the years, I have been an adamant nvim user,
-constantly learning new knowledge, and sharing tips, tricks and interesting plugins in my blog posts."><meta itemprop=datePublished content="2021-12-31T14:54:38+08:00"><meta itemprop=dateModified content="2022-01-10T23:48:21+08:00"><meta itemprop=wordCount content="2327"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Using Neovim for Three Years"><meta name=twitter:description content="I started using Neovim (nvim for short) about three years ago, in Sep. 2018.
+constantly learning new knowledge, and sharing tips, tricks and interesting plugins in my blog posts."><meta itemprop=datePublished content="2021-12-31T14:54:38+08:00">
+<meta itemprop=dateModified content="2022-01-10T23:48:21+08:00">
+<meta itemprop=wordCount content="2321">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Using Neovim for Three Years">
+<meta name=twitter:description content="I started using Neovim (nvim for short) about three years ago, in Sep. 2018.
 At that time, nvim had just released version 0.3.1. Over the years, I have been an adamant nvim user,
-constantly learning new knowledge, and sharing tips, tricks and interesting plugins in my blog posts."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Using Neovim for Three Years</h1><div class=post-meta><span class=post-time>2021-12-31</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>2327 words</span>
-<span class=more-meta>11 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#how-i-started-with-neovim>How I started with Neovim</a></li><li><a href=#my-learning-story>My learning story</a></li><li><a href=#evolution-of-my-configuration>Evolution of my configuration</a></li><li><a href=#what-remains-what-has-changed-and-some-new-plugins>What remains, what has changed, and some new plugins</a><ul><li><a href=#what-remains>What remains</a></li><li><a href=#what-has-changed>What has changed</a></li><li><a href=#new-plugins>New plugins</a></li></ul></li><li><a href=#my-thoughts-on-several-topics>My thoughts on several topics</a><ul><li><a href=#vim-or-neovim>Vim or Neovim?</a></li><li><a href=#initvim-vs-initlua>init.vim vs init.lua?</a></li><li><a href=#should-i-use-a-pre-made-config-distribution>Should I use a pre-made config distribution?</a></li></ul></li><li><a href=#concluding-remarks>Concluding remarks</a></li></ul></nav></div></div><div class=post-content><p>I started using <a href=https://neovim.io/>Neovim</a> (nvim for short) about three years ago, in Sep. 2018.
+constantly learning new knowledge, and sharing tips, tricks and interesting plugins in my blog posts."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>Using Neovim for Three Years</h1>
+<div class=post-meta>
+<span class=post-time> 2021-12-31 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 2321 words </span>
+<span class=more-meta> 11 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#how-i-started-with-neovim>How I started with Neovim</a></li>
+<li><a href=#my-learning-story>My learning story</a></li>
+<li><a href=#evolution-of-my-configuration>Evolution of my configuration</a></li>
+<li><a href=#what-remains-what-has-changed-and-some-new-plugins>What remains, what has changed, and some new plugins</a>
+<ul>
+<li><a href=#what-remains>What remains</a></li>
+<li><a href=#what-has-changed>What has changed</a></li>
+<li><a href=#new-plugins>New plugins</a></li>
+</ul>
+</li>
+<li><a href=#my-thoughts-on-several-topics>My thoughts on several topics</a>
+<ul>
+<li><a href=#vim-or-neovim>Vim or Neovim?</a></li>
+<li><a href=#initvim-vs-initlua>init.vim vs init.lua?</a></li>
+<li><a href=#should-i-use-a-pre-made-config-distribution>Should I use a pre-made config distribution?</a></li>
+</ul>
+</li>
+<li><a href=#concluding-remarks>Concluding remarks</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>I started using <a href=https://neovim.io/>Neovim</a> (nvim for short) about three years ago, in Sep. 2018.
 At that time, nvim had just released version <a href=https://github.com/neovim/neovim/releases/tag/v0.3.1>0.3.1</a>. Over the years, I have been an adamant nvim user,
-constantly learning new knowledge, and sharing tips, tricks and interesting plugins in <a href=https://jdhao.github.io/categories/Nvim/>my blog posts</a>.</p><h1 id=how-i-started-with-neovim>How I started with Neovim</h1><p>Back when I was still in university, I had dabbled in Vim a little bit.
+constantly learning new knowledge, and sharing tips, tricks and interesting plugins in <a href=https://jdhao.github.io/categories/Nvim/>my blog posts</a>.</p>
+<h1 id=how-i-started-with-neovim>How I started with Neovim</h1>
+<p>Back when I was still in university, I had dabbled in Vim a little bit.
 I remember that in those days, most posts on the Internet recommended using a plugin manager called <a href=https://github.com/VundleVim/Vundle.vim>vundle</a>.
 As for auto-completion, <a href=https://github.com/ycm-core/YouCompleteMe>ycm</a> was the most popular plugin at the time.
 However, it is difficult to configure and install, and I never succeeded in installing it.
@@ -16,61 +150,133 @@ I copied some basic config from various posts and did not really understand what
 Vim script seemed weird and hard to understand, so my first trial of Vim didn&rsquo;t really take off.
 I learned the basic motion and know how to save and quit a file,
 but no fancy and advanced features such as text objects.
-I was still using <a href=https://www.jetbrains.com/pycharm/>PyCharm</a> and <a href=https://www.sublimetext.com/>Sublime Text</a> for serious project development.</p><p>After I graduated and started working, since we need to run the code on a
-remote server which has no GUI environment available, I was forced to make choices:</p><ol><li>Develop on a remote server without GUI, which implies using a TUI editor. Vim is apparently the choice.</li><li>Develop on my local PC and sync the code to remote via Git or other tools.</li></ol><p>I find choice one more elegant, since I do not need to set up dev environment on my local machine,
+I was still using <a href=https://www.jetbrains.com/pycharm/>PyCharm</a> and <a href=https://www.sublimetext.com/>Sublime Text</a> for serious project development.</p>
+<p>After I graduated and started working, since we need to run the code on a
+remote server which has no GUI environment available, I was forced to make choices:</p>
+<ol>
+<li>Develop on a remote server without GUI, which implies using a TUI editor. Vim is apparently the choice.</li>
+<li>Develop on my local PC and sync the code to remote via Git or other tools.</li>
+</ol>
+<p>I find choice one more elegant, since I do not need to set up dev environment on my local machine,
 and I can run my code directly on the server (running the code requires GPU and there is no GPU on my local machine).
 At the time, I came to know the Neovim project. I choose Nvim because it is easily installable.
 It provides <a href=https://github.com/neovim/neovim/releases>binary releases</a>, so I do not need to compile from source myself.
 I also like its development model more than Vim&rsquo;s. Nvim use GitHub and all modern dev tools for better collaboration,
-while Vim is still using <a href=https://groups.google.com/g/vim_dev>google groups</a><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</p><p>Finally, I was on the Neovim boat and started my journey.</p><h1 id=my-learning-story>My learning story</h1><p>The initial learning curve of nvim was indeed quite steep.
+while Vim is still using <a href=https://groups.google.com/g/vim_dev>google groups</a><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</p>
+<p>Finally, I was on the Neovim boat and started my journey.</p>
+<h1 id=my-learning-story>My learning story</h1>
+<p>The initial learning curve of nvim was indeed quite steep.
 I needed to constantly check the documentation or search on the Internet,
 then tweak the configuration to do what I want. Sometimes, a small setting may waste a lot of time,
 since I needed to understand what it does and how it works.
-I also spent a lot time tweak the settings of various plugins to fit my need.</p><p>My way of learning Nvim is to add the features and plugins I need incrementally.
+I also spent a lot time tweak the settings of various plugins to fit my need.</p>
+<p>My way of learning Nvim is to add the features and plugins I need incrementally.
 At the start, I only added the settings I want most, like autocompletion, linting, file explorer etc.
 I searched intensively on the Internet for the state of the art plugins for a particular need.
 I will try several similar plugins, and only keep the one that best suits me.
 The most important point to remember is that never rush to master Vim in a few days.
-Vim has so many hidden features and settings, and it is impossible to master it quickly.</p><p>After about three or four months of rapid learning process, I was at ease using Nvim for my development work.
-I published <a href=https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/>a post</a> on how to configure Nvim for Python development.</p><p>After building a usable config, when I want to do something, I always seek if there is a better way to do it.
+Vim has so many hidden features and settings, and it is impossible to master it quickly.</p>
+<p>After about three or four months of rapid learning process, I was at ease using Nvim for my development work.
+I published <a href=https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/>a post</a> on how to configure Nvim for Python development.</p>
+<p>After building a usable config, when I want to do something, I always seek if there is a better way to do it.
 I searched on the Internet and learned new tricks, and perfected those skills through practicing.
 Notice that not all tricks are good and are written by advanced Vim users.
-We need to constantly learn new Vim knowledge and update our existing settings.</p><p>Another great learning resource is the configurations of other people.
+We need to constantly learn new Vim knowledge and update our existing settings.</p>
+<p>Another great learning resource is the configurations of other people.
 We can find numerous dotfile repos on GitHub and learn from them little tips and tricks that we do not know yet.
 I have always advised <strong>against</strong> copying the config of others without knowing what you are doing.
 At the very least, we should read the documentation and understand what a particular setting does.
-If we copy other&rsquo;s config blindly, it may cause endless pains afterwards when we spend hours debugging misbehaving Nvim.</p><p>As I became more proficient in Vim, I started learning more advanced features such as text objects.
+If we copy other&rsquo;s config blindly, it may cause endless pains afterwards when we spend hours debugging misbehaving Nvim.</p>
+<p>As I became more proficient in Vim, I started learning more advanced features such as text objects.
 I also <a href=https://jdhao.github.io/2020/11/15/nvim_text_objects/>created some custom text objects</a> for my own use.
 I have always wanted to write my own plugin and contribute to the community.
 After learning enough about Vim script, I <a href=https://jdhao.github.io/2020/12/18/my_first_vim_plugin/>wrote a plugin called better-escape.vim</a> in Dec. 2020.
-The goal is to help users escape insert mode quickly without lagging caused by timeoutlen option.</p><p>This year (2021), I have been learning Lua and migrating some of my config to pure Lua.</p><h1 id=evolution-of-my-configuration>Evolution of my configuration</h1><p>I didn&rsquo;t create a repo to store my nvim config at first. I just stored my config <a href=https://gist.github.com/jdhao/d592ba03a8862628f31cba5144ea04c2/2caf723de20e486acfb0a24adc1c4d520b3146d4>in a gist</a>.
-It wasn&rsquo;t until April 2019 that I <a href=https://github.com/jdhao/nvim-config/commit/154958e50cc322ed157a545860eb36826dc9a37f>created a repo for my nvim config</a>.</p><p>Initially, all my config is stored in a single file <code>init.vim</code> which in its peak exceeded 2000 lines.
+The goal is to help users escape insert mode quickly without lagging caused by timeoutlen option.</p>
+<p>This year (2021), I have been learning Lua and migrating some of my config to pure Lua.</p>
+<h1 id=evolution-of-my-configuration>Evolution of my configuration</h1>
+<p>I didn&rsquo;t create a repo to store my nvim config at first. I just stored my config <a href=https://gist.github.com/jdhao/d592ba03a8862628f31cba5144ea04c2/2caf723de20e486acfb0a24adc1c4d520b3146d4>in a gist</a>.
+It wasn&rsquo;t until April 2019 that I <a href=https://github.com/jdhao/nvim-config/commit/154958e50cc322ed157a545860eb36826dc9a37f>created a repo for my nvim config</a>.</p>
+<p>Initially, all my config is stored in a single file <code>init.vim</code> which in its peak exceeded 2000 lines.
 Later, as I learned more about how Vim works (<a href=https://learnvimscriptthehardway.stevelosh.com/chapters/53.html>autoload</a>, <a href=https://learnvimscriptthehardway.stevelosh.com/chapters/42.html#vimftplugin>ftplugin</a>, <a href=https://vi.stackexchange.com/a/12735/15292>after folder</a> etc.)<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>,
-I <a href=https://github.com/jdhao/nvim-config/commit/460ec98052e07bbf16d8143d8f242280662582a6>started splitting</a> my config into different parts for better maintainability.</p><p>My config has been all vim script for a long time.
+I <a href=https://github.com/jdhao/nvim-config/commit/460ec98052e07bbf16d8143d8f242280662582a6>started splitting</a> my config into different parts for better maintainability.</p>
+<p>My config has been all vim script for a long time.
 Since nvim is adding more lua support and using lua to implement its <a href=https://neovim.io/doc/user/lsp.html>builtin LSP support</a>,
 I have also been updating my config and adding a little lua.
 I have <a href=https://github.com/jdhao/nvim-config/commit/50c761119a86cd12676e550e93f615e1fce0c3f9>slowly moved</a> my completion system to the builtin LSP<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>.
-After that, part of my configuration is <a href=https://github.com/jdhao/nvim-config/commit/2933d7da625d96907b077e5ad7258bd5e8785dc6>moved to <code>lua/</code> directory</a>。</p><p>With the <a href=https://lwn.net/Articles/864712/>release of Nvim 0.5</a>, there has been a burst of lua-based plugins.
-I have also replaced some of the viml plugins to their lua-based counterparts<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup> this year.</p><h1 id=what-remains-what-has-changed-and-some-new-plugins>What remains, what has changed, and some new plugins</h1><p>Plugins have always been an essential part to enhance the power of Vim.
-Since there is no central plugin market like <a href=https://melpa.org/>Emacs MELPA</a>, finding good plugins is not always easy.</p><p>That a plugin is popular and has more stars does not mean that it is better or it suits you<sup id=fnref:5><a href=#fn:5 class=footnote-ref role=doc-noteref>5</a></sup>.
+After that, part of my configuration is <a href=https://github.com/jdhao/nvim-config/commit/2933d7da625d96907b077e5ad7258bd5e8785dc6>moved to <code>lua/</code> directory</a>。</p>
+<p>With the <a href=https://lwn.net/Articles/864712/>release of Nvim 0.5</a>, there has been a burst of lua-based plugins.
+I have also replaced some of the viml plugins to their lua-based counterparts<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup> this year.</p>
+<h1 id=what-remains-what-has-changed-and-some-new-plugins>What remains, what has changed, and some new plugins</h1>
+<p>Plugins have always been an essential part to enhance the power of Vim.
+Since there is no central plugin market like <a href=https://melpa.org/>Emacs MELPA</a>, finding good plugins is not always easy.</p>
+<p>That a plugin is popular and has more stars does not mean that it is better or it suits you<sup id=fnref:5><a href=#fn:5 class=footnote-ref role=doc-noteref>5</a></sup>.
 Over the course of three years, I have always tried to find better alternatives for my existing plugins.
 Admittedly, trying a new plugin and adapt to it is a time-consuming process,
 especially if a plugin does not work out of the box and requires some degree of customization.
-However, the efficiency boost brought by a well-designed plugin can be huge.</p><h2 id=what-remains>What remains</h2><p>A few plugins still remain:</p><ul><li>git gutter plugin: I still use <a href=https://github.com/mhinz/vim-signify>vim-signify</a>, but <a href=https://github.com/lewis6991/gitsigns.nvim>gitsigns.nvim</a> seems promising.</li><li>snippet plugin: I am still using <a href=https://github.com/SirVer/ultisnips>ultisnips</a> due to its powerful interpolation features.
-There are also many <a href=https://github.com/rockerBOO/awesome-neovim#snippet>lua-based snippet engines</a>.</li><li>git plugins: still using <a href=https://github.com/tpope/vim-fugitive>vim-fugitive</a>. I have also tried <a href=https://github.com/lambdalisue/gina.vim>gina</a>, but find it too complicated.
-There are also lua-based git plugins such as <a href=https://github.com/TimUntersberger/neogit>neogit</a>, which aims to replicate the functionality of <a href=https://github.com/magit/magit>magit</a>.</li><li>markdown plugins: <a href=https://github.com/plasticboy/vim-markdown>vim-markdown</a> for editing and <a href=https://github.com/iamcco/markdown-preview.nvim>markdown-preview.nvim</a> for preview.</li></ul><h2 id=what-has-changed>What has changed</h2><p>I have also updated a large part of my plugins during the process:</p><ul><li>plugin manager: from <a href=https://github.com/junegunn/vim-plug>vim-plug</a> to <a href=https://github.com/wbthomason/packer.nvim>packer.nvim</a>. I changed to packer.nvim this middle this year,
-because it allows all sort of crazy lazy loading and bring package management to a whole new level.</li><li>autocompletion plugins: from <a href=https://github.com/Shougo/deoplete.nvim>deoplete</a> + <a href=https://github.com/deoplete-plugins/deoplete-jedi>deoplete-jedi</a> to <a href=https://github.com/prabirshrestha/vim-lsp>vim-lsp</a> + deoplete to nvim-lsp + <a href=https://github.com/hrsh7th/nvim-compe>nvim-compe</a> to nvim-lsp + <a href=https://github.com/hrsh7th/nvim-cmp>nvim-cmp</a>.</li><li>pair management: from <a href=https://github.com/tpope/vim-surround>vim-surround</a> to <a href=https://github.com/machakann/vim-sandwich>vim-sandwich</a>.
-Vim-sandwich is well-designed and has better UX than vim-surround.</li><li>comment plugin: from <a href=https://github.com/preservim/nerdcommenter>nerdcommenter</a> to <a href=https://github.com/tpope/vim-commentary>commentary.vim</a>. I like commentary&rsquo;s feature of commenting via motion.</li><li>file explorer: from <a href=https://github.com/preservim/nerdtree>nerdtree</a> to none. I use fuzzy file finder instead.
-If I need to explore a project, I check it in another tmux pane.</li><li>statusline plugin: from <a href=https://github.com/vim-airline/vim-airline>vim-airline</a> to <a href=https://github.com/nvim-lualine/lualine.nvim>lualine</a>. Vim-airline is great,
-but it is also bloated with two many 3rd part plugin integration. Lualine is simple, faster, and easy to customize.</li><li>change of linting: from <a href=https://github.com/neomake/neomake>Neomake</a> to <a href=https://github.com/dense-analysis/ale>ALE</a> to nvim-lsp</li><li>auto-pair plugin: from <a href=https://github.com/jiangmiao/auto-pairs>auto-pairs</a> to <a href=https://github.com/Raimondi/delimitMate>delimitMate</a>. DelimitMate has saner behaviour for pair insertion than auto-pairs.</li><li>in-buffer jump: from <a href=https://github.com/justinmk/vim-sneak>vim-sneak</a> to <a href=https://github.com/phaazon/hop.nvim>hop.nvim</a>. Vim-sneak has been a great plugin.
-I changed to hop.nvim because it may support jumping via <a href=https://en.wikipedia.org/wiki/Pinyin>pinyin</a> (<a href=https://github.com/phaazon/hop.nvim/pull/133>PR here</a>), which is convenient for Chinese users.</li><li>search item indexing: from <a href=https://github.com/osyo-manga/vim-anzu>vim-anzu</a> to <a href=https://github.com/kevinhwang91/nvim-hlslens>nvim-hlslens</a>.
-Nvim-hlslens is a lua plugin that provides better UX for search item indexing using <a href=https://jdhao.github.io/2021/09/09/nvim_use_virtual_text/>virtual text</a> feature of Nvim.</li><li>clear search highlight automatically: from <a href=https://github.com/romainl/vim-cool>vim-cool</a> to nvim-hlslens</li><li>format plugin: from <a href=https://github.com/sbdchd/neoformat>Neoformat</a> to none (using LSP for formatting).</li><li>multiple cursors: from <a href=https://github.com/terryma/vim-multiple-cursors>vim-multiple-cursors</a> to none. I now use <a href=http://vimcasts.org/episodes/operating-on-search-matches-using-gn/><code>gn</code></a> mostly.
-<a href=https://github.com/mg979/vim-visual-multi>vim-visual-multi</a> may be a good replacement (also recommended by vim-multiple-cursors).</li><li>yank highlight: from <a href=https://github.com/machakann/vim-highlightedyank>vim-highlightedyank</a> to nvim builtin, see <a href=https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/#neovim-only>this post</a>.</li><li>fuzzy finder: from <a href=https://github.com/junegunn/fzf.vim>fzf.vim</a> to <a href=https://github.com/Yggdroot/LeaderF>LeaderF</a>. LeaderF works fast and reliably across different systems.</li><li>startup screen: from <a href=https://github.com/mhinz/vim-startify>vim-startify</a> to <a href=https://github.com/goolord/alpha-nvim>alpha-nvim</a>.</li><li>tabline plugin: from vim-airline to <a href=https://github.com/akinsho/bufferline.nvim>bufferline.nvim</a>.</li><li>indent line plugin: from <a href=https://github.com/Yggdroot/indentLine>indentLine</a> to <a href=https://github.com/lukas-reineke/indent-blankline.nvim>indent-blankline.nvim</a>.
-Indent-blankline uses the virtual text feature to make indent line flawless even on blank lines.</li><li>auto save plugin: from <a href=https://github.com/907th/vim-auto-save>vim-auto-save</a> to <a href=https://github.com/Pocco81/AutoSave.nvim>AutoSave.nvim</a>.</li><li>showing tags: from <a href=https://github.com/preservim/tagbar>tagbar</a> to <a href=https://github.com/liuchengxu/vista.vim>vista</a>.</li></ul><h2 id=new-plugins>New plugins</h2><p>I have also added some new and interesting plugins:</p><ul><li><a href=https://github.com/nvim-treesitter/nvim-treesitter>nvim-treesitter</a>: more accurate highlighting, text object and more.</li><li><a href=https://github.com/rcarriga/nvim-notify>nvim-notify</a>: show notification on floating windows</li><li><a href=https://github.com/chrisbra/unicode.vim>unicode.vim</a>: check, search and insert unicode characters</li><li><a href=https://github.com/skywind3000/asyncrun.vim>asyncrun.vim</a>: run code asynchronously in the background and show results in quick fix window.</li><li><a href=https://github.com/glacambre/firenvim>firenvim</a>: run neovim inside text area in the browser.</li><li><a href=https://github.com/ojroques/vim-oscyank>vim-oscyank</a>: yank text from remote server directly to your local clipboard.</li><li><a href=https://github.com/gelguy/wilder.nvim>wilder.nvim</a>: autocompletion in command line for Nvim.</li><li><a href=https://github.com/folke/which-key.nvim>whichkey.nvim</a>: show key mappings and register contents etc.</li></ul><h1 id=my-thoughts-on-several-topics>My thoughts on several topics</h1><h2 id=vim-or-neovim>Vim or Neovim?</h2><p>This is a question which gets asked almost monthly by beginners (e.g., see <a href=https://vi.stackexchange.com/q/34/15292>this post</a>).
-The short and unbiased answer is that it does not really matter.</p><p>Since Nvim is a fork of Vim and merge patches from Vim regularly, the basic features are almost the same.
+However, the efficiency boost brought by a well-designed plugin can be huge.</p>
+<h2 id=what-remains>What remains</h2>
+<p>A few plugins still remain:</p>
+<ul>
+<li>git gutter plugin: I still use <a href=https://github.com/mhinz/vim-signify>vim-signify</a>, but <a href=https://github.com/lewis6991/gitsigns.nvim>gitsigns.nvim</a> seems promising.</li>
+<li>snippet plugin: I am still using <a href=https://github.com/SirVer/ultisnips>ultisnips</a> due to its powerful interpolation features.
+There are also many <a href=https://github.com/rockerBOO/awesome-neovim#snippet>lua-based snippet engines</a>.</li>
+<li>git plugins: still using <a href=https://github.com/tpope/vim-fugitive>vim-fugitive</a>. I have also tried <a href=https://github.com/lambdalisue/gina.vim>gina</a>, but find it too complicated.
+There are also lua-based git plugins such as <a href=https://github.com/TimUntersberger/neogit>neogit</a>, which aims to replicate the functionality of <a href=https://github.com/magit/magit>magit</a>.</li>
+<li>markdown plugins: <a href=https://github.com/plasticboy/vim-markdown>vim-markdown</a> for editing and <a href=https://github.com/iamcco/markdown-preview.nvim>markdown-preview.nvim</a> for preview.</li>
+</ul>
+<h2 id=what-has-changed>What has changed</h2>
+<p>I have also updated a large part of my plugins during the process:</p>
+<ul>
+<li>plugin manager: from <a href=https://github.com/junegunn/vim-plug>vim-plug</a> to <a href=https://github.com/wbthomason/packer.nvim>packer.nvim</a>. I changed to packer.nvim this middle this year,
+because it allows all sort of crazy lazy loading and bring package management to a whole new level.</li>
+<li>autocompletion plugins: from <a href=https://github.com/Shougo/deoplete.nvim>deoplete</a> + <a href=https://github.com/deoplete-plugins/deoplete-jedi>deoplete-jedi</a> to <a href=https://github.com/prabirshrestha/vim-lsp>vim-lsp</a> + deoplete to nvim-lsp + <a href=https://github.com/hrsh7th/nvim-compe>nvim-compe</a> to nvim-lsp + <a href=https://github.com/hrsh7th/nvim-cmp>nvim-cmp</a>.</li>
+<li>pair management: from <a href=https://github.com/tpope/vim-surround>vim-surround</a> to <a href=https://github.com/machakann/vim-sandwich>vim-sandwich</a>.
+Vim-sandwich is well-designed and has better UX than vim-surround.</li>
+<li>comment plugin: from <a href=https://github.com/preservim/nerdcommenter>nerdcommenter</a> to <a href=https://github.com/tpope/vim-commentary>commentary.vim</a>. I like commentary&rsquo;s feature of commenting via motion.</li>
+<li>file explorer: from <a href=https://github.com/preservim/nerdtree>nerdtree</a> to none. I use fuzzy file finder instead.
+If I need to explore a project, I check it in another tmux pane.</li>
+<li>statusline plugin: from <a href=https://github.com/vim-airline/vim-airline>vim-airline</a> to <a href=https://github.com/nvim-lualine/lualine.nvim>lualine</a>. Vim-airline is great,
+but it is also bloated with two many 3rd part plugin integration. Lualine is simple, faster, and easy to customize.</li>
+<li>change of linting: from <a href=https://github.com/neomake/neomake>Neomake</a> to <a href=https://github.com/dense-analysis/ale>ALE</a> to nvim-lsp</li>
+<li>auto-pair plugin: from <a href=https://github.com/jiangmiao/auto-pairs>auto-pairs</a> to <a href=https://github.com/Raimondi/delimitMate>delimitMate</a>. DelimitMate has saner behaviour for pair insertion than auto-pairs.</li>
+<li>in-buffer jump: from <a href=https://github.com/justinmk/vim-sneak>vim-sneak</a> to <a href=https://github.com/phaazon/hop.nvim>hop.nvim</a>. Vim-sneak has been a great plugin.
+I changed to hop.nvim because it may support jumping via <a href=https://en.wikipedia.org/wiki/Pinyin>pinyin</a> (<a href=https://github.com/phaazon/hop.nvim/pull/133>PR here</a>), which is convenient for Chinese users.</li>
+<li>search item indexing: from <a href=https://github.com/osyo-manga/vim-anzu>vim-anzu</a> to <a href=https://github.com/kevinhwang91/nvim-hlslens>nvim-hlslens</a>.
+Nvim-hlslens is a lua plugin that provides better UX for search item indexing using <a href=https://jdhao.github.io/2021/09/09/nvim_use_virtual_text/>virtual text</a> feature of Nvim.</li>
+<li>clear search highlight automatically: from <a href=https://github.com/romainl/vim-cool>vim-cool</a> to nvim-hlslens</li>
+<li>format plugin: from <a href=https://github.com/sbdchd/neoformat>Neoformat</a> to none (using LSP for formatting).</li>
+<li>multiple cursors: from <a href=https://github.com/terryma/vim-multiple-cursors>vim-multiple-cursors</a> to none. I now use <a href=http://vimcasts.org/episodes/operating-on-search-matches-using-gn/><code>gn</code></a> mostly.
+<a href=https://github.com/mg979/vim-visual-multi>vim-visual-multi</a> may be a good replacement (also recommended by vim-multiple-cursors).</li>
+<li>yank highlight: from <a href=https://github.com/machakann/vim-highlightedyank>vim-highlightedyank</a> to nvim builtin, see <a href=https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/#neovim-only>this post</a>.</li>
+<li>fuzzy finder: from <a href=https://github.com/junegunn/fzf.vim>fzf.vim</a> to <a href=https://github.com/Yggdroot/LeaderF>LeaderF</a>. LeaderF works fast and reliably across different systems.</li>
+<li>startup screen: from <a href=https://github.com/mhinz/vim-startify>vim-startify</a> to <a href=https://github.com/goolord/alpha-nvim>alpha-nvim</a>.</li>
+<li>tabline plugin: from vim-airline to <a href=https://github.com/akinsho/bufferline.nvim>bufferline.nvim</a>.</li>
+<li>indent line plugin: from <a href=https://github.com/Yggdroot/indentLine>indentLine</a> to <a href=https://github.com/lukas-reineke/indent-blankline.nvim>indent-blankline.nvim</a>.
+Indent-blankline uses the virtual text feature to make indent line flawless even on blank lines.</li>
+<li>auto save plugin: from <a href=https://github.com/907th/vim-auto-save>vim-auto-save</a> to <a href=https://github.com/Pocco81/AutoSave.nvim>AutoSave.nvim</a>.</li>
+<li>showing tags: from <a href=https://github.com/preservim/tagbar>tagbar</a> to <a href=https://github.com/liuchengxu/vista.vim>vista</a>.</li>
+</ul>
+<h2 id=new-plugins>New plugins</h2>
+<p>I have also added some new and interesting plugins:</p>
+<ul>
+<li><a href=https://github.com/nvim-treesitter/nvim-treesitter>nvim-treesitter</a>: more accurate highlighting, text object and more.</li>
+<li><a href=https://github.com/rcarriga/nvim-notify>nvim-notify</a>: show notification on floating windows</li>
+<li><a href=https://github.com/chrisbra/unicode.vim>unicode.vim</a>: check, search and insert unicode characters</li>
+<li><a href=https://github.com/skywind3000/asyncrun.vim>asyncrun.vim</a>: run code asynchronously in the background and show results in quick fix window.</li>
+<li><a href=https://github.com/glacambre/firenvim>firenvim</a>: run neovim inside text area in the browser.</li>
+<li><a href=https://github.com/ojroques/vim-oscyank>vim-oscyank</a>: yank text from remote server directly to your local clipboard.</li>
+<li><a href=https://github.com/gelguy/wilder.nvim>wilder.nvim</a>: autocompletion in command line for Nvim.</li>
+<li><a href=https://github.com/folke/which-key.nvim>whichkey.nvim</a>: show key mappings and register contents etc.</li>
+</ul>
+<h1 id=my-thoughts-on-several-topics>My thoughts on several topics</h1>
+<h2 id=vim-or-neovim>Vim or Neovim?</h2>
+<p>This is a question which gets asked almost monthly by beginners (e.g., see <a href=https://vi.stackexchange.com/q/34/15292>this post</a>).
+The short and unbiased answer is that it does not really matter.</p>
+<p>Since Nvim is a fork of Vim and merge patches from Vim regularly, the basic features are almost the same.
 There are some subtle differences (see <a href=https://neovim.io/doc/user/vim_diff.html#vim-differences>vim-differences</a>), but that is largely irrelevant for beginners.
 If you are a beginner, you can pick either one and learn the basics<sup id=fnref:6><a href=#fn:6 class=footnote-ref role=doc-noteref>6</a></sup>.
-Later when you become proficient in using Vim, you can choose a side.</p><p>It is a sad truth that Vim and Nvim are going on quite different paths.
+Later when you become proficient in using Vim, you can choose a side.</p>
+<p>It is a sad truth that Vim and Nvim are going on quite different paths.
 Neovim is investing more on Lua, and its Lua plugin system is thriving.
 Vim is <a href="https://github.com/vim/vim/search?o=asc&q=Vim9&s=committer-date&type=commits">trying hard implement the vim9 script</a>, a completely new and incompatible version of viml.
 There might be more incompatible changes happening on both sides.
@@ -78,36 +284,151 @@ It might be getting harder to port Vim patches to Neovim.
 Personally, I doubt whether the amount of effort put into building vim9 script will ever pay off.
 Considering that a lot of vim plugins are still trying to support Vim 7.xxx,
 I doubt how many of these plugin authors are willing to rewrite their plugins in vim9 script,
-especially when their plugins have very large code bases.</p><p>Personally, I will stick to Neovim and migrate to all-lua config some day.</p><h2 id=initvim-vs-initlua>init.vim vs init.lua?</h2><p>Since nvim has added <a href=https://github.com/neovim/neovim/commit/767cd8b17b71f78bdd4c2e0dd8d3f4f0f1551381>support for init.lua</a>, many people have completely moved from viml-based to lua-based config.
-Currently, my config is still a mix of vim script and lua script due to several reasons:</p><ul><li>Lua support in Nvim is still not complete and mature enough. For example, sometimes we still need to use <code>vim.cmd()</code> to run vim command.
-We still need to learn how to use Vim script.</li><li>Some viml command is more concise to write, and lua tends to be more verbose, e.g., when defining mappings or setting an option.</li><li>I am still using quite a few vim script plugins, and it makes sense to configure these plugins in vim script.</li></ul><h2 id=should-i-use-a-pre-made-config-distribution>Should I use a pre-made config distribution?</h2><p>There are several so-called Vim/Nvim distributions, which aim at providing IDE-like and out-of-the-box experience of using Neovim.
-Some of the most popular distributions are <a href=https://github.com/SpaceVim/SpaceVim>Spacevim</a>, <a href=https://github.com/LunarVim/LunarVim>LunarVim</a> and <a href=https://github.com/NvChad/NvChad>NvChad</a>.</p><p>People ask frequently on r/neovim and r/vim whether they should use a vim/Nvim distribution.
+especially when their plugins have very large code bases.</p>
+<p>Personally, I will stick to Neovim and migrate to all-lua config some day.</p>
+<h2 id=initvim-vs-initlua>init.vim vs init.lua?</h2>
+<p>Since nvim has added <a href=https://github.com/neovim/neovim/commit/767cd8b17b71f78bdd4c2e0dd8d3f4f0f1551381>support for init.lua</a>, many people have completely moved from viml-based to lua-based config.
+Currently, my config is still a mix of vim script and lua script due to several reasons:</p>
+<ul>
+<li>Lua support in Nvim is still not complete and mature enough. For example, sometimes we still need to use <code>vim.cmd()</code> to run vim command.
+We still need to learn how to use Vim script.</li>
+<li>Some viml command is more concise to write, and lua tends to be more verbose, e.g., when defining mappings or setting an option.</li>
+<li>I am still using quite a few vim script plugins, and it makes sense to configure these plugins in vim script.</li>
+</ul>
+<h2 id=should-i-use-a-pre-made-config-distribution>Should I use a pre-made config distribution?</h2>
+<p>There are several so-called Vim/Nvim distributions, which aim at providing IDE-like and out-of-the-box experience of using Neovim.
+Some of the most popular distributions are <a href=https://github.com/SpaceVim/SpaceVim>Spacevim</a>, <a href=https://github.com/LunarVim/LunarVim>LunarVim</a> and <a href=https://github.com/NvChad/NvChad>NvChad</a>.</p>
+<p>People ask frequently on r/neovim and r/vim whether they should use a vim/Nvim distribution.
 If you are serious about Vim and want to learn how to use it properly and eventually master it,
-I think it is better to avoid those distributions and build your own config from scratch:</p><ul><li>Those distributions may add their own configuration layer and complicate things.
-Users end up learning two much distribution-specific config without learning real Vim stuff.</li><li>Even if you use those distributions, when you want to customize certain things,
+I think it is better to avoid those distributions and build your own config from scratch:</p>
+<ul>
+<li>Those distributions may add their own configuration layer and complicate things.
+Users end up learning two much distribution-specific config without learning real Vim stuff.</li>
+<li>Even if you use those distributions, when you want to customize certain things,
 you still need to learn how Vim/Nvim works under the hood.
-Otherwise, you can only count on other developer to implement the feature for you.</li><li>When you meet issues with those distributions, you may have a hard time debugging it,
-since they all include various configurations.</li></ul><p>However, this does not mean that you can not learn from these distributions, e.g., how they configure,
-how they organize their directory structure. You can even <em>steal</em> some configs for your own use.</p><h1 id=concluding-remarks>Concluding remarks</h1><p>Looking back, I think I have made the right choice to learn Vim/Nvim.
-It has been a rewarding jounery for me. I am so used to vim&rsquo;s style editing that Vim becomes second nature.</p><p>I am thankful to all the contributors of Vim/Nvim for building and maintaining such a great editor.
-I am grateful for the efforts that plugin authors put into in building those great plugins.</p><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>I am not saying that Vim&rsquo;s development model is worse, I just like Nvim&rsquo;s development model more. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>An excellent article on how to split your config is <a href=https://vimways.org/2018/from-vimrc-to-vim/>from .vimrc to .vim</a>. <a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3 role=doc-endnote><p>I used deoplete with deoplete-jedi for over two years. Then I moved to <a href=https://github.com/prabirshrestha/vim-lsp>vim-lsp</a> + deoplete for several month, before moving to nvim-lsp. <a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:4 role=doc-endnote><p>A good resource for finding lua plugins is <a href=https://github.com/rockerBOO/awesome-neovim>awesome neovim</a>. <a href=https://neovimcraft.com/>Neovimcraft</a> also collects some lua-based neovim plugins and config distributions. <a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:5 role=doc-endnote><p>One such example is <a href=https://github.com/tpope/vim-surround>vim-surround</a> vs <a href=https://github.com/machakann/vim-sandwich>vim-sandwich</a>. Vim-sandwich has much lesser stars than vim-surround, but I find it more user-friendly and switched to it in 2020. <a href=#fnref:5 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:6 role=doc-endnote><p>If you decide to go all Lua and use <code>init.lua</code>, then you should definitely use Neovim. <a href=#fnref:6 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2022-01-10</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><nav class=post-nav><a class=prev href=/2022/01/03/github_profile_readme/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Customize Your GitHub Profile</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2021/12/25/ffmpeg-extract-key-frame-video/><span class="next-text nav-default">How to Extract Key Frames from A Video with FFmpeg</span>
+Otherwise, you can only count on other developer to implement the feature for you.</li>
+<li>When you meet issues with those distributions, you may have a hard time debugging it,
+since they all include various configurations.</li>
+</ul>
+<p>However, this does not mean that you can not learn from these distributions, e.g., how they configure,
+how they organize their directory structure. You can even <em>steal</em> some configs for your own use.</p>
+<h1 id=concluding-remarks>Concluding remarks</h1>
+<p>Looking back, I think I have made the right choice to learn Vim/Nvim.
+It has been a rewarding jounery for me. I am so used to vim&rsquo;s style editing that Vim becomes second nature.</p>
+<p>I am thankful to all the contributors of Vim/Nvim for building and maintaining such a great editor.
+I am grateful for the efforts that plugin authors put into in building those great plugins.</p>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>I am not saying that Vim&rsquo;s development model is worse, I just like Nvim&rsquo;s development model more.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p>An excellent article on how to split your config is <a href=https://vimways.org/2018/from-vimrc-to-vim/>from .vimrc to .vim</a>.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:3 role=doc-endnote>
+<p>I used deoplete with deoplete-jedi for over two years. Then I moved to <a href=https://github.com/prabirshrestha/vim-lsp>vim-lsp</a> + deoplete for several month, before moving to nvim-lsp.&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:4 role=doc-endnote>
+<p>A good resource for finding lua plugins is <a href=https://github.com/rockerBOO/awesome-neovim>awesome neovim</a>. <a href=https://neovimcraft.com/>Neovimcraft</a> also collects some lua-based neovim plugins and config distributions.&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:5 role=doc-endnote>
+<p>One such example is <a href=https://github.com/tpope/vim-surround>vim-surround</a> vs <a href=https://github.com/machakann/vim-sandwich>vim-sandwich</a>. Vim-sandwich has much lesser stars than vim-surround, but I find it more user-friendly and switched to it in 2020.&#160;<a href=#fnref:5 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:6 role=doc-endnote>
+<p>If you decide to go all Lua and use <code>init.lua</code>, then you should definitely use Neovim.&#160;<a href=#fnref:6 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2022-01-10
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<nav class=post-nav>
+<a class=prev href=/2022/01/03/github_profile_readme/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Customize Your GitHub Profile</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2021/12/25/ffmpeg-extract-key-frame-video/>
+<span class="next-text nav-default">How to Extract Key Frames from A Video with FFmpeg</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

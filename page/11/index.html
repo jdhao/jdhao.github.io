@@ -1,64 +1,627 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/><link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's blog"><link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's blog"><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="jdhao's blog"><meta property="og:description" content="A blog for the patient and curious people"><meta property="og:type" content="website"><meta property="og:url" content="https://jdhao.github.io/"><meta property="og:updated_time" content="2022-02-02T11:17:51+08:00"><meta itemprop=name content="jdhao's blog"><meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary"><meta name=twitter:title content="jdhao's blog"><meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><section id=posts class=posts><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/11/hugo_post_missing/>Hugo Post Missing (Hugo 博客文章缺失问题)</a></h1><div class=post-meta><span class=post-time>2020-01-11</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>701 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>Recently, when I was trying to generate my blog site using <a href=https://gohugo.io/>Hugo</a>,
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/>
+<link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's blog">
+<link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's blog">
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="jdhao's blog">
+<meta property="og:description" content="A blog for the patient and curious people">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jdhao.github.io/">
+<meta itemprop=name content="jdhao's blog">
+<meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="jdhao's blog">
+<meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<section id=posts class=posts>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/01/11/hugo_post_missing/>Hugo Post Missing (Hugo 博客文章缺失问题)</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-01-11 </span>
+<div class=post-category>
+<a href=/categories/Blog/> Blog </a>
+</div>
+<span class=more-meta> 701 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Recently, when I was trying to generate my blog site using <a href=https://gohugo.io/>Hugo</a>,
 I found that all my posts were successfully rendered, except for one new post.
-This was rather strange.</p><p><font color=red>最近在使用 <a href=https://gohugo.io/>Hugo</a> 生成博客文章的时候，发现有一篇新写的文章无法生成，而其他博文都可以成功渲染，非常奇怪。</font></p></div><div class=read-more><a href=/2020/01/11/hugo_post_missing/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/11/my_reading_list_2019/>我的 2019 阅读清单</a></h1><div class=post-meta><span class=post-time>2020-01-11</span><div class=post-category><a href=/categories/reading/>reading</a></div><span class=more-meta>713 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>2019 年年末的这三个月过得很快，最近一个月都在紧张忙碌中度过，以至于错过了年末的时间，没有写一篇 2019 年的阅读总结。</p></div><div class=read-more><a href=/2020/01/11/my_reading_list_2019/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/10/nvim_number_arithmetic_in_substitute/>Doing Number Arithmetics in Vim/Neovim Substitutions</a></h1><div class=post-meta><span class=post-time>2020-01-10</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>736 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>In this post, I want to share how to do number arithmetic quickly and get what
-you want in specified format. More specifically, the topic is:</p><blockquote><p>How do we add, subtract, multiply or divide a value to each number in a
-range?</p></blockquote></div><div class=read-more><a href=/2020/01/10/nvim_number_arithmetic_in_substitute/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/05/ultisnips_python_interpolation/>Regex Keyword and Python Interpolation in Ultisnips</a></h1><div class=post-meta><span class=post-time>2020-01-05</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>482 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p><a href>Vim-snippet</a> provides a lot of useful Ultisnips snippets for various
+This was rather strange.</p>
+<p><font color=red>最近在使用 <a href=https://gohugo.io/>Hugo</a> 生成博客文章的时候，发现有一篇新写的文章无法生成，而其他博文都可以成功渲染，非常奇怪。</font></p>
+</div>
+<div class=read-more>
+<a href=/2020/01/11/hugo_post_missing/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/01/11/my_reading_list_2019/>我的 2019 阅读清单</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-01-11 </span>
+<div class=post-category>
+<a href=/categories/reading/> reading </a>
+</div>
+<span class=more-meta> 713 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>2019 年年末的这三个月过得很快，最近一个月都在紧张忙碌中度过，以至于错过了年末的时间，没有写一篇 2019 年的阅读总结。</p>
+</div>
+<div class=read-more>
+<a href=/2020/01/11/my_reading_list_2019/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/01/10/nvim_number_arithmetic_in_substitute/>Doing Number Arithmetics in Vim/Neovim Substitutions</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-01-10 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 735 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In this post, I want to share how to do number arithmetic quickly and get what
+you want in specified format. More specifically, the topic is:</p>
+<blockquote>
+<p>How do we add, subtract, multiply or divide a value to each number in a
+range?</p>
+</blockquote>
+</div>
+<div class=read-more>
+<a href=/2020/01/10/nvim_number_arithmetic_in_substitute/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/01/05/ultisnips_python_interpolation/>Regex Keyword and Python Interpolation in Ultisnips</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-01-05 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 481 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p><a href>Vim-snippet</a> provides a lot of useful Ultisnips snippets for various
 filetypes. For example, for Markdown, to insert level 1 header, the snippet
 trigger is <code>sec</code>, and for level 2 and 3 header, the triggers are <code>ssec</code> and
 <code>sssec</code> respectively. These triggers are non-intuitive and hard to remember and
-type.</p></div><div class=read-more><a href=/2020/01/05/ultisnips_python_interpolation/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/01/firenvim_nvim_inside_browser/>Firenvim: Neovim inside Your Browser</a></h1><div class=post-meta><span class=post-time>2020-01-01</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>358 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/firenvim.gif></p><h1 id=introduction>Introduction</h1><p>Last year, I have written <a href=https://jdhao.github.io/2019/05/11/nvim_text_input_browser/>a post</a> on how to edit texts inside the browser
+type.</p>
+</div>
+<div class=read-more>
+<a href=/2020/01/05/ultisnips_python_interpolation/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/01/01/firenvim_nvim_inside_browser/>Firenvim: Neovim inside Your Browser</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-01-01 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 357 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/firenvim.gif>
+</p>
+<h1 id=introduction>Introduction</h1>
+<p>Last year, I have written <a href=https://jdhao.github.io/2019/05/11/nvim_text_input_browser/>a post</a> on how to edit texts inside the browser
 using Vim/Nvim or browser extensions that have Vim emulations.
 However, none of them is good enough, since they are either not convenient to use
-or lacking features compared to real Neovim empowered by various plugins.</p></div><div class=read-more><a href=/2020/01/01/firenvim_nvim_inside_browser/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/12/29/hugo_html_not_shown/>Content inside HTML tags missing in Latest Hugo?</a></h1><div class=post-meta><span class=post-time>2019-12-29</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>492 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>Due to Markdown&rsquo;s inability to center and resize image properly, I use the raw
-HTML tags inside markdown file to include images:</p><p><font color=red>由于 Markdown 格式无法很好居中和设定图像尺寸，我使用 HTML tags 来添加图像(图像可以很好居中以及设定显示大小):</font></p></div><div class=read-more><a href=/2019/12/29/hugo_html_not_shown/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/12/22/ultisnips_avoid_content_update/>Creating Markdown Front Matter with Ultisnips</a></h1><div class=post-meta><span class=post-time>2019-12-22</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>518 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><h1 id=introduction>Introduction</h1><p>Currently, I write my blog posts in Markdown and build the blog using
+or lacking features compared to real Neovim empowered by various plugins.</p>
+</div>
+<div class=read-more>
+<a href=/2020/01/01/firenvim_nvim_inside_browser/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/12/29/hugo_html_not_shown/>Content inside HTML tags missing in Latest Hugo?</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-12-29 </span>
+<div class=post-category>
+<a href=/categories/Blog/> Blog </a>
+</div>
+<span class=more-meta> 492 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Due to Markdown&rsquo;s inability to center and resize image properly, I use the raw
+HTML tags inside markdown file to include images:</p>
+<p><font color=red>由于 Markdown 格式无法很好居中和设定图像尺寸，我使用 HTML tags 来添加图像(图像可以很好居中以及设定显示大小):</font></p>
+</div>
+<div class=read-more>
+<a href=/2019/12/29/hugo_html_not_shown/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/12/22/ultisnips_avoid_content_update/>Creating Markdown Front Matter with Ultisnips</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-12-22 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 516 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h1 id=introduction>Introduction</h1>
+<p>Currently, I write my blog posts in Markdown and build the blog using
 <a href=https://gohugo.io/>Hugo</a>. Hugo supports <a href=https://gohugo.io/content-management/front-matter/>front matter</a> for Markdown so that you can
-attach metadata for a post, such as title, date, tags, categories, etc.</p></div><div class=read-more><a href=/2019/12/22/ultisnips_avoid_content_update/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/12/21/labelme_json_to_voc_xml/>Labelme JSON 标注格式转 voc XML 格式</a></h1><div class=post-meta><span class=post-time>2019-12-21</span><div class=post-category><a href=/categories/machine-learning/>machine-learning</a></div><span class=more-meta>411 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>labelme 是一款常用的计算机视觉任务标注工具，可以用来标注分类，检测，分割等任务的数据。对于检测任务，labelme 生层的标注文件是 json 格式，每个图像对应一个相应的 json 文件。但是很多任务都使用 PASCAL VOC 的 xml 格式标注，例如<a href=https://github.com/facebookresearch/maskrcnn-benchmark>maskrcnn-benchmark</a> 任务中的 <a href=https://github.com/facebookresearch/maskrcnn-benchmark/blob/master/maskrcnn_benchmark/data/datasets/voc.py>voc 数据集</a>。</p></div><div class=read-more><a href=/2019/12/21/labelme_json_to_voc_xml/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/12/21/nifty_nvim_techniques_s6/>Nifty Nvim Techniques That Make My Life Easier -- Series 6</a></h1><div class=post-meta><span class=post-time>2019-12-21</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>596 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>This post continues my <a href=https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/>previous post</a> on nifty Nvim/Vim techniques.</p></div><div class=read-more><a href=/2019/12/21/nifty_nvim_techniques_s6/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/12/15/mac_video_subtitle_make/>macOS 下如何为视频制作字幕</a></h1><div class=post-meta><span class=post-time>2019-12-15</span><div class=post-category><a href=/categories/Mac/>Mac</a></div><span class=more-meta>1316 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 <a href=https://vimconf.org/2018/>Vim Conf 2018</a> 上的<a href="https://www.youtube.com/watch?v=ES1L2SPgIDI">主题报告</a>，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。</p></div><div class=read-more><a href=/2019/12/15/mac_video_subtitle_make/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/12/09/vim_asynchronous_command_run/>Running Command Asynchronously inside Neovim</a></h1><div class=post-meta><span class=post-time>2019-12-09</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>507 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><h1 id=introduction>Introduction</h1><p>When I am writing some prototyping code inside Neovim, I want to run the script
+attach metadata for a post, such as title, date, tags, categories, etc.</p>
+</div>
+<div class=read-more>
+<a href=/2019/12/22/ultisnips_avoid_content_update/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/12/21/labelme_json_to_voc_xml/>Labelme JSON 标注格式转 voc XML 格式</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-12-21 </span>
+<div class=post-category>
+<a href=/categories/machine-learning/> machine-learning </a>
+</div>
+<span class=more-meta> 411 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>labelme 是一款常用的计算机视觉任务标注工具，可以用来标注分类，检测，分割等任务的数据。对于检测任务，labelme 生层的标注文件是 json 格式，每个图像对应一个相应的 json 文件。但是很多任务都使用 PASCAL VOC 的 xml 格式标注，例如<a href=https://github.com/facebookresearch/maskrcnn-benchmark>maskrcnn-benchmark</a> 任务中的 <a href=https://github.com/facebookresearch/maskrcnn-benchmark/blob/master/maskrcnn_benchmark/data/datasets/voc.py>voc 数据集</a>。</p>
+</div>
+<div class=read-more>
+<a href=/2019/12/21/labelme_json_to_voc_xml/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/12/21/nifty_nvim_techniques_s6/>Nifty Nvim Techniques That Make My Life Easier -- Series 6</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-12-21 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 596 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>This post continues my <a href=https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/>previous post</a> on nifty Nvim/Vim techniques.</p>
+</div>
+<div class=read-more>
+<a href=/2019/12/21/nifty_nvim_techniques_s6/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/12/15/mac_video_subtitle_make/>macOS 下如何为视频制作字幕</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-12-15 </span>
+<div class=post-category>
+<a href=/categories/Mac/> Mac </a>
+</div>
+<span class=more-meta> 1316 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 <a href=https://vimconf.org/2018/>Vim Conf 2018</a> 上的<a href="https://www.youtube.com/watch?v=ES1L2SPgIDI">主题报告</a>，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。</p>
+</div>
+<div class=read-more>
+<a href=/2019/12/15/mac_video_subtitle_make/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/12/09/vim_asynchronous_command_run/>Running Command Asynchronously inside Neovim</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-12-09 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 507 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h1 id=introduction>Introduction</h1>
+<p>When I am writing some prototyping code inside Neovim, I want to run the script
 without going to the terminal and typing <code>python toy_script.py</code>. Of course, we
 can use <code>:!python %</code> in the command line to run the script (see <code>:h :!</code>). The
 problem is that running external command will block Nvim/Vim, and we can not
-move the cursor until the script finishes running.</p></div><div class=read-more><a href=/2019/12/09/vim_asynchronous_command_run/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/12/03/git_stash_merge_conflict_handling/>Resolving Merge Conflict after Git Stash Pop</a></h1><div class=post-meta><span class=post-time>2019-12-03</span><div class=post-category><a href=/categories/Git/>Git</a></div><span class=more-meta>637 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>Sometimes, when we are working with our local changes in a Git repo, we may
+move the cursor until the script finishes running.</p>
+</div>
+<div class=read-more>
+<a href=/2019/12/09/vim_asynchronous_command_run/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/12/03/git_stash_merge_conflict_handling/>Resolving Merge Conflict after Git Stash Pop</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-12-03 </span>
+<div class=post-category>
+<a href=/categories/Git/> Git </a>
+</div>
+<span class=more-meta> 637 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Sometimes, when we are working with our local changes in a Git repo, we may
 want to pull the latest updates from the remote repository. To avoid code
 conflict between remote files and local files. We can use <code>git stash</code> to store
-the unfinished local work temporarily.</p></div><div class=read-more><a href=/2019/12/03/git_stash_merge_conflict_handling/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/11/28/pylint_command_not_found/>Pylint: command not found?</a></h1><div class=post-meta><span class=post-time>2019-11-28</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>223 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>The system I am currently using has Anaconda pre-installed by root under system
-locations.</p></div><div class=read-more><a href=/2019/11/28/pylint_command_not_found/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/11/20/neovim_builtin_lsp_hands_on/>A Hands-on Experience with Neovim's Built-in LSP Support</a></h1><div class=post-meta><span class=post-time>2019-11-20</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>589 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><details><summary><font size=2 color=red>update log</font></summary><ul><li><font color=blue>2021-07-15: use pylsp instead of pyls since pyls is obsolete.</font></li><li><font color=blue>2021-04-08: update post based on latest version of Neovim-lsp.</font></li><li><font color=blue>2020-09-14: update lsp config to reflect the latest changes and add more plugins.</font></li></ul></details><p>Just a few days ago, the built-in <a href=https://microsoft.github.io/language-server-protocol/>Language Server Protocol</a>
-support <a href=https://github.com/neovim/neovim/pull/11336>has been merged</a> into Neovim master.</p><p>This post is a hands-on experience of setting up LSP support for Python with
-the <a href=https://github.com/python-lsp/python-lsp-server>python-lsp-server</a>.</p><p>Note that settings here may be obsolete due to rapid evolving of the built-in lsp.</p></div><div class=read-more><a href=/2019/11/20/neovim_builtin_lsp_hands_on/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/11/20/convert_pdf_to_image_imagemagick/>How to Convert PDF to Images with Imagemagick</a></h1><div class=post-meta><span class=post-time>2019-11-20</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>281 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>Previously, I have talked about how to convert PDF to images using pdftoppm
+the unfinished local work temporarily.</p>
+</div>
+<div class=read-more>
+<a href=/2019/12/03/git_stash_merge_conflict_handling/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/11/28/pylint_command_not_found/>Pylint: command not found?</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-11-28 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 223 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>The system I am currently using has Anaconda pre-installed by root under system
+locations.</p>
+</div>
+<div class=read-more>
+<a href=/2019/11/28/pylint_command_not_found/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/11/20/neovim_builtin_lsp_hands_on/>A Hands-on Experience with Neovim's Built-in LSP Support</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-11-20 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 588 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<details>
+<summary><font size=2 color=red>update log</font></summary>
+<ul>
+<li><font color=blue>2021-07-15: use pylsp instead of pyls since pyls is obsolete.</font></li>
+<li><font color=blue>2021-04-08: update post based on latest version of Neovim-lsp.</font></li>
+<li><font color=blue>2020-09-14: update lsp config to reflect the latest changes and add more plugins.</font></li>
+</ul>
+</details>
+<p>Just a few days ago, the built-in <a href=https://microsoft.github.io/language-server-protocol/>Language Server Protocol</a>
+support <a href=https://github.com/neovim/neovim/pull/11336>has been merged</a> into Neovim master.</p>
+<p>This post is a hands-on experience of setting up LSP support for Python with
+the <a href=https://github.com/python-lsp/python-lsp-server>python-lsp-server</a>.</p>
+<p>Note that settings here may be obsolete due to rapid evolving of the built-in lsp.</p>
+</div>
+<div class=read-more>
+<a href=/2019/11/20/neovim_builtin_lsp_hands_on/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/11/20/convert_pdf_to_image_imagemagick/>How to Convert PDF to Images with Imagemagick</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-11-20 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 281 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Previously, I have talked about how to convert PDF to images using pdftoppm
 <a href=https://jdhao.github.io/2019/11/14/convert_pdf_to_images_pdftoppm/>here</a>.
 In this post, I want to share how to accomplish this task with
-<a href=https://imagemagick.org/index.php>Imagemagick</a>.</p></div><div class=read-more><a href=/2019/11/20/convert_pdf_to_image_imagemagick/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/11/18/acronym_on_internet_and_forum/>互联网上常用缩略语集锦</a></h1><div class=post-meta><span class=post-time>2019-11-18</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>817 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>上 <a href=https://www.reddit.com/>Reddit</a> 或 GitHub 时，在讨论中，经常会碰到一些缩略词，作为一名非 native speaker，经常有点摸不着头脑，不知道这些缩略语啥意思，这篇文章总结一些常用缩略语以及中文含义。</p></div><div class=read-more><a href=/2019/11/18/acronym_on_internet_and_forum/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/11/16/nvim_file_backup/>File Backup in Neovim</a></h1><div class=post-meta><span class=post-time>2019-11-16</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>335 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>There are several options related to file backup behavior in Vim/Nvim.</p><ul><li><code>backup</code></li><li><code>writebackup</code></li><li><code>backupdir</code></li><li><code>backupcopy</code></li><li><code>backupext</code></li></ul><p>In this post, I will explain how these options are related to each other.</p></div><div class=read-more><a href=/2019/11/16/nvim_file_backup/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/11/14/convert_pdf_to_images_pdftoppm/>Converting PDF Pages to Images with Poppler</a></h1><div class=post-meta><span class=post-time>2019-11-14</span><div class=post-category><a href=/categories/technique/>technique</a></div><span class=more-meta>559 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>In this post, I want to share how to convert PDF to images using the command
-line tool <a href=https://www.xpdfreader.com/pdftoppm-man.html>pdftoppm</a>.</p></div><div class=read-more><a href=/2019/11/14/convert_pdf_to_images_pdftoppm/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/11/11/nifty_nvim_techniques_s5/>Nifty Nvim Techniques That Make My Life Easier -- Series 5</a></h1><div class=post-meta><span class=post-time>2019-11-11</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>690 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>This is the series 5 of my blog posts about some nifty techniques of using
-Nvim, which continues my <a href=https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/>previous series here</a>.</p></div><div class=read-more><a href=/2019/11/11/nifty_nvim_techniques_s5/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/11/10/install_config_neovim_system_wide/>Neovim Configuration for System-wide Use</a></h1><div class=post-meta><span class=post-time>2019-11-10</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>328 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>I have been using Neovim for personal projects for over a year. Recently, I
+<a href=https://imagemagick.org/index.php>Imagemagick</a>.</p>
+</div>
+<div class=read-more>
+<a href=/2019/11/20/convert_pdf_to_image_imagemagick/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/11/18/acronym_on_internet_and_forum/>互联网上常用缩略语集锦</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-11-18 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 817 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>上 <a href=https://www.reddit.com/>Reddit</a> 或 GitHub 时，在讨论中，经常会碰到一些缩略词，作为一名非 native speaker，经常有点摸不着头脑，不知道这些缩略语啥意思，这篇文章总结一些常用缩略语以及中文含义。</p>
+</div>
+<div class=read-more>
+<a href=/2019/11/18/acronym_on_internet_and_forum/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/11/16/nvim_file_backup/>File Backup in Neovim</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-11-16 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 335 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>There are several options related to file backup behavior in Vim/Nvim.</p>
+<ul>
+<li><code>backup</code></li>
+<li><code>writebackup</code></li>
+<li><code>backupdir</code></li>
+<li><code>backupcopy</code></li>
+<li><code>backupext</code></li>
+</ul>
+<p>In this post, I will explain how these options are related to each other.</p>
+</div>
+<div class=read-more>
+<a href=/2019/11/16/nvim_file_backup/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/11/14/convert_pdf_to_images_pdftoppm/>Converting PDF Pages to Images with Poppler</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-11-14 </span>
+<div class=post-category>
+<a href=/categories/technique/> technique </a>
+</div>
+<span class=more-meta> 558 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>In this post, I want to share how to convert PDF to images using the command
+line tool <a href=https://www.xpdfreader.com/pdftoppm-man.html>pdftoppm</a>.</p>
+</div>
+<div class=read-more>
+<a href=/2019/11/14/convert_pdf_to_images_pdftoppm/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/11/11/nifty_nvim_techniques_s5/>Nifty Nvim Techniques That Make My Life Easier -- Series 5</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-11-11 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 689 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>This is the series 5 of my blog posts about some nifty techniques of using
+Nvim, which continues my <a href=https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/>previous series here</a>.</p>
+</div>
+<div class=read-more>
+<a href=/2019/11/11/nifty_nvim_techniques_s5/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2019/11/10/install_config_neovim_system_wide/>Neovim Configuration for System-wide Use</a></h1>
+<div class=post-meta>
+<span class=post-time> 2019-11-10 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 327 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>I have been using Neovim for personal projects for over a year. Recently, I
 want to set up Neovim system wide so that other users in the server can also
 use my config if they want. In this post, I will describe the necessary
-configurations.</p></div><div class=read-more><a href=/2019/11/10/install_config_neovim_system_wide/ class=read-more-link>Read more...</a></div></div></article></section><nav class=pagination><a class=prev href=/page/10/><i class="iconfont icon-left"></i><span class=prev-text>Prev</span></a>
-<a class=next href=/page/12/><span class=next-text>Next</span>
-<i class="iconfont icon-right"></i></a></nav></div></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+configurations.</p>
+</div>
+<div class=read-more>
+<a href=/2019/11/10/install_config_neovim_system_wide/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+</section>
+<nav class=pagination>
+<a class=prev href=/page/10/>
+<i class="iconfont icon-left"></i>
+<span class=prev-text>Prev</span>
+</a>
+<a class=next href=/page/12/>
+<span class=next-text>Next</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

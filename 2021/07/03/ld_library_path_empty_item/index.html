@@ -1,44 +1,245 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Empty Entry in LD_LIBRARY_PATH May Lead to Security Issues - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="When I want to build glibc using the provided configure script (./configure --prefix=xxx), I saw the following error message:"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2021/07/03/ld_library_path_empty_item/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Empty Entry in LD_LIBRARY_PATH May Lead to Security Issues"><meta property="og:description" content="When I want to build glibc using the provided configure script (./configure --prefix=xxx),
-I saw the following error message:"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2021/07/03/ld_library_path_empty_item/"><meta property="article:published_time" content="2021-07-03T00:44:08+08:00"><meta property="article:modified_time" content="2021-07-04T13:38:34+08:00"><meta itemprop=name content="Empty Entry in LD_LIBRARY_PATH May Lead to Security Issues"><meta itemprop=description content="When I want to build glibc using the provided configure script (./configure --prefix=xxx),
-I saw the following error message:"><meta itemprop=datePublished content="2021-07-03T00:44:08+08:00"><meta itemprop=dateModified content="2021-07-04T13:38:34+08:00"><meta itemprop=wordCount content="177"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Empty Entry in LD_LIBRARY_PATH May Lead to Security Issues"><meta name=twitter:description content="When I want to build glibc using the provided configure script (./configure --prefix=xxx),
-I saw the following error message:"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Empty Entry in LD_LIBRARY_PATH May Lead to Security Issues</h1><div class=post-meta><span class=post-time>2021-07-03</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>177 words</span>
-<span class=more-meta>1 min read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>When I want to build glibc using the provided configure script (<code>./configure --prefix=xxx</code>),
-I saw the following error message:</p><blockquote><p>configure: error:
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Empty Entry in LD_LIBRARY_PATH May Lead to Security Issues - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="When I want to build glibc using the provided configure script (./configure --prefix=xxx), I saw the following error message:
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2021/07/03/ld_library_path_empty_item/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="Empty Entry in LD_LIBRARY_PATH May Lead to Security Issues">
+<meta property="og:description" content="When I want to build glibc using the provided configure script (./configure --prefix=xxx),
+I saw the following error message:">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2021/07/03/ld_library_path_empty_item/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-07-03T00:44:08+08:00">
+<meta property="article:modified_time" content="2021-07-04T13:38:34+08:00">
+<meta itemprop=name content="Empty Entry in LD_LIBRARY_PATH May Lead to Security Issues">
+<meta itemprop=description content="When I want to build glibc using the provided configure script (./configure --prefix=xxx),
+I saw the following error message:"><meta itemprop=datePublished content="2021-07-03T00:44:08+08:00">
+<meta itemprop=dateModified content="2021-07-04T13:38:34+08:00">
+<meta itemprop=wordCount content="177">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Empty Entry in LD_LIBRARY_PATH May Lead to Security Issues">
+<meta name=twitter:description content="When I want to build glibc using the provided configure script (./configure --prefix=xxx),
+I saw the following error message:"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>Empty Entry in LD_LIBRARY_PATH May Lead to Security Issues</h1>
+<div class=post-meta>
+<span class=post-time> 2021-07-03 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 177 words </span>
+<span class=more-meta> 1 min read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#references>References</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>When I want to build glibc using the provided configure script (<code>./configure --prefix=xxx</code>),
+I saw the following error message:</p>
+<blockquote>
+<p>configure: error:
 *** LD_LIBRARY_PATH shouldn&rsquo;t contain the current directory when
 *** building glibc. Please change the environment variable
-*** and run configure again.</p></blockquote><p>How could my <code>LD_LIBRARY_PATH</code> contains the current directory? Upon inspecting
+*** and run configure again.</p>
+</blockquote>
+<p>How could my <code>LD_LIBRARY_PATH</code> contains the current directory? Upon inspecting
 the env variable, I see a spurious <code>::</code> inside the value of <code>LD_LIBRARY_PATH</code>,
 which means an empty item. An empty item is interpreted by <code>ld</code> as the current
 working directory. As a result, as a result, <code>ld</code> may load library from the
 current working directory, causing unintended effects, or even security
 vulnerability if an attacker puts some harmful library in the current
-directory.</p><p>The <code>::</code> in my <code>LD_LIBRARY_PATH</code> is caused by the initial empty <code>LD_LIBRARY_PATH</code>.
+directory.</p>
+<p>The <code>::</code> in my <code>LD_LIBRARY_PATH</code> is caused by the initial empty <code>LD_LIBRARY_PATH</code>.
 For example, if we use <code>export LD_LIBRARY_PATH=/home/xxx/local/lib: $LD_LIBRARY_PATH</code> while <code>LD_LIBRARY_PATH</code> is empty, it actually becomes
-<code>/home/xxx/local/lib:</code>.</p><p>To fix this issue, we need to check if the value of <code>LD_LIBRARY_PATH</code> is empty
-before using it:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash><span class=k>if</span> <span class=o>[</span>-z <span class=nv>$LD_LIBRARY_PATH</span><span class=o>]</span><span class=p>;</span> <span class=k>then</span>
+<code>/home/xxx/local/lib:</code>.</p>
+<p>To fix this issue, we need to check if the value of <code>LD_LIBRARY_PATH</code> is empty
+before using it:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=k>if</span> <span class=o>[</span>-z <span class=nv>$LD_LIBRARY_PATH</span><span class=o>]</span><span class=p>;</span> <span class=k>then</span>
   <span class=nb>export</span> <span class=nv>LD_LIBRARY_PATH</span><span class=o>=</span>/home/xxx/local/lib
 <span class=k>else</span>
   <span class=nb>export</span> <span class=nv>LD_LIBRARY_PATH</span><span class=o>=</span>/home/xxx/local/lib:<span class=nv>$LD_LIBRARY_PATH</span>
 <span class=k>fi</span>
-</code></pre></div><h1 id=references>References</h1><ul><li><a href=https://github.com/rust-lang/cargo/issues/5796>https://github.com/rust-lang/cargo/issues/5796</a></li><li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=638365">https://bugzilla.redhat.com/show_bug.cgi?id=638365</a></li><li><a href=https://www.openwall.com/lists/oss-security/2010/09/29/1>https://www.openwall.com/lists/oss-security/2010/09/29/1</a></li><li><a href=https://joshumax.github.io/general/2017/06/08/how-torch-broke-ls.html>https://joshumax.github.io/general/2017/06/08/how-torch-broke-ls.html</a></li><li><a href=https://github.com/Linuxbrew/legacy-linuxbrew/issues/807>https://github.com/Linuxbrew/legacy-linuxbrew/issues/807</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2021-07-04</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><nav class=post-nav><a class=prev href=/2021/07/03/install_clangd_on_linux/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Install Clangd on CentOS 7</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2021/06/28/squash_commits_with_git_rebase/><span class="next-text nav-default">A Guide on Squashing Commits with git-rebase</span>
+</code></pre></div><h1 id=references>References</h1>
+<ul>
+<li><a href=https://github.com/rust-lang/cargo/issues/5796>https://github.com/rust-lang/cargo/issues/5796</a></li>
+<li><a href="https://bugzilla.redhat.com/show_bug.cgi?id=638365">https://bugzilla.redhat.com/show_bug.cgi?id=638365</a></li>
+<li><a href=https://www.openwall.com/lists/oss-security/2010/09/29/1>https://www.openwall.com/lists/oss-security/2010/09/29/1</a></li>
+<li><a href=https://joshumax.github.io/general/2017/06/08/how-torch-broke-ls.html>https://joshumax.github.io/general/2017/06/08/how-torch-broke-ls.html</a></li>
+<li><a href=https://github.com/Linuxbrew/legacy-linuxbrew/issues/807>https://github.com/Linuxbrew/legacy-linuxbrew/issues/807</a></li>
+</ul>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2021-07-04
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<nav class=post-nav>
+<a class=prev href=/2021/07/03/install_clangd_on_linux/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Install Clangd on CentOS 7</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2021/06/28/squash_commits_with_git_rebase/>
+<span class="next-text nav-default">A Guide on Squashing Commits with git-rebase</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

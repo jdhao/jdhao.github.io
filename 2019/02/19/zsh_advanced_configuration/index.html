@@ -1,44 +1,180 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Boosting Your Productivity on Terminal with Zsh and Plugins - jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="In my previous post, I have introduced how to build Zsh from source and install oh-my-zsh to enhance your terminal experience. In this post, I&amp;rsquo;d like to show you how to manage plugins with zplug and a few more plugins to boost your productivity."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Boosting Your Productivity on Terminal with Zsh and Plugins"><meta property="og:description" content="In my previous
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Boosting Your Productivity on Terminal with Zsh and Plugins - jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="In my previous post, I have introduced how to build Zsh from source and install oh-my-zsh to enhance your terminal experience. In this post, I&amp;rsquo;d like to show you how to manage plugins with zplug and a few more plugins to boost your productivity.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="Boosting Your Productivity on Terminal with Zsh and Plugins">
+<meta property="og:description" content="In my previous
 post, I have
 introduced how to build Zsh from source and install
 oh-my-zsh to enhance your terminal
 experience. In this post, I&rsquo;d like to show you how to manage plugins with
 zplug and a few more plugins to boost your
-productivity."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/"><meta property="article:published_time" content="2019-02-19T00:27:53+08:00"><meta property="article:modified_time" content="2021-10-16T21:45:13+08:00"><meta itemprop=name content="Boosting Your Productivity on Terminal with Zsh and Plugins"><meta itemprop=description content="In my previous
+productivity.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2019-02-19T00:27:53+08:00">
+<meta property="article:modified_time" content="2021-10-16T21:45:13+08:00">
+<meta itemprop=name content="Boosting Your Productivity on Terminal with Zsh and Plugins">
+<meta itemprop=description content="In my previous
 post, I have
 introduced how to build Zsh from source and install
 oh-my-zsh to enhance your terminal
 experience. In this post, I&rsquo;d like to show you how to manage plugins with
 zplug and a few more plugins to boost your
-productivity."><meta itemprop=datePublished content="2019-02-19T00:27:53+08:00"><meta itemprop=dateModified content="2021-10-16T21:45:13+08:00"><meta itemprop=wordCount content="709"><meta itemprop=keywords content="shell,Zsh,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Boosting Your Productivity on Terminal with Zsh and Plugins"><meta name=twitter:description content="In my previous
+productivity."><meta itemprop=datePublished content="2019-02-19T00:27:53+08:00">
+<meta itemprop=dateModified content="2021-10-16T21:45:13+08:00">
+<meta itemprop=wordCount content="707">
+<meta itemprop=keywords content="shell,Zsh,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Boosting Your Productivity on Terminal with Zsh and Plugins">
+<meta name=twitter:description content="In my previous
 post, I have
 introduced how to build Zsh from source and install
 oh-my-zsh to enhance your terminal
 experience. In this post, I&rsquo;d like to show you how to manage plugins with
 zplug and a few more plugins to boost your
-productivity."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Boosting Your Productivity on Terminal with Zsh and Plugins</h1><div class=post-meta><span class=post-time>2019-02-19</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>709 words</span>
-<span class=more-meta>4 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#plugin-management-with-zplug>Plugin management with zplug</a></li><li><a href=#recommended-plugins>Recommended plugins</a><ul><li><a href=#auto-suggestions>Auto suggestions</a></li><li><a href=#faster-directory-navigation>Faster directory navigation</a></li><li><a href=#vim-mode>Vim mode</a><ul><li><a href=#minor-issues>Minor issues</a></li></ul></li><li><a href=#syntax-highlight>Syntax highlight</a></li></ul></li><li><a href=#conclusions>Conclusions</a></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>In my <a href=https://jdhao.github.io/2018/10/13/centos_zsh_install_use/>previous
+productivity."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>Boosting Your Productivity on Terminal with Zsh and Plugins</h1>
+<div class=post-meta>
+<span class=post-time> 2019-02-19 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 707 words </span>
+<span class=more-meta> 4 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#plugin-management-with-zplug>Plugin management with zplug</a></li>
+<li><a href=#recommended-plugins>Recommended plugins</a>
+<ul>
+<li><a href=#auto-suggestions>Auto suggestions</a></li>
+<li><a href=#faster-directory-navigation>Faster directory navigation</a></li>
+<li><a href=#vim-mode>Vim mode</a>
+<ul>
+<li><a href=#minor-issues>Minor issues</a></li>
+</ul>
+</li>
+<li><a href=#syntax-highlight>Syntax highlight</a></li>
+</ul>
+</li>
+<li><a href=#conclusions>Conclusions</a></li>
+<li><a href=#references>References</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>In my <a href=https://jdhao.github.io/2018/10/13/centos_zsh_install_use/>previous
 post</a>, I have
 introduced how to build Zsh from source and install
 <a href=https://github.com/robbyrussell/oh-my-zsh>oh-my-zsh</a> to enhance your terminal
 experience. In this post, I&rsquo;d like to show you how to manage plugins with
 <a href=https://github.com/zplug/zplug>zplug</a> and a few more plugins to boost your
-productivity.</p><h1 id=plugin-management-with-zplug>Plugin management with zplug</h1><p>Oh-my-zsh has a lot of built-in plugins and works great. But there are also a
+productivity.</p>
+<h1 id=plugin-management-with-zplug>Plugin management with zplug</h1>
+<p>Oh-my-zsh has a lot of built-in plugins and works great. But there are also a
 lot of plugins which are not packaged with oh-my-zsh. You can <a href=https://github.com/robbyrussell/oh-my-zsh/wiki/Customization#adding-a-new-plugin>manually add a
 plugin
 <em>foo</em></a>
-to the oh-my-zsh custom folder and activate it in <code>.zshrc</code> like the following:</p><div class=highlight><pre class=chroma><code class=language-zshrc data-lang=zshrc><span class=nv>plugins</span><span class=o>=(</span>
+to the oh-my-zsh custom folder and activate it in <code>.zshrc</code> like the following:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-zshrc data-lang=zshrc><span class=nv>plugins</span><span class=o>=(</span>
   <span class=o>[</span>...other plugins...<span class=o>]</span> foo
 <span class=o>)</span>
 </code></pre></div><p>The above method works but becomes tedious once you need to install several
-external plugins. This is when plugin manager comes to help.</p><p>Just like what you see in Vim, several competing plugin managers are out there
+external plugins. This is when plugin manager comes to help.</p>
+<p>Just like what you see in Vim, several competing plugin managers are out there
 for Zsh users, such as <a href=https://github.com/zsh-users/antigen>antigen</a>,
 <a href=https://github.com/zplug/zplug>zplug</a>,
 <a href=https://github.com/getantibody/antibody>antibody</a>,
 <a href=https://github.com/tarjoilija/zgen>zgen</a><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. I decided to use zplug for its
-boasted speed and its versatility.</p><p>It is very easy to install:</p><div class=highlight><pre class=chroma><code class=language-bash data-lang=bash>curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh <span class=p>|</span> zsh
-</code></pre></div><p>Then add the following backbone setting for zplug in <code>.zshrc</code>:</p><div class=highlight><pre class=chroma><code class=language-zshrc data-lang=zshrc><span class=c1># the backbone of zplug</span>
+boasted speed and its versatility.</p>
+<p>It is very easy to install:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh <span class=p>|</span> zsh
+</code></pre></div><p>Then add the following backbone setting for zplug in <code>.zshrc</code>:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-zshrc data-lang=zshrc><span class=c1># the backbone of zplug</span>
 <span class=nb>source</span> ~/.zplug/init.zsh
 
 <span class=c1># plugins installation goes below</span>
@@ -47,71 +183,189 @@ zplug load --verbose
 </code></pre></div><p>All the plugin installation settings should be put inside the backbone code.
 After adding a plugin, <strong>do not forget</strong> to source <code>.zshrc</code>. To install
 plugins, use command <code>zplug install</code> on the command line. Please consult the
-<a href=https://github.com/zplug/zplug#usage>zplug doc</a> for more usage.</p><h1 id=recommended-plugins>Recommended plugins</h1><p>Below I will introduce several plugins and themes I find useful.</p><h2 id=auto-suggestions>Auto suggestions</h2><p>Plugin <a href=https://github.com/zsh-users/zsh-autosuggestions>zsh-autosuggestions</a>
+<a href=https://github.com/zplug/zplug#usage>zplug doc</a> for more usage.</p>
+<h1 id=recommended-plugins>Recommended plugins</h1>
+<p>Below I will introduce several plugins and themes I find useful.</p>
+<h2 id=auto-suggestions>Auto suggestions</h2>
+<p>Plugin <a href=https://github.com/zsh-users/zsh-autosuggestions>zsh-autosuggestions</a>
 will suggest you the command you want to use based on your command history,
-making it quicker to execute your frequent command.</p><p>Install it with zplug:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback># command auto-suggestion based on history
+making it quicker to execute your frequent command.</p>
+<p>Install it with zplug:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># command auto-suggestion based on history
 zplug &#34;zsh-users/zsh-autosuggestions&#34;
-</code></pre></div><h2 id=faster-directory-navigation>Faster directory navigation</h2><p><a href=https://github.com/skywind3000/z.lua>z.lua</a> is plugin which makes directory
-navigation faster. Install it with zplug:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>zplug &#34;skywind3000/z.lua&#34;
+</code></pre></div><h2 id=faster-directory-navigation>Faster directory navigation</h2>
+<p><a href=https://github.com/skywind3000/z.lua>z.lua</a> is plugin which makes directory
+navigation faster. Install it with zplug:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>zplug &#34;skywind3000/z.lua&#34;
 </code></pre></div><p>For its settings and usage, see
-<a href=https://jdhao.github.io/2019/02/14/fast_dir_navigation_zlua/>here</a>.</p><h2 id=vim-mode>Vim mode</h2><p>In zsh, we can use the <a href=https://dougblack.io/words/zsh-vi-mode.html>vi mode</a>
-for faster command editing. Vi is activated by following command:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>bindkey -v
+<a href=https://jdhao.github.io/2019/02/14/fast_dir_navigation_zlua/>here</a>.</p>
+<h2 id=vim-mode>Vim mode</h2>
+<p>In zsh, we can use the <a href=https://dougblack.io/words/zsh-vi-mode.html>vi mode</a>
+for faster command editing. Vi is activated by following command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>bindkey -v
 </code></pre></div><p>To go to NORMAL mode, press <kbd>ESC</kbd>. Basic vi motion and change
 oprations are provided for you to manipulate the command. Unfortunately, there
 is no visual indication which mode you are in, making it hard to use the vi
-mode.</p><p>The plugin <a href=https://github.com/softmoth/zsh-vim-mode>zsh-vim-mode</a> solves this
+mode.</p>
+<p>The plugin <a href=https://github.com/softmoth/zsh-vim-mode>zsh-vim-mode</a> solves this
 issue by adding the mode indicator in the <code>RPS1</code><sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>. It also adds a few
-enhanced functions to tweak the vim mode.</p><p>First, install it with zplug:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback># enhanced zsh vim mode
+enhanced functions to tweak the vim mode.</p>
+<p>First, install it with zplug:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># enhanced zsh vim mode
 zplug &#34;softmoth/zsh-vim-mode&#34;
 </code></pre></div><p>You can <a href=https://github.com/softmoth/zsh-vim-mode#mode-sensitive-cursor-styling>customize the cursor
 shape</a>
-with this plugin, for example:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>MODE_CURSOR_VICMD=&#34;green block&#34;
+with this plugin, for example:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>MODE_CURSOR_VICMD=&#34;green block&#34;
 MODE_CURSOR_VIINS=&#34;#20d08a blinking bar&#34;
 MODE_CURSOR_SEARCH=&#34;#ff00ff blinking underline&#34;
 </code></pre></div><p>To add the current mode indicator on the right prompt, add the following the
-setting:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>MODE_INDICATOR_VIINS=&#39;%F{15}&lt;%F{8}INSERT&lt;%f&#39;
+setting:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>MODE_INDICATOR_VIINS=&#39;%F{15}&lt;%F{8}INSERT&lt;%f&#39;
 MODE_INDICATOR_VICMD=&#39;%F{10}&lt;%F{2}NORMAL&lt;%f&#39;
 MODE_INDICATOR_REPLACE=&#39;%F{9}&lt;%F{1}REPLACE&lt;%f&#39;
 MODE_INDICATOR_SEARCH=&#39;%F{13}&lt;%F{5}SEARCH&lt;%f&#39;
 MODE_INDICATOR_VISUAL=&#39;%F{12}&lt;%F{4}VISUAL&lt;%f&#39;
 MODE_INDICATOR_VLINE=&#39;%F{12}&lt;%F{4}V-LINE&lt;%f&#39;
-</code></pre></div><p>The effect is shown below:</p><p><img src=https://blog-resource-1257868508.file.myqcloud.com/20190219004706.png alt></p><h3 id=minor-issues>Minor issues</h3><p>It should be noted that in order to use the surround object provided by this
+</code></pre></div><p>The effect is shown below:</p>
+<p><img src=https://blog-resource-1257868508.file.myqcloud.com/20190219004706.png alt></p>
+<h3 id=minor-issues>Minor issues</h3>
+<p>It should be noted that in order to use the surround object provided by this
 plugin, the value of environment variable <code>KEYTIMEOUT</code> <a href=https://github.com/softmoth/zsh-vim-mode/issues/13>should not be too
-low</a>.</p><p>Another issue with this plugin is that it changes the default behaviour of
+low</a>.</p>
+<p>Another issue with this plugin is that it changes the default behaviour of
 <kbd>Home</kbd> and <kbd>End</kbd> keys: pressing Home will run help for the
 current command and pressing End will escape the command line into normal mode.
-To fix this issue, you need to bindkey Home and End key specifically:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback>bindkey &#39;^[[H&#39; beginning-of-line
+To fix this issue, you need to bindkey Home and End key specifically:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>bindkey &#39;^[[H&#39; beginning-of-line
 bindkey &#39;^[[F&#39; end-of-line
 </code></pre></div><p>The above settings should be put after the position where this plugin is loaded
-to take effect.</p><h2 id=syntax-highlight>Syntax highlight</h2><p>The plugin
+to take effect.</p>
+<h2 id=syntax-highlight>Syntax highlight</h2>
+<p>The plugin
 <a href=https://github.com/zdharma/fast-syntax-highlighting>fast-syntax-highlighting</a>
 will highlight your command on the command line, making it easy to distinguish
 between different parts of the command. To install it, add the following
-setting:</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback># defer means to load this plugin after all the other plugins
+setting:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># defer means to load this plugin after all the other plugins
 zplug &#34;zdharma/fast-syntax-highlighting&#34;, defer:2
-</code></pre></div><h1 id=conclusions>Conclusions</h1><p>In this post, I have introduced zplug &mdash; the plugin manager for Zsh and a few
+</code></pre></div><h1 id=conclusions>Conclusions</h1>
+<p>In this post, I have introduced zplug &mdash; the plugin manager for Zsh and a few
 useful plugins. For a more comprehensive list of zsh plugins, you may find
 <a href=https://github.com/unixorn/awesome-zsh-plugins>this awesome zsh list</a> useful.
 As a concluding remark: you should choose plugins wisely and only install those
-you truly need.</p><h1 id=references>References</h1><ul><li><a href=https://unix.stackexchange.com/questions/547/make-my-zsh-prompt-show-mode-in-vi-mode/452529#452529>How to indicate vim mode on command line</a></li><li><a href=https://github.com/unixorn/awesome-zsh-plugins>awesome zsh</a></li><li><a href=http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins>Zsh bindkey and keymaps</a></li><li><a href=http://zsh.sourceforge.net/Doc/Release/Parameters.html>Zsh parameters</a>.</li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>More plugin managers and frameworks can be found <a href=https://github.com/unixorn/awesome-zsh-plugins#frameworks>here</a>. Choose the one you feel is best. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>This prompt is displayed on the right-hand side of the screen when the primary prompt is being displayed on the left. <a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
-<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2021-10-16</span></p><p class=copyright-item><span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>Reward</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
-<span>wechat</span></label>
-<label class=qr-code-image for=reward><img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
-<span>alipay</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/shell/>shell</a>
-<a href=/tags/Zsh/>Zsh</a></div><nav class=post-nav><a class=prev href=/2019/02/23/crop_rotated_rectangle_opencv/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Cropping Rotated Rectangles from Image with OpenCV</span>
-<span class="prev-text nav-mobile">Prev</span></a>
-<a class=next href=/2019/02/18/rime_configuration_intro/><span class="next-text nav-default">最新版 Rime 输入法使用</span>
+you truly need.</p>
+<h1 id=references>References</h1>
+<ul>
+<li><a href=https://unix.stackexchange.com/questions/547/make-my-zsh-prompt-show-mode-in-vi-mode/452529#452529>How to indicate vim mode on command line</a></li>
+<li><a href=https://github.com/unixorn/awesome-zsh-plugins>awesome zsh</a></li>
+<li><a href=http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins>Zsh bindkey and keymaps</a></li>
+<li><a href=http://zsh.sourceforge.net/Doc/Release/Parameters.html>Zsh parameters</a>.</li>
+</ul>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>More plugin managers and frameworks can be found <a href=https://github.com/unixorn/awesome-zsh-plugins#frameworks>here</a>. Choose the one you feel is best.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p>This prompt is displayed on the right-hand side of the screen when the primary prompt is being displayed on the left.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2021-10-16
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/shell/>shell</a>
+<a href=/tags/Zsh/>Zsh</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/2019/02/23/crop_rotated_rectangle_opencv/>
+<i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">Cropping Rotated Rectangles from Image with OpenCV</span>
+<span class="prev-text nav-mobile">Prev</span>
+</a>
+<a class=next href=/2019/02/18/rime_configuration_intro/>
+<span class="next-text nav-default">最新版 Rime 输入法使用</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>

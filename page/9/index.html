@@ -1,46 +1,592 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>jdhao's blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.75.1 with theme even"><link rel=canonical href=https://jdhao.github.io/><link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's blog"><link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's blog"><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:true});</script><link href=/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="jdhao's blog"><meta property="og:description" content="A blog for the patient and curious people"><meta property="og:type" content="website"><meta property="og:url" content="https://jdhao.github.io/"><meta property="og:updated_time" content="2022-02-02T11:17:51+08:00"><meta itemprop=name content="jdhao's blog"><meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary"><meta name=twitter:title content="jdhao's blog"><meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><section id=posts class=posts><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/06/11/conda_env_management/>Virtual Environment Management with Conda</a></h1><div class=post-meta><span class=post-time>2020-06-11</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>304 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p><a href=https://docs.conda.io/projects/conda/en/latest/>Conda</a> is the default package
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>jdhao's blog</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/>
+<link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's blog">
+<link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's blog">
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="jdhao's blog">
+<meta property="og:description" content="A blog for the patient and curious people">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jdhao.github.io/">
+<meta itemprop=name content="jdhao's blog">
+<meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="jdhao's blog">
+<meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's blog</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<section id=posts class=posts>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/06/11/conda_env_management/>Virtual Environment Management with Conda</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-06-11 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 304 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p><a href=https://docs.conda.io/projects/conda/en/latest/>Conda</a> is the default package
 and environment management tool shipped with
-<a href=https://www.anaconda.com/products/individual>Anaconda</a>.</p><p>This post logs my cheatsheet and notes for working with virtual environments
-with conda.</p></div><div class=read-more><a href=/2020/06/11/conda_env_management/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/06/11/linux_set_timezone/>Set Timezone inside Docker Container</a></h1><div class=post-meta><span class=post-time>2020-06-11</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>170 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>After running a Ubuntu docker container, I found that the default time zone is
-UTC. I want to change it to my local timezone.</p></div><div class=read-more><a href=/2020/06/11/linux_set_timezone/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/06/07/asyncio_inside_flask/>How to Use Asyncio with Flask Applications</a></h1><div class=post-meta><span class=post-time>2020-06-07</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>468 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>I was using <a href=https://docs.python.org/3/library/asyncio.html>asyncio</a> inside a
-view function for Flask to run some asynchronous functions and met an error.</p></div><div class=read-more><a href=/2020/06/07/asyncio_inside_flask/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/06/01/markdown_writing_tricks/>Markdown Writing Tricks</a></h1><div class=post-meta><span class=post-time>2020-06-01</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>403 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>Some of the tricks when writing Markdown files.</p></div><div class=read-more><a href=/2020/06/01/markdown_writing_tricks/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/05/27/why_you_should_use_snippets_in_vim/>Why You Should Use Snippets in Vim/Neovim</a></h1><div class=post-meta><span class=post-time>2020-05-27</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>532 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
-you need to ask yourself if there is a better way to do it.</p></div><div class=read-more><a href=/2020/05/27/why_you_should_use_snippets_in_vim/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/05/22/highlight_yank_region_nvim/>Highlight Yanked Region in Nvim/Vim</a></h1><div class=post-meta><span class=post-time>2020-05-22</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>172 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p><strong>update (2020-09-19): update the settings for Nvim to reflect the latest
-changes in API.</strong></p><p>In Vim or Neovim, showing the yanked region in color gives use visual feedback
+<a href=https://www.anaconda.com/products/individual>Anaconda</a>.</p>
+<p>This post logs my cheatsheet and notes for working with virtual environments
+with conda.</p>
+</div>
+<div class=read-more>
+<a href=/2020/06/11/conda_env_management/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/06/11/linux_set_timezone/>Set Timezone inside Docker Container</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-06-11 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 170 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>After running a Ubuntu docker container, I found that the default time zone is
+UTC. I want to change it to my local timezone.</p>
+</div>
+<div class=read-more>
+<a href=/2020/06/11/linux_set_timezone/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/06/07/asyncio_inside_flask/>How to Use Asyncio with Flask Applications</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-06-07 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 468 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>I was using <a href=https://docs.python.org/3/library/asyncio.html>asyncio</a> inside a
+view function for Flask to run some asynchronous functions and met an error.</p>
+</div>
+<div class=read-more>
+<a href=/2020/06/07/asyncio_inside_flask/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/06/01/markdown_writing_tricks/>Markdown Writing Tricks</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-06-01 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 403 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Some of the tricks when writing Markdown files.</p>
+</div>
+<div class=read-more>
+<a href=/2020/06/01/markdown_writing_tricks/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/05/27/why_you_should_use_snippets_in_vim/>Why You Should Use Snippets in Vim/Neovim</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-05-27 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 531 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
+you need to ask yourself if there is a better way to do it.</p>
+</div>
+<div class=read-more>
+<a href=/2020/05/27/why_you_should_use_snippets_in_vim/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/05/22/highlight_yank_region_nvim/>Highlight Yanked Region in Nvim/Vim</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-05-22 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 172 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p><strong>update (2020-09-19): update the settings for Nvim to reflect the latest
+changes in API.</strong></p>
+<p>In Vim or Neovim, showing the yanked region in color gives use visual feedback
 on what we have copied. Here is how you can highlight yanked region in Vim or
-Neovim.</p></div><div class=read-more><a href=/2020/05/22/highlight_yank_region_nvim/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/05/22/the_AI_hype/>AI 的噱头</a></h1><div class=post-meta><span class=post-time>2020-05-22</span><div class=post-category><a href=/categories/thought/>thought</a></div><span class=more-meta>627 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>人工智能 (AI)甚嚣尘上，动则称颠覆，各家公司纷纷推出了自己的 AI 产品，但是这些产品真的有那么多人用吗？</p></div><div class=read-more><a href=/2020/05/22/the_AI_hype/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/05/22/v2ray_justmysocks/>Justmysocks 支持 v2ray 协议了！</a></h1><div class=post-meta><span class=post-time>2020-05-22</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>413 words</span>
-<span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>two meetings 即将或者正在召开，上个谷歌也越来越难，最近墙对各种工具的阻断非常严重，连之前<a href=https://jdhao.github.io/2020/04/25/shadowsocks_obfs_setup/>使用了 obfs 的 ss</a> 都不行了，最近一段时间也处于时断时续的状态。</p><p>Justmysocks 之前一直用的都是 shadowsocks 协议，对墙的反制能力不行，每到关键时候就显露疲态。好消息是，justmysocks 终于在最近推出了基于 <a href=https://www.v2ray.com/en/>v2ray</a> 协议的线路。</p></div><div class=read-more><a href=/2020/05/22/v2ray_justmysocks/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/05/16/space_for_cjk/>Space for CJK Languages (CJK 语言中的空格)</a></h1><div class=post-meta><span class=post-time>2020-05-16</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>669 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>I was doing some typograph for Chinese text and want to insert a space equal to
-the width of a Chinese character.</p><p><font color=red>最近在做一些中文排版的工作，有一个需求是在中文字符之间插入空格，并且空格的宽度等于中文字符的宽度，在某些情况下这样排版显得更加美观。</font></p></div><div class=read-more><a href=/2020/05/16/space_for_cjk/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/05/09/search_for_solution_with_web_engine/>如何高效使用搜索引擎找到技术问题的答案</a></h1><div class=post-meta><span class=post-time>2020-05-09</span><div class=post-category><a href=/categories/thought/>thought</a></div><span class=more-meta>2086 words</span>
-<span class=more-meta>5 mins read</span></div></header><div class=post-content><div class=post-summary><p>之前感叹过<a href=https://jdhao.github.io/2020/01/22/why_use_english_and_google/>使用中文搜索经常找不到想要的结果</a>，这篇文章总结我对于如何有效搜索的一些想法。</p></div><div class=read-more><a href=/2020/05/09/search_for_solution_with_web_engine/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/05/07/git_learning_notes_s2/>Git Learning Notes (2)</a></h1><div class=post-meta><span class=post-time>2020-05-07</span><div class=post-category><a href=/categories/Git/>Git</a></div><span class=more-meta>404 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>My Git learning notes.</p></div><div class=read-more><a href=/2020/05/07/git_learning_notes_s2/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/05/05/kitty_config_mac/>Kitty Terminal Config on Mac</a></h1><div class=post-meta><span class=post-time>2020-05-05</span><div class=post-category><a href=/categories/Mac/>Mac</a></div><span class=more-meta>378 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><details><summary><font size=2 color=red>Changelog</font></summary><ul><li><font color=blue>2021-08-21: Update the part on how to open URLs since some options are removed.</font></li></ul></details><p><a href=https://github.com/kovidgoyal/kitty>Kitty</a> is a fast and lightweight terminal
+Neovim.</p>
+</div>
+<div class=read-more>
+<a href=/2020/05/22/highlight_yank_region_nvim/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/05/22/the_AI_hype/>AI 的噱头</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-05-22 </span>
+<div class=post-category>
+<a href=/categories/thought/> thought </a>
+</div>
+<span class=more-meta> 627 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>人工智能 (AI)甚嚣尘上，动则称颠覆，各家公司纷纷推出了自己的 AI 产品，但是这些产品真的有那么多人用吗？</p>
+</div>
+<div class=read-more>
+<a href=/2020/05/22/the_AI_hype/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/05/22/v2ray_justmysocks/>Justmysocks 支持 v2ray 协议了！</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-05-22 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 413 words </span>
+<span class=more-meta> 1 min read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>two meetings 即将或者正在召开，上个谷歌也越来越难，最近墙对各种工具的阻断非常严重，连之前<a href=https://jdhao.github.io/2020/04/25/shadowsocks_obfs_setup/>使用了 obfs 的 ss</a> 都不行了，最近一段时间也处于时断时续的状态。</p>
+<p>Justmysocks 之前一直用的都是 shadowsocks 协议，对墙的反制能力不行，每到关键时候就显露疲态。好消息是，justmysocks 终于在最近推出了基于 <a href=https://www.v2ray.com/en/>v2ray</a> 协议的线路。</p>
+</div>
+<div class=read-more>
+<a href=/2020/05/22/v2ray_justmysocks/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/05/16/space_for_cjk/>Space for CJK Languages (CJK 语言中的空格)</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-05-16 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 669 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>I was doing some typograph for Chinese text and want to insert a space equal to
+the width of a Chinese character.</p>
+<p><font color=red>最近在做一些中文排版的工作，有一个需求是在中文字符之间插入空格，并且空格的宽度等于中文字符的宽度，在某些情况下这样排版显得更加美观。</font></p>
+</div>
+<div class=read-more>
+<a href=/2020/05/16/space_for_cjk/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/05/09/search_for_solution_with_web_engine/>如何高效使用搜索引擎找到技术问题的答案</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-05-09 </span>
+<div class=post-category>
+<a href=/categories/thought/> thought </a>
+</div>
+<span class=more-meta> 2086 words </span>
+<span class=more-meta> 5 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>之前感叹过<a href=https://jdhao.github.io/2020/01/22/why_use_english_and_google/>使用中文搜索经常找不到想要的结果</a>，这篇文章总结我对于如何有效搜索的一些想法。</p>
+</div>
+<div class=read-more>
+<a href=/2020/05/09/search_for_solution_with_web_engine/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/05/07/git_learning_notes_s2/>Git Learning Notes (2)</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-05-07 </span>
+<div class=post-category>
+<a href=/categories/Git/> Git </a>
+</div>
+<span class=more-meta> 404 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>My Git learning notes.</p>
+</div>
+<div class=read-more>
+<a href=/2020/05/07/git_learning_notes_s2/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/05/05/kitty_config_mac/>Kitty Terminal Config on Mac</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-05-05 </span>
+<div class=post-category>
+<a href=/categories/Mac/> Mac </a>
+</div>
+<span class=more-meta> 378 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<details>
+<summary><font size=2 color=red>Changelog</font></summary>
+<ul>
+<li><font color=blue>2021-08-21: Update the part on how to open URLs since some options are removed.</font></li>
+</ul>
+</details>
+<p><a href=https://github.com/kovidgoyal/kitty>Kitty</a> is a fast and lightweight terminal
 emulator for Mac and Linux. In this post, I will summarize some of its
-settings.</p></div><div class=read-more><a href=/2020/05/05/kitty_config_mac/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/05/02/docker_knowledge_s2/>Docker 学习系列 --- 2</a></h1><div class=post-meta><span class=post-time>2020-05-02</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>1687 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>本文总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。</p></div><div class=read-more><a href=/2020/05/02/docker_knowledge_s2/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/05/02/docker_knowledge_s1/>Docker 学习系列 --- 1</a></h1><div class=post-meta><span class=post-time>2020-05-02</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>1173 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>Docker 是一种类似虚拟机的机制，允许我们在 host 机器创建一个隔绝的小型操作系统环境，并且可以保存下这个环境（称为 Docker 镜像），把这个 Docker 镜像部署到其他 host 机器，各个机器上的环境完全一致。这样我们就不需要每次在部署新环境的时候，重复执行安装程序、配置环境的流程，大大简化了我们的工作，提升了工作效率。</p></div><div class=read-more><a href=/2020/05/02/docker_knowledge_s1/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/04/27/bash_script_notes_s1/>Bash Script Note 1</a></h1><div class=post-meta><span class=post-time>2020-04-27</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>438 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><h1 id=writing-robust-script>Writing robust script</h1><p>We should use the following options in our bash script for better quality:</p></div><div class=read-more><a href=/2020/04/27/bash_script_notes_s1/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/04/26/windows_context_menu_hang_solution/>解决 Windows 下文件管理器中右键单击无响应问题</a></h1><div class=post-meta><span class=post-time>2020-04-26</span><div class=post-category><a href=/categories/technique/>technique</a></div><span class=more-meta>704 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><h1 id=引子>引子</h1><p>最近使用工作电脑的时候，不知道为什么，在文件资源管理器里面鼠标右键单击打开菜单(也叫<a href=https://en.wikipedia.org/wiki/Context_menu>context menu</a>)的时候，系统很大概率会卡顿，鼠标指针开始转圈，文件管理器白屏，然后会提示"未响应",过一会儿，右键菜单才会出现。以至于我每次点击右键之前，都很烦躁，希望不要出现卡顿的情况。</p></div><div class=read-more><a href=/2020/04/26/windows_context_menu_hang_solution/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/04/25/shadowsocks_obfs_setup/>Shadowsocks 配置 obfs</a></h1><div class=post-meta><span class=post-time>2020-04-25</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>653 words</span>
-<span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>最近几个月在手机上使用 justmysocks，感觉速度很慢，经常断流，连接不上。通过搜索，发现原因是使用的线路问题。为了学习之用，我们可以通过配置 <a href=https://github.com/shadowsocks/simple-obfs>obfs</a> 增强服务稳定性。</p></div><div class=read-more><a href=/2020/04/25/shadowsocks_obfs_setup/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/04/24/python_logging_for_multiple_modules/>How to Use Unified Logging Config Across the Project</a></h1><div class=post-meta><span class=post-time>2020-04-24</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>428 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>When we are working on a project, we often need to log some message for easier
-debugging. How do we configure logging once and use it across the project?</p></div><div class=read-more><a href=/2020/04/24/python_logging_for_multiple_modules/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/04/23/git_learning_notes_s1/>Git Learning Notes (1)</a></h1><div class=post-meta><span class=post-time>2020-04-23</span><div class=post-category><a href=/categories/Git/>Git</a></div><span class=more-meta>689 words</span>
-<span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>This is my personal note on learning Git.</p></div><div class=read-more><a href=/2020/04/23/git_learning_notes_s1/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/04/19/nvim_cpp_and_c_completion/>Set up for C++/C Development in Neovim</a></h1><div class=post-meta><span class=post-time>2020-04-19</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>473 words</span>
-<span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>This post summarizes how to set up various plugins needed for C++/C code
-editing, linting and formatting.</p></div><div class=read-more><a href=/2020/04/19/nvim_cpp_and_c_completion/ class=read-more-link>Read more...</a></div></div></article></section><nav class=pagination><a class=prev href=/page/8/><i class="iconfont icon-left"></i><span class=prev-text>Prev</span></a>
-<a class=next href=/page/10/><span class=next-text>Next</span>
-<i class="iconfont icon-right"></i></a></nav></div></div></main><footer id=footer class=footer><div class=social-links><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
+settings.</p>
+</div>
+<div class=read-more>
+<a href=/2020/05/05/kitty_config_mac/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/05/02/docker_knowledge_s2/>Docker 学习系列 --- 2</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-05-02 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 1687 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>本文总结一些 Docker 使用以及 Docker 镜像构建过程中遇到的问题。</p>
+</div>
+<div class=read-more>
+<a href=/2020/05/02/docker_knowledge_s2/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/05/02/docker_knowledge_s1/>Docker 学习系列 --- 1</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-05-02 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 1173 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>Docker 是一种类似虚拟机的机制，允许我们在 host 机器创建一个隔绝的小型操作系统环境，并且可以保存下这个环境（称为 Docker 镜像），把这个 Docker 镜像部署到其他 host 机器，各个机器上的环境完全一致。这样我们就不需要每次在部署新环境的时候，重复执行安装程序、配置环境的流程，大大简化了我们的工作，提升了工作效率。</p>
+</div>
+<div class=read-more>
+<a href=/2020/05/02/docker_knowledge_s1/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/04/27/bash_script_notes_s1/>Bash Script Note 1</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-04-27 </span>
+<div class=post-category>
+<a href=/categories/Linux/> Linux </a>
+</div>
+<span class=more-meta> 437 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h1 id=writing-robust-script>Writing robust script</h1>
+<p>We should use the following options in our bash script for better quality:</p>
+</div>
+<div class=read-more>
+<a href=/2020/04/27/bash_script_notes_s1/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/04/26/windows_context_menu_hang_solution/>解决 Windows 下文件管理器中右键单击无响应问题</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-04-26 </span>
+<div class=post-category>
+<a href=/categories/technique/> technique </a>
+</div>
+<span class=more-meta> 704 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<h1 id=引子>引子</h1>
+<p>最近使用工作电脑的时候，不知道为什么，在文件资源管理器里面鼠标右键单击打开菜单(也叫<a href=https://en.wikipedia.org/wiki/Context_menu>context menu</a>)的时候，系统很大概率会卡顿，鼠标指针开始转圈，文件管理器白屏，然后会提示"未响应",过一会儿，右键菜单才会出现。以至于我每次点击右键之前，都很烦躁，希望不要出现卡顿的情况。</p>
+</div>
+<div class=read-more>
+<a href=/2020/04/26/windows_context_menu_hang_solution/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/04/25/shadowsocks_obfs_setup/>Shadowsocks 配置 obfs</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-04-25 </span>
+<div class=post-category>
+<a href=/categories/Note/> Note </a>
+</div>
+<span class=more-meta> 653 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>最近几个月在手机上使用 justmysocks，感觉速度很慢，经常断流，连接不上。通过搜索，发现原因是使用的线路问题。为了学习之用，我们可以通过配置 <a href=https://github.com/shadowsocks/simple-obfs>obfs</a> 增强服务稳定性。</p>
+</div>
+<div class=read-more>
+<a href=/2020/04/25/shadowsocks_obfs_setup/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/04/24/python_logging_for_multiple_modules/>How to Use Unified Logging Config Across the Project</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-04-24 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 428 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>When we are working on a project, we often need to log some message for easier
+debugging. How do we configure logging once and use it across the project?</p>
+</div>
+<div class=read-more>
+<a href=/2020/04/24/python_logging_for_multiple_modules/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/04/23/git_learning_notes_s1/>Git Learning Notes (1)</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-04-23 </span>
+<div class=post-category>
+<a href=/categories/Git/> Git </a>
+</div>
+<span class=more-meta> 689 words </span>
+<span class=more-meta> 4 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>This is my personal note on learning Git.</p>
+</div>
+<div class=read-more>
+<a href=/2020/04/23/git_learning_notes_s1/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/04/19/nvim_cpp_and_c_completion/>Set up for C++/C Development in Neovim</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-04-19 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 472 words </span>
+<span class=more-meta> 3 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p>This post summarizes how to set up various plugins needed for C++/C code
+editing, linting and formatting.</p>
+</div>
+<div class=read-more>
+<a href=/2020/04/19/nvim_cpp_and_c_completion/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+</section>
+<nav class=pagination>
+<a class=prev href=/page/8/>
+<i class="iconfont icon-left"></i>
+<span class=prev-text>Prev</span>
+</a>
+<a class=next href=/page/10/>
+<span class=next-text>Next</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</div>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
 <span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams',}};</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-113395108-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==='localhost')return;var bp=document.createElement('script');bp.async=true;var curProtocol=window.location.protocol.split(':')[0];if(curProtocol==='https'){bp.src='https://zz.bdstatic.com/linksubmit/push.js';}
-else{bp.src='http://push.zhanzhang.baidu.com/push.js';}
-var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(bp,s);})();</script></body></html>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>
