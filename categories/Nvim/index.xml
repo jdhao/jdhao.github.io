@@ -20,9 +20,9 @@ window, which is not possible with normal text.&lt;/p></description></item><item
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202202020047792.jpg" width="600">
 &lt;/p>
 &lt;p>In this post, I will share how to set up &lt;a href="https://github.com/sumneko/lua-language-server">sumneko lua&lt;/a> for &lt;a href="https://github.com/neovim/nvim-lspconfig">nvim-lspconfig&lt;/a>.&lt;/p></description></item><item><title>Migrating from vim-plug to Packer.nvim</title><link>https://jdhao.github.io/2021/07/11/from_vim_plug_to_packer/</link><pubDate>Sun, 11 Jul 2021 23:05:22 +0800</pubDate><guid>https://jdhao.github.io/2021/07/11/from_vim_plug_to_packer/</guid><description>&lt;details>
-&lt;summary>&lt;font size="2" color="red">Update log&lt;/font>&lt;/summary>
+&lt;summary>&lt;font size="3" color="red">Update log&lt;/font>&lt;/summary>
 &lt;ul>
-&lt;li>2022-02-05: add new autocmd for auto-running command &lt;code>PackerCompile&lt;/code>.&lt;/li>
+&lt;li>&lt;font color="blue">2022-02-05: add new autocmd for auto-running command &lt;code>PackerCompile&lt;/code>.&lt;/font>&lt;/li>
 &lt;/ul>
 &lt;/details>
 &lt;p>Over the past two years, I have been using &lt;a href="https://github.com/junegunn/vim-plug">vim-plug&lt;/a> as my Nvim plugin manager.
