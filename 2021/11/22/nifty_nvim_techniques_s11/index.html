@@ -11,8 +11,8 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="This post continues my previous post on a series of nifty Nvim/Vim techniques.
-"><meta name=keywords content="Hugo,theme,even">
+<meta name=author content="jdhao"><meta name=description content="This is the 11th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
+ Click here to check other posts in this series.  Series 10: https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/ Series 9: https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/ Series 8: https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/ Series 7: https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/ Series 6: https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/ Series 5: https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/ Series 4: https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/ Series 3: https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/ Series 2: https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/ Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/  "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
 <link rel=canonical href=https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/>
@@ -27,21 +27,63 @@
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
 <meta property="og:title" content="Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 11">
-<meta property="og:description" content="This post continues my previous post on a series of nifty
-Nvim/Vim techniques.">
+<meta property="og:description" content="This is the 11th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
+
+Click here to check other posts in this series.
+
+Series 10: https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/
+Series 9: https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/
+Series 8: https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/
+Series 7: https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/
+Series 6: https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/
+Series 5: https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/
+Series 4: https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/
+Series 3: https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/
+Series 2: https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/
+Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/
+
+">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2021-11-22T23:27:57+08:00">
-<meta property="article:modified_time" content="2021-11-23T22:23:39+08:00">
+<meta property="article:modified_time" content="2022-02-06T13:33:50+08:00">
 <meta itemprop=name content="Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 11">
-<meta itemprop=description content="This post continues my previous post on a series of nifty
-Nvim/Vim techniques."><meta itemprop=datePublished content="2021-11-22T23:27:57+08:00">
-<meta itemprop=dateModified content="2021-11-23T22:23:39+08:00">
-<meta itemprop=wordCount content="313">
+<meta itemprop=description content="This is the 11th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
+
+Click here to check other posts in this series.
+
+Series 10: https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/
+Series 9: https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/
+Series 8: https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/
+Series 7: https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/
+Series 6: https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/
+Series 5: https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/
+Series 4: https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/
+Series 3: https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/
+Series 2: https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/
+Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/
+
+"><meta itemprop=datePublished content="2021-11-22T23:27:57+08:00">
+<meta itemprop=dateModified content="2022-02-06T13:33:50+08:00">
+<meta itemprop=wordCount content="359">
 <meta itemprop=keywords content="Regex,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 11">
-<meta name=twitter:description content="This post continues my previous post on a series of nifty
-Nvim/Vim techniques."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:description content="This is the 11th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
+
+Click here to check other posts in this series.
+
+Series 10: https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/
+Series 9: https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/
+Series 8: https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/
+Series 7: https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/
+Series 6: https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/
+Series 5: https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/
+Series 4: https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/
+Series 3: https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/
+Series 2: https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/
+Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/
+
+"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -102,7 +144,7 @@ Nvim/Vim techniques."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com
 <div class=post-category>
 <a href=/categories/Nvim/> Nvim </a>
 </div>
-<span class=more-meta> 313 words </span>
+<span class=more-meta> 359 words </span>
 <span class=more-meta> 2 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -121,8 +163,22 @@ Nvim/Vim techniques."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com
 </div>
 </div>
 <div class=post-content>
-<p>This post continues my <a href=https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/>previous post</a> on a series of nifty
-Nvim/Vim techniques.</p>
+<p>This is the 11th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.</p>
+<details>
+<summary><font size=3 color=red>Click here to check other posts in this series.</font></summary>
+<ul>
+<li>Series 10: <a href=https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/>https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/</a></li>
+<li>Series 9: <a href=https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/>https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/</a></li>
+<li>Series 8: <a href=https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/>https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/</a></li>
+<li>Series 7: <a href=https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/>https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/</a></li>
+<li>Series 6: <a href=https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</a></li>
+<li>Series 5: <a href=https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/>https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/</a></li>
+<li>Series 4: <a href=https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</a></li>
+<li>Series 3: <a href=https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</a></li>
+<li>Series 2: <a href=https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</a></li>
+<li>Series 1: <a href=https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</a></li>
+</ul>
+</details>
 <h1 id=move-lines-matching-a-pattern-together>Move lines matching a pattern together?</h1>
 <p>Use command <code>:g/pattern/normal ddGp</code>.</p>
 <p>Here we use the <code>:global</code> command. It will apply the command <code>:normal ddGp</code>
@@ -183,7 +239,7 @@ means that the previous expression should not be followed by <code>foo</code>, w
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2021-11-23
+2022-02-06
 </span>
 </p>
 <p class=copyright-item>

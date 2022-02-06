@@ -32,7 +32,22 @@ range?&lt;/p>
 &lt;/blockquote></description></item><item><title>Creating Markdown Front Matter with Ultisnips</title><link>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</link><pubDate>Sun, 22 Dec 2019 13:45:25 +0800</pubDate><guid>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
 &lt;p>Currently, I write my blog posts in Markdown and build the blog using
 &lt;a href="https://gohugo.io/">Hugo&lt;/a>. Hugo supports &lt;a href="https://gohugo.io/content-management/front-matter/">front matter&lt;/a> for Markdown so that you can
-attach metadata for a post, such as title, date, tags, categories, etc.&lt;/p></description></item><item><title>Nifty Nvim Techniques That Make My Life Easier -- Series 6</title><link>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</link><pubDate>Sat, 21 Dec 2019 23:18:00 +0800</pubDate><guid>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</guid><description>&lt;p>This post continues my &lt;a href="https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/">previous post&lt;/a> on nifty Nvim/Vim techniques.&lt;/p></description></item><item><title>macOS 下如何为视频制作字幕</title><link>https://jdhao.github.io/2019/12/15/mac_video_subtitle_make/</link><pubDate>Sun, 15 Dec 2019 18:24:34 +0800</pubDate><guid>https://jdhao.github.io/2019/12/15/mac_video_subtitle_make/</guid><description>&lt;p>几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 &lt;a href="https://vimconf.org/2018/">Vim Conf 2018&lt;/a> 上的&lt;a href="https://www.youtube.com/watch?v=ES1L2SPgIDI">主题报告&lt;/a>，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。&lt;/p></description></item><item><title>Running Command Asynchronously inside Neovim</title><link>https://jdhao.github.io/2019/12/09/vim_asynchronous_command_run/</link><pubDate>Mon, 09 Dec 2019 23:27:10 +0800</pubDate><guid>https://jdhao.github.io/2019/12/09/vim_asynchronous_command_run/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
+attach metadata for a post, such as title, date, tags, categories, etc.&lt;/p></description></item><item><title>Nifty Nvim Techniques That Make My Life Easier -- Series 6</title><link>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</link><pubDate>Sat, 21 Dec 2019 23:18:00 +0800</pubDate><guid>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</guid><description>&lt;p>This is the 6th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.&lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="3" color="red">Click here to check other posts in this series.&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>Series 11: &lt;a href="https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/">https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/&lt;/a>&lt;/li>
+&lt;li>Series 10: &lt;a href="https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/">https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/&lt;/a>&lt;/li>
+&lt;li>Series 9: &lt;a href="https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/">https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/&lt;/a>&lt;/li>
+&lt;li>Series 8: &lt;a href="https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/">https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/&lt;/a>&lt;/li>
+&lt;li>Series 7: &lt;a href="https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/">https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/&lt;/a>&lt;/li>
+&lt;li>Series 5: &lt;a href="https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/">https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/&lt;/a>&lt;/li>
+&lt;li>Series 4: &lt;a href="https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/">https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/&lt;/a>&lt;/li>
+&lt;li>Series 3: &lt;a href="https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/">https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/&lt;/a>&lt;/li>
+&lt;li>Series 2: &lt;a href="https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/">https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/&lt;/a>&lt;/li>
+&lt;li>Series 1: &lt;a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/details></description></item><item><title>macOS 下如何为视频制作字幕</title><link>https://jdhao.github.io/2019/12/15/mac_video_subtitle_make/</link><pubDate>Sun, 15 Dec 2019 18:24:34 +0800</pubDate><guid>https://jdhao.github.io/2019/12/15/mac_video_subtitle_make/</guid><description>&lt;p>几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 &lt;a href="https://vimconf.org/2018/">Vim Conf 2018&lt;/a> 上的&lt;a href="https://www.youtube.com/watch?v=ES1L2SPgIDI">主题报告&lt;/a>，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。&lt;/p></description></item><item><title>Running Command Asynchronously inside Neovim</title><link>https://jdhao.github.io/2019/12/09/vim_asynchronous_command_run/</link><pubDate>Mon, 09 Dec 2019 23:27:10 +0800</pubDate><guid>https://jdhao.github.io/2019/12/09/vim_asynchronous_command_run/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
 &lt;p>When I am writing some prototyping code inside Neovim, I want to run the script
 without going to the terminal and typing &lt;code>python toy_script.py&lt;/code>. Of course, we
 can use &lt;code>:!python %&lt;/code> in the command line to run the script (see &lt;code>:h :!&lt;/code>). The
@@ -51,8 +66,22 @@ statusline from scratch.&lt;/p></description></item><item><title>Generating Tabl
 &lt;p>I have been using Vim plugin Tagbar for viewing and navigating tags inside my
 source file. However, for Markdown files, there is no support out of the box.
 In this post, I would like to share how to set up tagbar to show tags for
-Markdown.&lt;/p></description></item><item><title>Nifty Nvim Techniques That Make My Life Easier -- Series 4</title><link>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</link><pubDate>Tue, 17 Sep 2019 23:04:55 +0800</pubDate><guid>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</guid><description>&lt;p>This is the series 4 of my blog posts about some nifty techniques of using
-Nvim, which continue my previous series &lt;a href="https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/">here&lt;/a>.&lt;/p></description></item><item><title>How to Create Proper Folding for Vim/Nvim Configuration</title><link>https://jdhao.github.io/2019/08/16/nvim_config_folding/</link><pubDate>Fri, 16 Aug 2019 22:56:20 +0800</pubDate><guid>https://jdhao.github.io/2019/08/16/nvim_config_folding/</guid><description>&lt;p>&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190817223054.png" alt="Folded config">&lt;/p></description></item><item><title>How Do I Show the Current File Path In Neovim?</title><link>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</link><pubDate>Wed, 31 Jul 2019 23:10:27 +0800</pubDate><guid>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</guid><description>&lt;p>I saw on &lt;a href="https://vi.stackexchange.com/questions/104/how-can-i-see-the-full-path-of-the-current-file/20768#20768">StackExchange&lt;/a>
+Markdown.&lt;/p></description></item><item><title>Nifty Nvim Techniques That Make My Life Easier -- Series 4</title><link>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</link><pubDate>Tue, 17 Sep 2019 23:04:55 +0800</pubDate><guid>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</guid><description>&lt;p>This is the 4th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.&lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="3" color="red">Click here to check other posts in this series.&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>Series 11: &lt;a href="https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/">https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/&lt;/a>&lt;/li>
+&lt;li>Series 10: &lt;a href="https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/">https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/&lt;/a>&lt;/li>
+&lt;li>Series 9: &lt;a href="https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/">https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/&lt;/a>&lt;/li>
+&lt;li>Series 8: &lt;a href="https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/">https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/&lt;/a>&lt;/li>
+&lt;li>Series 7: &lt;a href="https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/">https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/&lt;/a>&lt;/li>
+&lt;li>Series 6: &lt;a href="https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/">https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/&lt;/a>&lt;/li>
+&lt;li>Series 5: &lt;a href="https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/">https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/&lt;/a>&lt;/li>
+&lt;li>Series 3: &lt;a href="https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/">https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/&lt;/a>&lt;/li>
+&lt;li>Series 2: &lt;a href="https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/">https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/&lt;/a>&lt;/li>
+&lt;li>Series 1: &lt;a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/details></description></item><item><title>How to Create Proper Folding for Vim/Nvim Configuration</title><link>https://jdhao.github.io/2019/08/16/nvim_config_folding/</link><pubDate>Fri, 16 Aug 2019 22:56:20 +0800</pubDate><guid>https://jdhao.github.io/2019/08/16/nvim_config_folding/</guid><description>&lt;p>&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190817223054.png" alt="Folded config">&lt;/p></description></item><item><title>How Do I Show the Current File Path In Neovim?</title><link>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</link><pubDate>Wed, 31 Jul 2019 23:10:27 +0800</pubDate><guid>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</guid><description>&lt;p>I saw on &lt;a href="https://vi.stackexchange.com/questions/104/how-can-i-see-the-full-path-of-the-current-file/20768#20768">StackExchange&lt;/a>
 that someone asked about how to see the full path of current file in Vim. I
 think it would be helpful to write about how I do it.&lt;/p></description></item><item><title>Exclusive and Inclusive Motion in Neovim/Vim</title><link>https://jdhao.github.io/2019/05/18/nvim_exclusive_inclusive_motion/</link><pubDate>Sat, 18 May 2019 01:18:28 +0800</pubDate><guid>https://jdhao.github.io/2019/05/18/nvim_exclusive_inclusive_motion/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
 &lt;p>Suppose that we have the following text in normal mode (cursor is indicated by
@@ -63,12 +92,22 @@ think it would be helpful to write about how I do it.&lt;/p></description></item
 use &lt;code>de&lt;/code>, &lt;code>hello&lt;/code> is deleted and &lt;code>&amp;lt;Space&amp;gt;world&lt;/code> is left. Have you ever wondered
 about why &lt;code>dw&lt;/code> do not delete &lt;code>w&lt;/code> while &lt;code>de&lt;/code> will delete the &lt;code>o&lt;/code> in &lt;code>hello&lt;/code>? It
 seems that motion &lt;code>e&lt;/code> and &lt;code>w&lt;/code> are somewhat inconsistent in their behaviours. It
-turns out that it has something to do with the exclusivity of motions in Vim.&lt;/p></description></item><item><title>Nifty Nvim Techniques Which Make My Life Easier -- Series 3</title><link>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</link><pubDate>Tue, 14 May 2019 22:37:04 +0800</pubDate><guid>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</guid><description>&lt;p>This is the 3rd of my blog post series about some nifty techniques of using
-Nvim. For other posts, see&lt;/p>
+turns out that it has something to do with the exclusivity of motions in Vim.&lt;/p></description></item><item><title>Nifty Nvim Techniques Which Make My Life Easier -- Series 3</title><link>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</link><pubDate>Tue, 14 May 2019 22:37:04 +0800</pubDate><guid>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</guid><description>&lt;p>This is the 3rd post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.&lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="3" color="red">Click here to check other posts in this series.&lt;/font>&lt;/summary>
 &lt;ul>
-&lt;li>&lt;a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">Series 1&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/">Series 2&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Vim-like Editing inside Browser</title><link>https://jdhao.github.io/2019/05/11/nvim_text_input_browser/</link><pubDate>Sat, 11 May 2019 12:14:06 +0800</pubDate><guid>https://jdhao.github.io/2019/05/11/nvim_text_input_browser/</guid><description>&lt;p>Vim/Nvim has powerful ability in editing texts. But if you are in a browser and
+&lt;li>Series 11: &lt;a href="https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/">https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/&lt;/a>&lt;/li>
+&lt;li>Series 10: &lt;a href="https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/">https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/&lt;/a>&lt;/li>
+&lt;li>Series 9: &lt;a href="https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/">https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/&lt;/a>&lt;/li>
+&lt;li>Series 8: &lt;a href="https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/">https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/&lt;/a>&lt;/li>
+&lt;li>Series 7: &lt;a href="https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/">https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/&lt;/a>&lt;/li>
+&lt;li>Series 6: &lt;a href="https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/">https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/&lt;/a>&lt;/li>
+&lt;li>Series 5: &lt;a href="https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/">https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/&lt;/a>&lt;/li>
+&lt;li>Series 4: &lt;a href="https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/">https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/&lt;/a>&lt;/li>
+&lt;li>Series 2: &lt;a href="https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/">https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/&lt;/a>&lt;/li>
+&lt;li>Series 1: &lt;a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/details></description></item><item><title>Vim-like Editing inside Browser</title><link>https://jdhao.github.io/2019/05/11/nvim_text_input_browser/</link><pubDate>Sat, 11 May 2019 12:14:06 +0800</pubDate><guid>https://jdhao.github.io/2019/05/11/nvim_text_input_browser/</guid><description>&lt;p>Vim/Nvim has powerful ability in editing texts. But if you are in a browser and
 want to input some text, can we somehow utilize the editing power of Vim? In
 this post, I would like to share several ways to use Vim or Vim-like editing
 when you are working inside a browser.&lt;/p></description></item><item><title>Spell Checking in Nvim</title><link>https://jdhao.github.io/2019/04/29/nvim_spell_check/</link><pubDate>Mon, 29 Apr 2019 22:35:54 +0800</pubDate><guid>https://jdhao.github.io/2019/04/29/nvim_spell_check/</guid><description>&lt;details>
@@ -83,8 +122,37 @@ feature in Nvim.&lt;/p></description></item><item><title>English Words Completio
 &lt;/p>
 &lt;p>Some words are hard to type, it is handy if Neovim can provide auto-completion
 for the words we are typing. We can achieve word completion in Neovim in two
-ways.&lt;/p></description></item><item><title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 2</title><link>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</link><pubDate>Wed, 17 Apr 2019 00:49:06 +0800</pubDate><guid>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</guid><description>&lt;p>This is the series 2 of the nifty Nvim techniques. For series 1, see &lt;a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">here&lt;/a>.&lt;/p></description></item><item><title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 1</title><link>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</link><pubDate>Thu, 28 Mar 2019 00:24:33 +0800</pubDate><guid>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</guid><description>&lt;p>In this post, I want to share some nifty techniques that make my editing
-experience in &lt;a href="https://github.com/neovim/neovim">Neovim&lt;/a> smoother.&lt;/p></description></item><item><title>An Introduction to Lookaround Regular Expression in Neovim/Vim</title><link>https://jdhao.github.io/2018/10/18/regular_expression_nvim/</link><pubDate>Thu, 18 Oct 2018 19:34:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/18/regular_expression_nvim/</guid><description>&lt;p>Today I want to use some regular expressions for searching and replacing in my
+ways.&lt;/p></description></item><item><title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 2</title><link>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</link><pubDate>Wed, 17 Apr 2019 00:49:06 +0800</pubDate><guid>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</guid><description>&lt;p>This is the 2nd post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.&lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="3" color="red">Click here to check other posts in this series.&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>Series 11: &lt;a href="https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/">https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/&lt;/a>&lt;/li>
+&lt;li>Series 10: &lt;a href="https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/">https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/&lt;/a>&lt;/li>
+&lt;li>Series 9: &lt;a href="https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/">https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/&lt;/a>&lt;/li>
+&lt;li>Series 8: &lt;a href="https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/">https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/&lt;/a>&lt;/li>
+&lt;li>Series 7: &lt;a href="https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/">https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/&lt;/a>&lt;/li>
+&lt;li>Series 6: &lt;a href="https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/">https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/&lt;/a>&lt;/li>
+&lt;li>Series 5: &lt;a href="https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/">https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/&lt;/a>&lt;/li>
+&lt;li>Series 4: &lt;a href="https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/">https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/&lt;/a>&lt;/li>
+&lt;li>Series 3: &lt;a href="https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/">https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/&lt;/a>&lt;/li>
+&lt;li>Series 1: &lt;a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/details></description></item><item><title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 1</title><link>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</link><pubDate>Thu, 28 Mar 2019 00:24:33 +0800</pubDate><guid>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</guid><description>&lt;p>This is the 1st post of a series posts on nifty techniques that make my editing experience in &lt;a href="https://github.com/neovim/neovim">Neovim&lt;/a> smoother.&lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="3" color="red">Click here to check other posts in this series.&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>Series 11: &lt;a href="https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/">https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/&lt;/a>&lt;/li>
+&lt;li>Series 10: &lt;a href="https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/">https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/&lt;/a>&lt;/li>
+&lt;li>Series 9: &lt;a href="https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/">https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/&lt;/a>&lt;/li>
+&lt;li>Series 8: &lt;a href="https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/">https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/&lt;/a>&lt;/li>
+&lt;li>Series 7: &lt;a href="https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/">https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/&lt;/a>&lt;/li>
+&lt;li>Series 6: &lt;a href="https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/">https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/&lt;/a>&lt;/li>
+&lt;li>Series 5: &lt;a href="https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/">https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/&lt;/a>&lt;/li>
+&lt;li>Series 4: &lt;a href="https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/">https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/&lt;/a>&lt;/li>
+&lt;li>Series 3: &lt;a href="https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/">https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/&lt;/a>&lt;/li>
+&lt;li>Series 2: &lt;a href="https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/">https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/details></description></item><item><title>An Introduction to Lookaround Regular Expression in Neovim/Vim</title><link>https://jdhao.github.io/2018/10/18/regular_expression_nvim/</link><pubDate>Thu, 18 Oct 2018 19:34:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/18/regular_expression_nvim/</guid><description>&lt;p>Today I want to use some regular expressions for searching and replacing in my
 files. But I found that Nvim/Vim regular expression engine has its own flavor,
 which is different from the regex engine used by Sublime Text&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. I ended up
 learning some of the basics of Nvim-style regex. In this post, I want to share

@@ -14,12 +14,22 @@ to manage my notes. But all these tools I have tried are unsatisfactory: they
 are either slow or cumbersome when I want to search my notes. Finally, I
 decided to take my notes in Markdown and convert them to PDF using Pandoc for
 reading. In this post, I will summarize how I do it.&lt;/p>
-&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/">这里&lt;/a>。&lt;/p></description></item><item><title>Nifty Nvim Techniques Which Make My Life Easier -- Series 3</title><link>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</link><pubDate>Tue, 14 May 2019 22:37:04 +0800</pubDate><guid>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</guid><description>&lt;p>This is the 3rd of my blog post series about some nifty techniques of using
-Nvim. For other posts, see&lt;/p>
+&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/">这里&lt;/a>。&lt;/p></description></item><item><title>Nifty Nvim Techniques Which Make My Life Easier -- Series 3</title><link>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</link><pubDate>Tue, 14 May 2019 22:37:04 +0800</pubDate><guid>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</guid><description>&lt;p>This is the 3rd post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.&lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="3" color="red">Click here to check other posts in this series.&lt;/font>&lt;/summary>
 &lt;ul>
-&lt;li>&lt;a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">Series 1&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/">Series 2&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Two Issues Related to ImageFont Module in PIL</title><link>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</link><pubDate>Tue, 04 Dec 2018 22:48:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</guid><description>&lt;p>In this post, I want to write about two issues related to the
+&lt;li>Series 11: &lt;a href="https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/">https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/&lt;/a>&lt;/li>
+&lt;li>Series 10: &lt;a href="https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/">https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/&lt;/a>&lt;/li>
+&lt;li>Series 9: &lt;a href="https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/">https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/&lt;/a>&lt;/li>
+&lt;li>Series 8: &lt;a href="https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/">https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/&lt;/a>&lt;/li>
+&lt;li>Series 7: &lt;a href="https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/">https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/&lt;/a>&lt;/li>
+&lt;li>Series 6: &lt;a href="https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/">https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/&lt;/a>&lt;/li>
+&lt;li>Series 5: &lt;a href="https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/">https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/&lt;/a>&lt;/li>
+&lt;li>Series 4: &lt;a href="https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/">https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/&lt;/a>&lt;/li>
+&lt;li>Series 2: &lt;a href="https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/">https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/&lt;/a>&lt;/li>
+&lt;li>Series 1: &lt;a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/details></description></item><item><title>Two Issues Related to ImageFont Module in PIL</title><link>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</link><pubDate>Tue, 04 Dec 2018 22:48:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</guid><description>&lt;p>In this post, I want to write about two issues related to the
 &lt;a href="https://pillow.readthedocs.io/en/5.1.x/reference/ImageFont.html">ImageFont&lt;/a>
 module in the &lt;a href="https://github.com/python-pillow/Pillow">PIL&lt;/a> package.&lt;/p></description></item><item><title>Reading and Writing Text Files on Windows</title><link>https://jdhao.github.io/2018/12/03/text_file_read_write_on_windows/</link><pubDate>Mon, 03 Dec 2018 13:06:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/03/text_file_read_write_on_windows/</guid><description>&lt;p>If you are using Python 3 on Windows, you may have seen a Unicode decoding
 error when opening files in UTF-8 format:&lt;/p>

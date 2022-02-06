@@ -2,8 +2,22 @@
 For example, when the cursor is inside a pair of &lt;code>[]&lt;/code>, we can use &lt;code>ci]&lt;/code> to
 change text inside them. This is definitely one of the greatest moments on my
 road of learning Vim. However, I haven&amp;rsquo;t really thought about how does text
-object really work.&lt;/p></description></item><item><title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 1</title><link>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</link><pubDate>Thu, 28 Mar 2019 00:24:33 +0800</pubDate><guid>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</guid><description>&lt;p>In this post, I want to share some nifty techniques that make my editing
-experience in &lt;a href="https://github.com/neovim/neovim">Neovim&lt;/a> smoother.&lt;/p></description></item><item><title>A Complete Guide on Writing LaTeX with Vimtex in Neovim</title><link>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</link><pubDate>Tue, 26 Mar 2019 22:54:43 +0800</pubDate><guid>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</guid><description>&lt;details>
+object really work.&lt;/p></description></item><item><title>Nifty Little Nvim Techniques to Make My Life Easier -- Series 1</title><link>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</link><pubDate>Thu, 28 Mar 2019 00:24:33 +0800</pubDate><guid>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</guid><description>&lt;p>This is the 1st post of a series posts on nifty techniques that make my editing experience in &lt;a href="https://github.com/neovim/neovim">Neovim&lt;/a> smoother.&lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="3" color="red">Click here to check other posts in this series.&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>Series 11: &lt;a href="https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/">https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/&lt;/a>&lt;/li>
+&lt;li>Series 10: &lt;a href="https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/">https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/&lt;/a>&lt;/li>
+&lt;li>Series 9: &lt;a href="https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/">https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/&lt;/a>&lt;/li>
+&lt;li>Series 8: &lt;a href="https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/">https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/&lt;/a>&lt;/li>
+&lt;li>Series 7: &lt;a href="https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/">https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/&lt;/a>&lt;/li>
+&lt;li>Series 6: &lt;a href="https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/">https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/&lt;/a>&lt;/li>
+&lt;li>Series 5: &lt;a href="https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/">https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/&lt;/a>&lt;/li>
+&lt;li>Series 4: &lt;a href="https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/">https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/&lt;/a>&lt;/li>
+&lt;li>Series 3: &lt;a href="https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/">https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/&lt;/a>&lt;/li>
+&lt;li>Series 2: &lt;a href="https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/">https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/details></description></item><item><title>A Complete Guide on Writing LaTeX with Vimtex in Neovim</title><link>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</link><pubDate>Tue, 26 Mar 2019 22:54:43 +0800</pubDate><guid>https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/</guid><description>&lt;details>
 &lt;summary>&lt;font size="2" color="red">Update log&lt;/font>&lt;/summary>
 &lt;ul>
 &lt;li>&lt;font color="blue">2021-02-20: Add inverse search settings on Windows and macOS&lt;/font>&lt;/li>

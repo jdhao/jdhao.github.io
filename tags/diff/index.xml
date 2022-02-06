@@ -11,6 +11,34 @@ changed files.&lt;/p></description></item><item><title>Show Git Diff When Doing 
 project&lt;/a>. There is a scene where he commit via &lt;code>git commit&lt;/code>,
 and whoa, a Neovim instance appeared with three split, with top left the commit
 message area, top right the git-status area, and on the right the git-diff info,
-which is really cool.&lt;/p></description></item><item><title>Git Learning Notes (3)</title><link>https://jdhao.github.io/2021/02/17/git_notes_s3/</link><pubDate>Wed, 17 Feb 2021 15:24:46 +0800</pubDate><guid>https://jdhao.github.io/2021/02/17/git_notes_s3/</guid><description>&lt;p>Git learning notes.&lt;/p></description></item><item><title>Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 9</title><link>https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/</link><pubDate>Thu, 07 Jan 2021 23:37:07 +0800</pubDate><guid>https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/</guid><description>&lt;p>This post continues my &lt;a href="https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/">previous post&lt;/a>
-on nifty Nvim/Vim techniques.&lt;/p></description></item><item><title>Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 8</title><link>https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/</link><pubDate>Wed, 11 Nov 2020 22:43:47 +0800</pubDate><guid>https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/</guid><description>&lt;p>This post continues my &lt;a href="https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/">previous post&lt;/a>
-on nifty Nvim/Vim techniques.&lt;/p></description></item><item><title>Git Learning Notes (1)</title><link>https://jdhao.github.io/2020/04/23/git_learning_notes_s1/</link><pubDate>Thu, 23 Apr 2020 00:05:20 +0800</pubDate><guid>https://jdhao.github.io/2020/04/23/git_learning_notes_s1/</guid><description>&lt;p>This is my personal note on learning Git.&lt;/p></description></item></channel></rss>
+which is really cool.&lt;/p></description></item><item><title>Git Learning Notes (3)</title><link>https://jdhao.github.io/2021/02/17/git_notes_s3/</link><pubDate>Wed, 17 Feb 2021 15:24:46 +0800</pubDate><guid>https://jdhao.github.io/2021/02/17/git_notes_s3/</guid><description>&lt;p>Git learning notes.&lt;/p></description></item><item><title>Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 9</title><link>https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/</link><pubDate>Thu, 07 Jan 2021 23:37:07 +0800</pubDate><guid>https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/</guid><description>&lt;p>This is the 9th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.&lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="3" color="red">Click here to check other posts in this series.&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>Series 11: &lt;a href="https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/">https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/&lt;/a>&lt;/li>
+&lt;li>Series 10: &lt;a href="https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/">https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/&lt;/a>&lt;/li>
+&lt;li>Series 8: &lt;a href="https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/">https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/&lt;/a>&lt;/li>
+&lt;li>Series 7: &lt;a href="https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/">https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/&lt;/a>&lt;/li>
+&lt;li>Series 6: &lt;a href="https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/">https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/&lt;/a>&lt;/li>
+&lt;li>Series 5: &lt;a href="https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/">https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/&lt;/a>&lt;/li>
+&lt;li>Series 4: &lt;a href="https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/">https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/&lt;/a>&lt;/li>
+&lt;li>Series 3: &lt;a href="https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/">https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/&lt;/a>&lt;/li>
+&lt;li>Series 2: &lt;a href="https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/">https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/&lt;/a>&lt;/li>
+&lt;li>Series 1: &lt;a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/details></description></item><item><title>Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 8</title><link>https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/</link><pubDate>Wed, 11 Nov 2020 22:43:47 +0800</pubDate><guid>https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/</guid><description>&lt;p>This is the 8th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.&lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="3" color="red">Click here to check other posts in this series.&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>Series 11: &lt;a href="https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/">https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/&lt;/a>&lt;/li>
+&lt;li>Series 10: &lt;a href="https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/">https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/&lt;/a>&lt;/li>
+&lt;li>Series 9: &lt;a href="https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/">https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/&lt;/a>&lt;/li>
+&lt;li>Series 7: &lt;a href="https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/">https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/&lt;/a>&lt;/li>
+&lt;li>Series 6: &lt;a href="https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/">https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/&lt;/a>&lt;/li>
+&lt;li>Series 5: &lt;a href="https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/">https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/&lt;/a>&lt;/li>
+&lt;li>Series 4: &lt;a href="https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/">https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/&lt;/a>&lt;/li>
+&lt;li>Series 3: &lt;a href="https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/">https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/&lt;/a>&lt;/li>
+&lt;li>Series 2: &lt;a href="https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/">https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/&lt;/a>&lt;/li>
+&lt;li>Series 1: &lt;a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/details></description></item><item><title>Git Learning Notes (1)</title><link>https://jdhao.github.io/2020/04/23/git_learning_notes_s1/</link><pubDate>Thu, 23 Apr 2020 00:05:20 +0800</pubDate><guid>https://jdhao.github.io/2020/04/23/git_learning_notes_s1/</guid><description>&lt;p>This is my personal note on learning Git.&lt;/p></description></item></channel></rss>
