@@ -46,7 +46,7 @@ Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2021-11-22T23:27:57+08:00">
-<meta property="article:modified_time" content="2022-02-06T14:23:33+08:00">
+<meta property="article:modified_time" content="2022-02-07T11:23:25+08:00">
 <meta itemprop=name content="Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 11">
 <meta itemprop=description content="This is the 11th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
 
@@ -64,8 +64,8 @@ Series 2: https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/
 Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/
 
 "><meta itemprop=datePublished content="2021-11-22T23:27:57+08:00">
-<meta itemprop=dateModified content="2022-02-06T14:23:33+08:00">
-<meta itemprop=wordCount content="359">
+<meta itemprop=dateModified content="2022-02-07T11:23:25+08:00">
+<meta itemprop=wordCount content="367">
 <meta itemprop=keywords content="Regex,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 11">
 <meta name=twitter:description content="This is the 11th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
@@ -144,7 +144,7 @@ Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/
 <div class=post-category>
 <a href=/categories/Nvim/> Nvim </a>
 </div>
-<span class=more-meta> 359 words </span>
+<span class=more-meta> 367 words </span>
 <span class=more-meta> 2 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -209,6 +209,8 @@ we have to escape backslash, see also <code>:h literal-string</code>.</p>
 <p>To flip a 01 string (i.e., turn 0 to 1 and turn 1 to 0), we can use
 <code>sub-replace-expression</code> which is really powerful:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=p>:</span><span class=nx>s</span><span class=sr>/\v(0|1)/</span>\<span class=p>=</span><span class=nx>submatch</span><span class=p>(</span><span class=m>0</span><span class=p>)==</span><span class=m>0</span>?<span class=m>1</span>:<span class=m>0</span>/<span class=nx>g</span><span class=err>
+</span></code></pre></div><p>Or we can also use this (source <a href=https://www.reddit.com/r/neovim/comments/slppc1/comment/hvv3vwo/>here</a>):</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=p>:</span><span class=nx>s</span><span class=sr>/\v(0|1)\=1-submatch(0)/</span><span class=nx>g</span><span class=err>
 </span></code></pre></div><p>Ref:</p>
 <ul>
 <li><a href=https://stackoverflow.com/a/69748382/6064933>https://stackoverflow.com/a/69748382/6064933</a></li>
@@ -239,7 +241,7 @@ means that the previous expression should not be followed by <code>foo</code>, w
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-02-06
+2022-02-07
 </span>
 </p>
 <p class=copyright-item>
