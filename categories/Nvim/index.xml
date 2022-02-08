@@ -36,6 +36,7 @@ window, which is not possible with normal text.&lt;/p></description></item><item
 &lt;p>In this post, I will share how to set up &lt;a href="https://github.com/sumneko/lua-language-server">sumneko lua&lt;/a> for &lt;a href="https://github.com/neovim/nvim-lspconfig">nvim-lspconfig&lt;/a>.&lt;/p></description></item><item><title>Migrating from vim-plug to Packer.nvim</title><link>https://jdhao.github.io/2021/07/11/from_vim_plug_to_packer/</link><pubDate>Sun, 11 Jul 2021 23:05:22 +0800</pubDate><guid>https://jdhao.github.io/2021/07/11/from_vim_plug_to_packer/</guid><description>&lt;details>
 &lt;summary>&lt;font size="3" color="red">Update log&lt;/font>&lt;/summary>
 &lt;ul>
+&lt;li>&lt;font color="blue">2022-02-08: change fastgit URL&lt;/font>&lt;/li>
 &lt;li>&lt;font color="blue">2022-02-05: add new autocmd for auto-running command &lt;code>PackerCompile&lt;/code>.&lt;/font>&lt;/li>
 &lt;/ul>
 &lt;/details>
@@ -87,8 +88,13 @@ succeed. I thought it would be helpful for people looking for the solution.&lt;/
 and do my development work there. Sometimes, I need to copy text from remote
 server to my local machine&amp;rsquo;s clipboard. Previously, I use mouse to select and
 copy the text, which I find to be quite cumbersome.&lt;/p></description></item><item><title>Introducing better-esacape.vim: My First Vim/Neovim Plugin</title><link>https://jdhao.github.io/2020/12/18/my_first_vim_plugin/</link><pubDate>Fri, 18 Dec 2020 23:22:20 +0800</pubDate><guid>https://jdhao.github.io/2020/12/18/my_first_vim_plugin/</guid><description>&lt;p>After using and learning Neovim for over 2 years, I have finally published my
-first plugin &amp;ndash; better-escape.vim.&lt;/p></description></item><item><title>Setting up Neovim for C++ Development with LSP</title><link>https://jdhao.github.io/2020/11/29/neovim_cpp_dev_setup/</link><pubDate>Sun, 29 Nov 2020 23:55:52 +0800</pubDate><guid>https://jdhao.github.io/2020/11/29/neovim_cpp_dev_setup/</guid><description>&lt;p>In this post, I would like to share how to set up Neovim for writing simple C++
-programs.&lt;/p></description></item><item><title>A Better Mapping to Leave Insert Mode than jk</title><link>https://jdhao.github.io/2020/11/23/neovim_better_mapping_for_leaving_insert_mode/</link><pubDate>Mon, 23 Nov 2020 22:26:19 +0800</pubDate><guid>https://jdhao.github.io/2020/11/23/neovim_better_mapping_for_leaving_insert_mode/</guid><description>&lt;p>&lt;font color="blue">Update 2021-01-14: I ended up writing a plugin called
+first plugin &amp;ndash; better-escape.vim.&lt;/p></description></item><item><title>Setting up Neovim for C++ Development with LSP</title><link>https://jdhao.github.io/2020/11/29/neovim_cpp_dev_setup/</link><pubDate>Sun, 29 Nov 2020 23:55:52 +0800</pubDate><guid>https://jdhao.github.io/2020/11/29/neovim_cpp_dev_setup/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2022-02-08: update fastgit URL&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;p>In this post, I would like to share how to set up Neovim for writing simple C++ programs.&lt;/p></description></item><item><title>A Better Mapping to Leave Insert Mode than jk</title><link>https://jdhao.github.io/2020/11/23/neovim_better_mapping_for_leaving_insert_mode/</link><pubDate>Mon, 23 Nov 2020 22:26:19 +0800</pubDate><guid>https://jdhao.github.io/2020/11/23/neovim_better_mapping_for_leaving_insert_mode/</guid><description>&lt;p>&lt;font color="blue">Update 2021-01-14: I ended up writing a plugin called
 &lt;a href="https://github.com/jdhao/better-escape.vim">better-escape.vim&lt;/a> which aims at
 solving this issue.&lt;/font>&lt;/p>
 &lt;p>A &lt;a href="https://vi.stackexchange.com/q/300/15292">very popular insert mode mapping&lt;/a>

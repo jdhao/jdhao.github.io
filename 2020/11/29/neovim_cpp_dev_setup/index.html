@@ -11,7 +11,7 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="In this post, I would like to share how to set up Neovim for writing simple C++ programs.
+<meta name=author content="jdhao"><meta name=description content=" update log  2022-02-08: update fastgit URL   In this post, I would like to share how to set up Neovim for writing simple C++ programs.
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
@@ -27,21 +27,36 @@
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
 <meta property="og:title" content="Setting up Neovim for C++ Development with LSP">
-<meta property="og:description" content="In this post, I would like to share how to set up Neovim for writing simple C++
-programs.">
+<meta property="og:description" content="
+update log
+
+2022-02-08: update fastgit URL
+
+
+In this post, I would like to share how to set up Neovim for writing simple C++ programs.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2020/11/29/neovim_cpp_dev_setup/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2020-11-29T23:55:52+08:00">
-<meta property="article:modified_time" content="2021-12-02T00:13:41+08:00">
+<meta property="article:modified_time" content="2022-02-08T13:05:21+08:00">
 <meta itemprop=name content="Setting up Neovim for C++ Development with LSP">
-<meta itemprop=description content="In this post, I would like to share how to set up Neovim for writing simple C++
-programs."><meta itemprop=datePublished content="2020-11-29T23:55:52+08:00">
-<meta itemprop=dateModified content="2021-12-02T00:13:41+08:00">
-<meta itemprop=wordCount content="1213">
+<meta itemprop=description content="
+update log
+
+2022-02-08: update fastgit URL
+
+
+In this post, I would like to share how to set up Neovim for writing simple C++ programs."><meta itemprop=datePublished content="2020-11-29T23:55:52+08:00">
+<meta itemprop=dateModified content="2022-02-08T13:05:21+08:00">
+<meta itemprop=wordCount content="1219">
 <meta itemprop=keywords content="C++,Clang,LSP,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Setting up Neovim for C++ Development with LSP">
-<meta name=twitter:description content="In this post, I would like to share how to set up Neovim for writing simple C++
-programs."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:description content="
+update log
+
+2022-02-08: update fastgit URL
+
+
+In this post, I would like to share how to set up Neovim for writing simple C++ programs."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -102,7 +117,7 @@ programs."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/
 <div class=post-category>
 <a href=/categories/Nvim/> Nvim </a>
 </div>
-<span class=more-meta> 1213 words </span>
+<span class=more-meta> 1219 words </span>
 <span class=more-meta> 6 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -148,8 +163,13 @@ programs."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/
 </div>
 </div>
 <div class=post-content>
-<p>In this post, I would like to share how to set up Neovim for writing simple C++
-programs.</p>
+<details>
+<summary><font size=2 color=red>update log</font></summary>
+<ul>
+<li><font color=blue>2022-02-08: update fastgit URL</font></li>
+</ul>
+</details>
+<p>In this post, I would like to share how to set up Neovim for writing simple C++ programs.</p>
 <h1 id=prerequisite>Prerequisite</h1>
 <p>First, we need to install additional packages or tools. The installation
 sections below are mostly aimed at Linux. For macOS, clang is already installed,
@@ -185,7 +205,7 @@ sudo update-alternatives --config gcc
 <h2 id=install-cmake>Install CMake</h2>
 <p>Ccls requires newer version of cmake. The cmake on my system is tool old.
 First, we need to download cmake binary release:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>wget https://hub.fastgit.org/Kitware/CMake/releases/download/v3.20.1/cmake-3.20.1-linux-x86_64.sh
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>wget https://hub.fastgit.xyz/Kitware/CMake/releases/download/v3.20.1/cmake-3.20.1-linux-x86_64.sh
 mkdir <span class=nv>$HOME</span>/tools/cmake
 bash cmake-3.18.4-Linux-x86_64.sh --prefix<span class=o>=</span><span class=nv>$HOME</span>/tools/cmake --exclude-subdir --skip-license
 </code></pre></div><p>Add cmake executable to PATH:</p>
@@ -199,7 +219,7 @@ bash cmake-3.18.4-Linux-x86_64.sh --prefix<span class=o>=</span><span class=nv>$
 it is available for your system.</p>
 <h3 id=build-from-source>Build from source</h3>
 <p>Follow the guide <a href=https://clang.llvm.org/get_started.html>here</a> on building Clang and LLVM on your platform.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git clone --depth<span class=o>=</span><span class=m>1</span> https://hub.fastgit.org/llvm/llvm-project.git
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git clone --depth<span class=o>=</span><span class=m>1</span> https://hub.fastgit.xyz/llvm/llvm-project.git
 mkdir -p llvm-project/build
 <span class=nb>cd</span> llvm-project/build
 cmake -G <span class=s2>&#34;Unix Makefiles&#34;</span> -DLLVM_ENABLE_PROJECTS<span class=o>=</span><span class=s2>&#34;clang;clang-tools-extra&#34;</span> -DCMAKE_INSTALL_PREFIX<span class=o>=</span>~/tools/llvm -DCMAKE_BUILD_TYPE<span class=o>=</span>Release ../llvm
@@ -414,7 +434,7 @@ tools</a>. For simple programs, using clang directly is convenient.</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2021-12-02
+2022-02-08
 </span>
 </p>
 <p class=copyright-item>

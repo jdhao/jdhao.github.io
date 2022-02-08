@@ -14,8 +14,13 @@ files and header files, it becomes inefficient to build by hand. On Linux,
 people may write &lt;a href="http://web.mit.edu/gnu/doc/html/make_2.html">Makefile&lt;/a> and
 build with &lt;a href="https://www.gnu.org/software/make/">make&lt;/a>. On Windows, people may
 use Visual Studio for writing and build their project.&lt;/p></description></item><item><title>Building OpenCV from Source on Linux</title><link>https://jdhao.github.io/2020/12/07/build_opencv_cpp_library_linux/</link><pubDate>Mon, 07 Dec 2020 23:25:18 +0800</pubDate><guid>https://jdhao.github.io/2020/12/07/build_opencv_cpp_library_linux/</guid><description>&lt;p>In this post, I will summarize how to build OpenCV from source, and introduce
-how to use it when writing C++ programs.&lt;/p></description></item><item><title>Setting up Neovim for C++ Development with LSP</title><link>https://jdhao.github.io/2020/11/29/neovim_cpp_dev_setup/</link><pubDate>Sun, 29 Nov 2020 23:55:52 +0800</pubDate><guid>https://jdhao.github.io/2020/11/29/neovim_cpp_dev_setup/</guid><description>&lt;p>In this post, I would like to share how to set up Neovim for writing simple C++
-programs.&lt;/p></description></item><item><title>Set up for C++/C Development in Neovim</title><link>https://jdhao.github.io/2020/04/19/nvim_cpp_and_c_completion/</link><pubDate>Sun, 19 Apr 2020 18:17:56 +0800</pubDate><guid>https://jdhao.github.io/2020/04/19/nvim_cpp_and_c_completion/</guid><description>&lt;p>This post summarizes how to set up various plugins needed for C++/C code
+how to use it when writing C++ programs.&lt;/p></description></item><item><title>Setting up Neovim for C++ Development with LSP</title><link>https://jdhao.github.io/2020/11/29/neovim_cpp_dev_setup/</link><pubDate>Sun, 29 Nov 2020 23:55:52 +0800</pubDate><guid>https://jdhao.github.io/2020/11/29/neovim_cpp_dev_setup/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2022-02-08: update fastgit URL&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;p>In this post, I would like to share how to set up Neovim for writing simple C++ programs.&lt;/p></description></item><item><title>Set up for C++/C Development in Neovim</title><link>https://jdhao.github.io/2020/04/19/nvim_cpp_and_c_completion/</link><pubDate>Sun, 19 Apr 2020 18:17:56 +0800</pubDate><guid>https://jdhao.github.io/2020/04/19/nvim_cpp_and_c_completion/</guid><description>&lt;p>This post summarizes how to set up various plugins needed for C++/C code
 editing, linting and formatting.&lt;/p></description></item><item><title>Commonly-used Building Options Explained</title><link>https://jdhao.github.io/2018/11/07/option_flag_meaning_build_packages_from_source/</link><pubDate>Wed, 07 Nov 2018 21:38:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/07/option_flag_meaning_build_packages_from_source/</guid><description>&lt;p>On Linux system, if we do not have root priviledge, we can not use package
 managers to install a package to its default location (usually under &lt;code>/usr&lt;/code>).
 Besides, the packages installed by the package managers are often too old to
