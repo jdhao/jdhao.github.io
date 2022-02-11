@@ -32,12 +32,12 @@ Here is how to install pyav using Docker.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2022/02/11/pyav_install_docker/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-02-11T20:48:46+08:00">
-<meta property="article:modified_time" content="2022-02-11T20:55:49+08:00">
+<meta property="article:modified_time" content="2022-02-11T23:15:46+08:00">
 <meta itemprop=name content="Install pyav inside Ubuntu Docker">
 <meta itemprop=description content="Building a usable Docker image with all the packages living peacefully is hard.
 Here is how to install pyav using Docker."><meta itemprop=datePublished content="2022-02-11T20:48:46+08:00">
-<meta itemprop=dateModified content="2022-02-11T20:55:49+08:00">
-<meta itemprop=wordCount content="482">
+<meta itemprop=dateModified content="2022-02-11T23:15:46+08:00">
+<meta itemprop=wordCount content="510">
 <meta itemprop=keywords content="ffmpeg,pyav,Docker,Ubuntu,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Install pyav inside Ubuntu Docker">
 <meta name=twitter:description content="Building a usable Docker image with all the packages living peacefully is hard.
@@ -102,7 +102,7 @@ Here is how to install pyav using Docker."><!--[if lte IE 9]><script src=https:/
 <div class=post-category>
 <a href=/categories/Note/> Note </a>
 </div>
-<span class=more-meta> 482 words </span>
+<span class=more-meta> 510 words </span>
 <span class=more-meta> 3 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -158,26 +158,31 @@ We can change it to <a href=https://developer.aliyun.com/mirror/ubuntu>aliyun</a
 </span></code></pre></div><p>Note that installation instructions given in pyav doc <a href=https://pyav.org/docs/develop/overview/installation.html#ubuntu-18-04-lts>here</a> does not work.
 It seems that the installed version of libavformat and other libs are too old.
 If we use that, we will see error message like this (also reported <a href=https://github.com/aiortc/aiortc/issues/326>here</a> and <a href=https://stackoverflow.com/q/66235459/6064933>here</a>):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>building &#39;av.codec.codec&#39; extension
-  creating build/temp.linux-x86_64-3.6/src/av/codec
-  x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -I/usr/include/python3.6m -Iinclude -I/usr/include/x86_64-linux-gnu -Ibuild/temp.linux-x86_64-3.6/include -I/usr/include/python3.6m -Ibuild/temp.linux-x86_64-3.6/include -c src/av/codec/codec.c -o build/temp.linux-x86_64-3.6/src/av/codec/codec.o
-  src/av/codec/codec.c: In function ‘__pyx_pymod_exec_codec’:
-  src/av/codec/codec.c:6061:36: error: ‘AV_CODEC_CAP_HARDWARE’ undeclared (first use in this function); did you mean ‘AV_CODEC_CAP_DR1’?
-     __pyx_t_7 = __Pyx_PyInt_From_int(AV_CODEC_CAP_HARDWARE); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 124, __pyx_L1_error)
-                                      ^~~~~~~~~~~~~~~~~~~~~
-                                      AV_CODEC_CAP_DR1
-  src/av/codec/codec.c:6061:36: note: each undeclared identifier is reported only once for each function it appears in
-  src/av/codec/codec.c:6082:36: error: ‘AV_CODEC_CAP_HYBRID’ undeclared (first use in this function); did you mean ‘AV_CODEC_CAP_DR1’?
-     __pyx_t_7 = __Pyx_PyInt_From_int(AV_CODEC_CAP_HYBRID); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 128, __pyx_L1_error)
-                                      ^~~~~~~~~~~~~~~~~~~
-                                      AV_CODEC_CAP_DR1
-  error: command &#39;x86_64-linux-gnu-gcc&#39; failed with exit status 1
+<style type=text/css>@import '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css';.error-msg{color:#d8000c;background-color:#ffbaba;margin:5px 0;margin-bottom:5px;padding:5px;border-radius:5px 5px 5px 5px;border:2px solid transparent;border-color:transparent}</style>
+<div class=error-msg>
+<i class="fa fa-times-circle"> Error</i></br>
+<pre><code>building 'av.codec.codec' extension
+creating build/temp.linux-x86_64-3.6/src/av/codec
+x86_64-linux-gnu-gcc -pthread -DNDEBUG -g -fwrapv -O2 -Wall -g -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -I/usr/include/python3.6m -Iinclude -I/usr/include/x86_64-linux-gnu -Ibuild/temp.linux-x86_64-3.6/include -I/usr/include/python3.6m -Ibuild/temp.linux-x86_64-3.6/include -c src/av/codec/codec.c -o build/temp.linux-x86_64-3.6/src/av/codec/codec.o
+src/av/codec/codec.c: In function ‘__pyx_pymod_exec_codec’:
+src/av/codec/codec.c:6061:36: error: ‘AV_CODEC_CAP_HARDWARE’ undeclared (first use in this function); did you mean ‘AV_CODEC_CAP_DR1’?
+    __pyx_t_7 = __Pyx_PyInt_From_int(AV_CODEC_CAP_HARDWARE); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 124, __pyx_L1_error)
+                                    ^~~~~~~~~~~~~~~~~~~~~
+                                    AV_CODEC_CAP_DR1
+src/av/codec/codec.c:6061:36: note: each undeclared identifier is reported only once for each function it appears in
+src/av/codec/codec.c:6082:36: error: ‘AV_CODEC_CAP_HYBRID’ undeclared (first use in this function); did you mean ‘AV_CODEC_CAP_DR1’?
+    __pyx_t_7 = __Pyx_PyInt_From_int(AV_CODEC_CAP_HYBRID); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 128, __pyx_L1_error)
+                                    ^~~~~~~~~~~~~~~~~~~
+                                    AV_CODEC_CAP_DR1
+error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
 
-  ----------------------------------------
-  Failed building wheel for av
-  Running setup.py clean for av
+----------------------------------------
+Failed building wheel for av
+Running setup.py clean for av
 Failed to build av
-</code></pre></div><h2 id=add-apt-source-for-libav>Add apt source for libav</h2>
+</code></pre>
+</div>
+<h2 id=add-apt-source-for-libav>Add apt source for libav</h2>
 <p>Instead, we need to install the <a href=https://launchpad.net/~jonathonf/+archive/ubuntu/ffmpeg-4>ffmpeg-4 apt source</a>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># add a new ffmpeg source, the builtin is too old
 RUN apt-get update &amp;&amp; apt-get install -y software-properties-common &amp;&amp;\
