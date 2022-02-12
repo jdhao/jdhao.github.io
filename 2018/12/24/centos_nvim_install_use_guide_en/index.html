@@ -49,7 +49,7 @@ I have shared some of the plugin changes in this post.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2018-12-24T00:14:00+08:00">
-<meta property="article:modified_time" content="2022-02-02T13:09:09+08:00">
+<meta property="article:modified_time" content="2022-02-12T17:09:43+08:00">
 <meta itemprop=name content="A Complete Guide to Neovim Configuration for Python Development">
 <meta itemprop=description content="
 
@@ -69,8 +69,8 @@ configure Neovim on Windows, you may also be interested in this post.
 Some of the plugins mentioned here may not be maintained or may not be the best fit for Neovim,
 or even not need anymore, e.g., highlighted yank is builtin in Neovim since May 2020.
 I have shared some of the plugin changes in this post."><meta itemprop=datePublished content="2018-12-24T00:14:00+08:00">
-<meta itemprop=dateModified content="2022-02-02T13:09:09+08:00">
-<meta itemprop=wordCount content="3240">
+<meta itemprop=dateModified content="2022-02-12T17:09:43+08:00">
+<meta itemprop=wordCount content="3224">
 <meta itemprop=keywords content="Python,Linux,font,pylint,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="A Complete Guide to Neovim Configuration for Python Development">
 <meta name=twitter:description content="
@@ -151,7 +151,7 @@ I have shared some of the plugin changes in this post."><!--[if lte IE 9]><scrip
 <div class=post-category>
 <a href=/categories/Nvim/> Nvim </a>
 </div>
-<span class=more-meta> 3240 words </span>
+<span class=more-meta> 3224 words </span>
 <span class=more-meta> 16 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -443,10 +443,10 @@ see what different theme looks like. Vim-airline has put the various themes in
 another plugin called
 <a href=https://github.com/vim-airline/vim-airline-themes>vim-airlinetheme</a>. To
 change the theme, we need to install this plugin:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Plug &#39;vim-airline/vim-airline-themes&#39;
-</code></pre></div><p>Then, in the Nvim configuration file, add the following settings:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>let g:airline_theme=&#39;&lt;theme&gt;&#39; &#34; &lt;theme&gt; is a valid theme name
-</code></pre></div><h2 id=automatic-quote-and-bracket-completion>Automatic quote and bracket completion</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>Plug</span> <span class=s1>&#39;vim-airline/vim-airline-themes&#39;</span><span class=err>
+</span></code></pre></div><p>Then, in the Nvim configuration file, add the following settings:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>g</span>:<span class=nx>airline_theme</span><span class=p>=</span><span class=s1>&#39;&lt;theme&gt;&#39;</span> <span class=c>&#34; &lt;theme&gt; is a valid theme name</span><span class=err>
+</span></code></pre></div><h2 id=automatic-quote-and-bracket-completion>Automatic quote and bracket completion</h2>
 <p>When input quote and bracket, we often wish to input them as pairs. Nvim does
 not support this feature. <a href=https://github.com/jiangmiao/auto-pairs>Auto-pairs</a>
 can achieve this and much more. Simply install it:</p>
@@ -472,8 +472,8 @@ Vim. For more usages, check <a href=https://github.com/scrooloose/nerdcommenter#
 <h2 id=code-auto-format-plugin>code auto-format plugin</h2>
 <p><a href=https://github.com/sbdchd/neoformat>Neoformat</a> can be used to format your
 source code. Install it with vim-plug:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Plug &#39;sbdchd/neoformat&#39;
-</code></pre></div><p>For Python code, you need to install a Python code formatter to work together
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>Plug</span> <span class=s1>&#39;sbdchd/neoformat&#39;</span><span class=err>
+</span></code></pre></div><p>For Python code, you need to install a Python code formatter to work together
 with neoformat. We will choose <a href=https://github.com/google/yapf#installation>yapf</a>. First, we install
 this formatter with pip:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>pip install yapf
@@ -484,15 +484,15 @@ code.</p>
 <p>If neoformat can not detect your file type or you haven&rsquo;t installed any
 formatter. You can add the following command to your Nvim configuration to let
 neoformat do some basic format for the file:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>&#34; Enable alignment
-let g:neoformat_basic_format_align = 1
-
-&#34; Enable tab to space conversion
-let g:neoformat_basic_format_retab = 1
-
-&#34; Enable trimmming of trailing whitespace
-let g:neoformat_basic_format_trim = 1
-</code></pre></div><p>There is another format plugin
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; Enable alignment</span><span class=err>
+</span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>neoformat_basic_format_align</span> <span class=p>=</span> <span class=m>1</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; Enable tab to space conversion</span><span class=err>
+</span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>neoformat_basic_format_retab</span> <span class=p>=</span> <span class=m>1</span><span class=err>
+</span><span class=err></span><span class=c>
+</span><span class=c>&#34; Enable trimmming of trailing whitespace</span><span class=err>
+</span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>neoformat_basic_format_trim</span> <span class=p>=</span> <span class=m>1</span><span class=err>
+</span></code></pre></div><p>There is another format plugin
 <a href=https://github.com/Chiel92/vim-autoformat>vim-autoformat</a> which you can try.</p>
 <h2 id=code-jump-go-to-plugin>Code jump (go-to) plugin</h2>
 <p>We often need to jump to the definition of class and method to check their
@@ -608,22 +608,22 @@ With the help of <a href=https://github.com/machakann/vim-highlightedyank>vim-hi
 you can now highlight the text region which you have yanked. Handy little
 feature, isn&rsquo;t it?</p>
 <p>You can install it with vim-plug:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Plug &#39;machakann/vim-highlightedyank&#39;
-</code></pre></div><p>Most of the time, you do not need any further settings after installing this
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>Plug</span> <span class=s1>&#39;machakann/vim-highlightedyank&#39;</span><span class=err>
+</span></code></pre></div><p>Most of the time, you do not need any further settings after installing this
 plugin. But, for some colorschemes, you will not be able to see the highlight
 colors. To fix this issue, add the following setting to Nvim configuration:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>hi HighlightedyankRegion cterm=reverse gui=reverse
-</code></pre></div><p>If you feel that the highlight duration time is too short, you can increase the
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>hi</span> <span class=nx>HighlightedyankRegion</span> <span class=nx>cterm</span><span class=p>=</span><span class=nx>reverse</span> <span class=nx>gui</span><span class=p>=</span><span class=nx>reverse</span><span class=err>
+</span></code></pre></div><p>If you feel that the highlight duration time is too short, you can increase the
 highlight duration (measured in ms):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>&#34; set highlight duration time to 1000 ms, i.e., 1 second
-let g:highlightedyank_highlight_duration = 1000
-</code></pre></div><h2 id=code-folding-plugin>Code folding plugin</h2>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=c>&#34; set highlight duration time to 1000 ms, i.e., 1 second</span><span class=err>
+</span><span class=err></span><span class=k>let</span> <span class=nx>g</span>:<span class=nx>highlightedyank_highlight_duration</span> <span class=p>=</span> <span class=m>1000</span><span class=err>
+</span></code></pre></div><h2 id=code-folding-plugin>Code folding plugin</h2>
 <p>For large code base, it is helpful to fold some part to get a better idea of
 the structure of the code.
 <a href=https://github.com/tmhedberg/SimpylFold>SimplyFold</a> is nice plugin for code
 folding. Install it with vim-plug:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Plug &#39;tmhedberg/SimpylFold&#39;
-</code></pre></div><p>You do not need further settings. It works out of the box.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>Plug</span> <span class=s1>&#39;tmhedberg/SimpylFold&#39;</span><span class=err>
+</span></code></pre></div><p>You do not need further settings. It works out of the box.</p>
 <h3 id=simple-usage>simple usage</h3>
 <p>There are some shortcuts to manipulate code folding:</p>
 <ul>
@@ -652,9 +652,9 @@ Install it with vim-plug:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>colorscheme gruvbox
 </code></pre></div><p>It has two modes, i.e., <code>dark</code> and <code>light</code>, which can be switched using the
 following settings:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>set background=dark &#34; use dark mode
-&#34; set background=light &#34; uncomment to use light mode
-</code></pre></div><p>Restart Nvim and you will activate the new theme. It looks like the following
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>set</span> <span class=nx>background</span><span class=p>=</span><span class=nb>dark</span> <span class=c>&#34; use dark mode</span><span class=err>
+</span><span class=err></span><span class=c>&#34; set background=light &#34; uncomment to use light mode</span><span class=err>
+</span></code></pre></div><p>Restart Nvim and you will activate the new theme. It looks like the following
 on my Mac:</p>
 <p align=center>
 <img src=https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-55-23.jpg width=800>
@@ -753,7 +753,7 @@ use the following setting instead:</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-02-02
+2022-02-12
 </span>
 </p>
 <p class=copyright-item>
