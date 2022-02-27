@@ -11,7 +11,7 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="For image retrieval and other similarity-based tasks such as person re-identification, we need to compute the similarity (or distance) between the query image and database images. Then we can rank the database images based on their similarity to the query image. In this post, I want to briefly introduce 2 measures widely used in image retrieval tasks.
+<meta name=author content="jdhao"><meta name=description content="For image retrieval and other similarity-based tasks such as person re-identification, we need to compute the similarity (or distance) between the query image and database images. Then we can rank the database images based on their similarity to the query image. In this post, I want to briefly introduce two measures widely used in image retrieval tasks.
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
@@ -27,18 +27,18 @@
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
 <meta property="og:title" content="Similarity Measurement in Image Retrieval">
-<meta property="og:description" content="For image retrieval and other similarity-based tasks such as person re-identification, we need to compute the similarity (or distance) between the query image and database images. Then we can rank the database images based on their similarity to the query image. In this post, I want to briefly introduce 2 measures widely used in image retrieval tasks.">
+<meta property="og:description" content="For image retrieval and other similarity-based tasks such as person re-identification, we need to compute the similarity (or distance) between the query image and database images. Then we can rank the database images based on their similarity to the query image. In this post, I want to briefly introduce two measures widely used in image retrieval tasks.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2017/10/24/image-similarity-measure-image-retrieval/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2017-10-24T20:38:52+08:00">
-<meta property="article:modified_time" content="2021-07-25T11:00:05+08:00">
+<meta property="article:modified_time" content="2022-02-27T13:04:16+08:00">
 <meta itemprop=name content="Similarity Measurement in Image Retrieval">
-<meta itemprop=description content="For image retrieval and other similarity-based tasks such as person re-identification, we need to compute the similarity (or distance) between the query image and database images. Then we can rank the database images based on their similarity to the query image. In this post, I want to briefly introduce 2 measures widely used in image retrieval tasks."><meta itemprop=datePublished content="2017-10-24T20:38:52+08:00">
-<meta itemprop=dateModified content="2021-07-25T11:00:05+08:00">
-<meta itemprop=wordCount content="484">
+<meta itemprop=description content="For image retrieval and other similarity-based tasks such as person re-identification, we need to compute the similarity (or distance) between the query image and database images. Then we can rank the database images based on their similarity to the query image. In this post, I want to briefly introduce two measures widely used in image retrieval tasks."><meta itemprop=datePublished content="2017-10-24T20:38:52+08:00">
+<meta itemprop=dateModified content="2022-02-27T13:04:16+08:00">
+<meta itemprop=wordCount content="482">
 <meta itemprop=keywords content="metric,math,retrieval,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Similarity Measurement in Image Retrieval">
-<meta name=twitter:description content="For image retrieval and other similarity-based tasks such as person re-identification, we need to compute the similarity (or distance) between the query image and database images. Then we can rank the database images based on their similarity to the query image. In this post, I want to briefly introduce 2 measures widely used in image retrieval tasks."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:description content="For image retrieval and other similarity-based tasks such as person re-identification, we need to compute the similarity (or distance) between the query image and database images. Then we can rank the database images based on their similarity to the query image. In this post, I want to briefly introduce two measures widely used in image retrieval tasks."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -99,7 +99,7 @@
 <div class=post-category>
 <a href=/categories/academic/> academic </a>
 </div>
-<span class=more-meta> 484 words </span>
+<span class=more-meta> 482 words </span>
 <span class=more-meta> 3 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -110,7 +110,7 @@
 </div>
 </div>
 <div class=post-content>
-<p>For image retrieval and other similarity-based tasks such as <a href=https://arxiv.org/abs/1610.02984>person re-identification</a>, we need to compute the similarity (or distance) between the query image and database images. Then we can rank the database images based on their similarity to the query image. In this post, I want to briefly introduce 2 measures widely used in image retrieval tasks.</p>
+<p>For image retrieval and other similarity-based tasks such as <a href=https://arxiv.org/abs/1610.02984>person re-identification</a>, we need to compute the similarity (or distance) between the query image and database images. Then we can rank the database images based on their similarity to the query image. In this post, I want to briefly introduce two measures widely used in image retrieval tasks.</p>
 <h1 id=the-euclidean-distance>The Euclidean distance</h1>
 <p>The Euclidean distance is straightforward, suppose <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are two feature vectors in <span class="math inline">\(\mathbf{R^n}\)</span>, then the Euclidean distance between the two vectors is:</p>
 <p><span class="math display">\[\begin{equation}\begin{aligned}
@@ -154,7 +154,7 @@ d_{euclid} &= \sqrt{\sum_{i=1}^{n}(x_i - y_i)^2} \\
 &= \sqrt{ 2 - 2x\cdot y }\\
 &= \sqrt{ 2(1 - x\cdot y) }\\
 \end{aligned}\end{equation}\]</span></p>
-<p>In image retrieval, the feature vector elements are all positive. <span class="math inline">\(\cos(\theta)\)</span> are in the range <span class="math inline">\([0, 1]\)</span>.Then we can define cosine distance as</p>
+<p>In image retrieval, the feature vector elements are all positive. <span class="math inline">\(\cos(\theta)\)</span> are in the range <span class="math inline">\([0, 1]\)</span>. Then we can define cosine distance as</p>
 <p><span class="math display">\[\begin{equation}
 d_{cosine}(x, y) = 1 - x\cdot y \ .
 \end{equation}\]</span></p>
@@ -162,7 +162,7 @@ d_{cosine}(x, y) = 1 - x\cdot y \ .
 <p><span class="math display">\[\begin{equation}
 d_{euclid}(x, y) = \sqrt{ 2d_{cosine} }\ .
 \end{equation}\]</span></p>
-<p>So these two measures are closely related. In this case, you can choose either of the two measurement to assess the similarity between two images.</p>
+<p>So these two measures are closely related. You can choose either of the two measurement to assess the similarity between two images.</p>
 <h1 id=references>References</h1>
 <ul>
 <li><a href=http://www.yesterdayscoffee.de/2015/12/18/euclidean-and-cosine-distance-for-unit-vectors/>A good blog post about cosine and Euclidean distance</a></li>
@@ -176,7 +176,7 @@ d_{euclid}(x, y) = \sqrt{ 2d_{cosine} }\ .
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2021-07-25
+2022-02-27
 </span>
 </p>
 <p class=copyright-item>
