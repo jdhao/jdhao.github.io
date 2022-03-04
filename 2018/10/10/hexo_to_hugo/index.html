@@ -31,11 +31,11 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2018/10/10/hexo_to_hugo/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2018-10-10T23:09:57+08:00">
-<meta property="article:modified_time" content="2022-01-19T21:26:28+08:00">
+<meta property="article:modified_time" content="2022-03-04T23:24:51+08:00">
 <meta itemprop=name content="把博客从 Hexo 迁移到 Hugo">
 <meta itemprop=description content="这个博客于 2017 年 2 月开始搭建运行，最初使用的是 Hexo 搭建，配合精美的 NexT 主题，经过鼓捣，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 Hugo。"><meta itemprop=datePublished content="2018-10-10T23:09:57+08:00">
-<meta itemprop=dateModified content="2022-01-19T21:26:28+08:00">
-<meta itemprop=wordCount content="3137">
+<meta itemprop=dateModified content="2022-03-04T23:24:51+08:00">
+<meta itemprop=wordCount content="3177">
 <meta itemprop=keywords content="Hugo,Hexo,MathJax,LaTeX,Pandoc,Markdown,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="把博客从 Hexo 迁移到 Hugo">
 <meta name=twitter:description content="这个博客于 2017 年 2 月开始搭建运行，最初使用的是 Hexo 搭建，配合精美的 NexT 主题，经过鼓捣，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 Hugo。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
@@ -99,7 +99,7 @@
 <div class=post-category>
 <a href=/categories/Blog/> Blog </a>
 </div>
-<span class=more-meta> 3137 words </span>
+<span class=more-meta> 3177 words </span>
 <span class=more-meta> 7 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -126,7 +126,6 @@
 <li><a href=#大小写问题>大小写问题</a></li>
 <li><a href=#如何完美支持-latex-公式>如何完美支持 LaTeX 公式</a>
 <ul>
-<li><a href=#使用-mmark-格式>使用 mmark 格式</a></li>
 <li><a href=#使用-pandoc>使用 Pandoc</a></li>
 <li><a href=#小问题>小问题</a>
 <ul>
@@ -271,11 +270,16 @@ git push upstream master
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=nx>preserveTaxonomyNames</span> <span class=p>=</span> <span class=kc>true</span>
 </code></pre></div><h2 id=如何完美支持-latex-公式>如何完美支持 LaTeX 公式</h2>
 <p>由于 Markdown 中的 \，<code>_</code> 等字符在 LaTeX 公式也有特殊含义，两者会有冲突，之前为了配置 Hexo 博客的数学公式支持也费了很大功夫，具体过程可以参考<a href=https://jdhao.github.io/2018/01/25/hexo-mathjax-equation-number/>这篇博客</a>。迁移到Hugo以后，经过搜索、查找与验证，找到了两种比较好的解决方法。</p>
-<h3 id=使用-mmark-格式>使用 mmark 格式</h3>
+<p>2022-03-04 注：mmark 已经被 hugo 淘汰，后续会移除支持，不再推荐。</p>
+<del>
+### 使用 mmark 格式
 <p><a href=https://github.com/miekg/mmark>Mmark</a> 是一个 Markdown 引擎，Hugo 原生支持。对于包含 LaTeX 公式的文档，首先把后缀名改为 <code>mmark</code>（即名称由 <code>*.md</code> &ndash;> <code>*.mmark</code>），然后在文章的 front matter，加上一行设置</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-toml data-lang=toml><span class=nx>markup</span><span class=err>:</span> <span class=nx>mmark</span>
-</code></pre></div><h3 id=使用-pandoc>使用 Pandoc</h3>
-<p>Hugo 也支持使用外部的处理程序来处理 Markdown 文件，例如 asciidoc，reStructuredText 和 Pandoc。这里选择 Pandoc，首先<a href=https://pandoc.org/installing.html>安装Pandoc</a>。然后把包含 LaTeX 公式的博文后缀为<code>pdc</code>，重新生成博客即可，不需要其他设置。</p>
+</code></pre></div></del>
+<h3 id=使用-pandoc>使用 Pandoc</h3>
+<p>Hugo 也支持使用外部的处理程序来处理 Markdown 文件，例如 asciidoc，reStructuredText 和 Pandoc。这里选择 Pandoc，首先<a href=https://pandoc.org/installing.html>安装Pandoc</a>。然后在文章的 front matter，加上一行设置</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>markup: pandoc
+</code></pre></div><p>hugo 在生成博客的时候就会自动调用 pandoc 来生成 html。</p>
 <h3 id=小问题>小问题</h3>
 <p>Hugo 中，为了支持 LaTeX，如果使用 mmark 或者 pandoc 来处理 Markdown，生成的博客没有目录。对于 mmark 格式，<a href=https://discourse.gohugo.io/t/table-of-contents-for-mmark/7713/8>暂时不支持目录</a>；对于Pandoc，无法生成 TOC 是因为 hugo 在调用 Pandoc 将 Markdown 文件转换为 HTML 的时候，只使用了 <code>--mathjax</code> 选项，没有使用 <code>--toc</code> 选项，具体 code 见 <a href=https://github.com/gohugoio/hugo/blob/master/helpers/content.go#L735>这里</a>, 如果加上 <code>--toc</code> 选项应该是可以生成 TOC 的。不妨试着加上 <code>--toc</code> 选项，然后 <a href=https://github.com/gohugoio/hugo#build-and-install-the-binaries-from-source-advanced-install>自己编译hugo</a>看看能不能生成 TOC。</p>
 <h4 id=参考>参考</h4>
@@ -323,7 +327,7 @@ git push upstream master
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-01-19
+2022-03-04
 </span>
 </p>
 <p class=copyright-item>
