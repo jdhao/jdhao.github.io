@@ -90,6 +90,34 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/11/23/neovim_better_mapping_for_leaving_insert_mode/>A Better Mapping to Leave Insert Mode than jk</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-11-23 </span>
+<div class=post-category>
+<a href=/categories/Nvim/> Nvim </a>
+</div>
+<span class=more-meta> 741 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+<p><font color=blue>Update 2021-01-14: I ended up writing a plugin called
+<a href=https://github.com/jdhao/better-escape.vim>better-escape.vim</a> which aims at
+solving this issue.</font></p>
+<p>A <a href=https://vi.stackexchange.com/q/300/15292>very popular insert mode mapping</a>
+for Neovim/Vim is to map <code>jk</code> or <code>kj</code> or <code>jj</code> to <code>&lt;ESC></code> for quicker escaping
+from the insert mode. I have used the following mapping for quite some time:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>inoremap</span> <span class=nx>jk</span> <span class=p>&lt;</span><span class=nx>ESC</span><span class=p>&gt;</span><span class=err>
+</span></code></pre></div>
+</div>
+<div class=read-more>
+<a href=/2020/11/23/neovim_better_mapping_for_leaving_insert_mode/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/2020/11/22/python_list_of_empty_list_pitfall/>The Correct Way to Create List of Empty List in Python</a></h1>
 <div class=post-meta>
 <span class=post-time> 2020-11-22 </span>
@@ -556,29 +584,6 @@ Unicode characters inside Neovim/Vim.</p>
 </div>
 <div class=read-more>
 <a href=/2020/09/22/nifty_nvim_techniques_s7/ class=read-more-link>Read more...</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/2020/09/22/highlight_groups_cleared_in_nvim/>Highlight Groups Cleared after Starting Neovim</a></h1>
-<div class=post-meta>
-<span class=post-time> 2020-09-22 </span>
-<div class=post-category>
-<a href=/categories/Nvim/> Nvim </a>
-</div>
-<span class=more-meta> 196 words </span>
-<span class=more-meta> 1 min read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<p>I want to use a custom highlight group for <a href=https://neovim.io/doc/user/lua.html#lua-highlight>yank highlighting</a>.
-Initially, I use the predefined highlight group <code>IncSearch</code>. I thought it a bit
-dim and want something brighter. So I defined the following highlight group:</p>
-</div>
-<div class=read-more>
-<a href=/2020/09/22/highlight_groups_cleared_in_nvim/ class=read-more-link>Read more...</a>
 </div>
 </div>
 </article>
