@@ -31,11 +31,11 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2020/10/31/busuanzi_pv_count_error/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2020-10-31T21:48:44+08:00">
-<meta property="article:modified_time" content="2020-11-25T21:27:05+08:00">
+<meta property="article:modified_time" content="2022-03-13T13:16:24+08:00">
 <meta itemprop=name content="解决不蒜子 (busuanzi) 文章计数出错问题">
 <meta itemprop=description content="一个月之前，就发现自己的博客用的计数系统“不蒜子”对每篇博客访问量的统计出现了问题，刚写的博文，访问量都是几十万，显然不正常，但是很神奇，整个博客的访问量统计似乎并没有问题。当时也在 v2ex 发帖咨询了，不过没有人给出合理的答案，今天偶然间发现了原因，发文记录。"><meta itemprop=datePublished content="2020-10-31T21:48:44+08:00">
-<meta itemprop=dateModified content="2020-11-25T21:27:05+08:00">
-<meta itemprop=wordCount content="1024">
+<meta itemprop=dateModified content="2022-03-13T13:16:24+08:00">
+<meta itemprop=wordCount content="1213">
 <meta itemprop=keywords content="Hugo,HTTP,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="解决不蒜子 (busuanzi) 文章计数出错问题">
 <meta name=twitter:description content="一个月之前，就发现自己的博客用的计数系统“不蒜子”对每篇博客访问量的统计出现了问题，刚写的博文，访问量都是几十万，显然不正常，但是很神奇，整个博客的访问量统计似乎并没有问题。当时也在 v2ex 发帖咨询了，不过没有人给出合理的答案，今天偶然间发现了原因，发文记录。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
@@ -99,7 +99,7 @@
 <div class=post-category>
 <a href=/categories/Blog/> Blog </a>
 </div>
-<span class=more-meta> 1024 words </span>
+<span class=more-meta> 1213 words </span>
 <span class=more-meta> 3 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -111,6 +111,7 @@
 <ul>
 <li><a href=#原因>原因</a></li>
 <li><a href=#hugo-even-主题中如何更改>Hugo even 主题中如何更改</a></li>
+<li><a href=#ipad-上文章计数问题>iPad 上文章计数问题</a></li>
 </ul>
 </nav>
 </div>
@@ -137,6 +138,18 @@
   <span class=p>&lt;</span><span class=nt>meta</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;referrer&#34;</span> <span class=na>content</span><span class=o>=</span><span class=s>&#34;no-referrer-when-downgrade&#34;</span><span class=p>&gt;</span>
 {{- end -}}
 </code></pre></div><p>然后重新生成 Hugo 博客即可。</p>
+<h1 id=ipad-上文章计数问题>iPad 上文章计数问题</h1>
+<p>有人反馈，即使用了上面的设置，在 iPad 上用 Safari，Chrome，Firefox 浏览器查看文章的阅读量，还是不正确。</p>
+<p>经过搜索，发现原因是 iPad 上浏览器默认都是阻止 cross-site tracking 的，你加了 referrer meta tag 也没有用。需要用户手动允许 cross-site tracking 才能正常使用。</p>
+<ul>
+<li>Safari 设置，在 “PRIVACY & SECURITY” 部分，关掉 Prevent Cross-Site Tracking 即可。</li>
+<li>对于 Chrome 和 Firefox 浏览器，设置里面，打开 Allow Cross-Website Tracking 即可。</li>
+</ul>
+<p>参考</p>
+<ul>
+<li>Safari mobile and desktop are hiding full referrer URL: why?: <a href=https://stackoverflow.com/a/62860372/6064933>https://stackoverflow.com/a/62860372/6064933</a></li>
+<li><a href=https://www.simoahava.com/privacy/intelligent-tracking-prevention-ios-14-ipados-14-safari-14/>https://www.simoahava.com/privacy/intelligent-tracking-prevention-ios-14-ipados-14-safari-14/</a></li>
+</ul>
 </div>
 <div class=post-copyright>
 <p class=copyright-item>
@@ -146,7 +159,7 @@
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2020-11-25
+2022-03-13
 </span>
 </p>
 <p class=copyright-item>
