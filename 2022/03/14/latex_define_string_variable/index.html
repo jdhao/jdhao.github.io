@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Merging Branches with Git Rebase - jdhao's digital space</title>
+<title>Define A String Variable in LaTeX - jdhao's digital space</title>
 <meta name=renderer content="webkit">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta http-equiv=cache-control content="no-transform">
@@ -11,11 +11,11 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="When merging branches, the most direct way we can use is to git merge. However, with git-merge, the commit history and graph will be messy if there are a lot of branches.
+<meta name=author content="jdhao"><meta name=description content="Like other programming languages, the best way to to use a value multiple times in LaTeX is to define a variable for it. Later when you want to change the value, you only need to change it once. Here is how to do it.
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2022/03/07/git_merge_branch_with_rebase/>
+<link rel=canonical href=https://jdhao.github.io/2022/03/14/latex_define_string_variable/>
 <link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
 <link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
@@ -26,31 +26,22 @@
 <script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Merging Branches with Git Rebase">
-<meta property="og:description" content="
-
-
-When merging branches, the most direct way we can use is to git merge.
-However, with git-merge, the commit history and graph will be messy if there are a lot of branches.">
+<meta property="og:title" content="Define A String Variable in LaTeX">
+<meta property="og:description" content="Like other programming languages, the best way to to use a value multiple times in LaTeX is to define a variable for it.
+Later when you want to change the value, you only need to change it once. Here is how to do it.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2022/03/07/git_merge_branch_with_rebase/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2022-03-07T22:45:16+08:00">
-<meta property="article:modified_time" content="2022-03-07T22:58:03+08:00">
-<meta itemprop=name content="Merging Branches with Git Rebase">
-<meta itemprop=description content="
-
-
-When merging branches, the most direct way we can use is to git merge.
-However, with git-merge, the commit history and graph will be messy if there are a lot of branches."><meta itemprop=datePublished content="2022-03-07T22:45:16+08:00">
-<meta itemprop=dateModified content="2022-03-07T22:58:03+08:00">
-<meta itemprop=wordCount content="218">
+<meta property="og:url" content="https://jdhao.github.io/2022/03/14/latex_define_string_variable/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2022-03-14T12:56:48+08:00">
+<meta property="article:modified_time" content="2022-03-14T13:20:11+08:00">
+<meta itemprop=name content="Define A String Variable in LaTeX">
+<meta itemprop=description content="Like other programming languages, the best way to to use a value multiple times in LaTeX is to define a variable for it.
+Later when you want to change the value, you only need to change it once. Here is how to do it."><meta itemprop=datePublished content="2022-03-14T12:56:48+08:00">
+<meta itemprop=dateModified content="2022-03-14T13:20:11+08:00">
+<meta itemprop=wordCount content="205">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Merging Branches with Git Rebase">
-<meta name=twitter:description content="
-
-
-When merging branches, the most direct way we can use is to git merge.
-However, with git-merge, the commit history and graph will be messy if there are a lot of branches."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:title content="Define A String Variable in LaTeX">
+<meta name=twitter:description content="Like other programming languages, the best way to to use a value multiple times in LaTeX is to define a variable for it.
+Later when you want to change the value, you only need to change it once. Here is how to do it."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -105,54 +96,64 @@ However, with git-merge, the commit history and graph will be messy if there are
 <div id=content class=content>
 <article class=post>
 <header class=post-header>
-<h1 class=post-title>Merging Branches with Git Rebase</h1>
+<h1 class=post-title>Define A String Variable in LaTeX</h1>
 <div class=post-meta>
-<span class=post-time> 2022-03-07 </span>
+<span class=post-time> 2022-03-14 </span>
 <div class=post-category>
-<a href=/categories/Git/> Git </a>
+<a href=/categories/LaTeX/> LaTeX </a>
 </div>
-<span class=more-meta> 218 words </span>
-<span class=more-meta> 2 mins read </span>
+<span class=more-meta> 205 words </span>
+<span class=more-meta> 1 min read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
 </header>
 <div class=post-toc id=post-toc>
 <h2 class=post-toc-title>Contents</h2>
 <div class=post-toc-content>
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#use-newcommand>Use <code>\newcommand</code></a></li>
+<li><a href=#use-def>Use <code>\def</code></a></li>
+<li><a href=#references>References</a></li>
+</ul>
+</nav>
 </div>
 </div>
 <div class=post-content>
-<p align=center>
-<img src=https://blog-resource-1257868508.file.myqcloud.com/202202021114754.jpg width=800>
-</p>
-<p>When merging branches, the most direct way we can use is to <code>git merge</code>.
-However, with git-merge, the commit history and graph will be messy if there are a lot of branches.</p>
-<p>We can also use <code>git rebase</code> to merge branches to make the commit history <em>cleaner</em>.
-Suppose we have a <code>feat</code> branch and <code>master</code> branch, and they share a common base commit.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>-----A------B----C------D(master)
-             \
-               \---E---F (feat)
-</code></pre></div><p>To merge the two branches using git-rebase, run the following command:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git checkout feat
-git rebase -i master
-</code></pre></div><p>Note that after running the above step, we may get merge conflict.
-We need to fix the conflict, then use <code>git add some_file</code> to mark that conflict for <code>some_file</code> has been resolved.
-Use <code>git rebase --continue</code> to fix conflict in other files,
-or finish the rebasing process (when there is no conflict anymore).</p>
-<p>After the above step, we have the following commit graph:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>              (master)
----A------C------D------E&#39;---F&#39;(feat)
-</code></pre></div><p>In order to move master to tip of the commit, we can run the following command:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git checkout master
-git merge --ff feat
-</code></pre></div><p>The <code>-ff</code> option for git-merge will ascend the master to the same commit as the <code>feat</code> branch.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>---A------C------D------E&#39;---F&#39;(feat)
-                             \
-                              \(master)
-</code></pre></div><p>To delete the feat branch, run the following command:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git branch -d feat
-</code></pre></div><p>Now, you have succeed in merging the two branches using git rebasing.</p>
+<p>Like other programming languages, the best way to to use a value multiple times in LaTeX is to define a variable for it.
+Later when you want to change the value, you only need to change it once. Here is how to do it.</p>
+<h1 id=use-newcommand>Use <code>\newcommand</code></h1>
+<p>We can use <code>\newcommand</code> to define a new command for the text like this:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-tex data-lang=tex><span class=k>\newcommand</span><span class=nb>{</span><span class=k>\toyCommand</span><span class=nb>}{</span>some text<span class=nb>}</span>
+</code></pre></div><p>In the main, to insert the text, we can call this command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-tex data-lang=tex>We can use <span class=k>\toyCommand</span><span class=nb>{}</span> like this.
+
+Or we can use <span class=k>\toyCommand\ </span>like this.
+</code></pre></div><p>Note that the double bracket <code>{}</code> or escaped space <code>\ </code> after the custom command is necessary,
+without which, the inserted text and text after it will stick together with no space.</p>
+<p>If we just want to use <code>\toyCommand</code>, we can use <a href="https://ctan.org/pkg/xspace?lang=en">xspace package </a> and add space when defining the command:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-tex data-lang=tex><span class=k>\usepackage</span><span class=nb>{</span>xspace<span class=nb>}</span>
+
+<span class=k>\newcommand</span><span class=nb>{</span><span class=k>\toyCommand</span><span class=nb>}{</span>some text<span class=k>\xspace</span><span class=nb>}</span>
+</code></pre></div><p>Note that <code>xspace</code> do have some drawbacks, see <a href=https://tex.stackexchange.com/a/86620/114857>discussion here</a>.</p>
+<h1 id=use-def>Use <code>\def</code></h1>
+<p>We can also use <code>\def</code> to define a variable and use it later<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-tex data-lang=tex><span class=k>\def</span> <span class=k>\myVar</span> <span class=nb>{</span>some text<span class=nb>}</span>
+
+We can use <span class=k>\myVar</span><span class=nb>{}</span> like this.
+</code></pre></div><h1 id=references>References</h1>
+<ul>
+<li>Space after LaTeX commands: <a href=https://tex.stackexchange.com/q/31091/114857>https://tex.stackexchange.com/q/31091/114857</a></li>
+<li>Is there any way I can define a variable in LaTeX: <a href=https://stackoverflow.com/q/1211888/6064933>https://stackoverflow.com/q/1211888/6064933</a></li>
+</ul>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>It may override existing macro without warning, so use it with care.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 </div>
 <div class=post-copyright>
 <p class=copyright-item>
@@ -162,7 +163,7 @@ git merge --ff feat
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-03-07
+2022-03-14
 </span>
 </p>
 <p class=copyright-item>
@@ -185,13 +186,8 @@ git merge --ff feat
 </div>
 </div><footer class=post-footer>
 <nav class=post-nav>
-<a class=prev href=/2022/03/14/latex_define_string_variable/>
-<i class="iconfont icon-left"></i>
-<span class="prev-text nav-default">Define A String Variable in LaTeX</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2022/02/27/temperature_in_softmax/>
-<span class="next-text nav-default">Softmax with Temperature Explained</span>
+<a class=next href=/2022/03/07/git_merge_branch_with_rebase/>
+<span class="next-text nav-default">Merging Branches with Git Rebase</span>
 <span class="next-text nav-mobile">Next</span>
 <i class="iconfont icon-right"></i>
 </a>
