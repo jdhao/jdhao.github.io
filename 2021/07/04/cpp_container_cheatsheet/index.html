@@ -32,12 +32,12 @@ cheatsheet for common STL containers/adapters just in case I need them.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2021/07/04/cpp_container_cheatsheet/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2021-07-04T19:02:50+08:00">
-<meta property="article:modified_time" content="2022-02-04T01:01:02+08:00">
+<meta property="article:modified_time" content="2022-03-19T16:14:37+08:00">
 <meta itemprop=name content="Cpp Container/Adapter and Common Structure CheatSheet">
 <meta itemprop=description content="I use Python in my work, and rarely need C++. So I need to compile this C++
 cheatsheet for common STL containers/adapters just in case I need them."><meta itemprop=datePublished content="2021-07-04T19:02:50+08:00">
-<meta itemprop=dateModified content="2022-02-04T01:01:02+08:00">
-<meta itemprop=wordCount content="756">
+<meta itemprop=dateModified content="2022-03-19T16:14:37+08:00">
+<meta itemprop=wordCount content="766">
 <meta itemprop=keywords content="C++,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Cpp Container/Adapter and Common Structure CheatSheet">
 <meta name=twitter:description content="I use Python in my work, and rarely need C++. So I need to compile this C++
@@ -102,7 +102,7 @@ cheatsheet for common STL containers/adapters just in case I need them."><!--[if
 <div class=post-category>
 <a href=/categories/Note/> Note </a>
 </div>
-<span class=more-meta> 756 words </span>
+<span class=more-meta> 766 words </span>
 <span class=more-meta> 4 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -137,7 +137,7 @@ cheatsheet for common STL containers/adapters just in case I need them.</p>
 <li>Insert an element: <code>arr.insert(arr.begin(), -1);</code></li>
 <li>Insert another vector: <code>vector&lt;int> another = {1, 2, 3}; arr.insert(arr.begin(), another.begin(), another.end());</code></li>
 <li>Check its size: <code>cout &lt;&lt; arr.size();</code></li>
-<li>Check if string is empty: <code>cout &lt;&lt; arr.empty();</code></li>
+<li>Check if vector is empty: <code>cout &lt;&lt; arr.empty();</code></li>
 <li>Slice a vector, i.e., get a sub-vector from an existing vector: <code>vector&lt;int> arr(10, 1); vector&lt;int> new_vec(arr.begin(), arr.begin()+3);</code>
 (this is end-exclusive, so the resulting vector has 3 elements)</li>
 </ul>
@@ -152,7 +152,7 @@ cheatsheet for common STL containers/adapters just in case I need them.</p>
 <li>Get sub-string: <code>myStr.substr(0, 2)</code> (Get the substring starting at index 0 and with length 2, end-exclusive style)</li>
 <li>Get sub-string: <code>myStr.substr(1)</code> (Get substring starting at index 1 till the end)</li>
 <li>Check if string is empty: <code>myStr.empty();</code></li>
-<li>Generate a string with <code>n</code> same character <code>ch</code>: string(n, ch);</li>
+<li>Generate a string with <code>n</code> same character <code>ch</code>: <code>string(n, ch)</code>;</li>
 <li>Reverse a string: use <code>std::reverse</code>, <code>std::reverse(myStr.begin(), myStr.end())</code>.</li>
 </ul>
 <p>Ref:</p>
@@ -166,15 +166,15 @@ cheatsheet for common STL containers/adapters just in case I need them.</p>
 <li>Add an element: <code>x.insert(5);</code></li>
 <li>Check size: <code>x.size()</code></li>
 <li>Check if set is empty: <code>x.empty();</code></li>
-<li>Check if a key exists in a set: <code>bool has_key = x.find(2) != x.end();</code></li>
+<li>Check if a key exists in a set: <code>x.find(2) != x.end();</code> or <code>x.count(2) != 0</code></li>
 <li>Initialize set from a vector of int: <code>vector&lt;int> arr = {1, 2, 1, 3}; set&lt;int> my_set(arr.begin(), arr.end());</code></li>
 </ul>
-<p>There is also unordered_set, which is different from set:</p>
+<p>There is also <code>unordered_set</code>, which is different from <code>set</code>:</p>
 <ul>
-<li>The underlying implementation for set is binary search tree (BST), while the underlying implementation for unordered_set is hash table.</li>
-<li>The element in set is sorted so that their order is guaranteed, while for unordered_set, there is no guarantee for the element order.</li>
-<li>set requires less memory than unordered_set (unordered_set has to store a hash table).</li>
-<li>Search time is at most <code>O(log(n))</code> for set, while for unordered_set, the search time is on average <code>O(1)</code>, but may be <code>O(n)</code> (highly unlikely)</li>
+<li>The underlying implementation for <code>set</code> is binary search tree (BST), while the underlying implementation for <code>unordered_set</code> is hash table.</li>
+<li>The element in <code>set</code> is sorted so that their order is guaranteed, while for <code>unordered_set</code>, there is no guarantee for the element order.</li>
+<li><code>set</code> requires less memory than <code>unordered_set</code> (<code>unordered_set</code> has to store a hash table).</li>
+<li>Search time is at most <code>O(log(n))</code> for <code>set</code>, while for <code>unordered_set</code>, the search time is on average <code>O(1)</code>, but may be <code>O(n)</code> (highly unlikely)</li>
 </ul>
 <h1 id=map-works-like-a-python-dict>map (works like a Python dict)</h1>
 <p>Typically implemented using balanced binary search tree.</p>
@@ -189,8 +189,7 @@ cheatsheet for common STL containers/adapters just in case I need them.</p>
 <p>Remove an element: <code>items.erase("apple");</code></p>
 </li>
 <li>
-<p>Access a key (no check): <code>cout &lt;&lt; items[1] &lt;&lt; endl;</code> (we have to make sure
-the key exists, otherwise it will be inserted silently)</p>
+<p>Access a key (no check): <code>cout &lt;&lt; items[1] &lt;&lt; endl;</code> (we have to make sure the key exists, otherwise it will be inserted silently)</p>
 </li>
 <li>
 <p>Access a key (with check): <code>cout &lt;&lt; items.at(4);</code> (will error out)</p>
@@ -202,31 +201,30 @@ the key exists, otherwise it will be inserted silently)</p>
 <span class=p>}</span>
 </code></pre></div></li>
 <li>
-<p>Check if a key exists in a map: <code>bool has_key = items.find(2) != items.end();</code> or <code>items.count(2)</code></p>
+<p>Check if a key exists in a map: <code>bool has_key = items.find(2) != items.end();</code> or <code>items.count(2) != 0</code></p>
 </li>
 </ul>
-<p>There is also <code>unordered_map</code>. The different between map and unordered_map is
-similar to difference between set and unordered_set. So we will not elaborate
-on this.</p>
-<p>Note that when map is defined using the <code>const</code> modifier, you can not access
-map element with operator <code>[]</code>, since it is possible to alter map value when
-accessing map element like this, see <a href=https://stackoverflow.com/a/5134691/6064933>this post</a>.</p>
+<p>There is also <code>unordered_map</code>. The different between map and unordered_map is similar to difference between set and unordered_set.
+So we will not elaborate on this.</p>
+<p>Note that when map is defined using the <code>const</code> modifier, you can not access map element with operator <code>[]</code>,
+since it is possible to alter map value when accessing map element like this,
+check <a href=https://stackoverflow.com/a/5134691/6064933>this post</a> for more details.</p>
 <h1 id=queue>queue</h1>
 <p>Queue is a data structure that provides FIFO (first in first out) feature.
 Element that is added first will also be removed first.</p>
 <ul>
 <li>Get queue size: <code>queue&lt;int> q; cout &lt;&lt; q.size() &lt;&lt; endl;</code></li>
-<li>Check if queue is empty: use <code>q.empty()</code> or <code>q.size()</code></li>
+<li>Check if queue is empty: use <code>q.empty()</code> or <code>q.size() == 0</code></li>
 <li>Get front element of queue: <code>cout &lt;&lt; q.front() &lt;&lt; endl;</code></li>
 <li>Add element to queue: <code>q.push(4);</code></li>
 <li>Pop up front element: <code>q.pop();</code></li>
 </ul>
 <h1 id=stack>stack</h1>
-<p>Stack is the opposite of queue. It provides a LIFO (last in first out) data
-structure. Element that is added last will be removed first.</p>
+<p>Stack is the opposite of queue. It provides a LIFO (last in first out) data structure.
+Element that is added last will be removed first.</p>
 <ul>
 <li>Get stack size: <code>stack&lt;int> s; cout &lt;&lt; s.size() &lt;&lt; endl;</code></li>
-<li>Check if stack is empty: <code>s.empty()</code> or <code>s.size()</code></li>
+<li>Check if stack is empty: <code>s.empty()</code> or <code>s.size() == 0</code></li>
 <li>Get top element from stack: <code>cout &lt;&lt; s.top() &lt;&lt; endl;</code> (note that getting top element when <strong>stack is empty</strong> leads to errors!)</li>
 <li>Add element to stack: <code>s.push(1);</code></li>
 <li>Pop up element from stack: <code>s.pop();</code></li>
@@ -262,7 +260,7 @@ structure. Element that is added last will be removed first.</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-02-04
+2022-03-19
 </span>
 </p>
 <p class=copyright-item>
