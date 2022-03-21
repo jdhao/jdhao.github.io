@@ -11,7 +11,7 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="In maskrcnn-benchmark, there is some config parameters about warmup in solver (WARMUP_FACTOR, WARMUP_ITERS, WARMUP_METHOD). But what is warmup, and how does it work?
+<meta name=author content="jdhao"><meta name=description content="Warmup is a training technique often used in training deep neural networks. In this post, I will try to explain what is warmup, and how does it work.
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
@@ -27,21 +27,21 @@
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
 <meta property="og:title" content="The Warmup Trick for Training Deep Neural Networks">
-<meta property="og:description" content="In maskrcnn-benchmark, there is some config parameters about warmup in solver (WARMUP_FACTOR, WARMUP_ITERS, WARMUP_METHOD).
-But what is warmup, and how does it work?">
+<meta property="og:description" content="Warmup is a training technique often used in training deep neural networks.
+In this post, I will try to explain what is warmup, and how does it work.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2020/08/14/warmup_maskrcnn_how_does_it_work/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2020-08-14T23:04:54+08:00">
-<meta property="article:modified_time" content="2022-03-21T12:16:54+08:00">
+<meta property="article:modified_time" content="2022-03-22T00:06:12+08:00">
 <meta itemprop=name content="The Warmup Trick for Training Deep Neural Networks">
-<meta itemprop=description content="In maskrcnn-benchmark, there is some config parameters about warmup in solver (WARMUP_FACTOR, WARMUP_ITERS, WARMUP_METHOD).
-But what is warmup, and how does it work?"><meta itemprop=datePublished content="2020-08-14T23:04:54+08:00">
-<meta itemprop=dateModified content="2022-03-21T12:16:54+08:00">
-<meta itemprop=wordCount content="504">
+<meta itemprop=description content="Warmup is a training technique often used in training deep neural networks.
+In this post, I will try to explain what is warmup, and how does it work."><meta itemprop=datePublished content="2020-08-14T23:04:54+08:00">
+<meta itemprop=dateModified content="2022-03-22T00:06:12+08:00">
+<meta itemprop=wordCount content="599">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="The Warmup Trick for Training Deep Neural Networks">
-<meta name=twitter:description content="In maskrcnn-benchmark, there is some config parameters about warmup in solver (WARMUP_FACTOR, WARMUP_ITERS, WARMUP_METHOD).
-But what is warmup, and how does it work?"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:description content="Warmup is a training technique often used in training deep neural networks.
+In this post, I will try to explain what is warmup, and how does it work."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -102,7 +102,7 @@ But what is warmup, and how does it work?"><!--[if lte IE 9]><script src=https:/
 <div class=post-category>
 <a href=/categories/machine-learning/> machine-learning </a>
 </div>
-<span class=more-meta> 504 words </span>
+<span class=more-meta> 599 words </span>
 <span class=more-meta> 3 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -115,7 +115,12 @@ But what is warmup, and how does it work?"><!--[if lte IE 9]><script src=https:/
 <li>
 <ul>
 <li><a href=#why-do-we-need-warmup>Why do we need warmup</a></li>
+<li><a href=#warmup-applications>Warmup applications</a>
+<ul>
+<li><a href=#warmup-in-resnet>Warmup in ResNet</a></li>
 <li><a href=#how-does-linear-warmup-work-in-maskrcnn>How does linear warmup work in maskrcnn</a></li>
+</ul>
+</li>
 <li><a href=#references>References</a></li>
 </ul>
 </li>
@@ -124,8 +129,8 @@ But what is warmup, and how does it work?"><!--[if lte IE 9]><script src=https:/
 </div>
 </div>
 <div class=post-content>
-<p>In <a href=https://github.com/facebookresearch/maskrcnn-benchmark>maskrcnn-benchmark</a>, there is some config parameters about warmup in solver (<code>WARMUP_FACTOR</code>, <code>WARMUP_ITERS</code>, <code>WARMUP_METHOD</code>).
-But what is warmup, and how does it work?</p>
+<p>Warmup is a training technique often used in training deep neural networks.
+In this post, I will try to explain what is warmup, and how does it work.</p>
 <p>Warmup was originally proposed in this paper: <a href=https://arxiv.org/abs/1706.02677>Accurate, Large Minibatch SGD: Training ImageNet in 1 Hour</a>.
 It gives a good explanation on why warmup is needed, and explains different strategies of warmup.</p>
 <h2 id=why-do-we-need-warmup>Why do we need warmup</h2>
@@ -150,8 +155,19 @@ the initial learning stage.</li>
 </ul>
 <p>After the warmup epochs, the learning rate strategy would return to normal.
 You can change the learning rate based on the task at hand.</p>
-<h2 id=how-does-linear-warmup-work-in-maskrcnn>How does linear warmup work in maskrcnn</h2>
-<p>The warmup method used by maskrcnn-benchmark can be found <a href=https://github.com/facebookresearch/maskrcnn-benchmark/blob/57eec25b75144d9fb1a6857f32553e1574177daf/maskrcnn_benchmark/solver/lr_scheduler.py#L39-L52>here</a>:</p>
+<h2 id=warmup-applications>Warmup applications</h2>
+<h3 id=warmup-in-resnet>Warmup in ResNet</h3>
+<p>In <a href=https://arxiv.org/abs/1512.03385>Deep residual learning</a>, when training a 110-layer ResNet on CIFAR-10 (section 4.2),
+the authors used constant warmup to ease the initial training iterations:</p>
+<blockquote>
+<p>In this case, we find that the initial learning rate of 0.1 is slightly too
+large to start converging. So we use 0.01 to warm up the training until the
+training error is below 80% (about 400 iterations), and then go back to 0.1
+and continue training.</p>
+</blockquote>
+<h3 id=how-does-linear-warmup-work-in-maskrcnn>How does linear warmup work in maskrcnn</h3>
+<p>In <a href=https://github.com/facebookresearch/maskrcnn-benchmark>maskrcnn-benchmark</a>, there is some config parameters about warmup in solver (<code>WARMUP_FACTOR</code>, <code>WARMUP_ITERS</code>, <code>WARMUP_METHOD</code>).
+The warmup method used by maskrcnn-benchmark can be found <a href=https://github.com/facebookresearch/maskrcnn-benchmark/blob/57eec25b75144d9fb1a6857f32553e1574177daf/maskrcnn_benchmark/solver/lr_scheduler.py#L39-L52>here</a>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>def</span> <span class=nf>get_lr</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
     <span class=n>warmup_factor</span> <span class=o>=</span> <span class=mi>1</span>
     <span class=k>if</span> <span class=bp>self</span><span class=o>.</span><span class=n>last_epoch</span> <span class=o>&lt;</span> <span class=bp>self</span><span class=o>.</span><span class=n>warmup_iters</span><span class=p>:</span>
@@ -199,7 +215,7 @@ As a result, the learning rate used will approach base learning rate.</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-03-21
+2022-03-22
 </span>
 </p>
 <p class=copyright-item>
