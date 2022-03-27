@@ -31,10 +31,10 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2022/03/27/neural-network-nonlinear-activation/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-03-27T17:25:12+08:00">
-<meta property="article:modified_time" content="2022-03-27T17:50:03+08:00">
+<meta property="article:modified_time" content="2022-03-27T18:00:37+08:00">
 <meta itemprop=name content="Nonlinear Activations for Neural Networks">
 <meta itemprop=description content="Non-linear activations are important in deep neural networks. It is important in the sense that without non-linear activation functions, even if you have many linear layers, the end results is like you have only one linear layer, and the approximation ability of the network is very limited1. Some of most commonly-used nonlinear activation functions are Sigmoid, ReLU and Tanh."><meta itemprop=datePublished content="2022-03-27T17:25:12+08:00">
-<meta itemprop=dateModified content="2022-03-27T17:50:03+08:00">
+<meta itemprop=dateModified content="2022-03-27T18:00:37+08:00">
 <meta itemprop=wordCount content="567">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Nonlinear Activations for Neural Networks">
@@ -116,7 +116,7 @@
 <p>Sigmoid function, also known as logistic function, has the following form:</p>
 <p><span class="math display">\[f(x) = \frac{1}{1+e^{-x}}\]</span></p>
 <p>The derivative of sigmoid is:</p>
-<p><span class="math display">\[\frac{df}{dx} = \frac{e^{-x}}{(1+e^{-x})^2} = \frac{1}{1+e^{-x}}(1- \frac{1}{1+e^{-x}}) = f(x)(1-f(x))\]</span></p>
+<p><span class="math display">\[\frac{df}{dx} = \frac{e^{-x}}{(1+e^{-x})^2} \\= \frac{1}{1+e^{-x}}(1- \frac{1}{1+e^{-x}})\\ = f(x)(1-f(x))\]</span></p>
 <h2 id=tanh>Tanh</h2>
 <p><a href=https://en.wikipedia.org/wiki/Hyperbolic_functions#Exponential_definitions>Tanh</a> function</p>
 <p><span class="math display">\[f(x) = \frac{e^{2x}-1}{e^{2x}+1}\]</span></p>

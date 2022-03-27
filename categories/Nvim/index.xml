@@ -38,11 +38,12 @@ window, which is not possible with normal text.&lt;/p></description></item><item
 &lt;p>In this post, I will share how to set up &lt;a href="https://github.com/sumneko/lua-language-server">sumneko lua&lt;/a> for &lt;a href="https://github.com/neovim/nvim-lspconfig">nvim-lspconfig&lt;/a>.&lt;/p></description></item><item><title>Migrating from vim-plug to Packer.nvim</title><link>https://jdhao.github.io/2021/07/11/from_vim_plug_to_packer/</link><pubDate>Sun, 11 Jul 2021 23:05:22 +0800</pubDate><guid>https://jdhao.github.io/2021/07/11/from_vim_plug_to_packer/</guid><description>&lt;details>
 &lt;summary>&lt;font size="3" color="red">Update log&lt;/font>&lt;/summary>
 &lt;ul>
+&lt;li>&lt;font color="blue">2022-03-27: fix a typo in requiring lua modules&lt;/font>&lt;/li>
 &lt;li>&lt;font color="blue">2022-02-08: change fastgit URL&lt;/font>&lt;/li>
 &lt;li>&lt;font color="blue">2022-02-05: add new autocmd for auto-running command &lt;code>PackerCompile&lt;/code>.&lt;/font>&lt;/li>
 &lt;/ul>
 &lt;/details>
-&lt;p>Over the past two years, I have been using &lt;a href="https://github.com/junegunn/vim-plug">vim-plug&lt;/a> as my Nvim plugin manager.
+&lt;p>Over the past two years, I have been using &lt;a href="https://github.com/junegunn/vim-plug">vim-plug&lt;/a> as my plugin manager for Nvim.
 Vim-plug is powerful, fast and amazing, especially considering that all its features are contained in a single vim script.
 It uses the old way to manage plugins, i.e., it will manage the loading of plugins directly.&lt;/p></description></item><item><title>Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 10</title><link>https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/</link><pubDate>Thu, 17 Jun 2021 01:54:41 +0800</pubDate><guid>https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/</guid><description>&lt;p>This is the 10th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.&lt;/p>
 &lt;details>
