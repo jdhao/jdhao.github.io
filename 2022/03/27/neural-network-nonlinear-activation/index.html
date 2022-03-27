@@ -27,18 +27,27 @@
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
 <meta property="og:title" content="Nonlinear Activations for Neural Networks">
-<meta property="og:description" content="Non-linear activations are important in deep neural networks. It is important in the sense that without non-linear activation functions, even if you have many linear layers, the end results is like you have only one linear layer, and the approximation ability of the network is very limited1. Some of most commonly-used nonlinear activation functions are Sigmoid, ReLU and Tanh.">
+<meta property="og:description" content="
+
+
+Non-linear activations are important in deep neural networks. It is important in the sense that without non-linear activation functions, even if you have many linear layers, the end results is like you have only one linear layer, and the approximation ability of the network is very limited1. Some of most commonly-used nonlinear activation functions are Sigmoid, ReLU and Tanh.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2022/03/27/neural-network-nonlinear-activation/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-03-27T17:25:12+08:00">
-<meta property="article:modified_time" content="2022-03-27T18:00:37+08:00">
+<meta property="article:modified_time" content="2022-03-27T23:37:55+08:00">
 <meta itemprop=name content="Nonlinear Activations for Neural Networks">
-<meta itemprop=description content="Non-linear activations are important in deep neural networks. It is important in the sense that without non-linear activation functions, even if you have many linear layers, the end results is like you have only one linear layer, and the approximation ability of the network is very limited1. Some of most commonly-used nonlinear activation functions are Sigmoid, ReLU and Tanh."><meta itemprop=datePublished content="2022-03-27T17:25:12+08:00">
-<meta itemprop=dateModified content="2022-03-27T18:00:37+08:00">
-<meta itemprop=wordCount content="567">
+<meta itemprop=description content="
+
+
+Non-linear activations are important in deep neural networks. It is important in the sense that without non-linear activation functions, even if you have many linear layers, the end results is like you have only one linear layer, and the approximation ability of the network is very limited1. Some of most commonly-used nonlinear activation functions are Sigmoid, ReLU and Tanh."><meta itemprop=datePublished content="2022-03-27T17:25:12+08:00">
+<meta itemprop=dateModified content="2022-03-27T23:37:55+08:00">
+<meta itemprop=wordCount content="586">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Nonlinear Activations for Neural Networks">
-<meta name=twitter:description content="Non-linear activations are important in deep neural networks. It is important in the sense that without non-linear activation functions, even if you have many linear layers, the end results is like you have only one linear layer, and the approximation ability of the network is very limited1. Some of most commonly-used nonlinear activation functions are Sigmoid, ReLU and Tanh."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:description content="
+
+
+Non-linear activations are important in deep neural networks. It is important in the sense that without non-linear activation functions, even if you have many linear layers, the end results is like you have only one linear layer, and the approximation ability of the network is very limited1. Some of most commonly-used nonlinear activation functions are Sigmoid, ReLU and Tanh."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -99,7 +108,7 @@
 <div class=post-category>
 <a href=/categories/machine-learning/> machine-learning </a>
 </div>
-<span class=more-meta> 567 words </span>
+<span class=more-meta> 586 words </span>
 <span class=more-meta> 3 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -110,13 +119,19 @@
 </div>
 </div>
 <div class=post-content>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/202203271740705.png width=800>
+</p>
 <p>Non-linear activations are important in deep neural networks. It is important in the sense that without non-linear activation functions, even if you have many linear layers, the end results is like you have only one linear layer, and the approximation ability of the network is very limited<a href=#fn1 class=footnote-ref id=fnref1 role=doc-noteref><sup>1</sup></a>. Some of most commonly-used nonlinear activation functions are Sigmoid, ReLU and Tanh.</p>
 <h1 id=nonlinear-activations-and-their-derivatives>Nonlinear activations and their derivatives</h1>
 <h2 id=sigmoid>Sigmoid</h2>
 <p>Sigmoid function, also known as logistic function, has the following form:</p>
 <p><span class="math display">\[f(x) = \frac{1}{1+e^{-x}}\]</span></p>
 <p>The derivative of sigmoid is:</p>
-<p><span class="math display">\[\frac{df}{dx} = \frac{e^{-x}}{(1+e^{-x})^2} \\= \frac{1}{1+e^{-x}}(1- \frac{1}{1+e^{-x}})\\ = f(x)(1-f(x))\]</span></p>
+<p><span class="math display">\[\begin{aligned}\frac{df}{dx} &= \frac{e^{-x}}{(1+e^{-x})^2}\\
+&= \frac{1}{1+e^{-x}}(1- \frac{1}{1+e^{-x}})\\
+&= f(x)(1-f(x))
+\end{aligned}\]</span></p>
 <h2 id=tanh>Tanh</h2>
 <p><a href=https://en.wikipedia.org/wiki/Hyperbolic_functions#Exponential_definitions>Tanh</a> function</p>
 <p><span class="math display">\[f(x) = \frac{e^{2x}-1}{e^{2x}+1}\]</span></p>
@@ -134,9 +149,7 @@ x & x \geq 0 \\
 <p>The derivate of ReLU is quite simple, it is <code>1</code> for <span class="math inline">\(x > 0\)</span> and 0 otherwise.</p>
 <p>There are also variants of ReLU, such as Leaky ReLU, PReLU (parametric ReLU), and RReLU (randomized ReLU). In <a href=https://arxiv.org/abs/1505.00853>Empirical Evaluation of Rectified Activations in Convolutional Network</a>, the author claimed that PReLU and RReLU works better than ReLU in small scale datasets such as CIFAR10, CIFAR100 and <a href=https://www.kaggle.com/c/datasciencebowl>Kaggle NDSB</a>.</p>
 <h1 id=vanishing-gradient>Vanishing gradient</h1>
-<p align=center>
-<img src=https://blog-resource-1257868508.file.myqcloud.com/202203271740705.png width=800>
-</p>
+<p>I show the plot of different activation functions and their derivatives in the title image.</p>
 <details>
 <p><summary><font size=2 color=red>Click to show the code for visualization.</font></summary></p>
 <div class=sourceCode id=cb1><pre class="sourceCode python"><code class="sourceCode python"><span id=cb1-1><a href=#cb1-1></a><span class=im>import</span> matplotlib.pyplot <span class=im>as</span> plt</span>
@@ -192,14 +205,14 @@ x & x \geq 0 \\
 <p>The derivative of sigmoid is relatively small, and its largest value is only 0.25 (when <span class="math inline">\(x = 0\)</span>). When <span class="math inline">\(x\)</span> is large, the derivative is near zero. Tanh has a similar issue: it has a low gradient, and maximum gradient is only 1 (<span class="math inline">\(x=0\)</span>).</p>
 <p>This will cause the vanishing gradient problem, because in order to calculate the derivative of loss w.r.t the weight of earlier layers in the network, we need to multiply the gradient in the later layers. When you multiply several values below 0.25, the result goes down to zero quickly, so the network weight in earlier layers get updated slowly. In other words, the learning process will converge much slower than using ReLU, and we might need much more epochs to get a satisfactory result.</p>
 <p>Another advantage of ReLU is that it is computationally cheap compared to sigmoid, both in terms of forward and backward operation.</p>
-<h1 id=demo>Demo</h1>
+<h1 id=try-it-yourself-interactively>Try it yourself interactively</h1>
 <p>To gain more insight into this, we can use <a href=https://cs.stanford.edu/~karpathy/convnetjs/demo/mnist.html>minist on convenet.js</a> and change the activation function to see how the train goes. We can see that training process under tanh and sigmoid activation is much slower than ReLU. Sigmoid is slowest among the three.</p>
 <p>We can also play with different activations functions real quick with <a href=https://playground.tensorflow.org/>TensorFlow playground</a>.</p>
 <h1 id=references>References</h1>
 <ul>
-<li>https://en.wikipedia.org/wiki/Rectifier_(neural_networks)</li>
-<li>A list of activation functions: https://en.wikipedia.org/wiki/Activation_function</li>
-<li>ReLU vs Sigmoid: https://stats.stackexchange.com/q/126238/140049</li>
+<li><a href=https://en.wikipedia.org/wiki/Rectifier_(neural_networks) class=uri>https://en.wikipedia.org/wiki/Rectifier_(neural_networks)</a></li>
+<li>A list of activation functions: <a href=https://en.wikipedia.org/wiki/Activation_function class=uri>https://en.wikipedia.org/wiki/Activation_function</a></li>
+<li>ReLU vs Sigmoid: <a href=https://stats.stackexchange.com/q/126238/140049 class=uri>https://stats.stackexchange.com/q/126238/140049</a></li>
 </ul>
 <section class=footnotes role=doc-endnotes>
 <hr>
