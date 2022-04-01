@@ -27,30 +27,24 @@
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
 <meta property="og:title" content="Manipulating Images with Alpha Channels in Pillow">
-<meta property="og:description" content="In image processing, alpha
-channel is usually
-used to control the transparency of an image. In itself, the alpha channel is
-just a gray level image1. In this post, I want to talk about how to add an
-alpha channel to RGB image and show it using the Pillow package.">
+<meta property="og:description" content="In image processing, alpha channel is usually used to control the transparency of an image.
+In itself, the alpha channel is just a gray level image1.
+In this post, I want to talk about how to add an alpha channel to RGB image and show it using the Pillow package.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2019/03/07/pillow_image_alpha_channel/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2019-03-07T16:21:57+08:00">
-<meta property="article:modified_time" content="2020-03-11T23:28:46+08:00">
+<meta property="article:modified_time" content="2022-04-02T00:58:39+08:00">
 <meta itemprop=name content="Manipulating Images with Alpha Channels in Pillow">
-<meta itemprop=description content="In image processing, alpha
-channel is usually
-used to control the transparency of an image. In itself, the alpha channel is
-just a gray level image1. In this post, I want to talk about how to add an
-alpha channel to RGB image and show it using the Pillow package."><meta itemprop=datePublished content="2019-03-07T16:21:57+08:00">
-<meta itemprop=dateModified content="2020-03-11T23:28:46+08:00">
+<meta itemprop=description content="In image processing, alpha channel is usually used to control the transparency of an image.
+In itself, the alpha channel is just a gray level image1.
+In this post, I want to talk about how to add an alpha channel to RGB image and show it using the Pillow package."><meta itemprop=datePublished content="2019-03-07T16:21:57+08:00">
+<meta itemprop=dateModified content="2022-04-02T00:58:39+08:00">
 <meta itemprop=wordCount content="435">
 <meta itemprop=keywords content="PIL,Windows,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Manipulating Images with Alpha Channels in Pillow">
-<meta name=twitter:description content="In image processing, alpha
-channel is usually
-used to control the transparency of an image. In itself, the alpha channel is
-just a gray level image1. In this post, I want to talk about how to add an
-alpha channel to RGB image and show it using the Pillow package."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:description content="In image processing, alpha channel is usually used to control the transparency of an image.
+In itself, the alpha channel is just a gray level image1.
+In this post, I want to talk about how to add an alpha channel to RGB image and show it using the Pillow package."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -127,16 +121,14 @@ alpha channel to RGB image and show it using the Pillow package."><!--[if lte IE
 </div>
 </div>
 <div class=post-content>
-<p>In image processing, <a href=https://www.makeuseof.com/tag/alpha-channel-images-mean/>alpha
-channel</a> is usually
-used to control the transparency of an image. In itself, the alpha channel is
-just a gray level image<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. In this post, I want to talk about how to add an
-alpha channel to RGB image and show it using the Pillow package.</p>
+<p>In image processing, <a href=https://www.makeuseof.com/tag/alpha-channel-images-mean/>alpha channel</a> is usually used to control the transparency of an image.
+In itself, the alpha channel is just a gray level image<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.
+In this post, I want to talk about how to add an alpha channel to RGB image and show it using the Pillow package.</p>
 <p>Suppose that we have the following image:</p>
 <p align=center>
 <img src=https://blog-resource-1257868508.file.myqcloud.com/20200222142548.jpg>
 </p>
-<p>we can add an alpha channel to it using the <a href=https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.putalpha>Image.putalpha()</a> method:</p>
+<p>We can add an alpha channel to it using the <a href=https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.putalpha>Image.putalpha()</a> method:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span>
 
 <span class=n>im</span> <span class=o>=</span> <span class=n>Image</span><span class=o>.</span><span class=n>open</span><span class=p>(</span><span class=s2>&#34;owl.jpg&#34;</span><span class=p>)</span>
@@ -145,12 +137,11 @@ alpha channel to RGB image and show it using the Pillow package.</p>
 <span class=n>im</span><span class=o>.</span><span class=n>putalpha</span><span class=p>(</span><span class=n>alpha</span><span class=p>)</span>
 
 <span class=n>im</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre></div><p>You might expect to see a new image with opaque color, right? But what shows up
-is nothing different from the original image? Why? Do we use the <code>putalpha()</code>
-method wrongly?</p>
-<p>It turns out this has something to do with how image is shown using the
-<code>show()</code> method on different platforms. From the documentation of
-<code>Image.show()</code>:</p>
+</code></pre></div><p>You might expect to see a new image with opaque color, right?
+But what shows up is nothing different from the original image?
+Why? Do we use the <code>putalpha()</code> method wrongly?</p>
+<p>It turns out this has something to do with how image is shown using the <code>show()</code> method on different platforms.
+From the documentation of <code>Image.show()</code>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Displays this image. This method is mainly intended for debugging purposes.
 
 On Unix platforms, this method saves the image to a temporary PPM file, and calls either the xv utility or the display utility, depending on which one can be found.
@@ -158,11 +149,9 @@ On Unix platforms, this method saves the image to a temporary PPM file, and call
 On macOS, this method saves the image to a temporary BMP file, and opens it with the native Preview application.
 
 On Windows, it saves the image to a temporary BMP file, and uses the standard BMP display utility to show it (usually Paint).
-</code></pre></div><p>So on Windows, the new image is converted to
-<a href=https://en.wikipedia.org/wiki/BMP_file_format>BMP</a> format and shown using the
-system default image viewer. During the process of format conversion, the alpha
-transparency is apparently lost<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>. That is why you see no difference between
-and new image and original image.</p>
+</code></pre></div><p>So on Windows, the new image is converted to <a href=https://en.wikipedia.org/wiki/BMP_file_format>BMP</a> format and shown using the system default image viewer.
+During the process of format conversion, the alpha transparency is apparently lost<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>.
+That is why you see no difference between and new image and original image.</p>
 <p>To fix this issue, we can patch the Pillow code to use PNG format as default.
 First, we need to find the root of Pillow package:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>import PIL
@@ -171,8 +160,8 @@ print(PIL.__path__)
 <blockquote>
 <p>[&lsquo;D:\Anaconda\lib\site-packages\PIL&rsquo;]</p>
 </blockquote>
-<p>Go to this directory and open the file <code>ImageShow.py</code>. I add the following
-code after the line <code>register(WindowsViewer)</code>:</p>
+<p>Go to this directory and open the file <code>ImageShow.py</code>.
+I add the following code after the line <code>register(WindowsViewer)</code>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python>    <span class=k>class</span> <span class=nc>WindowsPNGViewer</span><span class=p>(</span><span class=n>Viewer</span><span class=p>):</span>
         <span class=nb>format</span> <span class=o>=</span> <span class=s2>&#34;PNG&#34;</span>
 
@@ -190,7 +179,7 @@ code after the line <code>register(WindowsViewer)</code>:</p>
 <ul>
 <li><a href=https://pillow.readthedocs.io/en/5.1.x/handbook/concepts.html#concept-modes>Image modes in PIL</a></li>
 <li><a href=https://stackoverflow.com/q/26534148/6064933>Add alpha channel to image</a></li>
-<li><a href=https://stackoverflow.com/questions/9166400/convert-rgba-png-to-rgb-with-pil>Convert RGBA image to RGB image</a></li>
+<li><a href=https://stackoverflow.com/q/9166400/6064933>Convert RGBA image to RGB image</a></li>
 <li><a href=https://github.com/python-pillow/Pillow/issues/3695>Image with alpha channel is not displayed correctly on Windows</a></li>
 </ul>
 <section class=footnotes role=doc-endnotes>
@@ -213,7 +202,7 @@ code after the line <code>register(WindowsViewer)</code>:</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2020-03-11
+2022-04-02
 </span>
 </p>
 <p class=copyright-item>

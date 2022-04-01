@@ -1,0 +1,283 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>How to Do Alpha-compositing in Pillow - jdhao's digital space</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="What is alpha-compositing If you have two images A and B, you alpha-composite A over B, it will create an effect that you can see both image A and B in the resulting image, as if A has transparency and you can see through A and also see B.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2022/04/01/image_alpha_composite_pillow/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="How to Do Alpha-compositing in Pillow">
+<meta property="og:description" content="
+
+
+What is alpha-compositing
+If you have two images A and B, you alpha-composite A over B, it will create an effect that you can see both image A and B in the resulting image, as if A has transparency and you can see through A and also see B.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2022/04/01/image_alpha_composite_pillow/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2022-04-01T23:40:04+08:00">
+<meta property="article:modified_time" content="2022-04-02T01:03:14+08:00">
+<meta itemprop=name content="How to Do Alpha-compositing in Pillow">
+<meta itemprop=description content="
+
+
+What is alpha-compositing
+If you have two images A and B, you alpha-composite A over B, it will create an effect that you can see both image A and B in the resulting image, as if A has transparency and you can see through A and also see B."><meta itemprop=datePublished content="2022-04-01T23:40:04+08:00">
+<meta itemprop=dateModified content="2022-04-02T01:03:14+08:00">
+<meta itemprop=wordCount content="496">
+<meta itemprop=keywords content="PIL,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="How to Do Alpha-compositing in Pillow">
+<meta name=twitter:description content="
+
+
+What is alpha-compositing
+If you have two images A and B, you alpha-composite A over B, it will create an effect that you can see both image A and B in the resulting image, as if A has transparency and you can see through A and also see B."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's digital space</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's digital space</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>How to Do Alpha-compositing in Pillow</h1>
+<div class=post-meta>
+<span class=post-time> 2022-04-01 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 496 words </span>
+<span class=more-meta> 3 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+</div>
+</div>
+<div class=post-content>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/202204020034075.jpg width=800>
+</p>
+<h1 id=what-is-alpha-compositing>What is alpha-compositing</h1>
+<p>If you have two images A and B, you <a href=https://en.wikipedia.org/wiki/Alpha_compositing>alpha-composite</a> A over B, it will create an effect that you can see both image A and B in the resulting image, as if A has transparency and you can <em>see</em> through A and also see B.</p>
+<h1 id=how-does-alpha-compositing-work>How does alpha-compositing work?</h1>
+<p>Suppose a is the src image, b is the destination image, we composite a over b. The equation for alpha value and pixel value of the generated image are:</p>
+<p><span class="math display">\[\alpha = \alpha_a + \alpha_b (1-\alpha_a)\]</span></p>
+<p><span class="math display">\[\begin{aligned} v &= \frac{ \alpha_a v_a + \alpha_b (1-\alpha_a) v_b}{\alpha_a + \alpha_b (1-\alpha_a)}\\
+&= \frac{\alpha_a}{\alpha_a + \alpha_b (1-\alpha_a)} v_a + \frac{\alpha_b (1-\alpha_a)}{\alpha_a + \alpha_b (1-\alpha_a)} v_b
+\end{aligned}\]</span></p>
+<p>So it is easy to see that the resulting pixel value is a linear combination of pixel value from a and b.</p>
+<p>For RGB images, this is done for per-channel per-pixel.</p>
+<p>Note that in Pillow, the alpha value is rescaled from <span class="math inline">\([0, 1.0]\)</span> to <span class="math inline">\([0, 255]\)</span>.</p>
+<div class=sourceCode id=cb1><pre class="sourceCode python"><code class="sourceCode python"><span id=cb1-1><a href=#cb1-1></a><span class=im>import</span> numpy <span class=im>as</span> np</span>
+<span id=cb1-2><a href=#cb1-2></a><span class=im>from</span> PIL <span class=im>import</span> Image</span>
+<span id=cb1-3><a href=#cb1-3></a></span>
+<span id=cb1-4><a href=#cb1-4></a></span>
+<span id=cb1-5><a href=#cb1-5></a><span class=kw>def</span> main():</span>
+<span id=cb1-6><a href=#cb1-6></a>    <span class=co># alpha for im1 is 0.5 (rescaled in [0, 1.0] range)</span></span>
+<span id=cb1-7><a href=#cb1-7></a>    im1 <span class=op>=</span> Image.new(<span class=st>&#39;RGBA&#39;</span>, (<span class=dv>100</span>, <span class=dv>100</span>), (<span class=dv>200</span>, <span class=dv>0</span>, <span class=dv>0</span>, <span class=dv>128</span>))</span>
+<span id=cb1-8><a href=#cb1-8></a>    <span class=co># alpha for im2 is also 0.5</span></span>
+<span id=cb1-9><a href=#cb1-9></a>    im2 <span class=op>=</span> Image.new(<span class=st>&#39;RGBA&#39;</span>, (<span class=dv>100</span>, <span class=dv>100</span>), (<span class=dv>0</span>, <span class=dv>100</span>, <span class=dv>0</span>, <span class=dv>128</span>))</span>
+<span id=cb1-10><a href=#cb1-10></a></span>
+<span id=cb1-11><a href=#cb1-11></a>    <span class=co># im1.show()</span></span>
+<span id=cb1-12><a href=#cb1-12></a>    <span class=co># im2.show()</span></span>
+<span id=cb1-13><a href=#cb1-13></a></span>
+<span id=cb1-14><a href=#cb1-14></a>    im1.alpha_composite(im2)</span>
+<span id=cb1-15><a href=#cb1-15></a>    im1.show()</span>
+<span id=cb1-16><a href=#cb1-16></a></span>
+<span id=cb1-17><a href=#cb1-17></a>    r, g, b, a <span class=op>=</span> im1.split()</span>
+<span id=cb1-18><a href=#cb1-18></a>    <span class=bu>print</span>(np.array(g))</span>
+<span id=cb1-19><a href=#cb1-19></a></span>
+<span id=cb1-20><a href=#cb1-20></a></span>
+<span id=cb1-21><a href=#cb1-21></a><span class=cf>if</span> <span class=va>__name__</span> <span class=op>==</span> <span class=st>&quot;__main__&quot;</span>:</span>
+<span id=cb1-22><a href=#cb1-22></a>    main()</span></code></pre></div>
+<p>To test the correctness of the above equations, use the above script. After alpha compositing, the value for channel R and G of <code>im1</code> should be all 67, for channel <code>B</code> should be all 0, and for alpha channel should be all 192 (without rescale, it should be 0.75).</p>
+<h1 id=composite-two-jpeg-images>Composite two JPEG images</h1>
+<p>So if we have a large image A and we want to overlay a small image B onto it. How do we do it correctly? Suppose A and B are just JPEG images with no alpha channels.</p>
+<p>We should first add an alpha channel with value 255 for image A. This is the crucial step for correct alpha-compositing. This will not affect the region in A that do not have overlap with image B. Otherwise, you will get a opaque look for those regions.</p>
+<p>Then we should set proper alpha for image B, depending on how you want to composite. For example, if you want B to completely dominate the overlapping region, you can set alpha to 255. If you want to show partial A and B, you can set alpha to a value between 0 and 255. The larger alpha gets, the less you will <em>see</em> the underlying part of image A.</p>
+<div class=sourceCode id=cb2><pre class="sourceCode python"><code class="sourceCode python"><span id=cb2-1><a href=#cb2-1></a><span class=im>import</span> numpy <span class=im>as</span> np</span>
+<span id=cb2-2><a href=#cb2-2></a></span>
+<span id=cb2-3><a href=#cb2-3></a><span class=im>from</span> PIL <span class=im>import</span> Image, ImageFilter</span>
+<span id=cb2-4><a href=#cb2-4></a></span>
+<span id=cb2-5><a href=#cb2-5></a></span>
+<span id=cb2-6><a href=#cb2-6></a><span class=kw>def</span> main():</span>
+<span id=cb2-7><a href=#cb2-7></a>    im <span class=op>=</span> Image.<span class=bu>open</span>(<span class=st>&#39;./cat.jpg&#39;</span>)</span>
+<span id=cb2-8><a href=#cb2-8></a>    im.putalpha(<span class=dv>255</span>)</span>
+<span id=cb2-9><a href=#cb2-9></a></span>
+<span id=cb2-10><a href=#cb2-10></a>    em_im <span class=op>=</span> Image.<span class=bu>open</span>(<span class=st>&#39;./fish.jpg&#39;</span>)</span>
+<span id=cb2-11><a href=#cb2-11></a>    em_im.putalpha(<span class=dv>150</span>)</span>
+<span id=cb2-12><a href=#cb2-12></a></span>
+<span id=cb2-13><a href=#cb2-13></a>    dst_coord <span class=op>=</span> (<span class=dv>360</span>, <span class=dv>310</span>)</span>
+<span id=cb2-14><a href=#cb2-14></a>    src_coord <span class=op>=</span> (<span class=dv>0</span>, <span class=dv>0</span>)</span>
+<span id=cb2-15><a href=#cb2-15></a></span>
+<span id=cb2-16><a href=#cb2-16></a>    im.alpha_composite(em_im, dst_coord, src_coord)</span>
+<span id=cb2-17><a href=#cb2-17></a>    im.save(<span class=st>&#39;cat-and-fish.png&#39;</span>)</span>
+<span id=cb2-18><a href=#cb2-18></a></span>
+<span id=cb2-19><a href=#cb2-19></a></span>
+<span id=cb2-20><a href=#cb2-20></a><span class=cf>if</span> <span class=va>__name__</span> <span class=op>==</span> <span class=st>&quot;__main__&quot;</span>:</span>
+<span id=cb2-21><a href=#cb2-21></a>    main()</span></code></pre></div>
+<p>In the title image, I show the generated image using three different alpha values for image B. The transparency decreases as we increase the value of alpha.</p>
+<h1 id=references>References</h1>
+<ul>
+<li>https://pillow.readthedocs.io/en/stable/reference/Image.html#PIL.Image.Image.alpha_composite</li>
+</ul>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2022-04-02
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/PIL/>PIL</a>
+</div>
+<nav class=post-nav>
+<a class=next href=/2022/03/28/how_to_make_zhajiang2/>
+<span class="next-text nav-default">地道美味炸酱制作方法</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://www.linkedin.com/in/jiedong-hao-740163227/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
+2017 -
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>
