@@ -35,15 +35,15 @@ If you have two images A and B, you alpha-composite A over B, it will create an 
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2022/04/01/image_alpha_composite_pillow/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-04-01T23:40:04+08:00">
-<meta property="article:modified_time" content="2022-04-02T01:10:56+08:00">
+<meta property="article:modified_time" content="2022-04-02T12:57:22+08:00">
 <meta itemprop=name content="How to Do Image Alpha-compositing in Pillow">
 <meta itemprop=description content="
 
 
 What is alpha-compositing
 If you have two images A and B, you alpha-composite A over B, it will create an effect that you can see both image A and B in the resulting image, as if A has transparency and you can see through A and also see B."><meta itemprop=datePublished content="2022-04-01T23:40:04+08:00">
-<meta itemprop=dateModified content="2022-04-02T01:10:56+08:00">
-<meta itemprop=wordCount content="496">
+<meta itemprop=dateModified content="2022-04-02T12:57:22+08:00">
+<meta itemprop=wordCount content="550">
 <meta itemprop=keywords content="PIL,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="How to Do Image Alpha-compositing in Pillow">
 <meta name=twitter:description content="
@@ -111,7 +111,7 @@ If you have two images A and B, you alpha-composite A over B, it will create an 
 <div class=post-category>
 <a href=/categories/Python/> Python </a>
 </div>
-<span class=more-meta> 496 words </span>
+<span class=more-meta> 550 words </span>
 <span class=more-meta> 3 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -135,7 +135,7 @@ If you have two images A and B, you alpha-composite A over B, it will create an 
 \end{aligned}\]</span></p>
 <p>So it is easy to see that the resulting pixel value is a linear combination of pixel value from a and b.</p>
 <p>For RGB images, this is done for per-channel per-pixel.</p>
-<p>Note that in Pillow, the alpha value is rescaled from <span class="math inline">\([0, 1.0]\)</span> to <span class="math inline">\([0, 255]\)</span>.</p>
+<p>Note that in Pillow, the alpha value is rescaled from <span class="math inline">\([0, 1.0]\)</span> to <span class="math inline">\([0, 255]\)</span>. So in the following text, I will use the range <span class="math inline">\([0, 255]\)</span> and it should not cause any confusion.</p>
 <div class=sourceCode id=cb1><pre class="sourceCode python"><code class="sourceCode python"><span id=cb1-1><a href=#cb1-1></a><span class=im>import</span> numpy <span class=im>as</span> np</span>
 <span id=cb1-2><a href=#cb1-2></a><span class=im>from</span> PIL <span class=im>import</span> Image</span>
 <span id=cb1-3><a href=#cb1-3></a></span>
@@ -162,7 +162,9 @@ If you have two images A and B, you alpha-composite A over B, it will create an 
 <h1 id=composite-two-jpeg-images>Composite two JPEG images</h1>
 <p>So if we have a large image A and we want to overlay a small image B onto it. How do we do it correctly? Suppose A and B are just JPEG images with no alpha channels.</p>
 <p>We should first add an alpha channel with value 255 for image A. This is the crucial step for correct alpha-compositing. This will not affect the region in A that do not have overlap with image B. Otherwise, you will get a opaque look for those regions.</p>
-<p>Then we should set proper alpha for image B, depending on how you want to composite. For example, if you want B to completely dominate the overlapping region, you can set alpha to 255. If you want to show partial A and B, you can set alpha to a value between 0 and 255. The larger alpha gets, the less you will <em>see</em> the underlying part of image A.</p>
+<p>Then we should set proper alpha for image B, depending on how you want to composite. In this case, the pixel value for the resulting image becomes simply:</p>
+<p><span class="math display">\[v = \alpha v_a + (1-\alpha) v_b\]</span></p>
+<p>You can change <span class="math inline">\(\alpha\)</span> to control the contribution of A and B to the result image. For example, if you want B to completely dominate the overlapping region, you can set alpha to 255. If you want to show partial A and B, you can set alpha to a value between 0 and 255. The larger alpha gets, the less you will <em>see</em> the underlying part of image A.</p>
 <div class=sourceCode id=cb2><pre class="sourceCode python"><code class="sourceCode python"><span id=cb2-1><a href=#cb2-1></a><span class=im>import</span> numpy <span class=im>as</span> np</span>
 <span id=cb2-2><a href=#cb2-2></a></span>
 <span id=cb2-3><a href=#cb2-3></a><span class=im>from</span> PIL <span class=im>import</span> Image, ImageFilter</span>
