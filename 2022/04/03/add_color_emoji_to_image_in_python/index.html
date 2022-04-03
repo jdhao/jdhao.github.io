@@ -1,0 +1,358 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>How to Add Color Emoji to Image in Python - jdhao's digital space</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="In this post, I would like to share how to add color emoji to image with Python.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2022/04/03/add_color_emoji_to_image_in_python/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="How to Add Color Emoji to Image in Python">
+<meta property="og:description" content="
+
+
+In this post, I would like to share how to add color emoji to image with Python.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2022/04/03/add_color_emoji_to_image_in_python/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2022-04-03T11:52:55+08:00">
+<meta property="article:modified_time" content="2022-04-03T14:45:23+08:00">
+<meta itemprop=name content="How to Add Color Emoji to Image in Python">
+<meta itemprop=description content="
+
+
+In this post, I would like to share how to add color emoji to image with Python."><meta itemprop=datePublished content="2022-04-03T11:52:55+08:00">
+<meta itemprop=dateModified content="2022-04-03T14:45:23+08:00">
+<meta itemprop=wordCount content="667">
+<meta itemprop=keywords content="font,PIL,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="How to Add Color Emoji to Image in Python">
+<meta name=twitter:description content="
+
+
+In this post, I would like to share how to add color emoji to image with Python."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's digital space</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's digital space</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>How to Add Color Emoji to Image in Python</h1>
+<div class=post-meta>
+<span class=post-time> 2022-04-03 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 667 words </span>
+<span class=more-meta> 4 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#use-pillow>Use Pillow</a>
+<ul>
+<li><a href=#special-note-on-apple-color-emoji>special note on Apple Color Emoji</a></li>
+<li><a href=#disadvantages>Disadvantages</a></li>
+</ul>
+</li>
+<li><a href=#use-package-augly>Use package Augly</a></li>
+<li><a href=#use-package-pilmoji>Use package pilmoji</a></li>
+<li><a href=#references>References</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/202204031210116.png width=500>
+</p>
+<p>In this post, I would like to share how to add <a href=https://en.wikipedia.org/wiki/Emoji>color emoji</a> to image with Python.</p>
+<h1 id=use-pillow>Use Pillow</h1>
+<p>We can use Pillow directly to draw color emoji with color emoji fonts. Some of the available fonts are:</p>
+<ul>
+<li><a href=https://github.com/googlefonts/noto-emoji>NotoColorEmoji</a>: developed by Google and open source</li>
+<li><a href=https://en.wikipedia.org/wiki/Apple_Color_Emoji>AppleColorEmoji</a>: developed by Apple and used on Apple devices. Not free.</li>
+<li><a href=https://docs.microsoft.com/en-us/typography/font-list/segoe-ui-emoji>Microsoft segoe ui color emoji</a>: developed by Microsoft, not free.</li>
+<li><a href=https://github.com/twitter/twemoji>twemoji</a>: developed by Twitter. You can view the twemoji <a href=https://twemoji-cheatsheet.vercel.app/>here</a><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</li>
+</ul>
+<p><a href=https://aur.archlinux.org/packages/ttf-symbola>Symbola</a> is also a emoji font, but it seems that it does not have color.</p>
+<p>Here is a simple script to try those fonts:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span><span class=p>,</span> <span class=n>ImageDraw</span><span class=p>,</span> <span class=n>ImageFont</span>
+
+<span class=n>back_ground_color</span> <span class=o>=</span> <span class=p>(</span><span class=mi>50</span><span class=p>,</span> <span class=mi>50</span><span class=p>,</span> <span class=mi>50</span><span class=p>)</span>
+
+<span class=c1># unicode_text = &#34;some test\U0001f602&#34;</span>
+<span class=n>unicode_text</span> <span class=o>=</span> <span class=s2>&#34;</span><span class=se>\U0001f602</span><span class=s2>&#34;</span>
+<span class=n>im</span> <span class=o>=</span> <span class=n>Image</span><span class=o>.</span><span class=n>new</span><span class=p>(</span><span class=s2>&#34;RGB&#34;</span><span class=p>,</span> <span class=p>(</span><span class=mi>500</span><span class=p>,</span> <span class=mi>500</span><span class=p>),</span> <span class=n>back_ground_color</span><span class=p>)</span>
+<span class=n>draw</span> <span class=o>=</span> <span class=n>ImageDraw</span><span class=o>.</span><span class=n>Draw</span><span class=p>(</span><span class=n>im</span><span class=p>)</span>
+
+<span class=c1># noto emoji, bit-map based, src: https://github.com/googlefonts/noto-emoji/blob/main/fonts/NotoColorEmoji.ttf</span>
+<span class=c1># apple emoji, bit-map based, src: https://github.com/samuelngs/apple-emoji-linux/releases</span>
+<span class=c1># segoe ui emoji, vector-based, works with different font size, font from here: https://fontsdata.com/132714/segoeuiemoji.htm (for test only)</span>
+
+<span class=n>font_info</span> <span class=o>=</span> <span class=p>{</span><span class=s1>&#39;symbola&#39;</span><span class=p>:</span> <span class=p>[</span><span class=sa>r</span><span class=s2>&#34;E:\symbola-font\Symbola-AjYx.ttf&#34;</span><span class=p>,</span> <span class=mi>30</span><span class=p>],</span>
+             <span class=s1>&#39;notoemoji&#39;</span><span class=p>:</span> <span class=p>[</span><span class=sa>r</span><span class=s2>&#34;E:\NotoColorEmoji.ttf&#34;</span><span class=p>,</span> <span class=mi>109</span><span class=p>],</span>
+             <span class=s1>&#39;appleemoji&#39;</span><span class=p>:</span> <span class=p>[</span><span class=sa>r</span><span class=s2>&#34;E:\AppleColorEmoji.ttf&#34;</span><span class=p>,</span> <span class=mi>137</span><span class=p>],</span>
+             <span class=s1>&#39;segoeuiemoji&#39;</span><span class=p>:</span> <span class=p>[</span><span class=sa>r</span><span class=s2>&#34;E:\segoeuiemoji\seguiemj.ttf&#34;</span><span class=p>,</span> <span class=mi>50</span><span class=p>]}</span>
+
+<span class=n>pos</span> <span class=o>=</span> <span class=p>[(</span><span class=mi>100</span><span class=p>,</span> <span class=mi>10</span><span class=p>),</span> <span class=p>(</span><span class=mi>50</span><span class=p>,</span> <span class=mi>40</span><span class=p>),</span> <span class=p>(</span><span class=mi>50</span><span class=p>,</span> <span class=mi>160</span><span class=p>),</span> <span class=p>(</span><span class=mi>100</span><span class=p>,</span> <span class=mi>320</span><span class=p>)]</span>
+
+<span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>item</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>font_info</span><span class=o>.</span><span class=n>items</span><span class=p>()):</span>
+    <span class=n>path</span><span class=p>,</span> <span class=n>size</span> <span class=o>=</span> <span class=n>item</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span>
+    <span class=n>font</span> <span class=o>=</span> <span class=n>ImageFont</span><span class=o>.</span><span class=n>truetype</span><span class=p>(</span><span class=n>path</span><span class=p>,</span> <span class=n>size</span><span class=p>)</span>
+    <span class=n>draw</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=n>pos</span><span class=p>[</span><span class=n>i</span><span class=p>],</span> <span class=n>unicode_text</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=n>font</span><span class=p>,</span> <span class=n>embedded_color</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+
+<span class=n>im</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></div><p>Note that for bit-map font, you need to specify the exact font size embedded in it.
+Examples are shown in this <a href=https://github.com/python-pillow/Pillow/pull/4955>PR</a>.
+Otherwise, you will get <a href=https://github.com/python-pillow/Pillow/issues/6166>invalid pixel size error</a>.
+For vector format color emoji font, you can use different font sizes just like using a normal font.</p>
+<h2 id=special-note-on-apple-color-emoji>special note on Apple Color Emoji</h2>
+<p>In the above script, I used <a href=https://github.com/samuelngs/apple-emoji-linux>apple color emoji for linux</a>, which is not the same as Apple Color Emoji provided on macOS.
+Based on my experimentation, it only embed one resolution for emoji: 137.
+However, the original Apple Color Emoji has <a href=https://en.wikipedia.org/wiki/Apple_Color_Emoji#Implementation>several resolutions</a>: 20, 32, 40, 48, 64, 96 and 160.</p>
+<p>For example, the following works for me on macOS with font size 64:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span><span class=p>,</span> <span class=n>ImageDraw</span><span class=p>,</span> <span class=n>ImageFont</span>
+
+<span class=n>back_ground_color</span> <span class=o>=</span> <span class=p>(</span><span class=mi>50</span><span class=p>,</span> <span class=mi>50</span><span class=p>,</span> <span class=mi>50</span><span class=p>)</span>
+
+<span class=n>im</span> <span class=o>=</span> <span class=n>Image</span><span class=o>.</span><span class=n>new</span><span class=p>(</span><span class=s2>&#34;RGB&#34;</span><span class=p>,</span> <span class=p>(</span><span class=mi>500</span><span class=p>,</span> <span class=mi>200</span><span class=p>),</span> <span class=n>back_ground_color</span><span class=p>)</span>
+<span class=n>draw</span> <span class=o>=</span> <span class=n>ImageDraw</span><span class=o>.</span><span class=n>Draw</span><span class=p>(</span><span class=n>im</span><span class=p>)</span>
+
+<span class=n>font</span> <span class=o>=</span> <span class=n>ImageFont</span><span class=o>.</span><span class=n>truetype</span><span class=p>(</span><span class=s1>&#39;/System/Library/Fonts/Apple Color Emoji.ttc&#39;</span><span class=p>,</span> <span class=mi>64</span><span class=p>)</span>
+
+<span class=n>unicode_text</span> <span class=o>=</span> <span class=s2>&#34;</span><span class=se>\U0001f602\u2764\U0001f639\U0001f335\U0001f525\U0001f992\u3297</span><span class=s2>&#34;</span>
+<span class=n>draw</span><span class=o>.</span><span class=n>text</span><span class=p>((</span><span class=mi>10</span><span class=p>,</span> <span class=mi>100</span><span class=p>),</span> <span class=n>unicode_text</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=n>font</span><span class=p>,</span> <span class=n>embedded_color</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+<span class=n>im</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></div><h2 id=disadvantages>Disadvantages</h2>
+<p>With this method, you can not mix text and emoji since these emoji font does not support normal text.
+You need to write extra code to mix text and emoji naturally, which is no easy task.</p>
+<h1 id=use-package-augly>Use package Augly</h1>
+<p><a href=https://github.com/facebookresearch/AugLy>Augly</a> from Facebook also supports add emoji to image. It can randomly add an emoji to your image.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>os</span>
+
+<span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span>
+
+<span class=kn>from</span> <span class=nn>augly.utils.base_paths</span> <span class=kn>import</span> <span class=n>EMOJI_DIR</span>
+<span class=kn>import</span> <span class=nn>augly.image</span> <span class=k>as</span> <span class=nn>imaugs</span>
+
+
+<span class=k>def</span> <span class=nf>main</span><span class=p>():</span>
+    <span class=n>im_path</span> <span class=o>=</span> <span class=s2>&#34;./test.jpg&#34;</span>
+    <span class=n>im</span> <span class=o>=</span> <span class=n>Image</span><span class=o>.</span><span class=n>open</span><span class=p>(</span><span class=n>im_path</span><span class=p>)</span><span class=o>.</span><span class=n>convert</span><span class=p>(</span><span class=s1>&#39;RGB&#39;</span><span class=p>)</span>
+
+    <span class=n>emoji_category</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;activity&#39;</span><span class=p>,</span> <span class=s1>&#39;alphanumeric&#39;</span><span class=p>,</span> <span class=s1>&#39;animals_and_nature&#39;</span><span class=p>,</span> <span class=s1>&#39;flags&#39;</span><span class=p>,</span> <span class=s1>&#39;food_and_drink&#39;</span><span class=p>,</span>
+                      <span class=s1>&#39;objects&#39;</span><span class=p>,</span> <span class=s1>&#39;people&#39;</span><span class=p>,</span> <span class=s1>&#39;smileys&#39;</span><span class=p>,</span> <span class=s1>&#39;symbols&#39;</span><span class=p>,</span> <span class=s1>&#39;travel_and_places&#39;</span><span class=p>]</span>
+
+    <span class=n>x</span><span class=p>,</span> <span class=n>y</span> <span class=o>=</span> <span class=p>(</span><span class=mf>0.8</span><span class=p>,</span> <span class=mf>0.8</span><span class=p>)</span>
+    <span class=n>opacity</span> <span class=o>=</span> <span class=mf>0.7</span>
+    <span class=n>emoji_size</span> <span class=o>=</span> <span class=mf>0.2</span>
+
+    <span class=k>for</span> <span class=n>c</span> <span class=ow>in</span> <span class=n>emoji_category</span><span class=p>:</span>
+        <span class=n>emoji_dir</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>EMOJI_DIR</span><span class=p>,</span> <span class=n>c</span><span class=p>)</span>
+        <span class=n>emoji_aug</span> <span class=o>=</span> <span class=n>imaugs</span><span class=o>.</span><span class=n>RandomEmojiOverlay</span><span class=p>(</span><span class=n>emoji_directory</span><span class=o>=</span><span class=n>emoji_dir</span><span class=p>,</span> <span class=n>opacity</span><span class=o>=</span><span class=n>opacity</span><span class=p>,</span>
+                                              <span class=n>emoji_size</span><span class=o>=</span><span class=n>emoji_size</span><span class=p>,</span> <span class=n>x_pos</span><span class=o>=</span><span class=n>x</span><span class=p>,</span> <span class=n>y_pos</span><span class=o>=</span><span class=n>y</span><span class=p>)</span>
+        <span class=n>new_im</span> <span class=o>=</span> <span class=n>emoji_aug</span><span class=p>(</span><span class=n>im</span><span class=p>)</span>
+        <span class=n>new_im</span><span class=o>.</span><span class=n>save</span><span class=p>(</span><span class=sa>f</span><span class=s1>&#39;cat-emoji-</span><span class=si>{</span><span class=n>c</span><span class=si>}</span><span class=s1>.jpg&#39;</span><span class=p>)</span>
+
+
+<span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+    <span class=n>main</span><span class=p>()</span>
+</code></pre></div><p>Augly also has a <a href=https://augly.readthedocs.io/en/latest/augly.image.html#augly.image.OverlayEmoji>OverlayEmoji</a> class to apply a specific emoji to image.
+However, the emoji must be in PNG format, so it means you have to use png supplied by Augly, which is not flexible.</p>
+<h1 id=use-package-pilmoji>Use package pilmoji</h1>
+<p><a href=https://github.com/jay3332/pilmoji>Pilmoji</a> supports multiple source of emoji and also supports mixing emoji and regular text.
+Note that it requires Python 3.8 or higher.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>pilmoji</span> <span class=kn>import</span> <span class=n>Pilmoji</span>
+<span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span><span class=p>,</span> <span class=n>ImageFont</span>
+
+<span class=n>im</span> <span class=o>=</span> <span class=n>Image</span><span class=o>.</span><span class=n>new</span><span class=p>(</span><span class=s1>&#39;RGB&#39;</span><span class=p>,</span> <span class=p>(</span><span class=mi>1024</span><span class=p>,</span> <span class=mi>768</span><span class=p>))</span>
+
+<span class=n>drawer</span> <span class=o>=</span> <span class=n>Pilmoji</span><span class=p>(</span><span class=n>im</span><span class=p>)</span>
+
+<span class=n>FONT_PATH</span> <span class=o>=</span> <span class=s1>&#39;./NotoSansSC-Regular.otf&#39;</span>
+<span class=n>font_size</span> <span class=o>=</span> <span class=mi>30</span>
+<span class=n>font</span> <span class=o>=</span> <span class=n>ImageFont</span><span class=o>.</span><span class=n>truetype</span><span class=p>(</span><span class=n>FONT_PATH</span><span class=p>,</span> <span class=n>size</span><span class=o>=</span><span class=n>font_size</span><span class=p>)</span>
+
+<span class=n>text</span> <span class=o>=</span> <span class=s2>&#34;Hello, world! 👋 Here are some emojis: 🎨 🌊 😎&#34;</span>
+<span class=n>drawer</span><span class=p>((</span><span class=mi>10</span><span class=p>,</span> <span class=mi>10</span><span class=p>),</span> <span class=n>text</span><span class=p>,</span> <span class=n>font</span><span class=o>=</span><span class=n>font</span><span class=p>)</span>
+
+<span class=n>im</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</code></pre></div><p>Under the hood, it downloads the emoji in PNG format and <a href=https://jdhao.github.io/2022/04/01/image_alpha_composite_pillow/>composite</a> them to the original image.</p>
+<p>Pilmoji is easy to use and has done all the heavy lifting of mixing text and emoji for you.
+It may be the best choice if we want to mix text and emoji and show them on image.</p>
+<h1 id=references>References</h1>
+<ul>
+<li><a href=https://en.wikipedia.org/wiki/Implementation_of_emojis>https://en.wikipedia.org/wiki/Implementation_of_emojis</a></li>
+<li><a href=https://stackoverflow.com/q/64253461/6064933>Insert colorful emoji into an image(Python)</a></li>
+</ul>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>There is twemoji-color-font <a href=https://github.com/eosrei/twemoji-color-font>here</a>, but it is in SVGinOT format, which <a href=https://github.com/python-pillow/Pillow/issues/6170>is not supported in Pillow</a> yet.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2022-04-03
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/wechat.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/zhifubao.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/font/>font</a>
+<a href=/tags/PIL/>PIL</a>
+</div>
+<nav class=post-nav>
+<a class=next href=/2022/04/01/image_alpha_composite_pillow/>
+<span class="next-text nav-default">How to Do Image Alpha-compositing in Pillow</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://www.linkedin.com/in/jiedong-hao-740163227/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
+2017 -
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>
