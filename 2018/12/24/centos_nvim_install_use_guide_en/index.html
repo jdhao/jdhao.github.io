@@ -12,7 +12,7 @@
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
 <meta name=author content="jdhao"><meta name=description content=" Change log  2022-01-29: Add deprecation notice 2021-01-17: Install nvim via tar ball instead of appimage 2020-12-01: Add detailed guide on installing Neovim on Linux   TL;DR: My complete nvim configuration is here. Follow the guide there on how to use it. Most of the config below also applies to Windows and Mac. For how to configure Neovim on Windows, you may also be interested in this post.
-2022-01-29: Note that this post is written more than three years ago. Some of the plugins mentioned here may not be maintained or may not be the best fit for Neovim, or even not need anymore, e.g., highlighted yank is builtin in Neovim since May 2020. I have shared some of the plugin changes in this post.
+2022-01-29: Note that this post is written more than three years ago. Some of the plugins mentioned here may not be maintained or may not be the best fit for Neovim, or even not needed, e.g., highlighted yank is builtin in Neovim since May 2020. I have shared some of the plugin changes in this post.
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
@@ -43,13 +43,13 @@ TL;DR: My complete nvim configuration is here. Follow the guide there on how to
 use it. Most of the config below also applies to Windows and Mac. For how to
 configure Neovim on Windows, you may also be interested in this post.
 2022-01-29: Note that this post is written more than three years ago.
-Some of the plugins mentioned here may not be maintained or may not be the best fit for Neovim,
-or even not need anymore, e.g., highlighted yank is builtin in Neovim since May 2020.
+Some of the plugins mentioned here may not be maintained or may not be the best fit for Neovim, or even not needed,
+e.g., highlighted yank is builtin in Neovim since May 2020.
 I have shared some of the plugin changes in this post.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2018-12-24T00:14:00+08:00">
-<meta property="article:modified_time" content="2022-02-12T17:09:43+08:00">
+<meta property="article:modified_time" content="2022-04-04T16:41:08+08:00">
 <meta itemprop=name content="A Complete Guide to Neovim Configuration for Python Development">
 <meta itemprop=description content="
 
@@ -66,11 +66,11 @@ TL;DR: My complete nvim configuration is here. Follow the guide there on how to
 use it. Most of the config below also applies to Windows and Mac. For how to
 configure Neovim on Windows, you may also be interested in this post.
 2022-01-29: Note that this post is written more than three years ago.
-Some of the plugins mentioned here may not be maintained or may not be the best fit for Neovim,
-or even not need anymore, e.g., highlighted yank is builtin in Neovim since May 2020.
+Some of the plugins mentioned here may not be maintained or may not be the best fit for Neovim, or even not needed,
+e.g., highlighted yank is builtin in Neovim since May 2020.
 I have shared some of the plugin changes in this post."><meta itemprop=datePublished content="2018-12-24T00:14:00+08:00">
-<meta itemprop=dateModified content="2022-02-12T17:09:43+08:00">
-<meta itemprop=wordCount content="3224">
+<meta itemprop=dateModified content="2022-04-04T16:41:08+08:00">
+<meta itemprop=wordCount content="3223">
 <meta itemprop=keywords content="Python,Linux,font,pylint,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="A Complete Guide to Neovim Configuration for Python Development">
 <meta name=twitter:description content="
@@ -88,8 +88,8 @@ TL;DR: My complete nvim configuration is here. Follow the guide there on how to
 use it. Most of the config below also applies to Windows and Mac. For how to
 configure Neovim on Windows, you may also be interested in this post.
 2022-01-29: Note that this post is written more than three years ago.
-Some of the plugins mentioned here may not be maintained or may not be the best fit for Neovim,
-or even not need anymore, e.g., highlighted yank is builtin in Neovim since May 2020.
+Some of the plugins mentioned here may not be maintained or may not be the best fit for Neovim, or even not needed,
+e.g., highlighted yank is builtin in Neovim since May 2020.
 I have shared some of the plugin changes in this post."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
@@ -151,7 +151,7 @@ I have shared some of the plugin changes in this post."><!--[if lte IE 9]><scrip
 <div class=post-category>
 <a href=/categories/Nvim/> Nvim </a>
 </div>
-<span class=more-meta> 3224 words </span>
+<span class=more-meta> 3223 words </span>
 <span class=more-meta> 16 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -267,8 +267,8 @@ I have shared some of the plugin changes in this post."><!--[if lte IE 9]><scrip
 use it. Most of the config below also applies to Windows and Mac. For how to
 configure Neovim on Windows, you may also be interested in <a href=https://jdhao.github.io/2018/11/15/neovim_configuration_windows/>this post</a>.</p>
 <p><strong>2022-01-29: Note that this post is written more than three years ago.
-Some of the plugins mentioned here may not be maintained or may not be the best fit for Neovim,
-or even not need anymore, e.g., <a href=https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/#neovim-only>highlighted yank is builtin in Neovim since May 2020</a>.
+Some of the plugins mentioned here may not be maintained or may not be the best fit for Neovim, or even not needed,
+e.g., <a href=https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/#neovim-only>highlighted yank is builtin in Neovim since May 2020</a>.
 I have shared some of the plugin changes in <a href=https://jdhao.github.io/2021/12/31/using_nvim_after_three_years/#what-remains-what-has-changed-and-some-new-plugins>this post</a>.</strong></p>
 <p>Vim is a popular code editor on Unix/Linux systems, and it is often compared
 with <a href=https://www.gnu.org/software/emacs/>Emacs</a>, another great code editor
@@ -455,7 +455,7 @@ can achieve this and much more. Simply install it:</p>
 <p>Let&rsquo;s take manipulating double quotes as an example. In insert model, press <code>"</code>,
 it will automatically become two double quotes. At the same time, the cursor is
 placed between the two double quotes, waiting for input. When you finish
-inputing text between the quotes, you may want to place the cursor after the
+inputting text between the quotes, you may want to place the cursor after the
 right quote and continue inserting text. Here comes the magic part: just press
 <code>"</code> one more time, and the cursor will be placed right behind the right quote.</p>
 <h2 id=comment-plugin>comment plugin</h2>
@@ -499,7 +499,7 @@ neoformat do some basic format for the file:</p>
 implementation details. We can use
 <a href=https://github.com/davidhalter/jedi-vim>jedi-vim</a> to achieve this. Actually,
 jedi-vim can also do code auto-completion. Since we have installed deoplete and
-deoplete-jedi, we can disable code completion and only use the code jumpt
+deoplete-jedi, we can disable code completion and only use the code jump
 function of jedi-vim. Install jedi-vim with vim-plug:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Plug &#39;davidhalter/jedi-vim&#39;
 </code></pre></div><p>Use the following simple configuration:</p>
@@ -726,7 +726,7 @@ use the following setting instead:</p>
 <p>More reference <a href=https://stackoverflow.com/q/3025615/6064933>here</a>. See also
 <code>nvim --help</code>.</p>
 <p>OK, that is end of this long post. You can find my complete Nvim configurations
-<a href=https://github.com/jdhao/nvim-config>here</a>. Happy Viming!</p>
+<a href=https://github.com/jdhao/nvim-config>here</a>. Happy Vimming!</p>
 <section class=footnotes role=doc-endnotes>
 <hr>
 <ol>
@@ -734,7 +734,7 @@ use the following setting instead:</p>
 <p>Vim was first released in 1991. Its predecessor is Vi, born in 1978.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
 </li>
 <li id=fn:2 role=doc-endnote>
-<p>Developers would send a patch to Bram. Bram will review it and then merge it on GitHub if he thinks the patch is ok.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+<p>Developers would send a patch to Bram. Bram will review it and then merge it on GitHub if he thinks the patch is okay.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
 </li>
 <li id=fn:3 role=doc-endnote>
 <p>For Windows, the config directory is different. Open neovim and run command <code>:echo stdpath('config')</code> to find the exact directory.&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
@@ -753,7 +753,7 @@ use the following setting instead:</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-02-12
+2022-04-04
 </span>
 </p>
 <p class=copyright-item>

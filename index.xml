@@ -814,8 +814,8 @@ cursor more efficiently.&lt;/p></description></item><item><title>两个大规模
 use it. Most of the config below also applies to Windows and Mac. For how to
 configure Neovim on Windows, you may also be interested in &lt;a href="https://jdhao.github.io/2018/11/15/neovim_configuration_windows/">this post&lt;/a>.&lt;/p>
 &lt;p>&lt;strong>2022-01-29: Note that this post is written more than three years ago.
-Some of the plugins mentioned here may not be maintained or may not be the best fit for Neovim,
-or even not need anymore, e.g., &lt;a href="https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/#neovim-only">highlighted yank is builtin in Neovim since May 2020&lt;/a>.
+Some of the plugins mentioned here may not be maintained or may not be the best fit for Neovim, or even not needed,
+e.g., &lt;a href="https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/#neovim-only">highlighted yank is builtin in Neovim since May 2020&lt;/a>.
 I have shared some of the plugin changes in &lt;a href="https://jdhao.github.io/2021/12/31/using_nvim_after_three_years/#what-remains-what-has-changed-and-some-new-plugins">this post&lt;/a>.&lt;/strong>&lt;/p></description></item><item><title>How Is Newline Handled in Python and Various Editors?</title><link>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</link><pubDate>Sat, 08 Dec 2018 22:30:50 +0800</pubDate><guid>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223253.png" width="800">
 &lt;/p>
