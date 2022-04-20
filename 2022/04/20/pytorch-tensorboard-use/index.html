@@ -31,11 +31,11 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2022/04/20/pytorch-tensorboard-use/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-04-20T20:53:51+08:00">
-<meta property="article:modified_time" content="2022-04-20T20:59:25+08:00">
+<meta property="article:modified_time" content="2022-04-20T21:11:35+08:00">
 <meta itemprop=name content="How to Use Tensorboard in Pytorch">
 <meta itemprop=description content="This is a brief note on how to use Tensorboard in PyTorch."><meta itemprop=datePublished content="2022-04-20T20:53:51+08:00">
-<meta itemprop=dateModified content="2022-04-20T20:59:25+08:00">
-<meta itemprop=wordCount content="244">
+<meta itemprop=dateModified content="2022-04-20T21:11:35+08:00">
+<meta itemprop=wordCount content="252">
 <meta itemprop=keywords content="PyTorch,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="How to Use Tensorboard in Pytorch">
 <meta name=twitter:description content="This is a brief note on how to use Tensorboard in PyTorch."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
@@ -99,7 +99,7 @@
 <div class=post-category>
 <a href=/categories/Note/> Note </a>
 </div>
-<span class=more-meta> 244 words </span>
+<span class=more-meta> 252 words </span>
 <span class=more-meta> 2 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -107,7 +107,11 @@
 <div class=post-toc id=post-toc>
 <h2 class=post-toc-title>Contents</h2>
 <div class=post-toc-content>
-<nav id=TableOfContents></nav>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#references>References</a></li>
+</ul>
+</nav>
 </div>
 </div>
 <div class=post-content>
@@ -155,6 +159,11 @@ This can be achieved with <a href=https://pytorch.org/docs/stable/tensorboard.ht
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>tensorboard --logdir<span class=o>=</span>exp_log
 </code></pre></div><p>The argument <code>--logdir</code> should be followed one of valid tensorboard logs you have written during your experiment.
 Then you can open the browser and check the plots.</p>
+<h1 id=references>References</h1>
+<ul>
+<li>Tensorboard tutorial: <a href=https://pytorch.org/tutorials/intermediate/tensorboard_tutorial.html>https://pytorch.org/tutorials/intermediate/tensorboard_tutorial.html</a></li>
+<li>PyTorch Tensorboard doc: <a href=https://pytorch.org/docs/stable/tensorboard.html>https://pytorch.org/docs/stable/tensorboard.html</a></li>
+</ul>
 </div>
 <div class=post-copyright>
 <p class=copyright-item>
