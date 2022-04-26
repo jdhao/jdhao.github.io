@@ -530,22 +530,19 @@ copy the text, which I find to be quite cumbersome.</p>
 </article>
 <article class=post>
 <header class=post-header>
-<h1 class=post-title><a class=post-link href=/2020/12/29/python_concurrent_futures/>Concurrent.futures in Python</a></h1>
+<h1 class=post-title><a class=post-link href=/2020/12/29/python_concurrent_futures/>Using Concurrent.futures in Python</a></h1>
 <div class=post-meta>
 <span class=post-time> 2020-12-29 </span>
 <div class=post-category>
 <a href=/categories/Python/> Python </a>
 </div>
-<span class=more-meta> 378 words </span>
-<span class=more-meta> 2 mins read </span>
+<span class=more-meta> 465 words </span>
+<span class=more-meta> 3 mins read </span>
 </div>
 </header>
 <div class=post-content>
 <div class=post-summary>
-My notes on using concurrent.futures in Python.
-executor.map() VS executor.submit() There are mainly two different ways to use executor for parallel processing, the first is via executor.map(), and the second way is via executor.submit() combined with concurrent.futures.as_completed().
-Here is a simple example to demonstrate this:
-import time from contextlib import contextmanager from concurrent.futures import ThreadPoolExecutor import concurrent.futures @contextmanager def report_time(des): start = time.time() yield end = time.time() print(f"Time for {des}: {end-start}") def square(x): time.
+<p>My notes on using <a href=https://docs.python.org/3/library/concurrent.futures.html><code>concurrent.futures</code></a> in Python.</p>
 </div>
 <div class=read-more>
 <a href=/2020/12/29/python_concurrent_futures/ class=read-more-link>Read more...</a>
