@@ -1,0 +1,302 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>How to Calculate Sqrt without Builtin Sqrt Method? - jdhao's digital space</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="jdhao"><meta name=description content="I saw an interesting question that how to get square root of x without using builtin function from your language.
+"><meta name=keywords content="Hugo,theme,even">
+<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
+<meta name=generator content="Hugo 0.92.1 with theme even">
+<link rel=canonical href=https://jdhao.github.io/2022/04/28/sqrt_without_using_builtin_sqrt/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
+<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="How to Calculate Sqrt without Builtin Sqrt Method?">
+<meta property="og:description" content="I saw an interesting question that how to get square root of x without using builtin function from your language.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jdhao.github.io/2022/04/28/sqrt_without_using_builtin_sqrt/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2022-04-28T21:45:01+08:00">
+<meta property="article:modified_time" content="2022-04-28T22:46:33+08:00">
+<meta itemprop=name content="How to Calculate Sqrt without Builtin Sqrt Method?">
+<meta itemprop=description content="I saw an interesting question that how to get square root of x without using builtin function from your language."><meta itemprop=datePublished content="2022-04-28T21:45:01+08:00">
+<meta itemprop=dateModified content="2022-04-28T22:46:33+08:00">
+<meta itemprop=wordCount content="517">
+<meta itemprop=keywords content="optimization,math,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="How to Calculate Sqrt without Builtin Sqrt Method?">
+<meta name=twitter:description content="I saw an interesting question that how to get square root of x without using builtin function from your language."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>jdhao's digital space</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>Home</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>Archives</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>Categories</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>Tags</li>
+</a><a href=/about/>
+<li class=mobile-menu-item>About</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>jdhao's digital space</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>Home</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>Archives</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>Categories</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>Tags</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/about/>About</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>How to Calculate Sqrt without Builtin Sqrt Method?</h1>
+<div class=post-meta>
+<span class=post-time> 2022-04-28 </span>
+<div class=post-category>
+<a href=/categories/Programming/> Programming </a>
+</div>
+<span class=more-meta> 517 words </span>
+<span class=more-meta> 3 mins read </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>Contents</h2>
+<div class=post-toc-content>
+</div>
+</div>
+<div class=post-content>
+<p>I saw an interesting question that how to get square root of x without using builtin function from your language.</p>
+<h1 id=babylonian-method>Babylonian method</h1>
+<p>There is a method called <a href=https://stackoverflow.com/a/40528142/6064933>Babylonian method</a> to calculate the square root. See <a href=https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method>this Wikipedia page</a> for the details.</p>
+<p>The code is as follows:</p>
+<div class=sourceCode id=cb1><pre class="sourceCode python"><code class="sourceCode python"><span id=cb1-1><a href=#cb1-1></a><span class=kw>def</span> sqrt(x):</span>
+<span id=cb1-2><a href=#cb1-2></a></span>
+<span id=cb1-3><a href=#cb1-3></a>    <span class=cf>if</span> x <span class=op>==</span> <span class=dv>0</span>:</span>
+<span id=cb1-4><a href=#cb1-4></a>        <span class=cf>return</span> <span class=dv>0</span></span>
+<span id=cb1-5><a href=#cb1-5></a></span>
+<span id=cb1-6><a href=#cb1-6></a>    res <span class=op>=</span> x<span class=op>/</span><span class=fl>2.0</span></span>
+<span id=cb1-7><a href=#cb1-7></a>    eps <span class=op>=</span> <span class=fl>1e-7</span></span>
+<span id=cb1-8><a href=#cb1-8></a></span>
+<span id=cb1-9><a href=#cb1-9></a>    <span class=cf>while</span> res <span class=op>-</span> x<span class=op>/</span>res <span class=op>&gt;</span> eps:</span>
+<span id=cb1-10><a href=#cb1-10></a>        res <span class=op>=</span> (res <span class=op>+</span> x<span class=op>/</span>res) <span class=op>*</span> <span class=fl>0.5</span></span>
+<span id=cb1-11><a href=#cb1-11></a></span>
+<span id=cb1-12><a href=#cb1-12></a>    <span class=cf>return</span> res</span></code></pre></div>
+<p>This method is very fast, it can calculate <span class="math inline">\(sqrt(5)\)</span> is less than 5 iterations.</p>
+<h1 id=gradient-descent>Gradient descent</h1>
+<p>Apart from the Babylonian method, I thought we can also solve this problem with gradient descent easily. Suppose that square root of <span class="math inline">\(x\)</span> is <span class="math inline">\(w\)</span>, then our loss function will be the difference between <span class="math inline">\(x\)</span> and <span class="math inline">\(w^2\)</span>. Our objective is minimize the loss.</p>
+<p>Here is my sample code to solve this problem:</p>
+<div class=sourceCode id=cb2><pre class="sourceCode python"><code class="sourceCode python"><span id=cb2-1><a href=#cb2-1></a><span class=im>import</span> random</span>
+<span id=cb2-2><a href=#cb2-2></a></span>
+<span id=cb2-3><a href=#cb2-3></a><span class=im>import</span> matplotlib.pyplot <span class=im>as</span> plt</span>
+<span id=cb2-4><a href=#cb2-4></a><span class=im>import</span> numpy <span class=im>as</span> np</span>
+<span id=cb2-5><a href=#cb2-5></a></span>
+<span id=cb2-6><a href=#cb2-6></a></span>
+<span id=cb2-7><a href=#cb2-7></a><span class=kw>def</span> main():</span>
+<span id=cb2-8><a href=#cb2-8></a>    x <span class=op>=</span> <span class=dv>5</span></span>
+<span id=cb2-9><a href=#cb2-9></a>    w <span class=op>=</span> random.uniform(<span class=dv>1</span>, x)</span>
+<span id=cb2-10><a href=#cb2-10></a>    <span class=bu>print</span>(<span class=ss>f&quot;initial w: </span><span class=sc>{w}</span><span class=ss>&quot;</span>)</span>
+<span id=cb2-11><a href=#cb2-11></a></span>
+<span id=cb2-12><a href=#cb2-12></a>    n_iter <span class=op>=</span> <span class=dv>200</span></span>
+<span id=cb2-13><a href=#cb2-13></a>    lr <span class=op>=</span> <span class=fl>0.1</span></span>
+<span id=cb2-14><a href=#cb2-14></a>    eps <span class=op>=</span> <span class=fl>0.00001</span></span>
+<span id=cb2-15><a href=#cb2-15></a>    losses <span class=op>=</span> []</span>
+<span id=cb2-16><a href=#cb2-16></a></span>
+<span id=cb2-17><a href=#cb2-17></a>    <span class=cf>for</span> i <span class=kw>in</span> <span class=bu>range</span>(n_iter):</span>
+<span id=cb2-18><a href=#cb2-18></a>        lr <span class=op>=</span> exp_decay_lr_scheduler(lr, i, n_iter)</span>
+<span id=cb2-19><a href=#cb2-19></a>        <span class=co># lr = step_lr_scheduler(lr, i, n_iter)</span></span>
+<span id=cb2-20><a href=#cb2-20></a></span>
+<span id=cb2-21><a href=#cb2-21></a>        dl_dw <span class=op>=</span> get_dl_dw(w, x)</span>
+<span id=cb2-22><a href=#cb2-22></a>        w <span class=op>-=</span> (lr <span class=op>*</span> dl_dw)</span>
+<span id=cb2-23><a href=#cb2-23></a></span>
+<span id=cb2-24><a href=#cb2-24></a>        loss <span class=op>=</span> <span class=bu>abs</span>(x <span class=op>-</span> w<span class=op>**</span><span class=dv>2</span>)</span>
+<span id=cb2-25><a href=#cb2-25></a>        <span class=bu>print</span>(<span class=ss>f&quot;step: </span><span class=sc>{i}</span><span class=ss>, lr: </span><span class=sc>{lr}</span><span class=ss>, w: </span><span class=sc>{w}</span><span class=ss>, loss: </span><span class=sc>{</span>loss<span class=sc>}</span><span class=ss>&quot;</span>)</span>
+<span id=cb2-26><a href=#cb2-26></a>        losses.append(loss)</span>
+<span id=cb2-27><a href=#cb2-27></a></span>
+<span id=cb2-28><a href=#cb2-28></a>        <span class=cf>if</span> loss <span class=op>&lt;</span> eps:</span>
+<span id=cb2-29><a href=#cb2-29></a>            <span class=cf>break</span></span>
+<span id=cb2-30><a href=#cb2-30></a></span>
+<span id=cb2-31><a href=#cb2-31></a>    <span class=bu>print</span>(<span class=ss>f&quot;final w: </span><span class=sc>{w}</span><span class=ss>&quot;</span>)</span>
+<span id=cb2-32><a href=#cb2-32></a></span>
+<span id=cb2-33><a href=#cb2-33></a>    ax <span class=op>=</span> plt.subplot()</span>
+<span id=cb2-34><a href=#cb2-34></a>    x <span class=op>=</span> <span class=bu>range</span>(<span class=bu>len</span>(losses))</span>
+<span id=cb2-35><a href=#cb2-35></a>    ax.plot(x, losses)</span>
+<span id=cb2-36><a href=#cb2-36></a>    ax.set_xlabel(<span class=st>&quot;iteration&quot;</span>)</span>
+<span id=cb2-37><a href=#cb2-37></a>    ax.set_ylabel(<span class=st>&quot;loss&quot;</span>)</span>
+<span id=cb2-38><a href=#cb2-38></a></span>
+<span id=cb2-39><a href=#cb2-39></a>    plt.show()</span>
+<span id=cb2-40><a href=#cb2-40></a></span>
+<span id=cb2-41><a href=#cb2-41></a></span>
+<span id=cb2-42><a href=#cb2-42></a><span class=kw>def</span> step_lr_scheduler(lr, i, n_iter):</span>
+<span id=cb2-43><a href=#cb2-43></a>    lr_factor <span class=op>=</span> <span class=dv>5</span></span>
+<span id=cb2-44><a href=#cb2-44></a>    step <span class=op>=</span> <span class=dv>20</span></span>
+<span id=cb2-45><a href=#cb2-45></a></span>
+<span id=cb2-46><a href=#cb2-46></a>    <span class=cf>if</span> i <span class=op>!=</span> <span class=dv>0</span> <span class=kw>and</span> i <span class=op>%</span> step <span class=op>==</span> <span class=dv>0</span>:</span>
+<span id=cb2-47><a href=#cb2-47></a>        lr <span class=op>=</span> lr <span class=op>/</span> lr_factor</span>
+<span id=cb2-48><a href=#cb2-48></a></span>
+<span id=cb2-49><a href=#cb2-49></a>    <span class=cf>return</span> lr</span>
+<span id=cb2-50><a href=#cb2-50></a></span>
+<span id=cb2-51><a href=#cb2-51></a><span class=kw>def</span> exp_decay_lr_scheduler(lr, i, n_iter):</span>
+<span id=cb2-52><a href=#cb2-52></a>    alpha <span class=op>=</span> <span class=fl>1.0</span></span>
+<span id=cb2-53><a href=#cb2-53></a></span>
+<span id=cb2-54><a href=#cb2-54></a>    <span class=cf>return</span> lr <span class=op>*</span> np.exp(<span class=op>-</span>alpha <span class=op>*</span> i <span class=op>/</span> n_iter)</span>
+<span id=cb2-55><a href=#cb2-55></a></span>
+<span id=cb2-56><a href=#cb2-56></a></span>
+<span id=cb2-57><a href=#cb2-57></a><span class=kw>def</span> get_dl_dw(w, x):</span>
+<span id=cb2-58><a href=#cb2-58></a></span>
+<span id=cb2-59><a href=#cb2-59></a>    <span class=cf>if</span> w<span class=op>*</span>w <span class=op>&gt;=</span> x:</span>
+<span id=cb2-60><a href=#cb2-60></a>        <span class=cf>return</span> <span class=dv>2</span><span class=op>*</span>w</span>
+<span id=cb2-61><a href=#cb2-61></a>    <span class=cf>else</span>:</span>
+<span id=cb2-62><a href=#cb2-62></a>        <span class=cf>return</span> <span class=op>-</span><span class=dv>2</span><span class=op>*</span>w</span>
+<span id=cb2-63><a href=#cb2-63></a></span>
+<span id=cb2-64><a href=#cb2-64></a></span>
+<span id=cb2-65><a href=#cb2-65></a><span class=cf>if</span> <span class=va>__name__</span> <span class=op>==</span> <span class=st>&quot;__main__&quot;</span>:</span>
+<span id=cb2-66><a href=#cb2-66></a>    main()</span></code></pre></div>
+<p>There are two points worth noting.</p>
+<p>First, it is how we calculate the loss. Initially I made the mistake of defining the loss as <span class="math inline">\(x - w^2\)</span>. Since we want to minimize the difference between <span class="math inline">\(x\)</span> and <span class="math inline">\(w^2\)</span>, the loss should be defined as <span class="math inline">\(\Vert x - w^2 \Vert\)</span>. Otherwise, we can never learn a proper value for <span class="math inline">\(w\)</span>.</p>
+<p>Another point is the learning rate schedule. When <span class="math inline">\(w\)</span> is close to its real value, we should use a small learning rate. Otherwise, we will see oscillation of the loss: the loss will bump up and down. I first tried with step policy for learning rate, i.e., reducing the learning rate by a certain factor after the specified steps. With this policy, I found that the loss curve is not smooth and oscillates, and we can not get a loss significantly small than 0.001.</p>
+<p>I tried with the exponentially decaying policy, where we decay the learning rate smoothly with the following factor:</p>
+<p><span class="math display">\[\exp(-\alpha * \frac{i}{N})\]</span></p>
+<p><span class="math inline">\(N\)</span> is the total number of iterations, and <span class="math inline">\(i\)</span> is the current iteration. With this policy, we can approximate <span class="math inline">\(\sqrt{x}\)</span> with precision as high as <span class="math inline">\(1*10^{-5}\)</span> with fewer iterations.</p>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/202204282237723.jpg width=400>
+</p>
+<h1 id=conclusion>Conclusion</h1>
+<p>As you can see, the Babylonian method converges much faster than gradient descent. However, using gradient descent to solve this problem is kind of fun and provides a new perspective.</p>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>Author</span>
+<span class=item-content>jdhao</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>LastMod</span>
+<span class=item-content>
+2022-04-28
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<div class=post-reward>
+<input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>Reward</label>
+<div class=qr-code>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/202204041632562.png>
+<span>wechat</span>
+</label>
+<label class=qr-code-image for=reward>
+<img class=image src=https://blog-resource-1257868508.file.myqcloud.com/202204041633496.jpg>
+<span>alipay</span>
+</label>
+</div>
+</div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/optimization/>optimization</a>
+<a href=/tags/math/>math</a>
+</div>
+<nav class=post-nav>
+<a class=next href=/2022/04/27/nvim_non_greedy_match/>
+<span class="next-text nav-default">How to Match Non-greedily in Nvim/Vim</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
+<a href=https://www.linkedin.com/in/jiedong-hao-740163227/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
+</span>
+<span class=division>|</span>
+<span class=theme-info>
+Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=division>|</span>
+<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+</div>
+<span class=copyright-year>
+&copy;
+2017 -
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+</body>
+</html>
