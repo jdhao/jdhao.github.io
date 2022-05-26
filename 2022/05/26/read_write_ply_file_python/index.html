@@ -31,10 +31,10 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2022/05/26/read_write_ply_file_python/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-05-26T13:26:11+08:00">
-<meta property="article:modified_time" content="2022-05-26T22:59:53+08:00">
+<meta property="article:modified_time" content="2022-05-27T01:09:55+08:00">
 <meta itemprop=name content="How To Read and Write ply File in Python">
 <meta itemprop=description content="In this post, I want to share how to generate ply files in Python."><meta itemprop=datePublished content="2022-05-26T13:26:11+08:00">
-<meta itemprop=dateModified content="2022-05-26T22:59:53+08:00">
+<meta itemprop=dateModified content="2022-05-27T01:09:55+08:00">
 <meta itemprop=wordCount content="415">
 <meta itemprop=keywords content="3D,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="How To Read and Write ply File in Python">
@@ -110,7 +110,7 @@
 <nav id=TableOfContents>
 <ul>
 <li><a href=#open3d>Open3D</a></li>
-<li><a href=#pyntcloud>PyntCloud</a></li>
+<li><a href=#pyntcloud>Pyntcloud</a></li>
 <li><a href=#python-plyfile>Python-plyfile</a></li>
 <li><a href=#meshio>Meshio</a></li>
 <li><a href=#references>References</a></li>
@@ -123,7 +123,7 @@
 <h1 id=open3d>Open3D</h1>
 <p>We can use <a href=https://github.com/isl-org/Open3D>open3d</a>. We can use pip to install it:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>pip</span> <span class=n>install</span> <span class=n>open3d</span>
-</code></pre></div><p>For CentOs 7, I met error when installing the latest version:</p>
+</code></pre></div><p>For CentOS 7, I met error when installing the latest version:</p>
 <blockquote>
 <p>/lib64/libc.so.6: version `GLIBC_2.18' not found</p>
 </blockquote>
@@ -169,8 +169,8 @@
 </ul>
 </li>
 </ul>
-<h1 id=pyntcloud>PyntCloud</h1>
-<p>We can also use <a href=https://github.com/daavoo/pyntcloud>PyntCloud</a>:</p>
+<h1 id=pyntcloud>Pyntcloud</h1>
+<p>We can also use <a href=https://github.com/daavoo/pyntcloud>pyntcloud</a>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>pip install pyntcloud
 </code></pre></div><p>Unlike open3d, for Pyntcloud, we need to convert Numpy array to Pandas data frames.
 Here is an example how to use Pyntcloud:</p>
@@ -224,7 +224,7 @@ Here is how to use it:</p>
 
     <span class=n>el</span> <span class=o>=</span> <span class=n>PlyElement</span><span class=o>.</span><span class=n>describe</span><span class=p>(</span><span class=n>vertex</span><span class=p>,</span> <span class=s1>&#39;vertex&#39;</span><span class=p>)</span>
     <span class=n>PlyData</span><span class=p>([</span><span class=n>el</span><span class=p>],</span> <span class=n>text</span><span class=o>=</span><span class=n>write_text</span><span class=p>)</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=s1>&#39;my_pts3.ply&#39;</span><span class=p>)</span>
-</code></pre></div><p>Summay: Not intuitive API design, at least for writing a ply file.</p>
+</code></pre></div><p>Summary: Not intuitive API design, at least for writing a ply file.</p>
 <h1 id=meshio>Meshio</h1>
 <p><a href=https://github.com/nschloe/meshio>Meshio</a> (<code>pip install meshio</code>) can also do this:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>numpy</span> <span class=k>as</span> <span class=nn>np</span>
@@ -246,7 +246,7 @@ Here is how to use it:</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-05-26
+2022-05-27
 </span>
 </p>
 <p class=copyright-item>
