@@ -322,10 +322,9 @@ following Neovim command:&lt;/p>
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>I was surprised to find that Neovim gives the following error message:&lt;/p>
 &lt;blockquote>
 &lt;p>E77: Too many file names.&lt;/p>
-&lt;/blockquote></description></item><item><title>Bash Emacs-style Shortcut Cheatsheet</title><link>https://jdhao.github.io/2020/10/26/bash_emacs_style_shortcut/</link><pubDate>Mon, 26 Oct 2020 22:44:21 +0800</pubDate><guid>https://jdhao.github.io/2020/10/26/bash_emacs_style_shortcut/</guid><description>&lt;p>In Bash shell, when editting in the command line. There are two different
-modes, &lt;a href="https://unix.stackexchange.com/q/85390/221410">vi mode or Emacs mode&lt;/a>.
-Emacs-mode is the default mode. Below are some of the handy shortcuts in
-Emacs-mode.&lt;/p></description></item><item><title>Switching Buffers in Neovim with mapping</title><link>https://jdhao.github.io/2020/10/16/nvim_switch_buffer_with_mapping/</link><pubDate>Fri, 16 Oct 2020 23:31:37 +0800</pubDate><guid>https://jdhao.github.io/2020/10/16/nvim_switch_buffer_with_mapping/</guid><description>&lt;p>I usually use &lt;code>{num}Ctrl-6&lt;/code> to switch buffers in Neovim, where &lt;code>{num}&lt;/code> is the
+&lt;/blockquote></description></item><item><title>Bash Emacs-style Shortcut Cheatsheet</title><link>https://jdhao.github.io/2020/10/26/bash_emacs_style_shortcut/</link><pubDate>Mon, 26 Oct 2020 22:44:21 +0800</pubDate><guid>https://jdhao.github.io/2020/10/26/bash_emacs_style_shortcut/</guid><description>&lt;p>In Bash shell, when editting in the command line.
+There are two different modes, &lt;a href="https://unix.stackexchange.com/q/85390/221410">vi mode or Emacs mode&lt;/a>. Emacs-mode is the default mode.
+Below are some of the handy shortcuts in Emacs-mode.&lt;/p></description></item><item><title>Switching Buffers in Neovim with mapping</title><link>https://jdhao.github.io/2020/10/16/nvim_switch_buffer_with_mapping/</link><pubDate>Fri, 16 Oct 2020 23:31:37 +0800</pubDate><guid>https://jdhao.github.io/2020/10/16/nvim_switch_buffer_with_mapping/</guid><description>&lt;p>I usually use &lt;code>{num}Ctrl-6&lt;/code> to switch buffers in Neovim, where &lt;code>{num}&lt;/code> is the
 number of buffer (see &lt;a href="https://jdhao.github.io/2018/09/29/Switching_buffers_quickly_Neovim/">this post&lt;/a>).
 Since Neovim has built-in &lt;code>gt&lt;/code> mapping to switch between tabpages, I thought it
 might be a good idea to use &lt;code>gb&lt;/code> as buffer switching shortcut avoid strech when
