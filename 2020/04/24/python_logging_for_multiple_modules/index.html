@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>How to Use Unified Logging Config Across the Project - jdhao's digital space</title>
+<title>How to Use Unified Logging Config Across Your Project - jdhao's digital space</title>
 <meta name=renderer content="webkit">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta http-equiv=cache-control content="no-transform">
@@ -26,22 +26,22 @@
 <script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="How to Use Unified Logging Config Across the Project">
-<meta property="og:description" content="When we are working on a project, we often need to log some message for easier
-debugging. How do we configure logging once and use it across the project?">
+<meta property="og:title" content="How to Use Unified Logging Config Across Your Project">
+<meta property="og:description" content="When we are working on a project, we often need to log some message for easier debugging.
+How do we configure logging once and use it across the project?">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2020/04/24/python_logging_for_multiple_modules/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2020-04-24T01:12:43+08:00">
-<meta property="article:modified_time" content="2021-04-03T14:29:24+08:00">
-<meta itemprop=name content="How to Use Unified Logging Config Across the Project">
-<meta itemprop=description content="When we are working on a project, we often need to log some message for easier
-debugging. How do we configure logging once and use it across the project?"><meta itemprop=datePublished content="2020-04-24T01:12:43+08:00">
-<meta itemprop=dateModified content="2021-04-03T14:29:24+08:00">
-<meta itemprop=wordCount content="428">
+<meta property="article:modified_time" content="2022-05-29T11:46:09+08:00">
+<meta itemprop=name content="How to Use Unified Logging Config Across Your Project">
+<meta itemprop=description content="When we are working on a project, we often need to log some message for easier debugging.
+How do we configure logging once and use it across the project?"><meta itemprop=datePublished content="2020-04-24T01:12:43+08:00">
+<meta itemprop=dateModified content="2022-05-29T11:46:09+08:00">
+<meta itemprop=wordCount content="434">
 <meta itemprop=keywords content="logging,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="How to Use Unified Logging Config Across the Project">
-<meta name=twitter:description content="When we are working on a project, we often need to log some message for easier
-debugging. How do we configure logging once and use it across the project?"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:title content="How to Use Unified Logging Config Across Your Project">
+<meta name=twitter:description content="When we are working on a project, we often need to log some message for easier debugging.
+How do we configure logging once and use it across the project?"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -96,13 +96,13 @@ debugging. How do we configure logging once and use it across the project?"><!--
 <div id=content class=content>
 <article class=post>
 <header class=post-header>
-<h1 class=post-title>How to Use Unified Logging Config Across the Project</h1>
+<h1 class=post-title>How to Use Unified Logging Config Across Your Project</h1>
 <div class=post-meta>
 <span class=post-time> 2020-04-24 </span>
 <div class=post-category>
 <a href=/categories/Python/> Python </a>
 </div>
-<span class=more-meta> 428 words </span>
+<span class=more-meta> 434 words </span>
 <span class=more-meta> 3 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -124,8 +124,8 @@ debugging. How do we configure logging once and use it across the project?"><!--
 </div>
 </div>
 <div class=post-content>
-<p>When we are working on a project, we often need to log some message for easier
-debugging. How do we configure logging once and use it across the project?</p>
+<p>When we are working on a project, we often need to log some message for easier debugging.
+How do we configure logging once and use it across the project?</p>
 <h1 id=set-up-logging-for-the-project>Set up logging for the project</h1>
 <p>Suppose we have the following file in our project:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>main.py
@@ -153,9 +153,8 @@ module2.py
 <span class=n>main_logger</span><span class=o>.</span><span class=n>addHandler</span><span class=p>(</span><span class=n>stream_handler</span><span class=p>)</span>
 
 <span class=c1># other codes</span>
-</code></pre></div><p>In the above code, we define a root logger <code>main_logger</code> via
-<code>logging.getLogger()</code> (notice that no name is provided to this method), and set
-up the handlers and logging level properly.</p>
+</code></pre></div><p>In the above code, we define a root logger <code>main_logger</code> via <code>logging.getLogger()</code> (notice that no name is provided to this method),
+and set up the handlers and logging level properly.</p>
 <p>In <code>module1</code> and <code>module2</code>, we only need to define a logger like this:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>logging</span>
 
@@ -163,23 +162,22 @@ up the handlers and logging level properly.</p>
 
 <span class=c1># then use logger.info() or logger.debug() in your code.</span>
 </code></pre></div><p>In other modules, if we define the logger using <code>logging.getLogger(__name__)</code>,
-it will automatically use the settings from the root logger. This ensures that
-we only need to configure logging once in our project.</p>
+it will automatically use the settings from the root logger.
+This ensures that we only need to configure logging once in our project.</p>
 <h2 id=changing-logging-level-to-disable-some-logging-message>Changing logging level to disable some logging message</h2>
-<p>There is also another benefit in using a unified config: we can easily control
-the logging message verbosity by changing the logging level. For example, in
-the above example, we set logging level in <code>main.py</code> to <code>logging.DEBUG</code>, so all
-<code>logger.debug()</code> and <code>logger.info()</code> message will be printed to the console. If
-we do not want to see <code>logger.debug("xxx")</code> messages anymore, we can set
-logging level to <code>logging.INFO</code>, which will disable any debug message across
-the whole project.</p>
+<p>There is also another benefit in using a unified config:
+we can easily control the logging message verbosity by changing the logging level.
+For example, in the above example, we set logging level in <code>main.py</code> to <code>logging.DEBUG</code>,
+so all <code>logger.debug()</code> and <code>logger.info()</code> message will be printed to the console.
+If we do not want to see debug messages anymore, we can set logging level to <code>logging.INFO</code>,
+which will disable any debug message across the whole project.</p>
 <h1 id=disable-logging-message-from-other-packages>Disable logging message from other packages</h1>
-<p>When we import 3rd party packages in our own project and set proper logging
-level for the project, if a logging message in 3rd party packages is above that
-level, the message will also be printed. Since we usually only care about
-logging messages in our project, we can disable logging message in 3rd party
-packages by setting their logger level higher or disable logging entirely for
-3rd party packages. Here is the code:</p>
+<p>When we import 3rd party packages in our own project and set proper logging level for the project,
+if a logging message in 3rd party packages is above that level, the message will also be printed.
+Since we usually only care about logging messages in our project,
+we can disable logging message in 3rd party packages by setting their logger level higher,
+or by disabling logging entirely for 3rd party packages.
+Here is the code:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>logging</span>
 
 <span class=c1># suppose that the logger level of our module is logging.DEBUG, we set</span>
@@ -190,8 +188,12 @@ packages by setting their logger level higher or disable logging entirely for
     <span class=c1># logging.getLogger(m).disabled = True</span>
 </code></pre></div><h1 id=references>References</h1>
 <ul>
+<li>Using logging in multiple modules:
+<ul>
 <li><a href=https://stackoverflow.com/a/15735146/6064933>https://stackoverflow.com/a/15735146/6064933</a></li>
 <li><a href=https://stackoverflow.com/q/47608069/6064933>https://stackoverflow.com/q/47608069/6064933</a></li>
+</ul>
+</li>
 <li><a href=https://stackoverflow.com/q/27538879/6064933>Disable logger message from other packages</a>.</li>
 </ul>
 </div>
@@ -203,7 +205,7 @@ packages by setting their logger level higher or disable logging entirely for
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2021-04-03
+2022-05-29
 </span>
 </p>
 <p class=copyright-item>

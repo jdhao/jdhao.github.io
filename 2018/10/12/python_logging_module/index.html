@@ -11,7 +11,7 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="In the past, I use plain print() to display some statistics during training process of my models. However, it is not convenient to save the statistics in a file for later inspection. Once the program is finished, we do not have an overview of the training process. I am aware that there are packages such as tensorboardX and visdom, which are specifically designed for inspecting the various statistics during training. Right now, I would rather keep the program plain simple and usable. So I decided to give Python logging pacakge a try.
+<meta name=author content="jdhao"><meta name=description content="In the past, I use plain print() to display some statistics during training process of my models. However, it is not convenient to save the statistics in a file for later inspection. Once the program is finished, we do not have an overview of the training process. I am aware that there are packages such as tensorboardX and visdom, which are specifically designed for inspecting the various statistics during training. Right now, I would rather keep the program plain simple and usable. So I decided to give Python logging package a try.
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
@@ -27,39 +27,36 @@
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
 <meta property="og:title" content="A Simple Guide on How to Use the Python Logging Module">
-<meta property="og:description" content="In the past, I use plain print() to display some statistics during training
-process of my models. However, it is not convenient to save the statistics in a
-file for later inspection. Once the program is finished, we do not have an
-overview of the training process. I am aware that there are packages such as
-tensorboardX and visdom, which are specifically designed for
-inspecting the various statistics during training. Right now, I would rather
-keep the program plain simple and usable. So I decided to give Python logging
-pacakge a try.">
+<meta property="og:description" content="In the past, I use plain print() to display some statistics during training process of my models.
+However, it is not convenient to save the statistics in a file for later inspection.
+Once the program is finished, we do not have an overview of the training process.
+I am aware that there are packages such as tensorboardX and visdom,
+which are specifically designed for inspecting the various statistics during training.
+Right now, I would rather keep the program plain simple and usable.
+So I decided to give Python logging package a try.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2018/10/12/python_logging_module/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2018-10-12T22:13:00+08:00">
-<meta property="article:modified_time" content="2021-04-03T00:16:07+08:00">
+<meta property="article:modified_time" content="2022-05-29T11:41:33+08:00">
 <meta itemprop=name content="A Simple Guide on How to Use the Python Logging Module">
-<meta itemprop=description content="In the past, I use plain print() to display some statistics during training
-process of my models. However, it is not convenient to save the statistics in a
-file for later inspection. Once the program is finished, we do not have an
-overview of the training process. I am aware that there are packages such as
-tensorboardX and visdom, which are specifically designed for
-inspecting the various statistics during training. Right now, I would rather
-keep the program plain simple and usable. So I decided to give Python logging
-pacakge a try."><meta itemprop=datePublished content="2018-10-12T22:13:00+08:00">
-<meta itemprop=dateModified content="2021-04-03T00:16:07+08:00">
+<meta itemprop=description content="In the past, I use plain print() to display some statistics during training process of my models.
+However, it is not convenient to save the statistics in a file for later inspection.
+Once the program is finished, we do not have an overview of the training process.
+I am aware that there are packages such as tensorboardX and visdom,
+which are specifically designed for inspecting the various statistics during training.
+Right now, I would rather keep the program plain simple and usable.
+So I decided to give Python logging package a try."><meta itemprop=datePublished content="2018-10-12T22:13:00+08:00">
+<meta itemprop=dateModified content="2022-05-29T11:41:33+08:00">
 <meta itemprop=wordCount content="678">
 <meta itemprop=keywords content="logging,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="A Simple Guide on How to Use the Python Logging Module">
-<meta name=twitter:description content="In the past, I use plain print() to display some statistics during training
-process of my models. However, it is not convenient to save the statistics in a
-file for later inspection. Once the program is finished, we do not have an
-overview of the training process. I am aware that there are packages such as
-tensorboardX and visdom, which are specifically designed for
-inspecting the various statistics during training. Right now, I would rather
-keep the program plain simple and usable. So I decided to give Python logging
-pacakge a try."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:description content="In the past, I use plain print() to display some statistics during training process of my models.
+However, it is not convenient to save the statistics in a file for later inspection.
+Once the program is finished, we do not have an overview of the training process.
+I am aware that there are packages such as tensorboardX and visdom,
+which are specifically designed for inspecting the various statistics during training.
+Right now, I would rather keep the program plain simple and usable.
+So I decided to give Python logging package a try."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -137,16 +134,14 @@ pacakge a try."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/
 </div>
 </div>
 <div class=post-content>
-<p>In the past, I use plain <code>print()</code> to display some statistics during training
-process of my models. However, it is not convenient to save the statistics in a
-file for later inspection. Once the program is finished, we do not have an
-overview of the training process. I am aware that there are packages such as
-<a href=https://github.com/lanpa/tensorboardX>tensorboardX</a> and <a href=https://github.com/facebookresearch/visdom>visdom</a>, which are specifically designed for
-inspecting the various statistics during training. Right now, I would rather
-keep the program plain simple and usable. So I decided to give <a href=https://docs.python.org/3/library/logging.html>Python logging
-pacakge</a> a try.</p>
-<p>If we want to display messages on the terminal and save to a file, we can use
-the following setting:</p>
+<p>In the past, I use plain <code>print()</code> to display some statistics during training process of my models.
+However, it is not convenient to save the statistics in a file for later inspection.
+Once the program is finished, we do not have an overview of the training process.
+I am aware that there are packages such as <a href=https://github.com/lanpa/tensorboardX>tensorboardX</a> and <a href=https://github.com/facebookresearch/visdom>visdom</a>,
+which are specifically designed for inspecting the various statistics during training.
+Right now, I would rather keep the program plain simple and usable.
+So I decided to give <a href=https://docs.python.org/3/library/logging.html>Python logging package</a> a try.</p>
+<p>If we want to display messages on the terminal and save to a file, we can use the following setting:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>logging</span>
 
 <span class=n>logging</span><span class=o>.</span><span class=n>basicConfig</span><span class=p>(</span>
@@ -158,18 +153,16 @@ the following setting:</p>
         <span class=n>logging</span><span class=o>.</span><span class=n>StreamHandler</span><span class=p>()</span>
     <span class=p>]</span>
 <span class=p>)</span>
-</code></pre></div><p>The <code>datefmt</code> parameter is used to format the time string in the logging
-message. With the above format, the time is shown as something like the
-following:</p>
+</code></pre></div><p>The <code>datefmt</code> parameter is used to format the time string in the logging message.
+With the above format, the time is shown as something like the following:</p>
 <blockquote>
 <p>2018-10-15 09:44:49 (&mldr;other message&mldr;)</p>
 </blockquote>
-<p>The format string uses the standard Python time format. You can find the
-full list of format directives <a href=https://docs.python.org/3/library/time.html#time.strftime>here</a>.</p>
-<p>The <code>format</code> paramter is used to set the format of the output message, i.e.,
-what to show in the logging message. We can show time, current file name,
-process name etc. A list of predefined attributes are (excerpted from the
-logging documentation):</p>
+<p>The format string uses the standard Python time format.
+You can find the full list of format directives <a href=https://docs.python.org/3/library/time.html#time.strftime>here</a>.</p>
+<p>The <code>format</code> parameter is used to set the format of the output message, i.e., what to show in the logging message.
+We can show time, current file name, process name etc.
+A list of predefined attributes are (excerpted from the logging documentation):</p>
 <details>
 <summary><font color=red>Click to see the doc.</font></summary>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>%(name)s            Name of the logger (logging channel)
@@ -197,37 +190,34 @@ logging documentation):</p>
 %(message)s         The result of record.getMessage(), computed just as
                     the record is emitted
 </code></pre></div></details>
-<p>The <code>handler</code> parameter is used to set up where logging messages should go. In
-the above example, we use a <a href=https://docs.python.org/3/library/logging.handlers.html#filehandler><code>FileHandler</code></a>
-to save the logging message to a disk file. We use <a href=https://docs.python.org/3/library/logging.handlers.html#streamhandler><code>StreamHandler</code></a>
-to display messages in the terminal.</p>
+<p>The <code>handler</code> parameter is used to set up where logging messages should go.
+In the above example, we use a <a href=https://docs.python.org/3/library/logging.handlers.html#filehandler><code>FileHandler</code></a> to save the logging message to a disk file.
+We use <a href=https://docs.python.org/3/library/logging.handlers.html#streamhandler><code>StreamHandler</code></a> to display messages in the terminal.</p>
 <p>After configuring logging, we need a logger:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>logger</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>getLogger</span><span class=p>(</span><span class=vm>__name__</span><span class=p>)</span>
 </code></pre></div><p>In our program, if we need to log something, use <a href=https://docs.python.org/3/library/logging.html#logging.info><code>logger.info()</code></a>.
 An example usage is shown below:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s2>&#34;Epoch </span><span class=si>%d</span><span class=s2>, Accuracy: </span><span class=si>%f</span><span class=s2>, Loss: </span><span class=si>%f</span><span class=s2>&#34;</span><span class=p>,</span> <span class=n>epoch</span><span class=p>,</span> <span class=n>accuracy</span><span class=p>,</span> <span class=n>loss</span><span class=p>)</span>
-</code></pre></div><p>The logging module relies on the old Python string formatting style. If you use
-the new <a href=https://pyformat.info/><code>.format()</code></a> style string formatting. You will
-see a pylint warning complaining:</p>
+</code></pre></div><p>The logging module relies on the old Python string formatting style.
+If you use the new <a href=https://pyformat.info/><code>.format()</code></a> style string formatting, you will see a pylint warning complaining:</p>
 <blockquote>
 <p>pylint: logging-not-lazy / Specify string format arguments as logging function parameters</p>
 </blockquote>
-<p>The above formatting is also slightly different from the old Python formatting
-style. We do not need to write <code>%</code> between strings and the values. We can just
-append a list of needed values as the argument for the <code>info</code> method.</p>
+<p>The above formatting is also slightly different from the old Python formatting style.
+We do not need to write <code>%</code> between strings and the values.
+We can just append a list of needed values as the argument for the <code>info</code> method.</p>
 <h1 id=how-to-log-exceptions>How to log exceptions</h1>
-<p>After catching an exception, we may want to log the exception message using our
-logger. Initially, I have the following code:</p>
+<p>After catching an exception, we may want to log the exception message using our logger.
+Initially, I have the following code:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=k>try</span><span class=p>:</span>
     <span class=c1># my code</span>
 <span class=k>except</span> <span class=n>SomeError</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
     <span class=n>logger</span><span class=o>.</span><span class=n>debug</span><span class=p>(</span><span class=s2>&#34;Exception: </span><span class=si>%s</span><span class=s2>&#34;</span><span class=p>,</span> <span class=n>e</span><span class=p>)</span>
-</code></pre></div><p>Unfortunately, this will only print an incomplete excpetion message and does
-not help to debug the error.</p>
-<p>Using <code>str(e)</code> or <code>repr(e)</code> to represent the exception, you also won&rsquo;t get the
-actual stack trace, so it is not helpful to find where the exception is.</p>
-<p>After reading other answers and the logging package doc, the following two ways
-work great to print the actual stack trace for later debugging:</p>
+</code></pre></div><p>Unfortunately, this will only print an incomplete exception message and does not help to debug the error.</p>
+<p>Using <code>str(e)</code> or <code>repr(e)</code> to represent the exception, you also won&rsquo;t get the actual stack trace.
+So it is not helpful to find where the exception is.</p>
+<p>After reading other answers and the logging package doc,
+the following two ways work great to print the actual stack trace for later debugging:</p>
 <ol>
 <li>
 <p>use <code>logger.debug()</code> with parameter <code>exc_info</code>:</p>
@@ -259,7 +249,7 @@ work great to print the actual stack trace for later debugging:</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2021-04-03
+2022-05-29
 </span>
 </p>
 <p class=copyright-item>
