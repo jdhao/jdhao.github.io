@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>What Happened When Logging without Handlers in Python - jdhao's digital space</title>
+<title>Learning SQL from Scratch(1): Do We Even Need to Start? - jdhao's digital space</title>
 <meta name=renderer content="webkit">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta http-equiv=cache-control content="no-transform">
@@ -11,11 +11,12 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="I saw a post from stackoverflow asking why his logger does not work as expect? The code is like:
+<meta name=author content="jdhao"><meta name=description content="As a machine learning engineer who mainly deals with vision-based projects, I have little opportunity in my work to actually use SQL (Structured Query Language.). Even when I need it, I often just ask the data engineers for a favor.
+However, I thought it would be an essential skill to learn even if I do not need it for now.
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2022/05/27/logging_without_handlers_python/>
+<link rel=canonical href=https://jdhao.github.io/2022/06/04/sql_from_scratch_for_ml_s1/>
 <link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
 <link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
@@ -26,22 +27,28 @@
 <script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="What Happened When Logging without Handlers in Python">
-<meta property="og:description" content="I saw a post from stackoverflow asking why his logger does not work as expect?
-The code is like:">
+<meta property="og:title" content="Learning SQL from Scratch(1): Do We Even Need to Start?">
+<meta property="og:description" content="As a machine learning engineer who mainly deals with vision-based projects,
+I have little opportunity in my work to actually use SQL (Structured Query Language.).
+Even when I need it, I often just ask the data engineers for a favor.
+However, I thought it would be an essential skill to learn even if I do not need it for now.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2022/05/27/logging_without_handlers_python/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2022-05-27T23:27:12+08:00">
-<meta property="article:modified_time" content="2022-05-29T10:29:31+08:00">
-<meta itemprop=name content="What Happened When Logging without Handlers in Python">
-<meta itemprop=description content="I saw a post from stackoverflow asking why his logger does not work as expect?
-The code is like:"><meta itemprop=datePublished content="2022-05-27T23:27:12+08:00">
-<meta itemprop=dateModified content="2022-05-29T10:29:31+08:00">
-<meta itemprop=wordCount content="218">
-<meta itemprop=keywords content="logging,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="What Happened When Logging without Handlers in Python">
-<meta name=twitter:description content="I saw a post from stackoverflow asking why his logger does not work as expect?
-The code is like:"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta property="og:url" content="https://jdhao.github.io/2022/06/04/sql_from_scratch_for_ml_s1/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2022-06-04T01:19:17+08:00">
+<meta property="article:modified_time" content="2022-06-04T01:53:02+08:00">
+<meta itemprop=name content="Learning SQL from Scratch(1): Do We Even Need to Start?">
+<meta itemprop=description content="As a machine learning engineer who mainly deals with vision-based projects,
+I have little opportunity in my work to actually use SQL (Structured Query Language.).
+Even when I need it, I often just ask the data engineers for a favor.
+However, I thought it would be an essential skill to learn even if I do not need it for now."><meta itemprop=datePublished content="2022-06-04T01:19:17+08:00">
+<meta itemprop=dateModified content="2022-06-04T01:53:02+08:00">
+<meta itemprop=wordCount content="313">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Learning SQL from Scratch(1): Do We Even Need to Start?">
+<meta name=twitter:description content="As a machine learning engineer who mainly deals with vision-based projects,
+I have little opportunity in my work to actually use SQL (Structured Query Language.).
+Even when I need it, I often just ask the data engineers for a favor.
+However, I thought it would be an essential skill to learn even if I do not need it for now."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -96,13 +103,13 @@ The code is like:"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/aj
 <div id=content class=content>
 <article class=post>
 <header class=post-header>
-<h1 class=post-title>What Happened When Logging without Handlers in Python</h1>
+<h1 class=post-title>Learning SQL from Scratch(1): Do We Even Need to Start?</h1>
 <div class=post-meta>
-<span class=post-time> 2022-05-27 </span>
+<span class=post-time> 2022-06-04 </span>
 <div class=post-category>
-<a href=/categories/Python/> Python </a>
+<a href=/categories/SQL/> SQL </a>
 </div>
-<span class=more-meta> 218 words </span>
+<span class=more-meta> 313 words </span>
 <span class=more-meta> 2 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -112,48 +119,57 @@ The code is like:"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/aj
 <div class=post-toc-content>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#using-loggingbasicconfig>Using logging.basicConfig()</a></li>
-<li><a href=#reference>reference</a></li>
+<li><a href=#why-does-machine-learning-needs-sql>Why does machine learning needs SQL?</a></li>
+<li><a href=#which-of-the-following-sql-databases-to-use>Which of the following SQL databases to use?</a></li>
 </ul>
 </nav>
 </div>
 </div>
 <div class=post-content>
-<p>I saw a post from stackoverflow asking why his logger does not work as expect?
-The code is like:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>logging</span>
-
-
-<span class=n>logger</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>getLogger</span><span class=p>()</span>
-
-<span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s2>&#34;some message&#34;</span><span class=p>)</span>
-</code></pre></div><p>There is no message coming out. Okay, let&rsquo;s check the level of this logger:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=nb>print</span><span class=p>(</span><span class=n>logger</span><span class=o>.</span><span class=n>level</span><span class=p>)</span>
-
-<span class=c1># output is 30 (logging.WARNING)</span>
-</code></pre></div><p>Then we can just change its level to <code>DEBUG</code>, it will certain work, right?</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>logger</span><span class=o>.</span><span class=n>setLevel</span><span class=p>(</span><span class=n>logging</span><span class=o>.</span><span class=n>DEBUG</span><span class=p>)</span>
-</code></pre></div><p>However, still no output! W*F, what happened?</p>
-<p>According to <a href=https://docs.python.org/3/howto/logging.html#what-happens-if-no-configuration-is-provided>official doc</a>,
-if you do not set an explicit handler for the logger, a special handler called <code>lastResort</code> will be used.
-See the <a href=https://github.com/python/cpython/blob/5e34b494a08015e9b5a3deade23943bdba284a93/Lib/logging/__init__.py#L1727-L1733>code here</a>. By default the logging level of <code>lastResort</code> (it is stream handler) is 30.
-We can change its level to output info message.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># setting both the logger and handler&#39;s level will work as expected.</span>
-<span class=n>logger</span><span class=o>.</span><span class=n>setLevel</span><span class=p>(</span><span class=n>logging</span><span class=o>.</span><span class=n>DEBUG</span><span class=p>)</span>
-<span class=n>logging</span><span class=o>.</span><span class=n>lastResort</span><span class=o>.</span><span class=n>setLevel</span><span class=p>(</span><span class=n>logging</span><span class=o>.</span><span class=n>DEBUG</span><span class=p>)</span>
-</code></pre></div><p>However, this is like a hack and never an encouraged solution.</p>
-<h1 id=using-loggingbasicconfig>Using logging.basicConfig()</h1>
-<p>If we want to do logging real quick, we can use the method <a href=https://docs.python.org/3/library/logging.html#logging.basicConfig><code>logging.basicConfig</code></a>.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>logging</span><span class=o>.</span><span class=n>basicConfig</span><span class=p>(</span><span class=n>level</span><span class=o>=</span><span class=n>logging</span><span class=o>.</span><span class=n>DEBUG</span><span class=p>)</span>
-</code></pre></div><p>This will create the logger. The <code>logger.level</code> will be the level we set here.
-Without a level param, the default level for root logger is <code>WARNING</code>.</p>
-<p>A stream handler will be also created, with level <code>NOTSET</code>.
-This can be verified by printing the logger&rsquo;s handlers:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=nb>print</span><span class=p>(</span><span class=n>logger</span><span class=o>.</span><span class=n>handlers</span><span class=p>)</span>
-<span class=c1># you will see: [&lt;StreamHandler &lt;stderr&gt; (NOTSET)&gt;]</span>
-</code></pre></div><h1 id=reference>reference</h1>
+<p>As a machine learning engineer who mainly deals with vision-based projects,
+I have little opportunity in my work to actually use SQL (Structured Query Language.).
+Even when I need it, I often just ask the data engineers for a favor.</p>
+<p>However, I thought it would be an essential skill to learn even if I do not need it for now.</p>
+<h1 id=why-does-machine-learning-needs-sql>Why does machine learning needs SQL?</h1>
+<p>It really depends on what kind of data you are dealing with.
+If you are doing traditional machine learning, for example, recommendation, ranking,
+the raw data will probably be store in database, and you will need SQL for data wrangling.</p>
+<p>If you are working on computer vision, audio signal recognition etc.,
+you may not need to know SQL, but it depends.</p>
+<p>Ref:</p>
 <ul>
-<li>logger logging without handler: <a href=https://stackoverflow.com/q/64570918/6064933>https://stackoverflow.com/q/64570918/6064933</a></li>
+<li><a href=https://www.quora.com/Is-learning-SQL-necessary-for-machine-learning>https://www.quora.com/Is-learning-SQL-necessary-for-machine-learning</a></li>
+<li><a href=https://www.quora.com/Why-did-Google-name-SQL-the-number-one-skill-for-machine-learning-engineers>https://www.quora.com/Why-did-Google-name-SQL-the-number-one-skill-for-machine-learning-engineers</a></li>
+<li><a href=https://www.quora.com/How-much-SQL-do-you-need-as-an-AI-engineer>https://www.quora.com/How-much-SQL-do-you-need-as-an-AI-engineer</a></li>
+</ul>
+<h1 id=which-of-the-following-sql-databases-to-use>Which of the following SQL databases to use?</h1>
+<p>When it comes to the actual SQL databases, there are a lot of SQL databases out there.</p>
+<ul>
+<li>SQLite: It is an embeddable DBMS. It is small and use local files. Can not handle large-scale requests and tera-bytes of data.</li>
+<li><a href=https://github.com/mysql/mysql-server>MySQL</a>: It is a client-server RDBMS. It has more features than sqlite. Now development led by people from Oracle.</li>
+<li><a href=https://www.postgresql.org/>postgresSQL</a>: Another RDMBS. It has more advanced feature and it is open source.</li>
+<li><a href=https://en.wikipedia.org/wiki/Microsoft_SQL_Server>Microsoft SQL server</a>: It is a commercial software.</li>
+<li><a href=https://docs.oracle.com/cd/B19306_01/server.102/b14200/intro.htm>Oracle SQL</a>: It is also a commercial software.</li>
+</ul>
+<p>All these different databases support some of the common SQL syntax,
+but they may have their own extended syntax.</p>
+<p>Postgresql seems to support more standard SQL syntax than mysql,
+but much of the knowledge is transferable between the two.</p>
+<p>Practically, we can learn MySQL or PostgreSQL,
+but it seems that Postgres have more detailed documentations.</p>
+<p>In the below, I also give some links discussing the differences between different database software.</p>
+<p>ref:</p>
+<ul>
+<li><a href=https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems>https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems</a></li>
+<li>MySql vs sqlite: <a href=https://stackoverflow.com/q/4813890/6064933>https://stackoverflow.com/q/4813890/6064933</a></li>
+<li>sqlite faster than Mysql? <a href=https://stackoverflow.com/q/29452110/6064933>https://stackoverflow.com/q/29452110/6064933</a></li>
+<li>Mysql vs postgresql:
+<ul>
+<li><a href=https://stackoverflow.com/a/4059569/6064933>https://stackoverflow.com/a/4059569/6064933</a></li>
+<li><a href=https://www.reddit.com/r/learnprogramming/comments/pbzrjp/which_db_should_i_learn_mysql_or_postgresql/>https://www.reddit.com/r/learnprogramming/comments/pbzrjp/which_db_should_i_learn_mysql_or_postgresql/</a></li>
+<li><a href=https://www.ibm.com/cloud/blog/postgresql-vs-mysql-whats-the-difference>https://www.ibm.com/cloud/blog/postgresql-vs-mysql-whats-the-difference</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class=post-copyright>
@@ -164,7 +180,7 @@ This can be verified by printing the logger&rsquo;s handlers:</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-05-29
+2022-06-04
 </span>
 </p>
 <p class=copyright-item>
@@ -186,17 +202,9 @@ This can be verified by printing the logger&rsquo;s handlers:</p>
 </label>
 </div>
 </div><footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/logging/>logging</a>
-</div>
 <nav class=post-nav>
-<a class=prev href=/2022/06/04/sql_from_scratch_for_ml_s1/>
-<i class="iconfont icon-left"></i>
-<span class="prev-text nav-default">Learning SQL from Scratch(1): Do We Even Need to Start?</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2022/05/26/read_write_ply_file_python/>
-<span class="next-text nav-default">How To Read and Write ply File in Python</span>
+<a class=next href=/2022/05/27/logging_without_handlers_python/>
+<span class="next-text nav-default">What Happened When Logging without Handlers in Python</span>
 <span class="next-text nav-mobile">Next</span>
 <i class="iconfont icon-right"></i>
 </a>
