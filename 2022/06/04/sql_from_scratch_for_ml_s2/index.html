@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Learning SQL from Scratch(1): Do We Even Need to Start? - jdhao's digital space</title>
+<title>Learning SQL from Scratch(2): Setup and Preparations - jdhao's digital space</title>
 <meta name=renderer content="webkit">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta http-equiv=cache-control content="no-transform">
@@ -11,12 +11,11 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="As a machine learning engineer who mainly deals with vision-based projects, I have little opportunity in my work to actually use SQL (Structured Query Language.). Even when I need it, I often just ask the data engineers for a favor.
-However, I thought it would be an essential skill to learn even if I do not need it for now.
+<meta name=author content="jdhao"><meta name=description content="In this post, I will talk about setting up SQL databases and also the tools needed to write SQL queries.
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2022/06/04/sql_from_scratch_for_ml_s1/>
+<link rel=canonical href=https://jdhao.github.io/2022/06/04/sql_from_scratch_for_ml_s2/>
 <link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
 <link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
@@ -27,28 +26,19 @@ However, I thought it would be an essential skill to learn even if I do not need
 <script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Learning SQL from Scratch(1): Do We Even Need to Start?">
-<meta property="og:description" content="As a machine learning engineer who mainly deals with vision-based projects,
-I have little opportunity in my work to actually use SQL (Structured Query Language.).
-Even when I need it, I often just ask the data engineers for a favor.
-However, I thought it would be an essential skill to learn even if I do not need it for now.">
+<meta property="og:title" content="Learning SQL from Scratch(2): Setup and Preparations">
+<meta property="og:description" content="In this post, I will talk about setting up SQL databases and also the tools needed to write SQL queries.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2022/06/04/sql_from_scratch_for_ml_s1/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2022-06-04T01:19:17+08:00">
-<meta property="article:modified_time" content="2022-06-04T19:04:45+08:00">
-<meta itemprop=name content="Learning SQL from Scratch(1): Do We Even Need to Start?">
-<meta itemprop=description content="As a machine learning engineer who mainly deals with vision-based projects,
-I have little opportunity in my work to actually use SQL (Structured Query Language.).
-Even when I need it, I often just ask the data engineers for a favor.
-However, I thought it would be an essential skill to learn even if I do not need it for now."><meta itemprop=datePublished content="2022-06-04T01:19:17+08:00">
-<meta itemprop=dateModified content="2022-06-04T19:04:45+08:00">
-<meta itemprop=wordCount content="313">
+<meta property="og:url" content="https://jdhao.github.io/2022/06/04/sql_from_scratch_for_ml_s2/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2022-06-04T19:03:20+08:00">
+<meta property="article:modified_time" content="2022-06-04T19:13:43+08:00">
+<meta itemprop=name content="Learning SQL from Scratch(2): Setup and Preparations">
+<meta itemprop=description content="In this post, I will talk about setting up SQL databases and also the tools needed to write SQL queries."><meta itemprop=datePublished content="2022-06-04T19:03:20+08:00">
+<meta itemprop=dateModified content="2022-06-04T19:13:43+08:00">
+<meta itemprop=wordCount content="255">
 <meta itemprop=keywords content="PostgreSQL,MySQL,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Learning SQL from Scratch(1): Do We Even Need to Start?">
-<meta name=twitter:description content="As a machine learning engineer who mainly deals with vision-based projects,
-I have little opportunity in my work to actually use SQL (Structured Query Language.).
-Even when I need it, I often just ask the data engineers for a favor.
-However, I thought it would be an essential skill to learn even if I do not need it for now."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:title content="Learning SQL from Scratch(2): Setup and Preparations">
+<meta name=twitter:description content="In this post, I will talk about setting up SQL databases and also the tools needed to write SQL queries."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -103,13 +93,13 @@ However, I thought it would be an essential skill to learn even if I do not need
 <div id=content class=content>
 <article class=post>
 <header class=post-header>
-<h1 class=post-title>Learning SQL from Scratch(1): Do We Even Need to Start?</h1>
+<h1 class=post-title>Learning SQL from Scratch(2): Setup and Preparations</h1>
 <div class=post-meta>
 <span class=post-time> 2022-06-04 </span>
 <div class=post-category>
 <a href=/categories/SQL/> SQL </a>
 </div>
-<span class=more-meta> 313 words </span>
+<span class=more-meta> 255 words </span>
 <span class=more-meta> 2 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -119,58 +109,84 @@ However, I thought it would be an essential skill to learn even if I do not need
 <div class=post-toc-content>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#why-does-machine-learning-needs-sql>Why does machine learning needs SQL?</a></li>
-<li><a href=#which-of-the-following-sql-databases-to-use>Which of the following SQL databases to use?</a></li>
+<li><a href=#set-up-sql-databases>Set up SQL databases</a>
+<ul>
+<li><a href=#mysql-install-and-setup>Mysql install and setup</a>
+<ul>
+<li><a href=#connect-to-mysql-server-in-macos>Connect to mysql server in macOS</a></li>
+</ul>
+</li>
+<li><a href=#postgresql-install>postgresql install</a>
+<ul>
+<li><a href=#connect-to-postgres-server-in-macos>Connect to postgres server in macOS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href=#try-sql-online>Try sql online</a></li>
+<li><a href=#gui-client>GUI client</a>
+<ul>
+<li><a href=#mysql-workbench>Mysql workbench</a></li>
+<li><a href=#pgadmin>Pgadmin</a></li>
+<li><a href=#datagrip>Datagrip</a></li>
+<li><a href=#dbeaver>DBeaver</a></li>
+<li><a href=#beekeeper-studio>BeeKeeper Studio</a></li>
+</ul>
+</li>
 </ul>
 </nav>
 </div>
 </div>
 <div class=post-content>
-<p>As a machine learning engineer who mainly deals with vision-based projects,
-I have little opportunity in my work to actually use SQL (Structured Query Language.).
-Even when I need it, I often just ask the data engineers for a favor.</p>
-<p>However, I thought it would be an essential skill to learn even if I do not need it for now.</p>
-<h1 id=why-does-machine-learning-needs-sql>Why does machine learning needs SQL?</h1>
-<p>It really depends on what kind of data you are dealing with.
-If you are doing traditional machine learning, for example, recommendation, ranking,
-the raw data will probably be store in database, and you will need SQL for data wrangling.</p>
-<p>If you are working on computer vision, audio signal recognition etc.,
-you may not need to know SQL, but it depends.</p>
-<p>Ref:</p>
+<p>In this post, I will talk about setting up SQL databases and also the tools needed to write SQL queries.</p>
+<h1 id=set-up-sql-databases>Set up SQL databases</h1>
+<h2 id=mysql-install-and-setup>Mysql install and setup</h2>
+<p>Install using HomeBrew:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>brew install mysql
+</code></pre></div><p>Start and stop the mysql server:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>brew services start mysql
+brew services stop mysql
+</code></pre></div><h3 id=connect-to-mysql-server-in-macos>Connect to mysql server in macOS</h3>
 <ul>
-<li><a href=https://www.quora.com/Is-learning-SQL-necessary-for-machine-learning>https://www.quora.com/Is-learning-SQL-necessary-for-machine-learning</a></li>
-<li><a href=https://www.quora.com/Why-did-Google-name-SQL-the-number-one-skill-for-machine-learning-engineers>https://www.quora.com/Why-did-Google-name-SQL-the-number-one-skill-for-machine-learning-engineers</a></li>
-<li><a href=https://www.quora.com/How-much-SQL-do-you-need-as-an-AI-engineer>https://www.quora.com/How-much-SQL-do-you-need-as-an-AI-engineer</a></li>
+<li>Host: localhost</li>
+<li>Port: 3306</li>
+<li>Username: root</li>
 </ul>
-<h1 id=which-of-the-following-sql-databases-to-use>Which of the following SQL databases to use?</h1>
-<p>When it comes to the actual SQL databases, there are a lot of SQL databases out there.</p>
+<h2 id=postgresql-install>postgresql install</h2>
+<p>Install using HomeBrew:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>brew install postgresql
+</code></pre></div><p>Start and stop the postgres server:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>brew services start postgresql
+brew services stop postgresql
+</code></pre></div><h3 id=connect-to-postgres-server-in-macos>Connect to postgres server in macOS</h3>
 <ul>
-<li>SQLite: It is an embeddable DBMS. It is small and use local files. Can not handle large-scale requests and tera-bytes of data.</li>
-<li><a href=https://github.com/mysql/mysql-server>MySQL</a>: It is a client-server RDBMS. It has more features than sqlite. Now development led by people from Oracle.</li>
-<li><a href=https://www.postgresql.org/>postgresSQL</a>: Another RDMBS. It has more advanced feature and it is open source.</li>
-<li><a href=https://en.wikipedia.org/wiki/Microsoft_SQL_Server>Microsoft SQL server</a>: It is a commercial software.</li>
-<li><a href=https://docs.oracle.com/cd/B19306_01/server.102/b14200/intro.htm>Oracle SQL</a>: It is also a commercial software.</li>
+<li>Host: localhost</li>
+<li>Database: postgres</li>
+<li>Username: jdhao</li>
 </ul>
-<p>All these different databases support some of the common SQL syntax,
-but they may have their own extended syntax.</p>
-<p>Postgresql seems to support more standard SQL syntax than mysql,
-but much of the knowledge is transferable between the two.</p>
-<p>Practically, we can learn MySQL or PostgreSQL,
-but it seems that Postgres have more detailed documentations.</p>
-<p>In the below, I also give some links discussing the differences between different database software.</p>
-<p>ref:</p>
-<ul>
-<li><a href=https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems>https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems</a></li>
-<li>MySql vs sqlite: <a href=https://stackoverflow.com/q/4813890/6064933>https://stackoverflow.com/q/4813890/6064933</a></li>
-<li>sqlite faster than Mysql? <a href=https://stackoverflow.com/q/29452110/6064933>https://stackoverflow.com/q/29452110/6064933</a></li>
-<li>Mysql vs postgresql:
-<ul>
-<li><a href=https://stackoverflow.com/a/4059569/6064933>https://stackoverflow.com/a/4059569/6064933</a></li>
-<li><a href=https://www.reddit.com/r/learnprogramming/comments/pbzrjp/which_db_should_i_learn_mysql_or_postgresql/>https://www.reddit.com/r/learnprogramming/comments/pbzrjp/which_db_should_i_learn_mysql_or_postgresql/</a></li>
-<li><a href=https://www.ibm.com/cloud/blog/postgresql-vs-mysql-whats-the-difference>https://www.ibm.com/cloud/blog/postgresql-vs-mysql-whats-the-difference</a></li>
-</ul>
-</li>
-</ul>
+<p>No password is needed.</p>
+<h1 id=try-sql-online>Try sql online</h1>
+<p>If you do not want to install and just want to try with different SQL databases,
+you can use <a href=http://sqlfiddle.com/>sqlfiddle</a>, which supports both MySQL, PostgreSQL and SQLite.</p>
+<h1 id=gui-client>GUI client</h1>
+<p>Most people will probably choose a GUI client to work with the databases.</p>
+<h2 id=mysql-workbench>Mysql workbench</h2>
+<p><a href=https://www.mysql.com/products/workbench/>Mysql workbench</a> is a GUI application to help us manage mysql server more easily.</p>
+<h2 id=pgadmin>Pgadmin</h2>
+<p>If you use PostgreSQL, you can try <a href=https://www.pgadmin.org/download/>Pgadmin 4</a>.</p>
+<h2 id=datagrip>Datagrip</h2>
+<p><a href=https://www.jetbrains.com/datagrip/>Datagrip</a> is developed my JetBrains and it is not free.
+It has support for all kinds of databases.</p>
+<p>It has autocompletion for SQL keywords, functions, table names, and column names etc.
+Highly recommended, intelligent and very good user experience.</p>
+<h2 id=dbeaver>DBeaver</h2>
+<p><a href=https://dbeaver.io/download/>DBeaver</a> is an open source database client.</p>
+<p>It also has autocompletion, but it is not as powerful as Datagrip.</p>
+<p>Change keyword case in DBeaver: <a href=https://stackoverflow.com/a/60854946/6064933>https://stackoverflow.com/a/60854946/6064933</a></p>
+<h2 id=beekeeper-studio>BeeKeeper Studio</h2>
+<p><a href=https://www.beekeeperstudio.io/>BeeKeeper</a> is another database client.</p>
+<p>No autocompletion, very simple GUI, less features than DBeaver and Datagrip.
+Not recommended.</p>
 </div>
 <div class=post-copyright>
 <p class=copyright-item>
@@ -207,13 +223,8 @@ but it seems that Postgres have more detailed documentations.</p>
 <a href=/tags/MySQL/>MySQL</a>
 </div>
 <nav class=post-nav>
-<a class=prev href=/2022/06/04/sql_from_scratch_for_ml_s2/>
-<i class="iconfont icon-left"></i>
-<span class="prev-text nav-default">Learning SQL from Scratch(2): Setup and Preparations</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2022/05/27/logging_without_handlers_python/>
-<span class="next-text nav-default">What Happened When Logging without Handlers in Python</span>
+<a class=next href=/2022/06/04/sql_from_scratch_for_ml_s1/>
+<span class="next-text nav-default">Learning SQL from Scratch(1): Do We Even Need to Start?</span>
 <span class="next-text nav-mobile">Next</span>
 <i class="iconfont icon-right"></i>
 </a>
