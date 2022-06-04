@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>How to Use Git branches - jdhao's digital space</title>
+<title>A List of Common Git-branch Operations - jdhao's digital space</title>
 <meta name=renderer content="webkit">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta http-equiv=cache-control content="no-transform">
@@ -11,7 +11,7 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="Some commonly used Git commands related to branch operations.
+<meta name=author content="jdhao"><meta name=description content="This post summarizes some commonly used Git commands related to branch operations.
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
@@ -26,28 +26,28 @@
 <script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="How to Use Git branches">
+<meta property="og:title" content="A List of Common Git-branch Operations">
 <meta property="og:description" content="
 
 
-Some commonly used Git commands related to branch operations.">
+This post summarizes some commonly used Git commands related to branch operations.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2020/09/03/git_branch_operations/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2020-09-03T23:41:00+08:00">
-<meta property="article:modified_time" content="2022-02-02T11:15:29+08:00">
-<meta itemprop=name content="How to Use Git branches">
+<meta property="article:modified_time" content="2022-06-04T14:35:42+08:00">
+<meta itemprop=name content="A List of Common Git-branch Operations">
 <meta itemprop=description content="
 
 
-Some commonly used Git commands related to branch operations."><meta itemprop=datePublished content="2020-09-03T23:41:00+08:00">
-<meta itemprop=dateModified content="2022-02-02T11:15:29+08:00">
-<meta itemprop=wordCount content="615">
+This post summarizes some commonly used Git commands related to branch operations."><meta itemprop=datePublished content="2020-09-03T23:41:00+08:00">
+<meta itemprop=dateModified content="2022-06-04T14:35:42+08:00">
+<meta itemprop=wordCount content="661">
 <meta itemprop=keywords content="Git,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="How to Use Git branches">
+<meta name=twitter:title content="A List of Common Git-branch Operations">
 <meta name=twitter:description content="
 
 
-Some commonly used Git commands related to branch operations."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+This post summarizes some commonly used Git commands related to branch operations."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -102,14 +102,14 @@ Some commonly used Git commands related to branch operations."><!--[if lte IE 9]
 <div id=content class=content>
 <article class=post>
 <header class=post-header>
-<h1 class=post-title>How to Use Git branches</h1>
+<h1 class=post-title>A List of Common Git-branch Operations</h1>
 <div class=post-meta>
 <span class=post-time> 2020-09-03 </span>
 <div class=post-category>
 <a href=/categories/Git/> Git </a>
 </div>
-<span class=more-meta> 615 words </span>
-<span class=more-meta> 3 mins read </span>
+<span class=more-meta> 661 words </span>
+<span class=more-meta> 4 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
 </header>
@@ -120,8 +120,8 @@ Some commonly used Git commands related to branch operations."><!--[if lte IE 9]
 <ul>
 <li><a href=#create-a-new-branch-locally-and-remotely>Create a new branch (locally and remotely)</a>
 <ul>
-<li><a href=#create-branch-locally>Create branch locally</a></li>
-<li><a href=#create-branch-remotely>Create branch remotely</a></li>
+<li><a href=#create-a-branch-locally>Create a branch locally</a></li>
+<li><a href=#create-a-branch-remotely>Create a branch remotely</a></li>
 <li><a href=#create-a-git-branch-from-a-specific-commit>Create a git branch from a specific commit</a></li>
 </ul>
 </li>
@@ -138,21 +138,20 @@ Some commonly used Git commands related to branch operations."><!--[if lte IE 9]
 <p align=center>
 <img src=https://blog-resource-1257868508.file.myqcloud.com/202202021114754.jpg width=800>
 </p>
-<p>Some commonly used Git commands related to branch operations.</p>
+<p>This post summarizes some commonly used Git commands related to branch operations.</p>
 <h1 id=create-a-new-branch-locally-and-remotely>Create a new branch (locally and remotely)</h1>
-<h2 id=create-branch-locally>Create branch locally</h2>
+<h2 id=create-a-branch-locally>Create a branch locally</h2>
 <p>We can use the following command to create a new branch</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git branch &lt;new_branch&gt;
-</code></pre></div><p>At this time, we are still in original branch. To switch to new branch, use the
-following command:</p>
+</code></pre></div><p>At this time, we are still in original branch. To switch to new branch, use the following command:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git checkout &lt;new_branch&gt;
 </code></pre></div><p>The two steps can be combined with the following command:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git checkout -b &lt;new_branch&gt;
-</code></pre></div><h2 id=create-branch-remotely>Create branch remotely</h2>
+</code></pre></div><h2 id=create-a-branch-remotely>Create a branch remotely</h2>
 <p>To create a remote branch, use the following command:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git push -u origin &lt;local_branch&gt;
-</code></pre></div><p>The <code>-u</code> option sets a upstream branch of the same name for tracking, i.e., now
-our local branch corresponds to the remote branch of the same name.</p>
+</code></pre></div><p>The <code>-u</code> option sets a upstream branch of the same name for tracking,
+i.e., now our local branch corresponds to a remote branch of the same name.</p>
 <p>Ref:</p>
 <ul>
 <li><a href=https://stackoverflow.com/q/1519006/6064933>How to create remote branch</a>.</li>
@@ -161,17 +160,15 @@ our local branch corresponds to the remote branch of the same name.</p>
 <li><a href=https://stackoverflow.com/q/5697750/6064933>What exactly does the “u” do? “git push -u origin master” vs “git push origin master”</a></li>
 </ul>
 <h2 id=create-a-git-branch-from-a-specific-commit>Create a git branch from a specific commit</h2>
-<p>Sometimes, we may find that we need to fix a flaw in a specific commit, but
-current work has not been finished. We may create a new branch from that commit,
-and after that, merge that branch to current branch.</p>
-<p>This is how we do using git:</p>
+<p>Sometimes, we may need to fix a flaw in a specific commit, but current work has not been finished.
+We may create a new branch from that commit, and after that, merge that branch to current branch.</p>
+<p>This is how we do this using git:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git branch fix_bug &lt;commit_id&gt;
 git checkout fix_bug
 </code></pre></div><p><code>&lt;commit_id></code> is the hash of that commit as shown in the <code>git log</code> output.</p>
 <p>The above command can also be simplified using <code>-b</code> for checkout:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git checkout -b fix_bug &lt;commit_id&gt;
-</code></pre></div><p>After fixing the issue in branch <code>fix_bug</code>, we can then merge the change into
-the original branch, say, master branch:</p>
+</code></pre></div><p>After fixing the issue in branch <code>fix_bug</code>, we can then merge the change into the original branch, say, <code>master</code> branch:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git checkout master
 git merge fix_bug
 </code></pre></div><p>Ref:</p>
@@ -187,31 +184,33 @@ git merge fix_bug
 </ul>
 <h1 id=delete-a-branch>Delete a branch</h1>
 <ul>
-<li>Delete local branch: <code>git branch -d &lt;branch_name></code></li>
-<li>Delete remote branch: <code>git push -d &lt;remote_name> &lt;remote_branch></code></li>
+<li>Delete a local branch: <code>git branch -d &lt;branch_name></code></li>
+<li>Delete a remote branch: <code>git push &lt;remote_name> -d &lt;remote_branch></code></li>
 </ul>
-<p>Note that you <strong>can not</strong> delete a local branch when you are on it! You need
-first to checkout to another branch.</p>
+<p>Note that we <strong>can not</strong> delete a local branch when we are on it!
+We need first to checkout to another branch.</p>
 <p>Ref:</p>
 <ul>
 <li><a href=https://stackoverflow.com/q/2003505/6064933>Delete git branch</a>.</li>
 </ul>
 <h1 id=rename-a-branch-locally-and-remotely>Rename a branch locally and remotely</h1>
-<p>First we need to rename the local branch:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git branch -m foo bar
+<p>Suppose we want to rename the branch <code>foo</code> in local and remote repo to name <code>bar</code>,
+first we need to rename the local branch:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git branch -m foo bar
 git branch --unset-upstream foo
-</code></pre></div><p>Then we push this branch to the remote:</p>
+</code></pre></div><p>Then we push the <code>bar</code> branch to the remote:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># create a remote branch of the same name and track it.</span>
 git push -u origin bar
-</code></pre></div><p>If the original remote branch <code>foo</code> is the default branch, you need to set
-other branch as the default. Otherwise, you can delete remote branch <code>foo</code>.
-After making sure that <code>foo</code> is default remote branch, run the following
-command to delete it from remote:</p>
+</code></pre></div><p>If the original remote branch <code>foo</code> is the default branch, we need to set other branch as the default.
+Otherwise, we can not delete remote branch <code>foo</code>.
+In GitHub, go to <code>Settings --> Branches</code> and change the default branch.
+After making sure that <code>foo</code> is not the default remote branch, run the following command to delete it from remote:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># suppose that origin is the remote name</span>
-git push -d origin foo
+git push origin -d foo
 </code></pre></div><p>Ref:</p>
 <ul>
 <li>How do I rename both a Git local and remote branch name?: <a href=https://stackoverflow.com/q/30590083/6064933>https://stackoverflow.com/q/30590083/6064933</a></li>
+<li>Cannot delete a remote master branch on git? <a href=https://stackoverflow.com/q/12208751/6064933>https://stackoverflow.com/q/12208751/6064933</a></li>
 </ul>
 <h1 id=create-a-local-branch-from-a-remote-branch>Create a local branch from a remote branch?</h1>
 <p>I have a remote branch and I would like to create a local branch based on it.
@@ -219,7 +218,7 @@ First, we need to fetch the remote changes:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git fetch
 </code></pre></div><p>Then we can create a local branch from the remote branch:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git checkout -b local_branch_name remote_name/remote_branch
-</code></pre></div><p>If you do not want to change the remote name, you can also also <code>-t</code>:</p>
+</code></pre></div><p>If we do not want to change the remote name, we can also also <code>-t</code>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git checkout -t &lt;name of remote&gt;/&lt;remote branch name&gt;
 </code></pre></div><p>It will create a local branch of the same name.</p>
 <p>Ref:</p>
@@ -229,7 +228,7 @@ First, we need to fetch the remote changes:</p>
 <li><a href=https://stackoverflow.com/a/48840672/6064933>Create local branch from remote branch</a>.</li>
 </ul>
 <h1 id=find-remote-tracking-branch-for-local-branch>Find remote tracking branch for local branch</h1>
-<p>If we want to find the remote local branch a local branch is tracking, we can use the following command:</p>
+<p>If we want to find the remote branch that a local branch is tracking, we can use the following command:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git branch -vv
 </code></pre></div><p>We can also use the git remote command to show remote tracking branch:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git remote show &lt;remote name&gt;
@@ -247,7 +246,7 @@ First, we need to fetch the remote changes:</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-02-02
+2022-06-04
 </span>
 </p>
 <p class=copyright-item>
