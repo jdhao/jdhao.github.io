@@ -31,11 +31,11 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2021/06/11/pandas_read_write_excel/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2021-06-11T00:48:23+08:00">
-<meta property="article:modified_time" content="2021-06-17T01:57:45+08:00">
+<meta property="article:modified_time" content="2022-06-15T22:55:23+08:00">
 <meta itemprop=name content="Excel Processing using Pandas">
 <meta itemprop=description content="A brief summary of how to read and write excel files using Pandas package."><meta itemprop=datePublished content="2021-06-11T00:48:23+08:00">
-<meta itemprop=dateModified content="2021-06-17T01:57:45+08:00">
-<meta itemprop=wordCount content="336">
+<meta itemprop=dateModified content="2022-06-15T22:55:23+08:00">
+<meta itemprop=wordCount content="337">
 <meta itemprop=keywords content="pandas,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Excel Processing using Pandas">
 <meta name=twitter:description content="A brief summary of how to read and write excel files using Pandas package."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
@@ -99,7 +99,7 @@
 <div class=post-category>
 <a href=/categories/Python/> Python </a>
 </div>
-<span class=more-meta> 336 words </span>
+<span class=more-meta> 337 words </span>
 <span class=more-meta> 2 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -114,7 +114,7 @@
 <li><a href=#read-empty-cell-as-empty-string>Read empty cell as empty string</a></li>
 <li><a href=#convert-panda-data-frame-to-numpy-array>Convert panda data frame to numpy array</a></li>
 <li><a href=#convert-list-to-excel-files>Convert list to excel files</a></li>
-<li><a href=#refs>Refs</a></li>
+<li><a href=#references>References</a></li>
 </ul>
 </nav>
 </div>
@@ -130,16 +130,15 @@ pip install xlrd
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
 
 <span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_excel</span><span class=p>(</span><span class=s1>&#39;test.xlsx&#39;</span><span class=p>,</span> <span class=n>sheet_name</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>engine</span><span class=o>=</span><span class=s1>&#39;openpyxl&#39;</span><span class=p>)</span>
-</code></pre></div><p>For param <code>sheet_name</code>, either the literal sheet name or the sheet name is
-okay. <code>sheet_name=0</code> means to read the 1st sheet.</p>
+</code></pre></div><p>For param <code>sheet_name</code>, either the literal sheet name or the sheet index is okay.
+<code>sheet_name=0</code> means to read the 1st sheet.</p>
 <h1 id=convert-text-in-each-cell-to-string-type>Convert text in each cell to string type</h1>
-<p>When the sheet contains date and numbers, <code>read_excel()</code> will convert it to
-Timestamps and numbers by default, if we would like to convert all text to
-strings, we can use the <code>dtype</code> parameter:</p>
+<p>When the sheet contains date and numbers, <code>read_excel()</code> will convert it to Timestamps and numbers by default,
+if we would like to convert all text to strings, we can use the <code>dtype</code> parameter:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_excel</span><span class=p>(</span><span class=s1>&#39;test.xlsx&#39;</span><span class=p>,</span> <span class=n>sheet_name</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>dtype</span><span class=o>=</span><span class=nb>str</span><span class=p>,</span> <span class=n>engine</span><span class=o>=</span><span class=s1>&#39;openpyxl&#39;</span><span class=p>)</span>
 </code></pre></div><h1 id=read-empty-cell-as-empty-string>Read empty cell as empty string</h1>
-<p>It seems that pandas will by default read empty cell as <code>NAN</code> values. To read
-empty cell as empty string, use <code>keep_default_na=False</code> when reading excel:</p>
+<p>It seems that pandas will by default read empty cell as <code>NAN</code> values.
+To read empty cell as empty string, use <code>keep_default_na=False</code> when reading excel:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_excel</span><span class=p>(</span><span class=s1>&#39;test.xlsx&#39;</span><span class=p>,</span> <span class=n>sheet_name</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>dtype</span><span class=o>=</span><span class=nb>str</span><span class=p>,</span> <span class=n>engine</span><span class=o>=</span><span class=s1>&#39;openpyxl&#39;</span><span class=p>,</span> <span class=n>keep_default_na</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
 </code></pre></div><p>Or after reading the sheet, use <a href=https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.fillna.html#pandas-dataframe-fillna><code>fillna()</code></a> to replace the nan values with empty string:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_excel</span><span class=p>(</span><span class=s1>&#39;test.xlsx&#39;</span><span class=p>,</span> <span class=n>sheet_name</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>dtype</span><span class=o>=</span><span class=nb>str</span><span class=p>,</span> <span class=n>engine</span><span class=o>=</span><span class=s1>&#39;openpyxl&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>fillna</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>)</span>
@@ -148,8 +147,7 @@ empty cell as empty string, use <code>keep_default_na=False</code> when reading 
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_excel</span><span class=p>(</span><span class=s1>&#39;test.xlsx&#39;</span><span class=p>,</span> <span class=n>sheet_name</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span> <span class=n>dtype</span><span class=o>=</span><span class=nb>str</span><span class=p>,</span> <span class=n>engine</span><span class=o>=</span><span class=s1>&#39;openpyxl&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>fillna</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>)</span>
 <span class=n>data</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>to_numpy</span><span class=p>()</span>  <span class=c1># data is now numpy array</span>
 </code></pre></div><h1 id=convert-list-to-excel-files>Convert list to excel files</h1>
-<p>To convert a list of list (each sublist has the same number of elements) to
-excel files, use <a href=https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_excel.html><code>to_excel()</code></a>:</p>
+<p>To convert a list of list (each sub-list has the same number of elements) to excel files, use <a href=https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_excel.html><code>to_excel()</code></a>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
 
 <span class=n>my_list</span> <span class=o>=</span> <span class=p>[[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>],</span> <span class=p>[</span><span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>]]</span>
@@ -158,15 +156,14 @@ excel files, use <a href=https://pandas.pydata.org/pandas-docs/stable/reference/
 <span class=n>df</span><span class=o>.</span><span class=n>to_excel</span><span class=p>(</span><span class=s1>&#39;my_list.xlsx&#39;</span><span class=p>)</span>
 </code></pre></div><p>To remove row index, use <code>index=False</code>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>df</span><span class=o>.</span><span class=n>to_excel</span><span class=p>(</span><span class=s1>&#39;my_list.xlsx&#39;</span><span class=p>,</span> <span class=n>index</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
-</code></pre></div><p>To add header for each column, we can provide a list of strings for each
-column using <code>header</code> parameter.</p>
+</code></pre></div><p>To add header for each column, we can provide a list of strings for each column using <code>header</code> parameter.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span>  <span class=nn>pandas</span>  <span class=k>as</span>  <span class=nn>pd</span>
 <span class=n>my_list</span>  <span class=o>=</span>  <span class=p>[[</span><span class=mi>1</span><span class=p>,</span>  <span class=mi>2</span><span class=p>,</span>  <span class=mi>3</span><span class=p>],</span>  <span class=p>[</span><span class=mi>4</span><span class=p>,</span>  <span class=mi>5</span><span class=p>,</span>  <span class=mi>6</span><span class=p>]]</span>
-<span class=n>df</span>  <span class=o>=</span>  <span class=n>pd</span><span class=o>.</span><span class=n>DataFrame</span><span class=p>(</span><span class=n>my_list</span><span class=p>)</span>
+<span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>DataFrame</span><span class=p>(</span><span class=n>my_list</span><span class=p>)</span>
 
 <span class=n>header</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;c1&#39;</span><span class=p>,</span> <span class=s1>&#39;c2&#39;</span><span class=p>,</span> <span class=s1>&#39;c3&#39;</span><span class=p>]</span>
-<span class=n>df</span><span class=o>.</span><span class=n>to_excel</span><span class=p>(</span><span class=s1>&#39;my_list.xlsx&#39;</span><span class=p>,</span> <span class=n>header</span><span class=o>=</span><span class=n>header</span><span class=p>)</span>
-</code></pre></div><h1 id=refs>Refs</h1>
+<span class=n>df</span><span class=o>.</span><span class=n>to_excel</span><span class=p>(</span><span class=s1>&#39;my_list.xlsx&#39;</span><span class=p>,</span> <span class=n>index</span><span class=o>=</span><span class=kc>False</span><span class=p>,</span> <span class=n>header</span><span class=o>=</span><span class=n>header</span><span class=p>)</span>
+</code></pre></div><h1 id=references>References</h1>
 <ul>
 <li>pandas can not open xlsx files: <a href=https://stackoverflow.com/q/65250207/6064933>https://stackoverflow.com/q/65250207/6064933</a></li>
 <li>pandas replace nan with blank:
@@ -187,7 +184,7 @@ column using <code>header</code> parameter.</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2021-06-17
+2022-06-15
 </span>
 </p>
 <p class=copyright-item>
