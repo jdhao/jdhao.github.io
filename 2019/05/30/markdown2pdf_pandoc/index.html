@@ -37,7 +37,7 @@ reading. In this post, I will summarize how I do it.
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2019-05-30T17:02:57+08:00">
-<meta property="article:modified_time" content="2021-06-27T11:13:56+08:00">
+<meta property="article:modified_time" content="2022-07-15T21:19:53+08:00">
 <meta itemprop=name content="Converting Markdown to Beautiful PDF with Pandoc">
 <meta itemprop=description content="Over the past few years, I have been using some dedicated note-taking software
 to manage my notes. But all these tools I have tried are unsatisfactory: they
@@ -45,7 +45,7 @@ are either slow or cumbersome when I want to search my notes. Finally, I
 decided to take my notes in Markdown and convert them to PDF using Pandoc for
 reading. In this post, I will summarize how I do it.
 本文的中文版本参见 这里。"><meta itemprop=datePublished content="2019-05-30T17:02:57+08:00">
-<meta itemprop=dateModified content="2021-06-27T11:13:56+08:00">
+<meta itemprop=dateModified content="2022-07-15T21:19:53+08:00">
 <meta itemprop=wordCount content="2663">
 <meta itemprop=keywords content="Pandoc,Sublime-Text,PDF,Markdown,font,LaTeX,Unicode,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Converting Markdown to Beautiful PDF with Pandoc">
@@ -186,10 +186,7 @@ Sublime Text, which means more efficient editing and pleasant writing
 experience.</p>
 </li>
 <li>
-<p>Since a Markdown file is a textual file, we can search it using powerful</p>
-</li>
-<li>
-<p>search tool such as <code>grep</code> or <a href=https://github.com/BurntSushi/ripgrep><code>ripgrep</code></a>.</p>
+<p>Since a Markdown file is a textual file, we can search it using powerful search tool such as <code>grep</code> or <a href=https://github.com/BurntSushi/ripgrep><code>ripgrep</code></a>.</p>
 </li>
 <li>
 <p>We can covert the Markdown files to various formats such as PDF, HTML, epub,
@@ -221,7 +218,7 @@ tools:</p>
 <h1 id=generating-pdf-from-markdown-with-pandoc>Generating PDF from Markdown with Pandoc</h1>
 <h2 id=background>Background</h2>
 <p>For those who are not familiar with Pandoc, Pandoc is a powerful tool for
-converting document between different formats. It is called the swiss knife of
+converting document between different formats. It is called the Swiss knife of
 document converter. There are actually two steps involved in converting
 Markdown files to PDF:</p>
 <ol>
@@ -324,26 +321,22 @@ you can use the following option to change the margin:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>pandoc --pdf-engine=xelatex -V geometry:&#34;top=2cm, bottom=1.5cm, left=2cm,
 right=2cm&#34; -o test.pdf test.md
 </code></pre></div><h2 id=error-when-using-backslash-inside-markdown>Error when using backslash inside Markdown</h2>
-<p>In ordinary Markdown format, it is fine to use backslash characters inside the
-files. But Pandoc interpret the backslash and string after it as LaTeX command
-by default. As a result, you may encounter <a href=https://tex.stackexchange.com/q/407744/114857>weired
-errors</a> when trying to compile
-Markdown files containing backslash characters. Based on discussions
-<a href=https://github.com/jgm/pandoc/issues/1637>here</a> and
-<a href=https://github.com/jgm/pandoc/issues/2790>here</a>, the solution is to make
-Pandoc treat the Markdown file as normal Markdown files and not interpret the
-LaTeX command. You need to use the following flag:</p>
+<p>In ordinary Markdown format, it is fine to use backslash characters inside the files.
+But Pandoc interpret the backslash and string after it as LaTeX command by default.
+As a result, you may encounter <a href=https://tex.stackexchange.com/q/407744/114857>weird errors</a>
+when trying to compile Markdown files containing backslash characters.
+Based on discussions <a href=https://github.com/jgm/pandoc/issues/1637>here</a> and <a href=https://github.com/jgm/pandoc/issues/2790>here</a>,
+the solution is to make Pandoc treat the Markdown file as normal Markdown files and not interpret the LaTeX command.
+You need to use the following flag:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>pandoc -f markdown-raw_tex
-</code></pre></div><p>Or you can use two backslash to represent a literal backslash, e.g., <code>\\sometxt</code>. If you want to express a LaTeX command, enclose the command with
-inline code block, like this: <code>\textt{}</code>.</p>
+</code></pre></div><p>Or you can use two backslash to represent a literal backslash, e.g., <code>\\sometxt</code>.
+If you want to express a LaTeX command, enclose the command with inline code block, like this: <code>\textt{}</code>.</p>
 <h2 id=add-background-color-to-inline-code>Add background color to inline code</h2>
-<p>In translating Markdown source file to TeX files, Pandoc use the
-<a href=https://www.tutorialspoint.com/tex_commands/texttt.htm><code> \texttt</code></a>
-command to represent the inline code. So inline code has no background color in
-the generated PDF files. To increase the readability of inline code, we can
-modify the <code>\texttt</code> command to add background color to text.</p>
-<p>First, we need to create a file named <code>head.tex</code> and add the following settings
-to it:</p>
+<p>In translating Markdown source file to TeX files,
+Pandoc use the <a href=https://www.tutorialspoint.com/tex_commands/texttt.htm><code> \texttt</code></a> command to represent the inline code.
+So inline code has no background color in the generated PDF files.
+To increase the readability of inline code, we can modify the <code>\texttt</code> command to add background color to text.</p>
+<p>First, we need to create a file named <code>head.tex</code> and add the following settings to it:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-latex data-lang=latex><span class=c>% change background color for inline code in
 </span><span class=c>% markdown files. The following code does not work well for
 </span><span class=c>% long text as the text will exceed the page boundary
@@ -522,7 +515,7 @@ avoid <a href=https://tex.stackexchange.com/questions/47351/can-i-redefine-a-com
 <p>In Markdown, you can create a hard linebreak by appending two spaces after a line:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>hello&lt;space&gt;&lt;space&gt;
 world
-</code></pre></div><p>Using space at the line end for formating is annoying since it cause the
+</code></pre></div><p>Using space at the line end for formatting is annoying since it cause the
 trailing whitespace warning. The space characters are also not visible.</p>
 <p>Pandoc also provides an
 <a href=https://pandoc.org/MANUAL.html#extension-escaped_line_breaks><code>escaped_line_breaks</code></a>
@@ -650,7 +643,7 @@ I hope that you can now generate beautiful PDF from Markdown files.</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2021-06-27
+2022-07-15
 </span>
 </p>
 <p class=copyright-item>
