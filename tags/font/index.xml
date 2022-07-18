@@ -8,7 +8,13 @@ Pixels are the smallest unit on screen to display images and graphics. It is not
 &lt;p>By default, LaTeX provides several command to change the font size to
 predefined size. Those command include &lt;code>\scriptsize&lt;/code>, &lt;code>\large&lt;/code>, &lt;code>\Huge&lt;/code> etc.
 However, even the font size provided by the &lt;code>\Huge&lt;/code> command may not be large
-enough.&lt;/p></description></item><item><title>Converting Markdown to Beautiful PDF with Pandoc</title><link>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</link><pubDate>Thu, 30 May 2019 17:02:57 +0800</pubDate><guid>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</guid><description>&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/">这里&lt;/a>。&lt;/p>
+enough.&lt;/p></description></item><item><title>Converting Markdown to Beautiful PDF with Pandoc</title><link>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</link><pubDate>Thu, 30 May 2019 17:02:57 +0800</pubDate><guid>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2022-07-19: Add build method via neovim&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/">这里&lt;/a>。&lt;/p>
 &lt;p>Over the past few years, I have been using some dedicated note-taking software to manage my notes.
 However, all these tools I have tried are unsatisfactory: they are either slow or cumbersome in terms of note searching.
 Finally, I decided to take my notes in Markdown and convert them to PDF using Pandoc for reading.

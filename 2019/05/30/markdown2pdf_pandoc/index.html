@@ -11,7 +11,7 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="本文的中文版本参见 这里。
+<meta name=author content="jdhao"><meta name=description content=" update log  2022-07-19: Add build method via neovim   本文的中文版本参见 这里。
 Over the past few years, I have been using some dedicated note-taking software to manage my notes. However, all these tools I have tried are unsatisfactory: they are either slow or cumbersome in terms of note searching. Finally, I decided to take my notes in Markdown and convert them to PDF using Pandoc for reading. In this post, I will summarize how I do it.
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
@@ -28,7 +28,13 @@ Over the past few years, I have been using some dedicated note-taking software t
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
 <meta property="og:title" content="Converting Markdown to Beautiful PDF with Pandoc">
-<meta property="og:description" content="本文的中文版本参见 这里。
+<meta property="og:description" content="
+update log
+
+2022-07-19: Add build method via neovim
+
+
+本文的中文版本参见 这里。
 Over the past few years, I have been using some dedicated note-taking software to manage my notes.
 However, all these tools I have tried are unsatisfactory: they are either slow or cumbersome in terms of note searching.
 Finally, I decided to take my notes in Markdown and convert them to PDF using Pandoc for reading.
@@ -36,18 +42,30 @@ In this post, I will summarize how I do it.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2019-05-30T17:02:57+08:00">
-<meta property="article:modified_time" content="2022-07-19T00:56:37+08:00">
+<meta property="article:modified_time" content="2022-07-19T01:24:17+08:00">
 <meta itemprop=name content="Converting Markdown to Beautiful PDF with Pandoc">
-<meta itemprop=description content="本文的中文版本参见 这里。
+<meta itemprop=description content="
+update log
+
+2022-07-19: Add build method via neovim
+
+
+本文的中文版本参见 这里。
 Over the past few years, I have been using some dedicated note-taking software to manage my notes.
 However, all these tools I have tried are unsatisfactory: they are either slow or cumbersome in terms of note searching.
 Finally, I decided to take my notes in Markdown and convert them to PDF using Pandoc for reading.
 In this post, I will summarize how I do it."><meta itemprop=datePublished content="2019-05-30T17:02:57+08:00">
-<meta itemprop=dateModified content="2022-07-19T00:56:37+08:00">
-<meta itemprop=wordCount content="2734">
+<meta itemprop=dateModified content="2022-07-19T01:24:17+08:00">
+<meta itemprop=wordCount content="2779">
 <meta itemprop=keywords content="Pandoc,Sublime-Text,PDF,Markdown,font,LaTeX,Unicode,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Converting Markdown to Beautiful PDF with Pandoc">
-<meta name=twitter:description content="本文的中文版本参见 这里。
+<meta name=twitter:description content="
+update log
+
+2022-07-19: Add build method via neovim
+
+
+本文的中文版本参见 这里。
 Over the past few years, I have been using some dedicated note-taking software to manage my notes.
 However, all these tools I have tried are unsatisfactory: they are either slow or cumbersome in terms of note searching.
 Finally, I decided to take my notes in Markdown and convert them to PDF using Pandoc for reading.
@@ -112,7 +130,7 @@ In this post, I will summarize how I do it."><!--[if lte IE 9]><script src=https
 <div class=post-category>
 <a href=/categories/tools/> tools </a>
 </div>
-<span class=more-meta> 2734 words </span>
+<span class=more-meta> 2779 words </span>
 <span class=more-meta> 6 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -163,6 +181,7 @@ In this post, I will summarize how I do it."><!--[if lte IE 9]><script src=https
 <li><a href=#pandoc-is-not-recognized-on-windows-systems>Pandoc is not recognized on Windows systems</a></li>
 </ul>
 </li>
+<li><a href=#generate-pdf-via-neovim>Generate PDF via Neovim</a></li>
 <li><a href=#conclusion>Conclusion</a></li>
 <li><a href=#references-1>References</a></li>
 </ul>
@@ -170,6 +189,12 @@ In this post, I will summarize how I do it."><!--[if lte IE 9]><script src=https
 </div>
 </div>
 <div class=post-content>
+<details>
+<summary><font size=2 color=red>update log</font></summary>
+<ul>
+<li><font color=blue>2022-07-19: Add build method via neovim</font></li>
+</ul>
+</details>
 <p>本文的中文版本参见 <a href=https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/>这里</a>。</p>
 <p>Over the past few years, I have been using some dedicated note-taking software to manage my notes.
 However, all these tools I have tried are unsatisfactory: they are either slow or cumbersome in terms of note searching.
@@ -541,16 +566,22 @@ So I adjust the above build system:</p>
 }
 </code></pre></div></details>
 <p>After that, everything goes well.</p>
+<h1 id=generate-pdf-via-neovim>Generate PDF via Neovim</h1>
+<p>We can also define a command to generate and preview the PDF via Neovim.
+For the details, see <a href=https://github.com/jdhao/nvim-config/commit/33270f32579672e43c8b6f8d5b64ef0e4e99d20e>this commit</a>.</p>
 <h1 id=conclusion>Conclusion</h1>
 <p>In this post, I give a complete summary on how to generate beautiful PDF files from Markdown.
 I also share several solutions to the issues I have encountered.
 I hope that you can now generate beautiful PDF from Markdown files.</p>
 <h1 id=references-1>References</h1>
 <ul>
+<li>pandoc variables for LaTeX: <a href=https://pandoc.org/MANUAL.html#variables-for-latex>https://pandoc.org/MANUAL.html#variables-for-latex</a></li>
+<li>change hyperref color: <a href=https://stackoverflow.com/a/58885711/6064933>https://stackoverflow.com/a/58885711/6064933</a></li>
+<li><a href=https://en.wikibooks.org/wiki/LaTeX/Colors#The_68_standard_colors_known_to_dvips>colors provided by dvipsnames</a></li>
+<li>pandoc LaTeX template: <a href=https://github.com/Wandmalfarbe/pandoc-latex-template>https://github.com/Wandmalfarbe/pandoc-latex-template</a></li>
 <li><a href=https://pandoc.org/faqs.html#i-get-a-blank-document-when-i-try-to-convert-a-markdown-document-in-chinese-to-pdf-using-pandoc--o-test.pdf-test.markdown>Dealing with Chinese in Pandoc</a></li>
 <li><a href=https://pandoc.org/MANUAL.html#block-quotations>Pandoc&rsquo;s handling of block quote</a></li>
 <li><a href=https://pandoc.org/MANUAL.html#syntax-highlighting>Pandoc syntax highlighting</a></li>
-<li><a href=https://en.wikibooks.org/wiki/LaTeX/Colors#The_68_standard_colors_known_to_dvips>colors provided by dvipsnames</a></li>
 <li><a href=https://stackoverflow.com/q/24208889/6064933>Pandoc section number</a></li>
 <li><a href=https://stackoverflow.com/a/47837674/6064933>Pandoc command not found</a></li>
 <li>Anchors in Pandoc
