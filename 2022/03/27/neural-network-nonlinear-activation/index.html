@@ -30,7 +30,12 @@
 <meta property="og:description" content="
 
 
-Non-linear activations are important in deep neural networks. It is important in the sense that without non-linear activation functions, even if you have many linear layers, the end results is like you have only one linear layer, and the approximation ability of the network is very limited1. Some of most commonly-used nonlinear activation functions are Sigmoid, ReLU and Tanh.">
+Non-linear activations are important in deep neural networks. It is
+important in the sense that without non-linear activation functions,
+even if you have many linear layers, the end results is like you have
+only one linear layer, and the approximation ability of the network is
+very limited1. Some of most commonly-used
+nonlinear activation functions are Sigmoid, ReLU and Tanh.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2022/03/27/neural-network-nonlinear-activation/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-03-27T17:25:12+08:00">
@@ -39,7 +44,12 @@ Non-linear activations are important in deep neural networks. It is important in
 <meta itemprop=description content="
 
 
-Non-linear activations are important in deep neural networks. It is important in the sense that without non-linear activation functions, even if you have many linear layers, the end results is like you have only one linear layer, and the approximation ability of the network is very limited1. Some of most commonly-used nonlinear activation functions are Sigmoid, ReLU and Tanh."><meta itemprop=datePublished content="2022-03-27T17:25:12+08:00">
+Non-linear activations are important in deep neural networks. It is
+important in the sense that without non-linear activation functions,
+even if you have many linear layers, the end results is like you have
+only one linear layer, and the approximation ability of the network is
+very limited1. Some of most commonly-used
+nonlinear activation functions are Sigmoid, ReLU and Tanh."><meta itemprop=datePublished content="2022-03-27T17:25:12+08:00">
 <meta itemprop=dateModified content="2022-03-27T23:50:40+08:00">
 <meta itemprop=wordCount content="586">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
@@ -47,7 +57,12 @@ Non-linear activations are important in deep neural networks. It is important in
 <meta name=twitter:description content="
 
 
-Non-linear activations are important in deep neural networks. It is important in the sense that without non-linear activation functions, even if you have many linear layers, the end results is like you have only one linear layer, and the approximation ability of the network is very limited1. Some of most commonly-used nonlinear activation functions are Sigmoid, ReLU and Tanh."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+Non-linear activations are important in deep neural networks. It is
+important in the sense that without non-linear activation functions,
+even if you have many linear layers, the end results is like you have
+only one linear layer, and the approximation ability of the network is
+very limited1. Some of most commonly-used
+nonlinear activation functions are Sigmoid, ReLU and Tanh."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -122,21 +137,33 @@ Non-linear activations are important in deep neural networks. It is important in
 <p align=center>
 <img src=https://blog-resource-1257868508.file.myqcloud.com/202203271740705.png width=600>
 </p>
-<p>Non-linear activations are important in deep neural networks. It is important in the sense that without non-linear activation functions, even if you have many linear layers, the end results is like you have only one linear layer, and the approximation ability of the network is very limited<a href=#fn1 class=footnote-ref id=fnref1 role=doc-noteref><sup>1</sup></a>. Some of most commonly-used nonlinear activation functions are Sigmoid, ReLU and Tanh.</p>
-<h1 id=nonlinear-activations-and-their-derivatives>Nonlinear activations and their derivatives</h1>
+<p>Non-linear activations are important in deep neural networks. It is
+important in the sense that without non-linear activation functions,
+even if you have many linear layers, the end results is like you have
+only one linear layer, and the approximation ability of the network is
+very limited<a href=#fn1 class=footnote-ref id=fnref1 role=doc-noteref><sup>1</sup></a>. Some of most commonly-used
+nonlinear activation functions are Sigmoid, ReLU and Tanh.</p>
+<h1 id=nonlinear-activations-and-their-derivatives>Nonlinear
+activations and their derivatives</h1>
 <h2 id=sigmoid>Sigmoid</h2>
-<p>Sigmoid function, also known as logistic function, has the following form:</p>
+<p>Sigmoid function, also known as logistic function, has the following
+form:</p>
 <p><span class="math display">\[f(x) = \frac{1}{1+e^{-x}}\]</span></p>
 <p>The derivative of sigmoid is:</p>
-<p><span class="math display">\[\begin{aligned}\frac{df}{dx} &= \frac{e^{-x}}{(1+e^{-x})^2}\\
-&= \frac{1}{1+e^{-x}}(1- \frac{1}{1+e^{-x}})\\
+<p><span class="math display">\[\begin{aligned}\frac{df}{dx} &=
+\frac{e^{-x}}{(1+e^{-x})^2}\\
+&= \frac{1}{1+e^{-x}}(1-
+\frac{1}{1+e^{-x}})\\
 &= f(x)(1-f(x))
 \end{aligned}\]</span></p>
 <h2 id=tanh>Tanh</h2>
-<p><a href=https://en.wikipedia.org/wiki/Hyperbolic_functions#Exponential_definitions>Tanh</a> function</p>
-<p><span class="math display">\[f(x) = \frac{e^{2x}-1}{e^{2x}+1}\]</span></p>
+<p><a href=https://en.wikipedia.org/wiki/Hyperbolic_functions#Exponential_definitions>Tanh</a>
+function</p>
+<p><span class="math display">\[f(x) =
+\frac{e^{2x}-1}{e^{2x}+1}\]</span></p>
 <p>The derivative of Tanh is:</p>
-<p><span class="math display">\[\frac{df}{dx} = \frac{4e^{2x}}{(e^{2x} + 1)^2} = 1 - {f(x)}^2\]</span></p>
+<p><span class="math display">\[\frac{df}{dx} = \frac{4e^{2x}}{(e^{2x} +
+1)^2} = 1 - {f(x)}^2\]</span></p>
 <h2 id=relu>ReLU</h2>
 <p>ReLU, called rectified linear unit, has the following form:</p>
 <p><span class="math display">\[f(x) = \max(0, x)\]</span></p>
@@ -147,77 +174,107 @@ x & x \geq 0 \\
 0 & x &lt; 0
 \end{cases}\]</span></p>
 <p>The derivate of ReLU is quite simple, it is <code>1</code> for <span class="math inline">\(x > 0\)</span> and 0 otherwise.</p>
-<p>There are also variants of ReLU, such as Leaky ReLU, PReLU (parametric ReLU), and RReLU (randomized ReLU). In <a href=https://arxiv.org/abs/1505.00853>Empirical Evaluation of Rectified Activations in Convolutional Network</a>, the author claimed that PReLU and RReLU works better than ReLU in small scale datasets such as CIFAR10, CIFAR100 and <a href=https://www.kaggle.com/c/datasciencebowl>Kaggle NDSB</a>.</p>
+<p>There are also variants of ReLU, such as Leaky ReLU, PReLU
+(parametric ReLU), and RReLU (randomized ReLU). In <a href=https://arxiv.org/abs/1505.00853>Empirical Evaluation of
+Rectified Activations in Convolutional Network</a>, the author claimed
+that PReLU and RReLU works better than ReLU in small scale datasets such
+as CIFAR10, CIFAR100 and <a href=https://www.kaggle.com/c/datasciencebowl>Kaggle NDSB</a>.</p>
 <h1 id=vanishing-gradient>Vanishing gradient</h1>
-<p>I show the plot of different activation functions and their derivatives in the title image.</p>
+<p>I show the plot of different activation functions and their
+derivatives in the title image.</p>
 <details>
-<p><summary><font size=2 color=red>Click to show the code for visualization.</font></summary></p>
-<div class=sourceCode id=cb1><pre class="sourceCode python"><code class="sourceCode python"><span id=cb1-1><a href=#cb1-1></a><span class=im>import</span> matplotlib.pyplot <span class=im>as</span> plt</span>
-<span id=cb1-2><a href=#cb1-2></a><span class=im>import</span> numpy <span class=im>as</span> np</span>
-<span id=cb1-3><a href=#cb1-3></a></span>
-<span id=cb1-4><a href=#cb1-4></a></span>
-<span id=cb1-5><a href=#cb1-5></a><span class=kw>def</span> main():</span>
-<span id=cb1-6><a href=#cb1-6></a>    x <span class=op>=</span> np.linspace(<span class=op>-</span><span class=dv>5</span>, <span class=dv>5</span>, <span class=dv>100</span>)</span>
-<span id=cb1-7><a href=#cb1-7></a></span>
-<span id=cb1-8><a href=#cb1-8></a>    r <span class=op>=</span> [relu(v) <span class=cf>for</span> v <span class=kw>in</span> x]</span>
-<span id=cb1-9><a href=#cb1-9></a></span>
-<span id=cb1-10><a href=#cb1-10></a>    sig <span class=op>=</span> [sigmoid(v) <span class=cf>for</span> v <span class=kw>in</span> x]</span>
-<span id=cb1-11><a href=#cb1-11></a>    d_sig <span class=op>=</span> [sigmoid(v)<span class=op>*</span>(<span class=dv>1</span> <span class=op>-</span> sigmoid(v)) <span class=cf>for</span> v <span class=kw>in</span> x]</span>
-<span id=cb1-12><a href=#cb1-12></a></span>
-<span id=cb1-13><a href=#cb1-13></a>    t <span class=op>=</span> [tanh(v) <span class=cf>for</span> v <span class=kw>in</span> x]</span>
-<span id=cb1-14><a href=#cb1-14></a>    d_tanh <span class=op>=</span> [<span class=dv>1</span> <span class=op>-</span> tanh(v)<span class=op>**</span><span class=dv>2</span> <span class=cf>for</span> v <span class=kw>in</span> x]</span>
-<span id=cb1-15><a href=#cb1-15></a></span>
-<span id=cb1-16><a href=#cb1-16></a>    fig <span class=op>=</span> plt.figure(figsize<span class=op>=</span>[<span class=dv>6</span>, <span class=dv>3</span>])</span>
-<span id=cb1-17><a href=#cb1-17></a></span>
-<span id=cb1-18><a href=#cb1-18></a>    ax <span class=op>=</span> fig.add_subplot(<span class=dv>111</span>)</span>
-<span id=cb1-19><a href=#cb1-19></a></span>
-<span id=cb1-20><a href=#cb1-20></a>    ax.plot(x, r, <span class=st>&#39;#66c2a5&#39;</span>, label<span class=op>=</span><span class=st>&#39;ReLU&#39;</span>)</span>
-<span id=cb1-21><a href=#cb1-21></a></span>
-<span id=cb1-22><a href=#cb1-22></a>    ax.plot(x, sig, <span class=st>&#39;#fc8d62&#39;</span>, label<span class=op>=</span><span class=st>&#39;sigmoid&#39;</span>)</span>
-<span id=cb1-23><a href=#cb1-23></a>    ax.plot(x, d_sig, <span class=st>&#39;#8da0cb&#39;</span>, label<span class=op>=</span><span class=st>&#39;sigmoid derivative&#39;</span>)</span>
-<span id=cb1-24><a href=#cb1-24></a></span>
-<span id=cb1-25><a href=#cb1-25></a>    ax.plot(x, t, <span class=st>&#39;#e78ac3&#39;</span>, label<span class=op>=</span><span class=st>&#39;tanh&#39;</span>)</span>
-<span id=cb1-26><a href=#cb1-26></a>    ax.plot(x, d_tanh, <span class=st>&#39;#a6d854&#39;</span>, label<span class=op>=</span><span class=st>&#39;tanh derivative&#39;</span>)</span>
-<span id=cb1-27><a href=#cb1-27></a></span>
-<span id=cb1-28><a href=#cb1-28></a>    ax.legend()</span>
-<span id=cb1-29><a href=#cb1-29></a></span>
-<span id=cb1-30><a href=#cb1-30></a>    plt.savefig(<span class=st>&#39;activation-curve.png&#39;</span>, dpi<span class=op>=</span><span class=dv>96</span>, bbox_inches<span class=op>=</span><span class=st>&#39;tight&#39;</span>)</span>
-<span id=cb1-31><a href=#cb1-31></a></span>
-<span id=cb1-32><a href=#cb1-32></a></span>
-<span id=cb1-33><a href=#cb1-33></a><span class=kw>def</span> relu(x):</span>
-<span id=cb1-34><a href=#cb1-34></a>    <span class=cf>if</span> x <span class=op>&gt;=</span><span class=dv>0</span>:</span>
-<span id=cb1-35><a href=#cb1-35></a>        <span class=cf>return</span> x</span>
-<span id=cb1-36><a href=#cb1-36></a></span>
-<span id=cb1-37><a href=#cb1-37></a>    <span class=cf>return</span> <span class=dv>0</span></span>
-<span id=cb1-38><a href=#cb1-38></a></span>
-<span id=cb1-39><a href=#cb1-39></a></span>
-<span id=cb1-40><a href=#cb1-40></a><span class=kw>def</span> sigmoid(x):</span>
-<span id=cb1-41><a href=#cb1-41></a>    <span class=cf>return</span> <span class=dv>1</span><span class=op>/</span>(<span class=dv>1</span> <span class=op>+</span> np.exp(<span class=op>-</span>x))</span>
-<span id=cb1-42><a href=#cb1-42></a></span>
-<span id=cb1-43><a href=#cb1-43></a></span>
-<span id=cb1-44><a href=#cb1-44></a><span class=kw>def</span> tanh(x):</span>
-<span id=cb1-45><a href=#cb1-45></a>    <span class=cf>return</span> (np.exp(x)<span class=op>**</span><span class=dv>2</span> <span class=op>-</span> <span class=dv>1</span>)<span class=op>/</span>(np.exp(x)<span class=op>**</span><span class=dv>2</span> <span class=op>+</span> <span class=dv>1</span>)</span>
-<span id=cb1-46><a href=#cb1-46></a></span>
-<span id=cb1-47><a href=#cb1-47></a></span>
-<span id=cb1-48><a href=#cb1-48></a><span class=cf>if</span> <span class=va>__name__</span> <span class=op>==</span> <span class=st>&quot;__main__&quot;</span>:</span>
-<span id=cb1-49><a href=#cb1-49></a>    main()</span></code></pre></div>
+<summary>
+<font size=2 color=red>Click to show the code for
+visualization.</font>
+</summary>
+<div class=sourceCode id=cb1><pre class="sourceCode python"><code class="sourceCode python"><span id=cb1-1><a href=#cb1-1 aria-hidden=true tabindex=-1></a><span class=im>import</span> matplotlib.pyplot <span class=im>as</span> plt</span>
+<span id=cb1-2><a href=#cb1-2 aria-hidden=true tabindex=-1></a><span class=im>import</span> numpy <span class=im>as</span> np</span>
+<span id=cb1-3><a href=#cb1-3 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-4><a href=#cb1-4 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-5><a href=#cb1-5 aria-hidden=true tabindex=-1></a><span class=kw>def</span> main():</span>
+<span id=cb1-6><a href=#cb1-6 aria-hidden=true tabindex=-1></a>    x <span class=op>=</span> np.linspace(<span class=op>-</span><span class=dv>5</span>, <span class=dv>5</span>, <span class=dv>100</span>)</span>
+<span id=cb1-7><a href=#cb1-7 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-8><a href=#cb1-8 aria-hidden=true tabindex=-1></a>    r <span class=op>=</span> [relu(v) <span class=cf>for</span> v <span class=kw>in</span> x]</span>
+<span id=cb1-9><a href=#cb1-9 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-10><a href=#cb1-10 aria-hidden=true tabindex=-1></a>    sig <span class=op>=</span> [sigmoid(v) <span class=cf>for</span> v <span class=kw>in</span> x]</span>
+<span id=cb1-11><a href=#cb1-11 aria-hidden=true tabindex=-1></a>    d_sig <span class=op>=</span> [sigmoid(v)<span class=op>*</span>(<span class=dv>1</span> <span class=op>-</span> sigmoid(v)) <span class=cf>for</span> v <span class=kw>in</span> x]</span>
+<span id=cb1-12><a href=#cb1-12 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-13><a href=#cb1-13 aria-hidden=true tabindex=-1></a>    t <span class=op>=</span> [tanh(v) <span class=cf>for</span> v <span class=kw>in</span> x]</span>
+<span id=cb1-14><a href=#cb1-14 aria-hidden=true tabindex=-1></a>    d_tanh <span class=op>=</span> [<span class=dv>1</span> <span class=op>-</span> tanh(v)<span class=op>**</span><span class=dv>2</span> <span class=cf>for</span> v <span class=kw>in</span> x]</span>
+<span id=cb1-15><a href=#cb1-15 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-16><a href=#cb1-16 aria-hidden=true tabindex=-1></a>    fig <span class=op>=</span> plt.figure(figsize<span class=op>=</span>[<span class=dv>6</span>, <span class=dv>3</span>])</span>
+<span id=cb1-17><a href=#cb1-17 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-18><a href=#cb1-18 aria-hidden=true tabindex=-1></a>    ax <span class=op>=</span> fig.add_subplot(<span class=dv>111</span>)</span>
+<span id=cb1-19><a href=#cb1-19 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-20><a href=#cb1-20 aria-hidden=true tabindex=-1></a>    ax.plot(x, r, <span class=st>&#39;#66c2a5&#39;</span>, label<span class=op>=</span><span class=st>&#39;ReLU&#39;</span>)</span>
+<span id=cb1-21><a href=#cb1-21 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-22><a href=#cb1-22 aria-hidden=true tabindex=-1></a>    ax.plot(x, sig, <span class=st>&#39;#fc8d62&#39;</span>, label<span class=op>=</span><span class=st>&#39;sigmoid&#39;</span>)</span>
+<span id=cb1-23><a href=#cb1-23 aria-hidden=true tabindex=-1></a>    ax.plot(x, d_sig, <span class=st>&#39;#8da0cb&#39;</span>, label<span class=op>=</span><span class=st>&#39;sigmoid derivative&#39;</span>)</span>
+<span id=cb1-24><a href=#cb1-24 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-25><a href=#cb1-25 aria-hidden=true tabindex=-1></a>    ax.plot(x, t, <span class=st>&#39;#e78ac3&#39;</span>, label<span class=op>=</span><span class=st>&#39;tanh&#39;</span>)</span>
+<span id=cb1-26><a href=#cb1-26 aria-hidden=true tabindex=-1></a>    ax.plot(x, d_tanh, <span class=st>&#39;#a6d854&#39;</span>, label<span class=op>=</span><span class=st>&#39;tanh derivative&#39;</span>)</span>
+<span id=cb1-27><a href=#cb1-27 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-28><a href=#cb1-28 aria-hidden=true tabindex=-1></a>    ax.legend()</span>
+<span id=cb1-29><a href=#cb1-29 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-30><a href=#cb1-30 aria-hidden=true tabindex=-1></a>    plt.savefig(<span class=st>&#39;activation-curve.png&#39;</span>, dpi<span class=op>=</span><span class=dv>96</span>, bbox_inches<span class=op>=</span><span class=st>&#39;tight&#39;</span>)</span>
+<span id=cb1-31><a href=#cb1-31 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-32><a href=#cb1-32 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-33><a href=#cb1-33 aria-hidden=true tabindex=-1></a><span class=kw>def</span> relu(x):</span>
+<span id=cb1-34><a href=#cb1-34 aria-hidden=true tabindex=-1></a>    <span class=cf>if</span> x <span class=op>&gt;=</span><span class=dv>0</span>:</span>
+<span id=cb1-35><a href=#cb1-35 aria-hidden=true tabindex=-1></a>        <span class=cf>return</span> x</span>
+<span id=cb1-36><a href=#cb1-36 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-37><a href=#cb1-37 aria-hidden=true tabindex=-1></a>    <span class=cf>return</span> <span class=dv>0</span></span>
+<span id=cb1-38><a href=#cb1-38 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-39><a href=#cb1-39 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-40><a href=#cb1-40 aria-hidden=true tabindex=-1></a><span class=kw>def</span> sigmoid(x):</span>
+<span id=cb1-41><a href=#cb1-41 aria-hidden=true tabindex=-1></a>    <span class=cf>return</span> <span class=dv>1</span><span class=op>/</span>(<span class=dv>1</span> <span class=op>+</span> np.exp(<span class=op>-</span>x))</span>
+<span id=cb1-42><a href=#cb1-42 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-43><a href=#cb1-43 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-44><a href=#cb1-44 aria-hidden=true tabindex=-1></a><span class=kw>def</span> tanh(x):</span>
+<span id=cb1-45><a href=#cb1-45 aria-hidden=true tabindex=-1></a>    <span class=cf>return</span> (np.exp(x)<span class=op>**</span><span class=dv>2</span> <span class=op>-</span> <span class=dv>1</span>)<span class=op>/</span>(np.exp(x)<span class=op>**</span><span class=dv>2</span> <span class=op>+</span> <span class=dv>1</span>)</span>
+<span id=cb1-46><a href=#cb1-46 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-47><a href=#cb1-47 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-48><a href=#cb1-48 aria-hidden=true tabindex=-1></a><span class=cf>if</span> <span class=va>__name__</span> <span class=op>==</span> <span class=st>&quot;__main__&quot;</span>:</span>
+<span id=cb1-49><a href=#cb1-49 aria-hidden=true tabindex=-1></a>    main()</span></code></pre></div>
 </details>
-<p>The derivative of sigmoid is relatively small, and its largest value is only 0.25 (when <span class="math inline">\(x = 0\)</span>). When <span class="math inline">\(x\)</span> is large, the derivative is near zero. Tanh has a similar issue: it has a low gradient, and maximum gradient is only 1 (<span class="math inline">\(x=0\)</span>).</p>
-<p>This will cause the vanishing gradient problem, because in order to calculate the derivative of loss w.r.t the weight of earlier layers in the network, we need to multiply the gradient in the later layers. When you multiply several values below 0.25, the result goes down to zero quickly, so the network weight in earlier layers get updated slowly. In other words, the learning process will converge much slower than using ReLU, and we might need much more epochs to get a satisfactory result.</p>
-<p>Another advantage of ReLU is that it is computationally cheap compared to sigmoid, both in terms of forward and backward operation.</p>
-<h1 id=try-it-yourself-interactively>Try it yourself interactively</h1>
-<p>To gain more insight into this, we can use <a href=https://cs.stanford.edu/~karpathy/convnetjs/demo/mnist.html>minist on convenet.js</a> and change the activation function to see how the train goes. We can see that training process under tanh and sigmoid activation is much slower than ReLU. Sigmoid is slowest among the three.</p>
-<p>We can also play with different activations functions real quick with <a href=https://playground.tensorflow.org/>TensorFlow playground</a>.</p>
+<p>The derivative of sigmoid is relatively small, and its largest value
+is only 0.25 (when <span class="math inline">\(x = 0\)</span>). When
+<span class="math inline">\(x\)</span> is large, the derivative is near
+zero. Tanh has a similar issue: it has a low gradient, and maximum
+gradient is only 1 (<span class="math inline">\(x=0\)</span>).</p>
+<p>This will cause the vanishing gradient problem, because in order to
+calculate the derivative of loss w.r.t the weight of earlier layers in
+the network, we need to multiply the gradient in the later layers. When
+you multiply several values below 0.25, the result goes down to zero
+quickly, so the network weight in earlier layers get updated slowly. In
+other words, the learning process will converge much slower than using
+ReLU, and we might need much more epochs to get a satisfactory
+result.</p>
+<p>Another advantage of ReLU is that it is computationally cheap
+compared to sigmoid, both in terms of forward and backward
+operation.</p>
+<h1 id=try-it-yourself-interactively>Try it yourself
+interactively</h1>
+<p>To gain more insight into this, we can use <a href=https://cs.stanford.edu/~karpathy/convnetjs/demo/mnist.html>minist
+on convenet.js</a> and change the activation function to see how the
+train goes. We can see that training process under tanh and sigmoid
+activation is much slower than ReLU. Sigmoid is slowest among the
+three.</p>
+<p>We can also play with different activations functions real quick with
+<a href=https://playground.tensorflow.org/>TensorFlow
+playground</a>.</p>
 <h1 id=references>References</h1>
 <ul>
 <li><a href=https://en.wikipedia.org/wiki/Rectifier_(neural_networks) class=uri>https://en.wikipedia.org/wiki/Rectifier_(neural_networks)</a></li>
 <li>A list of activation functions: <a href=https://en.wikipedia.org/wiki/Activation_function class=uri>https://en.wikipedia.org/wiki/Activation_function</a></li>
 <li>ReLU vs Sigmoid: <a href=https://stats.stackexchange.com/q/126238/140049 class=uri>https://stats.stackexchange.com/q/126238/140049</a></li>
 </ul>
-<section class=footnotes role=doc-endnotes>
+<section class="footnotes footnotes-end-of-document" role=doc-endnotes>
 <hr>
 <ol>
-<li id=fn1 role=doc-endnote><p>See <a href=https://stats.stackexchange.com/a/335972/140049>this post</a> and also <a href=https://stackoverflow.com/q/9782071/6064933>this one</a> for more detailed discussions.<a href=#fnref1 class=footnote-back role=doc-backlink>↩︎</a></p></li>
+<li id=fn1 role=doc-endnote><p>See <a href=https://stats.stackexchange.com/a/335972/140049>this post</a> and
+also <a href=https://stackoverflow.com/q/9782071/6064933>this one</a>
+for more detailed discussions.<a href=#fnref1 class=footnote-back role=doc-backlink>↩︎</a></p></li>
 </ol>
 </section>
 </div>

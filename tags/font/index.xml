@@ -8,12 +8,11 @@ Pixels are the smallest unit on screen to display images and graphics. It is not
 &lt;p>By default, LaTeX provides several command to change the font size to
 predefined size. Those command include &lt;code>\scriptsize&lt;/code>, &lt;code>\large&lt;/code>, &lt;code>\Huge&lt;/code> etc.
 However, even the font size provided by the &lt;code>\Huge&lt;/code> command may not be large
-enough.&lt;/p></description></item><item><title>Converting Markdown to Beautiful PDF with Pandoc</title><link>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</link><pubDate>Thu, 30 May 2019 17:02:57 +0800</pubDate><guid>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</guid><description>&lt;p>Over the past few years, I have been using some dedicated note-taking software
-to manage my notes. But all these tools I have tried are unsatisfactory: they
-are either slow or cumbersome when I want to search my notes. Finally, I
-decided to take my notes in Markdown and convert them to PDF using Pandoc for
-reading. In this post, I will summarize how I do it.&lt;/p>
-&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/">这里&lt;/a>。&lt;/p></description></item><item><title>Nvim-qt Settings on Windows 10</title><link>https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/</link><pubDate>Thu, 17 Jan 2019 22:04:05 +0800</pubDate><guid>https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/</guid><description>&lt;p>To run Neovim on Windows, you can either &lt;a href="https://jdhao.github.io/2018/11/15/neovim_configuration_windows/">use the terminal
+enough.&lt;/p></description></item><item><title>Converting Markdown to Beautiful PDF with Pandoc</title><link>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</link><pubDate>Thu, 30 May 2019 17:02:57 +0800</pubDate><guid>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</guid><description>&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/">这里&lt;/a>。&lt;/p>
+&lt;p>Over the past few years, I have been using some dedicated note-taking software to manage my notes.
+However, all these tools I have tried are unsatisfactory: they are either slow or cumbersome in terms of note searching.
+Finally, I decided to take my notes in Markdown and convert them to PDF using Pandoc for reading.
+In this post, I will summarize how I do it.&lt;/p></description></item><item><title>Nvim-qt Settings on Windows 10</title><link>https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/</link><pubDate>Thu, 17 Jan 2019 22:04:05 +0800</pubDate><guid>https://jdhao.github.io/2019/01/17/nvim_qt_settings_on_windows/</guid><description>&lt;p>To run Neovim on Windows, you can either &lt;a href="https://jdhao.github.io/2018/11/15/neovim_configuration_windows/">use the terminal
 Neovim&lt;/a> or
 use a GUI for Neovim. If you use terminal Nvim, you may encounter various
 annoying issues. Based on my experience, I recommend you using a GUI client for

@@ -27,18 +27,33 @@
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
 <meta property="og:title" content="LaTeX Equation Numbering Done Right in Hexo">
-<meta property="og:description" content="Recently I plan to transplant one of my old post from other site to this new site (you can find the new post here). The old post contains quite a lot of equations in LaTeX format. With so much equations in one post, I find it really hard to refer to some equations without using proper numbering. So I decide to figure out how to use LaTeX equation numbering properly in my post.">
+<meta property="og:description" content="Recently I plan to transplant one of my old post from other site to
+this new site (you can find the new post here).
+The old post contains quite a lot of equations in LaTeX format. With so
+much equations in one post, I find it really hard to refer to some
+equations without using proper numbering. So I decide to figure out how
+to use LaTeX equation numbering properly in my post.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2018/01/25/hexo-mathjax-equation-number/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2018-01-25T23:19:00+08:00">
 <meta property="article:modified_time" content="2022-02-27T12:58:10+08:00">
 <meta itemprop=name content="LaTeX Equation Numbering Done Right in Hexo">
-<meta itemprop=description content="Recently I plan to transplant one of my old post from other site to this new site (you can find the new post here). The old post contains quite a lot of equations in LaTeX format. With so much equations in one post, I find it really hard to refer to some equations without using proper numbering. So I decide to figure out how to use LaTeX equation numbering properly in my post."><meta itemprop=datePublished content="2018-01-25T23:19:00+08:00">
+<meta itemprop=description content="Recently I plan to transplant one of my old post from other site to
+this new site (you can find the new post here).
+The old post contains quite a lot of equations in LaTeX format. With so
+much equations in one post, I find it really hard to refer to some
+equations without using proper numbering. So I decide to figure out how
+to use LaTeX equation numbering properly in my post."><meta itemprop=datePublished content="2018-01-25T23:19:00+08:00">
 <meta itemprop=dateModified content="2022-02-27T12:58:10+08:00">
 <meta itemprop=wordCount content="675">
 <meta itemprop=keywords content="Hexo,LaTeX,MathJax,NexT,Markdown,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="LaTeX Equation Numbering Done Right in Hexo">
-<meta name=twitter:description content="Recently I plan to transplant one of my old post from other site to this new site (you can find the new post here). The old post contains quite a lot of equations in LaTeX format. With so much equations in one post, I find it really hard to refer to some equations without using proper numbering. So I decide to figure out how to use LaTeX equation numbering properly in my post."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:description content="Recently I plan to transplant one of my old post from other site to
+this new site (you can find the new post here).
+The old post contains quite a lot of equations in LaTeX format. With so
+much equations in one post, I find it really hard to refer to some
+equations without using proper numbering. So I decide to figure out how
+to use LaTeX equation numbering properly in my post."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -110,53 +125,81 @@
 </div>
 </div>
 <div class=post-content>
-<p>Recently I plan to transplant one of my old post from other site to this new site (you can find the new post <a href=https://jdhao.github.io/2016/01/19/back-propagation-in-mlp-explained/>here</a>). The old post contains quite a lot of equations in LaTeX format. With so much equations in one post, I find it really hard to refer to some equations without using proper numbering. So I decide to figure out how to use LaTeX equation numbering properly in my post.</p>
-<h1 id=enable-mathjax-and-equation-numbering>Enable MathJax and equation numbering</h1>
-<p>Update 2018-05-16: This feature has been incorporated into NexT and <a href=https://github.com/theme-next/hexo-theme-next/releases/tag/v6.3.0>released in version 6.3.0</a>. You can skip this section safely now.</p>
-<p>If you use <a href=http://theme-next.iissnan.com/>NexT theme</a>, see <a href=https://jdhao.github.io/2017/10/06/hexo-markdown-latex-equation/>here</a> on how to enable MathJax. By default, equation numbering is disable by Mathjax, you can enable equation numbering in two ways.</p>
+<p>Recently I plan to transplant one of my old post from other site to
+this new site (you can find the new post <a href=https://jdhao.github.io/2016/01/19/back-propagation-in-mlp-explained/>here</a>).
+The old post contains quite a lot of equations in LaTeX format. With so
+much equations in one post, I find it really hard to refer to some
+equations without using proper numbering. So I decide to figure out how
+to use LaTeX equation numbering properly in my post.</p>
+<h1 id=enable-mathjax-and-equation-numbering>Enable MathJax and
+equation numbering</h1>
+<p>Update 2018-05-16: This feature has been incorporated into NexT and
+<a href=https://github.com/theme-next/hexo-theme-next/releases/tag/v6.3.0>released
+in version 6.3.0</a>. You can skip this section safely now.</p>
+<p>If you use <a href=http://theme-next.iissnan.com/>NexT theme</a>,
+see <a href=https://jdhao.github.io/2017/10/06/hexo-markdown-latex-equation/>here</a>
+on how to enable MathJax. By default, equation numbering is disable by
+Mathjax, you can enable equation numbering in two ways.</p>
 <h2 id=first-way>First way</h2>
-<p>According to MathJax official documentation, just paste the following script into the front of your Markdown file,</p>
-<div class=sourceCode id=cb1><pre class="sourceCode html"><code class="sourceCode html"><span id=cb1-1><a href=#cb1-1></a><span class=kw>&lt;script</span><span class=ot> type=</span><span class=st>&quot;text/x-mathjax-config&quot;</span><span class=kw>&gt;</span></span>
-<span id=cb1-2><a href=#cb1-2></a>MathJax<span class=op>.</span><span class=at>Hub</span><span class=op>.</span><span class=fu>Config</span>({</span>
-<span id=cb1-3><a href=#cb1-3></a>  <span class=dt>TeX</span><span class=op>:</span> { <span class=dt>equationNumbers</span><span class=op>:</span> { <span class=dt>autoNumber</span><span class=op>:</span> <span class=st>&quot;AMS&quot;</span> } }</span>
-<span id=cb1-4><a href=#cb1-4></a>})<span class=op>;</span></span>
-<span id=cb1-5><a href=#cb1-5></a><span class=kw>&lt;/script&gt;</span></span></code></pre></div>
+<p>According to MathJax official documentation, just paste the following
+script into the front of your Markdown file,</p>
+<div class=sourceCode id=cb1><pre class="sourceCode html"><code class="sourceCode html"><span id=cb1-1><a href=#cb1-1 aria-hidden=true tabindex=-1></a><span class=kw>&lt;script</span><span class=ot> type=</span><span class=st>&quot;text/x-mathjax-config&quot;</span><span class=kw>&gt;</span></span>
+<span id=cb1-2><a href=#cb1-2 aria-hidden=true tabindex=-1></a>MathJax<span class=op>.</span><span class=at>Hub</span><span class=op>.</span><span class=fu>Config</span>({</span>
+<span id=cb1-3><a href=#cb1-3 aria-hidden=true tabindex=-1></a>  <span class=dt>TeX</span><span class=op>:</span> { <span class=dt>equationNumbers</span><span class=op>:</span> { <span class=dt>autoNumber</span><span class=op>:</span> <span class=st>&quot;AMS&quot;</span> } }</span>
+<span id=cb1-4><a href=#cb1-4 aria-hidden=true tabindex=-1></a>})<span class=op>;</span></span>
+<span id=cb1-5><a href=#cb1-5 aria-hidden=true tabindex=-1></a><span class=kw>&lt;/script&gt;</span></span></code></pre></div>
 <h2 id=second-way>Second way</h2>
-<p>Find the file <code>mathjax.swig</code> under theme NexT root (it is in the folder <code>layout\_third-party</code>). Change the following snippet</p>
-<div class=sourceCode id=cb2><pre class="sourceCode html"><code class="sourceCode html"><span id=cb2-1><a href=#cb2-1></a><span class=kw>&lt;script</span><span class=ot> type=</span><span class=st>&quot;text/x-mathjax-config&quot;</span><span class=kw>&gt;</span></span>
-<span id=cb2-2><a href=#cb2-2></a>  MathJax<span class=op>.</span><span class=at>Hub</span><span class=op>.</span><span class=fu>Config</span>({</span>
-<span id=cb2-3><a href=#cb2-3></a>    <span class=dt>tex2jax</span><span class=op>:</span> {</span>
-<span id=cb2-4><a href=#cb2-4></a>      <span class=dt>inlineMath</span><span class=op>:</span> [ [<span class=st>&#39;$&#39;</span><span class=op>,</span><span class=st>&#39;$&#39;</span>]<span class=op>,</span> [<span class=st>&quot;</span><span class=sc>\\</span><span class=st>(&quot;</span><span class=op>,</span><span class=st>&quot;</span><span class=sc>\\</span><span class=st>)&quot;</span>]  ]<span class=op>,</span></span>
-<span id=cb2-5><a href=#cb2-5></a>      <span class=dt>processEscapes</span><span class=op>:</span> <span class=kw>true</span><span class=op>,</span></span>
-<span id=cb2-6><a href=#cb2-6></a>      <span class=dt>skipTags</span><span class=op>:</span> [<span class=st>&#39;script&#39;</span><span class=op>,</span> <span class=st>&#39;noscript&#39;</span><span class=op>,</span> <span class=st>&#39;style&#39;</span><span class=op>,</span> <span class=st>&#39;textarea&#39;</span><span class=op>,</span> <span class=st>&#39;pre&#39;</span><span class=op>,</span> <span class=st>&#39;code&#39;</span>]</span>
-<span id=cb2-7><a href=#cb2-7></a>    }</span>
-<span id=cb2-8><a href=#cb2-8></a>  })<span class=op>;</span></span>
-<span id=cb2-9><a href=#cb2-9></a><span class=kw>&lt;/script&gt;</span></span></code></pre></div>
+<p>Find the file <code>mathjax.swig</code> under theme NexT root (it is
+in the folder <code>layout\_third-party</code>). Change the following
+snippet</p>
+<div class=sourceCode id=cb2><pre class="sourceCode html"><code class="sourceCode html"><span id=cb2-1><a href=#cb2-1 aria-hidden=true tabindex=-1></a><span class=kw>&lt;script</span><span class=ot> type=</span><span class=st>&quot;text/x-mathjax-config&quot;</span><span class=kw>&gt;</span></span>
+<span id=cb2-2><a href=#cb2-2 aria-hidden=true tabindex=-1></a>  MathJax<span class=op>.</span><span class=at>Hub</span><span class=op>.</span><span class=fu>Config</span>({</span>
+<span id=cb2-3><a href=#cb2-3 aria-hidden=true tabindex=-1></a>    <span class=dt>tex2jax</span><span class=op>:</span> {</span>
+<span id=cb2-4><a href=#cb2-4 aria-hidden=true tabindex=-1></a>      <span class=dt>inlineMath</span><span class=op>:</span> [ [<span class=st>&#39;$&#39;</span><span class=op>,</span><span class=st>&#39;$&#39;</span>]<span class=op>,</span> [<span class=st>&quot;</span><span class=sc>\\</span><span class=st>(&quot;</span><span class=op>,</span><span class=st>&quot;</span><span class=sc>\\</span><span class=st>)&quot;</span>]  ]<span class=op>,</span></span>
+<span id=cb2-5><a href=#cb2-5 aria-hidden=true tabindex=-1></a>      <span class=dt>processEscapes</span><span class=op>:</span> <span class=kw>true</span><span class=op>,</span></span>
+<span id=cb2-6><a href=#cb2-6 aria-hidden=true tabindex=-1></a>      <span class=dt>skipTags</span><span class=op>:</span> [<span class=st>&#39;script&#39;</span><span class=op>,</span> <span class=st>&#39;noscript&#39;</span><span class=op>,</span> <span class=st>&#39;style&#39;</span><span class=op>,</span> <span class=st>&#39;textarea&#39;</span><span class=op>,</span> <span class=st>&#39;pre&#39;</span><span class=op>,</span> <span class=st>&#39;code&#39;</span>]</span>
+<span id=cb2-7><a href=#cb2-7 aria-hidden=true tabindex=-1></a>    }</span>
+<span id=cb2-8><a href=#cb2-8 aria-hidden=true tabindex=-1></a>  })<span class=op>;</span></span>
+<span id=cb2-9><a href=#cb2-9 aria-hidden=true tabindex=-1></a><span class=kw>&lt;/script&gt;</span></span></code></pre></div>
 <p>to</p>
-<div class=sourceCode id=cb3><pre class="sourceCode html"><code class="sourceCode html"><span id=cb3-1><a href=#cb3-1></a><span class=kw>&lt;script</span><span class=ot> type=</span><span class=st>&quot;text/x-mathjax-config&quot;</span><span class=kw>&gt;</span></span>
-<span id=cb3-2><a href=#cb3-2></a>  MathJax<span class=op>.</span><span class=at>Hub</span><span class=op>.</span><span class=fu>Config</span>({</span>
-<span id=cb3-3><a href=#cb3-3></a>    <span class=dt>tex2jax</span><span class=op>:</span> {</span>
-<span id=cb3-4><a href=#cb3-4></a>      <span class=dt>inlineMath</span><span class=op>:</span> [ [<span class=st>&#39;$&#39;</span><span class=op>,</span><span class=st>&#39;$&#39;</span>]<span class=op>,</span> [<span class=st>&quot;</span><span class=sc>\\</span><span class=st>(&quot;</span><span class=op>,</span><span class=st>&quot;</span><span class=sc>\\</span><span class=st>)&quot;</span>]  ]<span class=op>,</span></span>
-<span id=cb3-5><a href=#cb3-5></a>      <span class=dt>processEscapes</span><span class=op>:</span> <span class=kw>true</span><span class=op>,</span></span>
-<span id=cb3-6><a href=#cb3-6></a>      <span class=dt>skipTags</span><span class=op>:</span> [<span class=st>&#39;script&#39;</span><span class=op>,</span> <span class=st>&#39;noscript&#39;</span><span class=op>,</span> <span class=st>&#39;style&#39;</span><span class=op>,</span> <span class=st>&#39;textarea&#39;</span><span class=op>,</span> <span class=st>&#39;pre&#39;</span><span class=op>,</span> <span class=st>&#39;code&#39;</span>]</span>
-<span id=cb3-7><a href=#cb3-7></a>    }<span class=op>,</span></span>
-<span id=cb3-8><a href=#cb3-8></a>    <span class=dt>TeX</span><span class=op>:</span> {<span class=dt>equationNumbers</span><span class=op>:</span> { <span class=dt>autoNumber</span><span class=op>:</span> <span class=st>&quot;AMS&quot;</span> }}</span>
-<span id=cb3-9><a href=#cb3-9></a>  })<span class=op>;</span></span>
-<span id=cb3-10><a href=#cb3-10></a><span class=kw>&lt;/script&gt;</span></span></code></pre></div>
-<p>Thanks to <a href=https://notes.mengxin.science/2017/07/07/hexo-next-renderer-kramed-mathjax/>post here</a>.</p>
-<h1 id=make-the-automatic-equation-numbering-work>Make the automatic equation numbering work</h1>
-<p>In general, to make the automatic equation numbering work, you have to wrap your LaTeX equations in <code>equation</code> environment. Using the plain old style (i.e., wrap an equation with two dollar signs in each side) will not work. How to refer to an equation? Just give a <code>\label{}</code> tag and then in your later text, use <code>\ref{}</code> or <code>\eqref{}</code> to refer it. Using <code>\eqref{}</code> is preferred since if you use <code>\ref{}</code>, there are no parentheses around the equation number. There are some variations I would like to elaborate.</p>
+<div class=sourceCode id=cb3><pre class="sourceCode html"><code class="sourceCode html"><span id=cb3-1><a href=#cb3-1 aria-hidden=true tabindex=-1></a><span class=kw>&lt;script</span><span class=ot> type=</span><span class=st>&quot;text/x-mathjax-config&quot;</span><span class=kw>&gt;</span></span>
+<span id=cb3-2><a href=#cb3-2 aria-hidden=true tabindex=-1></a>  MathJax<span class=op>.</span><span class=at>Hub</span><span class=op>.</span><span class=fu>Config</span>({</span>
+<span id=cb3-3><a href=#cb3-3 aria-hidden=true tabindex=-1></a>    <span class=dt>tex2jax</span><span class=op>:</span> {</span>
+<span id=cb3-4><a href=#cb3-4 aria-hidden=true tabindex=-1></a>      <span class=dt>inlineMath</span><span class=op>:</span> [ [<span class=st>&#39;$&#39;</span><span class=op>,</span><span class=st>&#39;$&#39;</span>]<span class=op>,</span> [<span class=st>&quot;</span><span class=sc>\\</span><span class=st>(&quot;</span><span class=op>,</span><span class=st>&quot;</span><span class=sc>\\</span><span class=st>)&quot;</span>]  ]<span class=op>,</span></span>
+<span id=cb3-5><a href=#cb3-5 aria-hidden=true tabindex=-1></a>      <span class=dt>processEscapes</span><span class=op>:</span> <span class=kw>true</span><span class=op>,</span></span>
+<span id=cb3-6><a href=#cb3-6 aria-hidden=true tabindex=-1></a>      <span class=dt>skipTags</span><span class=op>:</span> [<span class=st>&#39;script&#39;</span><span class=op>,</span> <span class=st>&#39;noscript&#39;</span><span class=op>,</span> <span class=st>&#39;style&#39;</span><span class=op>,</span> <span class=st>&#39;textarea&#39;</span><span class=op>,</span> <span class=st>&#39;pre&#39;</span><span class=op>,</span> <span class=st>&#39;code&#39;</span>]</span>
+<span id=cb3-7><a href=#cb3-7 aria-hidden=true tabindex=-1></a>    }<span class=op>,</span></span>
+<span id=cb3-8><a href=#cb3-8 aria-hidden=true tabindex=-1></a>    <span class=dt>TeX</span><span class=op>:</span> {<span class=dt>equationNumbers</span><span class=op>:</span> { <span class=dt>autoNumber</span><span class=op>:</span> <span class=st>&quot;AMS&quot;</span> }}</span>
+<span id=cb3-9><a href=#cb3-9 aria-hidden=true tabindex=-1></a>  })<span class=op>;</span></span>
+<span id=cb3-10><a href=#cb3-10 aria-hidden=true tabindex=-1></a><span class=kw>&lt;/script&gt;</span></span></code></pre></div>
+<p>Thanks to <a href=https://notes.mengxin.science/2017/07/07/hexo-next-renderer-kramed-mathjax/>post
+here</a>.</p>
+<h1 id=make-the-automatic-equation-numbering-work>Make the automatic
+equation numbering work</h1>
+<p>In general, to make the automatic equation numbering work, you have
+to wrap your LaTeX equations in <code>equation</code> environment. Using
+the plain old style (i.e., wrap an equation with two dollar signs in
+each side) will not work. How to refer to an equation? Just give a
+<code>\label{}</code> tag and then in your later text, use
+<code>\ref{}</code> or <code>\eqref{}</code> to refer it. Using
+<code>\eqref{}</code> is preferred since if you use <code>\ref{}</code>,
+there are no parentheses around the equation number. There are some
+variations I would like to elaborate.</p>
 <h2 id=simple-equation>Simple equation</h2>
 <p>For simple equations like the following,</p>
 <p><span class="math display">\[\begin{equation}
 E=mc^2
 \end{equation}\label{eq1}\]</span></p>
-<p>It is easy to write and cite. Just use <code>$\eqref{eq1}$</code> to refer to equation <span class="math inline">\(\eqref{eq1}\)</span>. The code to produce the equation <span class="math inline">\(\eqref{eq1}\)</span> is</p>
-<div class=sourceCode id=cb4><pre class="sourceCode latex"><code class="sourceCode latex"><span id=cb4-1><a href=#cb4-1></a><span class=ss>$$</span><span class=kw>\begin</span>{<span class=ex>equation</span>}</span>
-<span id=cb4-2><a href=#cb4-2></a><span class=ss>E=mc^2</span></span>
-<span id=cb4-3><a href=#cb4-3></a><span class=kw>\end</span>{<span class=ex>equation</span>}<span class=sc>\label</span><span class=ss>{eq1}$$</span></span></code></pre></div>
+<p>It is easy to write and cite. Just use <code>$\eqref{eq1}$</code> to
+refer to equation <span class="math inline">\(\eqref{eq1}\)</span>. The
+code to produce the equation <span class="math inline">\(\eqref{eq1}\)</span> is</p>
+<div class=sourceCode id=cb4><pre class="sourceCode latex"><code class="sourceCode latex"><span id=cb4-1><a href=#cb4-1 aria-hidden=true tabindex=-1></a><span class=ss>$$</span><span class=kw>\begin</span>{<span class=ex>equation</span>}</span>
+<span id=cb4-2><a href=#cb4-2 aria-hidden=true tabindex=-1></a><span class=ss>E=mc^2</span></span>
+<span id=cb4-3><a href=#cb4-3 aria-hidden=true tabindex=-1></a><span class=kw>\end</span>{<span class=ex>equation</span>}<span class=sc>\label</span><span class=ss>{eq1}$$</span></span></code></pre></div>
 <h2 id=multi-line-equation>Multi-line equation</h2>
-<p>For multi-line equations, inside the <code>equation</code> environment, you can use the <code>aligned</code> environment to split it into multiple lines. For example,</p>
+<p>For multi-line equations, inside the <code>equation</code>
+environment, you can use the <code>aligned</code> environment to split
+it into multiple lines. For example,</p>
 <p><span class="math display">\[\begin{equation}
 \begin{aligned}
 a &= b + c \\
@@ -164,16 +207,18 @@ a &= b + c \\
 &= h + i
 \end{aligned}
 \end{equation}\label{eq2}\]</span></p>
-<p>Equation <span class="math inline">\(\eqref{eq2}\)</span> is a multi-line equation. The code to produce equation <span class="math inline">\(\eqref{eq2}\)</span> is</p>
-<div class=sourceCode id=cb5><pre class="sourceCode latex"><code class="sourceCode latex"><span id=cb5-1><a href=#cb5-1></a><span class=ss>$$</span><span class=kw>\begin</span>{<span class=ex>equation</span>}</span>
-<span id=cb5-2><a href=#cb5-2></a><span class=kw>\begin</span>{<span class=ex>aligned</span>}</span>
-<span id=cb5-3><a href=#cb5-3></a><span class=ss>a &amp;= b + c </span><span class=sc>\\</span></span>
-<span id=cb5-4><a href=#cb5-4></a><span class=ss>  &amp;= d + e + f + g </span><span class=sc>\\</span></span>
-<span id=cb5-5><a href=#cb5-5></a><span class=ss>  &amp;= h + i</span></span>
-<span id=cb5-6><a href=#cb5-6></a><span class=kw>\end</span>{<span class=ex>aligned</span>}</span>
-<span id=cb5-7><a href=#cb5-7></a><span class=kw>\end</span>{<span class=ex>equation</span>}<span class=sc>\label</span><span class=ss>{eq2}$$</span></span></code></pre></div>
+<p>Equation <span class="math inline">\(\eqref{eq2}\)</span> is a
+multi-line equation. The code to produce equation <span class="math inline">\(\eqref{eq2}\)</span> is</p>
+<div class=sourceCode id=cb5><pre class="sourceCode latex"><code class="sourceCode latex"><span id=cb5-1><a href=#cb5-1 aria-hidden=true tabindex=-1></a><span class=ss>$$</span><span class=kw>\begin</span>{<span class=ex>equation</span>}</span>
+<span id=cb5-2><a href=#cb5-2 aria-hidden=true tabindex=-1></a><span class=kw>\begin</span>{<span class=ex>aligned</span>}</span>
+<span id=cb5-3><a href=#cb5-3 aria-hidden=true tabindex=-1></a><span class=ss>a &amp;= b + c </span><span class=sc>\\</span></span>
+<span id=cb5-4><a href=#cb5-4 aria-hidden=true tabindex=-1></a><span class=ss>  &amp;= d + e + f + g </span><span class=sc>\\</span></span>
+<span id=cb5-5><a href=#cb5-5 aria-hidden=true tabindex=-1></a><span class=ss>  &amp;= h + i</span></span>
+<span id=cb5-6><a href=#cb5-6 aria-hidden=true tabindex=-1></a><span class=kw>\end</span>{<span class=ex>aligned</span>}</span>
+<span id=cb5-7><a href=#cb5-7 aria-hidden=true tabindex=-1></a><span class=kw>\end</span>{<span class=ex>equation</span>}<span class=sc>\label</span><span class=ss>{eq2}$$</span></span></code></pre></div>
 <h2 id=multiple-aligned-equations>Multiple aligned equations</h2>
-<p>We can use <code>align</code> environment to align multiple equations. Each of these equations will get its own numbers.</p>
+<p>We can use <code>align</code> environment to align multiple
+equations. Each of these equations will get its own numbers.</p>
 <p><span class="math display">\[\begin{align}
 a &= b + c \label{eq3} \\
 x &= yz \label{eq4}\\
@@ -186,9 +231,15 @@ a &amp;= b + c \label{eq3} \\
 x &amp;= yz \label{eq4}\\
 l &amp;= m - n \label{eq5}
 \end{align}$$</code></pre>
-<p>Since <code>align</code> in and of itself is a complete equation environment<a href=#fn1 class=footnote-ref id=fnref1 role=doc-noteref><sup>1</sup></a>. You do not need to wrap it with <code>equation</code> environment.</p>
-<h3 id=what-if-you-do-not-want-to-number-some-equations>What if you do not want to number some equations</h3>
-<p>In the <code>align</code> environment, if you do not want to number one or some equations, just <a href=https://tex.stackexchange.com/q/17528/114857>use <code>\nonumber</code></a> right behind these equations. Like the following.</p>
+<p>Since <code>align</code> in and of itself is a complete equation
+environment<a href=#fn1 class=footnote-ref id=fnref1 role=doc-noteref><sup>1</sup></a>. You do not need to wrap it with
+<code>equation</code> environment.</p>
+<h3 id=what-if-you-do-not-want-to-number-some-equations>What if you do
+not want to number some equations</h3>
+<p>In the <code>align</code> environment, if you do not want to number
+one or some equations, just <a href=https://tex.stackexchange.com/q/17528/114857>use
+<code>\nonumber</code></a> right behind these equations. Like the
+following.</p>
 <p><span class="math display">\[\begin{align}
 -4 + 5x &= 2+y \nonumber \\
 w+2 &= -1+w \\
@@ -200,10 +251,16 @@ ab &= cb
  w+2 &amp;= -1+w \\
  ab &amp;= cb
 \end{align}$$</code></pre>
-<h1 id=use-tag-to-tag-equations>Use <code>\tag</code> to tag equations</h1>
-<p>Sometimes, you want to use more “exotic” style to refer your equation. You can use <code>\tag{}</code> to achieve this. For example</p>
-<p><span class="math display">\[x+1\over\sqrt{1-x^2} \tag{i}\label{eq_tag}\]</span></p>
-<p>Equation <span class="math inline">\(\eqref{eq_tag}\)</span> use <code>\tag{}</code> instead of automatic numbering. The code to produce it is</p>
+<h1 id=use-tag-to-tag-equations>Use <code>\tag</code> to tag
+equations</h1>
+<p>Sometimes, you want to use more “exotic” style to refer your
+equation. You can use <code>\tag{}</code> to achieve this. For
+example</p>
+<p><span class="math display">\[x+1\over\sqrt{1-x^2}
+\tag{i}\label{eq_tag}\]</span></p>
+<p>Equation <span class="math inline">\(\eqref{eq_tag}\)</span> use
+<code>\tag{}</code> instead of automatic numbering. The code to produce
+it is</p>
 <pre><code>$$x+1\over\sqrt{1-x^2} \tag{i}\label{eq_tag}$$</code></pre>
 <h1 id=references>References</h1>
 <ul>
@@ -212,10 +269,12 @@ ab &= cb
 <li><a href=https://minenet.me/2016/04/05/how-to-use-mathjax.html#mjx-eqn-1 class=uri>https://minenet.me/2016/04/05/how-to-use-mathjax.html#mjx-eqn-1</a></li>
 <li><a href=http://kchen.cc/2016/12/06/latex-in-markdown/ class=uri>http://kchen.cc/2016/12/06/latex-in-markdown/</a></li>
 </ul>
-<section class=footnotes role=doc-endnotes>
+<section class="footnotes footnotes-end-of-document" role=doc-endnotes>
 <hr>
 <ol>
-<li id=fn1 role=doc-endnote><p>Check <a href=https://tex.stackexchange.com/q/95402/114857>here</a> about the difference between <code>aligned</code> and <code>align</code> in LaTeX<a href=#fnref1 class=footnote-back role=doc-backlink>↩︎</a></p></li>
+<li id=fn1 role=doc-endnote><p>Check <a href=https://tex.stackexchange.com/q/95402/114857>here</a> about the
+difference between <code>aligned</code> and <code>align</code> in
+LaTeX<a href=#fnref1 class=footnote-back role=doc-backlink>↩︎</a></p></li>
 </ol>
 </section>
 </div>

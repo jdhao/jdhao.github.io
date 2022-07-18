@@ -12,12 +12,11 @@ shape, I got an error:&lt;/p>
 &lt;p>&amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;.&lt;/p>
 &lt;/blockquote>
 &lt;p>I was confused and do not know why since the image path is valid. It tooks me a
-while to understand the cause.&lt;/p></description></item><item><title>Converting Markdown to Beautiful PDF with Pandoc</title><link>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</link><pubDate>Thu, 30 May 2019 17:02:57 +0800</pubDate><guid>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</guid><description>&lt;p>Over the past few years, I have been using some dedicated note-taking software
-to manage my notes. But all these tools I have tried are unsatisfactory: they
-are either slow or cumbersome when I want to search my notes. Finally, I
-decided to take my notes in Markdown and convert them to PDF using Pandoc for
-reading. In this post, I will summarize how I do it.&lt;/p>
-&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/">这里&lt;/a>。&lt;/p></description></item><item><title>Nifty Nvim Techniques Which Make My Life Easier -- Series 3</title><link>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</link><pubDate>Tue, 14 May 2019 22:37:04 +0800</pubDate><guid>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</guid><description>&lt;p>This is the 3rd post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.&lt;/p>
+while to understand the cause.&lt;/p></description></item><item><title>Converting Markdown to Beautiful PDF with Pandoc</title><link>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</link><pubDate>Thu, 30 May 2019 17:02:57 +0800</pubDate><guid>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</guid><description>&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/">这里&lt;/a>。&lt;/p>
+&lt;p>Over the past few years, I have been using some dedicated note-taking software to manage my notes.
+However, all these tools I have tried are unsatisfactory: they are either slow or cumbersome in terms of note searching.
+Finally, I decided to take my notes in Markdown and convert them to PDF using Pandoc for reading.
+In this post, I will summarize how I do it.&lt;/p></description></item><item><title>Nifty Nvim Techniques Which Make My Life Easier -- Series 3</title><link>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</link><pubDate>Tue, 14 May 2019 22:37:04 +0800</pubDate><guid>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</guid><description>&lt;p>This is the 3rd post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.&lt;/p>
 &lt;details>
 &lt;summary>&lt;font size="3" color="red">Click here to check other posts in this series.&lt;/font>&lt;/summary>
 &lt;ul>
