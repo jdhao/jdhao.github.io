@@ -31,10 +31,10 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2022/07/31/super_in_python/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-07-31T23:23:45+08:00">
-<meta property="article:modified_time" content="2022-08-01T00:18:49+08:00">
+<meta property="article:modified_time" content="2022-08-01T13:01:59+08:00">
 <meta itemprop=name content="A Dive into super() in Python">
 <meta itemprop=description content="In Python, we often see the use of super() in class initialization."><meta itemprop=datePublished content="2022-07-31T23:23:45+08:00">
-<meta itemprop=dateModified content="2022-08-01T00:18:49+08:00">
+<meta itemprop=dateModified content="2022-08-01T13:01:59+08:00">
 <meta itemprop=wordCount content="1077">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="A Dive into super() in Python">
@@ -240,8 +240,8 @@ if this node does not appear in other positions in other lists.</p>
     <span class=n>main</span><span class=p>()</span>
 </code></pre></div><p>If we run the above code, we see the following output:</p>
 <blockquote>
-<p>class D init called
-class B init called
+<p>class D init called<br>
+class B init called<br>
 class Base init called</p>
 </blockquote>
 <p>The MRO list is <code>[D, B, C, Base, object]</code> (in python3, <code>object</code> is the base class for any other class).
@@ -252,16 +252,16 @@ If we replace the line</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>super().__init__()
 </code></pre></div><p>we will see the following output instead:</p>
 <blockquote>
-<p>class D init called
-class B init called
-class C init called
+<p>class D init called<br>
+class B init called<br>
+class C init called<br>
 class Base init called</p>
 </blockquote>
 <p>If we change the inheritance of class <code>D</code> from <code>D(B, C)</code> to <code>D(C, B)</code>, we observe the following output:</p>
 <blockquote>
-<p>class D init called
-class C init called
-class B init called
+<p>class D init called<br>
+class C init called<br>
+class B init called<br>
 class Base init called</p>
 </blockquote>
 <p>In this case, the MRO list is <code>[D, C, B, Base, object]</code>.
