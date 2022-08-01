@@ -90,6 +90,29 @@
 <section id=posts class=posts>
 <article class=post>
 <header class=post-header>
+<h1 class=post-title><a class=post-link href=/2020/07/09/requests_notes/>Note on Using requests package</a></h1>
+<div class=post-meta>
+<span class=post-time> 2020-07-09 </span>
+<div class=post-category>
+<a href=/categories/Python/> Python </a>
+</div>
+<span class=more-meta> 379 words </span>
+<span class=more-meta> 2 mins read </span>
+</div>
+</header>
+<div class=post-content>
+<div class=post-summary>
+How to check request header and body? When making requests, we may want to see exactly what are being requested. With requests, it is easy do access the request header and request body:
+import requests url = "http://httpbin.org/post" payload = {"apple": 10, "pear": [20, 30], "img": "http://example.com/demo.jpg"} r = requests.post(url, json=payload) print(f"request headers: {r.request.headers}") print(f"request body: {r.request.body}") A sample output is:
+request headers: {'User-Agent': 'python-requests/2.19.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '69', 'Content-Type': 'application/json'} request body: b'{"apple": 10, "pear": [20, 30], "img": "http://example.
+</div>
+<div class=read-more>
+<a href=/2020/07/09/requests_notes/ class=read-more-link>Read more...</a>
+</div>
+</div>
+</article>
+<article class=post>
+<header class=post-header>
 <h1 class=post-title><a class=post-link href=/2020/07/06/pytorch_set_num_threads/>Set the Number of Threads to Use in PyTorch</a></h1>
 <div class=post-meta>
 <span class=post-time> 2020-07-06 </span>
@@ -518,27 +541,6 @@ the width of a Chinese character.</p>
 </div>
 <div class=read-more>
 <a href=/2020/05/16/space_for_cjk/ class=read-more-link>Read more...</a>
-</div>
-</div>
-</article>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title><a class=post-link href=/2020/05/09/search_for_solution_with_web_engine/>如何高效使用搜索引擎解决技术问题</a></h1>
-<div class=post-meta>
-<span class=post-time> 2020-05-09 </span>
-<div class=post-category>
-<a href=/categories/thought/> thought </a>
-</div>
-<span class=more-meta> 2086 words </span>
-<span class=more-meta> 5 mins read </span>
-</div>
-</header>
-<div class=post-content>
-<div class=post-summary>
-<p>之前感叹过<a href=https://jdhao.github.io/2020/01/22/why_use_english_and_google/>使用中文搜索经常找不到想要的结果</a>，这篇文章总结我对于如何有效搜索的一些想法。</p>
-</div>
-<div class=read-more>
-<a href=/2020/05/09/search_for_solution_with_web_engine/ class=read-more-link>Read more...</a>
 </div>
 </div>
 </article>
