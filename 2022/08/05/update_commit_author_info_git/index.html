@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Monitoring Service Stat with uwsgitop - jdhao's digital space</title>
+<title>How to Change Commit Author Info in Git - jdhao's digital space</title>
 <meta name=renderer content="webkit">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta http-equiv=cache-control content="no-transform">
@@ -11,11 +11,11 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="When we serve a HTTP service via uWSGI, we can monitor its stats via uwsgitop.
+<meta name=author content="jdhao"><meta name=description content="This post summarizes how to update author info of Git commits.
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2022/08/01/uwsgi_service_stat_monitor/>
+<link rel=canonical href=https://jdhao.github.io/2022/08/05/update_commit_author_info_git/>
 <link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
 <link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
@@ -26,19 +26,19 @@
 <script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Monitoring Service Stat with uwsgitop">
-<meta property="og:description" content="When we serve a HTTP service via uWSGI, we can monitor its stats via uwsgitop.">
+<meta property="og:title" content="How to Change Commit Author Info in Git">
+<meta property="og:description" content="This post summarizes how to update author info of Git commits.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2022/08/01/uwsgi_service_stat_monitor/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2022-08-01T22:12:54+08:00">
-<meta property="article:modified_time" content="2022-08-02T00:23:38+08:00">
-<meta itemprop=name content="Monitoring Service Stat with uwsgitop">
-<meta itemprop=description content="When we serve a HTTP service via uWSGI, we can monitor its stats via uwsgitop."><meta itemprop=datePublished content="2022-08-01T22:12:54+08:00">
-<meta itemprop=dateModified content="2022-08-02T00:23:38+08:00">
-<meta itemprop=wordCount content="102">
-<meta itemprop=keywords content="uWSGI,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Monitoring Service Stat with uwsgitop">
-<meta name=twitter:description content="When we serve a HTTP service via uWSGI, we can monitor its stats via uwsgitop."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta property="og:url" content="https://jdhao.github.io/2022/08/05/update_commit_author_info_git/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2022-08-05T00:22:34+08:00">
+<meta property="article:modified_time" content="2022-08-05T00:32:07+08:00">
+<meta itemprop=name content="How to Change Commit Author Info in Git">
+<meta itemprop=description content="This post summarizes how to update author info of Git commits."><meta itemprop=datePublished content="2022-08-05T00:22:34+08:00">
+<meta itemprop=dateModified content="2022-08-05T00:32:07+08:00">
+<meta itemprop=wordCount content="370">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="How to Change Commit Author Info in Git">
+<meta name=twitter:description content="This post summarizes how to update author info of Git commits."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -93,14 +93,14 @@
 <div id=content class=content>
 <article class=post>
 <header class=post-header>
-<h1 class=post-title>Monitoring Service Stat with uwsgitop</h1>
+<h1 class=post-title>How to Change Commit Author Info in Git</h1>
 <div class=post-meta>
-<span class=post-time> 2022-08-01 </span>
+<span class=post-time> 2022-08-05 </span>
 <div class=post-category>
-<a href=/categories/Python/> Python </a>
+<a href=/categories/Git/> Git </a>
 </div>
-<span class=more-meta> 102 words </span>
-<span class=more-meta> 1 min read </span>
+<span class=more-meta> 370 words </span>
+<span class=more-meta> 2 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
 </header>
@@ -109,42 +109,64 @@
 <div class=post-toc-content>
 <nav id=TableOfContents>
 <ul>
-<li><a href=#install>Install</a></li>
-<li><a href=#usage>Usage</a>
+<li>
 <ul>
-<li><a href=#using-socket>Using socket</a></li>
-<li><a href=#using-http>Using HTTP</a></li>
+<li><a href=#for-most-recent-commit>For most recent commit</a></li>
+<li><a href=#for-older-commits>For older commits</a></li>
+<li><a href=#for-a-range-of-commits>For a range of commits</a></li>
+<li><a href=#references>References</a></li>
 </ul>
 </li>
-<li><a href=#references>References</a></li>
 </ul>
 </nav>
 </div>
 </div>
 <div class=post-content>
-<p>When we serve a HTTP service via uWSGI, we can monitor its stats via <a href=https://github.com/xrmx/uwsgitop#readme><code>uwsgitop</code></a>.</p>
-<h1 id=install>Install</h1>
-<p><code>uwsgitop</code> is a performance monitoring tool built for uWSGI.
-It can be installed via pip:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>pip3 install uwsgitop
-</code></pre></div><h1 id=usage>Usage</h1>
-<h2 id=using-socket>Using socket</h2>
-<p>Add the following to your uWSGI config:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>stats=/tmp/stats.socket
-</code></pre></div><p>Then use <code>uwsgitop</code> to monitor the stats:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>uwsgitop /tmp/stats.socket
-</code></pre></div><p>In this case, <code>uwsgitop</code> should be installed on the same machine as your service.</p>
-<h2 id=using-http>Using HTTP</h2>
-<p>If you want to monitor the service via HTTP, add the following to uWSGI conf:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=na>stats</span><span class=o>=</span><span class=s>0.0.0.0:1235</span>
-<span class=na>stats-http</span><span class=o>=</span><span class=s>true</span>
-</code></pre></div><p>Then run <code>uwsgitop</code>:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>uwsgitop http://127.0.0.1:1717
-</code></pre></div><p>The meaning of output is explained <a href=https://github.com/xrmx/uwsgitop#usage>here</a>.</p>
-<h1 id=references>References</h1>
+<p>This post summarizes how to update author info of Git commits.</p>
+<h2 id=for-most-recent-commit>For most recent commit</h2>
+<p>To change the author info of most recent commit, run</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git commit --amend --author=&#34;author_name &lt;author_email&gt; --no-edit&#34;
+</code></pre></div><p>Note that the <code>&lt;></code> around the email.
+It is mandatory, otherwise, we see the <a href=https://stackoverflow.com/q/26318375/6064933>following weird error</a>:</p>
+<blockquote>
+<p>fatal: No existing author found with &lsquo;xxxx&rsquo;</p>
+</blockquote>
+<p>If the author has been set in <code>.git/config</code>, we can also simply run:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git commit --amend --reset-author --no-edit
+</code></pre></div><h2 id=for-older-commits>For older commits</h2>
+<p>If we want to change the author info for multiple commits, we can use <code>git rebase</code>.
+For example, suppose we have this commit graph: <code>A->B->C->D->E</code>, we want to change the author of commit B and D.
+Here is the steps:</p>
 <ul>
-<li><a href=https://uwsgi-docs.readthedocs.io/en/latest/StatsServer.html>https://uwsgi-docs.readthedocs.io/en/latest/StatsServer.html</a></li>
-<li><a href=https://mjsaah.net/post/tuning_uwsgi/>https://mjsaah.net/post/tuning_uwsgi/</a></li>
+<li>Run the rebase command, <code>git rebase -i A</code></li>
+<li>A vim window opens and you will see a list of commit hash for B, C, D, E, with <code>pick</code> before them.</li>
+<li>Change <code>pick</code> to <code>edit</code>, before the commit hash for commit B and D.</li>
+<li>Save and quit vim window <code>:wq</code></li>
+<li>Run <code>git commit --amend --author="author_name &lt;author-email>" --no-edit</code> (this is for commit B)</li>
+<li>Run <code>git rebase --continue</code> to continue the rebase</li>
+<li>Run <code>git commit --amend --author="author_name &lt;author-email>" --no-edit</code> (this time for commit D)</li>
+<li>Run <code>git rebase --continue</code> to continue the rebase</li>
+</ul>
+<p>The rebase process finishes.</p>
+<h2 id=for-a-range-of-commits>For a range of commits</h2>
+<p>If you want to change the author info from an older commit, to the most recent commit,
+there is a more efficient/faster way than the previous method:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># Note that to also include the root commit, we need to add --root option
+git rebase --interactive --exec &#34;git commit --amend --reset-author --no-edit&#34; {commit-ref}
+</code></pre></div><p>We will a vim window like this:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>pick xxx
+exec git commit --amend --reset-author --no-edit
+pick xxx
+exec git commit --amend --reset-author --no-edit
+...
+</code></pre></div><p>Save the quit the window (<code>:wq</code>).
+The author info for these commits will be changed automatically.</p>
+<p>Note that changing the commit author info will change the commit hash for this commit, and also commit hash after that specific commit.
+So your local commit will diverge with remote if you have pushed those commits to the remote repo.</p>
+<h2 id=references>References</h2>
+<ul>
+<li><a href=https://stackoverflow.com/q/3042437/6064933>How to change the commit author for a single commit?</a></li>
+<li><a href=https://stackoverflow.com/a/1320317/6064933>How do I change the author and committer name/email for multiple commits</a></li>
 </ul>
 </div>
 <div class=post-copyright>
@@ -155,7 +177,7 @@ It can be installed via pip:</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-08-02
+2022-08-05
 </span>
 </p>
 <p class=copyright-item>
@@ -177,17 +199,9 @@ It can be installed via pip:</p>
 </label>
 </div>
 </div><footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/uWSGI/>uWSGI</a>
-</div>
 <nav class=post-nav>
-<a class=prev href=/2022/08/05/update_commit_author_info_git/>
-<i class="iconfont icon-left"></i>
-<span class="prev-text nav-default">How to Change Commit Author Info in Git</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2022/07/31/super_in_python/>
-<span class="next-text nav-default">A Dive into super() in Python</span>
+<a class=next href=/2022/08/01/uwsgi_service_stat_monitor/>
+<span class="next-text nav-default">Monitoring Service Stat with uwsgitop</span>
 <span class="next-text nav-mobile">Next</span>
 <i class="iconfont icon-right"></i>
 </a>
