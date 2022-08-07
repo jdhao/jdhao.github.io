@@ -32,12 +32,12 @@ In this script, I will share some tips and lessons I have learned the hard way."
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2022/05/21/lua-learning-for-nvim/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-05-21T11:11:54+08:00">
-<meta property="article:modified_time" content="2022-05-24T20:55:13+08:00">
+<meta property="article:modified_time" content="2022-08-07T15:07:03+08:00">
 <meta itemprop=name content="Lua Learning Notes">
 <meta itemprop=description content="As a long time nvim user, I am learning Lua and slowly transition my nvim config to lua.
 In this script, I will share some tips and lessons I have learned the hard way."><meta itemprop=datePublished content="2022-05-21T11:11:54+08:00">
-<meta itemprop=dateModified content="2022-05-24T20:55:13+08:00">
-<meta itemprop=wordCount content="836">
+<meta itemprop=dateModified content="2022-08-07T15:07:03+08:00">
+<meta itemprop=wordCount content="851">
 <meta itemprop=keywords content="Lua,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Lua Learning Notes">
 <meta name=twitter:description content="As a long time nvim user, I am learning Lua and slowly transition my nvim config to lua.
@@ -102,7 +102,7 @@ In this script, I will share some tips and lessons I have learned the hard way."
 <div class=post-category>
 <a href=/categories/Programming/> Programming </a>
 </div>
-<span class=more-meta> 836 words </span>
+<span class=more-meta> 851 words </span>
 <span class=more-meta> 4 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -233,11 +233,12 @@ Actually we can manually create a block in lua file with <code>do ... end</code>
 <li><a href=https://stackoverflow.com/a/2835433/6064933>https://stackoverflow.com/a/2835433/6064933</a></li>
 </ul>
 <h2 id=in-lua-both-0-and-empty-string-is-true>In Lua, both 0 and empty string is true</h2>
-<p>Unlike Python, both 0 and empty string is considered <code>true</code> in lua, which is weird.</p>
+<p>Unlike Python and other programming languages, both 0 and empty string is considered <code>true</code> in lua<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>, which is weird.
+In Lua, only <code>false</code> and <code>nil</code> is considered <code>false</code>.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-lua data-lang=lua><span class=kr>if</span> <span class=s1>&#39;&#39;</span> <span class=kr>then</span>
-  <span class=n>print</span><span class=p>(</span><span class=s1>&#39;str is not empty&#39;</span><span class=p>)</span>
+  <span class=n>print</span><span class=p>(</span><span class=s1>&#39;empty str is true&#39;</span><span class=p>)</span>
 <span class=kr>else</span>
-  <span class=n>print</span><span class=p>(</span><span class=s1>&#39;str is empty&#39;</span><span class=p>)</span>
+  <span class=n>print</span><span class=p>(</span><span class=s1>&#39;empty str is false&#39;</span><span class=p>)</span>
 <span class=kr>end</span>
 
 <span class=kr>if</span> <span class=mi>0</span> <span class=kr>then</span>
@@ -246,7 +247,7 @@ Actually we can manually create a block in lua file with <code>do ... end</code>
   <span class=n>print</span><span class=p>(</span><span class=s1>&#39;zero is false&#39;</span><span class=p>)</span>
 <span class=kr>end</span>
 </code></pre></div><p>If you run the above code, you will get the following output:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>str is not empty
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>empty str is true
 zero is true
 </code></pre></div><h2 id=lua-table-index-starts-from-1-not-0>Lua table index starts from 1, not 0</h2>
 <p>This feature trips me really hard and I ended up debugging my code for nearly half of an hour.
@@ -268,6 +269,14 @@ This is how the Lua syntax works.</p>
 <ul>
 <li><a href=https://stackoverflow.com/q/48143667/6064933>https://stackoverflow.com/q/48143667/6064933</a></li>
 </ul>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p><a href=https://www.lua.org/pil/2.2.html>https://www.lua.org/pil/2.2.html</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 </div>
 <div class=post-copyright>
 <p class=copyright-item>
@@ -277,7 +286,7 @@ This is how the Lua syntax works.</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-05-24
+2022-08-07
 </span>
 </p>
 <p class=copyright-item>
