@@ -34,14 +34,14 @@ we often need to optimize the speed our service, including TensorRT acceleration
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2022/08/10/http_benchmark_wrk/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-08-10T00:53:18+08:00">
-<meta property="article:modified_time" content="2022-08-10T01:02:18+08:00">
+<meta property="article:modified_time" content="2022-08-10T01:41:33+08:00">
 <meta itemprop=name content="Benchmarking Your HTTP Service Using wrk">
 <meta itemprop=description content="As a machine learning engineer/data scientist, after the model development process is finished,
 we need to deploy the model as a web service using different web frameworks.
 To achieve maximum performance and lower the hardware cost,
 we often need to optimize the speed our service, including TensorRT acceleration, config tuning, etc."><meta itemprop=datePublished content="2022-08-10T00:53:18+08:00">
-<meta itemprop=dateModified content="2022-08-10T01:02:18+08:00">
-<meta itemprop=wordCount content="420">
+<meta itemprop=dateModified content="2022-08-10T01:41:33+08:00">
+<meta itemprop=wordCount content="444">
 <meta itemprop=keywords content="Lua,HTTP,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Benchmarking Your HTTP Service Using wrk">
 <meta name=twitter:description content="As a machine learning engineer/data scientist, after the model development process is finished,
@@ -108,8 +108,8 @@ we often need to optimize the speed our service, including TensorRT acceleration
 <div class=post-category>
 <a href=/categories/tools/> tools </a>
 </div>
-<span class=more-meta> 420 words </span>
-<span class=more-meta> 2 mins read </span>
+<span class=more-meta> 444 words </span>
+<span class=more-meta> 3 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
 </header>
@@ -121,7 +121,7 @@ we often need to optimize the speed our service, including TensorRT acceleration
 <li><a href=#install>Install</a></li>
 <li><a href=#general-options>General options</a>
 <ul>
-<li><a href=#ref>ref</a></li>
+<li><a href=#refs>Refs</a></li>
 </ul>
 </li>
 <li><a href=#wrk-in-action>Wrk in action</a></li>
@@ -145,18 +145,21 @@ In this post, I want to share how to load test your HTTP service with <a href=ht
 <span class=nb>cd</span> wrk
 make -j
 </code></pre></div><h1 id=general-options>General options</h1>
-<p>The generated <code>wrk</code> executable is under this folder. Some of the command flags for <code>wrk</code>:</p>
+<p>The generated <code>wrk</code> executable is under this folder.
+This is how you use wrk for <code>GET</code> request benchmark:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>wrk -t 6 -c 200 -d 30s --latency https://google.com
+</code></pre></div><p>Some of the command flags for <code>wrk</code>:</p>
 <ul>
 <li><code>-c</code>: the number of connections to use</li>
 <li><code>-t</code>: the number of threads to use</li>
 <li><code>-d</code>: the test duration, e.g., <code>60s</code></li>
-<li><code>-s</code>: the lua script to use for load testing our service</li>
+<li><code>-s</code>: the lua script to use for load testing our service (will cover in later section)</li>
 <li><code>--timeout</code> how many seconds to timeout a request</li>
 <li><code>--latency</code>: show the latency distribution for all the requests</li>
 </ul>
 <p>For connections and threads, the author suggest using thread number less than the core in CPU.
 The connections are shared in different threads, i.e., each threads get <code>N = connections/threads</code> connections.</p>
-<h2 id=ref>ref</h2>
+<h2 id=refs>Refs</h2>
 <ul>
 <li>wrk threads and connections:
 <ul>
