@@ -13,6 +13,7 @@
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
 <meta name=author content="jdhao"><meta name=description content="引子 从完全使用 Neovim 进行日常项目开发与文档写作到现在，已经过去大约一年半的时间。一年半以前，我对 Vim 的了解还处在非常初级的阶段，甚至还不知道 Neovim，经过长时间的使用与学习，目前已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。
 在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的恩怨情仇也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。
+P.S., 我建立了一个 nvim 中文用户 tg 群，有兴趣可以加入。
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
@@ -33,20 +34,22 @@
 
 引子
 从完全使用 Neovim 进行日常项目开发与文档写作到现在，已经过去大约一年半的时间。一年半以前，我对 Vim 的了解还处在非常初级的阶段，甚至还不知道 Neovim，经过长时间的使用与学习，目前已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。
-在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的恩怨情仇也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。">
+在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的恩怨情仇也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。
+P.S., 我建立了一个 nvim 中文用户 tg 群，有兴趣可以加入。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2020/01/12/vim_nvim_history_development/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2020-01-12T11:48:43+08:00">
-<meta property="article:modified_time" content="2022-02-02T12:43:18+08:00">
+<meta property="article:modified_time" content="2022-08-13T23:35:01+08:00">
 <meta itemprop=name content="Vim 和 Neovim 的前世今生">
 <meta itemprop=description content="
 
 
 引子
 从完全使用 Neovim 进行日常项目开发与文档写作到现在，已经过去大约一年半的时间。一年半以前，我对 Vim 的了解还处在非常初级的阶段，甚至还不知道 Neovim，经过长时间的使用与学习，目前已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。
-在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的恩怨情仇也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。"><meta itemprop=datePublished content="2020-01-12T11:48:43+08:00">
-<meta itemprop=dateModified content="2022-02-02T12:43:18+08:00">
-<meta itemprop=wordCount content="3236">
+在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的恩怨情仇也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。
+P.S., 我建立了一个 nvim 中文用户 tg 群，有兴趣可以加入。"><meta itemprop=datePublished content="2020-01-12T11:48:43+08:00">
+<meta itemprop=dateModified content="2022-08-13T23:35:01+08:00">
+<meta itemprop=wordCount content="3259">
 <meta itemprop=keywords content="Vim,LSP,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Vim 和 Neovim 的前世今生">
 <meta name=twitter:description content="
@@ -54,7 +57,8 @@
 
 引子
 从完全使用 Neovim 进行日常项目开发与文档写作到现在，已经过去大约一年半的时间。一年半以前，我对 Vim 的了解还处在非常初级的阶段，甚至还不知道 Neovim，经过长时间的使用与学习，目前已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。
-在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的恩怨情仇也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的恩怨情仇也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。
+P.S., 我建立了一个 nvim 中文用户 tg 群，有兴趣可以加入。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -115,7 +119,7 @@
 <div class=post-category>
 <a href=/categories/Nvim/> Nvim </a>
 </div>
-<span class=more-meta> 3236 words </span>
+<span class=more-meta> 3259 words </span>
 <span class=more-meta> 7 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -155,6 +159,7 @@
 <h1 id=引子>引子</h1>
 <p>从完全使用 <a href=https://neovim.io/>Neovim</a> 进行日常<a href=https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/>项目开发</a>与<a href=https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/>文档写作</a>到现在，已经过去大约一年半的时间。一年半以前，我对 Vim 的了解还处在非常初级的阶段，甚至还不知道 Neovim，经过长时间的<a href=https://jdhao.github.io/categories/Nvim/>使用与学习</a>，目前已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。</p>
 <p>在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的<em>恩怨情仇</em>也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。</p>
+<p>P.S., 我建立了一个 <a href=https://t.me/nvim_zh>nvim 中文用户 tg 群</a>，有兴趣可以加入。</p>
 <h1 id=vim-的历史>Vim 的历史</h1>
 <p>想要了解 Vim 的历史，一个很好的资料是 Vim 创始人 <a href=https://en.wikipedia.org/wiki/Bram_Moolenaar>Bram Moolenaar</a> 在 VimConf<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> 2018 上的专题演讲，他在演讲中全面回顾了 Vim 的发展以及 Vim 即将添加的一些新特性。出于兴趣，我把他的 <a href="https://www.youtube.com/watch?v=ES1L2SPgIDI">原始演讲视频</a> 从 YouTube 上扒了下来，添加了英文字幕，<a href=https://www.bilibili.com/video/av79242778>上传到了 B 站</a>。另外一个很好的视频是 Bram 在 Vim 25 周年活动上发表的<a href="https://www.youtube.com/watch?v=ayc_qpB-93o">演讲</a>。</p>
 <p>简单来说，Vim 于 1991 年由 Bram 发布，最初 Vim 模仿了 <a href=https://en.wikipedia.org/wiki/Vi>Vi 编辑器</a>的特性，后面加以扩展，逐步添加了很多新功能。今年距离 Vim 首次发布已经快 30 年了，Vim 这个强大的编辑器仍然在<a href=https://github.com/vim/vim/commits/master>不断更新</a>，并且被许多人所使用和讨论，这也从侧面说明了 Vim 的魅力 (Vim 被网友们尊称为<a href="https://www.google.com/search?q=vim+%E7%BC%96%E8%BE%91%E5%99%A8%E4%B9%8B%E7%A5%9E&oq=vim+%E7%BC%96%E8%BE%91%E5%99%A8%E4%B9%8B%E7%A5%9E&aqs=chrome..69i57.8927j0j4&sourceid=chrome&ie=UTF-8">「编辑器之神」</a>)。刚开始，Vim 完全由 Bram 独立开发维护，后来不断有开发者加入 Vim 的开发，并把 Vim 移植到了不同的系统平台上。有一段时间，Bram 甚至辞去了工作，全力投入到 Vim 的开发，靠着网友的捐助维持基本生活。2006 年 Bram 加入了 Google 位于苏黎世的分部，Google 出于对 Bram 的尊重以及对开源文化的认同，同意 Bram 每周可以花 20% 的工作时间用于和 Vim 相关的工作，谷歌真是一家开明的公司。</p>
@@ -229,7 +234,7 @@
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-02-02
+2022-08-13
 </span>
 </p>
 <p class=copyright-item>
