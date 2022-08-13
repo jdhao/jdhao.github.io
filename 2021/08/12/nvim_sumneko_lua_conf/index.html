@@ -40,7 +40,7 @@ In this post, I will share how to set up sumneko lua for nvim-lspconfig.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2021-08-12T00:14:12+08:00">
-<meta property="article:modified_time" content="2022-08-13T23:11:48+08:00">
+<meta property="article:modified_time" content="2022-08-13T23:20:50+08:00">
 <meta itemprop=name content="Setting up Sumneko Lua Language Server for Nvim-lsp">
 <meta itemprop=description content="
 
@@ -52,8 +52,8 @@ Update log
 
 
 In this post, I will share how to set up sumneko lua for nvim-lspconfig."><meta itemprop=datePublished content="2021-08-12T00:14:12+08:00">
-<meta itemprop=dateModified content="2022-08-13T23:11:48+08:00">
-<meta itemprop=wordCount content="332">
+<meta itemprop=dateModified content="2022-08-13T23:20:50+08:00">
+<meta itemprop=wordCount content="351">
 <meta itemprop=keywords content="LSP,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Setting up Sumneko Lua Language Server for Nvim-lsp">
 <meta name=twitter:description content="
@@ -126,7 +126,7 @@ In this post, I will share how to set up sumneko lua for nvim-lspconfig."><!--[i
 <div class=post-category>
 <a href=/categories/Nvim/> Nvim </a>
 </div>
-<span class=more-meta> 332 words </span>
+<span class=more-meta> 351 words </span>
 <span class=more-meta> 2 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -139,6 +139,7 @@ In this post, I will share how to set up sumneko lua for nvim-lspconfig."><!--[i
 <li><a href=#install-sumneko-lua>Install sumneko lua</a>
 <ul>
 <li><a href=#install-using-package-manager>Install using package manager</a></li>
+<li><a href=#install-using-releases>Install using releases</a></li>
 <li><a href=#install-from-source>Install from source</a>
 <ul>
 <li><a href=#ninja>ninja</a></li>
@@ -169,7 +170,9 @@ In this post, I will share how to set up sumneko lua for nvim-lspconfig."><!--[i
 <h2 id=install-using-package-manager>Install using package manager</h2>
 <p>From macOS, we can install lua-language-server directly using HomeBrew:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>brew install lua-language-server
-</code></pre></div><h2 id=install-from-source>Install from source</h2>
+</code></pre></div><h2 id=install-using-releases>Install using releases</h2>
+<p>Now lua-language-server provides binary release for Windows, macOS and Linux, download it from <a href=https://github.com/sumneko/lua-language-server/releases>its release page</a>.</p>
+<h2 id=install-from-source>Install from source</h2>
 <p>We can also build it from source. First, we need to install its dependency packages.</p>
 <h3 id=ninja>ninja</h3>
 <p>On Linux, install ninja from its binary release:</p>
