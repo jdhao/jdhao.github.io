@@ -2,7 +2,7 @@
 <head>
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Setting up sumneko lua for Nvim-lsp - jdhao's digital space</title>
+<title>Setting up Sumneko Lua Language Server for Nvim-lsp - jdhao's digital space</title>
 <meta name=renderer content="webkit">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta http-equiv=cache-control content="no-transform">
@@ -11,7 +11,7 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="In this post, I will share how to set up sumneko lua for nvim-lspconfig.
+<meta name=author content="jdhao"><meta name=description content=" Update log  2022-08-13: update nvim lsp config for lua-language-server.   In this post, I will share how to set up sumneko lua for nvim-lspconfig.
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
@@ -26,25 +26,43 @@
 <script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Setting up sumneko lua for Nvim-lsp">
+<meta property="og:title" content="Setting up Sumneko Lua Language Server for Nvim-lsp">
 <meta property="og:description" content="
+
+
+
+Update log
+
+2022-08-13: update nvim lsp config for lua-language-server.
 
 
 In this post, I will share how to set up sumneko lua for nvim-lspconfig.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2021-08-12T00:14:12+08:00">
-<meta property="article:modified_time" content="2022-02-08T13:00:49+08:00">
-<meta itemprop=name content="Setting up sumneko lua for Nvim-lsp">
+<meta property="article:modified_time" content="2022-08-13T23:11:48+08:00">
+<meta itemprop=name content="Setting up Sumneko Lua Language Server for Nvim-lsp">
 <meta itemprop=description content="
 
 
+
+Update log
+
+2022-08-13: update nvim lsp config for lua-language-server.
+
+
 In this post, I will share how to set up sumneko lua for nvim-lspconfig."><meta itemprop=datePublished content="2021-08-12T00:14:12+08:00">
-<meta itemprop=dateModified content="2022-02-08T13:00:49+08:00">
-<meta itemprop=wordCount content="299">
+<meta itemprop=dateModified content="2022-08-13T23:11:48+08:00">
+<meta itemprop=wordCount content="332">
 <meta itemprop=keywords content="LSP,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Setting up sumneko lua for Nvim-lsp">
+<meta name=twitter:title content="Setting up Sumneko Lua Language Server for Nvim-lsp">
 <meta name=twitter:description content="
+
+
+
+Update log
+
+2022-08-13: update nvim lsp config for lua-language-server.
 
 
 In this post, I will share how to set up sumneko lua for nvim-lspconfig."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
@@ -102,13 +120,13 @@ In this post, I will share how to set up sumneko lua for nvim-lspconfig."><!--[i
 <div id=content class=content>
 <article class=post>
 <header class=post-header>
-<h1 class=post-title>Setting up sumneko lua for Nvim-lsp</h1>
+<h1 class=post-title>Setting up Sumneko Lua Language Server for Nvim-lsp</h1>
 <div class=post-meta>
 <span class=post-time> 2021-08-12 </span>
 <div class=post-category>
 <a href=/categories/Nvim/> Nvim </a>
 </div>
-<span class=more-meta> 299 words </span>
+<span class=more-meta> 332 words </span>
 <span class=more-meta> 2 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -120,9 +138,14 @@ In this post, I will share how to set up sumneko lua for nvim-lspconfig."><!--[i
 <ul>
 <li><a href=#install-sumneko-lua>Install sumneko lua</a>
 <ul>
+<li><a href=#install-using-package-manager>Install using package manager</a></li>
+<li><a href=#install-from-source>Install from source</a>
+<ul>
 <li><a href=#ninja>ninja</a></li>
 <li><a href=#c-compiler>C++ compiler</a></li>
 <li><a href=#build>build</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href=#config-for-nvim-lspconfig>Config for nvim-lspconfig</a></li>
@@ -135,10 +158,20 @@ In this post, I will share how to set up sumneko lua for nvim-lspconfig."><!--[i
 <p align=center>
 <img src=https://blog-resource-1257868508.file.myqcloud.com/202202020047792.jpg width=600>
 </p>
+<details>
+<summary><font size=2 color=red>Update log</font></summary>
+<ul>
+<li><font color=blue>2022-08-13: update nvim lsp config for lua-language-server.</font></li>
+</ul>
+</details>
 <p>In this post, I will share how to set up <a href=https://github.com/sumneko/lua-language-server>sumneko lua</a> for <a href=https://github.com/neovim/nvim-lspconfig>nvim-lspconfig</a>.</p>
 <h1 id=install-sumneko-lua>Install sumneko lua</h1>
-<p>First, we need to install its dependency packages.</p>
-<h2 id=ninja>ninja</h2>
+<h2 id=install-using-package-manager>Install using package manager</h2>
+<p>From macOS, we can install lua-language-server directly using HomeBrew:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>brew install lua-language-server
+</code></pre></div><h2 id=install-from-source>Install from source</h2>
+<p>We can also build it from source. First, we need to install its dependency packages.</p>
+<h3 id=ninja>ninja</h3>
 <p>On Linux, install ninja from its binary release:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>wget https://hub.fastgit.xyz/ninja-build/ninja/releases/download/v1.10.2/ninja-linux.zip
 
@@ -146,10 +179,10 @@ mkdir -p <span class=nv>$HOME</span>/local/bin
 unzip ninja-linux.zip -d <span class=nv>$HOME</span>/local/bin
 </code></pre></div><p>On macOS, install ninja via homebrew:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>brew install ninja
-</code></pre></div><h2 id=c-compiler>C++ compiler</h2>
-<p>We need to install a cpp compile that support c++ 17, gcc-7.3 is fine. Clang
-12.0 is also fine.</p>
-<h2 id=build>build</h2>
+</code></pre></div><h3 id=c-compiler>C++ compiler</h3>
+<p>We need to install a cpp compile that support c++ 17, gcc-7.3 is fine.
+Clang 12.0 is also fine.</p>
+<h3 id=build>build</h3>
 <p>Build lua-language-server:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>mkdir -p <span class=nv>$HOME</span>/tools/ <span class=o>&amp;&amp;</span> <span class=nb>cd</span> <span class=nv>$HOME</span>/tools
 git clone --depth<span class=o>=</span><span class=m>1</span> https://hub.fastgit.xyz/sumneko/lua-language-server
@@ -171,41 +204,39 @@ compile/install.sh
 <span class=c1># For Linux</span>
 <span class=nb>export</span> <span class=nv>PATH</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$HOME</span><span class=s2>/tools/lua-language-server/bin/Linux:</span><span class=nv>$PATH</span><span class=s2>&#34;</span>
 </code></pre></div><h1 id=config-for-nvim-lspconfig>Config for nvim-lspconfig</h1>
-<p>Following the <a href=https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#sumneko_lua>instructions on the nvim-lspconfig repo</a>, it is
-pretty straight forward to config sumneko-lua for Nvim. Here is a working config for me:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-lua data-lang=lua><span class=kd>local</span> <span class=n>sumneko_binary_path</span> <span class=o>=</span> <span class=n>vim.fn</span><span class=p>.</span><span class=n>exepath</span><span class=p>(</span><span class=s1>&#39;lua-language-server&#39;</span><span class=p>)</span>
-<span class=kd>local</span> <span class=n>sumneko_root_path</span> <span class=o>=</span> <span class=n>vim.fn</span><span class=p>.</span><span class=n>fnamemodify</span><span class=p>(</span><span class=n>sumneko_binary_path</span><span class=p>,</span> <span class=s1>&#39;:h:h:h&#39;</span><span class=p>)</span>
-
-<span class=kd>local</span> <span class=n>runtime_path</span> <span class=o>=</span> <span class=n>vim.split</span><span class=p>(</span><span class=n>package.path</span><span class=p>,</span> <span class=s1>&#39;;&#39;</span><span class=p>)</span>
+<p>Following the <a href=https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua>instructions on the nvim-lspconfig repo</a>, it is pretty straight forward to config sumneko-lua for Nvim.
+Here is a working config for me:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-lua data-lang=lua><span class=kd>local</span> <span class=n>runtime_path</span> <span class=o>=</span> <span class=n>vim.split</span><span class=p>(</span><span class=n>package.path</span><span class=p>,</span> <span class=s2>&#34;;&#34;</span><span class=p>)</span>
 <span class=n>table.insert</span><span class=p>(</span><span class=n>runtime_path</span><span class=p>,</span> <span class=s2>&#34;lua/?.lua&#34;</span><span class=p>)</span>
 <span class=n>table.insert</span><span class=p>(</span><span class=n>runtime_path</span><span class=p>,</span> <span class=s2>&#34;lua/?/init.lua&#34;</span><span class=p>)</span>
 
-<span class=n>require</span><span class=s1>&#39;lspconfig&#39;</span><span class=p>.</span><span class=n>sumneko_lua.setup</span> <span class=p>{</span>
-    <span class=n>cmd</span> <span class=o>=</span> <span class=p>{</span><span class=n>sumneko_binary_path</span><span class=p>,</span> <span class=s2>&#34;-E&#34;</span><span class=p>,</span> <span class=n>sumneko_root_path</span> <span class=o>..</span> <span class=s2>&#34;/main.lua&#34;</span><span class=p>};</span>
-    <span class=n>settings</span> <span class=o>=</span> <span class=p>{</span>
-        <span class=n>Lua</span> <span class=o>=</span> <span class=p>{</span>
-        <span class=n>runtime</span> <span class=o>=</span> <span class=p>{</span>
-            <span class=c1>-- Tell the language server which version of Lua you&#39;re using (most likely LuaJIT in the case of Neovim)</span>
-            <span class=n>version</span> <span class=o>=</span> <span class=s1>&#39;LuaJIT&#39;</span><span class=p>,</span>
-            <span class=c1>-- Setup your lua path</span>
-            <span class=n>path</span> <span class=o>=</span> <span class=n>runtime_path</span><span class=p>,</span>
-        <span class=p>},</span>
-        <span class=n>diagnostics</span> <span class=o>=</span> <span class=p>{</span>
-            <span class=c1>-- Get the language server to recognize the `vim` global</span>
-            <span class=n>globals</span> <span class=o>=</span> <span class=p>{</span><span class=s1>&#39;vim&#39;</span><span class=p>},</span>
-        <span class=p>},</span>
-        <span class=n>workspace</span> <span class=o>=</span> <span class=p>{</span>
-            <span class=c1>-- Make the server aware of Neovim runtime files</span>
-            <span class=n>library</span> <span class=o>=</span> <span class=n>vim.api</span><span class=p>.</span><span class=n>nvim_get_runtime_file</span><span class=p>(</span><span class=s2>&#34;&#34;</span><span class=p>,</span> <span class=kc>true</span><span class=p>),</span>
-        <span class=p>},</span>
-        <span class=c1>-- Do not send telemetry data containing a randomized but unique identifier</span>
-        <span class=n>telemetry</span> <span class=o>=</span> <span class=p>{</span>
-            <span class=n>enable</span> <span class=o>=</span> <span class=kc>false</span><span class=p>,</span>
-        <span class=p>},</span>
-        <span class=p>},</span>
+<span class=n>lspconfig.sumneko_lua</span><span class=p>.</span><span class=n>setup</span><span class=p>({</span>
+<span class=n>on_attach</span> <span class=o>=</span> <span class=n>custom_attach</span><span class=p>,</span>
+<span class=n>settings</span> <span class=o>=</span> <span class=p>{</span>
+    <span class=n>Lua</span> <span class=o>=</span> <span class=p>{</span>
+    <span class=n>runtime</span> <span class=o>=</span> <span class=p>{</span>
+        <span class=c1>-- Tell the language server which version of Lua you&#39;re using (most likely LuaJIT in the case of Neovim)</span>
+        <span class=n>version</span> <span class=o>=</span> <span class=s2>&#34;LuaJIT&#34;</span><span class=p>,</span>
+        <span class=c1>-- Setup your lua path</span>
+        <span class=n>path</span> <span class=o>=</span> <span class=n>runtime_path</span><span class=p>,</span>
     <span class=p>},</span>
-<span class=p>}</span>
-</code></pre></div><h1 id=references>References</h1>
+    <span class=n>diagnostics</span> <span class=o>=</span> <span class=p>{</span>
+        <span class=c1>-- Get the language server to recognize the `vim` global</span>
+        <span class=n>globals</span> <span class=o>=</span> <span class=p>{</span> <span class=s2>&#34;vim&#34;</span> <span class=p>},</span>
+    <span class=p>},</span>
+    <span class=n>workspace</span> <span class=o>=</span> <span class=p>{</span>
+        <span class=c1>-- Make the server aware of Neovim runtime files</span>
+        <span class=n>library</span> <span class=o>=</span> <span class=n>api.nvim_get_runtime_file</span><span class=p>(</span><span class=s2>&#34;&#34;</span><span class=p>,</span> <span class=kc>true</span><span class=p>),</span>
+    <span class=p>},</span>
+    <span class=c1>-- Do not send telemetry data containing a randomized but unique identifier</span>
+    <span class=n>telemetry</span> <span class=o>=</span> <span class=p>{</span>
+        <span class=n>enable</span> <span class=o>=</span> <span class=kc>false</span><span class=p>,</span>
+    <span class=p>},</span>
+    <span class=p>},</span>
+<span class=p>},</span>
+<span class=p>})</span>
+</code></pre></div><p>For the complete config for lsp, check my config <a href=https://github.com/jdhao/nvim-config/blob/master/lua/config/lsp.lua>here</a>.</p>
+<h1 id=references>References</h1>
 <ul>
 <li><a href=https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)>https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)</a></li>
 </ul>
@@ -218,7 +249,7 @@ pretty straight forward to config sumneko-lua for Nvim. Here is a working config
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-02-08
+2022-08-13
 </span>
 </p>
 <p class=copyright-item>

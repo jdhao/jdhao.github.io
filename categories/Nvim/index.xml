@@ -33,9 +33,15 @@ If you use vim, you can use &lt;code>vimdiff&lt;/code> to compare files:&lt;/p><
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202109150127349.png" width="800">
 &lt;/p>
 &lt;p>In Neovim, we can use the &lt;code>virtual text&lt;/code> feature to place text anywhere in the
-window, which is not possible with normal text.&lt;/p></description></item><item><title>Setting up sumneko lua for Nvim-lsp</title><link>https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/</link><pubDate>Thu, 12 Aug 2021 00:14:12 +0800</pubDate><guid>https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/</guid><description>&lt;p align="center">
+window, which is not possible with normal text.&lt;/p></description></item><item><title>Setting up Sumneko Lua Language Server for Nvim-lsp</title><link>https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/</link><pubDate>Thu, 12 Aug 2021 00:14:12 +0800</pubDate><guid>https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202202020047792.jpg" width="600">
 &lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="2" color="red">Update log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2022-08-13: update nvim lsp config for lua-language-server.&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
 &lt;p>In this post, I will share how to set up &lt;a href="https://github.com/sumneko/lua-language-server">sumneko lua&lt;/a> for &lt;a href="https://github.com/neovim/nvim-lspconfig">nvim-lspconfig&lt;/a>.&lt;/p></description></item><item><title>Migrating from vim-plug to Packer.nvim</title><link>https://jdhao.github.io/2021/07/11/from_vim_plug_to_packer/</link><pubDate>Sun, 11 Jul 2021 23:05:22 +0800</pubDate><guid>https://jdhao.github.io/2021/07/11/from_vim_plug_to_packer/</guid><description>&lt;details>
 &lt;summary>&lt;font size="3" color="red">Update log&lt;/font>&lt;/summary>
 &lt;ul>
