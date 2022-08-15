@@ -513,6 +513,10 @@ type.&lt;/p></description></item><item><title>Firenvim: Neovim inside Your Brows
 &lt;img
 src="https://blog-resource-1257868508.file.myqcloud.com/firenvim.gif">
 &lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="2" color="red">Update log&lt;/font>&lt;/summary>
+&lt;p>&lt;font color="blue">2022-08-15: update firenvim conf; add install setting for packer.nvim &lt;/font>&lt;/p>
+&lt;/details>
 &lt;h1 id="introduction">Introduction&lt;/h1>
 &lt;p>Last year, I have written &lt;a href="https://jdhao.github.io/2019/05/11/nvim_text_input_browser/">a post&lt;/a> on how to edit texts inside the browser
 using Vim/Nvim or browser extensions that have Vim emulations.
