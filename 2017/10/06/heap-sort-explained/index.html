@@ -32,12 +32,12 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2017/10/06/heap-sort-explained/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2017-10-06T16:25:03+08:00">
-<meta property="article:modified_time" content="2022-02-27T12:50:00+08:00">
+<meta property="article:modified_time" content="2022-08-16T21:54:46+08:00">
 <meta itemprop=name content="堆排序是如何工作的？">
 <meta itemprop=description content="本文将介绍堆
 (heap)的概念，进一步介绍如何把普通数组变成最大堆，并在此基础上进行堆排序。"><meta itemprop=datePublished content="2017-10-06T16:25:03+08:00">
-<meta itemprop=dateModified content="2022-02-27T12:50:00+08:00">
-<meta itemprop=wordCount content="1794">
+<meta itemprop=dateModified content="2022-08-16T21:54:46+08:00">
+<meta itemprop=wordCount content="1796">
 <meta itemprop=keywords content="algorithms,sorting,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="堆排序是如何工作的？">
 <meta name=twitter:description content="本文将介绍堆
@@ -102,7 +102,7 @@
 <div class=post-category>
 <a href=/categories/Programming/> Programming </a>
 </div>
-<span class=more-meta> 1794 words </span>
+<span class=more-meta> 1796 words </span>
 <span class=more-meta> 4 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -155,7 +155,7 @@ tree)去掉最后一层右边的一些节点构成的二叉树。关于二者的
 <p>因为完全二叉树可以用数组表示，反过来任意的数组也对应一个完全二叉树，只是这个完全二叉树不一定是最大堆。
 给定一个数组，如何把它变为一个堆呢？观察一个最大堆，我们会发现，除了叶子节点，其余每个节点都满足最大堆的特点，因此要把一个数组对应的完全二叉树变为最大堆，只需要自底向上，逐层把各个非叶子节点逐一最大堆化即可，同时要保证最大堆的特性在最大堆化过程中不被破坏。</p>
 <p>对于大小为 <span class="math inline">\(n\)</span> 的数组 <span class="math inline">\(A\)</span>，很容易看出从节点 <span class="math inline">\(0\)</span> 到节点 <span class="math inline">\(\lfloor \frac{n}{2} - 1\rfloor\)</span>
-含有叶子节点，其余节点均为叶子节点，所以最大堆化的过程只需要对这些非叶子节点进行。下面是最大堆化的
+含有叶子节点，其余节点均为非叶子节点，所以最大堆化的过程只需要对这些非叶子节点进行。下面是最大堆化的
 C++ 实现，</p>
 <div class=sourceCode id=cb1><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id=cb1-1><a href=#cb1-1 aria-hidden=true tabindex=-1></a><span class=dt>void</span> max_heapify<span class=op>(</span>vector<span class=op>&lt;</span><span class=dt>int</span><span class=op>&gt;&amp;</span> arr<span class=op>,</span> <span class=at>const</span> <span class=dt>int</span> N<span class=op>,</span> <span class=dt>int</span> i<span class=op>){</span></span>
 <span id=cb1-2><a href=#cb1-2 aria-hidden=true tabindex=-1></a>    <span class=dt>int</span> largest <span class=op>=</span> i<span class=op>;</span></span>
@@ -185,8 +185,8 @@ C++ 实现，</p>
 <li>把当前的无序数组变为最大堆（arr[0] 为数组最大元素）</li>
 <li>对于 i 从 n-1 到 1，
 <ol type=1>
-<li>交换 arr[0] 与当前数组的最后一个元素的位置
-arr[i-1]，然后把堆的大小减 1</li>
+<li>交换 <code>arr[0]</code> 与当前数组的最后一个元素的位置
+<code>arr[i-1]</code>，然后把堆的大小减 1</li>
 <li>把剩余的二叉树的根节点重新变为最大堆化（因为该二叉树只有根节点不满足最大堆的条件</li>
 </ol></li>
 </ol>
@@ -235,23 +235,27 @@ arr[i-1]，然后把堆的大小减 1</li>
 <span id=cb3-32><a href=#cb3-32 aria-hidden=true tabindex=-1></a>    <span class=cf>return</span> <span class=dv>0</span><span class=op>;</span></span>
 <span id=cb3-33><a href=#cb3-33 aria-hidden=true tabindex=-1></a><span class=op>}</span></span></code></pre></div>
 <p>示例运行结果如下：</p>
-<p><img src=https://blog-resource-1257868508.file.myqcloud.com/heap_sort_runing_example.png></p>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/heap_sort_runing_example.png width=400>
+</p>
 <h1 id=时间复杂度空间复杂度及稳定性>时间复杂度，空间复杂度及稳定性</h1>
 <p>构建最大堆的时间复杂度为 <span class="math inline">\(O(n)\)</span>
 (并不是 <span class="math inline">\(O(\log(n))\)</span>，详细论证过程见<a href=https://stackoverflow.com/a/18295327/6064933>这里</a>)，heap sort
 时间复杂度为<span class="math inline">\(O(n\log(n))\)</span>，因此总的时间复杂度为 <span class="math inline">\(O(n\log(n))\)</span>，由于堆排序只使用了常量空间，因此该算法空间复杂度是
 <span class="math inline">\(O(1)\)</span>。</p>
 <p>前面的博客也提到过，<a href=https://jdhao.github.io/2017/09/30/sorting-algorithms-stability/>排序算法的稳定性在某些情况下很重要</a>.
-本文中的堆排序属于不稳定的算法，举例来说明，假设输入的数组是 {2a, 2b, 1}
-(a, b 用来区分相同值的先后顺序)，这个数组已经是最大堆了，使用 heap sort
-算法，得到的排序后的结果应该是 {1, 2b,
-2a}，相同数值的先后顺序被破坏，这就说明了堆排序是不稳定的算法。</p>
+本文中的堆排序属于不稳定的算法，举例来说明，假设输入的数组是
+<code>{2a, 2b, 1}</code> (a, b
+用来区分相同值的先后顺序)，这个数组已经是最大堆了，使用 heap sort
+算法，得到的排序后的结果应该是
+<code>{1, 2b, 2a}</code>，相同数值的先后顺序被破坏，这就说明了堆排序是不稳定的算法。</p>
 <hr>
-<h1 id=reference>Reference</h1>
+<h1 id=references>References</h1>
 <ul>
-<li><a href=https://www.programiz.com/dsa/heap-sort>一个很详细的堆排序讲解</a>.</li>
 <li><a href=https://stackoverflow.com/q/12359660/6064933>Difference
 between full binary tree and complete binary tree</a>.</li>
+<li><a href=https://www.programiz.com/dsa/heap-sort>一个很详细的堆排序讲解</a>.</li>
+<li>https://www.scaler.com/topics/data-structures/heap-sort-algorithm/</li>
 <li><a href=https://stackoverflow.com/q/19336881/6064933>为什么堆排序是不稳定的排序算法</a>.</li>
 </ul>
 </div>
@@ -263,7 +267,7 @@ between full binary tree and complete binary tree</a>.</li>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-02-27
+2022-08-16
 </span>
 </p>
 <p class=copyright-item>
