@@ -11,7 +11,7 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="This post summarizes some commonly used Git commands related to branch operations.
+<meta name=author content="jdhao"><meta name=description content=" Update log  2022-08-20: Add how to remove remote tracking branches that does not exist anymore   This post summarizes some commonly used Git commands related to branch operations.
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
@@ -30,21 +30,39 @@
 <meta property="og:description" content="
 
 
+
+Update log
+
+2022-08-20: Add how to remove remote tracking branches that does not exist anymore
+
+
 This post summarizes some commonly used Git commands related to branch operations.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2020/09/03/git_branch_operations/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2020-09-03T23:41:00+08:00">
-<meta property="article:modified_time" content="2022-06-04T14:35:42+08:00">
+<meta property="article:modified_time" content="2022-08-20T15:18:33+08:00">
 <meta itemprop=name content="A List of Common Git-branch Operations">
 <meta itemprop=description content="
 
 
+
+Update log
+
+2022-08-20: Add how to remove remote tracking branches that does not exist anymore
+
+
 This post summarizes some commonly used Git commands related to branch operations."><meta itemprop=datePublished content="2020-09-03T23:41:00+08:00">
-<meta itemprop=dateModified content="2022-06-04T14:35:42+08:00">
-<meta itemprop=wordCount content="661">
+<meta itemprop=dateModified content="2022-08-20T15:18:33+08:00">
+<meta itemprop=wordCount content="725">
 <meta itemprop=keywords content="Git,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="A List of Common Git-branch Operations">
 <meta name=twitter:description content="
+
+
+
+Update log
+
+2022-08-20: Add how to remove remote tracking branches that does not exist anymore
 
 
 This post summarizes some commonly used Git commands related to branch operations."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
@@ -108,7 +126,7 @@ This post summarizes some commonly used Git commands related to branch operation
 <div class=post-category>
 <a href=/categories/Git/> Git </a>
 </div>
-<span class=more-meta> 661 words </span>
+<span class=more-meta> 725 words </span>
 <span class=more-meta> 4 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -138,6 +156,12 @@ This post summarizes some commonly used Git commands related to branch operation
 <p align=center>
 <img src=https://blog-resource-1257868508.file.myqcloud.com/202202021114754.jpg width=800>
 </p>
+<details>
+<summary><font size=2 color=red>Update log</font></summary>
+<ul>
+<li><font color=blue>2022-08-20: Add how to remove remote tracking branches that does not exist anymore</font></li>
+</ul>
+</details>
 <p>This post summarizes some commonly used Git commands related to branch operations.</p>
 <h1 id=create-a-new-branch-locally-and-remotely>Create a new branch (locally and remotely)</h1>
 <h2 id=create-a-branch-locally>Create a branch locally</h2>
@@ -184,14 +208,17 @@ git merge fix_bug
 </ul>
 <h1 id=delete-a-branch>Delete a branch</h1>
 <ul>
-<li>Delete a local branch: <code>git branch -d &lt;branch_name></code></li>
+<li>Delete a local branch: <code>git branch -d &lt;branch_name></code>.<br>
+Note that we <strong>can not</strong> delete a local branch when we are on it! We need first to checkout to another branch.</li>
 <li>Delete a remote branch: <code>git push &lt;remote_name> -d &lt;remote_branch></code></li>
 </ul>
-<p>Note that we <strong>can not</strong> delete a local branch when we are on it!
-We need first to checkout to another branch.</p>
+<p>If you are using GitHub and delete a remote tracking branch via the GitHub GUI interface,
+when you run <code>git branch -a</code> locally, they are still shown.
+To remove the remote tracking branches locally, we can do <code>git remote prune origin</code>.</p>
 <p>Ref:</p>
 <ul>
 <li><a href=https://stackoverflow.com/q/2003505/6064933>Delete git branch</a>.</li>
+<li>Remove tracking branches no longer on remote: <a href=https://stackoverflow.com/q/7726949/6064933>https://stackoverflow.com/q/7726949/6064933</a></li>
 </ul>
 <h1 id=rename-a-branch-locally-and-remotely>Rename a branch locally and remotely</h1>
 <p>Suppose we want to rename the branch <code>foo</code> in local and remote repo to name <code>bar</code>,
@@ -246,7 +273,7 @@ First, we need to fetch the remote changes:</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-06-04
+2022-08-20
 </span>
 </p>
 <p class=copyright-item>

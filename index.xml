@@ -384,6 +384,12 @@ tool &lt;a href="https://languagetool.org/">languagetool&lt;/a>.&lt;/p></descrip
 bar. Here are a few tips when using tqdm.&lt;/p></description></item><item><title>A List of Common Git-branch Operations</title><link>https://jdhao.github.io/2020/09/03/git_branch_operations/</link><pubDate>Thu, 03 Sep 2020 23:41:00 +0800</pubDate><guid>https://jdhao.github.io/2020/09/03/git_branch_operations/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202202021114754.jpg" width="800">
 &lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="2" color="red">Update log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2022-08-20: Add how to remove remote tracking branches that does not exist anymore&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
 &lt;p>This post summarizes some commonly used Git commands related to branch operations.&lt;/p></description></item><item><title>LeaderF settings</title><link>https://jdhao.github.io/2020/08/26/leaderf_nvim_settings/</link><pubDate>Wed, 26 Aug 2020 23:24:20 +0800</pubDate><guid>https://jdhao.github.io/2020/08/26/leaderf_nvim_settings/</guid><description>&lt;p>&lt;a href="https://github.com/Yggdroot/LeaderF">LeaderF&lt;/a> is Vim/Neovim plugin to
 fuzzy-search files, colorschemes, tags etc. quickly. It works across different
 platforms flawlessly. Here are some of its settings to address minor issues.&lt;/p></description></item><item><title>从产品猜测设计</title><link>https://jdhao.github.io/2020/08/24/thought_on_product_design/</link><pubDate>Mon, 24 Aug 2020 01:04:34 +0800</pubDate><guid>https://jdhao.github.io/2020/08/24/thought_on_product_design/</guid><description>&lt;p>关于产品设计的一些想法。&lt;/p></description></item><item><title>Measuring Code Running Time with contextmanager</title><link>https://jdhao.github.io/2020/08/18/context_manager_for_measuring_runtime/</link><pubDate>Tue, 18 Aug 2020 22:15:17 +0800</pubDate><guid>https://jdhao.github.io/2020/08/18/context_manager_for_measuring_runtime/</guid><description>&lt;p>In Python, context manager is a great way to handle the closing of resources. It
