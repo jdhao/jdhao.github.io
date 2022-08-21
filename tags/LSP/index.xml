@@ -27,9 +27,7 @@ is new fork of it called &lt;a href="https://github.com/python-lsp/python-lsp-se
 community.&lt;/font>&lt;/p>
 &lt;p>In my &lt;a href="https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/">previous post&lt;/a>, I have go over the basic setup to make vim-lsp work.
 However, I haven&amp;rsquo;t touch on an important part of writing code: linting. It
-turns out that configure it correctly is harder than I thought.&lt;/p></description></item><item><title>Replace Deoplete-jedi with LSP Finally</title><link>https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/</link><pubDate>Wed, 04 Nov 2020 00:10:03 +0800</pubDate><guid>https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/</guid><description>&lt;p>&lt;font color="red">Update 2021-07-15: Note that pyls has been deprecated. There
-is new fork of it called &lt;a href="https://github.com/python-lsp/python-lsp-server">pylsp&lt;/a>, which is maintained by the
-community.&lt;/font>&lt;/p>
+turns out that configure it correctly is harder than I thought.&lt;/p></description></item><item><title>Replace Deoplete-jedi with LSP Finally</title><link>https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/</link><pubDate>Wed, 04 Nov 2020 00:10:03 +0800</pubDate><guid>https://jdhao.github.io/2020/11/04/replace_deoplete_jedi_for_LSP/</guid><description>&lt;p>&lt;font color="red">Update 2021-07-15: Note that pyls has been deprecated. There is new fork of it called &lt;a href="https://github.com/python-lsp/python-lsp-server">pylsp&lt;/a>, which is maintained by the community.&lt;/font>&lt;/p>
 &lt;p>After using deoplete along with deoplete-jedi for more than two years, I have
 finally decided to try something new for code completion. Yeah, you guess it,
 the &lt;a href="https://langserver.org/">Language Server Protocol&lt;/a> (LSP in short).&lt;/p></description></item><item><title>Vim 和 Neovim 的前世今生</title><link>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</link><pubDate>Sun, 12 Jan 2020 11:48:43 +0800</pubDate><guid>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</guid><description>&lt;p align="center">

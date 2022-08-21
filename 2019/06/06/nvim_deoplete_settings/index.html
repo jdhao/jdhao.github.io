@@ -11,7 +11,8 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="Deoplete is a good auto-completion plugin for Neovim. In this post, I introduce how to set up auto-completion for Nvim with the help of deoplete.
+<meta name=author content="jdhao"><meta name=description content="Note: this post is deprecated, I use nvim-cmp for auto-completion now.
+Deoplete is a good auto-completion plugin for Neovim. In this post, I introduce how to set up auto-completion for Nvim with the help of deoplete.
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
@@ -27,24 +28,24 @@
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
 <meta property="og:title" content="Nvim Autocompletion with Deoplete">
-<meta property="og:description" content="Deoplete is a good auto-completion
-plugin for Neovim. In this post, I introduce how to set up auto-completion for
-Nvim with the help of deoplete.">
+<meta property="og:description" content="Note: this post is deprecated, I use nvim-cmp for auto-completion now.
+Deoplete is a good auto-completion plugin for Neovim.
+In this post, I introduce how to set up auto-completion for Nvim with the help of deoplete.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2019/06/06/nvim_deoplete_settings/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2019-06-06T16:40:51+08:00">
-<meta property="article:modified_time" content="2020-09-20T01:52:16+08:00">
+<meta property="article:modified_time" content="2022-08-21T12:46:16+08:00">
 <meta itemprop=name content="Nvim Autocompletion with Deoplete">
-<meta itemprop=description content="Deoplete is a good auto-completion
-plugin for Neovim. In this post, I introduce how to set up auto-completion for
-Nvim with the help of deoplete."><meta itemprop=datePublished content="2019-06-06T16:40:51+08:00">
-<meta itemprop=dateModified content="2020-09-20T01:52:16+08:00">
-<meta itemprop=wordCount content="274">
-<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta itemprop=description content="Note: this post is deprecated, I use nvim-cmp for auto-completion now.
+Deoplete is a good auto-completion plugin for Neovim.
+In this post, I introduce how to set up auto-completion for Nvim with the help of deoplete."><meta itemprop=datePublished content="2019-06-06T16:40:51+08:00">
+<meta itemprop=dateModified content="2022-08-21T12:46:16+08:00">
+<meta itemprop=wordCount content="285">
+<meta itemprop=keywords content="plugin,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Nvim Autocompletion with Deoplete">
-<meta name=twitter:description content="Deoplete is a good auto-completion
-plugin for Neovim. In this post, I introduce how to set up auto-completion for
-Nvim with the help of deoplete."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:description content="Note: this post is deprecated, I use nvim-cmp for auto-completion now.
+Deoplete is a good auto-completion plugin for Neovim.
+In this post, I introduce how to set up auto-completion for Nvim with the help of deoplete."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -105,7 +106,7 @@ Nvim with the help of deoplete."><!--[if lte IE 9]><script src=https://cdnjs.clo
 <div class=post-category>
 <a href=/categories/Nvim/> Nvim </a>
 </div>
-<span class=more-meta> 274 words </span>
+<span class=more-meta> 285 words </span>
 <span class=more-meta> 2 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -135,9 +136,9 @@ Nvim with the help of deoplete."><!--[if lte IE 9]><script src=https://cdnjs.clo
 </div>
 </div>
 <div class=post-content>
-<p><a href=https://github.com/Shougo/deoplete.nvim>Deoplete</a> is a good auto-completion
-plugin for Neovim. In this post, I introduce how to set up auto-completion for
-Nvim with the help of deoplete.</p>
+<p><strong>Note: this post is deprecated, I use <a href=https://github.com/hrsh7th/nvim-cmp>nvim-cmp</a> for auto-completion now.</strong></p>
+<p><a href=https://github.com/Shougo/deoplete.nvim>Deoplete</a> is a good auto-completion plugin for Neovim.
+In this post, I introduce how to set up auto-completion for Nvim with the help of deoplete.</p>
 <p>Strictly speaking, it is an auto-completion engine. In order to enable
 auto-completion for a certain programming language, you need to install the
 corresponding source.</p>
@@ -187,7 +188,7 @@ call deoplete#custom#source(&#39;_&#39;, &#39;max_menu_width&#39;, 80)
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2020-09-20
+2022-08-21
 </span>
 </p>
 <p class=copyright-item>
@@ -209,6 +210,9 @@ call deoplete#custom#source(&#39;_&#39;, &#39;max_menu_width&#39;, 80)
 </label>
 </div>
 </div><footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/plugin/>plugin</a>
+</div>
 <nav class=post-nav>
 <a class=prev href=/2019/06/10/mechanical_keyboard_try/>
 <i class="iconfont icon-left"></i>
