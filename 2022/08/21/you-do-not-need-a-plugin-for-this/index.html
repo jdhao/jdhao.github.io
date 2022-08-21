@@ -32,12 +32,12 @@ I wondered why this feature even needs a plugin, because you can literally do th
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2022/08/21/you-do-not-need-a-plugin-for-this/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-08-21T11:56:35+08:00">
-<meta property="article:modified_time" content="2022-08-21T13:42:52+08:00">
+<meta property="article:modified_time" content="2022-08-21T18:52:56+08:00">
 <meta itemprop=name content="You Do Not Need a Plugin for This">
 <meta itemprop=description content="I saw from awesome neovim1 a plugin that helps the users create the necessary dir when they save a file.
 I wondered why this feature even needs a plugin, because you can literally do this with a few lines of code."><meta itemprop=datePublished content="2022-08-21T11:56:35+08:00">
-<meta itemprop=dateModified content="2022-08-21T13:42:52+08:00">
-<meta itemprop=wordCount content="349">
+<meta itemprop=dateModified content="2022-08-21T18:52:56+08:00">
+<meta itemprop=wordCount content="420">
 <meta itemprop=keywords content="plugin,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="You Do Not Need a Plugin for This">
 <meta name=twitter:description content="I saw from awesome neovim1 a plugin that helps the users create the necessary dir when they save a file.
@@ -102,7 +102,7 @@ I wondered why this feature even needs a plugin, because you can literally do th
 <div class=post-category>
 <a href=/categories/Nvim/> Nvim </a>
 </div>
-<span class=more-meta> 349 words </span>
+<span class=more-meta> 420 words </span>
 <span class=more-meta> 2 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -158,6 +158,17 @@ In this sense, the hype over the pre-configuration is also doubtful.
 Can the new user really learn something from these pre-configurations,
 or are they just stuck in these pre-configurations, which may have their own config options?
 My guess is that these configurations can not really help the new users learn the basics.</p>
+<p>Edit: I posted this post on <a href=https://www.reddit.com/r/neovim/comments/wtqzi5/hey_you_do_not_need_a_plugin_for_this_feature/>reddit</a>, someone gives a <em>cleaner</em> way to do this:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-lua data-lang=lua><span class=n>vim.api</span><span class=p>.</span><span class=n>nvim_create_autocmd</span><span class=p>({</span> <span class=s2>&#34;BufWritePre&#34;</span> <span class=p>},</span> <span class=p>{</span>
+  <span class=n>pattern</span> <span class=o>=</span> <span class=s2>&#34;*&#34;</span><span class=p>,</span>
+  <span class=n>group</span> <span class=o>=</span> <span class=n>vim.api</span><span class=p>.</span><span class=n>nvim_create_augroup</span><span class=p>(</span><span class=s2>&#34;auto_create_dir&#34;</span><span class=p>,</span> <span class=p>{</span> <span class=n>clear</span> <span class=o>=</span> <span class=kc>true</span> <span class=p>}),</span>
+  <span class=n>callback</span> <span class=o>=</span> <span class=kr>function</span><span class=p>(</span><span class=n>ctx</span><span class=p>)</span>
+    <span class=kd>local</span> <span class=n>dir</span> <span class=o>=</span> <span class=n>vim.fn</span><span class=p>.</span><span class=n>fnamemodify</span><span class=p>(</span><span class=n>ctx.file</span><span class=p>,</span> <span class=s2>&#34;:p:h&#34;</span><span class=p>)</span>
+    <span class=n>vim.fn</span><span class=p>.</span><span class=n>mkdir</span><span class=p>(</span><span class=n>dir</span><span class=p>,</span> <span class=s2>&#34;p&#34;</span><span class=p>)</span>
+  <span class=kr>end</span>
+<span class=p>})</span>
+</code></pre></div><p>According to the <a href=https://neovim.io/doc/user/api.html#nvim_create_autocmd()>doc</a>, the callback accepts a table containing the context info.
+The file path for the buffer where this autocmd is fired is in the <code>file</code> key.</p>
 <h1 id=references>References</h1>
 <ul>
 <li>left-pad incident:
