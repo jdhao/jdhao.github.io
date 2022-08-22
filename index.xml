@@ -82,7 +82,7 @@ There are several different ways to achieve this.&lt;/p></description></item><it
 &lt;/ul>
 &lt;/details>
 &lt;p>In this post, I will share how to customize your GitHub profile page,
-and you can find the end result &lt;a href="https://github.com/jdhao">here&lt;/a>.&lt;/p></description></item><item><title>Using Neovim for Three Years</title><link>https://jdhao.github.io/2021/12/31/using_nvim_after_three_years/</link><pubDate>Fri, 31 Dec 2021 14:54:38 +0800</pubDate><guid>https://jdhao.github.io/2021/12/31/using_nvim_after_three_years/</guid><description>&lt;p align="center">
+and you can find the end result &lt;a href="https://github.com/jdhao">here&lt;/a>.&lt;/p></description></item><item><title>Using Neovim after Three Years -- A Retrospect</title><link>https://jdhao.github.io/2021/12/31/using_nvim_after_three_years/</link><pubDate>Fri, 31 Dec 2021 14:54:38 +0800</pubDate><guid>https://jdhao.github.io/2021/12/31/using_nvim_after_three_years/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202202031428905.jpg" width="800">
 &lt;/p>
 &lt;p>I started using &lt;a href="https://neovim.io/">Neovim&lt;/a> (nvim for short) about three years ago, in Sep. 2018.
