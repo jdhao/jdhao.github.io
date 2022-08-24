@@ -30,12 +30,12 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2018/11/05/fzf_install_use/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2018-11-05T23:54:29+08:00">
-<meta property="article:modified_time" content="2021-07-18T13:27:32+08:00">
+<meta property="article:modified_time" content="2022-08-24T23:12:06+08:00">
 <meta itemprop=name content="Fzf Installation and Usage">
 <meta itemprop=description content><meta itemprop=datePublished content="2018-11-05T23:54:29+08:00">
-<meta itemprop=dateModified content="2021-07-18T13:27:32+08:00">
-<meta itemprop=wordCount content="760">
-<meta itemprop=keywords content="Nvim,shell,Bash,Zsh,"><meta name=twitter:card content="summary">
+<meta itemprop=dateModified content="2022-08-24T23:12:06+08:00">
+<meta itemprop=wordCount content="757">
+<meta itemprop=keywords content="Nvim,shell,Bash,Zsh,plugin,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Fzf Installation and Usage">
 <meta name=twitter:description content><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
@@ -98,7 +98,7 @@
 <div class=post-category>
 <a href=/categories/Linux/> Linux </a>
 </div>
-<span class=more-meta> 760 words </span>
+<span class=more-meta> 757 words </span>
 <span class=more-meta> 2 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -135,28 +135,24 @@
 </div>
 <div class=post-content>
 <script id=asciicast-218493 src=https://asciinema.org/a/218493.js async></script>
-<p><a href=https://github.com/junegunn/fzf>fzf</a> is an interactive fuzzy file search tool
-on the command-line. It is fast and powerful. In this post, I will introduce
-its installation ans usage.</p>
+<p><a href=https://github.com/junegunn/fzf>fzf</a> is a fast and powerful fuzzy file search tool on the command-line.
+In this post, I will introduce its installation and usage.</p>
 <h1 id=installation>Installation</h1>
 <h2 id=two-step-install>Two step install</h2>
 <p>We can use git to install fzf:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git clone --depth <span class=m>1</span> https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 </code></pre></div><p>The above command will install fzf under <code>~/.fzf/bin</code>.</p>
-<p>If you want to enable fzf inside Neovim, add the following setting to Neovim
-configuration (suppose your plugin manager is
-<a href=https://github.com/junegunn/vim-plug>vim-plug</a>):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Plug &#39;~/.fzf&#39;
-</code></pre></div><h2 id=one-step-install>One step install</h2>
-<p>We can install fzf and enable it inside Neovim in one step. Use the following
-configuration for Neovim:</p>
+<p>If you want to enable fzf inside Neovim, add the following setting to Neovim configuration (suppose your plugin manager is <a href=https://github.com/junegunn/vim-plug>vim-plug</a>):</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>Plug</span> <span class=s1>&#39;~/.fzf&#39;</span><span class=err>
+</span></code></pre></div><h2 id=one-step-install>One step install</h2>
+<p>We can install fzf and enable it inside Neovim in one step.
+Use the following configuration for Neovim:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Plug &#39;junegunn/fzf&#39;, { &#39;dir&#39;: &#39;~/.fzf&#39;, &#39;do&#39;: &#39;./install --all&#39; }
 </code></pre></div><p>You can change the directory where you want to install fzf.</p>
 <h1 id=how-to-use>How to use</h1>
 <h2 id=as-nvim-plugin>As Nvim plugin</h2>
-<p>Inside Nvim, we can search and open files quickly using the command provided by
-fzf:</p>
+<p>Inside Nvim, we can search and open files quickly using the command provided by fzf:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>:FZF &#34; find file under current directory
 :FZF ~ &#34; find file under HOME directory
 </code></pre></div><p align=center>
@@ -165,21 +161,19 @@ fzf:</p>
 <p>For convenience, we can add shortcut mappings for the above commands:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>nnoremap</span> <span class=p>&lt;</span><span class=nx>silent</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=nx>leader</span><span class=p>&gt;</span><span class=nx>f</span> :<span class=nx>FZF</span><span class=p>&lt;</span><span class=nx>cr</span><span class=p>&gt;</span><span class=err>
 </span><span class=err></span><span class=nx>nnoremap</span> <span class=p>&lt;</span><span class=nx>silent</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=nx>leader</span><span class=p>&gt;</span><span class=nx>F</span> :<span class=nx>FZF</span> <span class=p>~&lt;</span><span class=nx>cr</span><span class=p>&gt;</span><span class=err>
-</span></code></pre></div><p>You can use <code>Ctrl + N</code> and <code>Ctrl + P</code> or the arrow key to navigate through the
-list of files found by fzf. To open the file in Neovim, fzf provides several
-shortcut key:</p>
+</span></code></pre></div><p>You can use <code>Ctrl + N</code> and <code>Ctrl + P</code> or the arrow key to navigate through the list of files found by fzf.
+To open the file in Neovim, fzf provides several shortcut key:</p>
 <ul>
 <li><code>&lt;Enter></code>: open file in current window</li>
 <li><code>Ctrl + T</code>: open file in new <a href=http://vimdoc.sourceforge.net/htmldoc/tabpage.html>tab page</a></li>
 <li><code>Ctrl + X</code>: open file in new horizontal window</li>
 <li><code>Ctrl + V</code>: open file in new vertical window</li>
 </ul>
-<p>To close the file search window, use <kbd>Esc</kbd> or
-<kbd>Ctrl</kbd>+<kbd>C</kbd>.</p>
+<p>To close the file search window, use <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>C</kbd>.</p>
 <h2 id=use-fzf-with-other-command>Use fzf with other command</h2>
-<p>You can also use fzf in conjunction with other command. For example, you can
-use fzf and nvim together. Fzf is used to find the file and then open the file
-with nvim:</p>
+<p>You can also use fzf in conjunction with other command.
+For example, you can use fzf and nvim together.
+Fzf is used to find the file and then open the file with nvim:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>nvim <span class=k>$(</span>fzf<span class=k>)</span>
 </code></pre></div><h2 id=use-fzf-alone>Use fzf alone</h2>
 <p>Fzf provide several command-line shortcut after installation:</p>
@@ -188,32 +182,28 @@ with nvim:</p>
 <li><code>Ctrl + R</code>: find history command and paste command on the command line</li>
 <li><code>Alt + C</code>: cd to specific directory</li>
 </ul>
-<p>Note that <code>Ctrl + T</code> 和 <code>Alt + C</code> will only find file or folder under current
-directory. If you can not find a file, please make sure that it exists under
-current directory.</p>
-<p>By default, fzf use <code>find</code> to search files. You can use the variable
-<code>FZF_DEFAULT_COMMAND</code> to change the default search command. For example, if you
-have installed <a href=https://github.com/ggreer/the_silver_searcher>the silver searcher, AKA,
-ag</a>, you may want to use the
-following setting in your <code>.bash_profile</code>:</p>
+<p>Note that <code>Ctrl + T</code> 和 <code>Alt + C</code> will only find file or folder under current directory.
+If you can not find a file, please make sure that it exists under current directory.</p>
+<p>By default, fzf use <code>find</code> to search files.
+You can use the variable <code>FZF_DEFAULT_COMMAND</code> to change the default search command.
+For example, if you have installed <a href=https://github.com/ggreer/the_silver_searcher>the silver searcher, AKA, ag</a>,
+you may want to use the following setting in your <code>.bash_profile</code>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>FZF_DEFAULT_COMMAND</span><span class=o>=</span><span class=s1>&#39;ag --hidden --ignore .git -g &#34;&#34;&#39;</span>
 </code></pre></div><h2 id=autocompletion-on-command-line>Autocompletion on command line</h2>
 <h3 id=auto-complete-file-or-directory-names>Auto-complete file or directory names</h3>
-<p>When you are using <code>vim</code> and <code>cd</code>, you can activate file and directory fuzzy
-completion with <code>**</code> as a trigger (press <kbd>Tab</kbd> to trigger
-auto-completion):</p>
+<p>When you are using <code>vim</code> and <code>cd</code>, you can activate file and directory fuzzy completion with <code>**</code> as a trigger
+(press <kbd>Tab</kbd> to trigger auto-completion):</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>vim **&lt;TAB&gt; <span class=c1># open file under current directory</span>
 vim ../**&lt;TAB&gt; <span class=c1># open file under parent directory</span>
 vim ~/**&lt;TAB&gt; <span class=c1># open file under $HOME</span>
 
 <span class=nb>cd</span> **&lt;TAB&gt; <span class=c1># go to a directory under current directory</span>
-</code></pre></div><p>The auto-completion function only supports a few commands. If you want to add
-your own command, say, <a href=https://www.pylint.org/>pylint</a>, it is easy to set up.
-Following the <a href=https://github.com/junegunn/fzf/issues/536>guide here</a>, you
-need to add the below command to your <code>.bash_profile</code>:</p>
+</code></pre></div><p>The auto-completion function only supports a few commands.
+If you want to add your own command, say, <a href=https://www.pylint.org/>pylint</a>, it is easy to set up.
+Following the <a href=https://github.com/junegunn/fzf/issues/536>guide here</a>, you need to add the below command to your <code>.bash_profile</code>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>complete</span> -o bashdefault -o default -F _fzf_path_completion pylint
-</code></pre></div><p>Do not forget to source your <code>.bash_profile</code>. Then you can trigger
-auto-complete for pylint just like what you do with <code>vim</code> and <code>cd</code>:</p>
+</code></pre></div><p>Do not forget to source your <code>.bash_profile</code>.
+Then you can trigger auto-complete for pylint just like what you do with <code>vim</code> and <code>cd</code>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># open some file under home directory in a recursive manner</span>
 pylint ~/**&lt;TAB&gt;
 </code></pre></div><h3 id=autocompletion-for-environment-variables>Autocompletion for environment variables</h3>
@@ -222,15 +212,12 @@ pylint ~/**&lt;TAB&gt;
 <span class=nb>unalias</span> **&lt;TAB&gt;
 <span class=nb>unset</span> **&lt;TAB&gt;
 </code></pre></div><h2 id=search-hidden-file-by-default>search hidden file by default</h2>
-<p>By default, fzf does not search hidden files. In order to search hidden files
-by default, use the following setting (suppose that you use <code>ag</code>):</p>
+<p>By default, fzf does not search hidden files.
+In order to search hidden files by default, use the following setting (suppose that you use <code>ag</code>):</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>FZF_DEFAULT_COMMAND</span><span class=o>=</span><span class=s1>&#39;ag --hidden --ignore .git -g &#34;&#34;&#39;</span>
-</code></pre></div><p>see <a href=https://github.com/junegunn/fzf/issues/634>here</a> for more discussions.</p>
+</code></pre></div><p>See <a href=https://github.com/junegunn/fzf/issues/634>here</a> for more discussions.</p>
 <h2 id=make-fzf-work-under-zsh-on-macos>Make fzf work under Zsh on macOS</h2>
-<p>If you are using zsh on Mac with
-<a href=https://github.com/robbyrussell/oh-my-zsh>oh-my-zsh</a>, zsh has a
-<a href=https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/fzf>plugin</a>to
-make fzf work with it.</p>
+<p>If you are using zsh on Mac with <a href=https://github.com/robbyrussell/oh-my-zsh>oh-my-zsh</a>, zsh has a <a href=https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/fzf>plugin</a> to make fzf work with it.</p>
 <p>First, add the following setting in <code>.zshrc</code>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=c1># suppose you have installed fzf to ~/.fzf, change it to what suits you</span>
 <span class=nb>export</span> <span class=nv>FZF_BASE</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$HOME</span><span class=s2>/.fzf&#34;</span>
@@ -240,13 +227,14 @@ make fzf work with it.</p>
   fzf
 )
 </code></pre></div><p>Source <code>.zshrc</code> to make changes take effect. Fzf should work now on Zsh.</p>
-<p>There is one gotcha, <a href=https://github.com/junegunn/fzf/issues/164><code>Alt + C</code> does not
-work</a>: it will just print the
-character <code>ç</code>. If you are using <a href=https://www.iterm2.com/>iterm2</a>, it is easy
-to fix. Open the iterm2 preference settings, go to <code>Profiles -> Keys</code>. In the
-bottom right of the window, there are different buttons to choose the behaviour
-of Option key. Just choose <code>Esc+</code> and everything should be fine.</p>
-<p><img src=https://blog-resource-1257868508.file.myqcloud.com/iterm2_alt_setting.png alt=iterm2_alt_setting.png></p>
+<p>There is one gotcha, <a href=https://github.com/junegunn/fzf/issues/164><code>Alt + C</code> does not work</a>: it will just print the character <code>ç</code>.
+If you are using <a href=https://www.iterm2.com/>iterm2</a>, it is easy to fix.
+Open the iterm2 preference settings, go to <code>Profiles -> Keys</code>.
+In the bottom right of the window, there are different buttons to choose the behaviour of Option key.
+Just choose <code>Esc+</code> and everything should be fine.</p>
+<p align=center>
+<img src=https://blog-resource-1257868508.file.myqcloud.com/iterm2_alt_setting.png width=600>
+</p>
 </div>
 <div class=post-copyright>
 <p class=copyright-item>
@@ -256,7 +244,7 @@ of Option key. Just choose <code>Esc+</code> and everything should be fine.</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2021-07-18
+2022-08-24
 </span>
 </p>
 <p class=copyright-item>
@@ -283,6 +271,7 @@ of Option key. Just choose <code>Esc+</code> and everything should be fine.</p>
 <a href=/tags/shell/>shell</a>
 <a href=/tags/Bash/>Bash</a>
 <a href=/tags/Zsh/>Zsh</a>
+<a href=/tags/plugin/>plugin</a>
 </div>
 <nav class=post-nav>
 <a class=prev href=/2018/11/07/option_flag_meaning_build_packages_from_source/>
