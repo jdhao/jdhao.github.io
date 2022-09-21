@@ -31,11 +31,11 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2022/06/04/sql_from_scratch_for_ml_s2/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-06-04T19:03:20+08:00">
-<meta property="article:modified_time" content="2022-06-12T15:34:03+08:00">
+<meta property="article:modified_time" content="2022-09-21T22:22:38+08:00">
 <meta itemprop=name content="Learning SQL from Scratch(2): Setup and Preparations">
 <meta itemprop=description content="In this post, I will talk about setting up SQL databases and also the tools needed to write SQL queries."><meta itemprop=datePublished content="2022-06-04T19:03:20+08:00">
-<meta itemprop=dateModified content="2022-06-12T15:34:03+08:00">
-<meta itemprop=wordCount content="312">
+<meta itemprop=dateModified content="2022-09-21T22:22:38+08:00">
+<meta itemprop=wordCount content="315">
 <meta itemprop=keywords content="PostgreSQL,MySQL,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Learning SQL from Scratch(2): Setup and Preparations">
 <meta name=twitter:description content="In this post, I will talk about setting up SQL databases and also the tools needed to write SQL queries."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
@@ -99,7 +99,7 @@
 <div class=post-category>
 <a href=/categories/SQL/> SQL </a>
 </div>
-<span class=more-meta> 312 words </span>
+<span class=more-meta> 315 words </span>
 <span class=more-meta> 2 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -168,14 +168,18 @@ brew services stop postgresql
 </ul>
 <p>No password is needed.</p>
 <h1 id=try-sql-online>Try sql online</h1>
-<p>If you do not want to install and just want to try with different SQL databases,
-you can use <a href=http://sqlfiddle.com/>sqlfiddle</a>, which supports both MySQL, PostgreSQL and SQLite.</p>
+<p>If you do not want to install and just want to experiment with different SQL databases,
+there some several website where you can use the databases online:</p>
+<ul>
+<li><a href=https://dbfiddle.uk/>https://dbfiddle.uk/</a></li>
+<li>db-fiddle: <a href=https://www.db-fiddle.com/>https://www.db-fiddle.com/</a></li>
+</ul>
 <h1 id=gui-client>GUI client</h1>
 <p>Most people will probably choose a GUI client to work with the databases.</p>
 <h2 id=mysql-workbench>Mysql workbench</h2>
 <p><a href=https://www.mysql.com/products/workbench/>Mysql workbench</a> is a GUI application to help us manage mysql server more easily.</p>
 <h2 id=pgadmin>Pgadmin</h2>
-<p>If you use PostgreSQL, you can try <a href=https://www.pgadmin.org/download/>Pgadmin 4</a>, which is specifically builit for Postgres.
+<p>If you use PostgreSQL, you can try <a href=https://www.pgadmin.org/download/>Pgadmin 4</a>, which is specifically built for Postgres.
 However, some people say the UX sucks.</p>
 <h2 id=postico>Postico</h2>
 <p><a href=https://eggerapps.at/postico/>Postico</a> is a lightweight tool built for Postgres.
@@ -194,7 +198,7 @@ Highly recommended, intelligent and very good user experience.</p>
 <p>No autocompletion, very simple GUI, less features than DBeaver and Datagrip.
 Not recommended.</p>
 <h2 id=table-plus>Table plus</h2>
-<p><a href=https://tableplus.com/>Table plus</a> is a commerical product that supports a lot of databases.
+<p><a href=https://tableplus.com/>Table plus</a> is a commercial product that supports a lot of databases.
 The interface is clean and easy to use.</p>
 <p>Requires a license, otherwise very limited feature available.</p>
 </div>
@@ -206,7 +210,7 @@ The interface is clean and easy to use.</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-06-12
+2022-09-21
 </span>
 </p>
 <p class=copyright-item>
