@@ -11,9 +11,9 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="In this post, I will summarize the most convenient way to read and write CSV files (with or w/o headers) in Python.
-Write CSV files Use the builtin CSV writer Python has a built-in CSV module that deals with CSV files. In order to write to files in CSV format, we build a CSV writer, then write to a file using this writer. Here is a simple example:
-import csv lines = [[&amp;#39;Bob&amp;#39;, &amp;#39;male&amp;#39;, &amp;#39;27&amp;#39;], [&amp;#39;Smith&amp;#39;, &amp;#39;male&amp;#39;, &amp;#39;26&amp;#39;], [&amp;#39;Alice&amp;#39;, &amp;#39;female&amp;#39;, &amp;#39;26&amp;#39;]] header = [&amp;#39;name&amp;#39;, &amp;#39;gender&amp;#39;, &amp;#39;age&amp;#39;] with open(&amp;#34;test."><meta name=keywords content="Hugo,theme,even">
+<meta name=author content="jdhao"><meta name=description content="update log 2022-09-30: change order of read and write section; other small fixes.
+ In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.
+Read CSV files Use the builtin CSV module Python has a built-in CSV module that deals with CSV files. CSV module provides a CSV reader, which we can use to read CSV files. The CSV reader is an iterable object."><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
 <link rel=canonical href=https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/>
@@ -28,24 +28,24 @@ import csv lines = [[&amp;#39;Bob&amp;#39;, &amp;#39;male&amp;#39;, &amp;#39;27&
 <link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
 <meta property="og:title" content="How to Read and Write CSV Files in Python">
-<meta property="og:description" content="In this post, I will summarize the most convenient way to read and write CSV files (with or w/o headers) in Python.
-Write CSV files Use the builtin CSV writer Python has a built-in CSV module that deals with CSV files. In order to write to files in CSV format, we build a CSV writer, then write to a file using this writer. Here is a simple example:
-import csv lines = [['Bob', 'male', '27'], ['Smith', 'male', '26'], ['Alice', 'female', '26']] header = ['name', 'gender', 'age'] with open(&#34;test.">
+<meta property="og:description" content="update log 2022-09-30: change order of read and write section; other small fixes.
+ In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.
+Read CSV files Use the builtin CSV module Python has a built-in CSV module that deals with CSV files. CSV module provides a CSV reader, which we can use to read CSV files. The CSV reader is an iterable object.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2018-05-13T21:24:42+08:00">
-<meta property="article:modified_time" content="2022-03-05T21:12:39+08:00">
+<meta property="article:modified_time" content="2022-09-30T00:24:30+08:00">
 <meta itemprop=name content="How to Read and Write CSV Files in Python">
-<meta itemprop=description content="In this post, I will summarize the most convenient way to read and write CSV files (with or w/o headers) in Python.
-Write CSV files Use the builtin CSV writer Python has a built-in CSV module that deals with CSV files. In order to write to files in CSV format, we build a CSV writer, then write to a file using this writer. Here is a simple example:
-import csv lines = [['Bob', 'male', '27'], ['Smith', 'male', '26'], ['Alice', 'female', '26']] header = ['name', 'gender', 'age'] with open(&#34;test."><meta itemprop=datePublished content="2018-05-13T21:24:42+08:00">
-<meta itemprop=dateModified content="2022-03-05T21:12:39+08:00">
-<meta itemprop=wordCount content="562">
+<meta itemprop=description content="update log 2022-09-30: change order of read and write section; other small fixes.
+ In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.
+Read CSV files Use the builtin CSV module Python has a built-in CSV module that deals with CSV files. CSV module provides a CSV reader, which we can use to read CSV files. The CSV reader is an iterable object."><meta itemprop=datePublished content="2018-05-13T21:24:42+08:00">
+<meta itemprop=dateModified content="2022-09-30T00:24:30+08:00">
+<meta itemprop=wordCount content="600">
 <meta itemprop=keywords content="pandas,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="How to Read and Write CSV Files in Python">
-<meta name=twitter:description content="In this post, I will summarize the most convenient way to read and write CSV files (with or w/o headers) in Python.
-Write CSV files Use the builtin CSV writer Python has a built-in CSV module that deals with CSV files. In order to write to files in CSV format, we build a CSV writer, then write to a file using this writer. Here is a simple example:
-import csv lines = [['Bob', 'male', '27'], ['Smith', 'male', '26'], ['Alice', 'female', '26']] header = ['name', 'gender', 'age'] with open(&#34;test."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<meta name=twitter:description content="update log 2022-09-30: change order of read and write section; other small fixes.
+ In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.
+Read CSV files Use the builtin CSV module Python has a built-in CSV module that deals with CSV files. CSV module provides a CSV reader, which we can use to read CSV files. The CSV reader is an iterable object."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
 <body>
@@ -106,7 +106,7 @@ import csv lines = [['Bob', 'male', '27'], ['Smith', 'male', '26'], ['Alice', 'f
 <div class=post-category>
 <a href=/categories/Python/> Python </a>
 </div>
-<span class=more-meta> 562 words </span>
+<span class=more-meta> 600 words </span>
 <span class=more-meta> 3 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -116,16 +116,16 @@ import csv lines = [['Bob', 'male', '27'], ['Smith', 'male', '26'], ['Alice', 'f
 <div class=post-toc-content>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#read-csv-files>Read CSV files</a>
+<ul>
+<li><a href=#use-the-builtin-csv-module>Use the builtin CSV module</a></li>
+<li><a href=#use-pandas>Use Pandas</a></li>
+</ul>
+</li>
 <li><a href=#write-csv-files>Write CSV files</a>
 <ul>
 <li><a href=#use-the-builtin-csv-writer>Use the builtin CSV writer</a></li>
-<li><a href=#use-pandas>Use pandas</a></li>
-</ul>
-</li>
-<li><a href=#read-csv-files>Read CSV files</a>
-<ul>
-<li><a href=#use-the-csv-reader>Use the CSV reader</a></li>
-<li><a href=#use-pandas-1>Use Pandas</a></li>
+<li><a href=#use-pandas-1>Use pandas</a></li>
 </ul>
 </li>
 <li><a href=#references>References</a></li>
@@ -134,11 +134,53 @@ import csv lines = [['Bob', 'male', '27'], ['Smith', 'male', '26'], ['Alice', 'f
 </div>
 </div>
 <div class=post-content>
-<p>In this post, I will summarize the most convenient way to read and write CSV files (with or w/o headers) in Python.</p>
+<details>
+<summary><font size=2 color=red>update log</font></summary>
+<p><font color=blue>2022-09-30: change order of read and write section; other small fixes.</font></p>
+</details>
+<p>In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.</p>
+<h1 id=read-csv-files>Read CSV files</h1>
+<h2 id=use-the-builtin-csv-module>Use the builtin CSV module</h2>
+<p>Python has a built-in <a href=https://docs.python.org/3/library/csv.html#module-csv>CSV module</a> that deals with CSV files.
+CSV module provides <a href=https://docs.python.org/3/library/csv.html#reader-objects>a CSV reader</a>, which we can use to read CSV files.
+The CSV reader is an iterable object. We can use the following snippet to read CSV files:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>csv</span>
+
+<span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=s2>&#34;test.csv&#34;</span><span class=p>,</span> <span class=s2>&#34;r&#34;</span><span class=p>,</span> <span class=n>newline</span><span class=o>=</span><span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+    <span class=n>reader</span> <span class=o>=</span> <span class=n>csv</span><span class=o>.</span><span class=n>reader</span><span class=p>(</span><span class=n>f</span><span class=p>,</span> <span class=n>delimiter</span><span class=o>=</span><span class=s1>&#39;,&#39;</span><span class=p>)</span>
+    <span class=k>for</span> <span class=n>l</span> <span class=ow>in</span> <span class=n>reader</span><span class=p>:</span>
+        <span class=nb>print</span><span class=p>(</span><span class=n>l</span><span class=p>)</span> <span class=c1># l will be a Python list</span>
+</code></pre></div><h2 id=use-pandas>Use Pandas</h2>
+<p>The famous data processing package <a href=https://pandas.pydata.org/>Pandas</a> also provides a method <a href=https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html><code>read_csv()</code></a> to read CSV files.</p>
+<p>For example, in order to read the above <code>test.csv</code> file, we can use the following code:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
+
+<span class=c1># delimiter is used to sinify the delimiter between different columns, change it based on your case</span>
+<span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s1>&#39;test.csv&#39;</span><span class=p>,</span> <span class=n>delimiter</span><span class=o>=</span><span class=s1>&#39;,&#39;</span><span class=p>)</span> <span class=c1># df is Pandas dataframe</span>
+</code></pre></div><p><code>df</code> in the above code will be Pandas <code>dataframe</code> object.
+If the csv file you have does not have header, you should use <code>header=None</code> when reading this file:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s2>&#34;test.csv&#34;</span><span class=p>,</span> <span class=n>delimiter</span><span class=o>=</span><span class=s1>&#39;,&#39;</span><span class=p>,</span> <span class=n>header</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
+</code></pre></div><p>To show the number of rows in the dataframe, use <code>len(df.index)</code> or <code>df.shape[0]</code>.
+To show the number of columns, use <code>len(df.columns)</code> or <code>df.shape[1]</code>.</p>
+<p>To get a certain column, we use the column name as key:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>col0</span> <span class=o>=</span> <span class=n>df</span><span class=p>[</span><span class=s1>&#39;name&#39;</span><span class=p>]</span>  <span class=c1># col0 is Pandas Series object</span>
+<span class=n>df</span><span class=p>[[</span><span class=s1>&#39;c1&#39;</span><span class=p>,</span> <span class=s1>&#39;c2&#39;</span><span class=p>]]</span>  <span class=c1># to get multiple columns from dataframe</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>col0</span><span class=o>.</span><span class=n>tolist</span><span class=p>())</span> <span class=c1># use tolist() method to make a list</span>
+</code></pre></div><p>The <a href=https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.tolist.html#pandas-series-tolist><code>tolist()</code></a> method in the above code convert Pandas Series to plain Python list.
+If the csv file does not have a header, you can also use column index to access a certain column.
+For example, to get column 0, you can use:</p>
+<ul>
+<li><code>df[0].values</code> (this is numpy array)</li>
+<li><code>df[0].tolist()</code> (plain Python list)</li>
+</ul>
+<p>To access a certain row, we can use the <a href=https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.loc.html#pandas.DataFrame.loc><code>loc</code></a> method with the row number.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>row0</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=c1># row0 is Pandas Series object</span>
+<span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>values</span> <span class=c1># a numpy array</span>
+<span class=nb>print</span><span class=p>(</span><span class=n>row0</span><span class=o>.</span><span class=n>tolist</span><span class=p>())</span> <span class=c1># use tolist() method to make a list</span>
+</code></pre></div><p>To get the whole dataframe as a numpy ndarray, you can use <code>df.values</code>.</p>
 <h1 id=write-csv-files>Write CSV files</h1>
 <h2 id=use-the-builtin-csv-writer>Use the builtin CSV writer</h2>
-<p>Python has a built-in <a href=https://docs.python.org/3/library/csv.html#module-csv>CSV module</a> that deals with CSV files.
-In order to write to files in CSV format, we build a CSV writer, then write to a file using this writer.
+<p>In order to write to files in CSV format, we build a CSV writer, then write to a file using this writer.
 Here is a simple example:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>csv</span>
 
@@ -159,8 +201,8 @@ Here is a simple example:</p>
 </code></pre></div><p>In the above code snippet, <a href=https://docs.python.org/3/library/csv.html#csv.writer>the <code>newline</code> parameter inside the <code>open</code> method is important</a>.
 If you do not use <code>newline=''</code>, there will an extra blank line after each line on Windows platform.
 The parameter <code>delimiter</code> is used to denote the delimiter between different columns.</p>
-<h2 id=use-pandas>Use pandas</h2>
-<p>Another way to generate csv files is to use <a href=https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html>to_csv</a> from pandas, which is easier to use.
+<h2 id=use-pandas-1>Use pandas</h2>
+<p>Another way to generate csv files is to use <a href=https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html>to_csv()</a> from pandas, which is easier to use.
 Here is an example using pandas:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
 
@@ -175,46 +217,10 @@ Here is an example using pandas:</p>
 <span class=n>new_df</span><span class=o>.</span><span class=n>to_csv</span><span class=p>(</span><span class=n>new_fname</span><span class=p>,</span> <span class=n>sep</span><span class=o>=</span><span class=s2>&#34;,&#34;</span><span class=p>,</span> <span class=n>index</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
 </code></pre></div><p>The parameter <code>index=False</code> disable adding row index to each row, which is often desired.
 <code>sep</code> is used to change the separation character between columns.</p>
-<h1 id=read-csv-files>Read CSV files</h1>
-<h2 id=use-the-csv-reader>Use the CSV reader</h2>
-<p>CSV module provides <a href=https://docs.python.org/3/library/csv.html#reader-objects>a CSV reader</a>, which we can use to read the CSV files.
-The CSV reader is an iterable object. We can use the following snippet to read CSV files:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>csv</span>
-
-<span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=s2>&#34;test.csv&#34;</span><span class=p>,</span> <span class=s2>&#34;r&#34;</span><span class=p>,</span> <span class=n>newline</span><span class=o>=</span><span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
-    <span class=n>reader</span> <span class=o>=</span> <span class=n>csv</span><span class=o>.</span><span class=n>reader</span><span class=p>(</span><span class=n>f</span><span class=p>,</span> <span class=n>delimiter</span><span class=o>=</span><span class=s1>&#39;,&#39;</span><span class=p>)</span>
-    <span class=k>for</span> <span class=n>l</span> <span class=ow>in</span> <span class=n>reader</span><span class=p>:</span>
-        <span class=nb>print</span><span class=p>(</span><span class=n>l</span><span class=p>)</span> <span class=c1># l will be a Python list</span>
-</code></pre></div><h2 id=use-pandas-1>Use Pandas</h2>
-<p>The famous data processing library <a href=https://pandas.pydata.org/>Pandas</a> also provides a method <a href=https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html><code>read_csv()</code></a> to read CSV files.</p>
-<p>For example, in order to read the above <code>test.csv</code> file, we can use the following code:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
-
-<span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s1>&#39;test.csv&#39;</span><span class=p>,</span> <span class=n>delimiter</span><span class=o>=</span><span class=s1>&#39;,&#39;</span><span class=p>)</span> <span class=c1># df is Pandas dataframe</span>
-</code></pre></div><p>The <code>df</code> in the above code will be Pandas <code>dataframe</code> object.
-If the csv file you have does not have header, you should use <code>header=None</code> when reading this file:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s2>&#34;test.csv&#34;</span><span class=p>,</span> <span class=n>delimiter</span><span class=o>=</span><span class=s1>&#39;,&#39;</span><span class=p>,</span> <span class=n>header</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
-</code></pre></div><p>To show the number of rows in the dataframe, use <code>len(df.index)</code> or <code>df.shape[0]</code>.
-To show the number of columns, use <code>len(df.columns)</code> or <code>df.shape[1]</code>.</p>
-<p>To get a certain column, we use the column name as key:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>col0</span> <span class=o>=</span> <span class=n>df</span><span class=p>[</span><span class=s1>&#39;name&#39;</span><span class=p>]</span> <span class=c1># col0 is Pandas Series object</span>
-<span class=nb>print</span><span class=p>(</span><span class=n>col0</span><span class=o>.</span><span class=n>tolist</span><span class=p>())</span> <span class=c1># use tolist() method to make a list</span>
-</code></pre></div><p>The <a href=https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.tolist.html#pandas-series-tolist><code>tolist()</code></a> method in the above code convert Pandas Series to plain Python list.
-If the csv file does not have a header, you can also use column index to access a certain column.
-For example, to get column 0, you can use:</p>
-<ul>
-<li><code>df[0].values</code> (this is numpy array)</li>
-<li><code>df[0].tolist()</code> (plain Python list)</li>
-</ul>
-<p>To access a certain row, we can use the <a href=https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.loc.html#pandas.DataFrame.loc><code>loc</code></a> method with the row number.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>row0</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=c1># row0 is Pandas Series object</span>
-<span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>values</span> <span class=c1># a numpy array</span>
-<span class=nb>print</span><span class=p>(</span><span class=n>row0</span><span class=o>.</span><span class=n>tolist</span><span class=p>())</span> <span class=c1># use tolist() method to make a list</span>
-</code></pre></div><p>To get the whole dataframe as a numpy ndarray, you can use <code>df.values</code>.</p>
 <h1 id=references>References</h1>
 <ul>
 <li><a href=https://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-and-selecting-data>Indexing and selecting data in Pandas</a></li>
-<li><a href=https://stackoverflow.com/questions/15943769/how-do-i-get-the-row-count-of-a-pandas-dataframe>Get the number of rows or columns in dataframe</a></li>
+<li><a href=https://stackoverflow.com/q/15943769/6064933>Get the number of rows or columns in dataframe</a></li>
 </ul>
 </div>
 <div class=post-copyright>
@@ -225,7 +231,7 @@ For example, to get column 0, you can use:</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-03-05
+2022-09-30
 </span>
 </p>
 <p class=copyright-item>
