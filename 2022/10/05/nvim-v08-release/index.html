@@ -32,12 +32,12 @@ Complete release note for nvim 0.8 is here.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2022/10/05/nvim-v08-release/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-10-05T15:55:49+08:00">
-<meta property="article:modified_time" content="2022-10-05T17:56:15+08:00">
+<meta property="article:modified_time" content="2022-10-05T22:04:23+08:00">
 <meta itemprop=name content="I read the nvim v0.8 release note so you do not have to">
 <meta itemprop=description content="This is not a complete list of changes. Just what I have noticed.
 Complete release note for nvim 0.8 is here."><meta itemprop=datePublished content="2022-10-05T15:55:49+08:00">
-<meta itemprop=dateModified content="2022-10-05T17:56:15+08:00">
-<meta itemprop=wordCount content="773">
+<meta itemprop=dateModified content="2022-10-05T22:04:23+08:00">
+<meta itemprop=wordCount content="855">
 <meta itemprop=keywords content="LSP,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="I read the nvim v0.8 release note so you do not have to">
 <meta name=twitter:description content="This is not a complete list of changes. Just what I have noticed.
@@ -102,8 +102,8 @@ Complete release note for nvim 0.8 is here."><!--[if lte IE 9]><script src=https
 <div class=post-category>
 <a href=/categories/Nvim/> Nvim </a>
 </div>
-<span class=more-meta> 773 words </span>
-<span class=more-meta> 4 mins read </span>
+<span class=more-meta> 855 words </span>
+<span class=more-meta> 5 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
 </header>
@@ -115,7 +115,7 @@ Complete release note for nvim 0.8 is here."><!--[if lte IE 9]><script src=https
 <li><a href=#nvim-lsp-update>Nvim-lsp update</a>
 <ul>
 <li><a href=#server-capabilities>server capabilities</a></li>
-<li><a href=#method-change>method change</a></li>
+<li><a href=#method-changes>method changes</a></li>
 <li><a href=#others>others</a></li>
 </ul>
 </li>
@@ -136,6 +136,12 @@ Complete release note for nvim 0.8 is here."><!--[if lte IE 9]><script src=https
 <li><a href=#check-command-or-map-location>Check command or map location</a></li>
 <li><a href=#vimfs-module>vim.fs module</a></li>
 <li><a href=#startup-time-for-require>startup time for require</a></li>
+<li><a href=#change-of-support-for-old-systems>change of support for old systems</a>
+<ul>
+<li><a href=#linux>Linux</a></li>
+<li><a href=#windows>Windows</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -147,37 +153,56 @@ Complete release note for nvim 0.8 is here."><!--[if lte IE 9]><script src=https
 Complete release note for nvim 0.8 is <a href=https://github.com/neovim/neovim/releases/tag/v0.8.0>here</a>.</p>
 <h1 id=nvim-lsp-update>Nvim-lsp update</h1>
 <h2 id=server-capabilities>server capabilities</h2>
-<p>The old <code>client.resolved_capabilities</code> table is changed to <code>client.server_capabilities</code>, and the key has also changed.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>client.resolved_capabilities.document_formatting  ---&gt; client.server_capabilities.documentFormattingProvider
-client.resolved_capabilities.document_range_formatting ---&gt; client.server_capabilities.documentRangeFormattingProvider
-client.resolved_capabilities.document_highlight  ---&gt; client.server_capabilities.documentHighlightProvider
-</code></pre></div><p>To check the complete <code>server_capabilities</code> table for a file type, open that file, and run the following command:</p>
+<p>The old <code>client.resolved_capabilities</code> table is changed to <code>client.server_capabilities</code>, and the keys have also changed.</p>
+<table>
+<thead>
+<tr>
+<th>old</th>
+<th>new</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>client.resolved_capabilities.document_formatting</td>
+<td>client.server_capabilities.documentFormattingProvider</td>
+</tr>
+<tr>
+<td>client.resolved_capabilities.document_range_formatting</td>
+<td>client.server_capabilities.documentRangeFormattingProvider</td>
+</tr>
+<tr>
+<td>client.resolved_capabilities.document_highlight</td>
+<td>client.server_capabilities.documentHighlightProvider</td>
+</tr>
+</tbody>
+</table>
+<p>To check the complete <code>server_capabilities</code> table for a file, open that file, and run the following command:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>lua</span> <span class=p>=</span><span class=nx>vim</span>.<span class=nx>lsp</span>.<span class=nx>get_active_clients</span><span class=p>()</span>[<span class=m>1</span>].<span class=nx>server_capabilities</span><span class=err>
 </span></code></pre></div><p>It will print the full table.</p>
-<h2 id=method-change>method change</h2>
-<p>Lsp format method has changed, both <code>vim.lsp.buf.formatting_sync()</code> and <code>vim.lsp.buf.formatting()</code> will be deprecated.
-Now we should <code>vim.lsp.buf.format()</code>, which has <code>async</code> param (default <code>false</code>) to control whether format should be async.</p>
+<h2 id=method-changes>method changes</h2>
+<p>Lsp format method has changed, both <code>vim.lsp.buf.formatting_sync()</code> and <code>vim.lsp.buf.formatting()</code> are deprecated.
+Now we should use <code>vim.lsp.buf.format()</code>, which has <code>async</code> param (default <code>false</code>) to control whether formatting should be async.</p>
 <p><code>vim.lsp.buf.range_formatting()</code> is also deprecated.
-Now the <code>formatexpr</code> option for your buffer will be set to <code>vim.lsp.formatexpr()</code> if this option is not set by user.
+Now the <code>formatexpr</code> option for your buffer will be set to <code>vim.lsp.formatexpr()</code> if it is not set by user.
 To format the selected code, you just press <code>gq</code> instead.</p>
 <h2 id=others>others</h2>
-<p>This <a href=https://www.reddit.com/r/neovim/comments/xt1tj2/new_lsp_features_in_neovim_08/>reddit post</a> also shares others changes, like the <code>LspAttach</code> and <code>LspDetach</code> event,
+<p>This <a href=https://www.reddit.com/r/neovim/comments/xt1tj2/new_lsp_features_in_neovim_08/>reddit post</a> also shares other changes, like the <code>LspAttach</code> and <code>LspDetach</code> events,
 <code>tagfunc</code>, <code>omnifunc</code> support etc.</p>
 <h1 id=options-and-defaults>Options and defaults</h1>
 <h2 id=mouse>mouse</h2>
 <p>Mouse is enabled by default<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> and <code>mousescroll</code> option is added, you can define how many lines to scroll like this:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>set</span> <span class=nx>mousescroll</span><span class=p>=</span><span class=nx>ver</span>:<span class=m>1</span><span class=p>,</span><span class=nx>hor</span>:<span class=m>5</span><span class=err>
-</span></code></pre></div><p>Also if you set <code>mousemodel=popup</code>, nvim now shows a pop up menu.
+</span></code></pre></div><p>Also if you set <code>mousemodel=popup</code>, nvim now shows a popup menu.
 To disable this, just use <code>set mousemodel=extend</code>.</p>
 <h2 id=winbarcmdline>winbar/cmdline</h2>
-<p>Nvim has add an <code>winbar</code> option, it is like statusline, but on top of your window.</p>
-<p>For cmdline, you can use <code>set cmdheight=0</code> to hide the cmd line completely, and it will show when you type.
-You may the <code>press enter</code> message often when some message is printed, which may be annoying sometimes.
-There is also a plugin <a href=https://github.com/folke/noice.nvim>noice.nvim</a> made for ease the issue.</p>
+<p>Nvim has added a <code>winbar</code> option, it is like <code>statusline</code>, but on top of your window.</p>
+<p>For cmdline, you can use <code>set cmdheight=0</code> to hide it completely, and it will show when you run some commands.
+You may see the <code>press enter</code> message often when some messages are printed, which may be annoying.
+There is also a plugin <a href=https://github.com/folke/noice.nvim>noice.nvim</a> made to ease the issue.</p>
 <h2 id=clickable-statusline-and-winbar>clickable statusline and winbar</h2>
-<p>Nvim 0.8 add <code>%@some_func@text_shown%X</code> clickable element in statusline and winbar.
+<p>Nvim 0.8 adds clickable element in statusline and winbar, the syntax is <code>%@some_func@text_shown%X</code>.
 <code>some_func</code> is the function that will be run when you click <code>text_shown</code>.</p>
-<p>Here is a demo:</p>
+<p>Here is a demo in Lua:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-lua data-lang=lua><span class=kr>function</span> <span class=nf>Hello</span><span class=p>(...)</span>
   <span class=kd>local</span> <span class=n>arg</span> <span class=o>=</span> <span class=p>{...}</span>
   <span class=n>arg</span> <span class=o>=</span> <span class=n>vim.inspect</span><span class=p>(</span><span class=n>arg</span><span class=p>)</span>
@@ -192,14 +217,13 @@ There is also a plugin <a href=https://github.com/folke/noice.nvim>noice.nvim</a
 
 <span class=n>vim.o</span><span class=p>.</span><span class=n>statusline</span><span class=o>=</span><span class=n>stl</span>
 </code></pre></div><p>Save it as <code>test.lua</code>, then run <code>nvim -u test.lua</code>.
-Click the text <code>click me</code>, you will see the message printed.</p>
+Click the text <code>click me</code> on the statusline, you will see the message printed.</p>
 <h2 id=state-dir-change>State dir change</h2>
 <p>The directory for storing shada, undo, swap, log, lsp-log is changed from <code>~/.local/share/nvim</code> to <code>~/.local/state/nvim</code>.
+Check the exact directory with command <code>echo stdpath('state')</code>.
 See also <a href=https://github.com/neovim/neovim/issues/14090#issuecomment-1125055183>https://github.com/neovim/neovim/issues/14090#issuecomment-1125055183</a>.</p>
-<p>Check the exact directory with command <code>echo stdpath('state')</code>.</p>
 <h2 id=filetypelua-by-default>filetype.lua by default</h2>
-<p>Remove the old filetype settings and the new filetype.lua will be used automatically.
-The following should be removed:</p>
+<p>The new filetype.lua system will be used by default, and the following config <strong>should be removed</strong>:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-lua data-lang=lua><span class=n>vim.g</span><span class=p>.</span><span class=n>do_filetype_lua</span> <span class=o>=</span> <span class=mi>1</span>
 <span class=n>vim.g</span><span class=p>.</span><span class=n>did_load_filetypes</span> <span class=o>=</span> <span class=mi>0</span>
 </code></pre></div><h2 id=-and--can-search-selected-text><code>*</code> and <code>#</code> can search selected text</h2>
@@ -218,7 +242,7 @@ keymap.set(&#34;n&#34;, &#34;#&#34;, &#34;&#34;, {
     hlslens.start()
   end,
 })
-</code></pre></div><p>It do has limitations, for example, you can search multi-line selections.</p>
+</code></pre></div><p>It does has limitations, for example, you can not search multi-line selections.</p>
 <h1 id=treesitter>Treesitter</h1>
 <p>Now the treesitter parser for vim, lua, and help is enabled by default.
 But currently the help doc parser seems to have issues regarding conceal,
@@ -226,8 +250,8 @@ as reported in issue <a href=https://github.com/neovim/tree-sitter-vimdoc/issues
 <h1 id=misc>Misc</h1>
 <h2 id=man-command-improve>Man command improve</h2>
 <ul>
-<li>It is implemented in lua and should be faster compared to its vim implementation<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>.</li>
-<li>In buffer opened by <code>:Man</code>, you can use <code>gO</code> to show the argument list view<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup>.</li>
+<li>It is implemented in lua and should be faster compared to its old vim implementation<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>.</li>
+<li>In buffer opened by <code>:Man</code>, you can type <code>gO</code> to show the argument list view<sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup>.</li>
 </ul>
 <h2 id=check-command-or-map-location>Check command or map location</h2>
 <p>If the lua mapping is defined the via callback, we can now see its defined location.</p>
@@ -252,20 +276,30 @@ To see the mapping location, start nvim with <code>nvim -V1</code>, then use the
 we should see the mapping location.</p>
 <p>This is still not perfect and confusing even for experienced users like me.</p>
 <h2 id=vimfs-module>vim.fs module</h2>
-<p><code>vim.fs</code> (<code>:h lua-fs</code>) aims to provide some function for common path operations like <code>os.path</code> in Python.
+<p><code>vim.fs</code> (<code>:h lua-fs</code>) aims to provide some functions for common path operations like <code>os.path</code> in Python.
 For example:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>local d = vim.fs.dirname(&#39;~/.config/nvim/init.lua&#39;)
 print(d)
 </code></pre></div><h2 id=startup-time-for-require>startup time for require</h2>
-<p>Now time for require is also shown for <code>nvim --startuptime time.log</code> like this:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-txt data-lang=txt>....
+<p>Now time for <code>require()</code> is also shown for <code>nvim --startuptime time.log</code> like this:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>....
 206.153  000.101  000.101: require(&#39;lualine_require&#39;)
 206.558  000.632  000.531: require(&#39;lualine&#39;)
 214.826  000.150  000.150: require(&#39;lualine.utils.mode&#39;)
 216.924  000.140  000.140: require(&#39;lualine.extensions.nerdtree&#39;)
 217.125  011.338  010.417: require(&#39;config.statusline&#39;)
 ....
-</code></pre></div><section class=footnotes role=doc-endnotes>
+</code></pre></div><h2 id=change-of-support-for-old-systems>change of support for old systems</h2>
+<h3 id=linux>Linux</h3>
+<p>Nvim build env for Linux is updated to Ubuntu 20.04, so the nightly release may not work for old machines any more<sup id=fnref:5><a href=#fn:5 class=footnote-ref role=doc-noteref>5</a></sup>.
+I tested latest nvim nightly on CentOS 7.4, and it can not work anymore, with the following error:</p>
+<blockquote>
+<p>/lib64/libc.so.6: version `GLIBC_2.28' not found</p>
+</blockquote>
+<p>Other people is building nvim for old Linux systems, see discussions <a href=https://github.com/neovim/neovim/issues/19711#issuecomment-1266144004>here</a>.</p>
+<h3 id=windows>Windows</h3>
+<p>For Windows, only Windows 10 version 1809 or later is supported<sup id=fnref:6><a href=#fn:6 class=footnote-ref role=doc-noteref>6</a></sup>.</p>
+<section class=footnotes role=doc-endnotes>
 <hr>
 <ol>
 <li id=fn:1 role=doc-endnote>
@@ -279,6 +313,12 @@ print(d)
 </li>
 <li id=fn:4 role=doc-endnote>
 <p><a href=https://github.com/neovim/neovim/pull/17558>https://github.com/neovim/neovim/pull/17558</a>&#160;<a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:5 role=doc-endnote>
+<p><a href=https://github.com/neovim/neovim/commit/48241c3b238e0cf5b4b5af61db4e54f2b8c02897>https://github.com/neovim/neovim/commit/48241c3b238e0cf5b4b5af61db4e54f2b8c02897</a>&#160;<a href=#fnref:5 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:6 role=doc-endnote>
+<p><a href=https://github.com/neovim/neovim/pull/18253/commits>https://github.com/neovim/neovim/pull/18253/commits</a>&#160;<a href=#fnref:6 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
