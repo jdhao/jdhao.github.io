@@ -15,8 +15,10 @@ This is because list is a mutable type, when we pass list to a function, we are 
 &lt;p>很多年后，回过头看 2020 年 1 月，我们无法预料到 Covid19 竟然对人类社会造成了如此大的影响。&lt;/p></description></item><item><title>我们为何工作？</title><link>https://jdhao.github.io/2022/07/07/thought_on_working/</link><pubDate>Thu, 07 Jul 2022 22:22:22 +0800</pubDate><guid>https://jdhao.github.io/2022/07/07/thought_on_working/</guid><description>&lt;p>工作的意义是什么？&lt;/p></description></item><item><title>Nvim 0.7.2 Released</title><link>https://jdhao.github.io/2022/06/29/nvim_v07-release/</link><pubDate>Wed, 29 Jun 2022 23:21:58 +0800</pubDate><guid>https://jdhao.github.io/2022/06/29/nvim_v07-release/</guid><description>&lt;p>Recently the &lt;a href="https://github.com/neovim/neovim/commit/e8ee6733926db83ef216497a1d660a173184ff39">nvim 0.7.2 version&lt;/a> is released following the &lt;a href="https://github.com/neovim/neovim/releases/tag/v0.7.0">0.7.0 release&lt;/a> two months ago.
 Here are some of the updates in 0.7.0.&lt;/p></description></item><item><title>Learning SQL from Scratch(2): Setup and Preparations</title><link>https://jdhao.github.io/2022/06/04/sql_from_scratch_for_ml_s2/</link><pubDate>Sat, 04 Jun 2022 19:03:20 +0800</pubDate><guid>https://jdhao.github.io/2022/06/04/sql_from_scratch_for_ml_s2/</guid><description>&lt;details>
 &lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
-&lt;p>&lt;font color="blue">2022-09-24: add sample database we can try.&lt;/font>
-&lt;font color="blue">2022-10-11: add TUI client for MySQL and Postgres.&lt;/font>&lt;/p>
+&lt;ul>
+&lt;li>&lt;font color="blue">2022-09-24: add sample database we can try.&lt;/font>&lt;/li>
+&lt;li>&lt;font color="blue">2022-10-11: add TUI client for MySQL and Postgres.&lt;/font>&lt;/li>
+&lt;/ul>
 &lt;/details>
 &lt;p>In this post, I will talk about setting up SQL databases and also the tools needed to write SQL queries.&lt;/p></description></item><item><title>Learning SQL from Scratch(1): Do We Even Need to Start?</title><link>https://jdhao.github.io/2022/06/04/sql_from_scratch_for_ml_s1/</link><pubDate>Sat, 04 Jun 2022 01:19:17 +0800</pubDate><guid>https://jdhao.github.io/2022/06/04/sql_from_scratch_for_ml_s1/</guid><description>&lt;p>As a machine learning engineer who mainly deals with vision-based projects,
 I have little opportunity in my work to actually use SQL (Structured Query Language.).
