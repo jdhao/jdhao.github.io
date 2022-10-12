@@ -11,7 +11,7 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content=" update log  2022-09-24: add sample database we can try. 2022-10-11: add TUI client for MySQL and Postgres.   In this post, I will talk about setting up SQL databases and also the tools needed to write SQL queries.
+<meta name=author content="jdhao"><meta name=description content=" update log  2022-10-12: add fake data generation website. 2022-10-11: add TUI client for MySQL and Postgres. 2022-09-24: add sample database we can try.   In this post, I will talk about setting up SQL databases and also the tools needed to write SQL queries.
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
@@ -30,33 +30,36 @@
 <meta property="og:description" content="
 update log
 
-2022-09-24: add sample database we can try.
+2022-10-12: add fake data generation website.
 2022-10-11: add TUI client for MySQL and Postgres.
+2022-09-24: add sample database we can try.
 
 
 In this post, I will talk about setting up SQL databases and also the tools needed to write SQL queries.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2022/06/04/sql_from_scratch_for_ml_s2/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-06-04T19:03:20+08:00">
-<meta property="article:modified_time" content="2022-10-11T23:09:44+08:00">
+<meta property="article:modified_time" content="2022-10-12T21:30:24+08:00">
 <meta itemprop=name content="Learning SQL from Scratch(2): Setup and Preparations">
 <meta itemprop=description content="
 update log
 
-2022-09-24: add sample database we can try.
+2022-10-12: add fake data generation website.
 2022-10-11: add TUI client for MySQL and Postgres.
+2022-09-24: add sample database we can try.
 
 
 In this post, I will talk about setting up SQL databases and also the tools needed to write SQL queries."><meta itemprop=datePublished content="2022-06-04T19:03:20+08:00">
-<meta itemprop=dateModified content="2022-10-11T23:09:44+08:00">
-<meta itemprop=wordCount content="449">
+<meta itemprop=dateModified content="2022-10-12T21:30:24+08:00">
+<meta itemprop=wordCount content="485">
 <meta itemprop=keywords content="PostgreSQL,MySQL,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Learning SQL from Scratch(2): Setup and Preparations">
 <meta name=twitter:description content="
 update log
 
-2022-09-24: add sample database we can try.
+2022-10-12: add fake data generation website.
 2022-10-11: add TUI client for MySQL and Postgres.
+2022-09-24: add sample database we can try.
 
 
 In this post, I will talk about setting up SQL databases and also the tools needed to write SQL queries."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
@@ -120,7 +123,7 @@ In this post, I will talk about setting up SQL databases and also the tools need
 <div class=post-category>
 <a href=/categories/SQL/> SQL </a>
 </div>
-<span class=more-meta> 449 words </span>
+<span class=more-meta> 485 words </span>
 <span class=more-meta> 3 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -145,7 +148,13 @@ In this post, I will talk about setting up SQL databases and also the tools need
 </ul>
 </li>
 <li><a href=#try-sql-online>Try sql online</a></li>
+<li><a href=#database-to-play-with>Database to play with</a>
+<ul>
 <li><a href=#sample-database>Sample database</a></li>
+<li><a href=#generate-fake-data>Generate fake data</a></li>
+</ul>
+</li>
+<li><a href=#tui-client>TUI client</a></li>
 <li><a href=#gui-client>GUI client</a>
 <ul>
 <li><a href=#mysql-workbench>Mysql workbench</a></li>
@@ -165,8 +174,9 @@ In this post, I will talk about setting up SQL databases and also the tools need
 <details>
 <summary><font size=2 color=red>update log</font></summary>
 <ul>
-<li><font color=blue>2022-09-24: add sample database we can try.</font></li>
+<li><font color=blue>2022-10-12: add fake data generation website.</font></li>
 <li><font color=blue>2022-10-11: add TUI client for MySQL and Postgres.</font></li>
+<li><font color=blue>2022-09-24: add sample database we can try.</font></li>
 </ul>
 </details>
 <p>In this post, I will talk about setting up SQL databases and also the tools needed to write SQL queries.</p>
@@ -205,7 +215,8 @@ there some several website where you can use the databases online:</p>
 <li>sqliteonline: <a href=https://sqliteonline.com/>https://sqliteonline.com/</a> (supports SQLite, MariaDB, PostgreSQL, MS SQL)</li>
 <li>w3school: <a href="https://www.w3schools.com/Sql/trysql.asp?filename=trysql_select_like_not">https://www.w3schools.com/Sql/trysql.asp?filename=trysql_select_like_not</a> (it provides some sample tables to try sql)</li>
 </ul>
-<h1 id=sample-database>Sample database</h1>
+<h1 id=database-to-play-with>Database to play with</h1>
+<h2 id=sample-database>Sample database</h2>
 <p>There are some sample databases with multiple tables so that we can toy with them easily.</p>
 <ul>
 <li>northwind database:
@@ -219,13 +230,16 @@ there some several website where you can use the databases online:</p>
 </ul>
 <p>Ref:</p>
 <ul>
-<li>
-<p>mentioned sqliteonline and chinook database: <a href="https://www.youtube.com/watch?v=DVllkQtabNE">https://www.youtube.com/watch?v=DVllkQtabNE</a></p>
-</li>
-<li>
-<p>TUI client</p>
-</li>
+<li>mentioned sqliteonline and chinook database: <a href="https://www.youtube.com/watch?v=DVllkQtabNE">https://www.youtube.com/watch?v=DVllkQtabNE</a></li>
 </ul>
+<h2 id=generate-fake-data>Generate fake data</h2>
+<p>We can also use some online data generation tool to generate fake data:</p>
+<ul>
+<li>mockaroo: <a href=https://www.mockaroo.com/>https://www.mockaroo.com/</a></li>
+<li><a href=https://generatedata.com/>https://generatedata.com/</a></li>
+</ul>
+<p>I tried both and they work well.</p>
+<h1 id=tui-client>TUI client</h1>
 <p>You can use the MySQL and PostgreSQL executable to interact with databases on the command line.
 However, they do not support autocompletion or syntax highlighting.
 There are some 3rd party SQL client with auto-completion and syntax highlighting features:</p>
@@ -269,7 +283,7 @@ The interface is clean and easy to use.</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-10-11
+2022-10-12
 </span>
 </p>
 <p class=copyright-item>
