@@ -11,7 +11,7 @@
 <meta name=msapplication-navbutton-color content="#f8f5ec">
 <meta name=apple-mobile-web-app-capable content="yes">
 <meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="I am using MySQL server version 8.0.30 on my macOS. I try to read a local csv file into a mysql table using LOAD DATA LOCAL INFILE following some post[^1], but unfortunately I get the following error:
+<meta name=author content="jdhao"><meta name=description content="I am using MySQL server version 8.0.30 on my macOS. I try to read a local csv file into a mysql table using LOAD DATA LOCAL INFILE following some post1, but unfortunately I get the following error:
 "><meta name=keywords content="Hugo,theme,even">
 <meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
 <meta name=generator content="Hugo 0.92.1 with theme even">
@@ -28,22 +28,22 @@
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
 <meta property="og:title" content="How to Read Local CSV File to Table in MySQL">
 <meta property="og:description" content="I am using MySQL server version 8.0.30 on my macOS.
-I try to read a local csv file into a mysql table using LOAD DATA LOCAL INFILE following some post[^1],
+I try to read a local csv file into a mysql table using LOAD DATA LOCAL INFILE following some post1,
 but unfortunately I get the following error:">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2022/10/15/mysql_read_csv/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2022-10-15T10:31:18+08:00">
-<meta property="article:modified_time" content="2022-10-15T10:52:56+08:00">
+<meta property="article:modified_time" content="2022-10-15T11:35:24+08:00">
 <meta itemprop=name content="How to Read Local CSV File to Table in MySQL">
 <meta itemprop=description content="I am using MySQL server version 8.0.30 on my macOS.
-I try to read a local csv file into a mysql table using LOAD DATA LOCAL INFILE following some post[^1],
+I try to read a local csv file into a mysql table using LOAD DATA LOCAL INFILE following some post1,
 but unfortunately I get the following error:"><meta itemprop=datePublished content="2022-10-15T10:31:18+08:00">
-<meta itemprop=dateModified content="2022-10-15T10:52:56+08:00">
-<meta itemprop=wordCount content="379">
+<meta itemprop=dateModified content="2022-10-15T11:35:24+08:00">
+<meta itemprop=wordCount content="380">
 <meta itemprop=keywords content="MySQL,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="How to Read Local CSV File to Table in MySQL">
 <meta name=twitter:description content="I am using MySQL server version 8.0.30 on my macOS.
-I try to read a local csv file into a mysql table using LOAD DATA LOCAL INFILE following some post[^1],
+I try to read a local csv file into a mysql table using LOAD DATA LOCAL INFILE following some post1,
 but unfortunately I get the following error:"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
 </head>
@@ -105,7 +105,7 @@ but unfortunately I get the following error:"><!--[if lte IE 9]><script src=http
 <div class=post-category>
 <a href=/categories/SQL/> SQL </a>
 </div>
-<span class=more-meta> 379 words </span>
+<span class=more-meta> 380 words </span>
 <span class=more-meta> 2 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
@@ -133,7 +133,7 @@ but unfortunately I get the following error:"><!--[if lte IE 9]><script src=http
 </div>
 <div class=post-content>
 <p>I am using MySQL server version <code>8.0.30</code> on my macOS.
-I try to read a local csv file into a mysql table using <code>LOAD DATA LOCAL INFILE</code> following some post[^1],
+I try to read a local csv file into a mysql table using <code>LOAD DATA LOCAL INFILE</code> following some post<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>,
 but unfortunately I get the following error:</p>
 <blockquote>
 <p>Error Code: 3948. Loading local data is disabled; this must be enabled on both the client and server sides</p>
@@ -190,6 +190,14 @@ great,3
 <li>mysql LOAD DATA manual: <a href=https://dev.mysql.com/doc/refman/8.0/en/load-data.html>https://dev.mysql.com/doc/refman/8.0/en/load-data.html</a></li>
 <li>mysql 3948 error: <a href=https://stackoverflow.com/a/60717467/6064933>https://stackoverflow.com/a/60717467/6064933</a></li>
 </ul>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p><a href=https://stackoverflow.com/q/3635166/6064933>https://stackoverflow.com/q/3635166/6064933</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 </div>
 <div class=post-copyright>
 <p class=copyright-item>
