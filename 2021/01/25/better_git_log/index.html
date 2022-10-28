@@ -34,14 +34,14 @@ Some of the settings to make git log better.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jdhao.github.io/2021/01/25/better_git_log/"><meta property="article:section" content="post">
 <meta property="article:published_time" content="2021-01-25T23:04:12+08:00">
-<meta property="article:modified_time" content="2022-02-08T22:47:03+08:00">
+<meta property="article:modified_time" content="2022-10-27T21:47:38+08:00">
 <meta itemprop=name content="Better Git log">
 <meta itemprop=description content="
 
 
 Some of the settings to make git log better."><meta itemprop=datePublished content="2021-01-25T23:04:12+08:00">
-<meta itemprop=dateModified content="2022-02-08T22:47:03+08:00">
-<meta itemprop=wordCount content="167">
+<meta itemprop=dateModified content="2022-10-27T21:47:38+08:00">
+<meta itemprop=wordCount content="270">
 <meta itemprop=keywords content="Git,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Better Git log">
 <meta name=twitter:description content="
@@ -108,8 +108,8 @@ Some of the settings to make git log better."><!--[if lte IE 9]><script src=http
 <div class=post-category>
 <a href=/categories/Note/> Note </a>
 </div>
-<span class=more-meta> 167 words </span>
-<span class=more-meta> 1 min read </span>
+<span class=more-meta> 270 words </span>
+<span class=more-meta> 2 mins read </span>
 <span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
 </div>
 </header>
@@ -121,8 +121,8 @@ Some of the settings to make git log better."><!--[if lte IE 9]><script src=http
 <li><a href=#decorate-commit>Decorate commit</a></li>
 <li><a href=#show-short-commit-hash>Show short commit hash</a></li>
 <li><a href=#show-commit-graph>Show commit graph</a></li>
-<li><a href=#use-color-for-log-output>Use color for log output</a></li>
-<li><a href=#refs>Refs</a></li>
+<li><a href=#use-color-and-format-string-for-log-output>Use color and format string for log output</a></li>
+<li><a href=#references>References</a></li>
 </ul>
 </nav>
 </div>
@@ -145,16 +145,27 @@ default:</p>
 <p>To show a graphical representation of commit, which is handy when we have
 merged commit or multiple branches, we can use <code>--graph</code> option:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git log --graph
-</code></pre></div><h1 id=use-color-for-log-output>Use color for log output</h1>
-<p>Use color to differentiate different part of log message:</p>
+</code></pre></div><h1 id=use-color-and-format-string-for-log-output>Use color and format string for log output</h1>
+<p>We can also combine color and <code>%</code> escaped format string to format the log output.
+Check <a href=https://devhints.io/git-log-format>here</a> for a list of format strings that you can use for log format.
+Some of most used format string:</p>
+<ul>
+<li><code>%h</code>: the abbreviated commit hash</li>
+<li><code>%s</code>: the commit message subject</li>
+<li><code>%b</code>: the commit message body</li>
+<li><code>%d</code>: ref names, like <code>origin/master</code>, <code>origin/HEAD</code>, <code>tag: v0.8</code></li>
+<li><code>%ci</code>: commit date</li>
+</ul>
+<p>Use color to differentiate different part of log message.
+We can specify a color like this <code>%C(red)</code>, <code>%Creset</code> will reset the color.
+For more details on the color format and which colors to use, check <a href=https://stackoverflow.com/q/15458237/6064933>color for git pretty format</a>.</p>
+<p>Combining the log format string and color, we can create beautiful log message.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git config format.pretty &#34;%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr) %C(cyan)&lt;%an&gt;%Creset&#34;
 </code></pre></div><p>After this setup, git-log output will be like what is shown in the title image.</p>
-<h1 id=refs>Refs</h1>
+<h1 id=references>References</h1>
 <ul>
-<li><a href=https://devhints.io/git-log-format>https://devhints.io/git-log-format</a></li>
-<li><a href=https://stackoverflow.com/q/15458237/6064933>color for git pretty format</a></li>
 <li><a href=https://stackoverflow.com/q/2500586/6064933>make &ndash;abbrev-commit default for git log</a></li>
-<li><a href=https://stackoverflow.com/q/21607305/6064933>make &ndash;decoreate default for git log</a></li>
+<li><a href=https://stackoverflow.com/q/21607305/6064933>make &ndash;decorate default for git log</a></li>
 <li><a href=https://coderwall.com/p/euwpig/a-better-git-log>A better git log</a></li>
 </ul>
 </div>
@@ -166,7 +177,7 @@ merged commit or multiple branches, we can use <code>--graph</code> option:</p>
 <p class=copyright-item>
 <span class=item-title>LastMod</span>
 <span class=item-content>
-2022-02-08
+2022-10-27
 </span>
 </p>
 <p class=copyright-item>
