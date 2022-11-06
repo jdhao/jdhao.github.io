@@ -1,81 +1,91 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>The Mathematics behind Font Shapes --- Bézier Curves and More - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2018/11/27/font_shape_mathematics_bezier_curves/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="The Mathematics behind Font Shapes --- Bézier Curves and More"><meta property="og:description" content><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2018/11/27/font_shape_mathematics_bezier_curves/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-11-27T16:14:00+08:00"><meta property="article:modified_time" content="2022-02-27T13:00:40+08:00"><meta itemprop=name content="The Mathematics behind Font Shapes --- Bézier Curves and More"><meta itemprop=description content><meta itemprop=datePublished content="2018-11-27T16:14:00+08:00"><meta itemprop=dateModified content="2022-02-27T13:00:40+08:00"><meta itemprop=wordCount content="809"><meta itemprop=keywords content="font,math,"><meta name=twitter:card content="summary"><meta name=twitter:title content="The Mathematics behind Font Shapes --- Bézier Curves and More"><meta name=twitter:description content><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>The Mathematics behind Font Shapes --- Bézier Curves and More - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content=" "><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2018/11/27/font_shape_mathematics_bezier_curves/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="The Mathematics behind Font Shapes --- Bézier Curves and More"><meta property="og:description" content="
+
+"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2018/11/27/font_shape_mathematics_bezier_curves/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-11-27T16:14:00+08:00"><meta property="article:modified_time" content="2022-02-27T13:00:40+08:00"><meta itemprop=name content="The Mathematics behind Font Shapes --- Bézier Curves and More"><meta itemprop=description content="
+
+"><meta itemprop=datePublished content="2018-11-27T16:14:00+08:00"><meta itemprop=dateModified content="2022-02-27T13:00:40+08:00"><meta itemprop=wordCount content="896"><meta itemprop=keywords content="font,math,"><meta name=twitter:card content="summary"><meta name=twitter:title content="The Mathematics behind Font Shapes --- Bézier Curves and More"><meta name=twitter:description content="
+
+"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>The Mathematics behind Font Shapes --- Bézier Curves and More</h1><div class=post-meta><span class=post-time>2018-11-27</span><div class=post-category><a href=/categories/technique/>technique</a></div><span class=more-meta>809 words</span>
-<span class=more-meta>4 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content></div></div><div class=post-content>You may have noticed already that most fonts in use nowadays can be resized to
-arbitrary size and still looks good and smooth. This kind of fonts are called
-outline fonts (or vector fonts), as opposed to the already deprecated [bitmap
-fonts](https://en.wikipedia.org/wiki/Computer_font#Outline_font_formats). The
-fonts we now use are mostly opentype fonts, which is an extension of the
-truetype font format[^3].
-The word "outline" means that the shape of each glyph in a font is made up of
-straight and curved lines. Various fonts mainly use two major outline types ---
-truetype outline and postscript outline. Truetype outlines are represented
-using quadratic [Bézier
-curves](https://en.wikipedia.org/wiki/B%C3%A9zier_curve#Fonts), while
-postscript outlines are represented using cubic Bézier curves. Quadratic Bézier
-curve is a special case for cubic Bézier curve. As a result, quadratic curves
-can be converted to cubic curves without any loss of accuracy, while cubic
-curves can only be approximated by several quadratic curves.
-Since opentype font can either use truetype or postscript outlines, we can
-convert truetype font to opentype format without loss of accuracy, but not the
-other way around[^2].
-## How does Bézier curves represent the font outline?
-Bézier curves are parametric curves whose shapes are controlled by a parameter
-`t` and some on and off curve points. In this part, we focus on quadratic
-Bézier curves. The shape of quadratic curves are determined by two on-curve
-points (or end points) and one off-curve point. The off-curve point is used to
-control the shape of the curve. Suppose we have three points： $(A_x, A_y)$
-(point A), $(B_x, B_y)$ (point B), and $(C_x, C_y)$ (point C). A and C are the
-end points and B is the control point. The parametric equation for the
-underlying curve is:
-$$\begin{align}
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>The Mathematics behind Font Shapes --- Bézier Curves and More</h1><div class=post-meta><span class=post-time>2018-11-27</span><div class=post-category><a href=/categories/technique/>technique</a></div><span class=more-meta>896 words</span>
+<span class=more-meta>5 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content></div></div><div class=post-content><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200223203853.png></p><p>Steve Jobs once said that “technology alone is not enough”. He thinks
+that truly great products reside on the intersection of technology and
+liberal arts. He had also told a story about how he dropped Reed college
+and attended the calligraphy class, which had a great impact on the font
+he decided to adopt on Macintosh later<a href=#fn1 class=footnote-ref id=fnref1 role=doc-noteref><sup>1</sup></a>.</p><p>In my opinion, computer font is a great demonstration of arts and
+aesthetics combined seamless with technology. In this post, I try to
+understand the mathematics behind the beauty of font. Below is the <a href=https://source.typekit.com/source-han-serif/>Source Han Serif
+font</a> designed by Google and Adobe.</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200223204000.png width=800></p><p>You may have noticed already that most fonts in use nowadays can be
+resized to arbitrary size and still looks good and smooth. This kind of
+fonts are called outline fonts (or vector fonts), as opposed to the
+already deprecated <a href=https://en.wikipedia.org/wiki/Computer_font#Outline_font_formats>bitmap
+fonts</a>. The fonts we now use are mostly opentype fonts, which is an
+extension of the truetype font format<a href=#fn2 class=footnote-ref id=fnref2 role=doc-noteref><sup>2</sup></a>.</p><p>The word “outline” means that the shape of each glyph in a font is
+made up of straight and curved lines. Various fonts mainly use two major
+outline types — truetype outline and postscript outline. Truetype
+outlines are represented using quadratic <a href=https://en.wikipedia.org/wiki/B%C3%A9zier_curve#Fonts>Bézier
+curves</a>, while postscript outlines are represented using cubic Bézier
+curves. Quadratic Bézier curve is a special case for cubic Bézier curve.
+As a result, quadratic curves can be converted to cubic curves without
+any loss of accuracy, while cubic curves can only be approximated by
+several quadratic curves.</p><p>Since opentype font can either use truetype or postscript outlines,
+we can convert truetype font to opentype format without loss of
+accuracy, but not the other way around<a href=#fn3 class=footnote-ref id=fnref3 role=doc-noteref><sup>3</sup></a>.</p><h2 id=how-does-bézier-curves-represent-the-font-outline>How does
+Bézier curves represent the font outline?</h2><p>Bézier curves are parametric curves whose shapes are controlled by a
+parameter <code>t</code> and some on and off curve points. In this part,
+we focus on quadratic Bézier curves. The shape of quadratic curves are
+determined by two on-curve points (or end points) and one off-curve
+point. The off-curve point is used to control the shape of the curve.
+Suppose we have three points： <span class="math inline">\((A_x,
+A_y)\)</span> (point A), <span class="math inline">\((B_x, B_y)\)</span>
+(point B), and <span class="math inline">\((C_x, C_y)\)</span> (point
+C). A and C are the end points and B is the control point. The
+parametric equation for the underlying curve is:</p><p><span class="math display">\[\begin{align}
 P_x &= (1-t)^2A_x + 2t(1-t)B_x + t^2C_x \\
 P_y &= (1-t)^2A_y + 2t(1-t)B_y + t^2C_y \\
-\end{align}$$
-When parameter $t$ is changed from 0 to 1 in the above equations, we can get
-all the points $(P_x, P_y)$ in the underling curve. That is, this curve can be
-uniquely determined once we know the position of point A, B and C.<p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200223204211.png width=400 title="A quadratic Bezier curve"></p>See the figure above for an example of quadratic B-curve. In this example, A is
-$(1.0, 1.0)$, B is $(1.5, 2.0)$ and C is $(3.0, 1.5)$. The blue line is the
-generated curve when we change $t$ from 0 to 1.
-For a glyph in a font, its outline can be split into multiple small curves
-until it can be represented by B-curves[^4], which is in turn represented by
-three points. Ultimately, if we simplify things a bit, we can represent each
-glyph in a font with a set of points.
-In the below image, I show the outline for character `e` from a font[^5]:<p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200223204338.png width=200></p>In the above image, the character `e` is made up of two outlines. The red dots
-are the end points of B-curves and the cross symbols are the control points.
-You can see that for complex characters, the outline consists of a dozen small
-curves.
-## How are the characters filled?
-Knowing only the glyph outline is not enough. How do we actually fill the
-characters, i.e., how do you decide what is inside the character and what is
-outside? In fact, there is a rule. Each point is given a unique number starting
-from zero. When you traverse the outline from lower number to higher number,
-the "inside" of character is always on your right. So the outer outline of a
-character is numbered clockwise and the inner outline is numbered
-counter-clockwise. See the below image for an example:<p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200223205335.png></p>Furthermore, if one on-curve point is exactly in the center of two control
-points, it can be omitted without loss of information. So you may see there are
-several consecutive control points with no on-curve points in between. In the
-above image, for example, point 7, 8, 9 and 10 are both control points. More
-discussion regarding this issue can be found
-[here](https://stackoverflow.com/q/20733790/6064933).
-# Conclusion
-In this post, I have roughly covered how font outline works, that is, how the
-glyph shapes for a font are represented. But how we should display or print the
-font at various size (usually measured in pt) is another long story. Hopefully,
-I will try to describe that on another posts soon.
-# References
-+ <https://fontforge.github.io/bezier.html>+ [Truetype outlines](http://www.truetype-typography.com/ttoutln.htm)
-+ [How outline font is rendered on screen](http://mirror.informatimago.com/next/developer.apple.com/documentation/mac/Text/Text-199.html)
-+ [Very good documentation about font outline and how to convert hand design to acutal font outline](https://developer.apple.com/fonts/TrueType-Reference-Manual/RM01/Chap1.html)
-+ [Microsoft truetype font documentation](https://docs.microsoft.com/en-us/typography/opentype/spec/ttch01)
-[^1]: You can find a detailed discussion [here](https://multimediaman.wordpress.com/2015/01/20/steve-jobs-1955-2011-fonts-and-desktop-publishing/).
-[^2]: But cubic curves can be approximated using quadratic curves with arbitary precisions. See [here](https://developer.apple.com/fonts/TrueType-Reference-Manual/RM08/appendixE.html) for more discussions.
-[^3]: A good read about history of fonts can be found [here](https://courses.cs.washington.edu/courses/csep590a/06au/projects/font-wars.pdf)
-[^4]: You can find more discussion [here](https://developer.apple.com/fonts/TrueType-Reference-Manual/RM01/Chap1.html#necessary).
-[^5]: You can use the well-known open source tool [FontForge](https://fontforge.github.io/en-US/) to check the character outlines of a font.</div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+\end{align}\]</span></p><p>When parameter <span class="math inline">\(t\)</span> is changed from
+0 to 1 in the above equations, we can get all the points <span class="math inline">\((P_x, P_y)\)</span> in the underling curve. That
+is, this curve can be uniquely determined once we know the position of
+point A, B and C.</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200223204211.png width=400 title="A quadratic Bezier curve"></p><p>See the figure above for an example of quadratic B-curve. In this
+example, A is <span class="math inline">\((1.0, 1.0)\)</span>, B is
+<span class="math inline">\((1.5, 2.0)\)</span> and C is <span class="math inline">\((3.0, 1.5)\)</span>. The blue line is the
+generated curve when we change <span class="math inline">\(t\)</span>
+from 0 to 1.</p><p>For a glyph in a font, its outline can be split into multiple small
+curves until it can be represented by B-curves<a href=#fn4 class=footnote-ref id=fnref4 role=doc-noteref><sup>4</sup></a>,
+which is in turn represented by three points. Ultimately, if we simplify
+things a bit, we can represent each glyph in a font with a set of
+points.</p><p>In the below image, I show the outline for character <code>e</code>
+from a font<a href=#fn5 class=footnote-ref id=fnref5 role=doc-noteref><sup>5</sup></a>:</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200223204338.png width=200></p><p>In the above image, the character <code>e</code> is made up of two
+outlines. The red dots are the end points of B-curves and the cross
+symbols are the control points. You can see that for complex characters,
+the outline consists of a dozen small curves.</p><h2 id=how-are-the-characters-filled>How are the characters
+filled?</h2><p>Knowing only the glyph outline is not enough. How do we actually fill
+the characters, i.e., how do you decide what is inside the character and
+what is outside? In fact, there is a rule. Each point is given a unique
+number starting from zero. When you traverse the outline from lower
+number to higher number, the “inside” of character is always on your
+right. So the outer outline of a character is numbered clockwise and the
+inner outline is numbered counter-clockwise. See the below image for an
+example:</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200223205335.png></p><p>Furthermore, if one on-curve point is exactly in the center of two
+control points, it can be omitted without loss of information. So you
+may see there are several consecutive control points with no on-curve
+points in between. In the above image, for example, point 7, 8, 9 and 10
+are both control points. More discussion regarding this issue can be
+found <a href=https://stackoverflow.com/q/20733790/6064933>here</a>.</p><h1 id=conclusion>Conclusion</h1><p>In this post, I have roughly covered how font outline works, that is,
+how the glyph shapes for a font are represented. But how we should
+display or print the font at various size (usually measured in pt) is
+another long story. Hopefully, I will try to describe that on another
+posts soon.</p><h1 id=references>References</h1><ul><li><a href=https://fontforge.github.io/bezier.html class=uri>https://fontforge.github.io/bezier.html</a></li><li><a href=http://www.truetype-typography.com/ttoutln.htm>Truetype
+outlines</a></li><li><a href=http://mirror.informatimago.com/next/developer.apple.com/documentation/mac/Text/Text-199.html>How
+outline font is rendered on screen</a></li><li><a href=https://developer.apple.com/fonts/TrueType-Reference-Manual/RM01/Chap1.html>Very
+good documentation about font outline and how to convert hand design to
+acutal font outline</a></li><li><a href=https://docs.microsoft.com/en-us/typography/opentype/spec/ttch01>Microsoft
+truetype font documentation</a></li></ul><section id=footnotes class="footnotes footnotes-end-of-document" role=doc-endnotes><hr><ol><li id=fn1><p>You can find a detailed discussion <a href=https://multimediaman.wordpress.com/2015/01/20/steve-jobs-1955-2011-fonts-and-desktop-publishing/>here</a>.<a href=#fnref1 class=footnote-back role=doc-backlink>↩︎</a></p></li><li id=fn2><p>A good read about history of fonts can be found <a href=https://courses.cs.washington.edu/courses/csep590a/06au/projects/font-wars.pdf>here</a><a href=#fnref2 class=footnote-back role=doc-backlink>↩︎</a></p></li><li id=fn3><p>But cubic curves can be approximated using quadratic
+curves with arbitary precisions. See <a href=https://developer.apple.com/fonts/TrueType-Reference-Manual/RM08/appendixE.html>here</a>
+for more discussions.<a href=#fnref3 class=footnote-back role=doc-backlink>↩︎</a></p></li><li id=fn4><p>You can find more discussion <a href=https://developer.apple.com/fonts/TrueType-Reference-Manual/RM01/Chap1.html#necessary>here</a>.<a href=#fnref4 class=footnote-back role=doc-backlink>↩︎</a></p></li><li id=fn5><p>You can use the well-known open source tool <a href=https://fontforge.github.io/en-US/>FontForge</a> to check the
+character outlines of a font.<a href=#fnref5 class=footnote-back role=doc-backlink>↩︎</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
 <span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
 <span class=item-content>2022-02-27</span></p><p class=copyright-item><span class=item-title>License</span>
 <span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/font/>font</a>

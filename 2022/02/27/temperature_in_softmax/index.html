@@ -1,79 +1,100 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Softmax with Temperature Explained - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2022/02/27/temperature_in_softmax/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Softmax with Temperature Explained"><meta property="og:description" content><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2022/02/27/temperature_in_softmax/"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-02-27T12:47:02+08:00"><meta property="article:modified_time" content="2022-02-28T20:53:52+08:00"><meta itemprop=name content="Softmax with Temperature Explained"><meta itemprop=description content><meta itemprop=datePublished content="2022-02-27T12:47:02+08:00"><meta itemprop=dateModified content="2022-02-28T20:53:52+08:00"><meta itemprop=wordCount content="626"><meta itemprop=keywords content="softmax,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Softmax with Temperature Explained"><meta name=twitter:description content><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Softmax with Temperature Explained - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content=" Softmax function is commonly used in classification tasks. Suppose that we have an input vector \([z_1, z_2, \ldots, z_N]\), after softmax, each element becomes:
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2022/02/27/temperature_in_softmax/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Softmax with Temperature Explained"><meta property="og:description" content="
+
+
+Softmax function is commonly used in classification tasks. Suppose
+that we have an input vector \([z_1, z_2,
+\ldots, z_N]\), after softmax, each element becomes:"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2022/02/27/temperature_in_softmax/"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-02-27T12:47:02+08:00"><meta property="article:modified_time" content="2022-02-28T20:53:52+08:00"><meta itemprop=name content="Softmax with Temperature Explained"><meta itemprop=description content="
+
+
+Softmax function is commonly used in classification tasks. Suppose
+that we have an input vector \([z_1, z_2,
+\ldots, z_N]\), after softmax, each element becomes:"><meta itemprop=datePublished content="2022-02-27T12:47:02+08:00"><meta itemprop=dateModified content="2022-02-28T20:53:52+08:00"><meta itemprop=wordCount content="633"><meta itemprop=keywords content="softmax,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Softmax with Temperature Explained"><meta name=twitter:description content="
+
+
+Softmax function is commonly used in classification tasks. Suppose
+that we have an input vector \([z_1, z_2,
+\ldots, z_N]\), after softmax, each element becomes:"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Softmax with Temperature Explained</h1><div class=post-meta><span class=post-time>2022-02-27</span><div class=post-category><a href=/categories/machine-learning/>machine-learning</a></div><span class=more-meta>626 words</span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Softmax with Temperature Explained</h1><div class=post-meta><span class=post-time>2022-02-27</span><div class=post-category><a href=/categories/machine-learning/>machine-learning</a></div><span class=more-meta>633 words</span>
 <span class=more-meta>3 mins read</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content></div></div><div class=post-content>$$p_i = \frac{\exp(z_i)}{\sum_{j=1}^{N}\exp(z_j)}$$
-The denominator term normalize each element so that their sum is 1.
-The original vector is transformed into a probability distribution,
-and the index that corresponds to the highest probability is the chosen class.
-In practice, we often see softmax with temperature, which is a slight modification of softmax:
-$$p_i = \frac{\exp(x_i/\tau)}{\sum_{j=1}^{N}\exp(x_j/\tau)}$$
-The parameter $\tau$ is called the temperature parameter[^2],
-and it is used to control the softness of the probability distribution.
-When $\tau$ gets lower, the biggest value in $x$ get more probability,
-when $\tau$ gets larger, the probability will be split more evenly on different elements.
-Consider the extreme cases where $\tau$ approaches zero, the probability for the largest element will approach 1,
-while when $\tau$ approaches infinity, the probability for each element will be the same.
-```python
-import math
-def softmax(vec, temperature):
-"""
-turn vec into normalized probability
-"""
-sum_exp = sum(math.exp(x/temperature) for x in vec)
-return [math.exp(x/temperature)/sum_exp for x in vec]
-def main():
-vec = [1, 5, 7, 10]
-ts = [0.1, 1, 10, 100, 10000]
-for t in ts:
-print(t, softmax(vec, t))
-if __name__ == "__main__":
-main()
-```
-With different values of t, the output probability is (also check the title image):
-```
-0.1 [8.194012623989748e-40, 1.928749847963737e-22, 9.357622968839298e-14, 0.9999999999999064]
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content></div></div><div class=post-content><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/202202271549378.jpg width=800></p><p>Softmax function is commonly used in classification tasks. Suppose
+that we have an input vector <span class="math inline">\([z_1, z_2,
+\ldots, z_N]\)</span>, after softmax, each element becomes:</p><p><span class="math display">\[p_i =
+\frac{\exp(z_i)}{\sum_{j=1}^{N}\exp(z_j)}\]</span></p><p>The denominator term normalize each element so that their sum is 1.
+The original vector is transformed into a probability distribution, and
+the index that corresponds to the highest probability is the chosen
+class.</p><p>In practice, we often see softmax with temperature, which is a slight
+modification of softmax:</p><p><span class="math display">\[p_i =
+\frac{\exp(x_i/\tau)}{\sum_{j=1}^{N}\exp(x_j/\tau)}\]</span></p><p>The parameter <span class="math inline">\(\tau\)</span> is called the
+temperature parameter<a href=#fn1 class=footnote-ref id=fnref1 role=doc-noteref><sup>1</sup></a>, and it is used to control the
+softness of the probability distribution. When <span class="math inline">\(\tau\)</span> gets lower, the biggest value in
+<span class="math inline">\(x\)</span> get more probability, when <span class="math inline">\(\tau\)</span> gets larger, the probability will be
+split more evenly on different elements. Consider the extreme cases
+where <span class="math inline">\(\tau\)</span> approaches zero, the
+probability for the largest element will approach 1, while when <span class="math inline">\(\tau\)</span> approaches infinity, the probability
+for each element will be the same.</p><div class=sourceCode id=cb1><pre class="sourceCode python"><code class="sourceCode python"><span id=cb1-1><a href=#cb1-1 aria-hidden=true tabindex=-1></a><span class=im>import</span> math</span>
+<span id=cb1-2><a href=#cb1-2 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-3><a href=#cb1-3 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-4><a href=#cb1-4 aria-hidden=true tabindex=-1></a><span class=kw>def</span> softmax(vec, temperature):</span>
+<span id=cb1-5><a href=#cb1-5 aria-hidden=true tabindex=-1></a>    <span class=co>&quot;&quot;&quot;</span></span>
+<span id=cb1-6><a href=#cb1-6 aria-hidden=true tabindex=-1></a><span class=co>    turn vec into normalized probability</span></span>
+<span id=cb1-7><a href=#cb1-7 aria-hidden=true tabindex=-1></a><span class=co>    &quot;&quot;&quot;</span></span>
+<span id=cb1-8><a href=#cb1-8 aria-hidden=true tabindex=-1></a>    sum_exp <span class=op>=</span> <span class=bu>sum</span>(math.exp(x<span class=op>/</span>temperature) <span class=cf>for</span> x <span class=kw>in</span> vec)</span>
+<span id=cb1-9><a href=#cb1-9 aria-hidden=true tabindex=-1></a>    <span class=cf>return</span> [math.exp(x<span class=op>/</span>temperature)<span class=op>/</span>sum_exp <span class=cf>for</span> x <span class=kw>in</span> vec]</span>
+<span id=cb1-10><a href=#cb1-10 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-11><a href=#cb1-11 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-12><a href=#cb1-12 aria-hidden=true tabindex=-1></a><span class=kw>def</span> main():</span>
+<span id=cb1-13><a href=#cb1-13 aria-hidden=true tabindex=-1></a>    vec <span class=op>=</span> [<span class=dv>1</span>, <span class=dv>5</span>, <span class=dv>7</span>, <span class=dv>10</span>]</span>
+<span id=cb1-14><a href=#cb1-14 aria-hidden=true tabindex=-1></a>    ts <span class=op>=</span> [<span class=fl>0.1</span>, <span class=dv>1</span>, <span class=dv>10</span>, <span class=dv>100</span>, <span class=dv>10000</span>]</span>
+<span id=cb1-15><a href=#cb1-15 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-16><a href=#cb1-16 aria-hidden=true tabindex=-1></a>    <span class=cf>for</span> t <span class=kw>in</span> ts:</span>
+<span id=cb1-17><a href=#cb1-17 aria-hidden=true tabindex=-1></a>        <span class=bu>print</span>(t, softmax(vec, t))</span>
+<span id=cb1-18><a href=#cb1-18 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-19><a href=#cb1-19 aria-hidden=true tabindex=-1></a></span>
+<span id=cb1-20><a href=#cb1-20 aria-hidden=true tabindex=-1></a><span class=cf>if</span> <span class=va>__name__</span> <span class=op>==</span> <span class=st>&quot;__main__&quot;</span>:</span>
+<span id=cb1-21><a href=#cb1-21 aria-hidden=true tabindex=-1></a>    main()</span></code></pre></div><p>With different values of t, the output probability is (also check the
+title image):</p><pre><code>0.1 [8.194012623989748e-40, 1.928749847963737e-22, 9.357622968839298e-14, 0.9999999999999064]
 1 [0.00011679362893736733, 0.006376716075637758, 0.0471179128098403, 0.9463885774855847]
 10 [0.14763314666550595, 0.2202427743860977, 0.26900513210002774, 0.3631189468483686]
 100 [0.23827555570657363, 0.24799976560608047, 0.25300969319764466, 0.2607149854897012]
-10000 [0.2498812648459304, 0.2499812373450356, 0.2500312385924627, 0.2501062592165714]
-```
-According to [this post](https://medium.com/@u39kun/is-the-term-softmax-driving-you-nuts-ee232ab4f6bd), the name softmax is kind of misleading,
-it should be softargmax, especially when you have a very small $\tau$ value.
-For example, for `vec = [1, 5, 7, 10]`, argmax result should be 3.
-If we express it as one-hot encoding, the result is `[0, 0, 0, 1]`,
-which is pretty close to the result of softmax when $\tau = 0.1$.
-# Applications
-In [Distilling the Knowledge in a Neural Network](https://arxiv.org/pdf/1503.02531.pdf), they also used temperature parameter in softmax:
-> Using a higher value for T produces a softer probability distribution over classes.
-## Supervised contrastive learning
-In the [MoCo](https://arxiv.org/abs/1911.05722) paper, softmax loss with temperature is used (it is a slightly modified version of InfoNCE loss):
-$$Loss = -\log\frac{exp(q\cdot k_+/\tau)}{\sum_{i=0}^{K} exp(q\cdot k_i/ \tau)}$$
-In that paper, $\tau$ is set to a very small value 0.07.
-If we do not use the temperature parameter, suppose that the dot product of negative pairs are -1,
-and dot product of positive pair is 1, and we have K = 1024,
-in this case, the model has separated the positive and negative pairs perfectly,
-but the softmax loss is still too large:
-$$-log\frac{e}{e + 1023e^{-1}} = 4.94$$
-If we use a parameter of $\tau = 0.07$, however, the loss will now become literally 0.0.
-So using a small $\tau$ helps collapse the probability distribution to the positive pair and reduces loss.
-MoCo *borrows* this value from [Unsupervised Feature Learning via Non-Parametric Instance Discrimination](https://arxiv.org/pdf/1805.01978.pdf), in which the authors say:
-> τ is important for supervised feature learning [43], and also necessary for tuning the concentration of v on our unit sphere.
-Ref 43 refers to paper [NormFace: L2 Hypersphere Embedding for Face Verification](https://arxiv.org/abs/1704.06369).
-In NormFace Sec. 3.3, the authors show theoretically why it is necessary to use a scaling factor[^1] in softmax loss.
-Basically, if we do not use a scaling factor, the lower bound for the loss is high,
-and we can not learn a good representation of image features.
-# References
-+ [Why should we use Temperature in softmax?](https://stackoverflow.com/a/63471046/6064933)
-+ [What is Temperature in LSTM (and neural networks generally)?](https://cs.stackexchange.com/questions/79241/what-is-temperature-in-lstm-and-neural-networks-generally)
-+ https://stats.stackexchange.com/questions/527080/what-is-the-role-of-temperature-in-softmax
-+ Understanding the Behaviour of Contrastive Loss: https://arxiv.org/abs/2012.09740
-+ https://ogunlao.github.io/2020/04/26/you_dont_really_know_softmax.html
-+ https://www.reddit.com/r/MachineLearning/comments/n1qk8w/d_temperature_term_in_simclr_or_moco_papers/
-[^1]: In NormFace, they use $s=1/\tau$ as the scaling factor and multiply it, instead of dividing $\tau$ directly.
-[^2]: The name temperature may come from [Boltzmann distribution](https://en.wikipedia.org/wiki/Boltzmann_distribution#The_distribution), where it has similar formulation and a temperature parameter.</div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+10000 [0.2498812648459304, 0.2499812373450356, 0.2500312385924627, 0.2501062592165714]</code></pre><p>According to <a href=https://medium.com/@u39kun/is-the-term-softmax-driving-you-nuts-ee232ab4f6bd>this
+post</a>, the name softmax is kind of misleading, it should be
+softargmax, especially when you have a very small <span class="math inline">\(\tau\)</span> value.</p><p>For example, for <code>vec = [1, 5, 7, 10]</code>, argmax result
+should be 3. If we express it as one-hot encoding, the result is
+<code>[0, 0, 0, 1]</code>, which is pretty close to the result of
+softmax when <span class="math inline">\(\tau = 0.1\)</span>.</p><h1 id=applications>Applications</h1><p>In <a href=https://arxiv.org/pdf/1503.02531.pdf>Distilling the
+Knowledge in a Neural Network</a>, they also used temperature parameter
+in softmax:</p><blockquote><p>Using a higher value for T produces a softer probability distribution
+over classes.</p></blockquote><h2 id=supervised-contrastive-learning>Supervised contrastive
+learning</h2><p>In the <a href=https://arxiv.org/abs/1911.05722>MoCo</a> paper,
+softmax loss with temperature is used (it is a slightly modified version
+of InfoNCE loss):</p><p><span class="math display">\[Loss = -\log\frac{exp(q\cdot
+k_+/\tau)}{\sum_{i=0}^{K} exp(q\cdot k_i/ \tau)}\]</span></p><p>In that paper, <span class="math inline">\(\tau\)</span> is set to a
+very small value 0.07. If we do not use the temperature parameter,
+suppose that the dot product of negative pairs are -1, and dot product
+of positive pair is 1, and we have K = 1024, in this case, the model has
+separated the positive and negative pairs perfectly, but the softmax
+loss is still too large:</p><p><span class="math display">\[-log\frac{e}{e + 1023e^{-1}} =
+4.94\]</span></p><p>If we use a parameter of <span class="math inline">\(\tau =
+0.07\)</span>, however, the loss will now become literally 0.0. So using
+a small <span class="math inline">\(\tau\)</span> helps collapse the
+probability distribution to the positive pair and reduces loss.</p><p>MoCo <em>borrows</em> this value from <a href=https://arxiv.org/pdf/1805.01978.pdf>Unsupervised Feature
+Learning via Non-Parametric Instance Discrimination</a>, in which the
+authors say:</p><blockquote><p>τ is important for supervised feature learning [43], and also
+necessary for tuning the concentration of v on our unit sphere.</p></blockquote><p>Ref 43 refers to paper <a href=https://arxiv.org/abs/1704.06369>NormFace: L2 Hypersphere
+Embedding for Face Verification</a>. In NormFace Sec. 3.3, the authors
+show theoretically why it is necessary to use a scaling factor<a href=#fn2 class=footnote-ref id=fnref2 role=doc-noteref><sup>2</sup></a> in softmax loss. Basically, if we do
+not use a scaling factor, the lower bound for the loss is high, and we
+can not learn a good representation of image features.</p><h1 id=references>References</h1><ul><li><a href=https://stackoverflow.com/a/63471046/6064933>Why should we
+use Temperature in softmax?</a></li><li><a href=https://cs.stackexchange.com/questions/79241/what-is-temperature-in-lstm-and-neural-networks-generally>What
+is Temperature in LSTM (and neural networks generally)?</a></li><li>https://stats.stackexchange.com/questions/527080/what-is-the-role-of-temperature-in-softmax</li><li>Understanding the Behaviour of Contrastive Loss:
+https://arxiv.org/abs/2012.09740</li><li>https://ogunlao.github.io/2020/04/26/you_dont_really_know_softmax.html</li><li>https://www.reddit.com/r/MachineLearning/comments/n1qk8w/d_temperature_term_in_simclr_or_moco_papers/</li></ul><section id=footnotes class="footnotes footnotes-end-of-document" role=doc-endnotes><hr><ol><li id=fn1><p>The name temperature may come from <a href=https://en.wikipedia.org/wiki/Boltzmann_distribution#The_distribution>Boltzmann
+distribution</a>, where it has similar formulation and a temperature
+parameter.<a href=#fnref1 class=footnote-back role=doc-backlink>↩︎</a></p></li><li id=fn2><p>In NormFace, they use <span class="math inline">\(s=1/\tau\)</span> as the scaling factor and
+multiply it, instead of dividing <span class="math inline">\(\tau\)</span> directly.<a href=#fnref2 class=footnote-back role=doc-backlink>↩︎</a></p></li></ol></section></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
 <span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
 <span class=item-content>2022-02-28</span></p><p class=copyright-item><span class=item-title>License</span>
 <span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/softmax/>softmax</a></div><nav class=post-nav><a class=prev href=/2022/03/07/git_merge_branch_with_rebase/><i class="iconfont icon-left"></i>
