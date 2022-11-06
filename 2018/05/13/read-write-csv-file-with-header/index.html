@@ -1,307 +1,94 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>How to Read and Write CSV Files in Python - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="update log 2022-09-30: change order of read and write section; other small fixes.
- In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.
-Read CSV files Use the builtin CSV module Python has a built-in CSV module that deals with CSV files. CSV module provides a CSV reader, which we can use to read CSV files. The CSV reader is an iterable object."><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="How to Read and Write CSV Files in Python">
-<meta property="og:description" content="update log 2022-09-30: change order of read and write section; other small fixes.
- In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.
-Read CSV files Use the builtin CSV module Python has a built-in CSV module that deals with CSV files. CSV module provides a CSV reader, which we can use to read CSV files. The CSV reader is an iterable object.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2018-05-13T21:24:42+08:00">
-<meta property="article:modified_time" content="2022-09-30T00:24:30+08:00">
-<meta itemprop=name content="How to Read and Write CSV Files in Python">
-<meta itemprop=description content="update log 2022-09-30: change order of read and write section; other small fixes.
- In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.
-Read CSV files Use the builtin CSV module Python has a built-in CSV module that deals with CSV files. CSV module provides a CSV reader, which we can use to read CSV files. The CSV reader is an iterable object."><meta itemprop=datePublished content="2018-05-13T21:24:42+08:00">
-<meta itemprop=dateModified content="2022-09-30T00:24:30+08:00">
-<meta itemprop=wordCount content="600">
-<meta itemprop=keywords content="pandas,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="How to Read and Write CSV Files in Python">
-<meta name=twitter:description content="update log 2022-09-30: change order of read and write section; other small fixes.
- In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>How to Read and Write CSV Files in Python - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="update log 2022-09-30: change order of read and write section; other small fixes.
+In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.
+Read CSV files Use the builtin CSV module Python has a built-in CSV module that deals with CSV files. CSV module provides a CSV reader, which we can use to read CSV files. The CSV reader is an iterable object."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="How to Read and Write CSV Files in Python"><meta property="og:description" content="update log 2022-09-30: change order of read and write section; other small fixes.
+In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.
+Read CSV files Use the builtin CSV module Python has a built-in CSV module that deals with CSV files. CSV module provides a CSV reader, which we can use to read CSV files. The CSV reader is an iterable object."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-05-13T21:24:42+08:00"><meta property="article:modified_time" content="2022-09-30T00:24:30+08:00"><meta itemprop=name content="How to Read and Write CSV Files in Python"><meta itemprop=description content="update log 2022-09-30: change order of read and write section; other small fixes.
+In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.
+Read CSV files Use the builtin CSV module Python has a built-in CSV module that deals with CSV files. CSV module provides a CSV reader, which we can use to read CSV files. The CSV reader is an iterable object."><meta itemprop=datePublished content="2018-05-13T21:24:42+08:00"><meta itemprop=dateModified content="2022-09-30T00:24:30+08:00"><meta itemprop=wordCount content="600"><meta itemprop=keywords content="pandas,"><meta name=twitter:card content="summary"><meta name=twitter:title content="How to Read and Write CSV Files in Python"><meta name=twitter:description content="update log 2022-09-30: change order of read and write section; other small fixes.
+In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.
 Read CSV files Use the builtin CSV module Python has a built-in CSV module that deals with CSV files. CSV module provides a CSV reader, which we can use to read CSV files. The CSV reader is an iterable object."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>How to Read and Write CSV Files in Python</h1>
-<div class=post-meta>
-<span class=post-time> 2018-05-13 </span>
-<div class=post-category>
-<a href=/categories/Python/> Python </a>
-</div>
-<span class=more-meta> 600 words </span>
-<span class=more-meta> 3 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#read-csv-files>Read CSV files</a>
-<ul>
-<li><a href=#use-the-builtin-csv-module>Use the builtin CSV module</a></li>
-<li><a href=#use-pandas>Use Pandas</a></li>
-</ul>
-</li>
-<li><a href=#write-csv-files>Write CSV files</a>
-<ul>
-<li><a href=#use-the-builtin-csv-writer>Use the builtin CSV writer</a></li>
-<li><a href=#use-pandas-1>Use pandas</a></li>
-</ul>
-</li>
-<li><a href=#references>References</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<details>
-<summary><font size=2 color=red>update log</font></summary>
-<p><font color=blue>2022-09-30: change order of read and write section; other small fixes.</font></p>
-</details>
-<p>In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.</p>
-<h1 id=read-csv-files>Read CSV files</h1>
-<h2 id=use-the-builtin-csv-module>Use the builtin CSV module</h2>
-<p>Python has a built-in <a href=https://docs.python.org/3/library/csv.html#module-csv>CSV module</a> that deals with CSV files.
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>How to Read and Write CSV Files in Python</h1><div class=post-meta><span class=post-time>2018-05-13</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>600 words</span>
+<span class=more-meta>3 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#read-csv-files>Read CSV files</a><ul><li><a href=#use-the-builtin-csv-module>Use the builtin CSV module</a></li><li><a href=#use-pandas>Use Pandas</a></li></ul></li><li><a href=#write-csv-files>Write CSV files</a><ul><li><a href=#use-the-builtin-csv-writer>Use the builtin CSV writer</a></li><li><a href=#use-pandas-1>Use pandas</a></li></ul></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><details><summary><font size=2 color=red>update log</font></summary><p><font color=blue>2022-09-30: change order of read and write section; other small fixes.</font></p></details><p>In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.</p><h1 id=read-csv-files>Read CSV files</h1><h2 id=use-the-builtin-csv-module>Use the builtin CSV module</h2><p>Python has a built-in <a href=https://docs.python.org/3/library/csv.html#module-csv>CSV module</a> that deals with CSV files.
 CSV module provides <a href=https://docs.python.org/3/library/csv.html#reader-objects>a CSV reader</a>, which we can use to read CSV files.
-The CSV reader is an iterable object. We can use the following snippet to read CSV files:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>csv</span>
-
-<span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=s2>&#34;test.csv&#34;</span><span class=p>,</span> <span class=s2>&#34;r&#34;</span><span class=p>,</span> <span class=n>newline</span><span class=o>=</span><span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
-    <span class=n>reader</span> <span class=o>=</span> <span class=n>csv</span><span class=o>.</span><span class=n>reader</span><span class=p>(</span><span class=n>f</span><span class=p>,</span> <span class=n>delimiter</span><span class=o>=</span><span class=s1>&#39;,&#39;</span><span class=p>)</span>
-    <span class=k>for</span> <span class=n>l</span> <span class=ow>in</span> <span class=n>reader</span><span class=p>:</span>
-        <span class=nb>print</span><span class=p>(</span><span class=n>l</span><span class=p>)</span> <span class=c1># l will be a Python list</span>
-</code></pre></div><h2 id=use-pandas>Use Pandas</h2>
-<p>The famous data processing package <a href=https://pandas.pydata.org/>Pandas</a> also provides a method <a href=https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html><code>read_csv()</code></a> to read CSV files.</p>
-<p>For example, in order to read the above <code>test.csv</code> file, we can use the following code:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
-
-<span class=c1># delimiter is used to sinify the delimiter between different columns, change it based on your case</span>
-<span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s1>&#39;test.csv&#39;</span><span class=p>,</span> <span class=n>delimiter</span><span class=o>=</span><span class=s1>&#39;,&#39;</span><span class=p>)</span> <span class=c1># df is Pandas dataframe</span>
-</code></pre></div><p><code>df</code> in the above code will be Pandas <code>dataframe</code> object.
-If the csv file you have does not have header, you should use <code>header=None</code> when reading this file:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s2>&#34;test.csv&#34;</span><span class=p>,</span> <span class=n>delimiter</span><span class=o>=</span><span class=s1>&#39;,&#39;</span><span class=p>,</span> <span class=n>header</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
-</code></pre></div><p>To show the number of rows in the dataframe, use <code>len(df.index)</code> or <code>df.shape[0]</code>.
-To show the number of columns, use <code>len(df.columns)</code> or <code>df.shape[1]</code>.</p>
-<p>To get a certain column, we use the column name as key:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>col0</span> <span class=o>=</span> <span class=n>df</span><span class=p>[</span><span class=s1>&#39;name&#39;</span><span class=p>]</span>  <span class=c1># col0 is Pandas Series object</span>
-<span class=n>df</span><span class=p>[[</span><span class=s1>&#39;c1&#39;</span><span class=p>,</span> <span class=s1>&#39;c2&#39;</span><span class=p>]]</span>  <span class=c1># to get multiple columns from dataframe</span>
-<span class=nb>print</span><span class=p>(</span><span class=n>col0</span><span class=o>.</span><span class=n>tolist</span><span class=p>())</span> <span class=c1># use tolist() method to make a list</span>
-</code></pre></div><p>The <a href=https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.tolist.html#pandas-series-tolist><code>tolist()</code></a> method in the above code convert Pandas Series to plain Python list.
+The CSV reader is an iterable object. We can use the following snippet to read CSV files:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>csv</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=s2>&#34;test.csv&#34;</span><span class=p>,</span> <span class=s2>&#34;r&#34;</span><span class=p>,</span> <span class=n>newline</span><span class=o>=</span><span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>reader</span> <span class=o>=</span> <span class=n>csv</span><span class=o>.</span><span class=n>reader</span><span class=p>(</span><span class=n>f</span><span class=p>,</span> <span class=n>delimiter</span><span class=o>=</span><span class=s1>&#39;,&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>l</span> <span class=ow>in</span> <span class=n>reader</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=n>l</span><span class=p>)</span> <span class=c1># l will be a Python list</span>
+</span></span></code></pre></div><h2 id=use-pandas>Use Pandas</h2><p>The famous data processing package <a href=https://pandas.pydata.org/>Pandas</a> also provides a method <a href=https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html><code>read_csv()</code></a> to read CSV files.</p><p>For example, in order to read the above <code>test.csv</code> file, we can use the following code:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># delimiter is used to sinify the delimiter between different columns, change it based on your case</span>
+</span></span><span class=line><span class=cl><span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s1>&#39;test.csv&#39;</span><span class=p>,</span> <span class=n>delimiter</span><span class=o>=</span><span class=s1>&#39;,&#39;</span><span class=p>)</span> <span class=c1># df is Pandas dataframe</span>
+</span></span></code></pre></div><p><code>df</code> in the above code will be Pandas <code>dataframe</code> object.
+If the csv file you have does not have header, you should use <code>header=None</code> when reading this file:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=s2>&#34;test.csv&#34;</span><span class=p>,</span> <span class=n>delimiter</span><span class=o>=</span><span class=s1>&#39;,&#39;</span><span class=p>,</span> <span class=n>header</span><span class=o>=</span><span class=kc>None</span><span class=p>)</span>
+</span></span></code></pre></div><p>To show the number of rows in the dataframe, use <code>len(df.index)</code> or <code>df.shape[0]</code>.
+To show the number of columns, use <code>len(df.columns)</code> or <code>df.shape[1]</code>.</p><p>To get a certain column, we use the column name as key:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>col0</span> <span class=o>=</span> <span class=n>df</span><span class=p>[</span><span class=s1>&#39;name&#39;</span><span class=p>]</span>  <span class=c1># col0 is Pandas Series object</span>
+</span></span><span class=line><span class=cl><span class=n>df</span><span class=p>[[</span><span class=s1>&#39;c1&#39;</span><span class=p>,</span> <span class=s1>&#39;c2&#39;</span><span class=p>]]</span>  <span class=c1># to get multiple columns from dataframe</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>col0</span><span class=o>.</span><span class=n>tolist</span><span class=p>())</span> <span class=c1># use tolist() method to make a list</span>
+</span></span></code></pre></div><p>The <a href=https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.tolist.html#pandas-series-tolist><code>tolist()</code></a> method in the above code convert Pandas Series to plain Python list.
 If the csv file does not have a header, you can also use column index to access a certain column.
-For example, to get column 0, you can use:</p>
-<ul>
-<li><code>df[0].values</code> (this is numpy array)</li>
-<li><code>df[0].tolist()</code> (plain Python list)</li>
-</ul>
-<p>To access a certain row, we can use the <a href=https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.loc.html#pandas.DataFrame.loc><code>loc</code></a> method with the row number.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>row0</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=c1># row0 is Pandas Series object</span>
-<span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>values</span> <span class=c1># a numpy array</span>
-<span class=nb>print</span><span class=p>(</span><span class=n>row0</span><span class=o>.</span><span class=n>tolist</span><span class=p>())</span> <span class=c1># use tolist() method to make a list</span>
-</code></pre></div><p>To get the whole dataframe as a numpy ndarray, you can use <code>df.values</code>.</p>
-<h1 id=write-csv-files>Write CSV files</h1>
-<h2 id=use-the-builtin-csv-writer>Use the builtin CSV writer</h2>
-<p>In order to write to files in CSV format, we build a CSV writer, then write to a file using this writer.
-Here is a simple example:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>csv</span>
-
-<span class=n>lines</span> <span class=o>=</span> <span class=p>[[</span><span class=s1>&#39;Bob&#39;</span><span class=p>,</span> <span class=s1>&#39;male&#39;</span><span class=p>,</span> <span class=s1>&#39;27&#39;</span><span class=p>],</span>
-<span class=p>[</span><span class=s1>&#39;Smith&#39;</span><span class=p>,</span> <span class=s1>&#39;male&#39;</span><span class=p>,</span> <span class=s1>&#39;26&#39;</span><span class=p>],</span>
-<span class=p>[</span><span class=s1>&#39;Alice&#39;</span><span class=p>,</span> <span class=s1>&#39;female&#39;</span><span class=p>,</span> <span class=s1>&#39;26&#39;</span><span class=p>]]</span>
-
-<span class=n>header</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=s1>&#39;gender&#39;</span><span class=p>,</span> <span class=s1>&#39;age&#39;</span><span class=p>]</span>
-
-<span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=s2>&#34;test.csv&#34;</span><span class=p>,</span> <span class=s2>&#34;w&#34;</span><span class=p>,</span> <span class=n>newline</span><span class=o>=</span><span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
-    <span class=n>writer</span> <span class=o>=</span> <span class=n>csv</span><span class=o>.</span><span class=n>writer</span><span class=p>(</span><span class=n>f</span><span class=p>,</span> <span class=n>delimiter</span><span class=o>=</span><span class=s1>&#39;,&#39;</span><span class=p>)</span>
-    <span class=n>writer</span><span class=o>.</span><span class=n>writerow</span><span class=p>(</span><span class=n>header</span><span class=p>)</span> <span class=c1># write the header</span>
-    <span class=c1># write the actual content line by line</span>
-    <span class=k>for</span> <span class=n>l</span> <span class=ow>in</span> <span class=n>lines</span><span class=p>:</span>
-        <span class=n>writer</span><span class=o>.</span><span class=n>writerow</span><span class=p>(</span><span class=n>l</span><span class=p>)</span>
-    <span class=c1># or we can write in a whole</span>
-    <span class=c1># writer.writerows(lines)</span>
-</code></pre></div><p>In the above code snippet, <a href=https://docs.python.org/3/library/csv.html#csv.writer>the <code>newline</code> parameter inside the <code>open</code> method is important</a>.
+For example, to get column 0, you can use:</p><ul><li><code>df[0].values</code> (this is numpy array)</li><li><code>df[0].tolist()</code> (plain Python list)</li></ul><p>To access a certain row, we can use the <a href=https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.loc.html#pandas.DataFrame.loc><code>loc</code></a> method with the row number.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>row0</span> <span class=o>=</span> <span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=c1># row0 is Pandas Series object</span>
+</span></span><span class=line><span class=cl><span class=n>df</span><span class=o>.</span><span class=n>loc</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>values</span> <span class=c1># a numpy array</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>row0</span><span class=o>.</span><span class=n>tolist</span><span class=p>())</span> <span class=c1># use tolist() method to make a list</span>
+</span></span></code></pre></div><p>To get the whole dataframe as a numpy ndarray, you can use <code>df.values</code>.</p><h1 id=write-csv-files>Write CSV files</h1><h2 id=use-the-builtin-csv-writer>Use the builtin CSV writer</h2><p>In order to write to files in CSV format, we build a CSV writer, then write to a file using this writer.
+Here is a simple example:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>csv</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>lines</span> <span class=o>=</span> <span class=p>[[</span><span class=s1>&#39;Bob&#39;</span><span class=p>,</span> <span class=s1>&#39;male&#39;</span><span class=p>,</span> <span class=s1>&#39;27&#39;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=s1>&#39;Smith&#39;</span><span class=p>,</span> <span class=s1>&#39;male&#39;</span><span class=p>,</span> <span class=s1>&#39;26&#39;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=s1>&#39;Alice&#39;</span><span class=p>,</span> <span class=s1>&#39;female&#39;</span><span class=p>,</span> <span class=s1>&#39;26&#39;</span><span class=p>]]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>header</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=s1>&#39;gender&#39;</span><span class=p>,</span> <span class=s1>&#39;age&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=s2>&#34;test.csv&#34;</span><span class=p>,</span> <span class=s2>&#34;w&#34;</span><span class=p>,</span> <span class=n>newline</span><span class=o>=</span><span class=s1>&#39;&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>writer</span> <span class=o>=</span> <span class=n>csv</span><span class=o>.</span><span class=n>writer</span><span class=p>(</span><span class=n>f</span><span class=p>,</span> <span class=n>delimiter</span><span class=o>=</span><span class=s1>&#39;,&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>writer</span><span class=o>.</span><span class=n>writerow</span><span class=p>(</span><span class=n>header</span><span class=p>)</span> <span class=c1># write the header</span>
+</span></span><span class=line><span class=cl>    <span class=c1># write the actual content line by line</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>l</span> <span class=ow>in</span> <span class=n>lines</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>writer</span><span class=o>.</span><span class=n>writerow</span><span class=p>(</span><span class=n>l</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=c1># or we can write in a whole</span>
+</span></span><span class=line><span class=cl>    <span class=c1># writer.writerows(lines)</span>
+</span></span></code></pre></div><p>In the above code snippet, <a href=https://docs.python.org/3/library/csv.html#csv.writer>the <code>newline</code> parameter inside the <code>open</code> method is important</a>.
 If you do not use <code>newline=''</code>, there will an extra blank line after each line on Windows platform.
-The parameter <code>delimiter</code> is used to denote the delimiter between different columns.</p>
-<h2 id=use-pandas-1>Use pandas</h2>
-<p>Another way to generate csv files is to use <a href=https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html>to_csv()</a> from pandas, which is easier to use.
-Here is an example using pandas:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
-
-<span class=n>lines</span> <span class=o>=</span> <span class=p>[[</span><span class=s1>&#39;Bob&#39;</span><span class=p>,</span> <span class=s1>&#39;male&#39;</span><span class=p>,</span> <span class=s1>&#39;27&#39;</span><span class=p>],</span>
-<span class=p>[</span><span class=s1>&#39;Smith&#39;</span><span class=p>,</span> <span class=s1>&#39;male&#39;</span><span class=p>,</span> <span class=s1>&#39;26&#39;</span><span class=p>],</span>
-<span class=p>[</span><span class=s1>&#39;Alice&#39;</span><span class=p>,</span> <span class=s1>&#39;female&#39;</span><span class=p>,</span> <span class=s1>&#39;26&#39;</span><span class=p>]]</span>
-
-<span class=n>header</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=s1>&#39;gender&#39;</span><span class=p>,</span> <span class=s1>&#39;age&#39;</span><span class=p>]</span>
-<span class=n>new_df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>DataFrame</span><span class=p>(</span><span class=n>data</span><span class=o>=</span><span class=n>lines</span><span class=p>,</span> <span class=n>columns</span><span class=o>=</span><span class=n>header</span><span class=p>)</span>
-
-<span class=n>new_fname</span> <span class=o>=</span> <span class=s2>&#34;test.csv&#34;</span>
-<span class=n>new_df</span><span class=o>.</span><span class=n>to_csv</span><span class=p>(</span><span class=n>new_fname</span><span class=p>,</span> <span class=n>sep</span><span class=o>=</span><span class=s2>&#34;,&#34;</span><span class=p>,</span> <span class=n>index</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
-</code></pre></div><p>The parameter <code>index=False</code> disable adding row index to each row, which is often desired.
-<code>sep</code> is used to change the separation character between columns.</p>
-<h1 id=references>References</h1>
-<ul>
-<li><a href=https://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-and-selecting-data>Indexing and selecting data in Pandas</a></li>
-<li><a href=https://stackoverflow.com/q/15943769/6064933>Get the number of rows or columns in dataframe</a></li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2022-09-30
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/pandas/>pandas</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2018/05/16/git-push-local-to-remote/>
-<i class="iconfont icon-left"></i>
+The parameter <code>delimiter</code> is used to denote the delimiter between different columns.</p><h2 id=use-pandas-1>Use pandas</h2><p>Another way to generate csv files is to use <a href=https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html>to_csv()</a> from pandas, which is easier to use.
+Here is an example using pandas:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>pandas</span> <span class=k>as</span> <span class=nn>pd</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>lines</span> <span class=o>=</span> <span class=p>[[</span><span class=s1>&#39;Bob&#39;</span><span class=p>,</span> <span class=s1>&#39;male&#39;</span><span class=p>,</span> <span class=s1>&#39;27&#39;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=s1>&#39;Smith&#39;</span><span class=p>,</span> <span class=s1>&#39;male&#39;</span><span class=p>,</span> <span class=s1>&#39;26&#39;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=s1>&#39;Alice&#39;</span><span class=p>,</span> <span class=s1>&#39;female&#39;</span><span class=p>,</span> <span class=s1>&#39;26&#39;</span><span class=p>]]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>header</span> <span class=o>=</span> <span class=p>[</span><span class=s1>&#39;name&#39;</span><span class=p>,</span> <span class=s1>&#39;gender&#39;</span><span class=p>,</span> <span class=s1>&#39;age&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>new_df</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>DataFrame</span><span class=p>(</span><span class=n>data</span><span class=o>=</span><span class=n>lines</span><span class=p>,</span> <span class=n>columns</span><span class=o>=</span><span class=n>header</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>new_fname</span> <span class=o>=</span> <span class=s2>&#34;test.csv&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>new_df</span><span class=o>.</span><span class=n>to_csv</span><span class=p>(</span><span class=n>new_fname</span><span class=p>,</span> <span class=n>sep</span><span class=o>=</span><span class=s2>&#34;,&#34;</span><span class=p>,</span> <span class=n>index</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
+</span></span></code></pre></div><p>The parameter <code>index=False</code> disable adding row index to each row, which is often desired.
+<code>sep</code> is used to change the separation character between columns.</p><h1 id=references>References</h1><ul><li><a href=https://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-and-selecting-data>Indexing and selecting data in Pandas</a></li><li><a href=https://stackoverflow.com/q/15943769/6064933>Get the number of rows or columns in dataframe</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2022-09-30</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/pandas/>pandas</a></div><nav class=post-nav><a class=prev href=/2018/05/16/git-push-local-to-remote/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">How to Push Local Git Repo to Remote Repo in GitHub</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2018/05/12/memory-of-wenchuan-earthquake/>
-<span class="next-text nav-default">回忆汶川地震</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2018/05/12/memory-of-wenchuan-earthquake/><span class="next-text nav-default">回忆汶川地震</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

@@ -1,238 +1,50 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Anaconda Python 和 pip 国内源/镜像 - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="使用国外的源下载 Python 发行版和各种 Python 库，速度实在是太慢了😭😠，国内的源速度会快很多，权宜之计。
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2021/01/17/china_source_for_python/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Anaconda Python 和 pip 国内源/镜像">
-<meta property="og:description" content="使用国外的源下载 Python 发行版和各种 Python 库，速度实在是太慢了😭😠，国内的源速度会快很多，权宜之计。">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2021/01/17/china_source_for_python/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2021-01-17T21:32:39+08:00">
-<meta property="article:modified_time" content="2021-09-25T12:12:10+08:00">
-<meta itemprop=name content="Anaconda Python 和 pip 国内源/镜像">
-<meta itemprop=description content="使用国外的源下载 Python 发行版和各种 Python 库，速度实在是太慢了😭😠，国内的源速度会快很多，权宜之计。"><meta itemprop=datePublished content="2021-01-17T21:32:39+08:00">
-<meta itemprop=dateModified content="2021-09-25T12:12:10+08:00">
-<meta itemprop=wordCount content="341">
-<meta itemprop=keywords content="pip,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Anaconda Python 和 pip 国内源/镜像">
-<meta name=twitter:description content="使用国外的源下载 Python 发行版和各种 Python 库，速度实在是太慢了😭😠，国内的源速度会快很多，权宜之计。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Anaconda Python 和 pip 国内源/镜像 - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="使用国外的源下载 Python 发行版和各种 Python 库，速度实在是太慢了😭😠，国内的源速度会快很多，权宜之计。
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2021/01/17/china_source_for_python/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Anaconda Python 和 pip 国内源/镜像"><meta property="og:description" content="使用国外的源下载 Python 发行版和各种 Python 库，速度实在是太慢了😭😠，国内的源速度会快很多，权宜之计。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2021/01/17/china_source_for_python/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-01-17T21:32:39+08:00"><meta property="article:modified_time" content="2021-09-25T12:12:10+08:00"><meta itemprop=name content="Anaconda Python 和 pip 国内源/镜像"><meta itemprop=description content="使用国外的源下载 Python 发行版和各种 Python 库，速度实在是太慢了😭😠，国内的源速度会快很多，权宜之计。"><meta itemprop=datePublished content="2021-01-17T21:32:39+08:00"><meta itemprop=dateModified content="2021-09-25T12:12:10+08:00"><meta itemprop=wordCount content="364"><meta itemprop=keywords content="pip,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Anaconda Python 和 pip 国内源/镜像"><meta name=twitter:description content="使用国外的源下载 Python 发行版和各种 Python 库，速度实在是太慢了😭😠，国内的源速度会快很多，权宜之计。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Anaconda Python 和 pip 国内源/镜像</h1>
-<div class=post-meta>
-<span class=post-time> 2021-01-17 </span>
-<div class=post-category>
-<a href=/categories/Python/> Python </a>
-</div>
-<span class=more-meta> 341 words </span>
-<span class=more-meta> 1 min read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#anaconda-国内源>Anaconda 国内源</a></li>
-<li><a href=#pip-使用国内源>pip 使用国内源</a></li>
-<li><a href=#参考>参考</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>使用国外的源下载 Python 发行版和各种 Python 库，速度实在是太慢了😭😠，国内的源速度会快很多，权宜之计。</p>
-<h1 id=anaconda-国内源>Anaconda 国内源</h1>
-<p>在国内，从 Anaconda 或者 Miniconda 官方地址下载 Anaconda 或 miniconda 发行版都非常慢，还可能会断掉。</p>
-<ul>
-<li>Anaconda 安装包清华源地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</li>
-<li>Miniconda 清华源地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/</li>
-</ul>
-<p>使用 conda 安装 Python 库的时候，也可以使用清华源，打开 <code>$HOME/.condarc</code>，添加下面的配置</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>channels</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span>- <span class=l>defaults</span><span class=w>
-</span><span class=w></span><span class=nt>show_channel_urls</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w></span><span class=nt>default_channels</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span>- <span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><span class=w>
-</span><span class=w>  </span>- <span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free</span><span class=w>
-</span><span class=w>  </span>- <span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><span class=w>
-</span><span class=w>  </span>- <span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro</span><span class=w>
-</span><span class=w>  </span>- <span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><span class=w>
-</span><span class=w></span><span class=nt>custom_channels</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>conda-forge</span><span class=p>:</span><span class=w> </span><span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><span class=w>
-</span><span class=w>  </span><span class=nt>msys2</span><span class=p>:</span><span class=w> </span><span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><span class=w>
-</span><span class=w>  </span><span class=nt>bioconda</span><span class=p>:</span><span class=w> </span><span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><span class=w>
-</span><span class=w>  </span><span class=nt>menpo</span><span class=p>:</span><span class=w> </span><span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><span class=w>
-</span><span class=w>  </span><span class=nt>pytorch</span><span class=p>:</span><span class=w> </span><span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><span class=w>
-</span><span class=w>  </span><span class=nt>simpleitk</span><span class=p>:</span><span class=w> </span><span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><span class=w>
-</span></code></pre></div><h1 id=pip-使用国内源>pip 使用国内源</h1>
-<p>pip 下载库的时候，默认使用 pypi 的官方源，速度不理想。把 pip 的源也改为清华源，速度飞快。</p>
-<p>永久方案：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>pip config <span class=nb>set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-</code></pre></div><p>临时方案（使用清华源安装某些库）</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
-</code></pre></div><h1 id=参考>参考</h1>
-<ul>
-<li><a href=https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html>https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html</a></li>
-<li><a href=https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/>https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</a></li>
-<li><a href=https://mirrors.tuna.tsinghua.edu.cn/help/pypi/>https://mirrors.tuna.tsinghua.edu.cn/help/pypi/</a></li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2021-09-25
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/pip/>pip</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2021/01/25/better_git_log/>
-<i class="iconfont icon-left"></i>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Anaconda Python 和 pip 国内源/镜像</h1><div class=post-meta><span class=post-time>2021-01-17</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>364 words</span>
+<span class=more-meta>1 min read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#anaconda-国内源>Anaconda 国内源</a></li><li><a href=#pip-使用国内源>pip 使用国内源</a></li><li><a href=#参考>参考</a></li></ul></nav></div></div><div class=post-content><p>使用国外的源下载 Python 发行版和各种 Python 库，速度实在是太慢了😭😠，国内的源速度会快很多，权宜之计。</p><h1 id=anaconda-国内源>Anaconda 国内源</h1><p>在国内，从 Anaconda 或者 Miniconda 官方地址下载 Anaconda 或 miniconda 发行版都非常慢，还可能会断掉。</p><ul><li>Anaconda 安装包清华源地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</li><li>Miniconda 清华源地址：https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/</li></ul><p>使用 conda 安装 Python 库的时候，也可以使用清华源，打开 <code>$HOME/.condarc</code>，添加下面的配置</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>channels</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=l>defaults</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>show_channel_urls</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>default_channels</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/pro</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>custom_channels</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>conda-forge</span><span class=p>:</span><span class=w> </span><span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>msys2</span><span class=p>:</span><span class=w> </span><span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>bioconda</span><span class=p>:</span><span class=w> </span><span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>menpo</span><span class=p>:</span><span class=w> </span><span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>pytorch</span><span class=p>:</span><span class=w> </span><span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>simpleitk</span><span class=p>:</span><span class=w> </span><span class=l>https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><span class=w>
+</span></span></span></code></pre></div><h1 id=pip-使用国内源>pip 使用国内源</h1><p>pip 下载库的时候，默认使用 pypi 的官方源，速度不理想。把 pip 的源也改为清华源，速度飞快。</p><p>永久方案：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>pip config <span class=nb>set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+</span></span></code></pre></div><p>临时方案（使用清华源安装某些库）</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+</span></span></code></pre></div><h1 id=参考>参考</h1><ul><li><a href=https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html>https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html</a></li><li><a href=https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/>https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</a></li><li><a href=https://mirrors.tuna.tsinghua.edu.cn/help/pypi/>https://mirrors.tuna.tsinghua.edu.cn/help/pypi/</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2021-09-25</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/pip/>pip</a></div><nav class=post-nav><a class=prev href=/2021/01/25/better_git_log/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Better Git log</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2021/01/17/install_python3_in_ubuntu_docker/>
-<span class="next-text nav-default">Install Python3 in Ubuntu Docker</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2021/01/17/install_python3_in_ubuntu_docker/><span class="next-text nav-default">Install Python3 in Ubuntu Docker</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

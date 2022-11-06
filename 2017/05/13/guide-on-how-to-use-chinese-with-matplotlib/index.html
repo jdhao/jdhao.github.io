@@ -1,309 +1,97 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>A Guide on Using Unicode Characters in Matplotlib - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="A few days ago, I found that Matplotlib can not show some Unicode characters (some Chinese characters) using its default settings. In the rendered output image, Chinese characters are shown as blank boxes. After reading a lot of posts on this issue, I am finally clear about how to use Unicode characters properly in Matplotlib.1
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="A Guide on Using Unicode Characters in Matplotlib">
-<meta property="og:description" content="A few days ago, I found that Matplotlib can not show some Unicode characters
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>A Guide on Using Unicode Characters in Matplotlib - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="A few days ago, I found that Matplotlib can not show some Unicode characters (some Chinese characters) using its default settings. In the rendered output image, Chinese characters are shown as blank boxes. After reading a lot of posts on this issue, I am finally clear about how to use Unicode characters properly in Matplotlib.1
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="A Guide on Using Unicode Characters in Matplotlib"><meta property="og:description" content="A few days ago, I found that Matplotlib can not show some Unicode characters
 (some Chinese characters) using its default settings. In the rendered output
 image, Chinese characters are shown as blank boxes. After reading a lot of
 posts on this issue, I am finally clear about how to use Unicode characters
-properly in Matplotlib.1">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2017-05-13T21:36:26+08:00">
-<meta property="article:modified_time" content="2020-11-15T17:53:03+08:00">
-<meta itemprop=name content="A Guide on Using Unicode Characters in Matplotlib">
-<meta itemprop=description content="A few days ago, I found that Matplotlib can not show some Unicode characters
+properly in Matplotlib.1"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/"><meta property="article:section" content="post"><meta property="article:published_time" content="2017-05-13T21:36:26+08:00"><meta property="article:modified_time" content="2020-11-15T17:53:03+08:00"><meta itemprop=name content="A Guide on Using Unicode Characters in Matplotlib"><meta itemprop=description content="A few days ago, I found that Matplotlib can not show some Unicode characters
 (some Chinese characters) using its default settings. In the rendered output
 image, Chinese characters are shown as blank boxes. After reading a lot of
 posts on this issue, I am finally clear about how to use Unicode characters
-properly in Matplotlib.1"><meta itemprop=datePublished content="2017-05-13T21:36:26+08:00">
-<meta itemprop=dateModified content="2020-11-15T17:53:03+08:00">
-<meta itemprop=wordCount content="703">
-<meta itemprop=keywords content="Matplotlib,font,Python,Unicode,encoding,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="A Guide on Using Unicode Characters in Matplotlib">
-<meta name=twitter:description content="A few days ago, I found that Matplotlib can not show some Unicode characters
+properly in Matplotlib.1"><meta itemprop=datePublished content="2017-05-13T21:36:26+08:00"><meta itemprop=dateModified content="2020-11-15T17:53:03+08:00"><meta itemprop=wordCount content="703"><meta itemprop=keywords content="Matplotlib,font,Python,Unicode,encoding,"><meta name=twitter:card content="summary"><meta name=twitter:title content="A Guide on Using Unicode Characters in Matplotlib"><meta name=twitter:description content="A few days ago, I found that Matplotlib can not show some Unicode characters
 (some Chinese characters) using its default settings. In the rendered output
 image, Chinese characters are shown as blank boxes. After reading a lot of
 posts on this issue, I am finally clear about how to use Unicode characters
 properly in Matplotlib.1"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>A Guide on Using Unicode Characters in Matplotlib</h1>
-<div class=post-meta>
-<span class=post-time> 2017-05-13 </span>
-<div class=post-category>
-<a href=/categories/Python/> Python </a>
-</div>
-<span class=more-meta> 703 words </span>
-<span class=more-meta> 2 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#specify-chinese-font-by-name>Specify Chinese font by name</a>
-<ul>
-<li><a href=#find-valid-chinese-fonts>Find valid Chinese fonts</a></li>
-<li><a href=#use-a-font>Use a font</a></li>
-</ul>
-</li>
-<li><a href=#specify-chinese-font-by-path>Specify Chinese font by path</a></li>
-<li><a href=#conclusion>Conclusion</a></li>
-<li><a href=#references>References</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>A few days ago, I found that Matplotlib can not show some Unicode characters
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>A Guide on Using Unicode Characters in Matplotlib</h1><div class=post-meta><span class=post-time>2017-05-13</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>703 words</span>
+<span class=more-meta>2 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#specify-chinese-font-by-name>Specify Chinese font by name</a><ul><li><a href=#find-valid-chinese-fonts>Find valid Chinese fonts</a></li><li><a href=#use-a-font>Use a font</a></li></ul></li><li><a href=#specify-chinese-font-by-path>Specify Chinese font by path</a></li><li><a href=#conclusion>Conclusion</a></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>A few days ago, I found that Matplotlib can not show some Unicode characters
 (some Chinese characters) using its default settings. In the rendered output
 image, Chinese characters are shown as blank boxes. After reading a lot of
 posts on this issue, I am finally clear about how to use Unicode characters
-properly in Matplotlib.<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></p>
-<p>The reason that Chinese characters are shown as boxes is that Matplotlib&rsquo;s
+properly in Matplotlib.<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></p><p>The reason that Chinese characters are shown as boxes is that Matplotlib&rsquo;s
 default font does not support Chinese. In order to use Chinese, we need to tell
 Matplotlib to use a font which supports Chinese. Or, more directly, we can
-provide the path of a Chinese font to Matplotlib.</p>
-<p>This post assumes that <code>fc-list</code> is available on your system. If this is not
+provide the path of a Chinese font to Matplotlib.</p><p>This post assumes that <code>fc-list</code> is available on your system. If this is not
 the case, you should first install <a href=https://www.freedesktop.org/wiki/Software/fontconfig/>fontconfig</a>.
 On Linux, fontconfig is usually pre-installed, so no need to worry. On Windows,
 you can install <a href=https://miktex.org/>MiKTeX</a> or <a href=https://www.tug.org/texlive/>TeX Live</a>
-in order to use <code>fc-list</code>.</p>
-<h1 id=specify-chinese-font-by-name>Specify Chinese font by name</h1>
-<p>The first way to use Chinese is to give a valid font name to Matplotlib. Before
+in order to use <code>fc-list</code>.</p><h1 id=specify-chinese-font-by-name>Specify Chinese font by name</h1><p>The first way to use Chinese is to give a valid font name to Matplotlib. Before
 going on to the next step, make sure that there are Chinese fonts on your
 system. If that is not the case, or if you want to try a new Chinese font, for
 example, <a href=https://source.typekit.com/source-han-serif/>Source Han Serif</a>
-recently released by Google and Adobe<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>.</p>
-<h2 id=find-valid-chinese-fonts>Find valid Chinese fonts</h2>
-<p>Matplotlib provides the <a href=https://matplotlib.org/api/font_manager_api.html>FontManager</a>
+recently released by Google and Adobe<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>.</p><h2 id=find-valid-chinese-fonts>Find valid Chinese fonts</h2><p>Matplotlib provides the <a href=https://matplotlib.org/api/font_manager_api.html>FontManager</a>
 class to deal with fonts. This class has an attribute <code>ttflist</code> which provides
 a list of font files indexed by Matplotlib. We can also get each font&rsquo;s name
 easily from this list. The problem is that we do not know which of these
-fonts support Chinese.</p>
-<p>This is when <a href=https://linux.die.net/man/1/fc-list>fc-list</a> comes to help. This
+fonts support Chinese.</p><p>This is when <a href=https://linux.die.net/man/1/fc-list>fc-list</a> comes to help. This
 command can help us find Chinese fonts installed on the system. The command
 <code>fc-list :lang=zh</code> will list all the available Chinese fonts. But it should be
 noted that not all Chinese fonts are indexed by Matplotlib. Some of the
 <a href=https://en.wikipedia.org/wiki/TrueType#TrueType_Collection>ttc</a> font files <a href=https://github.com/matplotlib/matplotlib/issues/8612>can not be used by Matplotlib</a>.
 So we need to find the intersection of available Chinese fonts and fonts indexed
-by Matplotlib.</p>
-<h2 id=use-a-font>Use a font</h2>
-<p>After we have found a valid Chinese font indexed by Matplotlib, we can tell
+by Matplotlib.</p><h2 id=use-a-font>Use a font</h2><p>After we have found a valid Chinese font indexed by Matplotlib, we can tell
 Matplotlib to use it by changing the <a href=https://goo.gl/M9E7i0>Matplotlib rc</a> in
 our script. In this way, all the following plotting command will use the new
 font. Suppose that you have installed &ldquo;STKaiti&rdquo; on your system, the following
-code will use it to render Chinese:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>matplotlib</span> <span class=k>as</span> <span class=nn>mpl</span>
-<span class=n>font_name</span> <span class=o>=</span> <span class=s2>&#34;STKaiti&#34;</span>
-<span class=n>mpl</span><span class=o>.</span><span class=n>rcParams</span><span class=p>[</span><span class=s1>&#39;font.family&#39;</span><span class=p>]</span><span class=o>=</span><span class=n>font_name</span>
-<span class=n>mpl</span><span class=o>.</span><span class=n>rcParams</span><span class=p>[</span><span class=s1>&#39;axes.unicode_minus&#39;</span><span class=p>]</span><span class=o>=</span><span class=kc>False</span> <span class=c1># in case minus sign is shown as box</span>
-
-<span class=n>plt</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=sa>u</span><span class=s1>&#39;测试&#39;</span><span class=p>)</span>
-<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre></div><p>In the above code, <code>font_name</code> can be the name of any valid Chinese font. If
+code will use it to render Chinese:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>matplotlib</span> <span class=k>as</span> <span class=nn>mpl</span>
+</span></span><span class=line><span class=cl><span class=n>font_name</span> <span class=o>=</span> <span class=s2>&#34;STKaiti&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>mpl</span><span class=o>.</span><span class=n>rcParams</span><span class=p>[</span><span class=s1>&#39;font.family&#39;</span><span class=p>]</span><span class=o>=</span><span class=n>font_name</span>
+</span></span><span class=line><span class=cl><span class=n>mpl</span><span class=o>.</span><span class=n>rcParams</span><span class=p>[</span><span class=s1>&#39;axes.unicode_minus&#39;</span><span class=p>]</span><span class=o>=</span><span class=kc>False</span> <span class=c1># in case minus sign is shown as box</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=sa>u</span><span class=s1>&#39;测试&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</span></span></code></pre></div><p>In the above code, <code>font_name</code> can be the name of any valid Chinese font. If
 you just want to use a Chinese font for a particular command, you can directly
-specify the font&rsquo;s name in the plotting command:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>plt</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=sa>u</span><span class=s1>&#39;测试&#39;</span><span class=p>,</span> <span class=n>fontname</span><span class=o>=</span><span class=n>font_name</span><span class=p>)</span>
-</code></pre></div><p>This is my preferred way of using Chinese fonts with Matplotlib.</p>
-<h1 id=specify-chinese-font-by-path>Specify Chinese font by path</h1>
-<p>In order to use any font on our system, we should try the second way &mdash;
-directly give a font&rsquo;s path to Matplotlib. The code is like this:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>matplotlib.font_manager</span> <span class=k>as</span> <span class=nn>mfm</span>
-<span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
-
-<span class=n>font_path</span> <span class=o>=</span> <span class=s2>&#34;/usr/share/fonts/custom/simhei.ttf&#34;</span>
-<span class=n>prop</span> <span class=o>=</span> <span class=n>mfm</span><span class=o>.</span><span class=n>FontProperties</span><span class=p>(</span><span class=n>fname</span><span class=o>=</span><span class=n>font_path</span><span class=p>)</span>
-<span class=n>plt</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=sa>u</span><span class=s1>&#39;测试&#39;</span><span class=p>,</span> <span class=n>fontproperties</span><span class=o>=</span><span class=n>prop</span><span class=p>)</span>
-<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre></div><p>where <code>font_path</code> is the path to a Chinese font on your system.</p>
-<h1 id=conclusion>Conclusion</h1>
-<p>Both the two ways are easy to follow. You can choose whichever suits your need
+specify the font&rsquo;s name in the plotting command:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=sa>u</span><span class=s1>&#39;测试&#39;</span><span class=p>,</span> <span class=n>fontname</span><span class=o>=</span><span class=n>font_name</span><span class=p>)</span>
+</span></span></code></pre></div><p>This is my preferred way of using Chinese fonts with Matplotlib.</p><h1 id=specify-chinese-font-by-path>Specify Chinese font by path</h1><p>In order to use any font on our system, we should try the second way &mdash;
+directly give a font&rsquo;s path to Matplotlib. The code is like this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>matplotlib.font_manager</span> <span class=k>as</span> <span class=nn>mfm</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>font_path</span> <span class=o>=</span> <span class=s2>&#34;/usr/share/fonts/custom/simhei.ttf&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>prop</span> <span class=o>=</span> <span class=n>mfm</span><span class=o>.</span><span class=n>FontProperties</span><span class=p>(</span><span class=n>fname</span><span class=o>=</span><span class=n>font_path</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=sa>u</span><span class=s1>&#39;测试&#39;</span><span class=p>,</span> <span class=n>fontproperties</span><span class=o>=</span><span class=n>prop</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</span></span></code></pre></div><p>where <code>font_path</code> is the path to a Chinese font on your system.</p><h1 id=conclusion>Conclusion</h1><p>Both the two ways are easy to follow. You can choose whichever suits your need
 best. For the complete code and also info on how to find available Chinese
-fonts on your system, please refer to the code on <a href=https://github.com/jdhao/matplotlib_chinese_font>this repo</a>.</p>
-<h1 id=references>References</h1>
-<ul>
-<li><a href=https://my.oschina.net/u/1180306/blog/279818>The first way</a></li>
-<li><a href=https://segmentfault.com/a/1190000005144275>This page shows how to use the first method.</a></li>
-<li><a href=https://stackoverflow.com/q/7726852/6064933>This SO post also use the second way.</a></li>
-<li><a href=https://matplotlib.org/examples/api/font_file.html>Matplotlib official example on the second way.</a></li>
-<li><a href=https://linux.die.net/man/3/fcpatternformat>How to use the fontconfig pattern</a></li>
-</ul>
-<section class=footnotes role=doc-endnotes>
-<hr>
-<ol>
-<li id=fn:1 role=doc-endnote>
-<p>While this post is about how to show Chinese Characters, it should work for other languages too, should you change the settings accordingly.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-<li id=fn:2 role=doc-endnote>
-<p>If you do not know how to install fonts on Linux or Windows, see <a href=https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/international_language_support_guide/add_fonts_all_users>here</a> and <a href=https://www.fontspring.com/support/installing/how-do-i-install-fonts-on-my-windows-pc>here</a> for detailed guides.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2020-11-15
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/Matplotlib/>Matplotlib</a>
+fonts on your system, please refer to the code on <a href=https://github.com/jdhao/matplotlib_chinese_font>this repo</a>.</p><h1 id=references>References</h1><ul><li><a href=https://my.oschina.net/u/1180306/blog/279818>The first way</a></li><li><a href=https://segmentfault.com/a/1190000005144275>This page shows how to use the first method.</a></li><li><a href=https://stackoverflow.com/q/7726852/6064933>This SO post also use the second way.</a></li><li><a href=https://matplotlib.org/examples/api/font_file.html>Matplotlib official example on the second way.</a></li><li><a href=https://linux.die.net/man/3/fcpatternformat>How to use the fontconfig pattern</a></li></ul><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>While this post is about how to show Chinese Characters, it should work for other languages too, should you change the settings accordingly.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>If you do not know how to install fonts on Linux or Windows, see <a href=https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/international_language_support_guide/add_fonts_all_users>here</a> and <a href=https://www.fontspring.com/support/installing/how-do-i-install-fonts-on-my-windows-pc>here</a> for detailed guides.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-11-15</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/Matplotlib/>Matplotlib</a>
 <a href=/tags/font/>font</a>
 <a href=/tags/Python/>Python</a>
 <a href=/tags/Unicode/>Unicode</a>
-<a href=/tags/encoding/>encoding</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2017/06/03/change-aspect-ratio-in-mpl/>
-<i class="iconfont icon-left"></i>
+<a href=/tags/encoding/>encoding</a></div><nav class=post-nav><a class=prev href=/2017/06/03/change-aspect-ratio-in-mpl/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">How to Set the Aspect Ratio of Image (or Axes) in Matplotlib?</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2017/05/06/install-feh-image-viewer-on-centos/>
-<span class="next-text nav-default">Install feh Image Viewer from Source on CentOS 7</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2017/05/06/install-feh-image-viewer-on-centos/><span class="next-text nav-default">Install feh Image Viewer from Source on CentOS 7</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

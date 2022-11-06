@@ -1,303 +1,99 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Building OpenCV from Source on Linux - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="In this post, I will summarize how to build OpenCV from source, and introduce how to use it when writing C++ programs.
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2020/12/07/build_opencv_cpp_library_linux/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Building OpenCV from Source on Linux">
-<meta property="og:description" content="In this post, I will summarize how to build OpenCV from source, and introduce
-how to use it when writing C++ programs.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2020/12/07/build_opencv_cpp_library_linux/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2020-12-07T23:25:18+08:00">
-<meta property="article:modified_time" content="2020-12-07T23:46:37+08:00">
-<meta itemprop=name content="Building OpenCV from Source on Linux">
-<meta itemprop=description content="In this post, I will summarize how to build OpenCV from source, and introduce
-how to use it when writing C++ programs."><meta itemprop=datePublished content="2020-12-07T23:25:18+08:00">
-<meta itemprop=dateModified content="2020-12-07T23:46:37+08:00">
-<meta itemprop=wordCount content="446">
-<meta itemprop=keywords content="C++,OpenCV,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Building OpenCV from Source on Linux">
-<meta name=twitter:description content="In this post, I will summarize how to build OpenCV from source, and introduce
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Building OpenCV from Source on Linux - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="In this post, I will summarize how to build OpenCV from source, and introduce how to use it when writing C++ programs.
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2020/12/07/build_opencv_cpp_library_linux/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Building OpenCV from Source on Linux"><meta property="og:description" content="In this post, I will summarize how to build OpenCV from source, and introduce
+how to use it when writing C++ programs."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/12/07/build_opencv_cpp_library_linux/"><meta property="article:section" content="post"><meta property="article:published_time" content="2020-12-07T23:25:18+08:00"><meta property="article:modified_time" content="2020-12-07T23:46:37+08:00"><meta itemprop=name content="Building OpenCV from Source on Linux"><meta itemprop=description content="In this post, I will summarize how to build OpenCV from source, and introduce
+how to use it when writing C++ programs."><meta itemprop=datePublished content="2020-12-07T23:25:18+08:00"><meta itemprop=dateModified content="2020-12-07T23:46:37+08:00"><meta itemprop=wordCount content="446"><meta itemprop=keywords content="C++,OpenCV,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Building OpenCV from Source on Linux"><meta name=twitter:description content="In this post, I will summarize how to build OpenCV from source, and introduce
 how to use it when writing C++ programs."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Building OpenCV from Source on Linux</h1>
-<div class=post-meta>
-<span class=post-time> 2020-12-07 </span>
-<div class=post-category>
-<a href=/categories/Linux/> Linux </a>
-</div>
-<span class=more-meta> 446 words </span>
-<span class=more-meta> 3 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#build-from-source>Build from source</a></li>
-<li><a href=#run-a-simple-program-utilizing-opencv>Run a simple program utilizing OpenCV</a>
-<ul>
-<li><a href=#issues-met-when-compiling>Issues met when compiling</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>In this post, I will summarize how to build OpenCV from source, and introduce
-how to use it when writing C++ programs.</p>
-<h1 id=build-from-source>Build from source</h1>
-<p>On Ubuntu, run the following command to build OpenCV from source.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo apt update <span class=o>&amp;&amp;</span> sudo apt install -y cmake g++ wget unzip
-wget -O opencv.zip https://github.com/opencv/opencv/archive/master.zip
-unzip opencv.zip
-wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/master.zip
-unzip opencv_contrib.zip
-<span class=c1># Create build directory</span>
-mkdir -p opencv_build <span class=o>&amp;&amp;</span> <span class=nb>cd</span> opencv_build
-cmake -DCMAKE_BUILD_TYPE<span class=o>=</span>RelWithDebInfo <span class=se>\
-</span><span class=se></span>      -DOPENCV_EXTRA_MODULES_PATH<span class=o>=</span>../opencv_contrib-master/modules <span class=se>\
-</span><span class=se></span>      -DCMAKE_INSTALL_PREFIX<span class=o>=</span><span class=nv>$HOME</span>/local/ <span class=se>\
-</span><span class=se></span>      ../opencv-master/
-<span class=c1># using multiprocessing to compile can save a lot of time</span>
-make -j
-make install
-</code></pre></div><p>The package will be installed to <code>$HOME/local/</code>, with binary file go to
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Building OpenCV from Source on Linux</h1><div class=post-meta><span class=post-time>2020-12-07</span><div class=post-category><a href=/categories/Linux/>Linux</a></div><span class=more-meta>446 words</span>
+<span class=more-meta>3 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#build-from-source>Build from source</a></li><li><a href=#run-a-simple-program-utilizing-opencv>Run a simple program utilizing OpenCV</a><ul><li><a href=#issues-met-when-compiling>Issues met when compiling</a></li></ul></li></ul></nav></div></div><div class=post-content><p>In this post, I will summarize how to build OpenCV from source, and introduce
+how to use it when writing C++ programs.</p><h1 id=build-from-source>Build from source</h1><p>On Ubuntu, run the following command to build OpenCV from source.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt update <span class=o>&amp;&amp;</span> sudo apt install -y cmake g++ wget unzip
+</span></span><span class=line><span class=cl>wget -O opencv.zip https://github.com/opencv/opencv/archive/master.zip
+</span></span><span class=line><span class=cl>unzip opencv.zip
+</span></span><span class=line><span class=cl>wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/master.zip
+</span></span><span class=line><span class=cl>unzip opencv_contrib.zip
+</span></span><span class=line><span class=cl><span class=c1># Create build directory</span>
+</span></span><span class=line><span class=cl>mkdir -p opencv_build <span class=o>&amp;&amp;</span> <span class=nb>cd</span> opencv_build
+</span></span><span class=line><span class=cl>cmake -DCMAKE_BUILD_TYPE<span class=o>=</span>RelWithDebInfo <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>      -DOPENCV_EXTRA_MODULES_PATH<span class=o>=</span>../opencv_contrib-master/modules <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>      -DCMAKE_INSTALL_PREFIX<span class=o>=</span><span class=nv>$HOME</span>/local/ <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>      ../opencv-master/
+</span></span><span class=line><span class=cl><span class=c1># using multiprocessing to compile can save a lot of time</span>
+</span></span><span class=line><span class=cl>make -j
+</span></span><span class=line><span class=cl>make install
+</span></span></code></pre></div><p>The package will be installed to <code>$HOME/local/</code>, with binary file go to
 <code>$HOME/local/bin</code>, header file go to <code>$HOME/local/include/opencv4</code>, dynamic
-shared library file go to <code>$HOME/local/lib</code>.</p>
-<p>A speical note on header files, the structure of OpenCV header files is someting like the following:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># generated using tree -L 2 -d $HOME/local/include/opencv4
-/home/jdhao/local/include/opencv4/
-└── opencv2
-    ├── calib3d
-    ├── core
-    ├── dnn
-    ├── features2d
-    ├── flann
-    ├── gapi
-    ├── highgui
-    ├── imgcodecs
-    ├── imgproc
-    ├── ml
-    ├── objdetect
-    ├── photo
-    ├── stitching
-    ├── video
-    └── videoio
-</code></pre></div><p>The header files are grouped into subdirectories based on their functionality.</p>
-<p>Ref:</p>
-<ul>
-<li><a href=https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html>https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html</a></li>
-<li><a href=https://docs.opencv.org/master/d0/d3d/tutorial_general_install.html>https://docs.opencv.org/master/d0/d3d/tutorial_general_install.html</a></li>
-<li><a href=https://docs.opencv.org/master/db/d05/tutorial_config_reference.html>https://docs.opencv.org/master/db/d05/tutorial_config_reference.html</a></li>
-</ul>
-<h1 id=run-a-simple-program-utilizing-opencv>Run a simple program utilizing OpenCV</h1>
-<p>The following program reads an image and resize it to size 300x300 using OpenCV:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp> <span class=cp>#include</span> <span class=cpf>&#34;opencv2/opencv.hpp&#34;</span><span class=cp>
-</span><span class=cp></span> <span class=cp>#include</span> <span class=cpf>&#34;opencv2/core/core.hpp&#34;</span><span class=cp>
-</span><span class=cp></span> <span class=cp>#include</span> <span class=cpf>&#34;opencv2/highgui/highgui.hpp&#34;</span><span class=cp>
-</span><span class=cp></span> <span class=cp>#include</span> <span class=cpf>&#34;opencv2/imgproc/imgproc.hpp&#34;</span><span class=cp>
-</span><span class=cp></span> <span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
-</span><span class=cp></span>
- <span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
-     <span class=n>cv</span><span class=o>::</span><span class=n>Mat</span> <span class=n>img</span><span class=p>,</span> <span class=n>dst</span><span class=p>;</span>
-     <span class=n>img</span> <span class=o>=</span> <span class=n>cv</span><span class=o>::</span><span class=n>imread</span><span class=p>(</span><span class=s>&#34;wind-turbine.jpg&#34;</span><span class=p>,</span> <span class=n>cv</span><span class=o>::</span><span class=n>IMREAD_COLOR</span><span class=p>);</span>
-     <span class=n>cv</span><span class=o>::</span><span class=n>resize</span><span class=p>(</span><span class=n>img</span><span class=p>,</span> <span class=n>dst</span><span class=p>,</span>  <span class=n>cv</span><span class=o>::</span><span class=n>Size</span><span class=p>(</span><span class=mi>300</span><span class=p>,</span> <span class=mi>300</span><span class=p>));</span>
-     <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;img width and height: &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>img</span><span class=p>.</span><span class=n>size</span><span class=p>().</span><span class=n>width</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;, &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>img</span><span class=p>.</span><span class=n>size</span><span class=p>().</span><span class=n>height</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
-
-     <span class=n>cv</span><span class=o>::</span><span class=n>imwrite</span><span class=p>(</span><span class=s>&#34;resize_img.jpg&#34;</span><span class=p>,</span> <span class=n>dst</span><span class=p>);</span>
-
-     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
- <span class=p>}</span>
-</code></pre></div><p>In the above code, we have included some OpenCV header files. If you look at
+shared library file go to <code>$HOME/local/lib</code>.</p><p>A speical note on header files, the structure of OpenCV header files is someting like the following:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># generated using tree -L 2 -d $HOME/local/include/opencv4
+</span></span><span class=line><span class=cl>/home/jdhao/local/include/opencv4/
+</span></span><span class=line><span class=cl>└── opencv2
+</span></span><span class=line><span class=cl>    ├── calib3d
+</span></span><span class=line><span class=cl>    ├── core
+</span></span><span class=line><span class=cl>    ├── dnn
+</span></span><span class=line><span class=cl>    ├── features2d
+</span></span><span class=line><span class=cl>    ├── flann
+</span></span><span class=line><span class=cl>    ├── gapi
+</span></span><span class=line><span class=cl>    ├── highgui
+</span></span><span class=line><span class=cl>    ├── imgcodecs
+</span></span><span class=line><span class=cl>    ├── imgproc
+</span></span><span class=line><span class=cl>    ├── ml
+</span></span><span class=line><span class=cl>    ├── objdetect
+</span></span><span class=line><span class=cl>    ├── photo
+</span></span><span class=line><span class=cl>    ├── stitching
+</span></span><span class=line><span class=cl>    ├── video
+</span></span><span class=line><span class=cl>    └── videoio
+</span></span></code></pre></div><p>The header files are grouped into subdirectories based on their functionality.</p><p>Ref:</p><ul><li><a href=https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html>https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html</a></li><li><a href=https://docs.opencv.org/master/d0/d3d/tutorial_general_install.html>https://docs.opencv.org/master/d0/d3d/tutorial_general_install.html</a></li><li><a href=https://docs.opencv.org/master/db/d05/tutorial_config_reference.html>https://docs.opencv.org/master/db/d05/tutorial_config_reference.html</a></li></ul><h1 id=run-a-simple-program-utilizing-opencv>Run a simple program utilizing OpenCV</h1><p>The following program reads an image and resize it to size 300x300 using OpenCV:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl> <span class=cp>#include</span> <span class=cpf>&#34;opencv2/opencv.hpp&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span> <span class=cp>#include</span> <span class=cpf>&#34;opencv2/core/core.hpp&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span> <span class=cp>#include</span> <span class=cpf>&#34;opencv2/highgui/highgui.hpp&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span> <span class=cp>#include</span> <span class=cpf>&#34;opencv2/imgproc/imgproc.hpp&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span> <span class=cp>#include</span> <span class=cpf>&lt;iostream&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl> <span class=kt>int</span> <span class=nf>main</span><span class=p>(){</span>
+</span></span><span class=line><span class=cl>     <span class=n>cv</span><span class=o>::</span><span class=n>Mat</span> <span class=n>img</span><span class=p>,</span> <span class=n>dst</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>     <span class=n>img</span> <span class=o>=</span> <span class=n>cv</span><span class=o>::</span><span class=n>imread</span><span class=p>(</span><span class=s>&#34;wind-turbine.jpg&#34;</span><span class=p>,</span> <span class=n>cv</span><span class=o>::</span><span class=n>IMREAD_COLOR</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>     <span class=n>cv</span><span class=o>::</span><span class=n>resize</span><span class=p>(</span><span class=n>img</span><span class=p>,</span> <span class=n>dst</span><span class=p>,</span>  <span class=n>cv</span><span class=o>::</span><span class=n>Size</span><span class=p>(</span><span class=mi>300</span><span class=p>,</span> <span class=mi>300</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>     <span class=n>std</span><span class=o>::</span><span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;img width and height: &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>img</span><span class=p>.</span><span class=n>size</span><span class=p>().</span><span class=n>width</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;, &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>img</span><span class=p>.</span><span class=n>size</span><span class=p>().</span><span class=n>height</span> <span class=o>&lt;&lt;</span> <span class=n>std</span><span class=o>::</span><span class=n>endl</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>     <span class=n>cv</span><span class=o>::</span><span class=n>imwrite</span><span class=p>(</span><span class=s>&#34;resize_img.jpg&#34;</span><span class=p>,</span> <span class=n>dst</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>     <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl> <span class=p>}</span>
+</span></span></code></pre></div><p>In the above code, we have included some OpenCV header files. If you look at
 the header file <code>opencv.hpp</code>, you will find that it actually includes other
 OpenCV header files, if they are not included in your code already. So in most
 cases, include <code>opencv.hpp</code> may be enough if you do not care about compilation
-time (see also <a href=https://docs.opencv.org/3.1.0/db/dfa/tutorial_transition_guide.html#tutorial_transition_hints_headers>here</a> and <a href=https://answers.opencv.org/question/125065/should-i-include-opencv2opencvhpp/>here</a> for more discussions on this).</p>
-<p>We can compile the above program with the following command:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>clang++ -Wall <span class=se>\
-</span><span class=se></span>    -I<span class=nv>$HOME</span>/local/include/opencv4/ <span class=se>\
-</span><span class=se></span>    -L<span class=nv>$HOME</span>/local/lib/  <span class=se>\
-</span><span class=se></span>    -lopencv_core -lopencv_imgcodecs -lopencv_imgproc <span class=se>\
-</span><span class=se></span>    read_img.cc  -o read_img
-</code></pre></div><p>Note that <code>cv::imresize()</code> requires <code>libopencv_imgproc.so</code> be linked against.</p>
-<h2 id=issues-met-when-compiling>Issues met when compiling</h2>
-<p>I met the following error:</p>
-<blockquote>
-<p>undefined references to cv::imread()</p>
-</blockquote>
-<p>It is because if we use functions from some OpenCV module, we need to link our
+time (see also <a href=https://docs.opencv.org/3.1.0/db/dfa/tutorial_transition_guide.html#tutorial_transition_hints_headers>here</a> and <a href=https://answers.opencv.org/question/125065/should-i-include-opencv2opencvhpp/>here</a> for more discussions on this).</p><p>We can compile the above program with the following command:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>clang++ -Wall <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>    -I<span class=nv>$HOME</span>/local/include/opencv4/ <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>    -L<span class=nv>$HOME</span>/local/lib/  <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>    -lopencv_core -lopencv_imgcodecs -lopencv_imgproc <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>    read_img.cc  -o read_img
+</span></span></code></pre></div><p>Note that <code>cv::imresize()</code> requires <code>libopencv_imgproc.so</code> be linked against.</p><h2 id=issues-met-when-compiling>Issues met when compiling</h2><p>I met the following error:</p><blockquote><p>undefined references to cv::imread()</p></blockquote><p>It is because if we use functions from some OpenCV module, we need to link our
 C++ program against the corresponding shared object file. We can specify the
 Library to link against with <code>-l</code>. For example, <code>-lopencv_imgproc</code> means to
-link against <code>libopencv_imgproc.so</code>.</p>
-<p>Ref:</p>
-<ul>
-<li><a href=https://stackoverflow.com/q/48687259/6064933>Undefined reference to cv::imread(cv::String const&, int)</a></li>
-<li><a href=https://stackoverflow.com/q/57385357/6064933>Issue with the linker using opencv and C++ - Undefined Reference</a></li>
-<li><a href=https://stackoverflow.com/q/24337932/6064933>Cannot get OpenCV to compile because of undefined references?</a></li>
-<li><a href=https://answers.opencv.org/question/205794/how-do-i-know-which-header-file-i-should-use-for-my-opencv-c-program/>how do we know which header file to include</a></li>
-<li>Books: <a href=https://www.packtpub.com/product/learning-image-processing-with-opencv/9781783287659>https://www.packtpub.com/product/learning-image-processing-with-opencv/9781783287659</a></li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2020-12-07
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/C++/>C++</a>
-<a href=/tags/OpenCV/>OpenCV</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2020/12/10/gcc_library_link_issue/>
-<i class="iconfont icon-left"></i>
+link against <code>libopencv_imgproc.so</code>.</p><p>Ref:</p><ul><li><a href=https://stackoverflow.com/q/48687259/6064933>Undefined reference to cv::imread(cv::String const&, int)</a></li><li><a href=https://stackoverflow.com/q/57385357/6064933>Issue with the linker using opencv and C++ - Undefined Reference</a></li><li><a href=https://stackoverflow.com/q/24337932/6064933>Cannot get OpenCV to compile because of undefined references?</a></li><li><a href=https://answers.opencv.org/question/205794/how-do-i-know-which-header-file-i-should-use-for-my-opencv-c-program/>how do we know which header file to include</a></li><li>Books: <a href=https://www.packtpub.com/product/learning-image-processing-with-opencv/9781783287659>https://www.packtpub.com/product/learning-image-processing-with-opencv/9781783287659</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-12-07</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/C++/>C++</a>
+<a href=/tags/OpenCV/>OpenCV</a></div><nav class=post-nav><a class=prev href=/2020/12/10/gcc_library_link_issue/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Why Are Some Libraries Linked by Default in GCC?</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2020/12/04/pinyin_initials_of_chinese_char/>
-<span class="next-text nav-default">Get Pinyin Initials of Chinese characters</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2020/12/04/pinyin_initials_of_chinese_char/><span class="next-text nav-default">Get Pinyin Initials of Chinese characters</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

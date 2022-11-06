@@ -1,284 +1,61 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Linux Tips and Tricks -- s3 - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="Calculate the stat of a column of numbers Suppose we have a file where each line a number, and we want to the get stat of these numbers on the command line.
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Linux Tips and Tricks -- s3 - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="Calculate the stat of a column of numbers Suppose we have a file where each line a number, and we want to the get stat of these numbers on the command line.
 Use python If Python is installed in the system, we can use the following command:
-cat data.log | python3 -c &amp;#34;import fileinput as FI,statistics as STAT; i = [float(l.strip()) for l in FI.input()]; print(&amp;#39;min:&amp;#39;, min(i), &amp;#39; max: &amp;#39;, max(i), &amp;#39; avg: &amp;#39;, STAT."><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2020/12/22/linux_command_cheat_sheet_s3/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Linux Tips and Tricks -- s3">
-<meta property="og:description" content="Calculate the stat of a column of numbers Suppose we have a file where each line a number, and we want to the get stat of these numbers on the command line.
+cat data.log | python3 -c &amp;#34;import fileinput as FI,statistics as STAT; i = [float(l.strip()) for l in FI.input()]; print(&amp;#39;min:&amp;#39;, min(i), &amp;#39; max: &amp;#39;, max(i), &amp;#39; avg: &amp;#39;, STAT."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2020/12/22/linux_command_cheat_sheet_s3/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Linux Tips and Tricks -- s3"><meta property="og:description" content="Calculate the stat of a column of numbers Suppose we have a file where each line a number, and we want to the get stat of these numbers on the command line.
 Use python If Python is installed in the system, we can use the following command:
-cat data.log | python3 -c &#34;import fileinput as FI,statistics as STAT; i = [float(l.strip()) for l in FI.input()]; print('min:', min(i), ' max: ', max(i), ' avg: ', STAT.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2020/12/22/linux_command_cheat_sheet_s3/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2020-12-22T23:04:48+08:00">
-<meta property="article:modified_time" content="2020-12-22T23:48:16+08:00">
-<meta itemprop=name content="Linux Tips and Tricks -- s3">
-<meta itemprop=description content="Calculate the stat of a column of numbers Suppose we have a file where each line a number, and we want to the get stat of these numbers on the command line.
+cat data.log | python3 -c &#34;import fileinput as FI,statistics as STAT; i = [float(l.strip()) for l in FI.input()]; print('min:', min(i), ' max: ', max(i), ' avg: ', STAT."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/12/22/linux_command_cheat_sheet_s3/"><meta property="article:section" content="post"><meta property="article:published_time" content="2020-12-22T23:04:48+08:00"><meta property="article:modified_time" content="2020-12-22T23:48:16+08:00"><meta itemprop=name content="Linux Tips and Tricks -- s3"><meta itemprop=description content="Calculate the stat of a column of numbers Suppose we have a file where each line a number, and we want to the get stat of these numbers on the command line.
 Use python If Python is installed in the system, we can use the following command:
-cat data.log | python3 -c &#34;import fileinput as FI,statistics as STAT; i = [float(l.strip()) for l in FI.input()]; print('min:', min(i), ' max: ', max(i), ' avg: ', STAT."><meta itemprop=datePublished content="2020-12-22T23:04:48+08:00">
-<meta itemprop=dateModified content="2020-12-22T23:48:16+08:00">
-<meta itemprop=wordCount content="466">
-<meta itemprop=keywords content><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Linux Tips and Tricks -- s3">
-<meta name=twitter:description content="Calculate the stat of a column of numbers Suppose we have a file where each line a number, and we want to the get stat of these numbers on the command line.
+cat data.log | python3 -c &#34;import fileinput as FI,statistics as STAT; i = [float(l.strip()) for l in FI.input()]; print('min:', min(i), ' max: ', max(i), ' avg: ', STAT."><meta itemprop=datePublished content="2020-12-22T23:04:48+08:00"><meta itemprop=dateModified content="2020-12-22T23:48:16+08:00"><meta itemprop=wordCount content="466"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Linux Tips and Tricks -- s3"><meta name=twitter:description content="Calculate the stat of a column of numbers Suppose we have a file where each line a number, and we want to the get stat of these numbers on the command line.
 Use python If Python is installed in the system, we can use the following command:
 cat data.log | python3 -c &#34;import fileinput as FI,statistics as STAT; i = [float(l.strip()) for l in FI.input()]; print('min:', min(i), ' max: ', max(i), ' avg: ', STAT."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Linux Tips and Tricks -- s3</h1>
-<div class=post-meta>
-<span class=post-time> 2020-12-22 </span>
-<span class=more-meta> 466 words </span>
-<span class=more-meta> 3 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#calculate-the-stat-of-a-column-of-numbers>Calculate the stat of a column of numbers</a>
-<ul>
-<li><a href=#use-python>Use python</a></li>
-<li><a href=#use-jq>Use jq</a></li>
-</ul>
-</li>
-<li><a href=#what-if-i-screw-up-the-path-variable>What if I screw up the PATH variable?</a></li>
-<li><a href=#search-pattern-only-in-package-names>Search pattern only in package names</a></li>
-<li><a href=#i-was-forced-log-out-after-a-short-time-of-inactivity>I was forced log out after a short time of inactivity?</a></li>
-<li><a href=#find-which-package-provides-a-file-or-what-file-a-package-contains-on-ubuntu>Find which package provides a file or what file a package contains on Ubuntu</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<h1 id=calculate-the-stat-of-a-column-of-numbers>Calculate the stat of a column of numbers</h1>
-<p>Suppose we have a file where each line a number, and we want to the get stat of
-these numbers on the command line.</p>
-<h2 id=use-python>Use python</h2>
-<p>If Python is installed in the system, we can use the following command:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>cat data.log <span class=p>|</span> python3 -c <span class=s2>&#34;import fileinput as FI,statistics as STAT; i = [float(l.strip()) for l in FI.input()]; print(&#39;min:&#39;, min(i), &#39; max: &#39;, max(i), &#39; avg: &#39;, STAT.mean(i), &#39; median: &#39;, STAT.median(i))&#34;</span>
-</code></pre></div><h2 id=use-jq>Use jq</h2>
-<p>We can also use <a href=https://stedolan.github.io/jq/>jq</a> to calculate the stat:</p>
-<ul>
-<li>min: <code>jq -s min data.txt</code></li>
-<li>max: <code>jq -s max data.txt</code></li>
-<li>average: <code>jq -s add/length data.txt</code></li>
-</ul>
-<p>Ref:</p>
-<ul>
-<li><a href=https://unix.stackexchange.com/q/13731/221410>Is there a way to get the min, max, median, and average of a list of numbers in a single command?</a></li>
-</ul>
-<h1 id=what-if-i-screw-up-the-path-variable>What if I screw up the PATH variable?</h1>
-<p>I edit the <code>.bash_profile</code>and update the <code>PATH</code> variable wrongly, something
-like this:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>PATH</span><span class=o>=</span><span class=s2>&#34;/some/path&#34;</span>
-</code></pre></div><p>After sourcing this file, all my commands fails. This is because the system
-relies on <code>PATH</code> variable to find the suitable executable to run.</p>
-<p>However, we can always run an executable with its absolute path, so the remedy
-is to use vim to edit <code>.bash_profile</code>:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>/usr/bin/vim ~/.bash_profile
-</code></pre></div><p>Ref:</p>
-<ul>
-<li><a href=https://apple.stackexchange.com/q/192657/285595>https://apple.stackexchange.com/q/192657/285595</a></li>
-</ul>
-<h1 id=search-pattern-only-in-package-names>Search pattern only in package names</h1>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>apt search --names-only pattern
-</code></pre></div><p><code>pattern</code> supports regular expressions. For example, to search package starting
-with a <code>man</code>:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>apt search --name ^man
-</code></pre></div><p>Ref:</p>
-<ul>
-<li><a href=https://askubuntu.com/q/934739/768311>apt search: limit to exact match</a></li>
-</ul>
-<h1 id=i-was-forced-log-out-after-a-short-time-of-inactivity>I was forced log out after a short time of inactivity?</h1>
-<p>I connect to a remote server via my ssh client. I noticed that after even a few
-minutes of inactivity, I was forced log out, and saw the following message:</p>
-<blockquote>
-<p>timed out waiting for input: auto-logout</p>
-</blockquote>
-<p>It turns out bash a feature to log out the user using the <code>TMOUT</code> env variable.
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Linux Tips and Tricks -- s3</h1><div class=post-meta><span class=post-time>2020-12-22</span>
+<span class=more-meta>466 words</span>
+<span class=more-meta>3 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#calculate-the-stat-of-a-column-of-numbers>Calculate the stat of a column of numbers</a><ul><li><a href=#use-python>Use python</a></li><li><a href=#use-jq>Use jq</a></li></ul></li><li><a href=#what-if-i-screw-up-the-path-variable>What if I screw up the PATH variable?</a></li><li><a href=#search-pattern-only-in-package-names>Search pattern only in package names</a></li><li><a href=#i-was-forced-log-out-after-a-short-time-of-inactivity>I was forced log out after a short time of inactivity?</a></li><li><a href=#find-which-package-provides-a-file-or-what-file-a-package-contains-on-ubuntu>Find which package provides a file or what file a package contains on Ubuntu</a></li></ul></nav></div></div><div class=post-content><h1 id=calculate-the-stat-of-a-column-of-numbers>Calculate the stat of a column of numbers</h1><p>Suppose we have a file where each line a number, and we want to the get stat of
+these numbers on the command line.</p><h2 id=use-python>Use python</h2><p>If Python is installed in the system, we can use the following command:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>cat data.log <span class=p>|</span> python3 -c <span class=s2>&#34;import fileinput as FI,statistics as STAT; i = [float(l.strip()) for l in FI.input()]; print(&#39;min:&#39;, min(i), &#39; max: &#39;, max(i), &#39; avg: &#39;, STAT.mean(i), &#39; median: &#39;, STAT.median(i))&#34;</span>
+</span></span></code></pre></div><h2 id=use-jq>Use jq</h2><p>We can also use <a href=https://stedolan.github.io/jq/>jq</a> to calculate the stat:</p><ul><li>min: <code>jq -s min data.txt</code></li><li>max: <code>jq -s max data.txt</code></li><li>average: <code>jq -s add/length data.txt</code></li></ul><p>Ref:</p><ul><li><a href=https://unix.stackexchange.com/q/13731/221410>Is there a way to get the min, max, median, and average of a list of numbers in a single command?</a></li></ul><h1 id=what-if-i-screw-up-the-path-variable>What if I screw up the PATH variable?</h1><p>I edit the <code>.bash_profile</code>and update the <code>PATH</code> variable wrongly, something
+like this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>export</span> <span class=nv>PATH</span><span class=o>=</span><span class=s2>&#34;/some/path&#34;</span>
+</span></span></code></pre></div><p>After sourcing this file, all my commands fails. This is because the system
+relies on <code>PATH</code> variable to find the suitable executable to run.</p><p>However, we can always run an executable with its absolute path, so the remedy
+is to use vim to edit <code>.bash_profile</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>/usr/bin/vim ~/.bash_profile
+</span></span></code></pre></div><p>Ref:</p><ul><li><a href=https://apple.stackexchange.com/q/192657/285595>https://apple.stackexchange.com/q/192657/285595</a></li></ul><h1 id=search-pattern-only-in-package-names>Search pattern only in package names</h1><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>apt search --names-only pattern
+</span></span></code></pre></div><p><code>pattern</code> supports regular expressions. For example, to search package starting
+with a <code>man</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>apt search --name ^man
+</span></span></code></pre></div><p>Ref:</p><ul><li><a href=https://askubuntu.com/q/934739/768311>apt search: limit to exact match</a></li></ul><h1 id=i-was-forced-log-out-after-a-short-time-of-inactivity>I was forced log out after a short time of inactivity?</h1><p>I connect to a remote server via my ssh client. I noticed that after even a few
+minutes of inactivity, I was forced log out, and saw the following message:</p><blockquote><p>timed out waiting for input: auto-logout</p></blockquote><p>It turns out bash a feature to log out the user using the <code>TMOUT</code> env variable.
 For example, <code>TMOUT=3600</code> will force user to log out after waiting 3600 seconds
 for user input (but no input is coming). Set <code>TMOUT</code> to 0 will disable this
-feature.</p>
-<p>Ref:</p>
-<ul>
-<li><a href=https://www.linvirtshell.com/2017/11/changing-auto-logout-timeout-in-ssh.html>https://www.linvirtshell.com/2017/11/changing-auto-logout-timeout-in-ssh.html</a></li>
-<li><a href=https://unix.stackexchange.com/q/340642/221410>How to keep idle session from exiting</a></li>
-</ul>
-<h1 id=find-which-package-provides-a-file-or-what-file-a-package-contains-on-ubuntu>Find which package provides a file or what file a package contains on Ubuntu</h1>
-<p>To find which package provides a certain file, we can use <code>dpkg</code> command:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>dpkg -S /path/to/file
-</code></pre></div><p>For example <code>dpkg -S /usr/lib/python3/dist-packages/uno.py</code> shows the following
-message:</p>
-<blockquote>
-<p>python3-uno: /usr/lib/python3/dist-packages/uno.py</p>
-</blockquote>
-<p>We can also use apt-file to find which package a file belongs to:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>apt update <span class=o>&amp;&amp;</span> apt instal apt-file
-apt-file update
-apt-file search /path/to/file
-</code></pre></div><p>To find what file a package contains, we can to this <a href=https://packages.ubuntu.com/>Ubuntu packages site</a>
+feature.</p><p>Ref:</p><ul><li><a href=https://www.linvirtshell.com/2017/11/changing-auto-logout-timeout-in-ssh.html>https://www.linvirtshell.com/2017/11/changing-auto-logout-timeout-in-ssh.html</a></li><li><a href=https://unix.stackexchange.com/q/340642/221410>How to keep idle session from exiting</a></li></ul><h1 id=find-which-package-provides-a-file-or-what-file-a-package-contains-on-ubuntu>Find which package provides a file or what file a package contains on Ubuntu</h1><p>To find which package provides a certain file, we can use <code>dpkg</code> command:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>dpkg -S /path/to/file
+</span></span></code></pre></div><p>For example <code>dpkg -S /usr/lib/python3/dist-packages/uno.py</code> shows the following
+message:</p><blockquote><p>python3-uno: /usr/lib/python3/dist-packages/uno.py</p></blockquote><p>We can also use apt-file to find which package a file belongs to:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>apt update <span class=o>&amp;&amp;</span> apt instal apt-file
+</span></span><span class=line><span class=cl>apt-file update
+</span></span><span class=line><span class=cl>apt-file search /path/to/file
+</span></span></code></pre></div><p>To find what file a package contains, we can to this <a href=https://packages.ubuntu.com/>Ubuntu packages site</a>
 and search a package. In the package detail info page, we can click the <code>[list of files]</code> to get the files contained in a certain release for an architecture
-(see <a href=https://packages.ubuntu.com/en/bionic/amd64/python3-uno/filelist>here</a> for an example).</p>
-<p>Ref:</p>
-<ul>
-<li><a href=https://askubuntu.com/q/481/768311>How do I find the package that provides a file?</a></li>
-<li><a href=https://superuser.com/q/10997/736190>Find what package a file belongs to in Ubuntu/Debian?</a></li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2020-12-22
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<nav class=post-nav>
-<a class=prev href=/2020/12/25/git_directory_work-tree_explained/>
-<i class="iconfont icon-left"></i>
+(see <a href=https://packages.ubuntu.com/en/bionic/amd64/python3-uno/filelist>here</a> for an example).</p><p>Ref:</p><ul><li><a href=https://askubuntu.com/q/481/768311>How do I find the package that provides a file?</a></li><li><a href=https://superuser.com/q/10997/736190>Find what package a file belongs to in Ubuntu/Debian?</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-12-22</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><nav class=post-nav><a class=prev href=/2020/12/25/git_directory_work-tree_explained/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Git Directory and Work-Tree Explained</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2020/12/18/my_first_vim_plugin/>
-<span class="next-text nav-default">Introducing better-esacape.vim: My First Vim/Neovim Plugin</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2020/12/18/my_first_vim_plugin/><span class="next-text nav-default">Introducing better-esacape.vim: My First Vim/Neovim Plugin</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

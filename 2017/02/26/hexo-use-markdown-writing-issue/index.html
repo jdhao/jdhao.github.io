@@ -1,333 +1,49 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Hexo 使用，博客写作相关问题及解决方法 - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考这篇文章。
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2017/02/26/hexo-use-markdown-writing-issue/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Hexo 使用，博客写作相关问题及解决方法">
-<meta property="og:description" content="本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考这篇文章。">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2017/02/26/hexo-use-markdown-writing-issue/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2017-02-26T15:52:00+08:00">
-<meta property="article:modified_time" content="2020-03-19T01:01:15+08:00">
-<meta itemprop=name content="Hexo 使用，博客写作相关问题及解决方法">
-<meta itemprop=description content="本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考这篇文章。"><meta itemprop=datePublished content="2017-02-26T15:52:00+08:00">
-<meta itemprop=dateModified content="2020-03-19T01:01:15+08:00">
-<meta itemprop=wordCount content="3049">
-<meta itemprop=keywords content="Markdown,NexT,Hexo,LaTeX,图床,对象存储,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Hexo 使用，博客写作相关问题及解决方法">
-<meta name=twitter:description content="本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考这篇文章。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Hexo 使用，博客写作相关问题及解决方法 - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考这篇文章。
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2017/02/26/hexo-use-markdown-writing-issue/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Hexo 使用，博客写作相关问题及解决方法"><meta property="og:description" content="本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考这篇文章。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2017/02/26/hexo-use-markdown-writing-issue/"><meta property="article:section" content="post"><meta property="article:published_time" content="2017-02-26T15:52:00+08:00"><meta property="article:modified_time" content="2020-03-19T01:01:15+08:00"><meta itemprop=name content="Hexo 使用，博客写作相关问题及解决方法"><meta itemprop=description content="本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考这篇文章。"><meta itemprop=datePublished content="2017-02-26T15:52:00+08:00"><meta itemprop=dateModified content="2020-03-19T01:01:15+08:00"><meta itemprop=wordCount content="3008"><meta itemprop=keywords content="Markdown,NexT,Hexo,LaTeX,图床,对象存储,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Hexo 使用，博客写作相关问题及解决方法"><meta name=twitter:description content="本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考这篇文章。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Hexo 使用，博客写作相关问题及解决方法</h1>
-<div class=post-meta>
-<span class=post-time> 2017-02-26 </span>
-<div class=post-category>
-<a href=/categories/Blog/> Blog </a>
-</div>
-<span class=more-meta> 3049 words </span>
-<span class=more-meta> 7 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#博客使用相关问题>博客使用相关问题</a>
-<ul>
-<li><a href=#博客顶部的菜单的语言在英语与德语乱跳>博客顶部的菜单的语言在英语与德语乱跳</a></li>
-<li><a href=#添加-sitemapxml-到谷歌搜索引擎>添加 sitemap.xml 到谷歌搜索引擎</a></li>
-<li><a href=#更改了-next-主题部署以后发现更改未生效>更改了 NexT 主题，部署以后发现更改未生效</a></li>
-<li><a href=#点击某个标题生成指向该标题的-url>点击某个标题，生成指向该标题的 URL</a></li>
-<li><a href=#更改一篇-post-的-categories-或者-tags-的大小写部署以后发现更改无效>更改一篇 post 的 categories 或者 tags 的大小写，部署以后发现更改无效</a></li>
-<li><a href=#在博文中增加文件的下载链接>在博文中增加文件的下载链接</a></li>
-<li><a href=#使用-hexo-输入-latex-公式遇到的奇怪-bug>使用 Hexo 输入 LaTeX 公式遇到的奇怪 bug</a></li>
-</ul>
-</li>
-<li><a href=#博客写作相关问题>博客写作相关问题</a>
-<ul>
-<li><a href=#生成博客的时候遇到编译错误>生成博客的时候遇到编译错误</a></li>
-<li><a href=#一篇博客使用多个-categories-和-tags>一篇博客使用多个 categories 和 tags</a></li>
-<li><a href=#图片相关>图片相关</a>
-<ul>
-<li><a href=#使用云存储存放图片>使用云存储存放图片</a></li>
-<li><a href=#如何向七牛云存储上传图片>如何向七牛云存储上传图片</a></li>
-<li><a href=#如何设置图片大小>如何设置图片大小</a></li>
-<li><a href=#如何居中图片>如何居中图片</a></li>
-</ul>
-</li>
-<li><a href=#换行与分段有问题>换行与分段有问题</a></li>
-<li><a href=#博客首页设置为显示每篇博文一部分而不是全文>博客首页设置为显示每篇博文一部分而不是全文</a></li>
-<li><a href=#如何在一篇博文引用另外一篇博文>如何在一篇博文引用另外一篇博文</a></li>
-<li><a href=#如何在博客的题目中使用冒号>如何在博客的题目中使用冒号</a></li>
-</ul>
-</li>
-<li><a href=#更新-hexo-以及-next-主题>更新 Hexo 以及 NexT 主题</a>
-<ul>
-<li><a href=#update-hexo>Update Hexo</a></li>
-<li><a href=#update-next>Update NexT</a>
-<ul>
-<li><a href=#next-development-discontinued>NexT development discontinued?</a></li>
-</ul>
-</li>
-<li><a href=#使用新的-theme-next>使用新的 theme-next</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考<a href=https://jdhao.github.io/2017/02/26/hexo-install-use-issue/>这篇文章</a>。</p>
-<h1 id=博客使用相关问题>博客使用相关问题</h1>
-<h2 id=博客顶部的菜单的语言在英语与德语乱跳>博客顶部的菜单的语言在英语与德语乱跳</h2>
-<p>这个是由于在站点配置文件没有指定语言，指定语言为 <code>en</code> 可以解决这个问题 。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>language</span><span class=p>:</span><span class=w> </span><span class=l>en</span><span class=w>
-</span></code></pre></div><p>如果想在菜单栏显示汉字,那么语言就指定为 <code>zh-Hans</code>，参考了<a href=https://www.zhihu.com/question/41625825>这个答案</a>。</p>
-<h2 id=添加-sitemapxml-到谷歌搜索引擎>添加 sitemap.xml 到谷歌搜索引擎</h2>
-<p>首先按照<a href=http://lindaxiao-hust.github.io/2016/04/06/hexo-next-sitemap/>博客一</a>给出的步骤生成正确的 <code>sitemap.xml</code> 文件，这里我遇到的问题是生成的 sitemap.xml文件里面都是 yousite.com 这种格式，原因很简单，因为没有在站点配置文件里把博客的URL 改成自己的实际地址(见下面的代码)，把 <code>url</code> 改成自己博客的地址，再生成一遍就不会有这个问题。</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=l>https://jdhao.github.io</span><span class=w>
-</span></code></pre></div><p>生成 <code>sitemap.xml</code> 以后，需要验证自己的网站(也就是证明网站是你的)，继续参考<a href=http://lindaxiao-hust.github.io/2016/04/06/hexo-next-sitemap/>博客一</a>的方法(有的博客上提到的方法属于过去式，譬如<a href=http://fionamood.com/>博客二</a>第三步中提到的手动添加验证的方法对于 NexT 主题已经不再需要，那篇博文的名字叫 「｜Hexo优化｜如何向google提交sitemap（详细）」)。验证网站以后，就可以添加 <code>sitemap.xml</code> 到谷歌了，这一步参考<a href=http://fionamood.com/>博客二</a>中博文从第四步开始的内容。</p>
-<p>这一部分还参考了<a href=http://www.jianshu.com/p/86557c34b671>博客三</a>，加入了<code>robots.txt</code> 文件，不过我没有设置百度的 sitemap。</p>
-<h2 id=更改了-next-主题部署以后发现更改未生效>更改了 NexT 主题，部署以后发现更改未生效</h2>
-<p>使用 <code>hexo s -g</code> 本地预览网页没问题，部署以后发现主题没有改变，解决办法是先使用<code>hexo clean</code>，并且删除 <code>blog</code> 目录下的 <code>.deploy_git</code> 目录，重新部署，然后打开博客网页，按 <code>CTRL+F5</code>，强制刷新，更新资源，然后就能看到更新以后的主题了。</p>
-<h2 id=点击某个标题生成指向该标题的-url>点击某个标题，生成指向该标题的 URL</h2>
-<p>很多网页都使用 <a href=http://freepages.computers.rootsweb.ancestry.com/~pasher/anchors.htm>named anchor</a>功能，当点击目录中的某个标题的题目，就会自动跳转到该标题在网页中位置，并且浏览器地址栏随之改变，URL 增加了 <code>#header_name</code> 部分，如果想要打开该博文的时候自动到达该标题对应的位置，而不是到达该页面的顶端，只需要使用这个新的 URL 即可，这个功能可以通过替换 Hexo 自带的 renderer 实现，具体可以看<a href=http://hujichn.github.io/2016/04/06/Win10%E4%B8%8A%E5%88%A9%E7%94%A8github+hexo%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%96%B9%E6%B3%95/#8-%E5%A2%9E%E5%8A%A0%E8%84%9A%E6%B3%A8%E5%8A%9F%E8%83%BDfootnotes>这里</a>，不再多说。设置完成以后，鼠标移动到某个标题最右边，可以看到「¶」。效果如下图</p>
-<p align=center>
-<img src=https://blog-resource-1257868508.file.myqcloud.com/header_anchor.png width=800>
-</p>
-<p>点击它，可以看到 URL 发生改变，如下图</p>
-<p align=center>
-<img src=https://blog-resource-1257868508.file.myqcloud.com/url_anchor.png width=800>
-</p>
-<h2 id=更改一篇-post-的-categories-或者-tags-的大小写部署以后发现更改无效>更改一篇 post 的 categories 或者 tags 的大小写，部署以后发现更改无效</h2>
-<p>写好一篇 post，部署以后，想要更改 categories 或者 tags 的大小写，更改以后，再次部署，打开博客的 categories 页面，发现更改是生效的，但是点击刚才更改名字大小写的类别，你会得到 <em>404 not found error</em> 。这个问题是由于在 case-insensitive 系统上 (譬如 Windows 和 Mac OSX)，git 会忽略对文件或者目录大小写的更改，hexo 暂时还未修复这个问题，具体的 workaround 可以参见<a href=https://github.com/hexojs/hexo/issues/2600>这里</a>。</p>
-<h2 id=在博文中增加文件的下载链接>在博文中增加文件的下载链接</h2>
-<p>可以在 source 目录下创建一个目录来存放你的文件，例如可以创建 <code>source/files/</code> 目录，然后把文件放在该目录下面，假设文件名称为 <code>test.pdf</code>，在博文中需要引用该文件的地方，直接使用以下 Markdown 代码即可</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-markdown data-lang=markdown>[<span class=nt>点击这里下载文件</span>](<span class=na>/files/test.pdf</span>)
-</code></pre></div><p>更详细的讨论，可以参考<a href=https://github.com/hexojs/hexo/issues/1724>这里</a>。</p>
-<h2 id=使用-hexo-输入-latex-公式遇到的奇怪-bug>使用 Hexo 输入 LaTeX 公式遇到的奇怪 bug</h2>
-<p>使用 Hexo 输入公式的时候，遇到一个奇怪的 bug，提示的错误信息是：</p>
-<blockquote>
-<p>FATAL Something&rsquo;s wrong. Maybe you can find the solution here: <a href=http://hexo.io/docs/troubleshooting.html>http://hexo.io/docs/troubleshooting.html</a>
-Template render error: (unknown path) [Line 1, Column 10] expected variable end</p>
-</blockquote>
-<p>经过查找，找到了对这个 bug 的一个说明，参见<a href=https://github.com/hexojs/hexo/issues/2064>这里</a>，同时也感谢提这个 issue 的人，他也在自己的博客里<a href=https://scjiaer.github.io/mathjax-atom-hexo/>提到了这个问题</a>，赞赏这种探索精神。具体来说就是，写 LaTeX 公式的时候，两个花括号 <code>{</code> 不能紧挨着，中间必须有空格隔开，否则使用 <code>hexo generate</code> 的时候就会出现上述的错误提示信息。官方目前还没有修复这个 bug，写公式的时候一定要注意。</p>
-<h1 id=博客写作相关问题>博客写作相关问题</h1>
-<h2 id=生成博客的时候遇到编译错误>生成博客的时候遇到编译错误</h2>
-<p>生成博客的时候，遇到下面的跟 YAML 有关的错误提示：</p>
-<blockquote>
-<p>YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 5, column 1:</p>
-</blockquote>
-<p>这个原因是 YAML 对格式有严格要求，key 后面的冒号和 value 之间之间 <strong>必须用空格隔开</strong>，不能连起来写，加上空格即可解决这个问题。</p>
-<h2 id=一篇博客使用多个-categories-和-tags>一篇博客使用多个 categories 和 tags</h2>
-<p>如何生成 tags 和 categories 页面，参考<a href=http://qiufengyu.me/2016/10/14/next-theme-advanced/>这篇</a>，然后一篇博文如果想要指定多个 tags，或者使用多个 categories，直接谷歌 “hexo multiple tags” 就能找到答案了，值得注意的是 categories 是层级结构的，写在后面的 category 名字被认为是前一类的子类，但是 tags 没有层级结构，各个 tag 之间是平等的。</p>
-<h2 id=图片相关>图片相关</h2>
-<h3 id=使用云存储存放图片>使用云存储存放图片</h3>
-<p>图片可以放到 <code>D:/hexo/blog/source/_data</code> 目录下，然后在 Markdown 文件中使用相对路径引用，但是由于博客托管在 Github，仓库容量有限制，图片数量多了，会占据不小的空间，因此最好选择云存储来存放图片。我用的是<a href=https://www.qiniu.com/>七牛</a>，有 10 G 免费空间，用来存放图片应该足够了。</p>
-<h3 id=如何向七牛云存储上传图片>如何向七牛云存储上传图片</h3>
-<p>首先新建一个存储空间，然后点击「内容管理」，然后点击「文件上传」即可。参考的<a href=http://jingyan.baidu.com/article/495ba841092a5338b20ede5c.html>这里</a>。采用这种方式，每次上传图片都要打开网页，然后上传文件，拷贝图片的外链，太耗费时间，可以使用 <a href=https://jiantuku.com/#/>极简图床</a> 来加快贴图的速度。它还提供了 Chrome 浏览器的插件，可以方便上传图片。上传图片需要设置好自己的七牛帐号，进入极简图床的主界面，点击右上角的 “设置按钮” 进入七牛云存储的设置界面，如下图，</p>
-<p align=center>
-<img src=https://blog-resource-1257868508.file.myqcloud.com/17-12-17/4793797.jpg title=进入设置七牛云存储界面 style=float:middle>
-</p>
-<p>然后进入了如下界面，</p>
-<p align=center>
-<img src=https://blog-resource-1257868508.file.myqcloud.com/17-12-17/16756508.jpg width=400>
-</p>
-<p>具体设置可以参考 <a href="https://jiantuku.com/help/faq.html?src=footer">官方说明</a>。</p>
-<h3 id=如何设置图片大小>如何设置图片大小</h3>
-<p>有多种方法可以实现，最笨的办法就是人工缩放到具体大小，，七牛本身提供了多种图片处理方法，具体参见<a href=https://developer.qiniu.com/dora/api/the-advanced-treatment-of-images-imagemogr2>七牛官方文档</a>。例如下面的示例代码：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>img</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://blog-resource-1257868508.file.myqcloud.com/file_transfer_speed_test.jpg&#34;</span>
-         <span class=na>title</span><span class=o>=</span><span class=s>&#34;不同应用在不同情况下的传输速度&#34;</span>
-         <span class=na>style</span><span class=o>=</span><span class=s>&#34;float: middle;&#34;</span>
-         <span class=p>&gt;</span>
-</code></pre></div><h3 id=如何居中图片>如何居中图片</h3>
-<p>直接使用 HTML 的 <code>&lt;img></code> tag 即可，例如 <code>&lt;img src="some_img.jpg"></code>。在网上还看到一种<a href=https://www.zhihu.com/question/23378396>使用 <code>&lt;div></code> 来居中图片</a>的方法，但是发现生成的网页中图片与上下文间距太大，遂放弃。</p>
-<h2 id=换行与分段有问题>换行与分段有问题</h2>
-<p>写好文章，预览的时候，发现本该是一个段落，不该分行的地方突然分行了，也就是页面上一行还没到头，就开始了第二行，因此段落的排版显得非常丑，在网上找了一圈好像也没有找到到底什么原因。后面突然意识到，Markdown 文件与 LaTeX 文件不同，即使文字在一起，中间没有空行，也不会被认为是一个段落，一段文章在写 <code>*.md</code> 文件的时候应该是一行，不应该人为使用回车分段，如果使用了回车，那么在生成的网页中对应的位置就会有一个换行。</p>
-<h2 id=博客首页设置为显示每篇博文一部分而不是全文>博客首页设置为显示每篇博文一部分而不是全文</h2>
-<p>NexT 官方的推荐的方式是在需要截断的地方使用 <code>&lt;!--more--></code>，当然也可以使用<a href=http://theme-next.iissnan.com/faqs.html#read-more>另外两种方式</a>。</p>
-<h2 id=如何在一篇博文引用另外一篇博文>如何在一篇博文引用另外一篇博文</h2>
-<p>最简单的方式就是找到要引用的博文对应的网页地址，按照引用普通网页的方式引用即可，另外也可以使用 Hexo 提供的 post link tag 功能，引用文章，假如有一篇文章的题目是<code>hello_world.md</code>，那么在博文中引用的方法如下：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>{% post_link hello_world %}
-</code></pre></div><p>参考<a href=https://github.com/hexojs/hexo/issues/2176>这里</a>。</p>
-<h2 id=如何在博客的题目中使用冒号>如何在博客的题目中使用冒号</h2>
-<p>如果博客的题目（title）包含冒号，在渲染的时候回出现问题，因为 YAML 格式中冒号属于分隔 key 和 value 的分隔符，如果需要在题目中使用冒号，可以把题目用引号包围，参见<a href=https://github.com/hexojs/hexo/issues/834>这里</a>。下面给出一个示例：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>title</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;An Introduction to Listary: A Blazing Fast Search Tool&#34;</span><span class=w>
-</span></code></pre></div><h1 id=更新-hexo-以及-next-主题>更新 Hexo 以及 NexT 主题</h1>
-<h2 id=update-hexo>Update Hexo</h2>
-<p>Updating Hexo is easy. Go to your blog root (on my computer, it is D:\hexo\blog). Issue the following command:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>npm install hexo
-</code></pre></div><p>Now check that your hexo is updated successfully by running</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>hexo --version
-</code></pre></div><h2 id=update-next>Update NexT</h2>
-<p>I followed <a href=https://github.com/iissnan/hexo-theme-next#update>the official guide</a> on how to update NexT but without success. After doing what is instructed, I can not successfully generate the site.</p>
-<p>You can try the brute-force way. Backup all your settings for the NexT theme, then remove the directory which contains the NexT theme. Then <code>git clone</code> the newest repo into your computer. After that, modify the theme configuration file based on your backup file. I think it is the most simple way. No bell and whistles.</p>
-<h3 id=next-development-discontinued>NexT development discontinued?</h3>
-<p>According to <a href=https://github.com/iissnan/hexo-theme-next/issues/2061>this post</a>, the creator of NexT theme seems to have discontinued his maintenance of this repo. So one of the contributor (<a href=https://github.com/ivan-nginx>ivan-nginx</a>) to this theme decide to create a new orgnization repo named <a href=https://github.com/theme-next>hexo-theme-next</a> and continue to update the theme there.</p>
-<h2 id=使用新的-theme-next>使用新的 theme-next</h2>
-<p>正如前面所说，NexT 的原开发者由于某种不可知原因，已经很长时间没有对 NexT repo commit 过了，所以其他开发者 fork 了 NexT，重新开了一个 repo。从原 NexT 过渡到现在的 NexT 相当顺畅，相当于重新安装了一个新的主题，直接把原主题的配置拷贝过去就可以，改动很小。具体参见<a href=https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/UPDATE-FROM-5.1.X.md>这里</a>的更新说明。</p>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2020-03-19
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/Markdown/>Markdown</a>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Hexo 使用，博客写作相关问题及解决方法</h1><div class=post-meta><span class=post-time>2017-02-26</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>3008 words</span>
+<span class=more-meta>7 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#博客使用相关问题>博客使用相关问题</a><ul><li><a href=#博客顶部的菜单的语言在英语与德语乱跳>博客顶部的菜单的语言在英语与德语乱跳</a></li><li><a href=#添加-sitemapxml-到谷歌搜索引擎>添加 sitemap.xml 到谷歌搜索引擎</a></li><li><a href=#更改了-next-主题部署以后发现更改未生效>更改了 NexT 主题，部署以后发现更改未生效</a></li><li><a href=#点击某个标题生成指向该标题的-url>点击某个标题，生成指向该标题的 URL</a></li><li><a href=#更改一篇-post-的-categories-或者-tags-的大小写部署以后发现更改无效>更改一篇 post 的 categories 或者 tags 的大小写，部署以后发现更改无效</a></li><li><a href=#在博文中增加文件的下载链接>在博文中增加文件的下载链接</a></li><li><a href=#使用-hexo-输入-latex-公式遇到的奇怪-bug>使用 Hexo 输入 LaTeX 公式遇到的奇怪 bug</a></li></ul></li><li><a href=#博客写作相关问题>博客写作相关问题</a><ul><li><a href=#生成博客的时候遇到编译错误>生成博客的时候遇到编译错误</a></li><li><a href=#一篇博客使用多个-categories-和-tags>一篇博客使用多个 categories 和 tags</a></li><li><a href=#图片相关>图片相关</a><ul><li><a href=#使用云存储存放图片>使用云存储存放图片</a></li><li><a href=#如何向七牛云存储上传图片>如何向七牛云存储上传图片</a></li><li><a href=#如何设置图片大小>如何设置图片大小</a></li><li><a href=#如何居中图片>如何居中图片</a></li></ul></li><li><a href=#换行与分段有问题>换行与分段有问题</a></li><li><a href=#博客首页设置为显示每篇博文一部分而不是全文>博客首页设置为显示每篇博文一部分而不是全文</a></li><li><a href=#如何在一篇博文引用另外一篇博文>如何在一篇博文引用另外一篇博文</a></li><li><a href=#如何在博客的题目中使用冒号>如何在博客的题目中使用冒号</a></li></ul></li><li><a href=#更新-hexo-以及-next-主题>更新 Hexo 以及 NexT 主题</a><ul><li><a href=#update-hexo>Update Hexo</a></li><li><a href=#update-next>Update NexT</a><ul><li><a href=#next-development-discontinued>NexT development discontinued?</a></li></ul></li><li><a href=#使用新的-theme-next>使用新的 theme-next</a></li></ul></li></ul></nav></div></div><div class=post-content><p>本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考<a href=https://jdhao.github.io/2017/02/26/hexo-install-use-issue/>这篇文章</a>。</p><h1 id=博客使用相关问题>博客使用相关问题</h1><h2 id=博客顶部的菜单的语言在英语与德语乱跳>博客顶部的菜单的语言在英语与德语乱跳</h2><p>这个是由于在站点配置文件没有指定语言，指定语言为 <code>en</code> 可以解决这个问题 。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>language</span><span class=p>:</span><span class=w> </span><span class=l>en</span><span class=w>
+</span></span></span></code></pre></div><p>如果想在菜单栏显示汉字,那么语言就指定为 <code>zh-Hans</code>，参考了<a href=https://www.zhihu.com/question/41625825>这个答案</a>。</p><h2 id=添加-sitemapxml-到谷歌搜索引擎>添加 sitemap.xml 到谷歌搜索引擎</h2><p>首先按照<a href=http://lindaxiao-hust.github.io/2016/04/06/hexo-next-sitemap/>博客一</a>给出的步骤生成正确的 <code>sitemap.xml</code> 文件，这里我遇到的问题是生成的 sitemap.xml文件里面都是 yousite.com 这种格式，原因很简单，因为没有在站点配置文件里把博客的URL 改成自己的实际地址(见下面的代码)，把 <code>url</code> 改成自己博客的地址，再生成一遍就不会有这个问题。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=l>https://jdhao.github.io</span><span class=w>
+</span></span></span></code></pre></div><p>生成 <code>sitemap.xml</code> 以后，需要验证自己的网站(也就是证明网站是你的)，继续参考<a href=http://lindaxiao-hust.github.io/2016/04/06/hexo-next-sitemap/>博客一</a>的方法(有的博客上提到的方法属于过去式，譬如<a href=http://fionamood.com/>博客二</a>第三步中提到的手动添加验证的方法对于 NexT 主题已经不再需要，那篇博文的名字叫 「｜Hexo优化｜如何向google提交sitemap（详细）」)。验证网站以后，就可以添加 <code>sitemap.xml</code> 到谷歌了，这一步参考<a href=http://fionamood.com/>博客二</a>中博文从第四步开始的内容。</p><p>这一部分还参考了<a href=http://www.jianshu.com/p/86557c34b671>博客三</a>，加入了<code>robots.txt</code> 文件，不过我没有设置百度的 sitemap。</p><h2 id=更改了-next-主题部署以后发现更改未生效>更改了 NexT 主题，部署以后发现更改未生效</h2><p>使用 <code>hexo s -g</code> 本地预览网页没问题，部署以后发现主题没有改变，解决办法是先使用<code>hexo clean</code>，并且删除 <code>blog</code> 目录下的 <code>.deploy_git</code> 目录，重新部署，然后打开博客网页，按 <code>CTRL+F5</code>，强制刷新，更新资源，然后就能看到更新以后的主题了。</p><h2 id=点击某个标题生成指向该标题的-url>点击某个标题，生成指向该标题的 URL</h2><p>很多网页都使用 <a href=http://freepages.computers.rootsweb.ancestry.com/~pasher/anchors.htm>named anchor</a>功能，当点击目录中的某个标题的题目，就会自动跳转到该标题在网页中位置，并且浏览器地址栏随之改变，URL 增加了 <code>#header_name</code> 部分，如果想要打开该博文的时候自动到达该标题对应的位置，而不是到达该页面的顶端，只需要使用这个新的 URL 即可，这个功能可以通过替换 Hexo 自带的 renderer 实现，具体可以看<a href=http://hujichn.github.io/2016/04/06/Win10%E4%B8%8A%E5%88%A9%E7%94%A8github+hexo%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%96%B9%E6%B3%95/#8-%E5%A2%9E%E5%8A%A0%E8%84%9A%E6%B3%A8%E5%8A%9F%E8%83%BDfootnotes>这里</a>，不再多说。设置完成以后，鼠标移动到某个标题最右边，可以看到「¶」。效果如下图</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/header_anchor.png width=800></p><p>点击它，可以看到 URL 发生改变，如下图</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/url_anchor.png width=800></p><h2 id=更改一篇-post-的-categories-或者-tags-的大小写部署以后发现更改无效>更改一篇 post 的 categories 或者 tags 的大小写，部署以后发现更改无效</h2><p>写好一篇 post，部署以后，想要更改 categories 或者 tags 的大小写，更改以后，再次部署，打开博客的 categories 页面，发现更改是生效的，但是点击刚才更改名字大小写的类别，你会得到 <em>404 not found error</em> 。这个问题是由于在 case-insensitive 系统上 (譬如 Windows 和 Mac OSX)，git 会忽略对文件或者目录大小写的更改，hexo 暂时还未修复这个问题，具体的 workaround 可以参见<a href=https://github.com/hexojs/hexo/issues/2600>这里</a>。</p><h2 id=在博文中增加文件的下载链接>在博文中增加文件的下载链接</h2><p>可以在 source 目录下创建一个目录来存放你的文件，例如可以创建 <code>source/files/</code> 目录，然后把文件放在该目录下面，假设文件名称为 <code>test.pdf</code>，在博文中需要引用该文件的地方，直接使用以下 Markdown 代码即可</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-markdown data-lang=markdown><span class=line><span class=cl>[<span class=nt>点击这里下载文件</span>](<span class=na>/files/test.pdf</span>)
+</span></span></code></pre></div><p>更详细的讨论，可以参考<a href=https://github.com/hexojs/hexo/issues/1724>这里</a>。</p><h2 id=使用-hexo-输入-latex-公式遇到的奇怪-bug>使用 Hexo 输入 LaTeX 公式遇到的奇怪 bug</h2><p>使用 Hexo 输入公式的时候，遇到一个奇怪的 bug，提示的错误信息是：</p><blockquote><p>FATAL Something&rsquo;s wrong. Maybe you can find the solution here: <a href=http://hexo.io/docs/troubleshooting.html>http://hexo.io/docs/troubleshooting.html</a>
+Template render error: (unknown path) [Line 1, Column 10] expected variable end</p></blockquote><p>经过查找，找到了对这个 bug 的一个说明，参见<a href=https://github.com/hexojs/hexo/issues/2064>这里</a>，同时也感谢提这个 issue 的人，他也在自己的博客里<a href=https://scjiaer.github.io/mathjax-atom-hexo/>提到了这个问题</a>，赞赏这种探索精神。具体来说就是，写 LaTeX 公式的时候，两个花括号 <code>{</code> 不能紧挨着，中间必须有空格隔开，否则使用 <code>hexo generate</code> 的时候就会出现上述的错误提示信息。官方目前还没有修复这个 bug，写公式的时候一定要注意。</p><h1 id=博客写作相关问题>博客写作相关问题</h1><h2 id=生成博客的时候遇到编译错误>生成博客的时候遇到编译错误</h2><p>生成博客的时候，遇到下面的跟 YAML 有关的错误提示：</p><blockquote><p>YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 5, column 1:</p></blockquote><p>这个原因是 YAML 对格式有严格要求，key 后面的冒号和 value 之间之间 <strong>必须用空格隔开</strong>，不能连起来写，加上空格即可解决这个问题。</p><h2 id=一篇博客使用多个-categories-和-tags>一篇博客使用多个 categories 和 tags</h2><p>如何生成 tags 和 categories 页面，参考<a href=http://qiufengyu.me/2016/10/14/next-theme-advanced/>这篇</a>，然后一篇博文如果想要指定多个 tags，或者使用多个 categories，直接谷歌 “hexo multiple tags” 就能找到答案了，值得注意的是 categories 是层级结构的，写在后面的 category 名字被认为是前一类的子类，但是 tags 没有层级结构，各个 tag 之间是平等的。</p><h2 id=图片相关>图片相关</h2><h3 id=使用云存储存放图片>使用云存储存放图片</h3><p>图片可以放到 <code>D:/hexo/blog/source/_data</code> 目录下，然后在 Markdown 文件中使用相对路径引用，但是由于博客托管在 Github，仓库容量有限制，图片数量多了，会占据不小的空间，因此最好选择云存储来存放图片。我用的是<a href=https://www.qiniu.com/>七牛</a>，有 10 G 免费空间，用来存放图片应该足够了。</p><h3 id=如何向七牛云存储上传图片>如何向七牛云存储上传图片</h3><p>首先新建一个存储空间，然后点击「内容管理」，然后点击「文件上传」即可。参考的<a href=http://jingyan.baidu.com/article/495ba841092a5338b20ede5c.html>这里</a>。采用这种方式，每次上传图片都要打开网页，然后上传文件，拷贝图片的外链，太耗费时间，可以使用 <a href=https://jiantuku.com/#/>极简图床</a> 来加快贴图的速度。它还提供了 Chrome 浏览器的插件，可以方便上传图片。上传图片需要设置好自己的七牛帐号，进入极简图床的主界面，点击右上角的 “设置按钮” 进入七牛云存储的设置界面，如下图，</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/17-12-17/4793797.jpg title=进入设置七牛云存储界面 style=float:middle></p><p>然后进入了如下界面，</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/17-12-17/16756508.jpg width=400></p><p>具体设置可以参考 <a href="https://jiantuku.com/help/faq.html?src=footer">官方说明</a>。</p><h3 id=如何设置图片大小>如何设置图片大小</h3><p>有多种方法可以实现，最笨的办法就是人工缩放到具体大小，，七牛本身提供了多种图片处理方法，具体参见<a href=https://developer.qiniu.com/dora/api/the-advanced-treatment-of-images-imagemogr2>七牛官方文档</a>。例如下面的示例代码：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>img</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://blog-resource-1257868508.file.myqcloud.com/file_transfer_speed_test.jpg&#34;</span>
+</span></span><span class=line><span class=cl>         <span class=na>title</span><span class=o>=</span><span class=s>&#34;不同应用在不同情况下的传输速度&#34;</span>
+</span></span><span class=line><span class=cl>         <span class=na>style</span><span class=o>=</span><span class=s>&#34;float: middle;&#34;</span>
+</span></span><span class=line><span class=cl>         <span class=p>&gt;</span>
+</span></span></code></pre></div><h3 id=如何居中图片>如何居中图片</h3><p>直接使用 HTML 的 <code>&lt;img></code> tag 即可，例如 <code>&lt;img src="some_img.jpg"></code>。在网上还看到一种<a href=https://www.zhihu.com/question/23378396>使用 <code>&lt;div></code> 来居中图片</a>的方法，但是发现生成的网页中图片与上下文间距太大，遂放弃。</p><h2 id=换行与分段有问题>换行与分段有问题</h2><p>写好文章，预览的时候，发现本该是一个段落，不该分行的地方突然分行了，也就是页面上一行还没到头，就开始了第二行，因此段落的排版显得非常丑，在网上找了一圈好像也没有找到到底什么原因。后面突然意识到，Markdown 文件与 LaTeX 文件不同，即使文字在一起，中间没有空行，也不会被认为是一个段落，一段文章在写 <code>*.md</code> 文件的时候应该是一行，不应该人为使用回车分段，如果使用了回车，那么在生成的网页中对应的位置就会有一个换行。</p><h2 id=博客首页设置为显示每篇博文一部分而不是全文>博客首页设置为显示每篇博文一部分而不是全文</h2><p>NexT 官方的推荐的方式是在需要截断的地方使用 <code>&lt;!--more--></code>，当然也可以使用<a href=http://theme-next.iissnan.com/faqs.html#read-more>另外两种方式</a>。</p><h2 id=如何在一篇博文引用另外一篇博文>如何在一篇博文引用另外一篇博文</h2><p>最简单的方式就是找到要引用的博文对应的网页地址，按照引用普通网页的方式引用即可，另外也可以使用 Hexo 提供的 post link tag 功能，引用文章，假如有一篇文章的题目是<code>hello_world.md</code>，那么在博文中引用的方法如下：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>{% post_link hello_world %}
+</span></span></code></pre></div><p>参考<a href=https://github.com/hexojs/hexo/issues/2176>这里</a>。</p><h2 id=如何在博客的题目中使用冒号>如何在博客的题目中使用冒号</h2><p>如果博客的题目（title）包含冒号，在渲染的时候回出现问题，因为 YAML 格式中冒号属于分隔 key 和 value 的分隔符，如果需要在题目中使用冒号，可以把题目用引号包围，参见<a href=https://github.com/hexojs/hexo/issues/834>这里</a>。下面给出一个示例：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>title</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;An Introduction to Listary: A Blazing Fast Search Tool&#34;</span><span class=w>
+</span></span></span></code></pre></div><h1 id=更新-hexo-以及-next-主题>更新 Hexo 以及 NexT 主题</h1><h2 id=update-hexo>Update Hexo</h2><p>Updating Hexo is easy. Go to your blog root (on my computer, it is D:\hexo\blog). Issue the following command:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>npm install hexo
+</span></span></code></pre></div><p>Now check that your hexo is updated successfully by running</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>hexo --version
+</span></span></code></pre></div><h2 id=update-next>Update NexT</h2><p>I followed <a href=https://github.com/iissnan/hexo-theme-next#update>the official guide</a> on how to update NexT but without success. After doing what is instructed, I can not successfully generate the site.</p><p>You can try the brute-force way. Backup all your settings for the NexT theme, then remove the directory which contains the NexT theme. Then <code>git clone</code> the newest repo into your computer. After that, modify the theme configuration file based on your backup file. I think it is the most simple way. No bell and whistles.</p><h3 id=next-development-discontinued>NexT development discontinued?</h3><p>According to <a href=https://github.com/iissnan/hexo-theme-next/issues/2061>this post</a>, the creator of NexT theme seems to have discontinued his maintenance of this repo. So one of the contributor (<a href=https://github.com/ivan-nginx>ivan-nginx</a>) to this theme decide to create a new orgnization repo named <a href=https://github.com/theme-next>hexo-theme-next</a> and continue to update the theme there.</p><h2 id=使用新的-theme-next>使用新的 theme-next</h2><p>正如前面所说，NexT 的原开发者由于某种不可知原因，已经很长时间没有对 NexT repo commit 过了，所以其他开发者 fork 了 NexT，重新开了一个 repo。从原 NexT 过渡到现在的 NexT 相当顺畅，相当于重新安装了一个新的主题，直接把原主题的配置拷贝过去就可以，改动很小。具体参见<a href=https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/UPDATE-FROM-5.1.X.md>这里</a>的更新说明。</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-03-19</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/Markdown/>Markdown</a>
 <a href=/tags/NexT/>NexT</a>
 <a href=/tags/Hexo/>Hexo</a>
 <a href=/tags/LaTeX/>LaTeX</a>
 <a href=/tags/%E5%9B%BE%E5%BA%8A/>图床</a>
-<a href=/tags/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/>对象存储</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2017/03/01/Listary_intro/>
-<i class="iconfont icon-left"></i>
+<a href=/tags/%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/>对象存储</a></div><nav class=post-nav><a class=prev href=/2017/03/01/Listary_intro/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">An Introduction to Listary: A Blazing Fast Search Tool</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2017/02/26/hexo-install-use-issue/>
-<span class="next-text nav-default">How to Install Hexo and Theme NexT from Scratch on Windows</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2017/02/26/hexo-install-use-issue/><span class="next-text nav-default">How to Install Hexo and Theme NexT from Scratch on Windows</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

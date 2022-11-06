@@ -1,265 +1,70 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Creating A Trigger in PostgreSQL - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="We can use trigger to automate oerations, for example, preventing insertion of a record if certain condition is met. In this post, we show an example trigger function and its usage.
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2022/09/12/postgresql_trigger_function/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Creating A Trigger in PostgreSQL">
-<meta property="og:description" content="We can use trigger to automate oerations, for example, preventing insertion of a record if certain condition is met.
-In this post, we show an example trigger function and its usage.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2022/09/12/postgresql_trigger_function/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2022-09-12T18:12:51+08:00">
-<meta property="article:modified_time" content="2022-09-24T15:29:46+08:00">
-<meta itemprop=name content="Creating A Trigger in PostgreSQL">
-<meta itemprop=description content="We can use trigger to automate oerations, for example, preventing insertion of a record if certain condition is met.
-In this post, we show an example trigger function and its usage."><meta itemprop=datePublished content="2022-09-12T18:12:51+08:00">
-<meta itemprop=dateModified content="2022-09-24T15:29:46+08:00">
-<meta itemprop=wordCount content="306">
-<meta itemprop=keywords content="PostgreSQL,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Creating A Trigger in PostgreSQL">
-<meta name=twitter:description content="We can use trigger to automate oerations, for example, preventing insertion of a record if certain condition is met.
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Creating A Trigger in PostgreSQL - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="We can use trigger to automate oerations, for example, preventing insertion of a record if certain condition is met. In this post, we show an example trigger function and its usage.
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2022/09/12/postgresql_trigger_function/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Creating A Trigger in PostgreSQL"><meta property="og:description" content="We can use trigger to automate oerations, for example, preventing insertion of a record if certain condition is met.
+In this post, we show an example trigger function and its usage."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2022/09/12/postgresql_trigger_function/"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-09-12T18:12:51+08:00"><meta property="article:modified_time" content="2022-09-24T15:29:46+08:00"><meta itemprop=name content="Creating A Trigger in PostgreSQL"><meta itemprop=description content="We can use trigger to automate oerations, for example, preventing insertion of a record if certain condition is met.
+In this post, we show an example trigger function and its usage."><meta itemprop=datePublished content="2022-09-12T18:12:51+08:00"><meta itemprop=dateModified content="2022-09-24T15:29:46+08:00"><meta itemprop=wordCount content="363"><meta itemprop=keywords content="PostgreSQL,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Creating A Trigger in PostgreSQL"><meta name=twitter:description content="We can use trigger to automate oerations, for example, preventing insertion of a record if certain condition is met.
 In this post, we show an example trigger function and its usage."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Creating A Trigger in PostgreSQL</h1>
-<div class=post-meta>
-<span class=post-time> 2022-09-12 </span>
-<div class=post-category>
-<a href=/categories/SQL/> SQL </a>
-</div>
-<span class=more-meta> 306 words </span>
-<span class=more-meta> 2 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#create-a-trigger-function>Create a trigger function</a></li>
-<li><a href=#create-the-trigger>Create the trigger</a></li>
-<li><a href=#references>References</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>We can use trigger to automate oerations, for example, preventing insertion of a record if certain condition is met.
-In this post, we show an example trigger function and its usage.</p>
-<p>Suppose we have a <code>loan</code> table with following column:</p>
-<ul>
-<li><code>copy_id</code>: id for an item</li>
-<li><code>lend_date</code>: date when it is lent</li>
-<li><code>return_date</code>: date when it is returned, can be <code>NULL</code> (has been returned yet)</li>
-</ul>
-<h1 id=create-a-trigger-function>Create a trigger function</h1>
-<p>In this example, we create a function to check whether the new record is a valid record.
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Creating A Trigger in PostgreSQL</h1><div class=post-meta><span class=post-time>2022-09-12</span><div class=post-category><a href=/categories/SQL/>SQL</a></div><span class=more-meta>363 words</span>
+<span class=more-meta>2 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#create-a-trigger-function>Create a trigger function</a></li><li><a href=#create-the-trigger>Create the trigger</a></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>We can use trigger to automate oerations, for example, preventing insertion of a record if certain condition is met.
+In this post, we show an example trigger function and its usage.</p><p>Suppose we have a <code>loan</code> table with following column:</p><ul><li><code>copy_id</code>: id for an item</li><li><code>lend_date</code>: date when it is lent</li><li><code>return_date</code>: date when it is returned, can be <code>NULL</code> (has been returned yet)</li></ul><h1 id=create-a-trigger-function>Create a trigger function</h1><p>In this example, we create a function to check whether the new record is a valid record.
 If <code>lend_date</code> for new record is later than existing record, and is smaller than <code>return_date</code> of the copy,
-or if this copy hasn&rsquo;t been returned (<code>loan.return_data IS NULL</code>), then this is invalid record.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>OR</span><span class=w> </span><span class=k>REPLACE</span><span class=w> </span><span class=k>FUNCTION</span><span class=w> </span><span class=n>check_loan_validity</span><span class=p>()</span><span class=w>
-</span><span class=w>    </span><span class=k>RETURNS</span><span class=w> </span><span class=k>TRIGGER</span><span class=w>
-</span><span class=w>    </span><span class=k>LANGUAGE</span><span class=w> </span><span class=n>PLPGSQL</span><span class=w>
-</span><span class=w></span><span class=k>AS</span><span class=w>
-</span><span class=w></span><span class=err>$</span><span class=n>func$</span><span class=w>
-</span><span class=w></span><span class=k>BEGIN</span><span class=w>
-</span><span class=w>    </span><span class=k>IF</span><span class=w> </span><span class=k>EXISTS</span><span class=p>(</span><span class=k>SELECT</span><span class=w> </span><span class=mi>1</span><span class=w>
-</span><span class=w>              </span><span class=k>FROM</span><span class=w> </span><span class=n>loan</span><span class=w>
-</span><span class=w>              </span><span class=k>WHERE</span><span class=w> </span><span class=n>loan</span><span class=p>.</span><span class=n>copy_id</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>NEW</span><span class=p>.</span><span class=n>copy_id</span><span class=w>
-</span><span class=w>                </span><span class=k>AND</span><span class=w> </span><span class=k>NEW</span><span class=p>.</span><span class=n>lend_date</span><span class=w> </span><span class=o>&gt;=</span><span class=w> </span><span class=n>loan</span><span class=p>.</span><span class=n>lend_date</span><span class=w>
-</span><span class=w>                </span><span class=k>AND</span><span class=w> </span><span class=p>(</span><span class=k>NEW</span><span class=p>.</span><span class=n>lend_date</span><span class=w> </span><span class=o>&lt;=</span><span class=w> </span><span class=n>loan</span><span class=p>.</span><span class=n>return_date</span><span class=w> </span><span class=k>OR</span><span class=w> </span><span class=n>loan</span><span class=p>.</span><span class=n>return_date</span><span class=w> </span><span class=k>IS</span><span class=w> </span><span class=k>NULL</span><span class=p>))</span><span class=w>
-</span><span class=w>    </span><span class=k>THEN</span><span class=w>
-</span><span class=w>        </span><span class=n>RAISE</span><span class=w> </span><span class=k>EXCEPTION</span><span class=w> </span><span class=s1>&#39;Invalid lend_date provided: %&#39;</span><span class=p>,</span><span class=w> </span><span class=k>NEW</span><span class=p>.</span><span class=n>lend_date</span><span class=p>;</span><span class=w>
-</span><span class=w>    </span><span class=k>END</span><span class=w> </span><span class=k>IF</span><span class=p>;</span><span class=w>
-</span><span class=w>
-</span><span class=w>    </span><span class=k>RETURN</span><span class=w> </span><span class=k>NEW</span><span class=p>;</span><span class=w>
-</span><span class=w></span><span class=k>END</span><span class=p>;</span><span class=w>
-</span><span class=w></span><span class=err>$</span><span class=n>func$</span><span class=p>;</span><span class=w>
-</span></code></pre></div><p>The statement <code>LANGUAGE PLPGSQL</code> tells postgres that we can using plpgsql syntax, which is more powerful than plain <code>SQL</code>.
-See more discussion <a href=https://stackoverflow.com/a/24755876/6064933>here</a>.</p>
-<p>You can also put the language declaration after the function body (see also <a href=https://stackoverflow.com/a/38297896/6064933>this post</a>):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$func$
-&lt;function body&gt;
-$func$ LANGUAGE PLPGSQL;
-</code></pre></div><p>All string inside the dollar signs are function body definition.
-The use of dollar sign here is to simplify the writing of the function, as indicated by <a href=https://www.postgresql.org/docs/current/plpgsql-structure.html>official doc on functions</a>:</p>
-<blockquote>
-<p>The function body is simply a string literal so far as CREATE FUNCTION is
+or if this copy hasn&rsquo;t been returned (<code>loan.return_data IS NULL</code>), then this is invalid record.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=k>CREATE</span><span class=w> </span><span class=k>OR</span><span class=w> </span><span class=k>REPLACE</span><span class=w> </span><span class=k>FUNCTION</span><span class=w> </span><span class=n>check_loan_validity</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>RETURNS</span><span class=w> </span><span class=k>TRIGGER</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>LANGUAGE</span><span class=w> </span><span class=n>PLPGSQL</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>AS</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=err>$</span><span class=n>func$</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>BEGIN</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>IF</span><span class=w> </span><span class=k>EXISTS</span><span class=p>(</span><span class=k>SELECT</span><span class=w> </span><span class=mi>1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>              </span><span class=k>FROM</span><span class=w> </span><span class=n>loan</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>              </span><span class=k>WHERE</span><span class=w> </span><span class=n>loan</span><span class=p>.</span><span class=n>copy_id</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=k>NEW</span><span class=p>.</span><span class=n>copy_id</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=k>AND</span><span class=w> </span><span class=k>NEW</span><span class=p>.</span><span class=n>lend_date</span><span class=w> </span><span class=o>&gt;=</span><span class=w> </span><span class=n>loan</span><span class=p>.</span><span class=n>lend_date</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=k>AND</span><span class=w> </span><span class=p>(</span><span class=k>NEW</span><span class=p>.</span><span class=n>lend_date</span><span class=w> </span><span class=o>&lt;=</span><span class=w> </span><span class=n>loan</span><span class=p>.</span><span class=n>return_date</span><span class=w> </span><span class=k>OR</span><span class=w> </span><span class=n>loan</span><span class=p>.</span><span class=n>return_date</span><span class=w> </span><span class=k>IS</span><span class=w> </span><span class=k>NULL</span><span class=p>))</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>THEN</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>RAISE</span><span class=w> </span><span class=k>EXCEPTION</span><span class=w> </span><span class=s1>&#39;Invalid lend_date provided: %&#39;</span><span class=p>,</span><span class=w> </span><span class=k>NEW</span><span class=p>.</span><span class=n>lend_date</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>END</span><span class=w> </span><span class=k>IF</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>RETURN</span><span class=w> </span><span class=k>NEW</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>END</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=err>$</span><span class=n>func$</span><span class=p>;</span><span class=w>
+</span></span></span></code></pre></div><p>The statement <code>LANGUAGE PLPGSQL</code> tells postgres that we can using plpgsql syntax, which is more powerful than plain <code>SQL</code>.
+See more discussion <a href=https://stackoverflow.com/a/24755876/6064933>here</a>.</p><p>You can also put the language declaration after the function body (see also <a href=https://stackoverflow.com/a/38297896/6064933>this post</a>):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$func$
+</span></span><span class=line><span class=cl>&lt;function body&gt;
+</span></span><span class=line><span class=cl>$func$ LANGUAGE PLPGSQL;
+</span></span></code></pre></div><p>All string inside the dollar signs are function body definition.
+The use of dollar sign here is to simplify the writing of the function, as indicated by <a href=https://www.postgresql.org/docs/current/plpgsql-structure.html>official doc on functions</a>:</p><blockquote><p>The function body is simply a string literal so far as CREATE FUNCTION is
 concerned. It is often helpful to use dollar quoting (see Section 4.1.2.4) to
 write the function body, rather than the normal single quote syntax. Without
 dollar quoting, any single quotes or backslashes in the function body must be
-escaped by doubling them</p>
-</blockquote>
-<p>When creating a trigger function, the variable <code>NEW</code> represents the new records that is going to be inserted or updated.</p>
-<h1 id=create-the-trigger>Create the trigger</h1>
-<p>After creating the trigger function, we can now create a trigger on this table.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=k>CREATE</span><span class=w> </span><span class=k>TRIGGER</span><span class=w> </span><span class=n>check_loan_trigger</span><span class=w>
-</span><span class=w>    </span><span class=k>BEFORE</span><span class=w> </span><span class=k>INSERT</span><span class=w>
-</span><span class=w>    </span><span class=k>ON</span><span class=w> </span><span class=n>loan</span><span class=w>
-</span><span class=w>    </span><span class=k>FOR</span><span class=w> </span><span class=k>EACH</span><span class=w> </span><span class=k>ROW</span><span class=w>
-</span><span class=w></span><span class=k>EXECUTE</span><span class=w> </span><span class=k>PROCEDURE</span><span class=w> </span><span class=n>check_loan_validity</span><span class=p>();</span><span class=w>
-</span></code></pre></div><h1 id=references>References</h1>
-<ul>
-<li>dollar quoting: <a href=https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-DOLLAR-QUOTING>https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-DOLLAR-QUOTING</a></li>
-<li>Why are <code>$$</code> used in PL/PgSQL: <a href=https://stackoverflow.com/a/12172353/6064933>https://stackoverflow.com/a/12172353/6064933</a></li>
-<li>official doc on trigger: <a href=https://www.postgresql.org/docs/current/plpgsql-trigger.html>https://www.postgresql.org/docs/current/plpgsql-trigger.html</a></li>
-<li><a href=https://www.postgresqltutorial.com/postgresql-triggers/creating-first-trigger-postgresql/>https://www.postgresqltutorial.com/postgresql-triggers/creating-first-trigger-postgresql/</a></li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2022-09-24
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/PostgreSQL/>PostgreSQL</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2022/10/05/nvim-v08-release/>
-<i class="iconfont icon-left"></i>
+escaped by doubling them</p></blockquote><p>When creating a trigger function, the variable <code>NEW</code> represents the new records that is going to be inserted or updated.</p><h1 id=create-the-trigger>Create the trigger</h1><p>After creating the trigger function, we can now create a trigger on this table.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=k>CREATE</span><span class=w> </span><span class=k>TRIGGER</span><span class=w> </span><span class=n>check_loan_trigger</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>BEFORE</span><span class=w> </span><span class=k>INSERT</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>ON</span><span class=w> </span><span class=n>loan</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>FOR</span><span class=w> </span><span class=k>EACH</span><span class=w> </span><span class=k>ROW</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>EXECUTE</span><span class=w> </span><span class=k>PROCEDURE</span><span class=w> </span><span class=n>check_loan_validity</span><span class=p>();</span><span class=w>
+</span></span></span></code></pre></div><h1 id=references>References</h1><ul><li>dollar quoting: <a href=https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-DOLLAR-QUOTING>https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-DOLLAR-QUOTING</a></li><li>Why are <code>$$</code> used in PL/PgSQL: <a href=https://stackoverflow.com/a/12172353/6064933>https://stackoverflow.com/a/12172353/6064933</a></li><li>official doc on trigger: <a href=https://www.postgresql.org/docs/current/plpgsql-trigger.html>https://www.postgresql.org/docs/current/plpgsql-trigger.html</a></li><li><a href=https://www.postgresqltutorial.com/postgresql-triggers/creating-first-trigger-postgresql/>https://www.postgresqltutorial.com/postgresql-triggers/creating-first-trigger-postgresql/</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2022-09-24</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/PostgreSQL/>PostgreSQL</a></div><nav class=post-nav><a class=prev href=/2022/10/05/nvim-v08-release/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">I read the nvim v0.8 release note so you do not have to</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2022/09/04/cost-of-living-shenzhen/>
-<span class="next-text nav-default">Cost of Living in Shenzhen</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2022/09/04/cost-of-living-shenzhen/><span class="next-text nav-default">Cost of Living in Shenzhen</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

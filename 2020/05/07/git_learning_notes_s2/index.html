@@ -1,285 +1,53 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Git Learning Notes (2) - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="My Git learning notes.
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2020/05/07/git_learning_notes_s2/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Git Learning Notes (2)">
-<meta property="og:description" content="My Git learning notes.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2020/05/07/git_learning_notes_s2/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2020-05-07T00:35:45+08:00">
-<meta property="article:modified_time" content="2021-11-08T22:39:43+08:00">
-<meta itemprop=name content="Git Learning Notes (2)">
-<meta itemprop=description content="My Git learning notes."><meta itemprop=datePublished content="2020-05-07T00:35:45+08:00">
-<meta itemprop=dateModified content="2021-11-08T22:39:43+08:00">
-<meta itemprop=wordCount content="404">
-<meta itemprop=keywords content="Git,Vim,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Git Learning Notes (2)">
-<meta name=twitter:description content="My Git learning notes."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Git Learning Notes (2) - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="My Git learning notes.
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2020/05/07/git_learning_notes_s2/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Git Learning Notes (2)"><meta property="og:description" content="My Git learning notes."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/05/07/git_learning_notes_s2/"><meta property="article:section" content="post"><meta property="article:published_time" content="2020-05-07T00:35:45+08:00"><meta property="article:modified_time" content="2021-11-08T22:39:43+08:00"><meta itemprop=name content="Git Learning Notes (2)"><meta itemprop=description content="My Git learning notes."><meta itemprop=datePublished content="2020-05-07T00:35:45+08:00"><meta itemprop=dateModified content="2021-11-08T22:39:43+08:00"><meta itemprop=wordCount content="404"><meta itemprop=keywords content="Git,Vim,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Git Learning Notes (2)"><meta name=twitter:description content="My Git learning notes."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Git Learning Notes (2)</h1>
-<div class=post-meta>
-<span class=post-time> 2020-05-07 </span>
-<div class=post-category>
-<a href=/categories/Git/> Git </a>
-</div>
-<span class=more-meta> 404 words </span>
-<span class=more-meta> 2 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#how-to-change-most-recent-commit-message>How to change most recent commit message</a>
-<ul>
-<li><a href=#references>References</a></li>
-</ul>
-</li>
-<li><a href=#how-to-show-changes-for-a-specific-file>How to show changes for a specific file</a>
-<ul>
-<li><a href=#references-1>References</a></li>
-</ul>
-</li>
-<li><a href=#how-to-set-up-editor-for-git-commit>How to set up editor for git commit</a>
-<ul>
-<li><a href=#references-2>References</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>My Git learning notes.</p>
-<h1 id=how-to-change-most-recent-commit-message>How to change most recent commit message</h1>
-<p>After we have added a local commit, we may find that we need to do some updates
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Git Learning Notes (2)</h1><div class=post-meta><span class=post-time>2020-05-07</span><div class=post-category><a href=/categories/Git/>Git</a></div><span class=more-meta>404 words</span>
+<span class=more-meta>2 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#how-to-change-most-recent-commit-message>How to change most recent commit message</a><ul><li><a href=#references>References</a></li></ul></li><li><a href=#how-to-show-changes-for-a-specific-file>How to show changes for a specific file</a><ul><li><a href=#references-1>References</a></li></ul></li><li><a href=#how-to-set-up-editor-for-git-commit>How to set up editor for git commit</a><ul><li><a href=#references-2>References</a></li></ul></li></ul></nav></div></div><div class=post-content><p>My Git learning notes.</p><h1 id=how-to-change-most-recent-commit-message>How to change most recent commit message</h1><p>After we have added a local commit, we may find that we need to do some updates
 before pushing to remote repo. We can use <code>git commit --amend</code> to change last
-commit.</p>
-<p>With <code>--amend</code> option, we can change not just commit message. Files in local
+commit.</p><p>With <code>--amend</code> option, we can change not just commit message. Files in local
 repo can also be updated. After using this option, last local commit will be
-replaced with the new commit.</p>
-<h2 id=references>References</h2>
-<ul>
-<li><a href=https://stackoverflow.com/q/179123/6064933>https://stackoverflow.com/q/179123/6064933</a></li>
-<li><a href=https://help.github.com/en/github/committing-changes-to-your-project/changing-a-commit-message>https://help.github.com/en/github/committing-changes-to-your-project/changing-a-commit-message</a></li>
-</ul>
-<h1 id=how-to-show-changes-for-a-specific-file>How to show changes for a specific file</h1>
-<p>Sometimes, we want to show the changes for a particular file across commits.
-This can be achieved by <code>git log</code> command:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git log -p &lt;file_path&gt;
-</code></pre></div><p>The <code>-p</code> option will show detailed diff info for the file.</p>
-<p>A more complete and useful version is:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git log --stat -p --follow &lt;file_path&gt;
-</code></pre></div><p>Meaning of options used:</p>
-<ul>
-<li><code>--stat</code>: show info about file changed, deletions and insertions.</li>
-<li><code>--follow</code>: show file change info before it was renamed (by default, file
-history before renaming is not shown).</li>
-</ul>
-<p>To show only the latest five changes, we can use the <code>-n</code> option:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git log --stat -p --follow -n 5 &lt;file_path&gt;
-
-</code></pre></div><p>A similar command is <code>git whatchanged</code>:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git whatchanged -p &lt;file_path&gt;
-</code></pre></div><p>The git-whatchanged command is similar to <code>git log</code> and is kept for backward
-compatibility. New users are encouraged to use <code>git log</code> instead.</p>
-<h2 id=references-1>References</h2>
-<ul>
-<li><a href=https://stackoverflow.com/q/10022722/6064933>Difference between git-log and git-whatchanged</a>.</li>
-<li><a href=https://git-scm.com/docs/git-whatchanged>git-whatchanged doc</a>.</li>
-<li><a href=https://stackoverflow.com/a/12359963/6064933>https://stackoverflow.com/a/12359963/6064933</a></li>
-<li><a href=https://stackoverflow.com/a/31306082/6064933>See changes to a specific file</a>.</li>
-<li><a href=https://kgrz.io/use-git-log-follow-for-file-history.html>https://kgrz.io/use-git-log-follow-for-file-history.html</a></li>
-<li><a href=https://git-scm.com/docs/git-log>Git log doc</a>.</li>
-</ul>
-<h1 id=how-to-set-up-editor-for-git-commit>How to set up editor for git commit</h1>
-<p>I am used to writing my commit message on the command line with <code>-m</code> option
+replaced with the new commit.</p><h2 id=references>References</h2><ul><li><a href=https://stackoverflow.com/q/179123/6064933>https://stackoverflow.com/q/179123/6064933</a></li><li><a href=https://help.github.com/en/github/committing-changes-to-your-project/changing-a-commit-message>https://help.github.com/en/github/committing-changes-to-your-project/changing-a-commit-message</a></li></ul><h1 id=how-to-show-changes-for-a-specific-file>How to show changes for a specific file</h1><p>Sometimes, we want to show the changes for a particular file across commits.
+This can be achieved by <code>git log</code> command:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>git log -p &lt;file_path&gt;
+</span></span></code></pre></div><p>The <code>-p</code> option will show detailed diff info for the file.</p><p>A more complete and useful version is:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>git log --stat -p --follow &lt;file_path&gt;
+</span></span></code></pre></div><p>Meaning of options used:</p><ul><li><code>--stat</code>: show info about file changed, deletions and insertions.</li><li><code>--follow</code>: show file change info before it was renamed (by default, file
+history before renaming is not shown).</li></ul><p>To show only the latest five changes, we can use the <code>-n</code> option:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>git log --stat -p --follow -n 5 &lt;file_path&gt;
+</span></span></code></pre></div><p>A similar command is <code>git whatchanged</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>git whatchanged -p &lt;file_path&gt;
+</span></span></code></pre></div><p>The git-whatchanged command is similar to <code>git log</code> and is kept for backward
+compatibility. New users are encouraged to use <code>git log</code> instead.</p><h2 id=references-1>References</h2><ul><li><a href=https://stackoverflow.com/q/10022722/6064933>Difference between git-log and git-whatchanged</a>.</li><li><a href=https://git-scm.com/docs/git-whatchanged>git-whatchanged doc</a>.</li><li><a href=https://stackoverflow.com/a/12359963/6064933>https://stackoverflow.com/a/12359963/6064933</a></li><li><a href=https://stackoverflow.com/a/31306082/6064933>See changes to a specific file</a>.</li><li><a href=https://kgrz.io/use-git-log-follow-for-file-history.html>https://kgrz.io/use-git-log-follow-for-file-history.html</a></li><li><a href=https://git-scm.com/docs/git-log>Git log doc</a>.</li></ul><h1 id=how-to-set-up-editor-for-git-commit>How to set up editor for git commit</h1><p>I am used to writing my commit message on the command line with <code>-m</code> option
 (<code>git commit -m "xxx"</code>). This works well for short commit message. When we want
 to write the detailed explanation for a change in commit message, it is better
-to do it in a text editor, e.g., in Vim or Neovim.</p>
-<p>There are basically two way to set up the editor.</p>
-<ul>
-<li>Set up the <code>EDITOR</code> and <code>VISUAL</code> env variable:
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>export</span> <span class=nv>EDITOR</span><span class=o>=</span><span class=s2>&#34;nvim&#34;</span>
-<span class=nb>export</span> <span class=nv>VISUAL</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$EDITOR</span><span class=s2>&#34;</span>
-</code></pre></div></li>
-<li>Set up the editor git uses via <code>git config</code>:
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>git config --global core.editor &#34;nvim&#34;
-</code></pre></div></li>
-</ul>
-<p>After that, when you want to commit, just type <code>git commit</code> in the command line.</p>
-<p align=center>
-<img src=https://blog-resource-1257868508.file.myqcloud.com/20200507005506.png width=800>
-</p>
-<p>Neovim will be opened with a file named <code>COMMIT_EDITMSG</code>, you can edit this
+to do it in a text editor, e.g., in Vim or Neovim.</p><p>There are basically two way to set up the editor.</p><ul><li>Set up the <code>EDITOR</code> and <code>VISUAL</code> env variable:<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>export</span> <span class=nv>EDITOR</span><span class=o>=</span><span class=s2>&#34;nvim&#34;</span>
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>VISUAL</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$EDITOR</span><span class=s2>&#34;</span>
+</span></span></code></pre></div></li><li>Set up the editor git uses via <code>git config</code>:<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>git config --global core.editor &#34;nvim&#34;
+</span></span></code></pre></div></li></ul><p>After that, when you want to commit, just type <code>git commit</code> in the command line.</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20200507005506.png width=800></p><p>Neovim will be opened with a file named <code>COMMIT_EDITMSG</code>, you can edit this
 file. Anything not starting with <code>#</code> will be treated as your commit message.
 After you have done writing the commit message, exit the insert mode, save the
-file and quilt. This commit will be done.</p>
-<h2 id=references-2>References</h2>
-<ul>
-<li><a href=https://stackoverflow.com/q/2596805/6064933>https://stackoverflow.com/q/2596805/6064933</a></li>
-<li><a href=https://stackoverflow.com/q/13239368/6064933>https://stackoverflow.com/q/13239368/6064933</a></li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2021-11-08
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/Git/>Git</a>
-<a href=/tags/Vim/>Vim</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2020/05/09/search_for_solution_with_web_engine/>
-<i class="iconfont icon-left"></i>
+file and quilt. This commit will be done.</p><h2 id=references-2>References</h2><ul><li><a href=https://stackoverflow.com/q/2596805/6064933>https://stackoverflow.com/q/2596805/6064933</a></li><li><a href=https://stackoverflow.com/q/13239368/6064933>https://stackoverflow.com/q/13239368/6064933</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2021-11-08</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/Git/>Git</a>
+<a href=/tags/Vim/>Vim</a></div><nav class=post-nav><a class=prev href=/2020/05/09/search_for_solution_with_web_engine/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">如何高效使用搜索引擎解决技术问题</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2020/05/05/kitty_config_mac/>
-<span class="next-text nav-default">Kitty Terminal Config on Mac</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2020/05/05/kitty_config_mac/><span class="next-text nav-default">Kitty Terminal Config on Mac</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

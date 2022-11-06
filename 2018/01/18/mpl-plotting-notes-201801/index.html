@@ -1,359 +1,102 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Working with Fonts in Matplotlib - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="This post continues my previous post on various tips and tricks collected during the process of using Matplotlib.
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2018/01/18/mpl-plotting-notes-201801/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Working with Fonts in Matplotlib">
-<meta property="og:description" content="This post continues my previous post
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Working with Fonts in Matplotlib - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="This post continues my previous post on various tips and tricks collected during the process of using Matplotlib.
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2018/01/18/mpl-plotting-notes-201801/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Working with Fonts in Matplotlib"><meta property="og:description" content="This post continues my previous post
 on various tips and tricks collected during the process of using Matplotlib.
-">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2018/01/18/mpl-plotting-notes-201801/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2018-01-18T21:13:00+08:00">
-<meta property="article:modified_time" content="2021-10-16T21:43:18+08:00">
-<meta itemprop=name content="Working with Fonts in Matplotlib">
-<meta itemprop=description content="This post continues my previous post
+"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2018/01/18/mpl-plotting-notes-201801/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-01-18T21:13:00+08:00"><meta property="article:modified_time" content="2021-10-16T21:43:18+08:00"><meta itemprop=name content="Working with Fonts in Matplotlib"><meta itemprop=description content="This post continues my previous post
 on various tips and tricks collected during the process of using Matplotlib.
-"><meta itemprop=datePublished content="2018-01-18T21:13:00+08:00">
-<meta itemprop=dateModified content="2021-10-16T21:43:18+08:00">
-<meta itemprop=wordCount content="736">
-<meta itemprop=keywords content="Matplotlib,font,字体,PDF,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Working with Fonts in Matplotlib">
-<meta name=twitter:description content="This post continues my previous post
+"><meta itemprop=datePublished content="2018-01-18T21:13:00+08:00"><meta itemprop=dateModified content="2021-10-16T21:43:18+08:00"><meta itemprop=wordCount content="736"><meta itemprop=keywords content="Matplotlib,font,字体,PDF,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Working with Fonts in Matplotlib"><meta name=twitter:description content="This post continues my previous post
 on various tips and tricks collected during the process of using Matplotlib.
 "><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Working with Fonts in Matplotlib</h1>
-<div class=post-meta>
-<span class=post-time> 2018-01-18 </span>
-<div class=post-category>
-<a href=/categories/Python/> Python </a>
-</div>
-<span class=more-meta> 736 words </span>
-<span class=more-meta> 2 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#working-with-math-font>Working with math font</a>
-<ul>
-<li><a href=#default-math-font-is-ugly>Default math font is ugly?</a>
-<ul>
-<li><a href=#change-the-math-font-temporarily>Change the math font temporarily</a></li>
-<li><a href=#change-the-math-font-globally>Change the math font globally</a></li>
-</ul>
-</li>
-<li><a href=#mix-math-text-with-regular-text>Mix math text with regular text</a></li>
-</ul>
-</li>
-<li><a href=#type-3-font-used-by-matplotlib-pdf-backend>Type 3 font used by Matplotlib PDF backend</a>
-<ul>
-<li><a href=#reducing-the-pdf-size-when-type-42-fonts-are-used>Reducing the PDF size when Type-42 fonts are used</a></li>
-</ul>
-</li>
-<li><a href=#references>References</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>This post continues my <a href=https://jdhao.github.io/2017/11/16/matplotlib-plotting-notes/>previous post</a>
-on various tips and tricks collected during the process of using Matplotlib.</p>
-<p><img src=https://blog-resource-1257868508.file.myqcloud.com/18-1-18/39303776.jpg title="Different math symbols produced by Matplotlib and LaTeX" style=float:middle></p>
-<h1 id=working-with-math-font>Working with math font</h1>
-<h2 id=default-math-font-is-ugly>Default math font is ugly?</h2>
-<p>If you try to play with the <a href=https://matplotlib.org/users/mathtext.html>built-in LaTeX-style math
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Working with Fonts in Matplotlib</h1><div class=post-meta><span class=post-time>2018-01-18</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>736 words</span>
+<span class=more-meta>2 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#working-with-math-font>Working with math font</a><ul><li><a href=#default-math-font-is-ugly>Default math font is ugly?</a><ul><li><a href=#change-the-math-font-temporarily>Change the math font temporarily</a></li><li><a href=#change-the-math-font-globally>Change the math font globally</a></li></ul></li><li><a href=#mix-math-text-with-regular-text>Mix math text with regular text</a></li></ul></li><li><a href=#type-3-font-used-by-matplotlib-pdf-backend>Type 3 font used by Matplotlib PDF backend</a><ul><li><a href=#reducing-the-pdf-size-when-type-42-fonts-are-used>Reducing the PDF size when Type-42 fonts are used</a></li></ul></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>This post continues my <a href=https://jdhao.github.io/2017/11/16/matplotlib-plotting-notes/>previous post</a>
+on various tips and tricks collected during the process of using Matplotlib.</p><p><img src=https://blog-resource-1257868508.file.myqcloud.com/18-1-18/39303776.jpg title="Different math symbols produced by Matplotlib and LaTeX" style=float:middle></p><h1 id=working-with-math-font>Working with math font</h1><h2 id=default-math-font-is-ugly>Default math font is ugly?</h2><p>If you try to play with the <a href=https://matplotlib.org/users/mathtext.html>built-in LaTeX-style math
 support</a> in the recent version of
 Matplotlib, e.g., version 2.0. You may have noticed that the <a href=https://github.com/matplotlib/matplotlib/issues/7921/>default math font
 is ugly</a> compared to the
 nicer look of math symbols produced by LaTeX. See the figure above for an
-example.</p>
-<p>It is because <a href=https://matplotlib.org/users/dflt_style_changes.html#math-text>the default math font has
+example.</p><p>It is because <a href=https://matplotlib.org/users/dflt_style_changes.html#math-text>the default math font has
 changed</a> since
 Matplotlib version 2.0. If you want to use the LaTeX-style font. You need to
 change the default math font to <a href=https://en.wikipedia.org/wiki/Computer_Modern>computer
 modern</a>. There are two ways to
-achieve to this.</p>
-<h3 id=change-the-math-font-temporarily>Change the math font temporarily</h3>
-<p>You can change math font in your plotting script so that it only takes effect
-in your script. To do this, add the following statement to your script,</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>matplotlib</span> <span class=k>as</span> <span class=nn>mpl</span>
-<span class=n>mpl</span><span class=o>.</span><span class=n>rcParams</span><span class=p>[</span><span class=s1>&#39;mathtext.fontset&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;cm&#39;</span>
-</code></pre></div><h3 id=change-the-math-font-globally>Change the math font globally</h3>
-<p>You can also change the math font options in your <a href=https://matplotlib.org/users/customizing.html#matplotlib-rcparams>matplotlibrc
+achieve to this.</p><h3 id=change-the-math-font-temporarily>Change the math font temporarily</h3><p>You can change math font in your plotting script so that it only takes effect
+in your script. To do this, add the following statement to your script,</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>matplotlib</span> <span class=k>as</span> <span class=nn>mpl</span>
+</span></span><span class=line><span class=cl><span class=n>mpl</span><span class=o>.</span><span class=n>rcParams</span><span class=p>[</span><span class=s1>&#39;mathtext.fontset&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;cm&#39;</span>
+</span></span></code></pre></div><h3 id=change-the-math-font-globally>Change the math font globally</h3><p>You can also change the math font options in your <a href=https://matplotlib.org/users/customizing.html#matplotlib-rcparams>matplotlibrc
 files</a>. This
 will affect all your scripts afterwards. This file is usually located in
 <code>$HOME</code> under the directory <code>~/.config/matplotlib</code>. But its location may vary.
-Use the following command to find where rc file is on your system,</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>matplotlib</span> <span class=k>as</span> <span class=nn>mpl</span>
-<span class=nb>print</span><span class=p>(</span><span class=n>mpl</span><span class=o>.</span><span class=n>matplotlib_fname</span><span class=p>())</span>
-</code></pre></div><p>Then find the line</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>#mathtext.fontset : dejavusans
-</code></pre></div><p>Uncomment it and change it to</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>mathtext.fontset : cm
-</code></pre></div><p>Now, the math font will look much better. All your script will use the new
-settings.</p>
-<h2 id=mix-math-text-with-regular-text>Mix math text with regular text</h2>
-<p>If we want to use line break in math expression, it will be useless since
+Use the following command to find where rc file is on your system,</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>matplotlib</span> <span class=k>as</span> <span class=nn>mpl</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>mpl</span><span class=o>.</span><span class=n>matplotlib_fname</span><span class=p>())</span>
+</span></span></code></pre></div><p>Then find the line</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>#mathtext.fontset : dejavusans
+</span></span></code></pre></div><p>Uncomment it and change it to</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>mathtext.fontset : cm
+</span></span></code></pre></div><p>Now, the math font will look much better. All your script will use the new
+settings.</p><h2 id=mix-math-text-with-regular-text>Mix math text with regular text</h2><p>If we want to use line break in math expression, it will be useless since
 everything inside raw text is interpretted verbatim. In order to combine math
-expression with regular text, we can concatenate them together.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
-
-<span class=n>fig</span><span class=p>,</span> <span class=n>ax</span> <span class=o>=</span> <span class=n>plt</span><span class=o>.</span><span class=n>subplots</span><span class=p>()</span>
-
-<span class=n>ax</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>,</span> <span class=sa>r</span><span class=s2>&#34;$\mu=1$&#34;</span> <span class=o>+</span> <span class=s2>&#34;</span><span class=se>\n</span><span class=s2>&#34;</span> <span class=o>+</span> <span class=sa>r</span><span class=s2>&#34;$\sigma=2$&#34;</span><span class=p>,</span>
-        <span class=n>transform</span><span class=o>=</span><span class=n>ax</span><span class=o>.</span><span class=n>transAxes</span><span class=p>)</span>
-
-<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre></div><p>The produced image is</p>
-<p><img src=https://blog-resource-1257868508.file.myqcloud.com/18-5-2/65111903.jpg title="Mix line break with math expression" style=float:middle></p>
-<h1 id=type-3-font-used-by-matplotlib-pdf-backend>Type 3 font used by Matplotlib PDF backend</h1>
-<p>If you use the default Matplotlib setting to produce a PDF file and then
+expression with regular text, we can concatenate them together.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>fig</span><span class=p>,</span> <span class=n>ax</span> <span class=o>=</span> <span class=n>plt</span><span class=o>.</span><span class=n>subplots</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>ax</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>,</span> <span class=sa>r</span><span class=s2>&#34;$\mu=1$&#34;</span> <span class=o>+</span> <span class=s2>&#34;</span><span class=se>\n</span><span class=s2>&#34;</span> <span class=o>+</span> <span class=sa>r</span><span class=s2>&#34;$\sigma=2$&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>transform</span><span class=o>=</span><span class=n>ax</span><span class=o>.</span><span class=n>transAxes</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</span></span></code></pre></div><p>The produced image is</p><p><img src=https://blog-resource-1257868508.file.myqcloud.com/18-5-2/65111903.jpg title="Mix line break with math expression" style=float:middle></p><h1 id=type-3-font-used-by-matplotlib-pdf-backend>Type 3 font used by Matplotlib PDF backend</h1><p>If you use the default Matplotlib setting to produce a PDF file and then
 include it in your paper, chances are that you will encounter errors when you
 test the PDF for compliance with the IEEE conference standard. The error shows
 that Type 3 font has been used in your paper. That is because Matplotlib use
-Type 3 font to produce PDF file by default.</p>
-<p>The disadvantage of Type 3 font is that <a href=https://stackoverflow.com/questions/5956182/cannot-edit-text-in-chart-exported-by-matplotlib-and-opened-in-illustrator>it can not be edited by a PDF
+Type 3 font to produce PDF file by default.</p><p>The disadvantage of Type 3 font is that <a href=https://stackoverflow.com/questions/5956182/cannot-edit-text-in-chart-exported-by-matplotlib-and-opened-in-illustrator>it can not be edited by a PDF
 editor</a>
 such as Adobe Acrobat Pro. The &ldquo;advantage&rdquo; is that the produced PDF is small in
-size.</p>
-<p>You can change this behavior in your script to use Type 42 font instead. This
-setting will work locally:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>matplotlib</span> <span class=k>as</span> <span class=nn>mpl</span>
-<span class=n>mpl</span><span class=o>.</span><span class=n>rcParams</span><span class=p>[</span><span class=s1>&#39;pdf.fonttype&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>42</span>
-</code></pre></div><p>If you want to change this settings globally<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>, you can edit your
-matplotlibrc file like the example of changing math font.</p>
-<p>Find the line,</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>#pdf.fonttype       : 3       # Output Type 3 (Type3) or Type 42 (TrueType)
-</code></pre></div><p>Uncomment it and change it to</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>pdf.fonttype       : 42        # Output Type 3 (Type3) or Type 42 (TrueType)
-</code></pre></div><h2 id=reducing-the-pdf-size-when-type-42-fonts-are-used>Reducing the PDF size when Type-42 fonts are used</h2>
-<p>I have come to find that if you use Chinese font in your image and use the Type
+size.</p><p>You can change this behavior in your script to use Type 42 font instead. This
+setting will work locally:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>matplotlib</span> <span class=k>as</span> <span class=nn>mpl</span>
+</span></span><span class=line><span class=cl><span class=n>mpl</span><span class=o>.</span><span class=n>rcParams</span><span class=p>[</span><span class=s1>&#39;pdf.fonttype&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=mi>42</span>
+</span></span></code></pre></div><p>If you want to change this settings globally<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>, you can edit your
+matplotlibrc file like the example of changing math font.</p><p>Find the line,</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>#pdf.fonttype       : 3       # Output Type 3 (Type3) or Type 42 (TrueType)
+</span></span></code></pre></div><p>Uncomment it and change it to</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>pdf.fonttype       : 42        # Output Type 3 (Type3) or Type 42 (TrueType)
+</span></span></code></pre></div><h2 id=reducing-the-pdf-size-when-type-42-fonts-are-used>Reducing the PDF size when Type-42 fonts are used</h2><p>I have come to find that if you use Chinese font in your image and use the Type
 42 font, the <a href=https://github.com/matplotlib/matplotlib/issues/11303>produced PDF size will be much
 larger</a>. If you do not
-want to edit the produce pdf file, I think using Type 3 font may be fine.</p>
-<p>Some publisher explicitly require that Type 3 font is not included. Then we
+want to edit the produce pdf file, I think using Type 3 font may be fine.</p><p>Some publisher explicitly require that Type 3 font is not included. Then we
 need to reduce the size of PDF in which Type 42 fonts are used. According to
 solutions <a href=https://stackoverflow.com/a/14384178/6064933>here</a>, we can convert
-the PDF file to Ghostscript file and convert back to PDF.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>pdf2ps file.pdf file.ps
-ps2pdf -dPDFSETTINGS<span class=o>=</span>/prepress file.ps file-optimized.pdf
-</code></pre></div><p>The option <code>-dPDFSETTINGS</code> defines the quality of the produced PDF. Possible
-options and explanations are listed below:</p>
-<table>
-<thead>
-<tr>
-<th style=text-align:left>option</th>
-<th style=text-align:left>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style=text-align:left>-dPDFSETTINGS=/screen</td>
-<td style=text-align:left>(screen-view-only quality, 72 dpi images)</td>
-</tr>
-<tr>
-<td style=text-align:left>-dPDFSETTINGS=/ebook</td>
-<td style=text-align:left>(low quality, 150 dpi images)</td>
-</tr>
-<tr>
-<td style=text-align:left>-dPDFSETTINGS=/printer</td>
-<td style=text-align:left>(high quality, 300 dpi images)</td>
-</tr>
-<tr>
-<td style=text-align:left>-dPDFSETTINGS=/prepress</td>
-<td style=text-align:left>(high quality, color preserving, 300 dpi imgs)</td>
-</tr>
-<tr>
-<td style=text-align:left>-dPDFSETTINGS=/default</td>
-<td style=text-align:left>(almost identical to /screen)</td>
-</tr>
-</tbody>
-</table>
-<p>The conversion process will reduce the PDF size considerably. In my case, the
+the PDF file to Ghostscript file and convert back to PDF.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>pdf2ps file.pdf file.ps
+</span></span><span class=line><span class=cl>ps2pdf -dPDFSETTINGS<span class=o>=</span>/prepress file.ps file-optimized.pdf
+</span></span></code></pre></div><p>The option <code>-dPDFSETTINGS</code> defines the quality of the produced PDF. Possible
+options and explanations are listed below:</p><table><thead><tr><th style=text-align:left>option</th><th style=text-align:left>description</th></tr></thead><tbody><tr><td style=text-align:left>-dPDFSETTINGS=/screen</td><td style=text-align:left>(screen-view-only quality, 72 dpi images)</td></tr><tr><td style=text-align:left>-dPDFSETTINGS=/ebook</td><td style=text-align:left>(low quality, 150 dpi images)</td></tr><tr><td style=text-align:left>-dPDFSETTINGS=/printer</td><td style=text-align:left>(high quality, 300 dpi images)</td></tr><tr><td style=text-align:left>-dPDFSETTINGS=/prepress</td><td style=text-align:left>(high quality, color preserving, 300 dpi imgs)</td></tr><tr><td style=text-align:left>-dPDFSETTINGS=/default</td><td style=text-align:left>(almost identical to /screen)</td></tr></tbody></table><p>The conversion process will reduce the PDF size considerably. In my case, the
 PDF size went from 5.3M to just 29k. The quality of the optimized PDF is
-acceptable. So this is an viable solution.</p>
-<p>P.S.: The <a href=https://stackoverflow.com/a/614694/6064933><code>pdffonts</code></a> shipped by
+acceptable. So this is an viable solution.</p><p>P.S.: The <a href=https://stackoverflow.com/a/614694/6064933><code>pdffonts</code></a> shipped by
 most Linux system can be used to detect which fonts are embedded in your PDF
 files.
 <a href=https://superuser.com/questions/183313/view-list-of-embedded-fonts-in-pdf-file-with-preview>Here</a>
-is another example to use <code>pdffonts</code> command.</p>
-<h1 id=references>References</h1>
-<ul>
-<li><a href=https://stackoverflow.com/questions/2660319/putting-newline-in-matplotlib-label-with-tex-in-python>https://stackoverflow.com/questions/2660319/putting-newline-in-matplotlib-label-with-tex-in-python</a></li>
-<li><a href=https://stackoverflow.com/questions/10284847/python-matplotlib-annotate-line-break-with-and-without-latex>https://stackoverflow.com/questions/10284847/python-matplotlib-annotate-line-break-with-and-without-latex</a></li>
-</ul>
-<section class=footnotes role=doc-endnotes>
-<hr>
-<ol>
-<li id=fn:1 role=doc-endnote>
-<p>It means that you do not need to set the fonttype in every source file.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2021-10-16
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/Matplotlib/>Matplotlib</a>
+is another example to use <code>pdffonts</code> command.</p><h1 id=references>References</h1><ul><li><a href=https://stackoverflow.com/questions/2660319/putting-newline-in-matplotlib-label-with-tex-in-python>https://stackoverflow.com/questions/2660319/putting-newline-in-matplotlib-label-with-tex-in-python</a></li><li><a href=https://stackoverflow.com/questions/10284847/python-matplotlib-annotate-line-break-with-and-without-latex>https://stackoverflow.com/questions/10284847/python-matplotlib-annotate-line-break-with-and-without-latex</a></li></ul><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>It means that you do not need to set the fonttype in every source file.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2021-10-16</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/Matplotlib/>Matplotlib</a>
 <a href=/tags/font/>font</a>
 <a href=/tags/%E5%AD%97%E4%BD%93/>字体</a>
-<a href=/tags/PDF/>PDF</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2018/01/23/matplotlib-legend-outside-of-axes/>
-<i class="iconfont icon-left"></i>
+<a href=/tags/PDF/>PDF</a></div><nav class=post-nav><a class=prev href=/2018/01/23/matplotlib-legend-outside-of-axes/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">How To Put Legend outside of Axes Properly in Matplotlib?</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2017/12/29/cmder-usage/>
-<span class="next-text nav-default">Cmder --- The Ultimate Command Line Tool for Windows</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2017/12/29/cmder-usage/><span class="next-text nav-default">Cmder --- The Ultimate Command Line Tool for Windows</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

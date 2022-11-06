@@ -1,340 +1,92 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>An Introduction to Lookaround Regular Expression in Neovim/Vim - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="Today I want to use some regular expressions for searching and replacing in my files. But I found that Nvim/Vim regular expression engine has its own flavor, which is different from the regex engine used by Sublime Text1. I ended up learning some of the basics of Nvim-style regex. In this post, I want to share about how to use lookaround2 in Nvim.
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2018/10/18/regular_expression_nvim/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="An Introduction to Lookaround Regular Expression in Neovim/Vim">
-<meta property="og:description" content="Today I want to use some regular expressions for searching and replacing in my
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>An Introduction to Lookaround Regular Expression in Neovim/Vim - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="Today I want to use some regular expressions for searching and replacing in my files. But I found that Nvim/Vim regular expression engine has its own flavor, which is different from the regex engine used by Sublime Text1. I ended up learning some of the basics of Nvim-style regex. In this post, I want to share about how to use lookaround2 in Nvim.
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2018/10/18/regular_expression_nvim/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="An Introduction to Lookaround Regular Expression in Neovim/Vim"><meta property="og:description" content="Today I want to use some regular expressions for searching and replacing in my
 files. But I found that Nvim/Vim regular expression engine has its own flavor,
 which is different from the regex engine used by Sublime Text1. I ended up
 learning some of the basics of Nvim-style regex. In this post, I want to share
-about how to use lookaround2 in Nvim.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2018/10/18/regular_expression_nvim/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2018-10-18T19:34:00+08:00">
-<meta property="article:modified_time" content="2019-12-08T15:17:22+08:00">
-<meta itemprop=name content="An Introduction to Lookaround Regular Expression in Neovim/Vim">
-<meta itemprop=description content="Today I want to use some regular expressions for searching and replacing in my
+about how to use lookaround2 in Nvim."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2018/10/18/regular_expression_nvim/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-10-18T19:34:00+08:00"><meta property="article:modified_time" content="2019-12-08T15:17:22+08:00"><meta itemprop=name content="An Introduction to Lookaround Regular Expression in Neovim/Vim"><meta itemprop=description content="Today I want to use some regular expressions for searching and replacing in my
 files. But I found that Nvim/Vim regular expression engine has its own flavor,
 which is different from the regex engine used by Sublime Text1. I ended up
 learning some of the basics of Nvim-style regex. In this post, I want to share
-about how to use lookaround2 in Nvim."><meta itemprop=datePublished content="2018-10-18T19:34:00+08:00">
-<meta itemprop=dateModified content="2019-12-08T15:17:22+08:00">
-<meta itemprop=wordCount content="606">
-<meta itemprop=keywords content="Vim,Regex,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="An Introduction to Lookaround Regular Expression in Neovim/Vim">
-<meta name=twitter:description content="Today I want to use some regular expressions for searching and replacing in my
+about how to use lookaround2 in Nvim."><meta itemprop=datePublished content="2018-10-18T19:34:00+08:00"><meta itemprop=dateModified content="2019-12-08T15:17:22+08:00"><meta itemprop=wordCount content="607"><meta itemprop=keywords content="Vim,Regex,"><meta name=twitter:card content="summary"><meta name=twitter:title content="An Introduction to Lookaround Regular Expression in Neovim/Vim"><meta name=twitter:description content="Today I want to use some regular expressions for searching and replacing in my
 files. But I found that Nvim/Vim regular expression engine has its own flavor,
 which is different from the regex engine used by Sublime Text1. I ended up
 learning some of the basics of Nvim-style regex. In this post, I want to share
 about how to use lookaround2 in Nvim."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>An Introduction to Lookaround Regular Expression in Neovim/Vim</h1>
-<div class=post-meta>
-<span class=post-time> 2018-10-18 </span>
-<div class=post-category>
-<a href=/categories/Nvim/> Nvim </a>
-</div>
-<span class=more-meta> 606 words </span>
-<span class=more-meta> 3 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#lookaround-in-nvim>Lookaround in Nvim</a>
-<ul>
-<li><a href=#combine-magic-mode-and-look-around>Combine magic mode and look around</a></li>
-</ul>
-</li>
-<li><a href=#ze-and-zs-for-positive-lookaround><code>\ze</code> and <code>\zs</code> for positive lookaround</a></li>
-<li><a href=#a-last-example>A last example</a>
-<ul>
-<li><a href=#using-positive-lookbehind>Using positive lookbehind</a></li>
-<li><a href=#using-zs>Using <code>\zs</code></a></li>
-</ul>
-</li>
-<li><a href=#references>References</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>Today I want to use some regular expressions for searching and replacing in my
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>An Introduction to Lookaround Regular Expression in Neovim/Vim</h1><div class=post-meta><span class=post-time>2018-10-18</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>607 words</span>
+<span class=more-meta>3 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#lookaround-in-nvim>Lookaround in Nvim</a><ul><li><a href=#combine-magic-mode-and-look-around>Combine magic mode and look around</a></li></ul></li><li><a href=#ze-and-zs-for-positive-lookaround><code>\ze</code> and <code>\zs</code> for positive lookaround</a></li><li><a href=#a-last-example>A last example</a><ul><li><a href=#using-positive-lookbehind>Using positive lookbehind</a></li><li><a href=#using-zs>Using <code>\zs</code></a></li></ul></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>Today I want to use some regular expressions for searching and replacing in my
 files. But I found that Nvim/Vim regular expression engine has its own flavor,
 which is different from the regex engine used by Sublime Text<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. I ended up
 learning some of the basics of Nvim-style regex. In this post, I want to share
-about how to use lookaround<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> in Nvim.</p>
-<h1 id=lookaround-in-nvim>Lookaround in Nvim</h1>
-<p>First, in Nvim, the syntax for look around is:</p>
-<ul>
-<li><code>\@=</code>: positive lookahead</li>
-<li><code>\@!</code>: negative lookahead</li>
-<li><code>\@&lt;=</code>: positive lookbehind</li>
-<li><code>\@&lt;!</code>: negative lookbehind</li>
-</ul>
-<p>But how to use look around in Nvim? Let is take an example to explain this.
-Suppose we have text as follows:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>foobar foo barfoo
-</code></pre></div><p>To match <code>foo</code> which is followed by <code>bar</code> (<code>bar</code> not part of the match), use
-the following regex:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>/foo\(bar\)\@=
-</code></pre></div><p>In Nvim, <code>(</code> and <code>)</code> matches literally, which is different from
+about how to use lookaround<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> in Nvim.</p><h1 id=lookaround-in-nvim>Lookaround in Nvim</h1><p>First, in Nvim, the syntax for look around is:</p><ul><li><code>\@=</code>: positive lookahead</li><li><code>\@!</code>: negative lookahead</li><li><code>\@&lt;=</code>: positive lookbehind</li><li><code>\@&lt;!</code>: negative lookbehind</li></ul><p>But how to use look around in Nvim? Let is take an example to explain this.
+Suppose we have text as follows:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>foobar foo barfoo
+</span></span></code></pre></div><p>To match <code>foo</code> which is followed by <code>bar</code> (<code>bar</code> not part of the match), use
+the following regex:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>/foo\(bar\)\@=
+</span></span></code></pre></div><p>In Nvim, <code>(</code> and <code>)</code> matches literally, which is different from
 <a href=https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions>PCRE</a>. In
 order to use lookaround in Nvim, we have to include the lookaround pattern in a
-group, hence the escaped parentheses <code>\(\)</code> around <code>bar</code>.</p>
-<p>So the first <code>foo</code> in the above text matches:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>foobar foo barfoo
-^
-one match here
-</code></pre></div><p>Similarly, we have the following 4 patterns:</p>
-<ol>
-<li>Match <code>foo</code> which is not followed by <code>bar</code>: <code>/foo\(bar\)\@!</code></li>
-</ol>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback># now we have two matches
-foobar foo barfoo
-       ^      ^
-       two matches here
-</code></pre></div><ol start=2>
-<li>Match <code>foo</code> which is preceded by <code>bar</code>: <code>/\(bar\)\@&lt;=foo</code></li>
-</ol>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>foobar foo barfoo
-              ^
-              one match here
-</code></pre></div><ol start=3>
-<li>Match <code>foo</code> which is not preceded by <code>bar</code>: <code>/\(bar\)\@&lt;!foo</code></li>
-</ol>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>foobar foo barfoo
-^      ^
-two matches here
-</code></pre></div><ol start=4>
-<li>Match <code>foo</code> which is neither followed nor preceded by <code>bar</code>:
-<code>/\(bar\)\@&lt;!foo\(bar\)\@!</code></li>
-</ol>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>foobar foo barfoo
-       ^
-       one match here
-</code></pre></div><h2 id=combine-magic-mode-and-look-around>Combine magic mode and look around</h2>
-<p>Several months after I first wrote this article, I learned that Nvim also has a
+group, hence the escaped parentheses <code>\(\)</code> around <code>bar</code>.</p><p>So the first <code>foo</code> in the above text matches:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>foobar foo barfoo
+</span></span><span class=line><span class=cl>^
+</span></span><span class=line><span class=cl>one match here
+</span></span></code></pre></div><p>Similarly, we have the following 4 patterns:</p><ol><li>Match <code>foo</code> which is not followed by <code>bar</code>: <code>/foo\(bar\)\@!</code></li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># now we have two matches
+</span></span><span class=line><span class=cl>foobar foo barfoo
+</span></span><span class=line><span class=cl>       ^      ^
+</span></span><span class=line><span class=cl>       two matches here
+</span></span></code></pre></div><ol start=2><li>Match <code>foo</code> which is preceded by <code>bar</code>: <code>/\(bar\)\@&lt;=foo</code></li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>foobar foo barfoo
+</span></span><span class=line><span class=cl>              ^
+</span></span><span class=line><span class=cl>              one match here
+</span></span></code></pre></div><ol start=3><li>Match <code>foo</code> which is not preceded by <code>bar</code>: <code>/\(bar\)\@&lt;!foo</code></li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>foobar foo barfoo
+</span></span><span class=line><span class=cl>^      ^
+</span></span><span class=line><span class=cl>two matches here
+</span></span></code></pre></div><ol start=4><li>Match <code>foo</code> which is neither followed nor preceded by <code>bar</code>:
+<code>/\(bar\)\@&lt;!foo\(bar\)\@!</code></li></ol><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>foobar foo barfoo
+</span></span><span class=line><span class=cl>       ^
+</span></span><span class=line><span class=cl>       one match here
+</span></span></code></pre></div><h2 id=combine-magic-mode-and-look-around>Combine magic mode and look around</h2><p>Several months after I first wrote this article, I learned that Nvim also has a
 <code>very magic</code> mode (see <code>:h /magic</code> for more info) which behaves more like
 <a href=https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions>PCRE</a>. The
 <code>very magic</code> mode is activate by preceding the search pattern with <code>\v</code>. In the
 <code>very magic</code> mode, you have to remove the <code>\</code> character from the look around
-pattern. So in the very magic mode, the following regex should be used instead:</p>
-<ul>
-<li>positive look ahead: <code>@=</code></li>
-<li>negative look ahead: <code>@!</code></li>
-<li>positive look behind: <code>@&lt;=</code></li>
-<li>negative look behind: <code>@&lt;!</code></li>
-</ul>
-<p>For example, to match <code>foo</code> which is followed by <code>bar</code>, you should use:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim>\<span class=nx>vfoo</span><span class=p>(</span><span class=nx>bar</span><span class=p>)</span>@<span class=p>=</span><span class=err>
-</span></code></pre></div><h1 id=ze-and-zs-for-positive-lookaround><code>\ze</code> and <code>\zs</code> for positive lookaround</h1>
-<p>We may also use <code>\zs</code> and <code>ze</code> for positive lookbehind and lookahead. <code>\zs</code>
+pattern. So in the very magic mode, the following regex should be used instead:</p><ul><li>positive look ahead: <code>@=</code></li><li>negative look ahead: <code>@!</code></li><li>positive look behind: <code>@&lt;=</code></li><li>negative look behind: <code>@&lt;!</code></li></ul><p>For example, to match <code>foo</code> which is followed by <code>bar</code>, you should use:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl>\<span class=nx>vfoo</span><span class=p>(</span><span class=nx>bar</span><span class=p>)</span>@<span class=p>=</span><span class=err>
+</span></span></span></code></pre></div><h1 id=ze-and-zs-for-positive-lookaround><code>\ze</code> and <code>\zs</code> for positive lookaround</h1><p>We may also use <code>\zs</code> and <code>ze</code> for positive lookbehind and lookahead. <code>\zs</code>
 means that the actual match starts from here and <code>\ze</code> means that the actual
-match ends here. Take the above <code>foobar</code> text as an example:</p>
-<ul>
-<li>Match <code>foo</code> preceded by <code>bar</code>: <code>\bar\zsfoo</code></li>
-<li>Match <code>foo</code> followed by <code>bar</code>: <code>foo\zebar</code></li>
-</ul>
-<p>In the above two match, <code>bar</code> is not part of the match. You can see that<code>\ze</code>
-and <code>\zs</code> simplify the pattern for positive lookaround.</p>
-<h1 id=a-last-example>A last example</h1>
-<p>Let&rsquo;s take another example (adapted from <a href=https://stackoverflow.com/questions/8169937/positive-look-behind-assertion-and-substitution-with-vim/52871369#52871369>this
-post</a>):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>rs11223-A        -A
-rs23300-G        -TTA
-rs9733-T          -G
-rs11900000-GT    -TTG
-</code></pre></div><p>Suppose we want to find <code>-</code> in the first part of each line, how do we write the
-regex pattern?</p>
-<h2 id=using-positive-lookbehind>Using positive lookbehind</h2>
-<p>With positive lookbehind, the pattern can be (definitely not the only one):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>/\(\d\+\)\@&lt;=-
-</code></pre></div><p>In the above regex pattern, <code>\+</code> means to match previous pattern 1 or more
-time, which is a bit different from what we are accustomed to in Sublime Text.</p>
-<h2 id=using-zs>Using <code>\zs</code></h2>
-<p>With <code>\zs</code>, we can simplify the match pattern:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>/\d\+\zs-
-</code></pre></div><p>Ok, that is all. Hope you can finally understand how to correctly use
-lookaround regex in Nvim.</p>
-<h1 id=references>References</h1>
-<ul>
-<li><a href=https://vi.stackexchange.com/questions/3036/is-lookaround-possible-in-vims-regex-system>https://vi.stackexchange.com/questions/3036/is-lookaround-possible-in-vims-regex-system</a></li>
-<li><a href=http://vimregex.com/#news>Vim regex cheatsheet</a></li>
-<li><a href=https://jbodah.github.io/blog/2016/11/01/positivenegative-lookaheadlookbehind-vim/>A good post about vim lookaround regex.</a></li>
-</ul>
-<section class=footnotes role=doc-endnotes>
-<hr>
-<ol>
-<li id=fn:1 role=doc-endnote>
-<p>Use <code>:h perl-patterns</code> to find the difference of Nvim regex and Perl&rsquo;s regex.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-<li id=fn:2 role=doc-endnote>
-<p>If you are not familiar with what lookaround in regex means, you can find a intro <a href=https://www.regular-expressions.info/lookaround.html>here</a> and <a href=https://stackoverflow.com/questions/2973436/regex-lookahead-lookbehind-and-atomic-groups>here</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2019-12-08
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/Vim/>Vim</a>
-<a href=/tags/Regex/>Regex</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2018/10/19/tmux_nvim_true_color/>
-<i class="iconfont icon-left"></i>
+match ends here. Take the above <code>foobar</code> text as an example:</p><ul><li>Match <code>foo</code> preceded by <code>bar</code>: <code>\bar\zsfoo</code></li><li>Match <code>foo</code> followed by <code>bar</code>: <code>foo\zebar</code></li></ul><p>In the above two match, <code>bar</code> is not part of the match. You can see that<code>\ze</code>
+and <code>\zs</code> simplify the pattern for positive lookaround.</p><h1 id=a-last-example>A last example</h1><p>Let&rsquo;s take another example (adapted from <a href=https://stackoverflow.com/questions/8169937/positive-look-behind-assertion-and-substitution-with-vim/52871369#52871369>this
+post</a>):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>rs11223-A        -A
+</span></span><span class=line><span class=cl>rs23300-G        -TTA
+</span></span><span class=line><span class=cl>rs9733-T          -G
+</span></span><span class=line><span class=cl>rs11900000-GT    -TTG
+</span></span></code></pre></div><p>Suppose we want to find <code>-</code> in the first part of each line, how do we write the
+regex pattern?</p><h2 id=using-positive-lookbehind>Using positive lookbehind</h2><p>With positive lookbehind, the pattern can be (definitely not the only one):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>/\(\d\+\)\@&lt;=-
+</span></span></code></pre></div><p>In the above regex pattern, <code>\+</code> means to match previous pattern 1 or more
+time, which is a bit different from what we are accustomed to in Sublime Text.</p><h2 id=using-zs>Using <code>\zs</code></h2><p>With <code>\zs</code>, we can simplify the match pattern:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>/\d\+\zs-
+</span></span></code></pre></div><p>Ok, that is all. Hope you can finally understand how to correctly use
+lookaround regex in Nvim.</p><h1 id=references>References</h1><ul><li><a href=https://vi.stackexchange.com/questions/3036/is-lookaround-possible-in-vims-regex-system>https://vi.stackexchange.com/questions/3036/is-lookaround-possible-in-vims-regex-system</a></li><li><a href=http://vimregex.com/#news>Vim regex cheatsheet</a></li><li><a href=https://jbodah.github.io/blog/2016/11/01/positivenegative-lookaheadlookbehind-vim/>A good post about vim lookaround regex.</a></li></ul><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>Use <code>:h perl-patterns</code> to find the difference of Nvim regex and Perl&rsquo;s regex.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>If you are not familiar with what lookaround in regex means, you can find a intro <a href=https://www.regular-expressions.info/lookaround.html>here</a> and <a href=https://stackoverflow.com/questions/2973436/regex-lookahead-lookbehind-and-atomic-groups>here</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2019-12-08</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/Vim/>Vim</a>
+<a href=/tags/Regex/>Regex</a></div><nav class=post-nav><a class=prev href=/2018/10/19/tmux_nvim_true_color/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Setting up True Color Support for Neovim and Tmux on Mac</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2018/10/16/tmux_build_without_root_priviledge/>
-<span class="next-text nav-default">Building and Install Tmux from Source on Linux</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2018/10/16/tmux_build_without_root_priviledge/><span class="next-text nav-default">Building and Install Tmux from Source on Linux</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

@@ -1,201 +1,55 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>JPEG Image Orientation and Exif - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="The other day I came across a strange bug during work. My colleagues gave me some photographs taken with a smartphone. On their machines (Windows 7), all the photos were shown correctly in landscape mode. However, when I checked those photos, I found that some of those photos were shown in portrait mode (rotated 90 or 270 degrees) or upside-down (rotated 180 degrees).
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>JPEG Image Orientation and Exif - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="The other day I came across a strange bug during work. My colleagues gave me some photographs taken with a smartphone. On their machines (Windows 7), all the photos were shown correctly in landscape mode. However, when I checked those photos, I found that some of those photos were shown in portrait mode (rotated 90 or 270 degrees) or upside-down (rotated 180 degrees).
 I was curious what happened and learned about Exif and all its related stuff.
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2019/07/31/image_rotation_exif_info/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="JPEG Image Orientation and Exif">
-<meta property="og:description" content="The other day I came across a strange bug during work. My colleagues gave me
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2019/07/31/image_rotation_exif_info/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="JPEG Image Orientation and Exif"><meta property="og:description" content="The other day I came across a strange bug during work. My colleagues gave me
 some photographs taken with a smartphone. On their machines (Windows 7), all
 the photos were shown correctly in landscape mode. However, when I checked
 those photos, I found that some of those photos were shown in portrait mode
 (rotated 90 or 270 degrees) or upside-down (rotated 180 degrees).
 I was curious what happened and learned about
-Exif and all its related stuff.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2019/07/31/image_rotation_exif_info/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2019-07-31T23:19:35+08:00">
-<meta property="article:modified_time" content="2021-07-23T01:03:30+08:00">
-<meta itemprop=name content="JPEG Image Orientation and Exif">
-<meta itemprop=description content="The other day I came across a strange bug during work. My colleagues gave me
+Exif and all its related stuff."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/07/31/image_rotation_exif_info/"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-07-31T23:19:35+08:00"><meta property="article:modified_time" content="2021-07-23T01:03:30+08:00"><meta itemprop=name content="JPEG Image Orientation and Exif"><meta itemprop=description content="The other day I came across a strange bug during work. My colleagues gave me
 some photographs taken with a smartphone. On their machines (Windows 7), all
 the photos were shown correctly in landscape mode. However, when I checked
 those photos, I found that some of those photos were shown in portrait mode
 (rotated 90 or 270 degrees) or upside-down (rotated 180 degrees).
 I was curious what happened and learned about
-Exif and all its related stuff."><meta itemprop=datePublished content="2019-07-31T23:19:35+08:00">
-<meta itemprop=dateModified content="2021-07-23T01:03:30+08:00">
-<meta itemprop=wordCount content="1049">
-<meta itemprop=keywords content="Python,PIL,EXIF,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="JPEG Image Orientation and Exif">
-<meta name=twitter:description content="The other day I came across a strange bug during work. My colleagues gave me
+Exif and all its related stuff."><meta itemprop=datePublished content="2019-07-31T23:19:35+08:00"><meta itemprop=dateModified content="2021-07-23T01:03:30+08:00"><meta itemprop=wordCount content="1049"><meta itemprop=keywords content="Python,PIL,EXIF,"><meta name=twitter:card content="summary"><meta name=twitter:title content="JPEG Image Orientation and Exif"><meta name=twitter:description content="The other day I came across a strange bug during work. My colleagues gave me
 some photographs taken with a smartphone. On their machines (Windows 7), all
 the photos were shown correctly in landscape mode. However, when I checked
 those photos, I found that some of those photos were shown in portrait mode
 (rotated 90 or 270 degrees) or upside-down (rotated 180 degrees).
 I was curious what happened and learned about
 Exif and all its related stuff."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>JPEG Image Orientation and Exif</h1>
-<div class=post-meta>
-<span class=post-time> 2019-07-31 </span>
-<div class=post-category>
-<a href=/categories/technique/> technique </a>
-</div>
-<span class=more-meta> 1049 words </span>
-<span class=more-meta> 5 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#how-does-exif-orientation-work>How Does Exif Orientation Work</a>
-<ul>
-<li><a href=#what-is-exif>What is Exif</a></li>
-<li><a href=#exif-orientation-flag>Exif Orientation Flag</a></li>
-<li><a href=#why-are-my-images-wrongly-displayed>Why Are My Images Wrongly Displayed?</a></li>
-</ul>
-</li>
-<li><a href=#read-and-write-exif-info>Read and Write Exif Info</a>
-<ul>
-<li><a href=#irfanview>IrfanView</a>
-<ul>
-<li><a href=#disable-auto-rotate-for-irfanview>Disable Auto-rotate for IrfanView</a></li>
-</ul>
-</li>
-<li><a href=#pillow-and-exif-info>Pillow and Exif Info</a></li>
-<li><a href=#piexif>Piexif</a></li>
-</ul>
-</li>
-<li><a href=#references>References</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>The other day I came across a strange bug during work. My colleagues gave me
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>JPEG Image Orientation and Exif</h1><div class=post-meta><span class=post-time>2019-07-31</span><div class=post-category><a href=/categories/technique/>technique</a></div><span class=more-meta>1049 words</span>
+<span class=more-meta>5 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#how-does-exif-orientation-work>How Does Exif Orientation Work</a><ul><li><a href=#what-is-exif>What is Exif</a></li><li><a href=#exif-orientation-flag>Exif Orientation Flag</a></li><li><a href=#why-are-my-images-wrongly-displayed>Why Are My Images Wrongly Displayed?</a></li></ul></li><li><a href=#read-and-write-exif-info>Read and Write Exif Info</a><ul><li><a href=#irfanview>IrfanView</a><ul><li><a href=#disable-auto-rotate-for-irfanview>Disable Auto-rotate for IrfanView</a></li></ul></li><li><a href=#pillow-and-exif-info>Pillow and Exif Info</a></li><li><a href=#piexif>Piexif</a></li></ul></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>The other day I came across a strange bug during work. My colleagues gave me
 some photographs taken with a smartphone. On their machines (Windows 7), all
 the photos were shown correctly in landscape mode. However, when I checked
 those photos, I found that some of those photos were shown in portrait mode
-(rotated 90 or 270 degrees) or upside-down (rotated 180 degrees).</p>
-<p>I was curious what happened and learned about
-<a href=https://en.wikipedia.org/wiki/Exif>Exif</a> and all its related stuff.</p>
-<h1 id=how-does-exif-orientation-work>How Does Exif Orientation Work</h1>
-<h2 id=what-is-exif>What is Exif</h2>
-<p>Exif (Exchangeable image file format) is a protocol to store various
+(rotated 90 or 270 degrees) or upside-down (rotated 180 degrees).</p><p>I was curious what happened and learned about
+<a href=https://en.wikipedia.org/wiki/Exif>Exif</a> and all its related stuff.</p><h1 id=how-does-exif-orientation-work>How Does Exif Orientation Work</h1><h2 id=what-is-exif>What is Exif</h2><p>Exif (Exchangeable image file format) is a protocol to store various
 meta-information about the images taken by digital cameras. Exif are stored
 along with the actual image data. Some of the meta info in Exif includes camera
 maker, shutter speed, focal length, orientation, shooting time etc. These meta
 info is called tags and each tag has a specific tag number decided by the Exif
 format standard. A comprehensive list of tags and their related informations
-can be found <a href=https://www.exiv2.org/tags.html>here</a>.</p>
-<h2 id=exif-orientation-flag>Exif Orientation Flag</h2>
-<p>Here, we are interested in the orientation meta info. When we are taking photos
+can be found <a href=https://www.exiv2.org/tags.html>here</a>.</p><h2 id=exif-orientation-flag>Exif Orientation Flag</h2><p>Here, we are interested in the orientation meta info. When we are taking photos
 with a camera, we may not always hold the camera in such a position that the
 camera top corresponds to top of the scene. Image below from <a href=https://www.impulseadventure.com/photo/exif-orientation.html>this blog</a>
-illustrates this idea clearly:</p>
-<p align=center>
-<img src=https://blog-resource-1257868508.file.myqcloud.com/20190731231914.png>
-</p>
-<p>But no matter how you are holding the camera, if you check the image on your
+illustrates this idea clearly:</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190731231914.png></p><p>But no matter how you are holding the camera, if you check the image on your
 computer, the image is shown in correct orientation. This has something to do
 with Exif orientation flag. When you are holding the camera with non-upright
 position, the <em>raw photo</em> you take is stored as a rotated image. The digital
 device (be a smartphone or digital camera) has a sensor to record the
 orientation of the camera and writes that information into orientation flag in
-Exif.</p>
-<p>The Exif orientation flag can have nine different values from 1 to 9<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. The
-image<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> below shows eight of them:</p>
-<p align=center>
-<img src=https://blog-resource-1257868508.file.myqcloud.com/20190731232000.png>
-</p>
-<p>Typically, you will only get flag 1, 8, 3, 6 for digital photos. Flag 2, 7, 4,
-5 represent mirrored and rotated version of images.</p>
-<h2 id=why-are-my-images-wrongly-displayed>Why Are My Images Wrongly Displayed?</h2>
-<p>When you use a photo viewer to check the image on your computer, if the photo
+Exif.</p><p>The Exif orientation flag can have nine different values from 1 to 9<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>. The
+image<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> below shows eight of them:</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190731232000.png></p><p>Typically, you will only get flag 1, 8, 3, 6 for digital photos. Flag 2, 7, 4,
+5 represent mirrored and rotated version of images.</p><h2 id=why-are-my-images-wrongly-displayed>Why Are My Images Wrongly Displayed?</h2><p>When you use a photo viewer to check the image on your computer, if the photo
 viewer can read the Exif info and respects that info, it will automatically
 rotate the raw image based on the orientation info. The end result is that you
-can see the correctly-oriented photo no matter how it is actually stored.</p>
-<p>Now come to the issue in the beginning of this post. According to
+can see the correctly-oriented photo no matter how it is actually stored.</p><p>Now come to the issue in the beginning of this post. According to
 <a href=https://www.ivertech.com/Articles/Image-Rotation-Issue-With-Windows-10.aspx>this article</a>,
 Windows systems before Windows 8 does not take into account the Exif
 orientation flag and show the images as is, i.e., the raw, un-rotated images
@@ -205,187 +59,81 @@ a conclusion that the raw images are in correct orientation. Somehow, the
 smartphone is reporting the wrong orientation flags for some of the photos.
 When I show these photos on my Windows 10 machine, since Windows 10 respects
 the orientation flag, some of the images will be shown as rotated due to the
-false orientation flag.</p>
-<p>On the other hand, if you see correct photo on Windows 10 but rotated one on a
+false orientation flag.</p><p>On the other hand, if you see correct photo on Windows 10 but rotated one on a
 Windows 7 machine, that is because the raw image is in rotated position and
-Windows 7 does not respect the orientation info in Exif.</p>
-<h1 id=read-and-write-exif-info>Read and Write Exif Info</h1>
-<h2 id=irfanview>IrfanView</h2>
-<p><a href=https://www.irfanview.com/>IrfanView</a> is a great image viewer on Windows,
+Windows 7 does not respect the orientation info in Exif.</p><h1 id=read-and-write-exif-info>Read and Write Exif Info</h1><h2 id=irfanview>IrfanView</h2><p><a href=https://www.irfanview.com/>IrfanView</a> is a great image viewer on Windows,
 which respects the image Exif info. To view the image Exif info, open an image
 and click <code>Image -> Information</code>. If the image contains Exif info, you can then
 click the <code>EXIF info</code> button at the bottom left of the popup window to check
-the image Exif info.</p>
-<p align=center>
-<img src=https://blog-resource-1257868508.file.myqcloud.com/20190731232045.png>
-</p>
-<h3 id=disable-auto-rotate-for-irfanview>Disable Auto-rotate for IrfanView</h3>
-<p>By default, IrfanView respects the Exif info and will auto-rotate the image
-based on its orientation flag. To disable this behavior, go to <code>Options -> Properties/Settings</code>, click <code>JPG/PCD/GIF</code> and uncheck the box <code>Auto-rotate image according to EXIF info (if available)</code>.</p>
-<h2 id=pillow-and-exif-info>Pillow and Exif Info</h2>
-<p>If you read an image with <a href=https://github.com/python-pillow/Pillow>Pillow</a> and
+the image Exif info.</p><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/20190731232045.png></p><h3 id=disable-auto-rotate-for-irfanview>Disable Auto-rotate for IrfanView</h3><p>By default, IrfanView respects the Exif info and will auto-rotate the image
+based on its orientation flag. To disable this behavior, go to <code>Options -> Properties/Settings</code>, click <code>JPG/PCD/GIF</code> and uncheck the box <code>Auto-rotate image according to EXIF info (if available)</code>.</p><h2 id=pillow-and-exif-info>Pillow and Exif Info</h2><p>If you read an image with <a href=https://github.com/python-pillow/Pillow>Pillow</a> and
 show it or save it again, Pillow will not respect the Exif orientation tag. You
 may see such issues <a href=https://github.com/python-pillow/Pillow/issues/183>here</a>
 and <a href=https://github.com/python-pillow/Pillow/issues/3748>here</a>. There is a
 <a href=https://github.com/python-pillow/Pillow/pull/3687>pull request</a> to address
-this issue, which has been merged now.</p>
-<p>Pillow is able to read the image Exif info, but it is not able to edit the Exif
-info. A sample script to show the image Exif info is shown below:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span>
-<span class=kn>from</span> <span class=nn>PIL.</span> <span class=kn>from</span> <span class=nn>PIL.ExifTags</span> <span class=kn>import</span> <span class=n>TAGS</span>
-
-<span class=n>img</span> <span class=o>=</span> <span class=n>Image</span><span class=o>.</span><span class=n>open</span><span class=p>(</span><span class=s1>&#39;test.jpg&#39;</span><span class=p>)</span>
-
-<span class=n>exif</span> <span class=o>=</span> <span class=n>img</span><span class=o>.</span><span class=n>getexif</span><span class=p>()</span>
-
-<span class=k>for</span> <span class=n>k</span><span class=p>,</span> <span class=n>v</span> <span class=ow>in</span> <span class=n>exif</span><span class=o>.</span><span class=n>items</span><span class=p>():</span>
-    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;</span><span class=si>{}</span><span class=s1>: </span><span class=si>{}</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>TAGS</span><span class=p>[</span><span class=n>k</span><span class=p>],</span> <span class=n>v</span><span class=p>))</span>
-</code></pre></div><p>In the above script, We use the
+this issue, which has been merged now.</p><p>Pillow is able to read the image Exif info, but it is not able to edit the Exif
+info. A sample script to show the image Exif info is shown below:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>PIL.</span> <span class=kn>from</span> <span class=nn>PIL.ExifTags</span> <span class=kn>import</span> <span class=n>TAGS</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>img</span> <span class=o>=</span> <span class=n>Image</span><span class=o>.</span><span class=n>open</span><span class=p>(</span><span class=s1>&#39;test.jpg&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>exif</span> <span class=o>=</span> <span class=n>img</span><span class=o>.</span><span class=n>getexif</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>k</span><span class=p>,</span> <span class=n>v</span> <span class=ow>in</span> <span class=n>exif</span><span class=o>.</span><span class=n>items</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;</span><span class=si>{}</span><span class=s1>: </span><span class=si>{}</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span><span class=n>TAGS</span><span class=p>[</span><span class=n>k</span><span class=p>],</span> <span class=n>v</span><span class=p>))</span>
+</span></span></code></pre></div><p>In the above script, We use the
 <code>Image.getexif()</code><sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup> to retrieve the image Exif info.
 <a href=https://pillow.readthedocs.io/en/stable/reference/ExifTags.html><code>TAGS</code></a>
-is a dictionary mapping the tag number to a descriptive name.</p>
-<h2 id=piexif>Piexif</h2>
-<p>The Python package <a href=https://github.com/hMatoba/Piexif>piexif</a> can be used to
-both read and write the image Exif info.</p>
-<p>Based on the
+is a dictionary mapping the tag number to a descriptive name.</p><h2 id=piexif>Piexif</h2><p>The Python package <a href=https://github.com/hMatoba/Piexif>piexif</a> can be used to
+both read and write the image Exif info.</p><p>Based on the
 <a href=https://piexif.readthedocs.io/en/latest/sample.html#rotate-image-by-exif-orientation>example</a>
 on its documentation site, I show an example of change the image Exif
-orientation flag and save a new image using the new Exif info.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span>
-<span class=kn>import</span> <span class=nn>piexif</span>
-
-<span class=n>img</span> <span class=o>=</span> <span class=n>Image</span><span class=o>.</span><span class=n>open</span><span class=p>(</span><span class=s1>&#39;test.jpg&#39;</span><span class=p>)</span>
-<span class=k>if</span> <span class=s2>&#34;exif&#34;</span> <span class=ow>in</span> <span class=n>img</span><span class=o>.</span><span class=n>info</span><span class=p>:</span>
-    <span class=n>exif_dict</span> <span class=o>=</span> <span class=n>piexif</span><span class=o>.</span><span class=n>load</span><span class=p>(</span><span class=n>img</span><span class=o>.</span><span class=n>info</span><span class=p>[</span><span class=s1>&#39;exif&#39;</span><span class=p>])</span>
-
-<span class=k>if</span> <span class=n>piexif</span><span class=o>.</span><span class=n>ImageIFD</span><span class=o>.</span><span class=n>Orientation</span> <span class=ow>in</span> <span class=n>exif_dict</span><span class=p>[</span><span class=s1>&#39;0th&#39;</span><span class=p>]:</span>
-    <span class=n>exif_dict</span><span class=p>[</span><span class=s1>&#39;0th&#39;</span><span class=p>][</span><span class=n>pixeif</span><span class=o>.</span><span class=n>ImageIFD</span><span class=o>.</span><span class=n>Orientation</span><span class=p>]</span> <span class=o>=</span> <span class=mi>3</span>
-
-    <span class=c1># quick and dirty work around to avoid type error</span>
-    <span class=n>exif_dict</span><span class=p>[</span><span class=s1>&#39;Exif&#39;</span><span class=p>][</span><span class=mi>41729</span><span class=p>]</span> <span class=o>=</span> <span class=sa>b</span><span class=s1>&#39;1&#39;</span>
-
-    <span class=n>exif_bytes</span> <span class=o>=</span> <span class=n>piexif</span><span class=o>.</span><span class=n>dump</span><span class=p>(</span><span class=n>exif_dict</span><span class=p>)</span>
-
-<span class=n>img</span><span class=o>.</span><span class=n>save</span><span class=p>(</span><span class=s1>&#39;new_img.jpg&#39;</span><span class=p>,</span> <span class=n>exif</span><span class=o>=</span><span class=n>exif_bytes</span><span class=p>)</span>
-</code></pre></div><p>The primary info of Exif are stored in the <code>0th</code> key of <code>exif_dict</code>, which is
+orientation flag and save a new image using the new Exif info.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>piexif</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>img</span> <span class=o>=</span> <span class=n>Image</span><span class=o>.</span><span class=n>open</span><span class=p>(</span><span class=s1>&#39;test.jpg&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=s2>&#34;exif&#34;</span> <span class=ow>in</span> <span class=n>img</span><span class=o>.</span><span class=n>info</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>exif_dict</span> <span class=o>=</span> <span class=n>piexif</span><span class=o>.</span><span class=n>load</span><span class=p>(</span><span class=n>img</span><span class=o>.</span><span class=n>info</span><span class=p>[</span><span class=s1>&#39;exif&#39;</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=n>piexif</span><span class=o>.</span><span class=n>ImageIFD</span><span class=o>.</span><span class=n>Orientation</span> <span class=ow>in</span> <span class=n>exif_dict</span><span class=p>[</span><span class=s1>&#39;0th&#39;</span><span class=p>]:</span>
+</span></span><span class=line><span class=cl>    <span class=n>exif_dict</span><span class=p>[</span><span class=s1>&#39;0th&#39;</span><span class=p>][</span><span class=n>pixeif</span><span class=o>.</span><span class=n>ImageIFD</span><span class=o>.</span><span class=n>Orientation</span><span class=p>]</span> <span class=o>=</span> <span class=mi>3</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># quick and dirty work around to avoid type error</span>
+</span></span><span class=line><span class=cl>    <span class=n>exif_dict</span><span class=p>[</span><span class=s1>&#39;Exif&#39;</span><span class=p>][</span><span class=mi>41729</span><span class=p>]</span> <span class=o>=</span> <span class=sa>b</span><span class=s1>&#39;1&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>exif_bytes</span> <span class=o>=</span> <span class=n>piexif</span><span class=o>.</span><span class=n>dump</span><span class=p>(</span><span class=n>exif_dict</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>img</span><span class=o>.</span><span class=n>save</span><span class=p>(</span><span class=s1>&#39;new_img.jpg&#39;</span><span class=p>,</span> <span class=n>exif</span><span class=o>=</span><span class=n>exif_bytes</span><span class=p>)</span>
+</span></span></code></pre></div><p>The primary info of Exif are stored in the <code>0th</code> key of <code>exif_dict</code>, which is
 also a Python dictionary. It seems that piexif did not check the value type of
 the Exif dict so that we may
 <a href=https://github.com/hMatoba/Piexif/issues/95>encounter ValueError</a>
 when we try to dump the exif_dict. After reading the source code of piexif, I
-use the following line of code to work around this issue just for now.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>exif_dict</span><span class=p>[</span><span class=s1>&#39;Exif&#39;</span><span class=p>][</span><span class=mi>41729</span><span class=p>]</span> <span class=o>=</span> <span class=sa>b</span><span class=s1>&#39;1&#39;</span>
-</code></pre></div><p>After that, you should be able to dump the <code>exif_dict</code> without errors.</p>
-<h1 id=references>References</h1>
-<ul>
-<li><a href=https://www.thexifer.net/#exif-camera-settings>An online service which reads and writes Exif info</a></li>
-<li><a href=https://answers.microsoft.com/en-us/windows/forum/windows_10-other_settings/disable-photo-auto-rotate-win-10/f4f56e93-ad1d-4969-87a4-a0a0b4f3a41b>Windows 10 auto-rotate images</a></li>
-<li><a href=https://www.howtogeek.com/254830/why-your-photos-dont-always-appear-correctly-rotated/>Why images do not always appear correctly rotated</a></li>
-<li><a href="https://irfanview-forum.de/showthread.php?t=8245">Disable auto-rotate in IrfanView</a></li>
-<li><a href=https://leancrew.com/all-this/2009/04/derotating-jpegs-with-exiftool/>Derotate image with exiftool</a></li>
-<li><a href=https://www.impulseadventure.com/photo/exif-orientation.html>JPEG rotation and EXIF orientation</a></li>
-<li><a href=https://www.scienceabc.com/innovation/smartphones-change-orientation-horizontal-landscape-gravity-sensor-accelerometer.html>How does smartphone decide orientation</a></li>
-<li><a href=https://magnushoff.com/jpeg-orientation.html>JPEG Orientation</a></li>
-<li><a href=https://stackoverflow.com/questions/4228530/pil-thumbnail-is-rotating-my-image/6218425#6218425>Rotate image based on Exif orientation in Pillow</a></li>
-<li><a href=https://github.com/hMatoba/Piexif/issues/83>Can not dump exif dict as bytes</a></li>
-<li><a href=https://code.tutsplus.com/articles/why-are-my-mobile-phone-images-rotated-on-my-desktop--cms-30303>Read image exif with Pillow</a></li>
-<li><a href=http://jpegclub.org/exif_orientation.html>Exif orientation tag</a></li>
-</ul>
-<section class=footnotes role=doc-endnotes>
-<hr>
-<ol>
-<li id=fn:1 role=doc-endnote>
-<p>Flag 9 means <em>undefined</em>.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-<li id=fn:2 role=doc-endnote>
-<p>Image source: <a href=https://www.daveperrett.com/articles/2012/07/28/exif-orientation-handling-is-a-ghetto/>https://www.daveperrett.com/articles/2012/07/28/exif-orientation-handling-is-a-ghetto/</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-<li id=fn:3 role=doc-endnote>
-<p>This method is added in <a href=https://pillow.readthedocs.io/en/stable/releasenotes/6.0.0.html#added-exif-class>Pillow 6.0.0</a>.&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2021-07-23
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/Python/>Python</a>
+use the following line of code to work around this issue just for now.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>exif_dict</span><span class=p>[</span><span class=s1>&#39;Exif&#39;</span><span class=p>][</span><span class=mi>41729</span><span class=p>]</span> <span class=o>=</span> <span class=sa>b</span><span class=s1>&#39;1&#39;</span>
+</span></span></code></pre></div><p>After that, you should be able to dump the <code>exif_dict</code> without errors.</p><h1 id=references>References</h1><ul><li><a href=https://www.thexifer.net/#exif-camera-settings>An online service which reads and writes Exif info</a></li><li><a href=https://answers.microsoft.com/en-us/windows/forum/windows_10-other_settings/disable-photo-auto-rotate-win-10/f4f56e93-ad1d-4969-87a4-a0a0b4f3a41b>Windows 10 auto-rotate images</a></li><li><a href=https://www.howtogeek.com/254830/why-your-photos-dont-always-appear-correctly-rotated/>Why images do not always appear correctly rotated</a></li><li><a href="https://irfanview-forum.de/showthread.php?t=8245">Disable auto-rotate in IrfanView</a></li><li><a href=https://leancrew.com/all-this/2009/04/derotating-jpegs-with-exiftool/>Derotate image with exiftool</a></li><li><a href=https://www.impulseadventure.com/photo/exif-orientation.html>JPEG rotation and EXIF orientation</a></li><li><a href=https://www.scienceabc.com/innovation/smartphones-change-orientation-horizontal-landscape-gravity-sensor-accelerometer.html>How does smartphone decide orientation</a></li><li><a href=https://magnushoff.com/jpeg-orientation.html>JPEG Orientation</a></li><li><a href=https://stackoverflow.com/questions/4228530/pil-thumbnail-is-rotating-my-image/6218425#6218425>Rotate image based on Exif orientation in Pillow</a></li><li><a href=https://github.com/hMatoba/Piexif/issues/83>Can not dump exif dict as bytes</a></li><li><a href=https://code.tutsplus.com/articles/why-are-my-mobile-phone-images-rotated-on-my-desktop--cms-30303>Read image exif with Pillow</a></li><li><a href=http://jpegclub.org/exif_orientation.html>Exif orientation tag</a></li></ul><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>Flag 9 means <em>undefined</em>.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>Image source: <a href=https://www.daveperrett.com/articles/2012/07/28/exif-orientation-handling-is-a-ghetto/>https://www.daveperrett.com/articles/2012/07/28/exif-orientation-handling-is-a-ghetto/</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3><p>This method is added in <a href=https://pillow.readthedocs.io/en/stable/releasenotes/6.0.0.html#added-exif-class>Pillow 6.0.0</a>.&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2021-07-23</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/Python/>Python</a>
 <a href=/tags/PIL/>PIL</a>
-<a href=/tags/EXIF/>EXIF</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2019/08/09/linux_command_cheat_sheet_s1/>
-<i class="iconfont icon-left"></i>
+<a href=/tags/EXIF/>EXIF</a></div><nav class=post-nav><a class=prev href=/2019/08/09/linux_command_cheat_sheet_s1/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Linux Tips and Tricks -- s1</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2019/07/31/nvim_show_file_path/>
-<span class="next-text nav-default">How Do I Show the Current File Path In Neovim?</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2019/07/31/nvim_show_file_path/><span class="next-text nav-default">How Do I Show the Current File Path In Neovim?</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

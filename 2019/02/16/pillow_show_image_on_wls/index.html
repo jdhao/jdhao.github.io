@@ -1,264 +1,71 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Display Image with Pillow inside Ubuntu on Windows - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="With the help of Windows Subsystem for Linux (WSL, for short)1, we can use the nearly full Linux environment on Windows system. In this post, I would like to share how to display images inside Ubuntu on Windows, which is one of the popular distrubtions.
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Display Image with Pillow inside Ubuntu on Windows">
-<meta property="og:description" content="With the help of Windows Subsystem for Linux (WSL, for
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Display Image with Pillow inside Ubuntu on Windows - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="With the help of Windows Subsystem for Linux (WSL, for short)1, we can use the nearly full Linux environment on Windows system. In this post, I would like to share how to display images inside Ubuntu on Windows, which is one of the popular distrubtions.
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Display Image with Pillow inside Ubuntu on Windows"><meta property="og:description" content="With the help of Windows Subsystem for Linux (WSL, for
 short)1, we can use the
 nearly full Linux environment on Windows system. In this post, I would like
 to share how to display images inside Ubuntu on Windows, which is one of the
-popular distrubtions.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2019-02-16T11:42:55+08:00">
-<meta property="article:modified_time" content="2020-04-01T01:43:36+08:00">
-<meta itemprop=name content="Display Image with Pillow inside Ubuntu on Windows">
-<meta itemprop=description content="With the help of Windows Subsystem for Linux (WSL, for
+popular distrubtions."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-02-16T11:42:55+08:00"><meta property="article:modified_time" content="2020-04-01T01:43:36+08:00"><meta itemprop=name content="Display Image with Pillow inside Ubuntu on Windows"><meta itemprop=description content="With the help of Windows Subsystem for Linux (WSL, for
 short)1, we can use the
 nearly full Linux environment on Windows system. In this post, I would like
 to share how to display images inside Ubuntu on Windows, which is one of the
-popular distrubtions."><meta itemprop=datePublished content="2019-02-16T11:42:55+08:00">
-<meta itemprop=dateModified content="2020-04-01T01:43:36+08:00">
-<meta itemprop=wordCount content="267">
-<meta itemprop=keywords content="PIL,Windows,Python,X11,WSL,Ubuntu,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Display Image with Pillow inside Ubuntu on Windows">
-<meta name=twitter:description content="With the help of Windows Subsystem for Linux (WSL, for
+popular distrubtions."><meta itemprop=datePublished content="2019-02-16T11:42:55+08:00"><meta itemprop=dateModified content="2020-04-01T01:43:36+08:00"><meta itemprop=wordCount content="267"><meta itemprop=keywords content="PIL,Windows,Python,X11,WSL,Ubuntu,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Display Image with Pillow inside Ubuntu on Windows"><meta name=twitter:description content="With the help of Windows Subsystem for Linux (WSL, for
 short)1, we can use the
 nearly full Linux environment on Windows system. In this post, I would like
 to share how to display images inside Ubuntu on Windows, which is one of the
 popular distrubtions."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Display Image with Pillow inside Ubuntu on Windows</h1>
-<div class=post-meta>
-<span class=post-time> 2019-02-16 </span>
-<div class=post-category>
-<a href=/categories/Note/> Note </a>
-</div>
-<span class=more-meta> 267 words </span>
-<span class=more-meta> 2 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#references>References</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>With the help of <a href=https://docs.microsoft.com/en-us/windows/wsl/about>Windows Subsystem for Linux (WSL, for
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Display Image with Pillow inside Ubuntu on Windows</h1><div class=post-meta><span class=post-time>2019-02-16</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>267 words</span>
+<span class=more-meta>2 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>With the help of <a href=https://docs.microsoft.com/en-us/windows/wsl/about>Windows Subsystem for Linux (WSL, for
 short)</a><sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>, we can use the
 <em>nearly full</em> Linux environment on Windows system. In this post, I would like
 to share how to display images inside Ubuntu on Windows, which is one of the
-popular distrubtions.</p>
-<p>If you try to show an image with Pillow using the following code inside WSL:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span>
-
-<span class=n>im</span> <span class=o>=</span> <span class=n>Image</span><span class=o>.</span><span class=n>open</span><span class=p>(</span><span class=s2>&#34;test.jpg&#34;</span><span class=p>)</span>
-
-<span class=n>im</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre></div><p>you will find that nothing happens if you run the above code. The reason is
-two-fold:</p>
-<ol>
-<li>There is no valid image viewer on your Ubuntu on Windows (Pillow will use
+popular distrubtions.</p><p>If you try to show an image with Pillow using the following code inside WSL:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>PIL</span> <span class=kn>import</span> <span class=n>Image</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>im</span> <span class=o>=</span> <span class=n>Image</span><span class=o>.</span><span class=n>open</span><span class=p>(</span><span class=s2>&#34;test.jpg&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>im</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</span></span></code></pre></div><p>you will find that nothing happens if you run the above code. The reason is
+two-fold:</p><ol><li>There is no valid image viewer on your Ubuntu on Windows (Pillow will use
 the system default image viewer, which is
-<a href=https://www.imagemagick.org/>Imagemagick</a> on Linux)</li>
-<li>There is no X server by which you can use GUI applications.</li>
-</ol>
-<p>After knowing the reasons, the solution is simple. First, we need to install
+<a href=https://www.imagemagick.org/>Imagemagick</a> on Linux)</li><li>There is no X server by which you can use GUI applications.</li></ol><p>After knowing the reasons, the solution is simple. First, we need to install
 Imagemagick for Ubuntu on Windows (<strong>not on Windows 10 itself, this is
-important!</strong>):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo apt install imagemagick
-</code></pre></div><p>Then we need to install a X server on the Windows system, which will serve your
+important!</strong>):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt install imagemagick
+</span></span></code></pre></div><p>Then we need to install a X server on the Windows system, which will serve your
 GUI applications. A good option for Windows is
 <a href=https://sourceforge.net/projects/vcxsrv/>Vcxsrv</a>. You can install it manually
-or with the help of <a href=https://sourceforge.net/projects/vcxsrv/>Chocolatey</a>:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>choco install vcxsrv
-</code></pre></div><p>After install, run it on your system. Inside Ubuntu on Windows, you should also
-set the <code>DISPALY</code> environment variable in your <code>.bashrc</code>:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>echo &#34;export DISPLAY=localhost:0.0&#34; &gt;&gt; ~/.bashrc &amp;&amp; source ~/.bashrc
-</code></pre></div><p>Run your Python code again and you should be able to see the image displayed
-properly on your screen.</p>
-<h1 id=references>References</h1>
-<ul>
-<li><a href=https://stackoverflow.com/questions/16279441/image-show-wont-display-the-picture>Image.show() can not display image</a></li>
-<li><a href=https://askubuntu.com/questions/823352/windows-10-bash-cannot-connect-to-display>Install X server and set up for WSL</a></li>
-<li><a href=https://askubuntu.com/questions/432255/what-is-the-display-environment-variable><code>DISPLAY</code> environment variable</a></li>
-</ul>
-<section class=footnotes role=doc-endnotes>
-<hr>
-<ol>
-<li id=fn:1 role=doc-endnote>
-<p>See <a href=https://docs.microsoft.com/en-us/windows/wsl/install-win10>here</a> on how to install a Linux distribution with WSL enabled.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2020-04-01
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/PIL/>PIL</a>
+or with the help of <a href=https://sourceforge.net/projects/vcxsrv/>Chocolatey</a>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>choco install vcxsrv
+</span></span></code></pre></div><p>After install, run it on your system. Inside Ubuntu on Windows, you should also
+set the <code>DISPALY</code> environment variable in your <code>.bashrc</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>echo &#34;export DISPLAY=localhost:0.0&#34; &gt;&gt; ~/.bashrc &amp;&amp; source ~/.bashrc
+</span></span></code></pre></div><p>Run your Python code again and you should be able to see the image displayed
+properly on your screen.</p><h1 id=references>References</h1><ul><li><a href=https://stackoverflow.com/questions/16279441/image-show-wont-display-the-picture>Image.show() can not display image</a></li><li><a href=https://askubuntu.com/questions/823352/windows-10-bash-cannot-connect-to-display>Install X server and set up for WSL</a></li><li><a href=https://askubuntu.com/questions/432255/what-is-the-display-environment-variable><code>DISPLAY</code> environment variable</a></li></ul><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>See <a href=https://docs.microsoft.com/en-us/windows/wsl/install-win10>here</a> on how to install a Linux distribution with WSL enabled.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-04-01</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/PIL/>PIL</a>
 <a href=/tags/Windows/>Windows</a>
 <a href=/tags/Python/>Python</a>
 <a href=/tags/X11/>X11</a>
 <a href=/tags/WSL/>WSL</a>
-<a href=/tags/Ubuntu/>Ubuntu</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2019/02/18/rime_configuration_intro/>
-<i class="iconfont icon-left"></i>
+<a href=/tags/Ubuntu/>Ubuntu</a></div><nav class=post-nav><a class=prev href=/2019/02/18/rime_configuration_intro/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">最新版 Rime 输入法使用</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2019/02/14/fast_dir_navigation_zlua/>
-<span class="next-text nav-default">Faster Directory Navigation with z.lua</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2019/02/14/fast_dir_navigation_zlua/><span class="next-text nav-default">Faster Directory Navigation with z.lua</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

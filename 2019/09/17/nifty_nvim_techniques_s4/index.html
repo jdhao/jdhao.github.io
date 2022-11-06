@@ -1,33 +1,6 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Nifty Nvim Techniques That Make My Life Easier -- Series 4 - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="This is the 4th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
- Click here to check other posts in this series.  Series 11: https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/ Series 10: https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/ Series 9: https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/ Series 8: https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/ Series 7: https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/ Series 6: https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/ Series 5: https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/ Series 3: https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/ Series 2: https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/ Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/  "><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Nifty Nvim Techniques That Make My Life Easier -- Series 4">
-<meta property="og:description" content="This is the 4th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Nifty Nvim Techniques That Make My Life Easier -- Series 4 - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="This is the 4th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
+Click here to check other posts in this series. Series 11: https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/ Series 10: https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/ Series 9: https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/ Series 8: https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/ Series 7: https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/ Series 6: https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/ Series 5: https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/ Series 3: https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/ Series 2: https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/ Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/ "><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Nifty Nvim Techniques That Make My Life Easier -- Series 4"><meta property="og:description" content="This is the 4th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
 
 Click here to check other posts in this series.
 
@@ -42,13 +15,7 @@ Series 3: https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/
 Series 2: https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/
 Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/
 
-">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2019-09-17T23:04:55+08:00">
-<meta property="article:modified_time" content="2022-02-06T13:36:06+08:00">
-<meta itemprop=name content="Nifty Nvim Techniques That Make My Life Easier -- Series 4">
-<meta itemprop=description content="This is the 4th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
+"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-09-17T23:04:55+08:00"><meta property="article:modified_time" content="2022-02-06T13:36:06+08:00"><meta itemprop=name content="Nifty Nvim Techniques That Make My Life Easier -- Series 4"><meta itemprop=description content="This is the 4th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
 
 Click here to check other posts in this series.
 
@@ -63,12 +30,7 @@ Series 3: https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/
 Series 2: https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/
 Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/
 
-"><meta itemprop=datePublished content="2019-09-17T23:04:55+08:00">
-<meta itemprop=dateModified content="2022-02-06T13:36:06+08:00">
-<meta itemprop=wordCount content="584">
-<meta itemprop=keywords content="Vim,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Nifty Nvim Techniques That Make My Life Easier -- Series 4">
-<meta name=twitter:description content="This is the 4th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
+"><meta itemprop=datePublished content="2019-09-17T23:04:55+08:00"><meta itemprop=dateModified content="2022-02-06T13:36:06+08:00"><meta itemprop=wordCount content="584"><meta itemprop=keywords content="Vim,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Nifty Nvim Techniques That Make My Life Easier -- Series 4"><meta name=twitter:description content="This is the 4th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
 
 Click here to check other posts in this series.
 
@@ -84,291 +46,53 @@ Series 2: https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/
 Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/
 
 "><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Nifty Nvim Techniques That Make My Life Easier -- Series 4</h1>
-<div class=post-meta>
-<span class=post-time> 2019-09-17 </span>
-<div class=post-category>
-<a href=/categories/Nvim/> Nvim </a>
-</div>
-<span class=more-meta> 584 words </span>
-<span class=more-meta> 3 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#check-if-a-string-contains-a-pattern>Check if a string contains a pattern?</a>
-<ul>
-<li><a href=#references>References</a></li>
-</ul>
-</li>
-<li><a href=#when-should-i-capitalize-the-function-names>When should I capitalize the function names?</a>
-<ul>
-<li><a href=#references-1>References</a></li>
-</ul>
-</li>
-<li><a href=#how-to-represent-alt-key-in-mapping-m-or-a->How to represent <code>ALT</code> key in mapping? <code>M</code> or <code>A</code> ？</a></li>
-<li><a href=#how-to-check-the-actual-key-press-that-nvim-receives-when-i-press-a-key>How to check the actual key press that Nvim receives when I press a key?</a>
-<ul>
-<li><a href=#references-2>References</a></li>
-</ul>
-</li>
-<li><a href=#how-to-repeat-some-character-n-times>How to repeat some character N times？</a>
-<ul>
-<li><a href=#references-3>References</a></li>
-</ul>
-</li>
-<li><a href=#how-do-i-execute-a-normal-mode-command-in-insert-mode>How do I execute a normal mode command in insert mode?</a></li>
-<li><a href=#wrap-selection-with-quotes-or-other-characters>Wrap selection with quotes or other characters</a>
-<ul>
-<li><a href=#references-4>References</a></li>
-</ul>
-</li>
-<li><a href=#rename-multiple-occurrences-of-a-variable>Rename multiple occurrences of a variable</a>
-<ul>
-<li><a href=#reference>Reference</a></li>
-</ul>
-</li>
-<li><a href=#search-unicode-characters-using-its-code-point>Search Unicode characters using its code point</a>
-<ul>
-<li><a href=#references-5>References</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>This is the 4th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.</p>
-<details>
-<summary><font size=3 color=red>Click here to check other posts in this series.</font></summary>
-<ul>
-<li>Series 11: <a href=https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/>https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/</a></li>
-<li>Series 10: <a href=https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/>https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/</a></li>
-<li>Series 9: <a href=https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/>https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/</a></li>
-<li>Series 8: <a href=https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/>https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/</a></li>
-<li>Series 7: <a href=https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/>https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/</a></li>
-<li>Series 6: <a href=https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</a></li>
-<li>Series 5: <a href=https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/>https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/</a></li>
-<li>Series 3: <a href=https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</a></li>
-<li>Series 2: <a href=https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</a></li>
-<li>Series 1: <a href=https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</a></li>
-</ul>
-</details>
-<h1 id=check-if-a-string-contains-a-pattern>Check if a string contains a pattern?</h1>
-<p>There are two simple ways:</p>
-<ul>
-<li>Use <code>match(str, pattern)</code></li>
-<li>Use <code>=~#</code> or <code>=~?</code></li>
-</ul>
-<p>For <code>match()</code> function, Vim assumes that <code>magic</code> (see <code>:h /magic</code>) option is
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Nifty Nvim Techniques That Make My Life Easier -- Series 4</h1><div class=post-meta><span class=post-time>2019-09-17</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>584 words</span>
+<span class=more-meta>3 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#check-if-a-string-contains-a-pattern>Check if a string contains a pattern?</a><ul><li><a href=#references>References</a></li></ul></li><li><a href=#when-should-i-capitalize-the-function-names>When should I capitalize the function names?</a><ul><li><a href=#references-1>References</a></li></ul></li><li><a href=#how-to-represent-alt-key-in-mapping-m-or-a->How to represent <code>ALT</code> key in mapping? <code>M</code> or <code>A</code> ？</a></li><li><a href=#how-to-check-the-actual-key-press-that-nvim-receives-when-i-press-a-key>How to check the actual key press that Nvim receives when I press a key?</a><ul><li><a href=#references-2>References</a></li></ul></li><li><a href=#how-to-repeat-some-character-n-times>How to repeat some character N times？</a><ul><li><a href=#references-3>References</a></li></ul></li><li><a href=#how-do-i-execute-a-normal-mode-command-in-insert-mode>How do I execute a normal mode command in insert mode?</a></li><li><a href=#wrap-selection-with-quotes-or-other-characters>Wrap selection with quotes or other characters</a><ul><li><a href=#references-4>References</a></li></ul></li><li><a href=#rename-multiple-occurrences-of-a-variable>Rename multiple occurrences of a variable</a><ul><li><a href=#reference>Reference</a></li></ul></li><li><a href=#search-unicode-characters-using-its-code-point>Search Unicode characters using its code point</a><ul><li><a href=#references-5>References</a></li></ul></li></ul></nav></div></div><div class=post-content><p>This is the 4th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.</p><details><summary><font size=3 color=red>Click here to check other posts in this series.</font></summary><ul><li>Series 11: <a href=https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/>https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/</a></li><li>Series 10: <a href=https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/>https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/</a></li><li>Series 9: <a href=https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/>https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/</a></li><li>Series 8: <a href=https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/>https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/</a></li><li>Series 7: <a href=https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/>https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/</a></li><li>Series 6: <a href=https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</a></li><li>Series 5: <a href=https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/>https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/</a></li><li>Series 3: <a href=https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</a></li><li>Series 2: <a href=https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</a></li><li>Series 1: <a href=https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</a></li></ul></details><h1 id=check-if-a-string-contains-a-pattern>Check if a string contains a pattern?</h1><p>There are two simple ways:</p><ul><li>Use <code>match(str, pattern)</code></li><li>Use <code>=~#</code> or <code>=~?</code></li></ul><p>For <code>match()</code> function, Vim assumes that <code>magic</code> (see <code>:h /magic</code>) option is
 set for patterns. If <code>pattern</code> is found in <code>str</code>, it will return the index
-where the <code>pattern</code> starts. Otherwise, it will return -1.</p>
-<p>You can also use regex match via <code>=~#</code> and <code>=~?</code> (see <code>:h expr4</code>). <code>=~#</code>
+where the <code>pattern</code> starts. Otherwise, it will return -1.</p><p>You can also use regex match via <code>=~#</code> and <code>=~?</code> (see <code>:h expr4</code>). <code>=~#</code>
 matches cases during matching, while <code>=~?</code> ignores cases. During matching, it
-is always assumed that <code>magic</code> option is set.</p>
-<h2 id=references>References</h2>
-<ul>
-<li><a href=https://stackoverflow.com/q/55366871/6064933>How to check if a string matches a pattern in vim</a></li>
-</ul>
-<h1 id=when-should-i-capitalize-the-function-names>When should I capitalize the function names?</h1>
-<p>For custom global functions, i.e., functions without the <code>s:</code> (see
+is always assumed that <code>magic</code> option is set.</p><h2 id=references>References</h2><ul><li><a href=https://stackoverflow.com/q/55366871/6064933>How to check if a string matches a pattern in vim</a></li></ul><h1 id=when-should-i-capitalize-the-function-names>When should I capitalize the function names?</h1><p>For custom global functions, i.e., functions without the <code>s:</code> (see
 <code>local-function</code>), the function name must start with an uppercase letter. But
 for script local functions and auto-loaded functions (see <code>:h autoload</code>), you
-do not need to start the actual function name with uppercase letter.</p>
-<h2 id=references-1>References</h2>
-<ul>
-<li><a href=https://vi.stackexchange.com/a/2664/15292>Do VimScript functions have to start with a capital letter and if so, why?</a></li>
-<li><a href=https://stackoverflow.com/q/6164795/6064933>vim functions with script scope</a></li>
-</ul>
-<h1 id=how-to-represent-alt-key-in-mapping-m-or-a->How to represent <code>ALT</code> key in mapping? <code>M</code> or <code>A</code> ？</h1>
-<p>According to documentation (<code>:h key-notation</code>), <code>&lt;M-...></code> and <code>&lt;A-...></code> are the
-same. Both can be used to refer to <kbd>Alt</kbd> key.</p>
-<h1 id=how-to-check-the-actual-key-press-that-nvim-receives-when-i-press-a-key>How to check the actual key press that Nvim receives when I press a key?</h1>
-<p>Sometimes, due to various reasons, when you press some key, what Nvim receives
+do not need to start the actual function name with uppercase letter.</p><h2 id=references-1>References</h2><ul><li><a href=https://vi.stackexchange.com/a/2664/15292>Do VimScript functions have to start with a capital letter and if so, why?</a></li><li><a href=https://stackoverflow.com/q/6164795/6064933>vim functions with script scope</a></li></ul><h1 id=how-to-represent-alt-key-in-mapping-m-or-a->How to represent <code>ALT</code> key in mapping? <code>M</code> or <code>A</code> ？</h1><p>According to documentation (<code>:h key-notation</code>), <code>&lt;M-...></code> and <code>&lt;A-...></code> are the
+same. Both can be used to refer to <kbd>Alt</kbd> key.</p><h1 id=how-to-check-the-actual-key-press-that-nvim-receives-when-i-press-a-key>How to check the actual key press that Nvim receives when I press a key?</h1><p>Sometimes, due to various reasons, when you press some key, what Nvim receives
 is not that key press. To check the key that Nvim actually receives, press
-<code>Ctrl-V</code> in insert mode and then press the key you want to check.</p>
-<h2 id=references-2>References</h2>
-<ul>
-<li><a href=https://superuser.com/a/235520/736190>https://superuser.com/a/235520/736190</a></li>
-</ul>
-<h1 id=how-to-repeat-some-character-n-times>How to repeat some character N times？</h1>
-<p>If you are in normal mode, use <code>&lt;NUM>a&lt;Chars>&lt;ESC></code> to input <code>&lt;NUM></code> repeated
-<code>&lt;Chars></code>.</p>
-<h2 id=references-3>References</h2>
-<ul>
-<li><a href=https://stackoverflow.com/q/5054128/6064933>Repeating characters in VIM insert mode</a></li>
-</ul>
-<h1 id=how-do-i-execute-a-normal-mode-command-in-insert-mode>How do I execute a normal mode command in insert mode?</h1>
-<p><code>Ctrl-O</code> is used to leave insert mode, execute one normal mode
+<code>Ctrl-V</code> in insert mode and then press the key you want to check.</p><h2 id=references-2>References</h2><ul><li><a href=https://superuser.com/a/235520/736190>https://superuser.com/a/235520/736190</a></li></ul><h1 id=how-to-repeat-some-character-n-times>How to repeat some character N times？</h1><p>If you are in normal mode, use <code>&lt;NUM>a&lt;Chars>&lt;ESC></code> to input <code>&lt;NUM></code> repeated
+<code>&lt;Chars></code>.</p><h2 id=references-3>References</h2><ul><li><a href=https://stackoverflow.com/q/5054128/6064933>Repeating characters in VIM insert mode</a></li></ul><h1 id=how-do-i-execute-a-normal-mode-command-in-insert-mode>How do I execute a normal mode command in insert mode?</h1><p><code>Ctrl-O</code> is used to leave insert mode, execute one normal mode
 command and go back to insert mode. For example, if you want to see your
-<code>runtimepath</code> value, you can first press <code>ctrl-o</code> and then use <code>:echo &runtimepath</code> to see the option&rsquo;s value.</p>
-<h1 id=wrap-selection-with-quotes-or-other-characters>Wrap selection with quotes or other characters</h1>
-<p>Install <a href=https://github.com/tpope/vim-surround>vim-surround</a>. Go to visual
+<code>runtimepath</code> value, you can first press <code>ctrl-o</code> and then use <code>:echo &runtimepath</code> to see the option&rsquo;s value.</p><h1 id=wrap-selection-with-quotes-or-other-characters>Wrap selection with quotes or other characters</h1><p>Install <a href=https://github.com/tpope/vim-surround>vim-surround</a>. Go to visual
 block mode (press <code>v</code> in normal mode), select text you want to wrap, press <code>S</code>,
-and press the wrapping characters such <code>'</code> or <code>"</code> or <code>{</code>.</p>
-<p>If you want to indent the code and as well as wrap it, then you need to go to
-visual line mode (press <code>V</code> in normal mode)</p>
-<h2 id=references-4>References</h2>
-<ul>
-<li><a href=https://superuser.com/questions/875095/adding-parenthesis-around-highlighted-text-in-vim>https://superuser.com/questions/875095/adding-parenthesis-around-highlighted-text-in-vim</a></li>
-<li><a href=https://github.com/tpope/vim-surround/blob/master/doc/surround.txt>https://github.com/tpope/vim-surround/blob/master/doc/surround.txt</a></li>
-</ul>
-<h1 id=rename-multiple-occurrences-of-a-variable>Rename multiple occurrences of a variable</h1>
-<p>First, search the variable you want to rename. Then press <code>cgn</code> to change it.
+and press the wrapping characters such <code>'</code> or <code>"</code> or <code>{</code>.</p><p>If you want to indent the code and as well as wrap it, then you need to go to
+visual line mode (press <code>V</code> in normal mode)</p><h2 id=references-4>References</h2><ul><li><a href=https://superuser.com/questions/875095/adding-parenthesis-around-highlighted-text-in-vim>https://superuser.com/questions/875095/adding-parenthesis-around-highlighted-text-in-vim</a></li><li><a href=https://github.com/tpope/vim-surround/blob/master/doc/surround.txt>https://github.com/tpope/vim-surround/blob/master/doc/surround.txt</a></li></ul><h1 id=rename-multiple-occurrences-of-a-variable>Rename multiple occurrences of a variable</h1><p>First, search the variable you want to rename. Then press <code>cgn</code> to change it.
 Go back to normal mode, press <code>.</code> (dot), the next match will be replaced with
-the new name. If you want to skip some match, press <code>n</code>.</p>
-<p>It is not as powerful as the Sublime Text multiple cursor feature, but should
-suffice for refactoring your code most of the time.</p>
-<h2 id=reference>Reference</h2>
-<ul>
-<li><a href=https://vi.stackexchange.com/q/5761/15292>How to selectively change a hightlighted string?</a></li>
-</ul>
-<h1 id=search-unicode-characters-using-its-code-point>Search Unicode characters using its code point</h1>
-<p>For example, if we would like to search <code>a</code> (Unicode code point is <code>u+0041</code>) in
+the new name. If you want to skip some match, press <code>n</code>.</p><p>It is not as powerful as the Sublime Text multiple cursor feature, but should
+suffice for refactoring your code most of the time.</p><h2 id=reference>Reference</h2><ul><li><a href=https://vi.stackexchange.com/q/5761/15292>How to selectively change a hightlighted string?</a></li></ul><h1 id=search-unicode-characters-using-its-code-point>Search Unicode characters using its code point</h1><p>For example, if we would like to search <code>a</code> (Unicode code point is <code>u+0041</code>) in
 Neovim, the correct format is <code>/\%u0041</code>, see <code>:h /character-classes</code> for more
-info.</p>
-<h2 id=references-5>References</h2>
-<ul>
-<li><a href=https://stackoverflow.com/q/3016965/6064933>regex unicode character in vim</a></li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2022-02-06
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/Vim/>Vim</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2019/09/21/latex_algorithm_pseudo_code/>
-<i class="iconfont icon-left"></i>
+info.</p><h2 id=references-5>References</h2><ul><li><a href=https://stackoverflow.com/q/3016965/6064933>regex unicode character in vim</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2022-02-06</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/Vim/>Vim</a></div><nav class=post-nav><a class=prev href=/2019/09/21/latex_algorithm_pseudo_code/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">How to Write Algorithm Pseudo Code in LaTeX</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2019/09/17/writing_grammar_s1/>
-<span class="next-text nav-default">A Few Grammar Questions in Writing</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2019/09/17/writing_grammar_s1/><span class="next-text nav-default">A Few Grammar Questions in Writing</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

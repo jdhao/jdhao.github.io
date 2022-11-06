@@ -1,431 +1,179 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>How to Set the Aspect Ratio of Image (or Axes) in Matplotlib? - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="In Matplotlib, Axes is the primary place where we put plot elements, such as lines, texts and legends. However, for a long time, I failed to grasp the meaning of aspect ratio in Matplotlib, thus was constantly frustrated by the behavior of Maplotlib every time I attempted to change the aspect ratio of a plot. This post is the result of my attempt to understand it and my findings. Hope it can help you too.
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2017/06/03/change-aspect-ratio-in-mpl/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="How to Set the Aspect Ratio of Image (or Axes) in Matplotlib?">
-<meta property="og:description" content="In Matplotlib, Axes is
-the primary place where we put plot elements, such as lines, texts and
-legends. However, for a long time, I failed to grasp the meaning of
-aspect ratio in Matplotlib, thus was constantly frustrated by the
-behavior of Maplotlib every time I attempted to change the aspect ratio
-of a plot. This post is the result of my attempt to understand it and my
-findings. Hope it can help you too.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2017/06/03/change-aspect-ratio-in-mpl/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2017-06-03T00:58:00+08:00">
-<meta property="article:modified_time" content="2022-02-27T12:51:39+08:00">
-<meta itemprop=name content="How to Set the Aspect Ratio of Image (or Axes) in Matplotlib?">
-<meta itemprop=description content="In Matplotlib, Axes is
-the primary place where we put plot elements, such as lines, texts and
-legends. However, for a long time, I failed to grasp the meaning of
-aspect ratio in Matplotlib, thus was constantly frustrated by the
-behavior of Maplotlib every time I attempted to change the aspect ratio
-of a plot. This post is the result of my attempt to understand it and my
-findings. Hope it can help you too."><meta itemprop=datePublished content="2017-06-03T00:58:00+08:00">
-<meta itemprop=dateModified content="2022-02-27T12:51:39+08:00">
-<meta itemprop=wordCount content="971">
-<meta itemprop=keywords content="Matplotlib,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="How to Set the Aspect Ratio of Image (or Axes) in Matplotlib?">
-<meta name=twitter:description content="In Matplotlib, Axes is
-the primary place where we put plot elements, such as lines, texts and
-legends. However, for a long time, I failed to grasp the meaning of
-aspect ratio in Matplotlib, thus was constantly frustrated by the
-behavior of Maplotlib every time I attempted to change the aspect ratio
-of a plot. This post is the result of my attempt to understand it and my
-findings. Hope it can help you too."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>How to Set the Aspect Ratio of Image (or Axes) in Matplotlib? - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="In Matplotlib, [`Axes`](https://matplotlib.org/api/axes_api.html) is the
+primary place where we put plot elements, such as lines, texts and legends.
+However, for a long time, I failed to grasp the meaning of aspect ratio in
+Matplotlib, thus was constantly frustrated by the behavior of Maplotlib every
+time I attempted to change the aspect ratio of a plot. This post is the result
+of my attempt to understand it and my findings. Hope it can help you too."><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2017/06/03/change-aspect-ratio-in-mpl/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="How to Set the Aspect Ratio of Image (or Axes) in Matplotlib?"><meta property="og:description" content="In Matplotlib, [`Axes`](https://matplotlib.org/api/axes_api.html) is the
+primary place where we put plot elements, such as lines, texts and legends.
+However, for a long time, I failed to grasp the meaning of aspect ratio in
+Matplotlib, thus was constantly frustrated by the behavior of Maplotlib every
+time I attempted to change the aspect ratio of a plot. This post is the result
+of my attempt to understand it and my findings. Hope it can help you too."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2017/06/03/change-aspect-ratio-in-mpl/"><meta property="article:section" content="post"><meta property="article:published_time" content="2017-06-03T00:58:00+08:00"><meta property="article:modified_time" content="2022-02-27T12:51:39+08:00"><meta itemprop=name content="How to Set the Aspect Ratio of Image (or Axes) in Matplotlib?"><meta itemprop=description content="In Matplotlib, [`Axes`](https://matplotlib.org/api/axes_api.html) is the
+primary place where we put plot elements, such as lines, texts and legends.
+However, for a long time, I failed to grasp the meaning of aspect ratio in
+Matplotlib, thus was constantly frustrated by the behavior of Maplotlib every
+time I attempted to change the aspect ratio of a plot. This post is the result
+of my attempt to understand it and my findings. Hope it can help you too."><meta itemprop=datePublished content="2017-06-03T00:58:00+08:00"><meta itemprop=dateModified content="2022-02-27T12:51:39+08:00"><meta itemprop=wordCount content="941"><meta itemprop=keywords content="Matplotlib,"><meta name=twitter:card content="summary"><meta name=twitter:title content="How to Set the Aspect Ratio of Image (or Axes) in Matplotlib?"><meta name=twitter:description content="In Matplotlib, [`Axes`](https://matplotlib.org/api/axes_api.html) is the
+primary place where we put plot elements, such as lines, texts and legends.
+However, for a long time, I failed to grasp the meaning of aspect ratio in
+Matplotlib, thus was constantly frustrated by the behavior of Maplotlib every
+time I attempted to change the aspect ratio of a plot. This post is the result
+of my attempt to understand it and my findings. Hope it can help you too."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>How to Set the Aspect Ratio of Image (or Axes) in Matplotlib?</h1>
-<div class=post-meta>
-<span class=post-time> 2017-06-03 </span>
-<div class=post-category>
-<a href=/categories/Python/> Python </a>
-</div>
-<span class=more-meta> 971 words </span>
-<span class=more-meta> 5 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-</div>
-</div>
-<div class=post-content>
-<p>In Matplotlib, <a href=https://matplotlib.org/api/axes_api.html><code>Axes</code></a> is
-the primary place where we put plot elements, such as lines, texts and
-legends. However, for a long time, I failed to grasp the meaning of
-aspect ratio in Matplotlib, thus was constantly frustrated by the
-behavior of Maplotlib every time I attempted to change the aspect ratio
-of a plot. This post is the result of my attempt to understand it and my
-findings. Hope it can help you too.</p>
-<h1 id=a-first-unsuccessful-try>A first unsuccessful try</h1>
-<p>Suppose I have the following code:</p>
-<div class=sourceCode id=cb1><pre class="sourceCode python"><code class="sourceCode python"><span id=cb1-1><a href=#cb1-1 aria-hidden=true tabindex=-1></a><span class=im>import</span> matplotlib.pyplot <span class=im>as</span> plt</span>
-<span id=cb1-2><a href=#cb1-2 aria-hidden=true tabindex=-1></a><span class=im>import</span> numpy <span class=im>as</span> np</span>
-<span id=cb1-3><a href=#cb1-3 aria-hidden=true tabindex=-1></a></span>
-<span id=cb1-4><a href=#cb1-4 aria-hidden=true tabindex=-1></a>plt.style.use(<span class=st>&#39;ggplot&#39;</span>)</span>
-<span id=cb1-5><a href=#cb1-5 aria-hidden=true tabindex=-1></a>x <span class=op>=</span> np.linspace(<span class=op>-</span><span class=dv>5</span>, <span class=dv>5</span>, <span class=dv>100</span>)</span>
-<span id=cb1-6><a href=#cb1-6 aria-hidden=true tabindex=-1></a>y1 <span class=op>=</span> np.exp(<span class=fl>0.5</span><span class=op>*</span>x)</span>
-<span id=cb1-7><a href=#cb1-7 aria-hidden=true tabindex=-1></a>y2 <span class=op>=</span> np.sin(x)</span>
-<span id=cb1-8><a href=#cb1-8 aria-hidden=true tabindex=-1></a></span>
-<span id=cb1-9><a href=#cb1-9 aria-hidden=true tabindex=-1></a>fig <span class=op>=</span> plt.figure()</span>
-<span id=cb1-10><a href=#cb1-10 aria-hidden=true tabindex=-1></a>ax <span class=op>=</span> fig.add_subplot(<span class=dv>111</span>)</span>
-<span id=cb1-11><a href=#cb1-11 aria-hidden=true tabindex=-1></a>ax.plot(x, y1)</span>
-<span id=cb1-12><a href=#cb1-12 aria-hidden=true tabindex=-1></a>ax.plot(x, y2)</span>
-<span id=cb1-13><a href=#cb1-13 aria-hidden=true tabindex=-1></a>plt.show()</span></code></pre></div>
-<p>The code snippet above produces the following image</p>
-<p align=center>
-<img src=https://blog-resource-1257868508.file.myqcloud.com/original.png>
-</p>
-<p>This image is a bit <em>thin</em>. What if I want the width of the
-output image to be longer than its height, for example , an image with
-aspect ratio 0.6? According to the <a href=https://goo.gl/9IM9CC>official documentation of Matplotlib</a>,
-we can use <a href=https://matplotlib.org/devdocs/api/_as_gen/matplotlib.axes.Axes.set_aspect.html>set_aspect</a>
-method of <code>Axes</code> class to set aspect ratio of an Axes object.
-This method has a parameter <code>aspect</code> which can be any
-positive number <code>num</code>. The description for <code>num</code>
-is rather vague:</p>
-<blockquote>
-<p>a circle will be stretched such that the height is num times the
-width. aspect=1 is the same as aspect=‘equal’.</p>
-</blockquote>
-<p>After I add a statement</p>
-<div class=sourceCode id=cb2><pre class="sourceCode python"><code class="sourceCode python"><span id=cb2-1><a href=#cb2-1 aria-hidden=true tabindex=-1></a>ax.set_aspect(aspect<span class=op>=</span><span class=fl>0.5</span>)</span></code></pre></div>
-<p>in the above script, the rendered output image becomes</p>
-<p align=center>
-<img src=https://blog-resource-1257868508.file.myqcloud.com/data_aspect_ratio_05.png>
-</p>
-<p>Apparently, this is not what I want: the new output image is even
-thinner. But what has gone wrong? It took me a lot of efforts to find
-out.</p>
-<h1 id=the-meaning-of-aspect-ratio-in-matplotlib>The meaning of aspect
-ratio in Matplotlib</h1>
-<p>Before we get into <strong><em>aspect ratio</em></strong>, we should
-first know that there are four different <a href=https://matplotlib.org/users/transforms_tutorial.html>coordinate
-systems in Matplotlib</a>, which you are dealing with implicitly. Below
-is a brief description:</p>
-<table>
-<col style=width:12%>
-<col style=width:87%>
-<thead>
-<tr class=header>
-<th style=text-align:left>Coordinate system</th>
-<th style=text-align:left>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class=odd>
-<td style=text-align:left>data</td>
-<td style=text-align:left>The userland data coordinate system,
-controlled by the xlim and ylim</td>
-</tr>
-<tr class=even>
-<td style=text-align:left>axes</td>
-<td style=text-align:left>The coordinate system of the Axes; (0,0)
-is bottom left of the axes, and (1,1) is top right of the axes.</td>
-</tr>
-<tr class=odd>
-<td style=text-align:left>figure</td>
-<td style=text-align:left>The coordinate system of the Figure; (0,0)
-is bottom left of the figure, and (1,1) is top right of the figure.</td>
-</tr>
-<tr class=even>
-<td style=text-align:left>display</td>
-<td style=text-align:left>This is the pixel coordinate system of the
-display; (0,0) is the bottom left of the display, and (width, height) is
-the top right of the display in pixels.</td>
-</tr>
-</tbody>
-</table>
-<p>Usually, these coordinate systems will work under the hood and you
-can hardly notice their existence. In our case, what we really want to
-set is the aspect ratio in the display coordinate system, i.e., the
-physical length of axes height divided by its width. But the aspect
-ratio in the <code>set_aspect()</code> method refers to the aspect ratio
-in <strong>data coordinate system</strong>. For example, if the aspect
-ratio equals 1, then in the display coordinate, the same length in data
-coordinate have the same displayed length. See the following image for
-an example (aspect=1):</p>
-<p align=center>
-<img src=https://blog-resource-1257868508.file.myqcloud.com/data_aspect_ratio_010.png>
-</p>
-<p>You can easily verify that for the same interval in data coordinate
-system in x and y axis, they have the same length in display coordinate
-system.</p>
-<h1 id=transform-between-data-and-display-coordinate>Transform between
-data and display coordinate</h1>
-<p>Now that we know this distinction, the issue boils down to
-calculating the right aspect ratio to use in data coordinate system
-given the desired aspect ratio in display coordinate system. Suppose the
-axes height and width of the output plot are denoted as <span class="math inline">\(disp_h\)</span> and <span class="math inline">\(disp_w\)</span>, then the desired display aspect
-ratio is</p>
-<p><span class="math display">\[disp_r=\frac{disp_h}{disp_w}\
-.\]</span></p>
-<p>If we denote the height and width in the data coordinate system as
-<span class="math inline">\(data_h\)</span> and <span class="math inline">\(data_w\)</span>, we have the following
-equation:</p>
-<p><span class="math display">\[\frac{disp_w}{data_w}*aspect=\frac{disp_h}{data_h}\
-.\]</span></p>
-<p>Then the aspect we need to use in the <code>set_aspect()</code>
-method is</p>
-<p><span class="math display">\[\begin{equation}\begin{aligned}
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>How to Set the Aspect Ratio of Image (or Axes) in Matplotlib?</h1><div class=post-meta><span class=post-time>2017-06-03</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>941 words</span>
+<span class=more-meta>5 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content></div></div><div class=post-content>In Matplotlib, [`Axes`](https://matplotlib.org/api/axes_api.html) is the
+primary place where we put plot elements, such as lines, texts and legends.
+However, for a long time, I failed to grasp the meaning of aspect ratio in
+Matplotlib, thus was constantly frustrated by the behavior of Maplotlib every
+time I attempted to change the aspect ratio of a plot. This post is the result
+of my attempt to understand it and my findings. Hope it can help you too.
+This image is a bit *thin*. What if I want the width of the output image to be
+longer than its height, for example , an image with aspect ratio 0.6? According
+to the [official documentation of Matplotlib](https://goo.gl/9IM9CC), we can
+use [set_aspect](https://matplotlib.org/devdocs/api/_as_gen/matplotlib.axes.Axes.set_aspect.html)
+method of `Axes` class to set aspect ratio of an Axes object. This method has a
+parameter `aspect` which can be any positive number `num`. The description for
+`num` is rather vague:
+> a circle will be stretched such that the height is num times the width.
+> aspect=1 is the same as aspect='equal'.
+After I add a statement
+```python
+ax.set_aspect(aspect=0.5)
+```
+in the above script, the rendered output image becomes<p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/data_aspect_ratio_05.png></p>Apparently, this is not what I want: the new output image is even thinner. But
+what has gone wrong? It took me a lot of efforts to find out.
+# The meaning of aspect ratio in Matplotlib
+Before we get into __*aspect ratio*__, we should first know that there are four
+different [coordinate systems in
+Matplotlib](https://matplotlib.org/users/transforms_tutorial.html), which you
+are dealing with implicitly. Below is a brief description:
+|Coordinate system | Description|
+|:------|:------------------------------------------------|
+|data|The userland data coordinate system, controlled by the xlim and ylim |
+|axes| The coordinate system of the Axes; (0,0) is bottom left of the axes, and (1,1) is top right of the axes. |
+|figure| The coordinate system of the Figure; (0,0) is bottom left of the figure, and (1,1) is top right of the figure. |
+|display| This is the pixel coordinate system of the display; (0,0) is the bottom left of the display, and (width, height) is the top right of the display in pixels.|
+Usually, these coordinate systems will work under the hood and you can hardly
+notice their existence. In our case, what we really want to set is the aspect
+ratio in the display coordinate system, i.e., the physical length of axes
+height divided by its width. But the aspect ratio in the `set_aspect()` method
+refers to the aspect ratio in **data coordinate system**. For example, if the
+aspect ratio equals 1, then in the display coordinate, the same length in data
+coordinate have the same displayed length. See the following image for an
+example (aspect=1):<p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/data_aspect_ratio_010.png></p>You can easily verify that for the same interval in data coordinate system in x
+and y axis, they have the same length in display coordinate system.
+# Transform between data and display coordinate
+Now that we know this distinction, the issue boils down to calculating the
+right aspect ratio to use in data coordinate system given the desired aspect
+ratio in display coordinate system. Suppose the axes height and width of the
+output plot are denoted as $disp_h$ and $disp_w$, then the desired display
+aspect ratio is
+$$disp_r=\frac{disp_h}{disp_w}\ .$$
+If we denote the height and width in the data coordinate system as $data_h$ and
+$data_w$, we have the following equation:
+$$\frac{disp_w}{data_w}*aspect=\frac{disp_h}{data_h}\ .$$
+Then the aspect we need to use in the `set_aspect()` method is
+\begin{equation}\begin{aligned}
 aspect & = \frac{data_w}{data_h}*\frac{disp_h}{disp_w}\\
 & =\frac{data_w}{data_h}*disp_r \\
 & = \frac{1}{data_r}*disp_r
-\end{aligned}\end{equation}\]</span></p>
-<p><span class="math inline">\(data_h\)</span> and <span class="math inline">\(data_w\)</span> in the above equation can be
-easily calculated once we get the x and y axis limit using <a href=https://goo.gl/FRFzIz><code>get_xlim()</code></a> and <a href=https://goo.gl/t000Gi><code>get_ylim()</code></a>methods of an
-Axes class object. Or we can directly calculate the
-<code>dataRatio</code> using the <a href=https://matplotlib.org/devdocs/api/_as_gen/matplotlib.axes.Axes.get_data_ratio.html#matplotlib.axes.Axes.get_data_ratio><code>get_data_ratio()</code>
-method</a> of Axes class.</p>
-<h1 id=the-final-plot>The final plot</h1>
-<p>Now we are ready to set the display aspect ratio to whatever value we
-want using the following code:</p>
-<details>
-<summary>
-<font size=2 color=red>Click to show the code.</font>
-</summary>
-<div class=sourceCode id=cb3><pre class="sourceCode python"><code class="sourceCode python"><span id=cb3-1><a href=#cb3-1 aria-hidden=true tabindex=-1></a><span class=im>import</span> matplotlib.pyplot <span class=im>as</span> plt</span>
-<span id=cb3-2><a href=#cb3-2 aria-hidden=true tabindex=-1></a><span class=im>import</span> numpy <span class=im>as</span> np</span>
-<span id=cb3-3><a href=#cb3-3 aria-hidden=true tabindex=-1></a></span>
-<span id=cb3-4><a href=#cb3-4 aria-hidden=true tabindex=-1></a>plt.style.use(<span class=st>&#39;ggplot&#39;</span>)</span>
-<span id=cb3-5><a href=#cb3-5 aria-hidden=true tabindex=-1></a>x <span class=op>=</span> np.linspace(<span class=op>-</span><span class=dv>5</span>, <span class=dv>5</span>, <span class=dv>100</span>)</span>
-<span id=cb3-6><a href=#cb3-6 aria-hidden=true tabindex=-1></a>y1 <span class=op>=</span> np.exp(<span class=fl>0.8</span><span class=op>*</span>x)</span>
-<span id=cb3-7><a href=#cb3-7 aria-hidden=true tabindex=-1></a>y2 <span class=op>=</span> np.sin(x)</span>
-<span id=cb3-8><a href=#cb3-8 aria-hidden=true tabindex=-1></a></span>
-<span id=cb3-9><a href=#cb3-9 aria-hidden=true tabindex=-1></a>fig <span class=op>=</span> plt.figure()</span>
-<span id=cb3-10><a href=#cb3-10 aria-hidden=true tabindex=-1></a>ax <span class=op>=</span> fig.add_subplot(<span class=dv>111</span>)</span>
-<span id=cb3-11><a href=#cb3-11 aria-hidden=true tabindex=-1></a>ax.plot(x, y1)</span>
-<span id=cb3-12><a href=#cb3-12 aria-hidden=true tabindex=-1></a>ax.plot(x, y2)</span>
-<span id=cb3-13><a href=#cb3-13 aria-hidden=true tabindex=-1></a></span>
-<span id=cb3-14><a href=#cb3-14 aria-hidden=true tabindex=-1></a>ratio <span class=op>=</span> <span class=fl>0.3</span></span>
-<span id=cb3-15><a href=#cb3-15 aria-hidden=true tabindex=-1></a>xleft, xright <span class=op>=</span> ax.get_xlim()</span>
-<span id=cb3-16><a href=#cb3-16 aria-hidden=true tabindex=-1></a>ybottom, ytop <span class=op>=</span> ax.get_ylim()</span>
-<span id=cb3-17><a href=#cb3-17 aria-hidden=true tabindex=-1></a><span class=co># the abs method is used to make sure that all numbers are positive</span></span>
-<span id=cb3-18><a href=#cb3-18 aria-hidden=true tabindex=-1></a><span class=co># because x and y axis of an axes maybe inversed.</span></span>
-<span id=cb3-19><a href=#cb3-19 aria-hidden=true tabindex=-1></a>ax.set_aspect(<span class=bu>abs</span>((xright<span class=op>-</span>xleft)<span class=op>/</span>(ybottom<span class=op>-</span>ytop))<span class=op>*</span>ratio)</span>
-<span id=cb3-20><a href=#cb3-20 aria-hidden=true tabindex=-1></a></span>
-<span id=cb3-21><a href=#cb3-21 aria-hidden=true tabindex=-1></a><span class=co># or we can utilise the get_data_ratio method which is more concise</span></span>
-<span id=cb3-22><a href=#cb3-22 aria-hidden=true tabindex=-1></a><span class=co># ax.set_aspect(1.0/ax.get_data_ratio()*ratio)</span></span>
-<span id=cb3-23><a href=#cb3-23 aria-hidden=true tabindex=-1></a>plt.show()</span></code></pre></div>
-</details>
-<p>The following images are plotted using the same data but with
-different display aspect ratios.</p>
-<p><img src=https://blog-resource-1257868508.file.myqcloud.com/various_disp_ratio.png>
-(red numbers in each plot denote their axes aspect ratio)</p>
-<h2 id=when-we-have-shared-x-axis>When we have shared x axis</h2>
-<p>Usually, when we plot two subplots in a 1*2 layout, they have the
-same x axis but different y axis limit. If we share their x axis, we
-must set the parameter <code>adjustable</code> to “box-forced” in order
-to set the aspect ratios correctly. Below is a valid example showing how
-to do this</p>
-<details>
-<summary>
-<font size=2 color=red>Click to show the code.</font>
-</summary>
-<div class=sourceCode id=cb4><pre class="sourceCode python"><code class="sourceCode python"><span id=cb4-1><a href=#cb4-1 aria-hidden=true tabindex=-1></a><span class=im>import</span> matplotlib.pyplot <span class=im>as</span> plt</span>
-<span id=cb4-2><a href=#cb4-2 aria-hidden=true tabindex=-1></a><span class=im>import</span> numpy <span class=im>as</span> np</span>
-<span id=cb4-3><a href=#cb4-3 aria-hidden=true tabindex=-1></a></span>
-<span id=cb4-4><a href=#cb4-4 aria-hidden=true tabindex=-1></a>y1 <span class=op>=</span> np.random.uniform(<span class=fl>0.1</span>, <span class=fl>0.7</span>, size<span class=op>=</span>(<span class=dv>167</span>,))</span>
-<span id=cb4-5><a href=#cb4-5 aria-hidden=true tabindex=-1></a>y2 <span class=op>=</span> np.random.uniform(<span class=dv>1</span>, <span class=dv>100</span>, size<span class=op>=</span>(<span class=dv>167</span>,))</span>
-<span id=cb4-6><a href=#cb4-6 aria-hidden=true tabindex=-1></a>y1 <span class=op>=</span> <span class=bu>sorted</span>(y1)</span>
-<span id=cb4-7><a href=#cb4-7 aria-hidden=true tabindex=-1></a>y2 <span class=op>=</span> <span class=bu>sorted</span>(y2)</span>
-<span id=cb4-8><a href=#cb4-8 aria-hidden=true tabindex=-1></a></span>
-<span id=cb4-9><a href=#cb4-9 aria-hidden=true tabindex=-1></a>fig <span class=op>=</span> plt.figure(figsize<span class=op>=</span>(<span class=dv>10</span>,<span class=dv>3</span>))</span>
-<span id=cb4-10><a href=#cb4-10 aria-hidden=true tabindex=-1></a>fig.set_edgecolor(<span class=st>&#39;red&#39;</span>)</span>
-<span id=cb4-11><a href=#cb4-11 aria-hidden=true tabindex=-1></a>ax1 <span class=op>=</span> fig.add_subplot(<span class=dv>121</span>)</span>
-<span id=cb4-12><a href=#cb4-12 aria-hidden=true tabindex=-1></a>ax2 <span class=op>=</span> fig.add_subplot(<span class=dv>122</span>, sharex<span class=op>=</span>ax1)</span>
-<span id=cb4-13><a href=#cb4-13 aria-hidden=true tabindex=-1></a></span>
-<span id=cb4-14><a href=#cb4-14 aria-hidden=true tabindex=-1></a>ax1.plot(y1)</span>
-<span id=cb4-15><a href=#cb4-15 aria-hidden=true tabindex=-1></a>ax1.set_ylim([<span class=bu>min</span>(y1)<span class=op>*</span><span class=fl>0.9</span>, <span class=bu>max</span>(y1)<span class=op>*</span><span class=fl>1.1</span>])</span>
-<span id=cb4-16><a href=#cb4-16 aria-hidden=true tabindex=-1></a>ax1.set_ylabel(<span class=st>&#39;y1&#39;</span>)</span>
-<span id=cb4-17><a href=#cb4-17 aria-hidden=true tabindex=-1></a></span>
-<span id=cb4-18><a href=#cb4-18 aria-hidden=true tabindex=-1></a>ax2.plot(y2)</span>
-<span id=cb4-19><a href=#cb4-19 aria-hidden=true tabindex=-1></a>ax2.set_ylim([<span class=bu>min</span>(y2)<span class=op>*</span><span class=fl>0.9</span>, <span class=bu>max</span>(y2)<span class=op>*</span><span class=fl>1.1</span>])</span>
-<span id=cb4-20><a href=#cb4-20 aria-hidden=true tabindex=-1></a>ax2.set_ylabel(<span class=st>&#39;y2&#39;</span>)</span>
-<span id=cb4-21><a href=#cb4-21 aria-hidden=true tabindex=-1></a></span>
-<span id=cb4-22><a href=#cb4-22 aria-hidden=true tabindex=-1></a>ratio <span class=op>=</span> <span class=fl>0.4</span></span>
-<span id=cb4-23><a href=#cb4-23 aria-hidden=true tabindex=-1></a></span>
-<span id=cb4-24><a href=#cb4-24 aria-hidden=true tabindex=-1></a><span class=cf>for</span> ax <span class=kw>in</span> [ax1, ax2]:</span>
-<span id=cb4-25><a href=#cb4-25 aria-hidden=true tabindex=-1></a>    xmin, xmax <span class=op>=</span> ax.get_xlim()</span>
-<span id=cb4-26><a href=#cb4-26 aria-hidden=true tabindex=-1></a>    ymin, ymax <span class=op>=</span> ax.get_ylim()</span>
-<span id=cb4-27><a href=#cb4-27 aria-hidden=true tabindex=-1></a>    <span class=bu>print</span>((xmax<span class=op>-</span>xmin)<span class=op>/</span>(ymax<span class=op>-</span>ymin))</span>
-<span id=cb4-28><a href=#cb4-28 aria-hidden=true tabindex=-1></a>    ax.set_aspect(<span class=bu>abs</span>((xmax<span class=op>-</span>xmin)<span class=op>/</span>(ymax<span class=op>-</span>ymin))<span class=op>*</span>ratio, adjustable<span class=op>=</span><span class=st>&#39;box-forced&#39;</span>)</span>
-<span id=cb4-29><a href=#cb4-29 aria-hidden=true tabindex=-1></a></span>
-<span id=cb4-30><a href=#cb4-30 aria-hidden=true tabindex=-1></a>plt.show()</span></code></pre></div>
-</details>
-<p>The produced figure is</p>
-<p align=center>
-<img src=https://blog-resource-1257868508.file.myqcloud.com/two_subplots_same_ratio.png>
-</p>
-<p>The two subplots in the above figure have exactly the same display
-aspect ratio.</p>
-<p>OK, this is the end of this post, I hope that now you can finally
-under this and set the desired image aspect ratio without any
-difficulty.</p>
-<h1 id=references>References</h1>
-<ul>
-<li><a href=https://stackoverflow.com/a/14911939/6064933 class=uri>https://stackoverflow.com/a/14911939/6064933</a></li>
-<li><a href=https://stackoverflow.com/a/43806072/6064933 class=uri>https://stackoverflow.com/a/43806072/6064933</a></li>
-<li><a href=https://stackoverflow.com/q/18572234/6064933 class=uri>https://stackoverflow.com/q/18572234/6064933</a></li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2022-02-27
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/Matplotlib/>Matplotlib</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2017/06/11/mpl_multiplot_one_colorbar/>
-<i class="iconfont icon-left"></i>
+\end{aligned}\end{equation}
+$data_h$ and $data_w$ in the above equation can be easily calculated once we
+get the x and y axis limit using [`get_xlim()`](https://goo.gl/FRFzIz) and
+[`get_ylim()` ](https://goo.gl/t000Gi)methods of an Axes class object. Or we
+can directly calculate the `dataRatio` using the
+[`get_data_ratio()` method](https://matplotlib.org/devdocs/api/_as_gen/matplotlib.axes.Axes.get_data_ratio.html#matplotlib.axes.Axes.get_data_ratio)
+of Axes class.
+# The final plot
+Now we are ready to set the display aspect ratio to whatever value we want
+using the following code:
+<details><summary><font size=2 color=red>Click to show the code.</font></summary>
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+plt.style.use('ggplot')
+x = np.linspace(-5, 5, 100)
+y1 = np.exp(0.8*x)
+y2 = np.sin(x)
+fig = plt.figure()
+ax = fig.add_subplot(111)
+ax.plot(x, y1)
+ax.plot(x, y2)
+ratio = 0.3
+xleft, xright = ax.get_xlim()
+ybottom, ytop = ax.get_ylim()
+# the abs method is used to make sure that all numbers are positive
+# because x and y axis of an axes maybe inversed.
+ax.set_aspect(abs((xright-xleft)/(ybottom-ytop))*ratio)
+# or we can utilise the get_data_ratio method which is more concise
+# ax.set_aspect(1.0/ax.get_data_ratio()*ratio)
+plt.show()
+```</details>
+The following images are plotted using the same data but with different display
+aspect ratios.
+![](https://blog-resource-1257868508.file.myqcloud.com/various_disp_ratio.png)
+(red numbers in each plot denote their axes aspect ratio)
+## When we have shared x axis
+Usually, when we plot two subplots in a 1*2 layout, they have the same x axis
+but different y axis limit. If we share their x axis, we must set the parameter
+`adjustable` to "box-forced" in order to set the aspect ratios correctly. Below
+is a valid example showing how to do this
+<details><summary><font size=2 color=red>Click to show the code.</font></summary>
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+y1 = np.random.uniform(0.1, 0.7, size=(167,))
+y2 = np.random.uniform(1, 100, size=(167,))
+y1 = sorted(y1)
+y2 = sorted(y2)
+fig = plt.figure(figsize=(10,3))
+fig.set_edgecolor('red')
+ax1 = fig.add_subplot(121)
+ax2 = fig.add_subplot(122, sharex=ax1)
+ax1.plot(y1)
+ax1.set_ylim([min(y1)*0.9, max(y1)*1.1])
+ax1.set_ylabel('y1')
+ax2.plot(y2)
+ax2.set_ylim([min(y2)*0.9, max(y2)*1.1])
+ax2.set_ylabel('y2')
+ratio = 0.4
+for ax in [ax1, ax2]:
+xmin, xmax = ax.get_xlim()
+ymin, ymax = ax.get_ylim()
+print((xmax-xmin)/(ymax-ymin))
+ax.set_aspect(abs((xmax-xmin)/(ymax-ymin))*ratio, adjustable='box-forced')
+plt.show()
+```</details>
+The produced figure is<p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/two_subplots_same_ratio.png></p>The two subplots in the above figure have exactly the same display aspect
+ratio.
+OK, this is the end of this post, I hope that now you can finally under this
+and set the desired image aspect ratio without any difficulty.
+# References
++ <https://stackoverflow.com/a/14911939/6064933>+ <https://stackoverflow.com/a/43806072/6064933>+ <https://stackoverflow.com/q/18572234/6064933></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2022-02-27</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/Matplotlib/>Matplotlib</a></div><nav class=post-nav><a class=prev href=/2017/06/11/mpl_multiplot_one_colorbar/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">How to Plot Only One Colorbar for Multiple Plot Using Matplotlib</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/>
-<span class="next-text nav-default">A Guide on Using Unicode Characters in Matplotlib</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/><span class="next-text nav-default">A Guide on Using Unicode Characters in Matplotlib</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

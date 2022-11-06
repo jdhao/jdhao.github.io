@@ -87,9 +87,9 @@ that someone asked about how to see the full path of current file in Vim. I
 think it would be helpful to write about how I do it.&lt;/p></description></item><item><title>Exclusive and Inclusive Motion in Neovim/Vim</title><link>https://jdhao.github.io/2019/05/18/nvim_exclusive_inclusive_motion/</link><pubDate>Sat, 18 May 2019 01:18:28 +0800</pubDate><guid>https://jdhao.github.io/2019/05/18/nvim_exclusive_inclusive_motion/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
 &lt;p>Suppose that we have the following text in normal mode (cursor is indicated by
 &lt;code>^&lt;/code>):&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">hello world
-^
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>If we use &lt;code>dw&lt;/code>, we delete &lt;code>hello&amp;lt;Space&amp;gt;&lt;/code>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> and only &lt;code>world&lt;/code> is left; if we
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">hello world
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">^
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>If we use &lt;code>dw&lt;/code>, we delete &lt;code>hello&amp;lt;Space&amp;gt;&lt;/code>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> and only &lt;code>world&lt;/code> is left; if we
 use &lt;code>de&lt;/code>, &lt;code>hello&lt;/code> is deleted and &lt;code>&amp;lt;Space&amp;gt;world&lt;/code> is left. Have you ever wondered
 about why &lt;code>dw&lt;/code> do not delete &lt;code>w&lt;/code> while &lt;code>de&lt;/code> will delete the &lt;code>o&lt;/code> in &lt;code>hello&lt;/code>? It
 seems that motion &lt;code>e&lt;/code> and &lt;code>w&lt;/code> are somewhat inconsistent in their behaviours. It

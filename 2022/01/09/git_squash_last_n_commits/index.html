@@ -1,253 +1,64 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>How to Squash Last N Commits in Git? - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="We often need to squash several related commits to make the commit history cleaner. There are several different ways to achieve this.
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2022/01/09/git_squash_last_n_commits/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="How to Squash Last N Commits in Git?">
-<meta property="og:description" content="We often need to squash several related commits to make the commit history cleaner.
-There are several different ways to achieve this.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2022/01/09/git_squash_last_n_commits/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2022-01-09T11:47:17+08:00">
-<meta property="article:modified_time" content="2022-01-09T23:14:39+08:00">
-<meta itemprop=name content="How to Squash Last N Commits in Git?">
-<meta itemprop=description content="We often need to squash several related commits to make the commit history cleaner.
-There are several different ways to achieve this."><meta itemprop=datePublished content="2022-01-09T11:47:17+08:00">
-<meta itemprop=dateModified content="2022-01-09T23:14:39+08:00">
-<meta itemprop=wordCount content="334">
-<meta itemprop=keywords content="rebase,squash,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="How to Squash Last N Commits in Git?">
-<meta name=twitter:description content="We often need to squash several related commits to make the commit history cleaner.
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>How to Squash Last N Commits in Git? - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="We often need to squash several related commits to make the commit history cleaner. There are several different ways to achieve this.
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2022/01/09/git_squash_last_n_commits/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="How to Squash Last N Commits in Git?"><meta property="og:description" content="We often need to squash several related commits to make the commit history cleaner.
+There are several different ways to achieve this."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2022/01/09/git_squash_last_n_commits/"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-01-09T11:47:17+08:00"><meta property="article:modified_time" content="2022-01-09T23:14:39+08:00"><meta itemprop=name content="How to Squash Last N Commits in Git?"><meta itemprop=description content="We often need to squash several related commits to make the commit history cleaner.
+There are several different ways to achieve this."><meta itemprop=datePublished content="2022-01-09T11:47:17+08:00"><meta itemprop=dateModified content="2022-01-09T23:14:39+08:00"><meta itemprop=wordCount content="334"><meta itemprop=keywords content="rebase,squash,"><meta name=twitter:card content="summary"><meta name=twitter:title content="How to Squash Last N Commits in Git?"><meta name=twitter:description content="We often need to squash several related commits to make the commit history cleaner.
 There are several different ways to achieve this."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>How to Squash Last N Commits in Git?</h1>
-<div class=post-meta>
-<span class=post-time> 2022-01-09 </span>
-<div class=post-category>
-<a href=/categories/Git/> Git </a>
-</div>
-<span class=more-meta> 334 words </span>
-<span class=more-meta> 2 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#using-git-rebase>Using git rebase</a></li>
-<li><a href=#soft-reset-then-commit>soft reset, then commit</a></li>
-<li><a href=#hard-reset-then-merge---squash>hard reset, then merge &ndash;squash</a></li>
-<li><a href=#references>References</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>We often need to squash several related commits to make the commit history cleaner.
-There are several different ways to achieve this.</p>
-<p>Here, suppose we want to squash last 2 commits.</p>
-<h1 id=using-git-rebase>Using git rebase</h1>
-<p>I have covered this method in <a href=https://jdhao.github.io/2021/06/28/squash_commits_with_git_rebase/>my previous post</a>, so I won&rsquo;t repeat it here.</p>
-<h1 id=soft-reset-then-commit>soft reset, then commit</h1>
-<p>First, we run the soft reset command:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git reset --soft HEAD~2
-</code></pre></div><p>This will reset last two commits, but keep their changes.
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>How to Squash Last N Commits in Git?</h1><div class=post-meta><span class=post-time>2022-01-09</span><div class=post-category><a href=/categories/Git/>Git</a></div><span class=more-meta>334 words</span>
+<span class=more-meta>2 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#using-git-rebase>Using git rebase</a></li><li><a href=#soft-reset-then-commit>soft reset, then commit</a></li><li><a href=#hard-reset-then-merge---squash>hard reset, then merge &ndash;squash</a></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p>We often need to squash several related commits to make the commit history cleaner.
+There are several different ways to achieve this.</p><p>Here, suppose we want to squash last 2 commits.</p><h1 id=using-git-rebase>Using git rebase</h1><p>I have covered this method in <a href=https://jdhao.github.io/2021/06/28/squash_commits_with_git_rebase/>my previous post</a>, so I won&rsquo;t repeat it here.</p><h1 id=soft-reset-then-commit>soft reset, then commit</h1><p>First, we run the soft reset command:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git reset --soft HEAD~2
+</span></span></code></pre></div><p>This will reset last two commits, but keep their changes.
 If you run <code>git status</code> command, you will see that you have uncommitted changes.
-These changes are a combination of changes in last two commits.</p>
-<p>Now, you just commit again and write the new commit message:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git commit -m <span class=s2>&#34;some msg blah blah blah&#34;</span>
-</code></pre></div><h1 id=hard-reset-then-merge---squash>hard reset, then merge &ndash;squash</h1>
-<p>First, we run the hard reset command:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git reset --hard HEAD~2
-</code></pre></div><p>This will discard changes in the recent two commits, but there are actually not lost.
+These changes are a combination of changes in last two commits.</p><p>Now, you just commit again and write the new commit message:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git commit -m <span class=s2>&#34;some msg blah blah blah&#34;</span>
+</span></span></code></pre></div><h1 id=hard-reset-then-merge---squash>hard reset, then merge &ndash;squash</h1><p>First, we run the hard reset command:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git reset --hard HEAD~2
+</span></span></code></pre></div><p>This will discard changes in the recent two commits, but there are actually not lost.
 <code>HEAD@{1}</code> represents where your HEAD was before you use hard reset.
 <code>HEAD@{2}</code> represents your HEAD two moves ago. So <code>HEAD@{}</code> variable logs your HEAD movement.
-We can check the HEAD movement using <a href=https://git-scm.com/docs/git-reflog><code>git reflog</code></a>. An example output is like this:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>0073058 (HEAD -&gt; master) HEAD@{0}: commit: 9th
-618c9fd HEAD@{1}: commit: 8th
-ed79391 HEAD@{2}: commit: Squashed commit of the following:
-f0fb17b HEAD@{3}: reset: moving to HEAD~2
-b2ee13a HEAD@{4}: reset: moving to HEAD
-b2ee13a HEAD@{5}: reset: moving to HEAD
-b2ee13a HEAD@{6}: reset: moving to HEAD
-b2ee13a HEAD@{7}: reset: moving to HEAD
-b2ee13a HEAD@{8}: reset: moving to HEAD
-b2ee13a HEAD@{9}: reset: moving to HEAD
-b2ee13a HEAD@{10}: reset: moving to HEAD
-b2ee13a HEAD@{11}: commit: 7th
-004a853 HEAD@{12}: commit: sixth
-f0fb17b HEAD@{13}: commit: fifth
-d9f10ed HEAD@{14}: commit: fourth
-774b308 HEAD@{15}: commit: thrid
-ad2fb58 HEAD@{16}: commit: second
-efe6902 HEAD@{17}: commit (initial): first
-</code></pre></div><p>Now, we will run <code>git merge --squash HEAD@{1}</code> to squash the recent two commits.
-The merge window should be pre-populated with the commit message of recent two commits.</p>
-<h1 id=references>References</h1>
-<ul>
-<li><a href=https://stackoverflow.com/q/5189560/6064933>Squash my last X commits together using Git</a></li>
-<li>Meaning of <code>HEAD@{N}</code> notation: <a href=https://stackoverflow.com/a/21911246/6064933>https://stackoverflow.com/a/21911246/6064933</a></li>
-<li>Difference between <code>merge --squash</code> and rebase: <a href=https://stackoverflow.com/q/2427238/6064933>https://stackoverflow.com/q/2427238/6064933</a></li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2022-01-09
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/rebase/>rebase</a>
-<a href=/tags/squash/>squash</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2022/01/09/log_sum_exp_in_machine_learning/>
-<i class="iconfont icon-left"></i>
+We can check the HEAD movement using <a href=https://git-scm.com/docs/git-reflog><code>git reflog</code></a>. An example output is like this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>0073058 (HEAD -&gt; master) HEAD@{0}: commit: 9th
+</span></span><span class=line><span class=cl>618c9fd HEAD@{1}: commit: 8th
+</span></span><span class=line><span class=cl>ed79391 HEAD@{2}: commit: Squashed commit of the following:
+</span></span><span class=line><span class=cl>f0fb17b HEAD@{3}: reset: moving to HEAD~2
+</span></span><span class=line><span class=cl>b2ee13a HEAD@{4}: reset: moving to HEAD
+</span></span><span class=line><span class=cl>b2ee13a HEAD@{5}: reset: moving to HEAD
+</span></span><span class=line><span class=cl>b2ee13a HEAD@{6}: reset: moving to HEAD
+</span></span><span class=line><span class=cl>b2ee13a HEAD@{7}: reset: moving to HEAD
+</span></span><span class=line><span class=cl>b2ee13a HEAD@{8}: reset: moving to HEAD
+</span></span><span class=line><span class=cl>b2ee13a HEAD@{9}: reset: moving to HEAD
+</span></span><span class=line><span class=cl>b2ee13a HEAD@{10}: reset: moving to HEAD
+</span></span><span class=line><span class=cl>b2ee13a HEAD@{11}: commit: 7th
+</span></span><span class=line><span class=cl>004a853 HEAD@{12}: commit: sixth
+</span></span><span class=line><span class=cl>f0fb17b HEAD@{13}: commit: fifth
+</span></span><span class=line><span class=cl>d9f10ed HEAD@{14}: commit: fourth
+</span></span><span class=line><span class=cl>774b308 HEAD@{15}: commit: thrid
+</span></span><span class=line><span class=cl>ad2fb58 HEAD@{16}: commit: second
+</span></span><span class=line><span class=cl>efe6902 HEAD@{17}: commit (initial): first
+</span></span></code></pre></div><p>Now, we will run <code>git merge --squash HEAD@{1}</code> to squash the recent two commits.
+The merge window should be pre-populated with the commit message of recent two commits.</p><h1 id=references>References</h1><ul><li><a href=https://stackoverflow.com/q/5189560/6064933>Squash my last X commits together using Git</a></li><li>Meaning of <code>HEAD@{N}</code> notation: <a href=https://stackoverflow.com/a/21911246/6064933>https://stackoverflow.com/a/21911246/6064933</a></li><li>Difference between <code>merge --squash</code> and rebase: <a href=https://stackoverflow.com/q/2427238/6064933>https://stackoverflow.com/q/2427238/6064933</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2022-01-09</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/rebase/>rebase</a>
+<a href=/tags/squash/>squash</a></div><nav class=post-nav><a class=prev href=/2022/01/09/log_sum_exp_in_machine_learning/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Why do We Use LogSumExp in Machine Learning?</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2022/01/03/github_profile_readme/>
-<span class="next-text nav-default">How to Make An Impressive and Beautiful GitHub Profile</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2022/01/03/github_profile_readme/><span class="next-text nav-default">How to Make An Impressive and Beautiful GitHub Profile</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

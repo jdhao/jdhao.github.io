@@ -1,242 +1,33 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>基于内容的视频检索/视频指纹的应用 - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="基于内容的视频检索（或视频指纹），是指根据视频内容，从数据库中找到和当前视频在画面上重复高的视频。
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2021/07/24/application_of_duplicate_video_retrieval/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="基于内容的视频检索/视频指纹的应用">
-<meta property="og:description" content="基于内容的视频检索（或视频指纹），是指根据视频内容，从数据库中找到和当前视频在画面上重复高的视频。">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2021/07/24/application_of_duplicate_video_retrieval/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2021-07-24T21:43:31+08:00">
-<meta property="article:modified_time" content="2022-01-09T20:14:05+08:00">
-<meta itemprop=name content="基于内容的视频检索/视频指纹的应用">
-<meta itemprop=description content="基于内容的视频检索（或视频指纹），是指根据视频内容，从数据库中找到和当前视频在画面上重复高的视频。"><meta itemprop=datePublished content="2021-07-24T21:43:31+08:00">
-<meta itemprop=dateModified content="2022-01-09T20:14:05+08:00">
-<meta itemprop=wordCount content="837">
-<meta itemprop=keywords content="video,retrieval,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="基于内容的视频检索/视频指纹的应用">
-<meta name=twitter:description content="基于内容的视频检索（或视频指纹），是指根据视频内容，从数据库中找到和当前视频在画面上重复高的视频。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>基于内容的视频检索/视频指纹的应用 - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="基于内容的视频检索（或视频指纹），是指根据视频内容，从数据库中找到和当前视频在画面上重复高的视频。
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2021/07/24/application_of_duplicate_video_retrieval/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="基于内容的视频检索/视频指纹的应用"><meta property="og:description" content="基于内容的视频检索（或视频指纹），是指根据视频内容，从数据库中找到和当前视频在画面上重复高的视频。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2021/07/24/application_of_duplicate_video_retrieval/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-07-24T21:43:31+08:00"><meta property="article:modified_time" content="2022-01-09T20:14:05+08:00"><meta itemprop=name content="基于内容的视频检索/视频指纹的应用"><meta itemprop=description content="基于内容的视频检索（或视频指纹），是指根据视频内容，从数据库中找到和当前视频在画面上重复高的视频。"><meta itemprop=datePublished content="2021-07-24T21:43:31+08:00"><meta itemprop=dateModified content="2022-01-09T20:14:05+08:00"><meta itemprop=wordCount content="837"><meta itemprop=keywords content="video,retrieval,"><meta name=twitter:card content="summary"><meta name=twitter:title content="基于内容的视频检索/视频指纹的应用"><meta name=twitter:description content="基于内容的视频检索（或视频指纹），是指根据视频内容，从数据库中找到和当前视频在画面上重复高的视频。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>基于内容的视频检索/视频指纹的应用</h1>
-<div class=post-meta>
-<span class=post-time> 2021-07-24 </span>
-<div class=post-category>
-<a href=/categories/Note/> Note </a>
-</div>
-<span class=more-meta> 837 words </span>
-<span class=more-meta> 2 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#参考>参考</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>基于内容的视频检索（或视频指纹），是指根据视频内容，从数据库中找到和当前视频在画面上重复高的视频。</p>
-<p>主要应用场景：</p>
-<ul>
-<li>版权保护相关：用于保护原创视频内容，及时发现自己的视频是否被第三方盗用，淘宝<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>，YouTube<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>，抖音<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>等都有相关的功能</li>
-<li>视频去重：多用于推荐或者信息流场景，去掉重复的视频；云存储提供商，通过视频去重，也能节省存储资源（例如不同用户上传了同一段视频，如果 A 是 B 的一部分，可以不用存储 A）</li>
-<li>广告效果追踪：广告类的视频，发布者希望传播的越广越好，通过视频指纹，广告原创者可以追踪视频已经到达了哪些受众，进行效果传播分析</li>
-<li>视频溯源：通过找到相似视频，找出视频在互联网上流转的路径有哪，找到视频发布者或者视频源头</li>
-<li>互动媒体：通过视频指纹，电视能够检测当前播放的视频，根据编程，提供个性化服务</li>
-<li>打击犯罪：用于追踪一些违法内容的传播，例如恐怖主义内容，儿童色情视频等。</li>
-</ul>
-<h1 id=参考>参考</h1>
-<ul>
-<li><a href=https://en.wikipedia.org/wiki/Digital_video_fingerprinting>https://en.wikipedia.org/wiki/Digital_video_fingerprinting</a></li>
-<li>谷歌在 content ID 上投入超 1 亿美元：https://www.blog.google/outreach-initiatives/public-policy/protecting-what-we-love-about-internet-our-efforts-stop-online-piracy/</li>
-<li>YouTube content ID intro: <a href="https://support.google.com/youtube/answer/2797370?hl=en">https://support.google.com/youtube/answer/2797370?hl=en</a></li>
-<li>content ID turns three: <a href=https://blog.youtube/news-and-events/content-id-turns-three>https://blog.youtube/news-and-events/content-id-turns-three</a></li>
-<li>字节跳动“灵识系统”：https://smart.huanqiu.com/article/9CaKrnKfmL2</li>
-<li>字节跳动，以算法推动的媒体进阶之路: <a href=https://www.jingpt.com/article/41663b6b-3dbb-4efe-bfd0-86a5c947b5c8>https://www.jingpt.com/article/41663b6b-3dbb-4efe-bfd0-86a5c947b5c8</a></li>
-<li><a href=http://trb.mofcom.gov.cn/article/zuixindt/201712/20171202687244.shtml>视频也能提取“指纹” 人工智能破解行业盗版难题</a> （五分钟视频 10 s 内完成特征提取）</li>
-<li>aliyun 视频检索
-<ul>
-<li><a href=https://ai.aliyun.com/vi/dna>https://ai.aliyun.com/vi/dna</a></li>
-<li><a href="https://www.aliyun.com/activity/intelligent/media-ai-portal?spm=5176.cnmultimediaai.0.0.592e2a51KFBlJf#/videoFingerprinting">https://www.aliyun.com/activity/intelligent/media-ai-portal?spm=5176.cnmultimediaai.0.0.592e2a51KFBlJf#/videoFingerprinting</a></li>
-</ul>
-</li>
-<li>百度云视频检索：https://cloud.baidu.com/product/aimms.html</li>
-</ul>
-<section class=footnotes role=doc-endnotes>
-<hr>
-<ol>
-<li id=fn:1 role=doc-endnote>
-<p><a href=https://www.jiqizhixin.com/articles/2019-06-13-10>数十万商品短视频排队盖戳 阿里推“视频指纹”技术保护商家</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-<li id=fn:2 role=doc-endnote>
-<p>YouTube 版权保护系统名为 content ID，具体参考 <a href=https://en.wikipedia.org/wiki/Content_ID_(system)>这里</a> 和 <a href=https://www.techbang.com/posts/21674-how-does-youtube-catch-your-movie-contains-copyrighted-music-and-video-content-parse-the-content-id-recognition-system-theory-and-function-of>这里</a>.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-<li id=fn:3 role=doc-endnote>
-<p><a href=http://www.cac.gov.cn/2019-05/28/c_1124549891.htm>短视频版权是非多，技术出手来护卫</a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2022-01-09
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/video/>video</a>
-<a href=/tags/retrieval/>retrieval</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2021/08/02/the_youtube_content_id_system/>
-<i class="iconfont icon-left"></i>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>基于内容的视频检索/视频指纹的应用</h1><div class=post-meta><span class=post-time>2021-07-24</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>837 words</span>
+<span class=more-meta>2 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#参考>参考</a></li></ul></nav></div></div><div class=post-content><p>基于内容的视频检索（或视频指纹），是指根据视频内容，从数据库中找到和当前视频在画面上重复高的视频。</p><p>主要应用场景：</p><ul><li>版权保护相关：用于保护原创视频内容，及时发现自己的视频是否被第三方盗用，淘宝<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>，YouTube<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>，抖音<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup>等都有相关的功能</li><li>视频去重：多用于推荐或者信息流场景，去掉重复的视频；云存储提供商，通过视频去重，也能节省存储资源（例如不同用户上传了同一段视频，如果 A 是 B 的一部分，可以不用存储 A）</li><li>广告效果追踪：广告类的视频，发布者希望传播的越广越好，通过视频指纹，广告原创者可以追踪视频已经到达了哪些受众，进行效果传播分析</li><li>视频溯源：通过找到相似视频，找出视频在互联网上流转的路径有哪，找到视频发布者或者视频源头</li><li>互动媒体：通过视频指纹，电视能够检测当前播放的视频，根据编程，提供个性化服务</li><li>打击犯罪：用于追踪一些违法内容的传播，例如恐怖主义内容，儿童色情视频等。</li></ul><h1 id=参考>参考</h1><ul><li><a href=https://en.wikipedia.org/wiki/Digital_video_fingerprinting>https://en.wikipedia.org/wiki/Digital_video_fingerprinting</a></li><li>谷歌在 content ID 上投入超 1 亿美元：https://www.blog.google/outreach-initiatives/public-policy/protecting-what-we-love-about-internet-our-efforts-stop-online-piracy/</li><li>YouTube content ID intro: <a href="https://support.google.com/youtube/answer/2797370?hl=en">https://support.google.com/youtube/answer/2797370?hl=en</a></li><li>content ID turns three: <a href=https://blog.youtube/news-and-events/content-id-turns-three>https://blog.youtube/news-and-events/content-id-turns-three</a></li><li>字节跳动“灵识系统”：https://smart.huanqiu.com/article/9CaKrnKfmL2</li><li>字节跳动，以算法推动的媒体进阶之路: <a href=https://www.jingpt.com/article/41663b6b-3dbb-4efe-bfd0-86a5c947b5c8>https://www.jingpt.com/article/41663b6b-3dbb-4efe-bfd0-86a5c947b5c8</a></li><li><a href=http://trb.mofcom.gov.cn/article/zuixindt/201712/20171202687244.shtml>视频也能提取“指纹” 人工智能破解行业盗版难题</a> （五分钟视频 10 s 内完成特征提取）</li><li>aliyun 视频检索<ul><li><a href=https://ai.aliyun.com/vi/dna>https://ai.aliyun.com/vi/dna</a></li><li><a href="https://www.aliyun.com/activity/intelligent/media-ai-portal?spm=5176.cnmultimediaai.0.0.592e2a51KFBlJf#/videoFingerprinting">https://www.aliyun.com/activity/intelligent/media-ai-portal?spm=5176.cnmultimediaai.0.0.592e2a51KFBlJf#/videoFingerprinting</a></li></ul></li><li>百度云视频检索：https://cloud.baidu.com/product/aimms.html</li></ul><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p><a href=https://www.jiqizhixin.com/articles/2019-06-13-10>数十万商品短视频排队盖戳 阿里推“视频指纹”技术保护商家</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>YouTube 版权保护系统名为 content ID，具体参考 <a href=https://en.wikipedia.org/wiki/Content_ID_(system)>这里</a> 和 <a href=https://www.techbang.com/posts/21674-how-does-youtube-catch-your-movie-contains-copyrighted-music-and-video-content-parse-the-content-id-recognition-system-theory-and-function-of>这里</a>.&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3><p><a href=http://www.cac.gov.cn/2019-05/28/c_1124549891.htm>短视频版权是非多，技术出手来护卫</a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2022-01-09</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/video/>video</a>
+<a href=/tags/retrieval/>retrieval</a></div><nav class=post-nav><a class=prev href=/2021/08/02/the_youtube_content_id_system/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">How Does The YouTube Content ID System Work?</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2021/07/24/vector_search_tools/>
-<span class="next-text nav-default">向量搜索引擎/工具</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2021/07/24/vector_search_tools/><span class="next-text nav-default">向量搜索引擎/工具</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

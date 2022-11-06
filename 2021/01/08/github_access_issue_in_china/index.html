@@ -1,265 +1,56 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>解决 GitHub 资源无法下载的问题 - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content=" 更新记录  2022-02-08： fasgit hub 被 GFW 封了，换一个地址。   GitHub 虽然没被封，但是阻断严重，下载 GitHub 资源速度奇慢无比，总结一些验证可行的方法。
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2021/01/08/github_access_issue_in_china/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="解决 GitHub 资源无法下载的问题">
-<meta property="og:description" content="
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>解决 GitHub 资源无法下载的问题 - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content=" 更新记录 2022-02-08： fasgit hub 被 GFW 封了，换一个地址。 GitHub 虽然没被封，但是阻断严重，下载 GitHub 资源速度奇慢无比，总结一些验证可行的方法。
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2021/01/08/github_access_issue_in_china/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="解决 GitHub 资源无法下载的问题"><meta property="og:description" content="
 更新记录
 
 2022-02-08： fasgit hub 被 GFW 封了，换一个地址。
 
 
-GitHub 虽然没被封，但是阻断严重，下载 GitHub 资源速度奇慢无比，总结一些验证可行的方法。">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2021/01/08/github_access_issue_in_china/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2021-01-08T23:38:43+08:00">
-<meta property="article:modified_time" content="2022-02-08T13:04:18+08:00">
-<meta itemprop=name content="解决 GitHub 资源无法下载的问题">
-<meta itemprop=description content="
+GitHub 虽然没被封，但是阻断严重，下载 GitHub 资源速度奇慢无比，总结一些验证可行的方法。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2021/01/08/github_access_issue_in_china/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-01-08T23:38:43+08:00"><meta property="article:modified_time" content="2022-02-08T13:04:18+08:00"><meta itemprop=name content="解决 GitHub 资源无法下载的问题"><meta itemprop=description content="
 更新记录
 
 2022-02-08： fasgit hub 被 GFW 封了，换一个地址。
 
 
-GitHub 虽然没被封，但是阻断严重，下载 GitHub 资源速度奇慢无比，总结一些验证可行的方法。"><meta itemprop=datePublished content="2021-01-08T23:38:43+08:00">
-<meta itemprop=dateModified content="2022-02-08T13:04:18+08:00">
-<meta itemprop=wordCount content="604">
-<meta itemprop=keywords content="GitHub,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="解决 GitHub 资源无法下载的问题">
-<meta name=twitter:description content="
+GitHub 虽然没被封，但是阻断严重，下载 GitHub 资源速度奇慢无比，总结一些验证可行的方法。"><meta itemprop=datePublished content="2021-01-08T23:38:43+08:00"><meta itemprop=dateModified content="2022-02-08T13:04:18+08:00"><meta itemprop=wordCount content="604"><meta itemprop=keywords content="GitHub,"><meta name=twitter:card content="summary"><meta name=twitter:title content="解决 GitHub 资源无法下载的问题"><meta name=twitter:description content="
 更新记录
 
 2022-02-08： fasgit hub 被 GFW 封了，换一个地址。
 
 
 GitHub 虽然没被封，但是阻断严重，下载 GitHub 资源速度奇慢无比，总结一些验证可行的方法。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>解决 GitHub 资源无法下载的问题</h1>
-<div class=post-meta>
-<span class=post-time> 2021-01-08 </span>
-<div class=post-category>
-<a href=/categories/Note/> Note </a>
-</div>
-<span class=more-meta> 604 words </span>
-<span class=more-meta> 2 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#加速下载-githubcom-资源>加速下载 github.com 资源</a></li>
-<li><a href=#下载-githubusercontentcom-的内容>下载 githubusercontent.com 的内容</a>
-<ul>
-<li><a href=#使用-fastgit>使用 fastgit</a></li>
-<li><a href=#使用-jsdelivr>使用 jsdelivr</a></li>
-<li><a href=#更改系统-hosts-文件>更改系统 hosts 文件</a></li>
-</ul>
-</li>
-<li><a href=#使用第三方辅助工具>使用第三方辅助工具</a>
-<ul>
-<li><a href=#dev-sidecar>dev-sidecar</a></li>
-</ul>
-</li>
-<li><a href=#参考>参考</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<details>
-<summary><font size=2 color=red>更新记录</font></summary>
-<ul>
-<li>2022-02-08： <a href=https://t.me/fastgitchannel/81>fasgit hub 被 GFW 封了</a>，换一个地址。</li>
-</ul>
-</details>
-<p>GitHub 虽然没被封，但是阻断严重，下载 GitHub 资源速度奇慢无比，总结一些验证可行的方法。</p>
-<h1 id=加速下载-githubcom-资源>加速下载 github.com 资源</h1>
-<p>可以利用 <a href=https://fastgit.org/>fastgit</a> 加速 github.com 的下载。原有下载命令：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
-</code></pre></div><p>新命令：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>wget &#34;https://hub.fastgit.xyz/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz&#34;
-</code></pre></div><p>把 <code>github.com</code> 替换为 <code>hub.fastgit.xyz</code> 即可，也支持 git clone 加速。</p>
-<h1 id=下载-githubusercontentcom-的内容>下载 githubusercontent.com 的内容</h1>
-<h2 id=使用-fastgit>使用 fastgit</h2>
-<p>使用上面提到的 fastgit 也可以加速下载 githubusercontent.com 的内容。原始命令：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>wget https://raw.githubusercontent.com/jdhao/nvim-config/master/docs/Nvim_setup.sh
-</code></pre></div><p>新命令：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>wget https://raw.fastgit.org/jdhao/nvim-config/master/docs/Nvim_setup.sh
-</code></pre></div><p>需要把链接中 <code>githubusercontent.com</code> 替换为 <code>fastgit.org</code>。</p>
-<h2 id=使用-jsdelivr>使用 jsdelivr</h2>
-<p>可以使用 jsdelivr 的 cdn 访问对应的资源，亲测可行。需要对源地址进行一些改造，换成 jsdelivr 上对应的 URL 即可。例如，源地址：<code>https://raw.githubusercontent.com/jdhao/nvim-config/master/docs/Nvim_setup.sh</code>
-对应 jsdelivr 地址：<code>https://cdn.jsdelivr.net/gh/jdhao/nvim-config@master/docs/Nvim_setup.sh</code>。<code>@master</code> 后面跟的是该文件对应的 master branch，如果是默认的 master，那么也可以不用加 <code>@master</code>，否则需要加上分支名称。</p>
-<h2 id=更改系统-hosts-文件>更改系统 hosts 文件</h2>
-<p>更改系统 hosts 文件 (在 Linux 上需要有 root 权限)，编辑 <code>/etc/hosts</code>， 加入一条 host 记录：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>199.232.96.133 raw.githubusercontent.com
-</code></pre></div><p>上面的 IP 地址是 <code>githubusercontent.com</code> 对应的 ip 地址之一，可以在 <a href=https://www.ip138.com/>这里</a> 查看。</p>
-<h1 id=使用第三方辅助工具>使用第三方辅助工具</h1>
-<h2 id=dev-sidecar>dev-sidecar</h2>
-<p><a href=https://github.com/docmirror/dev-sidecar>dev-sidecar</a>，用 Electron 写的一个工具， 可以帮助用户加速 github，stackoverflow 等网站的访问，可以一试。</p>
-<h1 id=参考>参考</h1>
-<ul>
-<li><a href=https://www.wolfdan.cn/jsdelivr%E5%8A%A0%E9%80%9F%E8%B5%84%E6%BA%90%E5%8A%A0%E8%BD%BD-raw-github%E8%A2%ABban%E4%B9%8B%E5%90%8E%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AEgithub%E8%B5%84%E6%BA%90/>https://www.wolfdan.cn/jsdelivr%E5%8A%A0%E9%80%9F%E8%B5%84%E6%BA%90%E5%8A%A0%E8%BD%BD-raw-github%E8%A2%ABban%E4%B9%8B%E5%90%8E%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AEgithub%E8%B5%84%E6%BA%90/</a></li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2022-02-08
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/GitHub/>GitHub</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2021/01/10/fuck_gfw_forever/>
-<i class="iconfont icon-left"></i>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>解决 GitHub 资源无法下载的问题</h1><div class=post-meta><span class=post-time>2021-01-08</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>604 words</span>
+<span class=more-meta>2 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#加速下载-githubcom-资源>加速下载 github.com 资源</a></li><li><a href=#下载-githubusercontentcom-的内容>下载 githubusercontent.com 的内容</a><ul><li><a href=#使用-fastgit>使用 fastgit</a></li><li><a href=#使用-jsdelivr>使用 jsdelivr</a></li><li><a href=#更改系统-hosts-文件>更改系统 hosts 文件</a></li></ul></li><li><a href=#使用第三方辅助工具>使用第三方辅助工具</a><ul><li><a href=#dev-sidecar>dev-sidecar</a></li></ul></li><li><a href=#参考>参考</a></li></ul></nav></div></div><div class=post-content><details><summary><font size=2 color=red>更新记录</font></summary><ul><li>2022-02-08： <a href=https://t.me/fastgitchannel/81>fasgit hub 被 GFW 封了</a>，换一个地址。</li></ul></details><p>GitHub 虽然没被封，但是阻断严重，下载 GitHub 资源速度奇慢无比，总结一些验证可行的方法。</p><h1 id=加速下载-githubcom-资源>加速下载 github.com 资源</h1><p>可以利用 <a href=https://fastgit.org/>fastgit</a> 加速 github.com 的下载。原有下载命令：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
+</span></span></code></pre></div><p>新命令：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>wget &#34;https://hub.fastgit.xyz/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz&#34;
+</span></span></code></pre></div><p>把 <code>github.com</code> 替换为 <code>hub.fastgit.xyz</code> 即可，也支持 git clone 加速。</p><h1 id=下载-githubusercontentcom-的内容>下载 githubusercontent.com 的内容</h1><h2 id=使用-fastgit>使用 fastgit</h2><p>使用上面提到的 fastgit 也可以加速下载 githubusercontent.com 的内容。原始命令：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>wget https://raw.githubusercontent.com/jdhao/nvim-config/master/docs/Nvim_setup.sh
+</span></span></code></pre></div><p>新命令：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>wget https://raw.fastgit.org/jdhao/nvim-config/master/docs/Nvim_setup.sh
+</span></span></code></pre></div><p>需要把链接中 <code>githubusercontent.com</code> 替换为 <code>fastgit.org</code>。</p><h2 id=使用-jsdelivr>使用 jsdelivr</h2><p>可以使用 jsdelivr 的 cdn 访问对应的资源，亲测可行。需要对源地址进行一些改造，换成 jsdelivr 上对应的 URL 即可。例如，源地址：<code>https://raw.githubusercontent.com/jdhao/nvim-config/master/docs/Nvim_setup.sh</code>
+对应 jsdelivr 地址：<code>https://cdn.jsdelivr.net/gh/jdhao/nvim-config@master/docs/Nvim_setup.sh</code>。<code>@master</code> 后面跟的是该文件对应的 master branch，如果是默认的 master，那么也可以不用加 <code>@master</code>，否则需要加上分支名称。</p><h2 id=更改系统-hosts-文件>更改系统 hosts 文件</h2><p>更改系统 hosts 文件 (在 Linux 上需要有 root 权限)，编辑 <code>/etc/hosts</code>， 加入一条 host 记录：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>199.232.96.133 raw.githubusercontent.com
+</span></span></code></pre></div><p>上面的 IP 地址是 <code>githubusercontent.com</code> 对应的 ip 地址之一，可以在 <a href=https://www.ip138.com/>这里</a> 查看。</p><h1 id=使用第三方辅助工具>使用第三方辅助工具</h1><h2 id=dev-sidecar>dev-sidecar</h2><p><a href=https://github.com/docmirror/dev-sidecar>dev-sidecar</a>，用 Electron 写的一个工具， 可以帮助用户加速 github，stackoverflow 等网站的访问，可以一试。</p><h1 id=参考>参考</h1><ul><li><a href=https://www.wolfdan.cn/jsdelivr%E5%8A%A0%E9%80%9F%E8%B5%84%E6%BA%90%E5%8A%A0%E8%BD%BD-raw-github%E8%A2%ABban%E4%B9%8B%E5%90%8E%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AEgithub%E8%B5%84%E6%BA%90/>https://www.wolfdan.cn/jsdelivr%E5%8A%A0%E9%80%9F%E8%B5%84%E6%BA%90%E5%8A%A0%E8%BD%BD-raw-github%E8%A2%ABban%E4%B9%8B%E5%90%8E%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AEgithub%E8%B5%84%E6%BA%90/</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2022-02-08</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/GitHub/>GitHub</a></div><nav class=post-nav><a class=prev href=/2021/01/10/fuck_gfw_forever/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Cross the Wall</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2021/01/07/nifty_nvim_techniques_s9/>
-<span class="next-text nav-default">Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 9</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2021/01/07/nifty_nvim_techniques_s9/><span class="next-text nav-default">Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 9</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

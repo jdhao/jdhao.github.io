@@ -1,447 +1,181 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>神经网络中误差反向传播(back propagation)算法的工作原理 - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="神经网络，从大学时期就听说过，后面上课的时候老师也讲过，但是感觉从来没有真正掌握，总是似是而非，比较模糊，好像懂，其实并不懂。
-为了搞懂神经网络的运行原理，有必要搞清楚神经网络最核心的算法，也就是误差反向传播算法的工作原理，本文以最简单的全连接神经网络为例，介绍误差反向传播算法的原理。
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2016/01/19/back-propagation-in-mlp-explained/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="神经网络中误差反向传播(back propagation)算法的工作原理">
-<meta property="og:description" content="神经网络，从大学时期就听说过，后面上课的时候老师也讲过，但是感觉从来没有真正掌握，总是似是而非，比较模糊，好像懂，其实并不懂。
-为了搞懂神经网络的运行原理，有必要搞清楚神经网络最核心的算法，也就是误差反向传播算法的工作原理，本文以最简单的全连接神经网络为例，介绍误差反向传播算法的原理。">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2016/01/19/back-propagation-in-mlp-explained/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2016-01-19T00:00:00+08:00">
-<meta property="article:modified_time" content="2022-02-27T12:59:30+08:00">
-<meta itemprop=name content="神经网络中误差反向传播(back propagation)算法的工作原理">
-<meta itemprop=description content="神经网络，从大学时期就听说过，后面上课的时候老师也讲过，但是感觉从来没有真正掌握，总是似是而非，比较模糊，好像懂，其实并不懂。
-为了搞懂神经网络的运行原理，有必要搞清楚神经网络最核心的算法，也就是误差反向传播算法的工作原理，本文以最简单的全连接神经网络为例，介绍误差反向传播算法的原理。"><meta itemprop=datePublished content="2016-01-19T00:00:00+08:00">
-<meta itemprop=dateModified content="2022-02-27T12:59:30+08:00">
-<meta itemprop=wordCount content="4016">
-<meta itemprop=keywords content="optimization,CNN,math,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="神经网络中误差反向传播(back propagation)算法的工作原理">
-<meta name=twitter:description content="神经网络，从大学时期就听说过，后面上课的时候老师也讲过，但是感觉从来没有真正掌握，总是似是而非，比较模糊，好像懂，其实并不懂。
-为了搞懂神经网络的运行原理，有必要搞清楚神经网络最核心的算法，也就是误差反向传播算法的工作原理，本文以最简单的全连接神经网络为例，介绍误差反向传播算法的原理。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>神经网络中误差反向传播(back propagation)算法的工作原理 - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="神经网络，从大学时期就听说过，后面上课的时候老师也讲过，但是感觉从来没有真正掌握，总是似是而非，比较模糊，好像懂，其实并不懂。
+
+为了搞懂神经网络的运行原理，有必要搞清楚神经网络最核心的算法，也就是[误差反向传播算法](https://en.wikipedia.org/wiki/Backpropagation)的工作原理，本文以最简单的全连接神经网络为例，介绍误差反向传播算法的原理。"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2016/01/19/back-propagation-in-mlp-explained/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="神经网络中误差反向传播(back propagation)算法的工作原理"><meta property="og:description" content="神经网络，从大学时期就听说过，后面上课的时候老师也讲过，但是感觉从来没有真正掌握，总是似是而非，比较模糊，好像懂，其实并不懂。
+
+为了搞懂神经网络的运行原理，有必要搞清楚神经网络最核心的算法，也就是[误差反向传播算法](https://en.wikipedia.org/wiki/Backpropagation)的工作原理，本文以最简单的全连接神经网络为例，介绍误差反向传播算法的原理。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2016/01/19/back-propagation-in-mlp-explained/"><meta property="article:section" content="post"><meta property="article:published_time" content="2016-01-19T00:00:00+08:00"><meta property="article:modified_time" content="2022-02-27T12:59:30+08:00"><meta itemprop=name content="神经网络中误差反向传播(back propagation)算法的工作原理"><meta itemprop=description content="神经网络，从大学时期就听说过，后面上课的时候老师也讲过，但是感觉从来没有真正掌握，总是似是而非，比较模糊，好像懂，其实并不懂。
+
+为了搞懂神经网络的运行原理，有必要搞清楚神经网络最核心的算法，也就是[误差反向传播算法](https://en.wikipedia.org/wiki/Backpropagation)的工作原理，本文以最简单的全连接神经网络为例，介绍误差反向传播算法的原理。"><meta itemprop=datePublished content="2016-01-19T00:00:00+08:00"><meta itemprop=dateModified content="2022-02-27T12:59:30+08:00"><meta itemprop=wordCount content="4146"><meta itemprop=keywords content="optimization,CNN,math,"><meta name=twitter:card content="summary"><meta name=twitter:title content="神经网络中误差反向传播(back propagation)算法的工作原理"><meta name=twitter:description content="神经网络，从大学时期就听说过，后面上课的时候老师也讲过，但是感觉从来没有真正掌握，总是似是而非，比较模糊，好像懂，其实并不懂。
+
+为了搞懂神经网络的运行原理，有必要搞清楚神经网络最核心的算法，也就是[误差反向传播算法](https://en.wikipedia.org/wiki/Backpropagation)的工作原理，本文以最简单的全连接神经网络为例，介绍误差反向传播算法的原理。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>神经网络中误差反向传播(back propagation)算法的工作原理</h1>
-<div class=post-meta>
-<span class=post-time> 2016-01-19 </span>
-<div class=post-category>
-<a href=/categories/academic/> academic </a>
-</div>
-<span class=more-meta> 4016 words </span>
-<span class=more-meta> 9 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-</div>
-</div>
-<div class=post-content>
-<p>神经网络，从大学时期就听说过，后面上课的时候老师也讲过，但是感觉从来没有真正掌握，总是似是而非，比较模糊，好像懂，其实并不懂。</p>
-<p>为了搞懂神经网络的运行原理，有必要搞清楚神经网络最核心的算法，也就是<a href=https://en.wikipedia.org/wiki/Backpropagation>误差反向传播算法</a>的工作原理，本文以最简单的全连接神经网络为例，介绍误差反向传播算法的原理。</p>
-<p align=center>
-<img src=https://blog-resource-1257868508.file.myqcloud.com/18-1-24/16883425.jpg title=简单的神经网络示意图>
-</p>
-<p>在开始推导之前，需要先做一些准备工作，推导中所使用的神经网络如上图所示。一个神经网络由多个层
-(layer) 构成，每一层有若干个节点
-(node)，最左边是「输入层」，中间的层被称为「隐含层」，最右边是「输出层」；上一层节点与下一层节点之间，都有边相连，代表上一层某个节点为下一层某个节点贡献的权值。通常为了使得网络能够模拟复杂的关系，上一层节点的输出乘以权值矩阵得到下一层节点后，需要再经过「激活函数」对得到的各个节点的值进行非线性化处理。激活函数可以选用很多的形式，这里使用sigmoid
-函数，表达式如下：</p>
-<p><span class="math display">\[\begin{equation}\label{eq1}
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>神经网络中误差反向传播(back propagation)算法的工作原理</h1><div class=post-meta><span class=post-time>2016-01-19</span><div class=post-category><a href=/categories/academic/>academic</a></div><span class=more-meta>4146 words</span>
+<span class=more-meta>9 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content></div></div><div class=post-content>神经网络，从大学时期就听说过，后面上课的时候老师也讲过，但是感觉从来没有真正掌握，总是似是而非，比较模糊，好像懂，其实并不懂。
+为了搞懂神经网络的运行原理，有必要搞清楚神经网络最核心的算法，也就是[误差反向传播算法](https://en.wikipedia.org/wiki/Backpropagation)的工作原理，本文以最简单的全连接神经网络为例，介绍误差反向传播算法的原理。
+在开始推导之前，需要先做一些准备工作，推导中所使用的神经网络如上图所示。一个神经网络由多个层 (layer) 构成，每一层有若干个节点 (node)，最左边是「输入层」，中间的层被称为「隐含层」，最右边是「输出层」；上一层节点与下一层节点之间，都有边相连，代表上一层某个节点为下一层某个节点贡献的权值。通常为了使得网络能够模拟复杂的关系，上一层节点的输出乘以权值矩阵得到下一层节点后，需要再经过「激活函数」对得到的各个节点的值进行非线性化处理。激活函数可以选用很多的形式，这里使用sigmoid 函数，表达式如下：
+\begin{equation}\label{eq1}
 f(x)=\frac{1}{1+\exp(-x)}
-\end{equation}\]</span></p>
-<p>公式 <span class="math inline">\(\eqref{eq1}\)</span> 之所以使用
-sigmoid 函数，一个很重要的原因就是「mathematical convenience」，sigmoid
-函数的导数很好计算，</p>
-<p><span class="math display">\[\begin{equation}
+\end{equation}
+公式 $\eqref{eq1}$ 之所以使用 sigmoid 函数，一个很重要的原因就是「mathematical convenience」，sigmoid 函数的导数很好计算，
+\begin{equation}
 f'(x)=f(x)(1-f(x))
-\end{equation}\]</span></p>
-<p>接下来，对推导中使用的符号做一个详细的说明，使推导的过程清晰易懂。我们用
-<span class="math inline">\(L\)</span> 代表网络的层数，用 <span class="math inline">\(S_l\)</span> 代表第 <span class="math inline">\(l\)</span> 层的节点的个数；用 <span class="math inline">\(z^{(1)}\)</span> 和 <span class="math inline">\(a^{(1)}\)</span> 表示第 <span class="math inline">\(l\)</span> 层经过激活函数前/后的节点向量 (<span class="math inline">\(z^{(l)}_i\)</span> 和 <span class="math inline">\(a^{(l)}_i\)</span> 代表经过激活函数前/后节点 <span class="math inline">\(i\)</span> 的值)，根据以上的表示，<span class="math inline">\(a^{(1)}\)</span> 代表网络的输入 <span class="math inline">\(x\)</span>, <span class="math inline">\(a^{(L)}\)</span>代表网络的输出 <span class="math inline">\(y\)</span>, 也就是上图中的 <span class="math inline">\(h_{W,b}(x)\)</span>；用 <span class="math inline">\(W^{(l)}\)</span> 表示第<span class="math inline">\(l\)</span> 层与第<span class="math inline">\(l+1\)</span> 层之间的权值形成的矩阵，<span class="math inline">\(W^{(l)}_{ij}\)</span> 代表 <span class="math inline">\(l\)</span> 层的节点 <span class="math inline">\(j\)</span> 与<span class="math inline">\(l+1\)</span> 层的节点 <span class="math inline">\(i\)</span> 之间的权重(注意这种表示方式),用 <span class="math inline">\(b^{(l)}\)</span> 代表 <span class="math inline">\(l\)</span> 层到<span class="math inline">\(l+1\)</span>层之间的偏置向量。</p>
-<p>有了上面的符号化表示，神经网络各层之间的关系，可以用简洁的向量矩阵形式来表达如下：</p>
-<p><span class="math display">\[\begin{align}
+\end{equation}\label{eq2}
+接下来，对推导中使用的符号做一个详细的说明，使推导的过程清晰易懂。我们用 $L$ 代表网络的层数，用 $S_l$ 代表第 $l$ 层的节点的个数；用 $z^{(1)}$ 和 $a^{(1)}$ 表示第 $l$ 层经过激活函数前/后的节点向量 ($z^{(l)}_i$ 和 $a^{(l)}_i$ 代表经过激活函数前/后节点 $i$ 的值)，根据以上的表示，$a^{(1)}$ 代表网络的输入 $x$, $a^{(L)}$代表网络的输出 $y$, 也就是上图中的 $h_{W,b}(x)$；用 $W^{(l)}$ 表示第$l$ 层与第$l+1$ 层之间的权值形成的矩阵，$W^{(l)}_{ij}$ 代表 $l$ 层的节点 $j$ 与$l+1$ 层的节点 $i$ 之间的权重(注意这种表示方式),用 $b^{(l)}$ 代表 $l$ 层到$l+1$层之间的偏置向量。
+有了上面的符号化表示，神经网络各层之间的关系，可以用简洁的向量矩阵形式来表达如下：
+\begin{align}
 z^{(l+1)} &= W^{(l)}a^{(l)}+b^{(l)} \label{eq3} \\
 a^{(l+1)} &= f\left(z^{(l+1)}\right) \label{eq4}
-\end{align}\]</span></p>
-<p>根据以上的式子，我们就可以计算网络中每一层各个节点的值了，上述的过程称为「前向传播」(forward
-propagation) 过程，在深度学习库中通常都被叫做「forward」。</p>
-<p>通常，网络刚创建好时，我们随机初始化每两层之间的权值矩阵以及偏置向量，但是这样得到的网络，输出与实际的值差距太大。使用神经网络的目的，当然是想要网络的输出与实际的值差距尽可能小，随机初始化网络，显然不能满足这个目的。但是如何调整各层之间的权值矩阵以及偏置呢，这并不是一个很简单的问题，下面要推导的反向传播(backward
-propagation) 算法就是解决这个问题的利器。</p>
-<h1 id=正式开始推导>正式开始推导</h1>
-<p>通常来说，如果想要得到一个较好的网络，需要有一批已知的训练数据，假设我们现在总共有<span class="math inline">\(m\)</span>个样本,即</p>
-<p><span class="math display">\[\left\{(x^{(i)}, y^{(i)})\right\}, i=
-1,2,\ldots,m\]</span></p>
-<p>对于每一个样本来说，我们优化的目标为 ：</p>
-<p><span class="math display">\[\begin{equation}\label{eq5}
-J\left(W,b;x^{(i)}, y^{(i)}\right) = \min_{W,b} \frac{1}{2}\left\lVert
-h\left(x^{(i)}\right)- y^{(i)} \right\rVert^2
-\end{equation}\]</span></p>
-<p>公式 <span class="math inline">\(\eqref{eq5}\)</span>
-中，为了简化，我们用 <span class="math inline">\(h(x^{(i)})\)</span>
-表示 $h_{W,b}(x^{(i)}) $</p>
-<p>对于所有样本来说,我们需要最小化的目标函数为：</p>
-<p><span class="math display">\[\begin{equation}
+\end{align}
+根据以上的式子，我们就可以计算网络中每一层各个节点的值了，上述的过程称为「前向传播」(forward propagation) 过程，在深度学习库中通常都被叫做「forward」。
+通常，网络刚创建好时，我们随机初始化每两层之间的权值矩阵以及偏置向量，但是这样得到的网络，输出与实际的值差距太大。使用神经网络的目的，当然是想要网络的输出与实际的值差距尽可能小，随机初始化网络，显然不能满足这个目的。但是如何调整各层之间的权值矩阵以及偏置呢，这并不是一个很简单的问题，下面要推导的反向传播(backward propagation) 算法就是解决这个问题的利器。
+# 正式开始推导
+通常来说，如果想要得到一个较好的网络，需要有一批已知的训练数据，假设我们现在总共有$m$个样本,即
+$$\left\{(x^{(i)}, y^{(i)})\right\}, i= 1,2,\ldots,m$$
+对于每一个样本来说，我们优化的目标为 ：
+\begin{equation}\label{eq5}
+J\left(W,b;x^{(i)}, y^{(i)}\right) = \min_{W,b} \frac{1}{2}\left\lVert h\left(x^{(i)}\right)- y^{(i)} \right\rVert^2
+\end{equation}
+公式 $\eqref{eq5}$ 中，为了简化，我们用 $h(x^{(i)})$ 表示 $h_{W,b}(x^{(i)}) $
+对于所有样本来说,我们需要最小化的目标函数为：
+\begin{equation}
 \begin{aligned}
-J(W, b) &= \frac{1}{m}\sum_{i=1}^{m}J\left(W,b;x^{(i)},
-y^{(i)}\right) + \frac{\lambda}{2}\sum_{l=1}^{L-1}\left\lVert W^{(l)}
-\right\rVert_{F}^{2}\\
-&= \frac{1}{m}\sum_{i=1}^{m}\frac{1}{2}\left\lVert h(x^{(i)}) -
-y^{(i)}\right\rVert^2 + \frac{\lambda}{2}\sum_{l=1}^{L-1}\left\lVert
-W^{(l)} \right\rVert_{F}^{2}
+J(W, b) &= \frac{1}{m}\sum_{i=1}^{m}J\left(W,b;x^{(i)}, y^{(i)}\right) + \frac{\lambda}{2}\sum_{l=1}^{L-1}\left\lVert W^{(l)} \right\rVert_{F}^{2}\\
+&= \frac{1}{m}\sum_{i=1}^{m}\frac{1}{2}\left\lVert h(x^{(i)}) - y^{(i)}\right\rVert^2 + \frac{\lambda}{2}\sum_{l=1}^{L-1}\left\lVert W^{(l)} \right\rVert_{F}^{2}
 \end{aligned}\label{eq6}
-\end{equation}\]</span></p>
-<p>上述优化目标函数 <span class="math inline">\(\eqref{eq6}\)</span>，并不简单是各个样本优化目标的和，而是由两项构成：第一项为误差项，第二项称为「正则项」(英文叫「regularization
-term」也称为weight decay
-term)，用来控制各层权值矩阵的元素大小，防止权值矩阵过大，网络出现过拟合，这和曲线拟合中对参数使用正则道理是一样的，只不过曲线拟合中，参数是向量，这里的参数是矩阵。我们使用
-<span class="math inline">\(F\)</span>
-范数的平方来约束权重矩阵元素的大小，正则项前面的系数 <span class="math inline">\(\lambda\)</span> (称为weight decay parameter)
-用来控制正则项与误差项之间的权重。另外，一般来说，只对权值矩阵进行正则，不对偏置进行正则。</p>
-<h2 id=关于f范数的一点小知识>关于F范数的一点小知识</h2>
-<p>为了计算目标函数对权重矩阵的偏导，有必要对 <span class="math inline">\(F\)</span> 范数 (也称为 <span class="math inline">\(F\)</span>-norm) 有所了解。假设矩阵 <span class="math inline">\(A\)</span> 是实数矩阵，大小为 <span class="math inline">\(m\times n\)</span>,其 <span class="math inline">\(F\)</span> 范数用公式可以表示为：</p>
-<p><span class="math display">\[\begin{equation}
+\end{equation}
+上述优化目标函数 $\eqref{eq6}$，并不简单是各个样本优化目标的和，而是由两项构成：第一项为误差项，第二项称为「正则项」(英文叫「regularization term」也称为weight decay term)，用来控制各层权值矩阵的元素大小，防止权值矩阵过大，网络出现过拟合，这和曲线拟合中对参数使用正则道理是一样的，只不过曲线拟合中，参数是向量，这里的参数是矩阵。我们使用 $F$ 范数的平方来约束权重矩阵元素的大小，正则项前面的系数 $\lambda$ (称为weight decay parameter) 用来控制正则项与误差项之间的权重。另外，一般来说，只对权值矩阵进行正则，不对偏置进行正则。
+## 关于F范数的一点小知识
+为了计算目标函数对权重矩阵的偏导，有必要对 $F$ 范数 (也称为 $F$-norm) 有所了解。假设矩阵 $A$ 是实数矩阵，大小为 $m\times n$,其 $F$ 范数用公式可以表示为：
+\begin{equation}
 \lVert A \rVert_F = \sqrt{\sum_{i=1}^{m}\sum_{j=1}^{n} (a_{ij})^2}
-\end{equation}\]</span></p>
-<p>另外关于矩阵 <span class="math inline">\(A\)</span> 的 <span class="math inline">\(F\)</span> 范数对矩阵 <span class="math inline">\(A\)</span> 如何求导，有如下公式：</p>
-<p><span class="math display">\[\begin{equation}\label{eq8}
+\end{equation}\label{eq7}
+另外关于矩阵 $A$ 的 $F$ 范数对矩阵 $A$ 如何求导，有如下公式：
+\begin{equation}\label{eq8}
 \frac{\partial \lVert A \rVert_F^2 }{\partial A}= 2A
-\end{equation}\]</span></p>
-<h1 id=抽丝剥茧不断深入>抽丝剥茧，不断深入</h1>
-<p>我们优化网络的目标是计算各层的权值矩阵以及偏置向量，使得优化目标函数取得最小值。根据<a href=https://zh.wikipedia.org/wiki/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95>梯度下降算法</a>，可以计算目标函数对各个参数的偏导，采用迭代方式来更新参数，最终得到最优的参数值。但是事实上，上述函数是非凸函数，梯度下降算法并不一定能够得到全局最优解(global
-optimum)，一般只能得到局部最优解(local
-optimum)。实际中得到的结果一般都是比较接近最优结果，在可以接受的范围之内，所以才使用梯度下降算法来优化神经网络。另外实际优化过程中，还有一些技巧，譬如加入
-momentum 项，使得目标函数能够跳出local optimum 点，从而得到global
-optimum。在实际的深度学习训练中，一般都会使用momentum
-来加快收敛的速度，这里仅讨论最基本情况，对增加 momentum
-项的情况不予讨论。</p>
-<p>如果已经求得目标函数对各个函数的偏导数，那么各个参数的更新公式如下：</p>
-<p><span class="math display">\[\begin{align}
-W_{ij}^{(l)} &= W_{ij}^{(l)} - \alpha \frac{\partial
-J(W,b)}{\partial W_{ij}^{(l)}} \label{eq9} \\
-b_i^{(l)} &= b_i^{(l)} - \alpha \frac{\partial J(W, b)}{\partial
-b_i^{(l)}} \label{10}
-\end{align}\]</span></p>
-<p>以上的式子中，<span class="math inline">\(\alpha\)</span>
-称为「学习率」(learning rate)，用来控制权重和偏置项的更新幅度，如果
-<span class="math inline">\(\alpha\)</span>
-太大，网络的参数收敛速度快，但是可能出现来回震荡的情况，甚至不能收敛；如果
-<span class="math inline">\(\alpha\)</span>
-太小，网络收敛速度太慢，训练时间长。需要说明，权重矩阵以及偏置向量的学习率可以不一样，根据需要分别设置，实际上，Caffe
-就是这么做的，可以在 prototxt
-里面指定每层的权重以及偏置的学习率，其他的深度学习框架也可以类似设置。</p>
-<p>从上面的公式可以看出，现在的关键是，如何计算目标函数对权重矩阵以及偏置项各个元素的偏导，根据目标函数
-<span class="math inline">\(J(W, b)\)</span> 的计算公式 <span class="math inline">\(\eqref{eq6}\)</span>，可以得到目标函数<span class="math inline">\(J(W, b)\)</span>
-对权重矩阵以及偏置项各元素的导数：</p>
-<p><span class="math display">\[\begin{align}
-\frac{\partial J(W, b) }{\partial W_{ij}^{(l)}} &=
-\left[\frac{1}{m}\sum_{i=1}^{m}\frac{\partial J\left(W, b; x^{(i)},
-y^{(i)}\right)}{\partial W_{ij}^{(l)}} \right] + \lambda W_{ij}^{(l)}
-\label{eq11}\\
-\frac{\partial J(W, b) }{\partial b_i^{(l)}} &=
-\frac{1}{m}\sum_{i=1}^{m}\frac{\partial J\left(W, b; x^{(i)},
-y^{(i)}\right)}{\partial b_i^{(l)}} \label{eq12}
-\end{align}\]</span></p>
-<p>上面两个公式中,公式 <span class="math inline">\(\eqref{eq11}\)</span>
-后半部分可以参考前面对于矩阵范数求导的公式<span class="math inline">\(\eqref{eq8}\)</span> 得到。</p>
-<p>观察以上公式，接下来的问题就是，如何求取样本目标函数对于权重矩阵以及偏置向量的偏导，也就是如何求
-<span class="math inline">\(\frac{\partial}{\partial
-W_{ij}^{(l)}}J\left(W,b;x^{(i)},y^{(i)}\right)\)</span> 以及 <span class="math inline">\(\frac{\partial}{\partial
-b_{i}^{(l)}}J\left(W,b;x^{(i)},y^{(i)}\right)\)</span>？如果得到每个样本的目标函数对于各个参数的偏导，整个问题就解决了。</p>
-<p>这就要用到我们前面所说的 back-propagation
-的思想了，当我们把一个样本输入到网络，通过前向传播，得到最终的输出，最终输出与实际的值之间有误差，然后我们通过某种有组织有规律的方式把误差一层一层向前传播，得到误差相对于每一层参数的偏导，这是求解该问题的核心思想。</p>
-<p>为了便于推导，再引入变量 <span class="math inline">\(\delta_{i}^{(l)}=\frac{\partial}{\partial
-z_{i}^{(l)}}J\left(W,b;x^{(i)},y^{(i)}\right)\)</span>,
-即最终的误差对每一层节点经过激活函数前的变量的偏导，用它来衡量某一层某个节点对最终误差的贡献量。</p>
-<h1 id=计算辅助变量的值>计算辅助变量的值</h1>
-<p>对于最后一层(第 <span class="math inline">\(L\)</span>
-层)，我们可以很方便的计算 <span class="math inline">\(\delta_i^{(L)}\)</span>，详细推导如下：</p>
-<p><span class="math display">\[\begin{equation}
+\end{equation}
+# 抽丝剥茧，不断深入
+我们优化网络的目标是计算各层的权值矩阵以及偏置向量，使得优化目标函数取得最小值。根据[梯度下降算法](https://zh.wikipedia.org/wiki/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95)，可以计算目标函数对各个参数的偏导，采用迭代方式来更新参数，最终得到最优的参数值。但是事实上，上述函数是非凸函数，梯度下降算法并不一定能够得到全局最优解(global optimum)，一般只能得到局部最优解(local optimum)。实际中得到的结果一般都是比较接近最优结果，在可以接受的范围之内，所以才使用梯度下降算法来优化神经网络。另外实际优化过程中，还有一些技巧，譬如加入 momentum 项，使得目标函数能够跳出local optimum 点，从而得到global optimum。在实际的深度学习训练中，一般都会使用momentum 来加快收敛的速度，这里仅讨论最基本情况，对增加 momentum 项的情况不予讨论。
+如果已经求得目标函数对各个函数的偏导数，那么各个参数的更新公式如下：
+\begin{align}
+W_{ij}^{(l)} &= W_{ij}^{(l)} - \alpha \frac{\partial J(W,b)}{\partial W_{ij}^{(l)}} \label{eq9} \\
+b_i^{(l)} &= b_i^{(l)} - \alpha \frac{\partial J(W, b)}{\partial b_i^{(l)}} \label{10}
+\end{align}
+以上的式子中，$\alpha$ 称为「学习率」(learning rate)，用来控制权重和偏置项的更新幅度，如果 $\alpha$ 太大，网络的参数收敛速度快，但是可能出现来回震荡的情况，甚至不能收敛；如果 $\alpha$ 太小，网络收敛速度太慢，训练时间长。需要说明，权重矩阵以及偏置向量的学习率可以不一样，根据需要分别设置，实际上，Caffe 就是这么做的，可以在 prototxt 里面指定每层的权重以及偏置的学习率，其他的深度学习框架也可以类似设置。
+从上面的公式可以看出，现在的关键是，如何计算目标函数对权重矩阵以及偏置项各个元素的偏导，根据目标函数 $J(W, b)$ 的计算公式 $\eqref{eq6}$，可以得到目标函数$J(W, b)$ 对权重矩阵以及偏置项各元素的导数：
+\begin{align}
+\frac{\partial J(W, b) }{\partial W_{ij}^{(l)}} &= \left[\frac{1}{m}\sum_{i=1}^{m}\frac{\partial J\left(W, b; x^{(i)}, y^{(i)}\right)}{\partial W_{ij}^{(l)}} \right] + \lambda W_{ij}^{(l)} \label{eq11}\\
+\frac{\partial J(W, b) }{\partial b_i^{(l)}} &= \frac{1}{m}\sum_{i=1}^{m}\frac{\partial J\left(W, b; x^{(i)}, y^{(i)}\right)}{\partial b_i^{(l)}} \label{eq12}
+\end{align}
+上面两个公式中,公式 $\eqref{eq11}$ 后半部分可以参考前面对于矩阵范数求导的公式$\eqref{eq8}$ 得到。
+观察以上公式，接下来的问题就是，如何求取样本目标函数对于权重矩阵以及偏置向量的偏导，也就是如何求 $\frac{\partial}{\partial W_{ij}^{(l)}}J\left(W,b;x^{(i)},y^{(i)}\right)$ 以及 $\frac{\partial}{\partial b_{i}^{(l)}}J\left(W,b;x^{(i)},y^{(i)}\right)$？如果得到每个样本的目标函数对于各个参数的偏导，整个问题就解决了。
+这就要用到我们前面所说的 back-propagation 的思想了，当我们把一个样本输入到网络，通过前向传播，得到最终的输出，最终输出与实际的值之间有误差，然后我们通过某种有组织有规律的方式把误差一层一层向前传播，得到误差相对于每一层参数的偏导，这是求解该问题的核心思想。
+为了便于推导，再引入变量 $\delta_{i}^{(l)}=\frac{\partial}{\partial z_{i}^{(l)}}J\left(W,b;x^{(i)},y^{(i)}\right)$, 即最终的误差对每一层节点经过激活函数前的变量的偏导，用它来衡量某一层某个节点对最终误差的贡献量。
+# 计算辅助变量的值
+对于最后一层(第 $L$ 层)，我们可以很方便的计算 $\delta_i^{(L)}$，详细推导如下：
+\begin{equation}
 \begin{aligned}
-\delta_{i}^{(L)}&=\frac{\partial}{\partial
-z_{i}^{(L)}}\left(\frac{1}{2}\left\lVert y - h(x) \right\rVert^2\right)
-\\
-&= \frac{\partial}{\partial a_{i}^{(L)}}\left(\frac{1}{2}\left\lVert
-y - h(x) \right\rVert^2\right)\cdot \frac{\partial a_{i}^{(L)}}{\partial
-z_{i}^{(L)}}\\
-&=\frac{1}{2}\left[ \frac{\partial}{\partial
-a_{i}^{(L)}}\sum_{j=1}^{S_L} \left(y_j - a_j^{(L)}\right)^2 \right]
-\cdot \frac{\partial a_{i}^{(L)}}{\partial z_{i}^{(L)}}\\
+\delta_{i}^{(L)}&=\frac{\partial}{\partial z_{i}^{(L)}}\left(\frac{1}{2}\left\lVert y - h(x) \right\rVert^2\right) \\
+&= \frac{\partial}{\partial a_{i}^{(L)}}\left(\frac{1}{2}\left\lVert y - h(x) \right\rVert^2\right)\cdot \frac{\partial a_{i}^{(L)}}{\partial z_{i}^{(L)}}\\
+&=\frac{1}{2}\left[ \frac{\partial}{\partial a_{i}^{(L)}}\sum_{j=1}^{S_L} \left(y_j - a_j^{(L)}\right)^2 \right] \cdot \frac{\partial a_{i}^{(L)}}{\partial z_{i}^{(L)}}\\
 &=-\left(y_{i}-a_{i}^{(L)}\right)f'\left(z_{i}^{(L)}\right)
 \end{aligned}\label{eq13}
-\end{equation}\]</span></p>
-<p>上述公式 <span class="math inline">\(\eqref{eq13}\)</span> 中，<span class="math inline">\(f'\left(z_{i}^{(L)}\right)=a^{(L)}_{i}\left(1-a^{(L)}_{i}\right)\)</span>
-，对于其他层也是如此计算，不再赘述。对于其他层(<span class="math inline">\(l=L-1,L-2,\cdots,2\)</span>)的辅助变量，计算就不那么容易了，因为输出误差并不直接和这些层的节点相关，所以我们需要构造关系，利用微积分里面的<a href=https://en.wikipedia.org/wiki/Chain_rule>链式法则</a> (chain
-rule),具体计算过程如下：</p>
-<p><span class="math display">\[\begin{equation}
+\end{equation}
+上述公式 $\eqref{eq13}$ 中，$f'\left(z_{i}^{(L)}\right)=a^{(L)}_{i}\left(1-a^{(L)}_{i}\right)$ ，对于其他层也是如此计算，不再赘述。对于其他层($l=L-1,L-2,\cdots,2$)的辅助变量，计算就不那么容易了，因为输出误差并不直接和这些层的节点相关，所以我们需要构造关系，利用微积分里面的[链式法则](https://en.wikipedia.org/wiki/Chain_rule) (chain rule),具体计算过程如下：
+\begin{equation}
 \begin{aligned}
 \delta_{i}^{(l)}&=\frac{\partial}{\partial z_{i}^{(l)}}J(W,b;x,y) \\
-&=\sum_{j=1}^{s_{l+1}}\frac{\partial J}{\partial z_{j}^{(l+1)}}\cdot
-\frac{\partial z_{j}^{(l+1)}}{\partial z_{i}^{(l)}}\\
-&=\sum_{j=1}^{s_{l+1}}\delta_{j}^{(l+1)}\cdot
-W_{ji}^{(l)}f'\left(z_{i}^{(l)}\right)\\
-&=\left(\sum_{j=1}^{s_{l+1}}
-W_{ji}^{(l)}\delta_{j}^{(l+1)}\right)\cdot
-f'\left(z_{i}^{(l)}\right)
+&=\sum_{j=1}^{s_{l+1}}\frac{\partial J}{\partial z_{j}^{(l+1)}}\cdot \frac{\partial z_{j}^{(l+1)}}{\partial z_{i}^{(l)}}\\
+&=\sum_{j=1}^{s_{l+1}}\delta_{j}^{(l+1)}\cdot W_{ji}^{(l)}f'\left(z_{i}^{(l)}\right)\\
+&=\left(\sum_{j=1}^{s_{l+1}} W_{ji}^{(l)}\delta_{j}^{(l+1)}\right)\cdot f'\left(z_{i}^{(l)}\right)
 \end{aligned}\label{eq14}
-\end{equation}\]</span></p>
-<p>为了便于书写，上面公式<span class="math inline">\(\eqref{eq14}\)</span>中，<span class="math inline">\(J(W,b;x,y)=J\)</span>。求误差对 <span class="math inline">\(l\)</span>
-层某个节点的偏导，无法直接求解，因为误差只和最后一层的节点有直接关系，但是如果我们已经知道了误差相对于下一层
-(也就是 <span class="math inline">\(l+1\)</span> 层)
-节点的偏导，而下一层节点和本层 (<span class="math inline">\(l\)</span>
-层)直接相关，那么整个链条就可以打通了。关于如何由第一行得到第二行，我起初并没有正确得到，后来结合网上给的参考结果，逐渐想通如何计算。微积分中有针对多个中间变量的链式法则，其思想为：如果目标变量
-(dependent varialbe)是三个中间变量(intermediate variable) <span class="math inline">\(P,Q,R\)</span> 的函数，而这三个中间变量又是自变量
-(independent variable) <span class="math inline">\(x\)</span>
-的函数，那么很容易证明下面的式子成立，</p>
-<p><span class="math display">\[\begin{equation}\label{eq15}
-\frac{\partial \, obj}{\partial x}=\frac{\partial \, obj}{\partial
-P}\cdot \frac{\partial P}{\partial x}+\frac{\partial \, obj}{\partial
-Q}\cdot \frac{\partial Q}{\partial x}+\frac{\partial \, obj}{\partial
-R}\cdot \frac{\partial R}{\partial x}
-\end{equation}\]</span></p>
-<p>上述公式 <span class="math inline">\(\eqref{eq14}\)</span>
-中第二行的求和符号就是这么来的，起初推导时少了求和符号，只求了误差相对于下一层节点
-<span class="math inline">\(i\)</span>
-的偏导，没有意识到下一层的每个节点其实与上一层的每个节点都有关系,
-利用链式法则，我们就可以很容易求得误差相对于本层的偏导，这就是误差反传的思想。</p>
-<p>根据我们前面的定义，上面的公式 <span class="math inline">\(\eqref{eq14}\)</span>，第二行求和符号里面的第一项<span class="math inline">\(\frac{\partial J}{\partial
-z_{j}^{(l+1)}}\)</span>，等于 <span class="math inline">\(\delta_{j}^{(l+1)}\)</span>。第二项如何显式表达出来呢？结合公式
-<span class="math inline">\(\eqref{eq3}\)</span> 和 <span class="math inline">\(\eqref{eq4}\)</span>，具体如下：</p>
-<p><span class="math display">\[\begin{equation}
+\end{equation}
+为了便于书写，上面公式$\eqref{eq14}$中，$J(W,b;x,y)=J$。求误差对 $l$ 层某个节点的偏导，无法直接求解，因为误差只和最后一层的节点有直接关系，但是如果我们已经知道了误差相对于下一层 (也就是 $l+1$ 层) 节点的偏导，而下一层节点和本层 ($l$ 层)直接相关，那么整个链条就可以打通了。关于如何由第一行得到第二行，我起初并没有正确得到，后来结合网上给的参考结果，逐渐想通如何计算。微积分中有针对多个中间变量的链式法则，其思想为：如果目标变量 (dependent varialbe)是三个中间变量(intermediate variable) $P,Q,R$ 的函数，而这三个中间变量又是自变量 (independent variable) $x$ 的函数，那么很容易证明下面的式子成立，
+\begin{equation}\label{eq15}
+\frac{\partial \, obj}{\partial x}=\frac{\partial \, obj}{\partial P}\cdot \frac{\partial P}{\partial x}+\frac{\partial \, obj}{\partial Q}\cdot \frac{\partial Q}{\partial x}+\frac{\partial \, obj}{\partial R}\cdot \frac{\partial R}{\partial x}
+\end{equation}
+上述公式 $\eqref{eq14}$ 中第二行的求和符号就是这么来的，起初推导时少了求和符号，只求了误差相对于下一层节点 $i$ 的偏导，没有意识到下一层的每个节点其实与上一层的每个节点都有关系, 利用链式法则，我们就可以很容易求得误差相对于本层的偏导，这就是误差反传的思想。
+根据我们前面的定义，上面的公式 $\eqref{eq14}$，第二行求和符号里面的第一项$\frac{\partial J}{\partial z_{j}^{(l+1)}}$，等于 $\delta_{j}^{(l+1)}$。第二项如何显式表达出来呢？结合公式 $\eqref{eq3}$ 和 $\eqref{eq4}$，具体如下：
+\begin{equation}
 \begin{aligned}
-z_{j}^{(l+1)}&= \left [\sum_{i=1}^{s_l} W_{ji}^{(l)}\cdot
-a_{i}^{(l)} \right]+b_{j}^{(l)} \\
-&=\left [\sum_{i=1}^{s_l} W_{ji}^{(l)}\cdot
-f\left(z_i^{(l)}\right)\right]+b_{j}^{(l)}
+z_{j}^{(l+1)}&= \left [\sum_{i=1}^{s_l} W_{ji}^{(l)}\cdot a_{i}^{(l)} \right]+b_{j}^{(l)} \\
+&=\left [\sum_{i=1}^{s_l} W_{ji}^{(l)}\cdot f\left(z_i^{(l)}\right)\right]+b_{j}^{(l)}
 \end{aligned}\label{eq16}
-\end{equation}\]</span></p>
-<p>有了公式 <span class="math inline">\(\eqref{eq16}\)</span>，那么公式
-<span class="math inline">\(\eqref{eq14}\)</span>
-第二行第二项偏导就很容易得到了：</p>
-<p><span class="math display">\[\begin{equation}
-\frac{\partial z_{j}^{(l+1)}}{\partial
-z_{i}^{(l)}}=W_{ji}^{(l)}f'(z_{i}^{(l)})
-\end{equation}\]</span></p>
-<p>这就是公式 <span class="math inline">\(\eqref{eq14}\)</span>
-第三行第二项的来历。</p>
-<h1 id=计算误差相对于矩阵元素和偏置向量元素的偏导>计算误差相对于矩阵元素和偏置向量元素的偏导</h1>
-<p>有了以上的铺垫，我们现在可以计算误差相对于矩阵元素以及偏置向量元素的偏导了。</p>
-<p><span class="math display">\[\begin{equation}
+\end{equation}
+有了公式 $\eqref{eq16}$，那么公式 $\eqref{eq14}$ 第二行第二项偏导就很容易得到了：
+\begin{equation}
+\frac{\partial z_{j}^{(l+1)}}{\partial z_{i}^{(l)}}=W_{ji}^{(l)}f'(z_{i}^{(l)})
+\end{equation}
+这就是公式 $\eqref{eq14}$ 第三行第二项的来历。
+# 计算误差相对于矩阵元素和偏置向量元素的偏导
+有了以上的铺垫，我们现在可以计算误差相对于矩阵元素以及偏置向量元素的偏导了。
+\begin{equation}
 \begin{aligned}
-\frac{\partial J}{\partial W_{ij}^{(l)}}&=\frac{\partial J}{\partial
-z_{i}^{(l+1)}}\cdot\frac{\partial z_{i}^{(l+1)}}{\partial W_{ij}^{(l)}}
-\\
+\frac{\partial J}{\partial W_{ij}^{(l)}}&=\frac{\partial J}{\partial z_{i}^{(l+1)}}\cdot\frac{\partial z_{i}^{(l+1)}}{\partial W_{ij}^{(l)}} \\
 &= \delta_{i}^{(l+1)}\cdot a_{j}^{(l)}
 \end{aligned}
-\end{equation}\]</span></p>
-<p><span class="math display">\[\begin{equation}
+\end{equation}
+\begin{equation}
 \begin{aligned}
-\frac{\partial J}{\partial b_{i}^{(l)}}&=\frac{\partial J}{\partial
-z_{i}^{(l+1)}}\cdot\frac{\partial z_{i}^{(l+1)}}{\partial b_{i}^{(l)}}\\
+\frac{\partial J}{\partial b_{i}^{(l)}}&=\frac{\partial J}{\partial z_{i}^{(l+1)}}\cdot\frac{\partial z_{i}^{(l+1)}}{\partial b_{i}^{(l)}}\\
 &= \delta_{i}^{(l+1)}\cdot 1 \\
 &= \delta_{i}^{(l+1)}
 \end{aligned}
-\end{equation}\]</span></p>
-<h1 id=向量化表示>向量化表示</h1>
-<p>对于输出层：</p>
-<p><span class="math display">\[\begin{equation}
+\end{equation}
+# 向量化表示
+对于输出层：
+\begin{equation}
 \delta^{(L)}=-\left(y-a^{(L)}\right)\cdot f'\left(z^{(L)}\right)
-\end{equation}\]</span></p>
-<p>对于其他层 (<span class="math inline">\(l=L-1,L-2,\cdots,2\)</span>):</p>
-<p><span class="math display">\[\begin{equation}
-\delta^{(l)}=\left[\left(W^{(l)}\right)^{T}\delta^{(l+1)}\right]\cdot
-f'\left(z^{(l)}\right)
-\end{equation}\]</span></p>
-<p>权重以及偏置更新公式：</p>
-<p><span class="math display">\[\begin{align}
-\frac{\partial J}{\partial W^{(l)}} &=
-\delta^{(l+1)}\left(a^{(l)}\right)^{T}\\
+\end{equation}
+对于其他层 ($l=L-1,L-2,\cdots,2$):
+\begin{equation}
+\delta^{(l)}=\left[\left(W^{(l)}\right)^{T}\delta^{(l+1)}\right]\cdot f'\left(z^{(l)}\right)
+\end{equation}
+权重以及偏置更新公式：
+\begin{align}
+\frac{\partial J}{\partial W^{(l)}} &= \delta^{(l+1)}\left(a^{(l)}\right)^{T}\\
 \frac{\partial J}{\partial b^{(l)}} &= \delta^{(l+1)}
-\end{align}\]</span></p>
-<h1 id=把所有公式整合在一起>把所有公式整合在一起</h1>
-<p>现在我们可以把所有的公式结合在一起，得出最终的参数更新公式了。</p>
-<ol type=1>
-<li><p>初始化，对于所有层 (<span class="math inline">\(l=1,2,\cdots,L-1\)</span>)，令 <span class="math inline">\(\Delta W^{(l)}=0\)</span>, <span class="math inline">\(\Delta
-b^{(l)}=0\)</span>,前一项是一个矩阵，后一项是一个向量，分别代表对权重矩阵以及偏置向量的更新量。</p></li>
-<li><p>对于一个batch的所有训练样本 (for i=1 to m)</p>
-<ul>
-<li>使用误差反传计算 <span class="math inline">\(\nabla_{W^{(l)}}J\left(W,b;x^{(i)},y^{(i)}\right)\)</span>
-和 <span class="math inline">\(\nabla_{b^{(l)}}J\left(W,b;x^{(i)},y^{(i)}\right)\)</span></li>
-<li><span class="math inline">\(\Delta W^{(l)}:= \Delta
-W^{(l)}+\nabla_{W^{(l)}}J\left(W,b;x^{(i)},y^{(i)}\right)\)</span></li>
-<li><span class="math inline">\(\Delta b^{(l)}:= \Delta
-b^{(l)}+\nabla_{b^{(l)}}J\left(W,b;x^{(i)},y^{(i)}\right)\)</span></li>
-</ul></li>
-<li><p>更新参数</p></li>
-</ol>
-<p><span class="math display">\[\begin{align}
-W^{(l)} &= W^{(l)}-\alpha\left[\left(\frac{1}{m}\Delta
-W^{(l)}\right) + \lambda W^{(l)} \right] \\
+\end{align}
+
+# 把所有公式整合在一起
+现在我们可以把所有的公式结合在一起，得出最终的参数更新公式了。
+1. 初始化，对于所有层 ($l=1,2,\cdots,L-1$)，令 $\Delta W^{(l)}=0$, $\Delta b^{(l)}=0$,前一项是一个矩阵，后一项是一个向量，分别代表对权重矩阵以及偏置向量的更新量。
+2. 对于一个batch的所有训练样本 (for i=1 to m)
++ 使用误差反传计算 $\nabla_{W^{(l)}}J\left(W,b;x^{(i)},y^{(i)}\right)$ 和 $\nabla_{b^{(l)}}J\left(W,b;x^{(i)},y^{(i)}\right)$
++ $\Delta W^{(l)}:= \Delta W^{(l)}+\nabla_{W^{(l)}}J\left(W,b;x^{(i)},y^{(i)}\right)$
++ $\Delta b^{(l)}:= \Delta b^{(l)}+\nabla_{b^{(l)}}J\left(W,b;x^{(i)},y^{(i)}\right)$
+3. 更新参数
+\begin{align}
+W^{(l)} &= W^{(l)}-\alpha\left[\left(\frac{1}{m}\Delta W^{(l)}\right) + \lambda W^{(l)} \right] \\
 b^{(l)} &= b^{(l)}-\alpha\left[\frac{1}{m}\Delta b^{(l)}\right]
-\end{align}\]</span></p>
-<p>至此，误差反传以及参数更新的全部内容完成！</p>
-<h1 id=参考资料>参考资料</h1>
-<ul>
-<li><a href=http://ufldl.stanford.edu/wiki/index.php/Backpropagation_Algorithm class=uri>http://ufldl.stanford.edu/wiki/index.php/Backpropagation_Algorithm</a></li>
-<li><a href=https://en.wikipedia.org/wiki/Backpropagation class=uri>https://en.wikipedia.org/wiki/Backpropagation</a></li>
-<li><a href=http://neuralnetworksanddeeplearning.com/chap2.html class=uri>http://neuralnetworksanddeeplearning.com/chap2.html</a></li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2022-02-27
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/optimization/>optimization</a>
+\end{align}
+至此，误差反传以及参数更新的全部内容完成！
+# 参考资料
++ <http://ufldl.stanford.edu/wiki/index.php/backpropagation_algorithm>+ <https://en.wikipedia.org/wiki/backpropagation>+ <http://neuralnetworksanddeeplearning.com/chap2.html></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2022-02-27</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/optimization/>optimization</a>
 <a href=/tags/CNN/>CNN</a>
-<a href=/tags/math/>math</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2016/03/17/common_methon_in_python_os_module/>
-<i class="iconfont icon-left"></i>
+<a href=/tags/math/>math</a></div><nav class=post-nav><a class=prev href=/2016/03/17/common_methon_in_python_os_module/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Commonly-used Methods in Python OS Package</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2015/10/21/python-pip-install/>
-<span class="next-text nav-default">Windows 系统下 Python 以及 Pip 的安装和使用</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2015/10/21/python-pip-install/><span class="next-text nav-default">Windows 系统下 Python 以及 Pip 的安装和使用</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

@@ -1,33 +1,6 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 9 - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="This is the 9th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
- Click here to check other posts in this series.  Series 11: https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/ Series 10: https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/ Series 8: https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/ Series 7: https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/ Series 6: https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/ Series 5: https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/ Series 4: https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/ Series 3: https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/ Series 2: https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/ Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/  "><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 9">
-<meta property="og:description" content="This is the 9th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 9 - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="This is the 9th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
+Click here to check other posts in this series. Series 11: https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/ Series 10: https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/ Series 8: https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/ Series 7: https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/ Series 6: https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/ Series 5: https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/ Series 4: https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/ Series 3: https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/ Series 2: https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/ Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/ "><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 9"><meta property="og:description" content="This is the 9th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
 
 Click here to check other posts in this series.
 
@@ -42,13 +15,7 @@ Series 3: https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/
 Series 2: https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/
 Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/
 
-">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2021-01-07T23:37:07+08:00">
-<meta property="article:modified_time" content="2022-02-06T13:34:43+08:00">
-<meta itemprop=name content="Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 9">
-<meta itemprop=description content="This is the 9th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
+"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-01-07T23:37:07+08:00"><meta property="article:modified_time" content="2022-02-06T13:34:43+08:00"><meta itemprop=name content="Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 9"><meta itemprop=description content="This is the 9th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
 
 Click here to check other posts in this series.
 
@@ -63,12 +30,7 @@ Series 3: https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/
 Series 2: https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/
 Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/
 
-"><meta itemprop=datePublished content="2021-01-07T23:37:07+08:00">
-<meta itemprop=dateModified content="2022-02-06T13:34:43+08:00">
-<meta itemprop=wordCount content="721">
-<meta itemprop=keywords content="diff,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 9">
-<meta name=twitter:description content="This is the 9th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
+"><meta itemprop=datePublished content="2021-01-07T23:37:07+08:00"><meta itemprop=dateModified content="2022-02-06T13:34:43+08:00"><meta itemprop=wordCount content="725"><meta itemprop=keywords content="diff,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 9"><meta name=twitter:description content="This is the 9th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.
 
 Click here to check other posts in this series.
 
@@ -84,277 +46,88 @@ Series 2: https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/
 Series 1: https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/
 
 "><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 9</h1>
-<div class=post-meta>
-<span class=post-time> 2021-01-07 </span>
-<div class=post-category>
-<a href=/categories/Nvim/> Nvim </a>
-</div>
-<span class=more-meta> 721 words </span>
-<span class=more-meta> 2 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#how-do-i-return-a-key-press-from-a-function-and-use-it-in-a-mapping>How do I return a key press from a function and use it in a mapping</a></li>
-<li><a href=#get-character-at-a-specific-index-in-a-multi-byte-aware-fashion>Get character at a specific index in a multi-byte aware fashion</a></li>
-<li><a href=#get-string-length-regardless-of-ascii-or-not>Get string length regardless of ASCII or not</a></li>
-<li><a href=#use-neovim-as-git-diff-and-merge-tool>Use neovim as git diff and merge tool</a></li>
-<li><a href=#move-the-view-horizontally>Move the view horizontally</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>This is the 9th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.</p>
-<details>
-<summary><font size=3 color=red>Click here to check other posts in this series.</font></summary>
-<ul>
-<li>Series 11: <a href=https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/>https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/</a></li>
-<li>Series 10: <a href=https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/>https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/</a></li>
-<li>Series 8: <a href=https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/>https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/</a></li>
-<li>Series 7: <a href=https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/>https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/</a></li>
-<li>Series 6: <a href=https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</a></li>
-<li>Series 5: <a href=https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/>https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/</a></li>
-<li>Series 4: <a href=https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</a></li>
-<li>Series 3: <a href=https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</a></li>
-<li>Series 2: <a href=https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</a></li>
-<li>Series 1: <a href=https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</a></li>
-</ul>
-</details>
-<h1 id=how-do-i-return-a-key-press-from-a-function-and-use-it-in-a-mapping>How do I return a key press from a function and use it in a mapping</h1>
-<p>I want to write a function to return <code>&lt;Tab></code> key or <code>&lt;Ctrl-N></code> based on whether
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Nifty Nvim/Vim Techniques That Make My Life Easier -- Series 9</h1><div class=post-meta><span class=post-time>2021-01-07</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>725 words</span>
+<span class=more-meta>2 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#how-do-i-return-a-key-press-from-a-function-and-use-it-in-a-mapping>How do I return a key press from a function and use it in a mapping</a></li><li><a href=#get-character-at-a-specific-index-in-a-multi-byte-aware-fashion>Get character at a specific index in a multi-byte aware fashion</a></li><li><a href=#get-string-length-regardless-of-ascii-or-not>Get string length regardless of ASCII or not</a></li><li><a href=#use-neovim-as-git-diff-and-merge-tool>Use neovim as git diff and merge tool</a></li><li><a href=#move-the-view-horizontally>Move the view horizontally</a></li></ul></nav></div></div><div class=post-content><p>This is the 9th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.</p><details><summary><font size=3 color=red>Click here to check other posts in this series.</font></summary><ul><li>Series 11: <a href=https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/>https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/</a></li><li>Series 10: <a href=https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/>https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/</a></li><li>Series 8: <a href=https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/>https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/</a></li><li>Series 7: <a href=https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/>https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/</a></li><li>Series 6: <a href=https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/>https://jdhao.github.io/2019/12/21/nifty_nvim_techniques_s6/</a></li><li>Series 5: <a href=https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/>https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/</a></li><li>Series 4: <a href=https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</a></li><li>Series 3: <a href=https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</a></li><li>Series 2: <a href=https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</a></li><li>Series 1: <a href=https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</a></li></ul></details><h1 id=how-do-i-return-a-key-press-from-a-function-and-use-it-in-a-mapping>How do I return a key press from a function and use it in a mapping</h1><p>I want to write a function to return <code>&lt;Tab></code> key or <code>&lt;Ctrl-N></code> based on whether
 completion menu is available, and use the return value in an insert mode
-mapping. The initial code is:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>inoremap</span> <span class=p>&lt;</span><span class=nx>expr</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=nx>Tab</span><span class=p>&gt;</span> <span class=nx>MyTabFun</span><span class=p>()</span><span class=err>
-</span><span class=err></span><span class=k>function</span><span class=p>!</span> <span class=nx>MyTabFun</span><span class=p>()</span><span class=err>
-</span><span class=err></span>  <span class=k>if</span> <span class=nx>pumvisible</span><span class=p>()</span><span class=err>
-</span><span class=err></span>    <span class=nx>return</span> <span class=s2>&#34;&lt;C-N&gt;&#34;</span><span class=err>
-</span><span class=err></span>  <span class=k>else</span><span class=err>
-</span><span class=err></span>    <span class=nx>return</span> <span class=s2>&#34;&lt;Tab&gt;&#34;</span><span class=err>
-</span><span class=err></span>  <span class=k>endif</span><span class=err>
-</span><span class=err></span><span class=k>endfunction</span><span class=err>
-</span></code></pre></div><p>However, the function returns those characters literally instead of as key
+mapping. The initial code is:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=nx>inoremap</span> <span class=p>&lt;</span><span class=nx>expr</span><span class=p>&gt;</span> <span class=p>&lt;</span><span class=nx>Tab</span><span class=p>&gt;</span> <span class=nx>MyTabFun</span><span class=p>()</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=k>function</span><span class=p>!</span> <span class=nx>MyTabFun</span><span class=p>()</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span>  <span class=k>if</span> <span class=nx>pumvisible</span><span class=p>()</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span>    <span class=nx>return</span> <span class=s2>&#34;&lt;C-N&gt;&#34;</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span>  <span class=k>else</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span>    <span class=nx>return</span> <span class=s2>&#34;&lt;Tab&gt;&#34;</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span>  <span class=k>endif</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=k>endfunction</span><span class=err>
+</span></span></span></code></pre></div><p>However, the function returns those characters literally instead of as key
 press. This is because Vim thinks that you want to insert those keys literally.
-To signal a key press, we need to escaped it. Like the following:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>return</span> <span class=s2>&#34;\&lt;C-N&gt;&#34;</span><span class=err>
-</span><span class=err></span><span class=c>&#34; or</span><span class=err>
-</span><span class=err></span><span class=c>&#34; return &#34;\&lt;Tab&gt;&#34;</span><span class=err>
-</span></code></pre></div><p>The relevant vim doc on this topic is <code>:h expr-quote</code>.</p>
-<p>Ref:</p>
-<ul>
-<li><a href=https://vi.stackexchange.com/q/20206/15292>Using a special key in function</a></li>
-<li><a href=https://stackoverflow.com/q/6409509/6064933>How to invoke the increment and decrement Normal-mode commands in Vimscript?</a></li>
-<li><a href=https://vi.stackexchange.com/q/6072/15292>Why do I need to use unicode for a control character in a mapping using <expr> and a function?</a></li>
-</ul>
-<h1 id=get-character-at-a-specific-index-in-a-multi-byte-aware-fashion>Get character at a specific index in a multi-byte aware fashion</h1>
-<p>Unlike Python, in Vim script, string indexing uses byte index by default, not
+To signal a key press, we need to escaped it. Like the following:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=nx>return</span> <span class=s2>&#34;\&lt;C-N&gt;&#34;</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>&#34; or</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>&#34; return &#34;\&lt;Tab&gt;&#34;</span><span class=err>
+</span></span></span></code></pre></div><p>The relevant vim doc on this topic is <code>:h expr-quote</code>.</p><p>Ref:</p><ul><li><a href=https://vi.stackexchange.com/q/20206/15292>Using a special key in function</a></li><li><a href=https://stackoverflow.com/q/6409509/6064933>How to invoke the increment and decrement Normal-mode commands in Vimscript?</a></li><li><a href=https://vi.stackexchange.com/q/6072/15292>Why do I need to use unicode for a control character in a mapping using <expr>and a function?</a></li></ul><h1 id=get-character-at-a-specific-index-in-a-multi-byte-aware-fashion>Get character at a specific index in a multi-byte aware fashion</h1><p>Unlike Python, in Vim script, string indexing uses byte index by default, not
 character indexing. Byte indexing works well for ASCII characters. Once your
 string contains multi-byte characters, things no long works as expected. For
-example, if we run the following code</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>a</span> <span class=p>=</span> <span class=s1>&#39;你好吗&#39;</span><span class=err>
-</span><span class=err></span><span class=nx>echo</span> <span class=nx>a</span>[<span class=m>0</span>]<span class=err>
-</span></code></pre></div><p>Vim prints <code>&lt;e4></code>, the first byte of <a href=https://www.fileformat.info/info/unicode/char/4f60/index.htm><code>你</code> in UTF-8 encoding</a> (the binary
-representation for 你 using UTF-8 encoding is <code>\xe4\xbd\xa0</code>).</p>
-<p>How to we get the character at a specific index? Using <a href=https://neovim.io/doc/user/eval.html#strcharpart()><code>strcharpart()</code></a> instead.
-For example,</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=k>let</span> <span class=nx>my_str</span> <span class=p>=</span> <span class=s1>&#39;你好吗&#39;</span><span class=err>
-</span><span class=err></span><span class=c>&#34;result will be &#39;你&#39;, the first char in my_str</span><span class=err>
-</span><span class=err></span><span class=nx>echo</span> <span class=nx>strcharpart</span><span class=p>(</span><span class=nx>my_str</span><span class=p>,</span> <span class=m>0</span><span class=p>,</span> <span class=m>1</span><span class=p>)</span><span class=err>
-</span><span class=err></span><span class=c>
-</span><span class=c>&#34; result will be &#39;好&#39;, the second char in my_str</span><span class=err>
-</span><span class=err></span><span class=nx>echo</span> <span class=nx>strcharpart</span><span class=p>(</span><span class=nx>my_str</span><span class=p>,</span> <span class=m>1</span><span class=p>,</span> <span class=m>1</span><span class=p>)</span><span class=err>
-</span></code></pre></div><p>We can also use the following convenience function:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=k>function</span><span class=p>!</span>  <span class=nx>CharAtIdx</span><span class=p>(</span><span class=nx>str</span><span class=p>,</span>  <span class=nx>idx</span><span class=p>)</span>  <span class=nx>abort</span><span class=err>
-</span><span class=err></span><span class=c>    &#34; Get char at idx from str. Note that this is based on character indexing</span><span class=err>
-</span><span class=err></span><span class=c>    &#34; instead of the byte index.</span><span class=err>
-</span><span class=err></span>    <span class=nx>return</span>  <span class=nx>strcharpart</span><span class=p>(</span><span class=nx>a</span>:<span class=nx>str</span><span class=p>,</span>  <span class=nx>a</span>:<span class=nx>idx</span><span class=p>,</span>  <span class=m>1</span><span class=p>)</span><span class=err>
-</span><span class=err></span><span class=k>endfunction</span><span class=err>
-</span></code></pre></div><p>Then, to get first char of a string, use <code>CharAtIdx(my_str, 0)</code>.</p>
-<h1 id=get-string-length-regardless-of-ascii-or-not>Get string length regardless of ASCII or not</h1>
-<p>This is related to the previous tip. There is function <code>strlen()</code> or <code>len()</code> in
+example, if we run the following code</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=k>let</span> <span class=nx>a</span> <span class=p>=</span> <span class=s1>&#39;你好吗&#39;</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=nx>echo</span> <span class=nx>a</span>[<span class=m>0</span>]<span class=err>
+</span></span></span></code></pre></div><p>Vim prints <code>&lt;e4></code>, the first byte of <a href=https://www.fileformat.info/info/unicode/char/4f60/index.htm><code>你</code> in UTF-8 encoding</a> (the binary
+representation for 你 using UTF-8 encoding is <code>\xe4\xbd\xa0</code>).</p><p>How to we get the character at a specific index? Using <a href=https://neovim.io/doc/user/eval.html#strcharpart()><code>strcharpart()</code></a> instead.
+For example,</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=k>let</span> <span class=nx>my_str</span> <span class=p>=</span> <span class=s1>&#39;你好吗&#39;</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>&#34;result will be &#39;你&#39;, the first char in my_str</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=nx>echo</span> <span class=nx>strcharpart</span><span class=p>(</span><span class=nx>my_str</span><span class=p>,</span> <span class=m>0</span><span class=p>,</span> <span class=m>1</span><span class=p>)</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>
+</span></span></span><span class=line><span class=cl><span class=c>&#34; result will be &#39;好&#39;, the second char in my_str</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=nx>echo</span> <span class=nx>strcharpart</span><span class=p>(</span><span class=nx>my_str</span><span class=p>,</span> <span class=m>1</span><span class=p>,</span> <span class=m>1</span><span class=p>)</span><span class=err>
+</span></span></span></code></pre></div><p>We can also use the following convenience function:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=k>function</span><span class=p>!</span>  <span class=nx>CharAtIdx</span><span class=p>(</span><span class=nx>str</span><span class=p>,</span>  <span class=nx>idx</span><span class=p>)</span>  <span class=nx>abort</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>    &#34; Get char at idx from str. Note that this is based on character indexing</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=c>    &#34; instead of the byte index.</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span>    <span class=nx>return</span>  <span class=nx>strcharpart</span><span class=p>(</span><span class=nx>a</span>:<span class=nx>str</span><span class=p>,</span>  <span class=nx>a</span>:<span class=nx>idx</span><span class=p>,</span>  <span class=m>1</span><span class=p>)</span><span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=k>endfunction</span><span class=err>
+</span></span></span></code></pre></div><p>Then, to get first char of a string, use <code>CharAtIdx(my_str, 0)</code>.</p><h1 id=get-string-length-regardless-of-ascii-or-not>Get string length regardless of ASCII or not</h1><p>This is related to the previous tip. There is function <code>strlen()</code> or <code>len()</code> in
 Vim, but they only calculates byte length of a string, instead of character
 length, like what <code>len()</code> in Python does. We can instead use the <a href=https://neovim.io/doc/user/eval.html#strchars()><code>strchars()</code></a> to get string
 length. I consider this one of the many hidden quirks of Vim. We just need to
-get used to it.</p>
-<h1 id=use-neovim-as-git-diff-and-merge-tool>Use neovim as git diff and merge tool</h1>
-<p>Here is how to set up neovim as a git diff and git merge tool. Add the
-following config to the file <code>$HOME/.gitconfig</code>:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=k>[diff]</span>
-    <span class=na>tool</span> <span class=o>=</span> <span class=s>nvimdiff</span>
-<span class=k>[difftool]</span>
-    <span class=na>prompt</span> <span class=o>=</span> <span class=s>false</span>
-<span class=k>[difftool &#34;nvimdiff&#34;]</span>
-    <span class=na>cmd</span> <span class=o>=</span> <span class=s>&#34;nvim -d \&#34;$LOCAL\&#34; \&#34;$REMOTE\&#34;&#34;</span>
-<span class=k>[merge]</span>
-    <span class=na>tool</span> <span class=o>=</span> <span class=s>nvimdiff</span>
-<span class=k>[mergetool]</span>
-    <span class=na>prompt</span> <span class=o>=</span> <span class=s>true</span>
-<span class=k>[mergetool &#34;nvimdiff&#34;]</span>
-    <span class=na>cmd</span> <span class=o>=</span> <span class=s>&#34;nvim -d \&#34;$LOCAL\&#34; \&#34;$REMOTE\&#34; \&#34;$MERGED\&#34; -c &#39;wincmd w&#39; -c &#39;wincmd J&#39;&#34;</span>
-</code></pre></div><p>Ref:</p>
-<ul>
-<li><a href=https://gist.github.com/huytd/78c676a797f81eb08cdedf5400e1b6a3>https://gist.github.com/huytd/78c676a797f81eb08cdedf5400e1b6a3</a></li>
-<li><a href=https://oozou.com/til/use-neovim-as-a-git-difftool-57>https://oozou.com/til/use-neovim-as-a-git-difftool-57</a></li>
-<li><a href=https://github.com/neovim/neovim/issues/2377#issuecomment-126092442>https://github.com/neovim/neovim/issues/2377#issuecomment-126092442</a></li>
-</ul>
-<h1 id=move-the-view-horizontally>Move the view horizontally</h1>
-<p>If we do not wrap the text and the line text length exceed the window size,
+get used to it.</p><h1 id=use-neovim-as-git-diff-and-merge-tool>Use neovim as git diff and merge tool</h1><p>Here is how to set up neovim as a git diff and git merge tool. Add the
+following config to the file <code>$HOME/.gitconfig</code>:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-ini data-lang=ini><span class=line><span class=cl><span class=k>[diff]</span>
+</span></span><span class=line><span class=cl>    <span class=na>tool</span> <span class=o>=</span> <span class=s>nvimdiff</span>
+</span></span><span class=line><span class=cl><span class=k>[difftool]</span>
+</span></span><span class=line><span class=cl>    <span class=na>prompt</span> <span class=o>=</span> <span class=s>false</span>
+</span></span><span class=line><span class=cl><span class=k>[difftool &#34;nvimdiff&#34;]</span>
+</span></span><span class=line><span class=cl>    <span class=na>cmd</span> <span class=o>=</span> <span class=s>&#34;nvim -d \&#34;$LOCAL\&#34; \&#34;$REMOTE\&#34;&#34;</span>
+</span></span><span class=line><span class=cl><span class=k>[merge]</span>
+</span></span><span class=line><span class=cl>    <span class=na>tool</span> <span class=o>=</span> <span class=s>nvimdiff</span>
+</span></span><span class=line><span class=cl><span class=k>[mergetool]</span>
+</span></span><span class=line><span class=cl>    <span class=na>prompt</span> <span class=o>=</span> <span class=s>true</span>
+</span></span><span class=line><span class=cl><span class=k>[mergetool &#34;nvimdiff&#34;]</span>
+</span></span><span class=line><span class=cl>    <span class=na>cmd</span> <span class=o>=</span> <span class=s>&#34;nvim -d \&#34;$LOCAL\&#34; \&#34;$REMOTE\&#34; \&#34;$MERGED\&#34; -c &#39;wincmd w&#39; -c &#39;wincmd J&#39;&#34;</span>
+</span></span></code></pre></div><p>Ref:</p><ul><li><a href=https://gist.github.com/huytd/78c676a797f81eb08cdedf5400e1b6a3>https://gist.github.com/huytd/78c676a797f81eb08cdedf5400e1b6a3</a></li><li><a href=https://oozou.com/til/use-neovim-as-a-git-difftool-57>https://oozou.com/til/use-neovim-as-a-git-difftool-57</a></li><li><a href=https://github.com/neovim/neovim/issues/2377#issuecomment-126092442>https://github.com/neovim/neovim/issues/2377#issuecomment-126092442</a></li></ul><h1 id=move-the-view-horizontally>Move the view horizontally</h1><p>If we do not wrap the text and the line text length exceed the window size,
 some text will be hidden beyond the current view port. To move the view port
-horizontally, Vim has the following normal mode command:</p>
-<ul>
-<li><code>{count}zl</code>: move the current view port {count} characters to the right, default is 1 if no {count} provided.</li>
-<li><code>{count}zh</code>: move the current view port {count} characters to the left, default is 1 if no {count} provided.</li>
-<li><code>zL</code>: move the current view port half screen width to the right.</li>
-<li><code>zH</code>: move the current view port half screen width to the left.</li>
-</ul>
-<p>The default behavior for <code>zL</code> and <code>zH</code> is to move the view port half
+horizontally, Vim has the following normal mode command:</p><ul><li><code>{count}zl</code>: move the current view port {count} characters to the right, default is 1 if no {count} provided.</li><li><code>{count}zh</code>: move the current view port {count} characters to the left, default is 1 if no {count} provided.</li><li><code>zL</code>: move the current view port half screen width to the right.</li><li><code>zH</code>: move the current view port half screen width to the left.</li></ul><p>The default behavior for <code>zL</code> and <code>zH</code> is to move the view port half
 screen width, which may be too much. We can map these shortcuts to use smaller
-steps:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=nx>nnoremap</span> <span class=nx>zL</span> <span class=m>10</span>zl<span class=err>
-</span><span class=err></span><span class=nx>nnoremap</span> <span class=nx>zH</span> <span class=m>10</span>zh<span class=err>
-</span></code></pre></div><p>Ref:</p>
-<ul>
-<li><a href=https://stackoverflow.com/q/5989739/6064933>Horizontal navigation in long lines</a></li>
-</ul>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2022-02-06
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/diff/>diff</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2021/01/08/github_access_issue_in_china/>
-<i class="iconfont icon-left"></i>
+steps:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-vim data-lang=vim><span class=line><span class=cl><span class=nx>nnoremap</span> <span class=nx>zL</span> <span class=m>10</span>zl<span class=err>
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=nx>nnoremap</span> <span class=nx>zH</span> <span class=m>10</span>zh<span class=err>
+</span></span></span></code></pre></div><p>Ref:</p><ul><li><a href=https://stackoverflow.com/q/5989739/6064933>Horizontal navigation in long lines</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2022-02-06</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/diff/>diff</a></div><nav class=post-nav><a class=prev href=/2021/01/08/github_access_issue_in_china/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">解决 GitHub 资源无法下载的问题</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2021/01/05/nvim_copy_from_remote_via_osc52/>
-<span class="next-text nav-default">Copy from Remote Server to Local Clipboard via OSC 52 in Neovim</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2021/01/05/nvim_copy_from_remote_via_osc52/><span class="next-text nav-default">Copy from Remote Server to Local Clipboard via OSC 52 in Neovim</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

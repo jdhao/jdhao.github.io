@@ -1,283 +1,55 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>解决 Matplotlib 使用中文乱码问题 - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="注：这是一篇旧文的中文翻译版本。
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>解决 Matplotlib 使用中文乱码问题 - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="注：这是一篇旧文的中文翻译版本。
 前不久，我在使用 Matplotlib 画图的时候，发现一些 Unicode 字符(例如，汉字) 无法正常显示：在生成的图片中，汉字是乱码的，显示为一个方框。经过大量的查找和阅读，我终于明白了如何在使用 Matplotlib 时，正确渲染 Unicode 字符1。
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2020/02/22/guide-on-how-to-use-chinese-with-matplotlib_zh/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="解决 Matplotlib 使用中文乱码问题">
-<meta property="og:description" content="注：这是一篇旧文的中文翻译版本。
-前不久，我在使用 Matplotlib 画图的时候，发现一些 Unicode 字符(例如，汉字) 无法正常显示：在生成的图片中，汉字是乱码的，显示为一个方框。经过大量的查找和阅读，我终于明白了如何在使用 Matplotlib 时，正确渲染 Unicode 字符1。">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2020/02/22/guide-on-how-to-use-chinese-with-matplotlib_zh/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2020-02-22T11:41:09+08:00">
-<meta property="article:modified_time" content="2020-02-22T13:17:16+08:00">
-<meta itemprop=name content="解决 Matplotlib 使用中文乱码问题">
-<meta itemprop=description content="注：这是一篇旧文的中文翻译版本。
-前不久，我在使用 Matplotlib 画图的时候，发现一些 Unicode 字符(例如，汉字) 无法正常显示：在生成的图片中，汉字是乱码的，显示为一个方框。经过大量的查找和阅读，我终于明白了如何在使用 Matplotlib 时，正确渲染 Unicode 字符1。"><meta itemprop=datePublished content="2020-02-22T11:41:09+08:00">
-<meta itemprop=dateModified content="2020-02-22T13:17:16+08:00">
-<meta itemprop=wordCount content="1322">
-<meta itemprop=keywords content="Matplotlib,font,Python,Unicode,encoding,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="解决 Matplotlib 使用中文乱码问题">
-<meta name=twitter:description content="注：这是一篇旧文的中文翻译版本。
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2020/02/22/guide-on-how-to-use-chinese-with-matplotlib_zh/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="解决 Matplotlib 使用中文乱码问题"><meta property="og:description" content="注：这是一篇旧文的中文翻译版本。
+前不久，我在使用 Matplotlib 画图的时候，发现一些 Unicode 字符(例如，汉字) 无法正常显示：在生成的图片中，汉字是乱码的，显示为一个方框。经过大量的查找和阅读，我终于明白了如何在使用 Matplotlib 时，正确渲染 Unicode 字符1。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/02/22/guide-on-how-to-use-chinese-with-matplotlib_zh/"><meta property="article:section" content="post"><meta property="article:published_time" content="2020-02-22T11:41:09+08:00"><meta property="article:modified_time" content="2020-02-22T13:17:16+08:00"><meta itemprop=name content="解决 Matplotlib 使用中文乱码问题"><meta itemprop=description content="注：这是一篇旧文的中文翻译版本。
+前不久，我在使用 Matplotlib 画图的时候，发现一些 Unicode 字符(例如，汉字) 无法正常显示：在生成的图片中，汉字是乱码的，显示为一个方框。经过大量的查找和阅读，我终于明白了如何在使用 Matplotlib 时，正确渲染 Unicode 字符1。"><meta itemprop=datePublished content="2020-02-22T11:41:09+08:00"><meta itemprop=dateModified content="2020-02-22T13:17:16+08:00"><meta itemprop=wordCount content="1322"><meta itemprop=keywords content="Matplotlib,font,Python,Unicode,encoding,"><meta name=twitter:card content="summary"><meta name=twitter:title content="解决 Matplotlib 使用中文乱码问题"><meta name=twitter:description content="注：这是一篇旧文的中文翻译版本。
 前不久，我在使用 Matplotlib 画图的时候，发现一些 Unicode 字符(例如，汉字) 无法正常显示：在生成的图片中，汉字是乱码的，显示为一个方框。经过大量的查找和阅读，我终于明白了如何在使用 Matplotlib 时，正确渲染 Unicode 字符1。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>解决 Matplotlib 使用中文乱码问题</h1>
-<div class=post-meta>
-<span class=post-time> 2020-02-22 </span>
-<div class=post-category>
-<a href=/categories/Python/> Python </a>
-</div>
-<span class=more-meta> 1322 words </span>
-<span class=more-meta> 3 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#指定中文字体名称>指定中文字体名称</a>
-<ul>
-<li><a href=#找到有效的中文字体名>找到有效的中文字体名</a></li>
-<li><a href=#使用字体>使用字体</a></li>
-</ul>
-</li>
-<li><a href=#指定中文字体的具体路径>指定中文字体的具体路径</a></li>
-<li><a href=#结论>结论</a></li>
-<li><a href=#参考链接>参考链接</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p>注：这是一篇<a href=https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/>旧文</a>的中文翻译版本。</p>
-<p>前不久，我在使用 Matplotlib 画图的时候，发现一些 Unicode 字符(例如，汉字) 无法正常显示：在生成的图片中，汉字是乱码的，显示为一个方框。经过大量的查找和阅读，我终于明白了如何在使用 Matplotlib 时，正确渲染 Unicode 字符<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>。</p>
-<p>简单来说，之所以中文字符被显示为方框，是因为 Matplotlib 默认使用的字体并不支持中文字符，并不是 Matplotlib 本身的原因。为了能够在图片上正确显示中文字符，我们需要指示 Matplotlib 使用一种支持中文的字体即可。或者，更直接地，我们在画图时可以直接给 Matplotlib 提供一个中文字体的路径。</p>
-<p>本文假设 <code>fc-list</code> 命令安装在你的电脑上。如果你的电脑上没有这个命令，你应该先安装 <a href=https://www.freedesktop.org/wiki/Software/fontconfig/>fontconfig</a>。在 Linux 系统上，这个程序通常是自带的，无需安装；在 Windows 系统上，可以安装 <a href=https://miktex.org/>MiKTeX</a> 或 <a href=https://www.tug.org/texlive/>TeX Live</a> 来使用 <code>fc-list</code> 命令。</p>
-<p>以下介绍几种在 Matplotlib 中使用中文字符的不同方式。</p>
-<h1 id=指定中文字体名称>指定中文字体名称</h1>
-<p>第一种使用中文的方式是给 Matplotlib 提供一个有效的中文字体名。再开始下面步骤之前，确保你的系统上已经安装了中文字体，如果你使用的是中文系统，这应该不是问题；或者如果你想使用一种新的中文字体，可以尝试 Google 和 Adobe 发布的 <a href=https://source.typekit.com/source-han-serif/>Source Han Serif</a>。首先，你需要在系统上安装中文字体<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>。</p>
-<h2 id=找到有效的中文字体名>找到有效的中文字体名</h2>
-<p>Matplotlib 提供了<a href=https://matplotlib.org/api/font_manager_api.html>FontManager</a> 类来处理字体相关的操作。这个类有一个 <code>ttflist</code> 属性，该属性提供了 Matplotlib 所能够发现到的字体列表。从这个字体列表，我们也可以很容易得到这些字体的名称。问题是，我们不清楚这些字体中有哪些字体是支持中文的。</p>
-<p>这时候，我们就需要 <a href=https://linux.die.net/man/1/fc-list>fc-list</a> 帮助了。这个命令行工具可以帮助我们找到系统上安装的中文字体：使用 <code>fc-list :lang=zh</code> 可以列出系统上可用的中文字体。值得注意的是，这些中文字体并非都可以被 Matplotlib 使用：Matplotlib 无法使用其中的 <a href=https://en.wikipedia.org/wiki/TrueType#TrueType_Collection>ttc</a> 格式的字体(参见<a href=https://github.com/matplotlib/matplotlib/issues/8612>这里</a>)。所以我们需要得到 Matplotlib 索引的字体和系统提供的中文字体两个集合的交集。</p>
-<h2 id=使用字体>使用字体</h2>
-<p>找到了 Matplotlib 索引的中文字体以后，我们可以通过更改 <a href=https://matplotlib.org/tutorials/introductory/customizing.html>Matplotlib rc</a> 指示 Matplotlib 使用中文字体。这样设置以后，后续脚本中的画图语句都会使用新指定的中文字体。加入我们在系统中安装了 <code>STKaiti</code> 这个字体，下面的脚本将会使用这个字体来渲染图片中的中文：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>matplotlib</span> <span class=k>as</span> <span class=nn>mpl</span>
-<span class=n>font_name</span> <span class=o>=</span> <span class=s2>&#34;STKaiti&#34;</span>
-<span class=n>mpl</span><span class=o>.</span><span class=n>rcParams</span><span class=p>[</span><span class=s1>&#39;font.family&#39;</span><span class=p>]</span><span class=o>=</span><span class=n>font_name</span>
-<span class=n>mpl</span><span class=o>.</span><span class=n>rcParams</span><span class=p>[</span><span class=s1>&#39;axes.unicode_minus&#39;</span><span class=p>]</span><span class=o>=</span><span class=kc>False</span> <span class=c1># in case minus sign is shown as box</span>
-
-<span class=n>plt</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=sa>u</span><span class=s1>&#39;测试&#39;</span><span class=p>)</span>
-<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre></div><p>在上面的代码中，<code>font_name</code> 可以任意一个有效的中文字体名。另外，如果你仅仅想在某个画图命令中使用中文字体，可以在画图命令中指定使用的字体名称，如下所示：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=n>plt</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=sa>u</span><span class=s1>&#39;测试&#39;</span><span class=p>,</span> <span class=n>fontname</span><span class=o>=</span><span class=n>font_name</span><span class=p>)</span>
-</code></pre></div><p>这种方式是我认为比较好的在 Matplotlib 中使用中文的方式。</p>
-<h1 id=指定中文字体的具体路径>指定中文字体的具体路径</h1>
-<p>为了使用系统中的任何字体，我们也可以使用第二种方式：直接给 Matplotlib 提供一个字体的路径。代码如下：</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>matplotlib.font_manager</span> <span class=k>as</span> <span class=nn>mfm</span>
-<span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
-
-<span class=n>font_path</span> <span class=o>=</span> <span class=s2>&#34;/usr/share/fonts/custom/simhei.ttf&#34;</span>
-<span class=n>prop</span> <span class=o>=</span> <span class=n>mfm</span><span class=o>.</span><span class=n>FontProperties</span><span class=p>(</span><span class=n>fname</span><span class=o>=</span><span class=n>font_path</span><span class=p>)</span>
-<span class=n>plt</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=sa>u</span><span class=s1>&#39;测试&#39;</span><span class=p>,</span> <span class=n>fontproperties</span><span class=o>=</span><span class=n>prop</span><span class=p>)</span>
-<span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
-</code></pre></div><p>上述代码中，变量 <code>font_path</code> 是系统上某个中文字体的绝对路径。</p>
-<h1 id=结论>结论</h1>
-<p>以上提供的两种方式都比较方便实用，我们可以根据自己的实际需要选取使用。要获取完整的代码，可以参考 <a href=https://github.com/jdhao/matplotlib_chinese_font>这里</a>。</p>
-<h1 id=参考链接>参考链接</h1>
-<ul>
-<li>第一种方式
-<ul>
-<li><a href=https://segmentfault.com/a/1190000005144275>https://segmentfault.com/a/1190000005144275</a></li>
-<li><a href=https://my.oschina.net/u/1180306/blog/279818>https://my.oschina.net/u/1180306/blog/279818</a></li>
-</ul>
-</li>
-<li>第二种方式
-<ul>
-<li><a href=https://stackoverflow.com/q/7726852/6064933>https://stackoverflow.com/q/7726852/6064933</a></li>
-<li><a href=https://matplotlib.org/examples/api/font_file.html>https://matplotlib.org/examples/api/font_file.html</a></li>
-</ul>
-</li>
-<li>两种方式都提到
-<ul>
-<li><a href=https://blog.csdn.net/rumswell/article/details/6544377>https://blog.csdn.net/rumswell/article/details/6544377</a></li>
-<li><a href=https://blog.csdn.net/dgatiger/article/details/50414549>https://blog.csdn.net/dgatiger/article/details/50414549</a></li>
-</ul>
-</li>
-<li><a href=https://linux.die.net/man/3/fcpatternformat>如何使用 fontconfig 模式查找字体</a></li>
-</ul>
-<section class=footnotes role=doc-endnotes>
-<hr>
-<ol>
-<li id=fn:1 role=doc-endnote>
-<p>尽管这篇文章是以中文为例，但是对于其他语言也是同样的道理，只需要相应设置即可。&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-<li id=fn:2 role=doc-endnote>
-<p>如果不清楚如何在不同系统上安装新字体，可以查看 <a href=https://goo.gl/G4C42x>这里</a> 和 <a href=https://goo.gl/3DRhFQ>这里</a>的指导。&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2020-02-22
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/Matplotlib/>Matplotlib</a>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>解决 Matplotlib 使用中文乱码问题</h1><div class=post-meta><span class=post-time>2020-02-22</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>1322 words</span>
+<span class=more-meta>3 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#指定中文字体名称>指定中文字体名称</a><ul><li><a href=#找到有效的中文字体名>找到有效的中文字体名</a></li><li><a href=#使用字体>使用字体</a></li></ul></li><li><a href=#指定中文字体的具体路径>指定中文字体的具体路径</a></li><li><a href=#结论>结论</a></li><li><a href=#参考链接>参考链接</a></li></ul></nav></div></div><div class=post-content><p>注：这是一篇<a href=https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/>旧文</a>的中文翻译版本。</p><p>前不久，我在使用 Matplotlib 画图的时候，发现一些 Unicode 字符(例如，汉字) 无法正常显示：在生成的图片中，汉字是乱码的，显示为一个方框。经过大量的查找和阅读，我终于明白了如何在使用 Matplotlib 时，正确渲染 Unicode 字符<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>。</p><p>简单来说，之所以中文字符被显示为方框，是因为 Matplotlib 默认使用的字体并不支持中文字符，并不是 Matplotlib 本身的原因。为了能够在图片上正确显示中文字符，我们需要指示 Matplotlib 使用一种支持中文的字体即可。或者，更直接地，我们在画图时可以直接给 Matplotlib 提供一个中文字体的路径。</p><p>本文假设 <code>fc-list</code> 命令安装在你的电脑上。如果你的电脑上没有这个命令，你应该先安装 <a href=https://www.freedesktop.org/wiki/Software/fontconfig/>fontconfig</a>。在 Linux 系统上，这个程序通常是自带的，无需安装；在 Windows 系统上，可以安装 <a href=https://miktex.org/>MiKTeX</a> 或 <a href=https://www.tug.org/texlive/>TeX Live</a> 来使用 <code>fc-list</code> 命令。</p><p>以下介绍几种在 Matplotlib 中使用中文字符的不同方式。</p><h1 id=指定中文字体名称>指定中文字体名称</h1><p>第一种使用中文的方式是给 Matplotlib 提供一个有效的中文字体名。再开始下面步骤之前，确保你的系统上已经安装了中文字体，如果你使用的是中文系统，这应该不是问题；或者如果你想使用一种新的中文字体，可以尝试 Google 和 Adobe 发布的 <a href=https://source.typekit.com/source-han-serif/>Source Han Serif</a>。首先，你需要在系统上安装中文字体<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>。</p><h2 id=找到有效的中文字体名>找到有效的中文字体名</h2><p>Matplotlib 提供了<a href=https://matplotlib.org/api/font_manager_api.html>FontManager</a> 类来处理字体相关的操作。这个类有一个 <code>ttflist</code> 属性，该属性提供了 Matplotlib 所能够发现到的字体列表。从这个字体列表，我们也可以很容易得到这些字体的名称。问题是，我们不清楚这些字体中有哪些字体是支持中文的。</p><p>这时候，我们就需要 <a href=https://linux.die.net/man/1/fc-list>fc-list</a> 帮助了。这个命令行工具可以帮助我们找到系统上安装的中文字体：使用 <code>fc-list :lang=zh</code> 可以列出系统上可用的中文字体。值得注意的是，这些中文字体并非都可以被 Matplotlib 使用：Matplotlib 无法使用其中的 <a href=https://en.wikipedia.org/wiki/TrueType#TrueType_Collection>ttc</a> 格式的字体(参见<a href=https://github.com/matplotlib/matplotlib/issues/8612>这里</a>)。所以我们需要得到 Matplotlib 索引的字体和系统提供的中文字体两个集合的交集。</p><h2 id=使用字体>使用字体</h2><p>找到了 Matplotlib 索引的中文字体以后，我们可以通过更改 <a href=https://matplotlib.org/tutorials/introductory/customizing.html>Matplotlib rc</a> 指示 Matplotlib 使用中文字体。这样设置以后，后续脚本中的画图语句都会使用新指定的中文字体。加入我们在系统中安装了 <code>STKaiti</code> 这个字体，下面的脚本将会使用这个字体来渲染图片中的中文：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>matplotlib</span> <span class=k>as</span> <span class=nn>mpl</span>
+</span></span><span class=line><span class=cl><span class=n>font_name</span> <span class=o>=</span> <span class=s2>&#34;STKaiti&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>mpl</span><span class=o>.</span><span class=n>rcParams</span><span class=p>[</span><span class=s1>&#39;font.family&#39;</span><span class=p>]</span><span class=o>=</span><span class=n>font_name</span>
+</span></span><span class=line><span class=cl><span class=n>mpl</span><span class=o>.</span><span class=n>rcParams</span><span class=p>[</span><span class=s1>&#39;axes.unicode_minus&#39;</span><span class=p>]</span><span class=o>=</span><span class=kc>False</span> <span class=c1># in case minus sign is shown as box</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=sa>u</span><span class=s1>&#39;测试&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</span></span></code></pre></div><p>在上面的代码中，<code>font_name</code> 可以任意一个有效的中文字体名。另外，如果你仅仅想在某个画图命令中使用中文字体，可以在画图命令中指定使用的字体名称，如下所示：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=sa>u</span><span class=s1>&#39;测试&#39;</span><span class=p>,</span> <span class=n>fontname</span><span class=o>=</span><span class=n>font_name</span><span class=p>)</span>
+</span></span></code></pre></div><p>这种方式是我认为比较好的在 Matplotlib 中使用中文的方式。</p><h1 id=指定中文字体的具体路径>指定中文字体的具体路径</h1><p>为了使用系统中的任何字体，我们也可以使用第二种方式：直接给 Matplotlib 提供一个字体的路径。代码如下：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>matplotlib.font_manager</span> <span class=k>as</span> <span class=nn>mfm</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>font_path</span> <span class=o>=</span> <span class=s2>&#34;/usr/share/fonts/custom/simhei.ttf&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>prop</span> <span class=o>=</span> <span class=n>mfm</span><span class=o>.</span><span class=n>FontProperties</span><span class=p>(</span><span class=n>fname</span><span class=o>=</span><span class=n>font_path</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>text</span><span class=p>(</span><span class=mf>0.5</span><span class=p>,</span> <span class=mf>0.5</span><span class=p>,</span> <span class=n>s</span><span class=o>=</span><span class=sa>u</span><span class=s1>&#39;测试&#39;</span><span class=p>,</span> <span class=n>fontproperties</span><span class=o>=</span><span class=n>prop</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</span></span></code></pre></div><p>上述代码中，变量 <code>font_path</code> 是系统上某个中文字体的绝对路径。</p><h1 id=结论>结论</h1><p>以上提供的两种方式都比较方便实用，我们可以根据自己的实际需要选取使用。要获取完整的代码，可以参考 <a href=https://github.com/jdhao/matplotlib_chinese_font>这里</a>。</p><h1 id=参考链接>参考链接</h1><ul><li>第一种方式<ul><li><a href=https://segmentfault.com/a/1190000005144275>https://segmentfault.com/a/1190000005144275</a></li><li><a href=https://my.oschina.net/u/1180306/blog/279818>https://my.oschina.net/u/1180306/blog/279818</a></li></ul></li><li>第二种方式<ul><li><a href=https://stackoverflow.com/q/7726852/6064933>https://stackoverflow.com/q/7726852/6064933</a></li><li><a href=https://matplotlib.org/examples/api/font_file.html>https://matplotlib.org/examples/api/font_file.html</a></li></ul></li><li>两种方式都提到<ul><li><a href=https://blog.csdn.net/rumswell/article/details/6544377>https://blog.csdn.net/rumswell/article/details/6544377</a></li><li><a href=https://blog.csdn.net/dgatiger/article/details/50414549>https://blog.csdn.net/dgatiger/article/details/50414549</a></li></ul></li><li><a href=https://linux.die.net/man/3/fcpatternformat>如何使用 fontconfig 模式查找字体</a></li></ul><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>尽管这篇文章是以中文为例，但是对于其他语言也是同样的道理，只需要相应设置即可。&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>如果不清楚如何在不同系统上安装新字体，可以查看 <a href=https://goo.gl/G4C42x>这里</a> 和 <a href=https://goo.gl/3DRhFQ>这里</a>的指导。&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2020-02-22</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/Matplotlib/>Matplotlib</a>
 <a href=/tags/font/>font</a>
 <a href=/tags/Python/>Python</a>
 <a href=/tags/Unicode/>Unicode</a>
-<a href=/tags/encoding/>encoding</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2020/02/23/point_to_line_dist_2d/>
-<i class="iconfont icon-left"></i>
+<a href=/tags/encoding/>encoding</a></div><nav class=post-nav><a class=prev href=/2020/02/23/point_to_line_dist_2d/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Point to Line Distance in 2D Plane</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2020/02/21/food_during_SARS-CoV-2/>
-<span class="next-text nav-default">疫情时期的食物</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2020/02/21/food_during_SARS-CoV-2/><span class="next-text nav-default">疫情时期的食物</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

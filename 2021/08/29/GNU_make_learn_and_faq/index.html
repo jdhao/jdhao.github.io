@@ -1,354 +1,76 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>GNU Make FAQ - jdhao's digital space</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="jdhao"><meta name=description content="GNU Make is a build automation tool typically used on Linux systems1. Below I will summarize a list of FAQs, which explain how Make works and how to use Make.
-"><meta name=keywords content="Hugo,theme,even">
-<meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw">
-<meta name=generator content="Hugo 0.92.1 with theme even">
-<link rel=canonical href=https://jdhao.github.io/2021/08/29/GNU_make_learn_and_faq/>
-<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
-<link rel=manifest href=/manifest.json>
-<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script>
-<link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="GNU Make FAQ">
-<meta property="og:description" content="GNU Make is a build automation tool typically used on Linux systems1.
-Below I will summarize a list of FAQs, which explain how Make works and how to use Make.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://jdhao.github.io/2021/08/29/GNU_make_learn_and_faq/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2021-08-29T23:17:12+08:00">
-<meta property="article:modified_time" content="2021-12-23T22:58:08+08:00">
-<meta itemprop=name content="GNU Make FAQ">
-<meta itemprop=description content="GNU Make is a build automation tool typically used on Linux systems1.
-Below I will summarize a list of FAQs, which explain how Make works and how to use Make."><meta itemprop=datePublished content="2021-08-29T23:17:12+08:00">
-<meta itemprop=dateModified content="2021-12-23T22:58:08+08:00">
-<meta itemprop=wordCount content="872">
-<meta itemprop=keywords content="Make,"><meta name=twitter:card content="summary">
-<meta name=twitter:title content="GNU Make FAQ">
-<meta name=twitter:description content="GNU Make is a build automation tool typically used on Linux systems1.
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>GNU Make FAQ - jdhao's digital space</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="GNU Make is a build automation tool typically used on Linux systems1. Below I will summarize a list of FAQs, which explain how Make works and how to use Make.
+"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.105.0 with theme even"><link rel=canonical href=https://jdhao.github.io/2021/08/29/GNU_make_learn_and_faq/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="GNU Make FAQ"><meta property="og:description" content="GNU Make is a build automation tool typically used on Linux systems1.
+Below I will summarize a list of FAQs, which explain how Make works and how to use Make."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2021/08/29/GNU_make_learn_and_faq/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-08-29T23:17:12+08:00"><meta property="article:modified_time" content="2021-12-23T22:58:08+08:00"><meta itemprop=name content="GNU Make FAQ"><meta itemprop=description content="GNU Make is a build automation tool typically used on Linux systems1.
+Below I will summarize a list of FAQs, which explain how Make works and how to use Make."><meta itemprop=datePublished content="2021-08-29T23:17:12+08:00"><meta itemprop=dateModified content="2021-12-23T22:58:08+08:00"><meta itemprop=wordCount content="872"><meta itemprop=keywords content="Make,"><meta name=twitter:card content="summary"><meta name=twitter:title content="GNU Make FAQ"><meta name=twitter:description content="GNU Make is a build automation tool typically used on Linux systems1.
 Below I will summarize a list of FAQs, which explain how Make works and how to use Make."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<div class=mobile-navbar-icon>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/>
-<li class=mobile-menu-item>Home</li>
-</a><a href=/post/>
-<li class=mobile-menu-item>Archives</li>
-</a><a href=/categories/>
-<li class=mobile-menu-item>Categories</li>
-</a><a href=/tags/>
-<li class=mobile-menu-item>Tags</li>
-</a><a href=/about/>
-<li class=mobile-menu-item>About</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/ class=logo>jdhao's digital space</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/>Home</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/post/>Archives</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/categories/>Categories</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/tags/>Tags</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/about/>About</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>GNU Make FAQ</h1>
-<div class=post-meta>
-<span class=post-time> 2021-08-29 </span>
-<div class=post-category>
-<a href=/categories/tools/> tools </a>
-</div>
-<span class=more-meta> 872 words </span>
-<span class=more-meta> 5 mins read </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>Contents</h2>
-<div class=post-toc-content>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#general-questions>General questions</a>
-<ul>
-<li><a href=#why-do-we-need-make>Why do we need Make?</a></li>
-<li><a href=#how-is-make-different-from-cmake>How is Make different from CMake?</a></li>
-<li><a href=#what-name-should-we-use-for-makefile>What name should we use for Makefile?</a></li>
-<li><a href=#what-is-a-target-recipe>What is a target, recipe?</a></li>
-<li><a href=#how-does-make-work-generally>How does make work generally?</a></li>
-<li><a href=#what-is-the-default-target-for-make>What is the default target for Make?</a></li>
-</ul>
-</li>
-<li><a href=#usage-question>Usage question</a>
-<ul>
-<li><a href=#difference-between-echo-and-echo>Difference between <code>@echo</code> and <code>echo</code></a></li>
-<li><a href=#difference-between--and--for-assignment>Difference between <code>:=</code> and <code>=</code> for assignment?</a></li>
-<li><a href=#what-is-a-phony-target-and-why-is-it-needed>What is a <code>.PHONY</code> target and why is it needed?</a></li>
-<li><a href=#special-variables-used-in-makefile>Special variables used in Makefile</a></li>
-</ul>
-</li>
-<li><a href=#assign-command-output-to-a-variable>Assign command output to a variable</a></li>
-<li><a href=#references>References</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<p><a href=https://www.gnu.org/software/make/>GNU Make</a> is a <a href=https://en.wikipedia.org/wiki/Build_automation>build</a> <a href=https://en.wikipedia.org/wiki/List_of_build_automation_software>automation</a> tool typically used on Linux systems<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.
-Below I will summarize a list of FAQs, which explain how Make works and how to use Make.</p>
-<h1 id=general-questions>General questions</h1>
-<h2 id=why-do-we-need-make>Why do we need Make?</h2>
-<p>Suppose that we want to build an executable or a library with multiple source and header files.
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>GNU Make FAQ</h1><div class=post-meta><span class=post-time>2021-08-29</span><div class=post-category><a href=/categories/tools/>tools</a></div><span class=more-meta>872 words</span>
+<span class=more-meta>5 mins read</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/img/spinner.svg alt=spinner.svg></span> times read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#general-questions>General questions</a><ul><li><a href=#why-do-we-need-make>Why do we need Make?</a></li><li><a href=#how-is-make-different-from-cmake>How is Make different from CMake?</a></li><li><a href=#what-name-should-we-use-for-makefile>What name should we use for Makefile?</a></li><li><a href=#what-is-a-target-recipe>What is a target, recipe?</a></li><li><a href=#how-does-make-work-generally>How does make work generally?</a></li><li><a href=#what-is-the-default-target-for-make>What is the default target for Make?</a></li></ul></li><li><a href=#usage-question>Usage question</a><ul><li><a href=#difference-between-echo-and-echo>Difference between <code>@echo</code> and <code>echo</code></a></li><li><a href=#difference-between--and--for-assignment>Difference between <code>:=</code> and <code>=</code> for assignment?</a></li><li><a href=#what-is-a-phony-target-and-why-is-it-needed>What is a <code>.PHONY</code> target and why is it needed?</a></li><li><a href=#special-variables-used-in-makefile>Special variables used in Makefile</a></li></ul></li><li><a href=#assign-command-output-to-a-variable>Assign command output to a variable</a></li><li><a href=#references>References</a></li></ul></nav></div></div><div class=post-content><p><a href=https://www.gnu.org/software/make/>GNU Make</a> is a <a href=https://en.wikipedia.org/wiki/Build_automation>build</a> <a href=https://en.wikipedia.org/wiki/List_of_build_automation_software>automation</a> tool typically used on Linux systems<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.
+Below I will summarize a list of FAQs, which explain how Make works and how to use Make.</p><h1 id=general-questions>General questions</h1><h2 id=why-do-we-need-make>Why do we need Make?</h2><p>Suppose that we want to build an executable or a library with multiple source and header files.
 To build it, we often need to run quite a few commands.
 During the development cycle, we need to repeatedly run these commands to build the project.
-Of course we can do it manually, but it would be time-consuming and error-prone.</p>
-<p>With Make, we can run repeating build tasks easily without having to type the build commands manually.</p>
-<h2 id=how-is-make-different-from-cmake>How is Make different from CMake?</h2>
-<p>Make is build tool that uses Makefile to build a project.
-CMake is a meta-build tools, in that it can produce a Makefile or other build files such as <code>build.ninja</code> for <a href=https://ninja-build.org/>Ninja</a>.</p>
-<h2 id=what-name-should-we-use-for-makefile>What name should we use for Makefile?</h2>
-<p>Make usually looks for <code>makefile</code> or <code>Makefile</code> in the current directory.
-The convention is to use <code>Makefile</code>. However, <code>makefile</code> also works fine.</p>
-<h2 id=what-is-a-target-recipe>What is a target, recipe?</h2>
-<p>A rule is a bunch of commands we want to run together to build a target, e.g.,
-building a certain object file. The format is like:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>Target_name: dependency
-# &lt;--&gt; indicates a TAB character.
-&lt;--&gt;command1
-&lt;--&gt;command2
-...
-</code></pre></div><p>These commands are called recipe for this target. Each command must start with a <code>TAB</code>,
-though <a href=https://stackoverflow.com/a/2131227/6064933>it can be changed</a> in newer versions of make.</p>
-<p>A target is the result of executing the rule.</p>
-<h2 id=how-does-make-work-generally>How does make work generally?</h2>
-<p>Make is smart. It will not blindly build all the target each time you run it.
+Of course we can do it manually, but it would be time-consuming and error-prone.</p><p>With Make, we can run repeating build tasks easily without having to type the build commands manually.</p><h2 id=how-is-make-different-from-cmake>How is Make different from CMake?</h2><p>Make is build tool that uses Makefile to build a project.
+CMake is a meta-build tools, in that it can produce a Makefile or other build files such as <code>build.ninja</code> for <a href=https://ninja-build.org/>Ninja</a>.</p><h2 id=what-name-should-we-use-for-makefile>What name should we use for Makefile?</h2><p>Make usually looks for <code>makefile</code> or <code>Makefile</code> in the current directory.
+The convention is to use <code>Makefile</code>. However, <code>makefile</code> also works fine.</p><h2 id=what-is-a-target-recipe>What is a target, recipe?</h2><p>A rule is a bunch of commands we want to run together to build a target, e.g.,
+building a certain object file. The format is like:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>Target_name: dependency
+</span></span><span class=line><span class=cl># &lt;--&gt; indicates a TAB character.
+</span></span><span class=line><span class=cl>&lt;--&gt;command1
+</span></span><span class=line><span class=cl>&lt;--&gt;command2
+</span></span><span class=line><span class=cl>...
+</span></span></code></pre></div><p>These commands are called recipe for this target. Each command must start with a <code>TAB</code>,
+though <a href=https://stackoverflow.com/a/2131227/6064933>it can be changed</a> in newer versions of make.</p><p>A target is the result of executing the rule.</p><h2 id=how-does-make-work-generally>How does make work generally?</h2><p>Make is smart. It will not blindly build all the target each time you run it.
 Since each target may have some dependencies, and each dependency in turn will have their own dependencies.
 In the end, when we make a target, there is a dependency tree.
 If you change a source file, make will only compile its parent target and other targets that depend on its parent target recursively.
 Specifically, make will check the last-modify time of a target&rsquo;s dependency,
-if the time stamp is newer than the target itself, it means that this target should be rebuilt to make it up-to-date.</p>
-<p>In summary, make is smart enough to only build a target that needs to be rebuilt, reducing compilation time significantly.</p>
-<p>Ref:</p>
-<ul>
-<li><a href=https://stackoverflow.com/q/22630756/6064933>https://stackoverflow.com/q/22630756/6064933</a></li>
-</ul>
-<h2 id=what-is-the-default-target-for-make>What is the default target for Make?</h2>
-<p>When we simply type <code>make</code>, it can build some target.
+if the time stamp is newer than the target itself, it means that this target should be rebuilt to make it up-to-date.</p><p>In summary, make is smart enough to only build a target that needs to be rebuilt, reducing compilation time significantly.</p><p>Ref:</p><ul><li><a href=https://stackoverflow.com/q/22630756/6064933>https://stackoverflow.com/q/22630756/6064933</a></li></ul><h2 id=what-is-the-default-target-for-make>What is the default target for Make?</h2><p>When we simply type <code>make</code>, it can build some target.
 By default, if we do not specify the target to build, make will pick the first target that does not start with <code>.</code> in its name.
 So we may use a <code>default</code> target (the name does not really matter) as the first target,
-to do the default action if the user does not specify one.</p>
-<p>Ref:</p>
-<ul>
-<li><a href=https://stackoverflow.com/q/2057689/6064933>https://stackoverflow.com/q/2057689/6064933</a></li>
-</ul>
-<h1 id=usage-question>Usage question</h1>
-<h2 id=difference-between-echo-and-echo>Difference between <code>@echo</code> and <code>echo</code></h2>
-<p>By default, <code>make</code> will print a command before executing it.
-Adding <code>@</code> before a command will suppress its printing before execution.</p>
-<p>Ref:</p>
-<ul>
-<li><a href=https://www.gnu.org/software/make/manual/html_node/Echoing.html>https://www.gnu.org/software/make/manual/html_node/Echoing.html</a></li>
-<li><a href=https://stackoverflow.com/a/29576870/6064933>https://stackoverflow.com/a/29576870/6064933</a></li>
-</ul>
-<h2 id=difference-between--and--for-assignment>Difference between <code>:=</code> and <code>=</code> for assignment?</h2>
-<p>Variables defined using <code>:=</code> get its value when it is defined.
+to do the default action if the user does not specify one.</p><p>Ref:</p><ul><li><a href=https://stackoverflow.com/q/2057689/6064933>https://stackoverflow.com/q/2057689/6064933</a></li></ul><h1 id=usage-question>Usage question</h1><h2 id=difference-between-echo-and-echo>Difference between <code>@echo</code> and <code>echo</code></h2><p>By default, <code>make</code> will print a command before executing it.
+Adding <code>@</code> before a command will suppress its printing before execution.</p><p>Ref:</p><ul><li><a href=https://www.gnu.org/software/make/manual/html_node/Echoing.html>https://www.gnu.org/software/make/manual/html_node/Echoing.html</a></li><li><a href=https://stackoverflow.com/a/29576870/6064933>https://stackoverflow.com/a/29576870/6064933</a></li></ul><h2 id=difference-between--and--for-assignment>Difference between <code>:=</code> and <code>=</code> for assignment?</h2><p>Variables defined using <code>:=</code> get its value when it is defined.
 Variables defined using <code>=</code> get its value when it is used.
-There is a risk that the variable value may change if it depends on the value of other variables.</p>
-<p>Ref:</p>
-<ul>
-<li><a href=https://www.gnu.org/software/make/manual/html_node/Flavors.html#Flavors>https://www.gnu.org/software/make/manual/html_node/Flavors.html#Flavors</a></li>
-<li><a href=https://stackoverflow.com/q/4879592/6064933>https://stackoverflow.com/q/4879592/6064933</a></li>
-<li><a href=https://stackoverflow.com/q/448910/6064933>https://stackoverflow.com/q/448910/6064933</a></li>
-</ul>
-<h2 id=what-is-a-phony-target-and-why-is-it-needed>What is a <code>.PHONY</code> target and why is it needed?</h2>
-<p>PHONY target is a target that does not produce a file.
+There is a risk that the variable value may change if it depends on the value of other variables.</p><p>Ref:</p><ul><li><a href=https://www.gnu.org/software/make/manual/html_node/Flavors.html#Flavors>https://www.gnu.org/software/make/manual/html_node/Flavors.html#Flavors</a></li><li><a href=https://stackoverflow.com/q/4879592/6064933>https://stackoverflow.com/q/4879592/6064933</a></li><li><a href=https://stackoverflow.com/q/448910/6064933>https://stackoverflow.com/q/448910/6064933</a></li></ul><h2 id=what-is-a-phony-target-and-why-is-it-needed>What is a <code>.PHONY</code> target and why is it needed?</h2><p>PHONY target is a target that does not produce a file.
 Typically, a target name is the corresponding file to generate.
-However, for certain target, we only want to run some command and do not want to generate a target of the same name.</p>
-<p>If you do not mark the target as phony, make will first check if there is file of the same name that has been updated.
-If there is a file of the same name that has been updated, make will not build that target, which is not what we want.</p>
-<p>For example, if you have the following Makefile:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-make data-lang=make><span class=nf>foo</span><span class=o>:</span>
-	@echo <span class=s2>&#34;hello, this is target foo&#34;</span>
-</code></pre></div><p>If there is a file named <code>foo</code> in the directory, when you run <code>make foo</code>, you get the following message:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>make: &#39;foo&#39; is up to date
-</code></pre></div><p>So we mark this target as phony (i.e., we do not want to generate file <code>foo</code>):</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-makefile data-lang=makefile><span class=nf>.PHONY</span><span class=o>:</span> <span class=n>target_name</span>
-</code></pre></div><p>By doing this, we make sure that this target will always be build,
+However, for certain target, we only want to run some command and do not want to generate a target of the same name.</p><p>If you do not mark the target as phony, make will first check if there is file of the same name that has been updated.
+If there is a file of the same name that has been updated, make will not build that target, which is not what we want.</p><p>For example, if you have the following Makefile:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-make data-lang=make><span class=line><span class=cl><span class=nf>foo</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	@echo <span class=s2>&#34;hello, this is target foo&#34;</span>
+</span></span></code></pre></div><p>If there is a file named <code>foo</code> in the directory, when you run <code>make foo</code>, you get the following message:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>make: &#39;foo&#39; is up to date
+</span></span></code></pre></div><p>So we mark this target as phony (i.e., we do not want to generate file <code>foo</code>):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-makefile data-lang=makefile><span class=line><span class=cl><span class=nf>.PHONY</span><span class=o>:</span> <span class=n>target_name</span>
+</span></span></code></pre></div><p>By doing this, we make sure that this target will always be build,
 ignoring a file with the same name.
 Another example of phony target is the <code>clean</code> target,
-where we want to remove the generated executable and object files:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-make data-lang=make><span class=nf>.PHONY</span><span class=o>:</span> <span class=n>clean</span>
-<span class=nf>clean</span><span class=o>:</span>
-	rm *.o main
-</code></pre></div><p>Ref:</p>
-<ul>
-<li>Purpose of <code>.PHONY</code> in Makefile: <a href=https://stackoverflow.com/q/2145590/6064933>https://stackoverflow.com/q/2145590/6064933</a></li>
-</ul>
-<h2 id=special-variables-used-in-makefile>Special variables used in Makefile</h2>
-<p>We can use special variable to simplify the writing of Makefile:</p>
-<ul>
-<li><code>$@</code>: the target name</li>
-<li><code>$&lt;</code>: the first dependency</li>
-<li><code>$^</code>: all the dependencies</li>
-</ul>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>main: foo.o bar.o
-	g++ -o main foo.o bar.o
-</code></pre></div><p>In the above example, <code>$@</code> would be <code>main</code>. <code>$&lt;</code> would be <code>foo.o</code> and <code>$^</code> would be <code>foo.o bar.o</code>.</p>
-<p>Ref:</p>
-<ul>
-<li><a href=https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables>https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables</a></li>
-</ul>
-<h1 id=assign-command-output-to-a-variable>Assign command output to a variable</h1>
-<p>Sometimes, we want to assign the output of some command to a variable.
-We can use the <code>shell</code> builtin to get the shell command output:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-makefile data-lang=makefile><span class=nv>VIM_PATH</span> <span class=o>:=</span> <span class=k>$(</span>shell which vim<span class=k>)</span>
-</code></pre></div><p>Ref:</p>
-<ul>
-<li><a href=https://stackoverflow.com/q/2019989/6064933>https://stackoverflow.com/q/2019989/6064933</a></li>
-</ul>
-<h1 id=references>References</h1>
-<ul>
-<li><a href=https://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/>https://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/</a> (finished)</li>
-<li><a href=https://web.mit.edu/gnu/doc/html/make_3.html>https://web.mit.edu/gnu/doc/html/make_3.html</a></li>
-<li><a href=https://makefiletutorial.com/>https://makefiletutorial.com/</a></li>
-<li><a href=https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_makefiles.html>https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_makefiles.html</a></li>
-<li><a href=https://www.ruanyifeng.com/blog/2015/02/make.html>https://www.ruanyifeng.com/blog/2015/02/make.html</a></li>
-<li><a href=https://github.com/edhowland/Exploring_make_and_Makefiles>https://github.com/edhowland/Exploring_make_and_Makefiles</a></li>
-<li><a href=https://github.com/unix-tools/tutorial-makefiles>https://github.com/unix-tools/tutorial-makefiles</a></li>
-<li><a href=https://github.com/weetmuts/MakeTutorial>https://github.com/weetmuts/MakeTutorial</a></li>
-<li><a href=https://github.com/vampy/Makefile>https://github.com/vampy/Makefile</a></li>
-</ul>
-<section class=footnotes role=doc-endnotes>
-<hr>
-<ol>
-<li id=fn:1 role=doc-endnote>
-<p>Technically, Make can also be used on Windows, see <a href=http://gnuwin32.sourceforge.net/packages/make.htm>here</a>.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>Author</span>
-<span class=item-content>jdhao</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>LastMod</span>
-<span class=item-content>
-2021-12-23
-</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>License</span>
-<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
-</p>
-</div>
-<footer class=post-footer>
-<div class=post-tags>
-<a href=/tags/Make/>Make</a>
-</div>
-<nav class=post-nav>
-<a class=prev href=/2021/09/03/cpp_integer_overflow/>
-<i class="iconfont icon-left"></i>
+where we want to remove the generated executable and object files:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-make data-lang=make><span class=line><span class=cl><span class=nf>.PHONY</span><span class=o>:</span> <span class=n>clean</span>
+</span></span><span class=line><span class=cl><span class=nf>clean</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>	rm *.o main
+</span></span></code></pre></div><p>Ref:</p><ul><li>Purpose of <code>.PHONY</code> in Makefile: <a href=https://stackoverflow.com/q/2145590/6064933>https://stackoverflow.com/q/2145590/6064933</a></li></ul><h2 id=special-variables-used-in-makefile>Special variables used in Makefile</h2><p>We can use special variable to simplify the writing of Makefile:</p><ul><li><code>$@</code>: the target name</li><li><code>$&lt;</code>: the first dependency</li><li><code>$^</code>: all the dependencies</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>main: foo.o bar.o
+</span></span><span class=line><span class=cl>	g++ -o main foo.o bar.o
+</span></span></code></pre></div><p>In the above example, <code>$@</code> would be <code>main</code>. <code>$&lt;</code> would be <code>foo.o</code> and <code>$^</code> would be <code>foo.o bar.o</code>.</p><p>Ref:</p><ul><li><a href=https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables>https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables</a></li></ul><h1 id=assign-command-output-to-a-variable>Assign command output to a variable</h1><p>Sometimes, we want to assign the output of some command to a variable.
+We can use the <code>shell</code> builtin to get the shell command output:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-makefile data-lang=makefile><span class=line><span class=cl><span class=nv>VIM_PATH</span> <span class=o>:=</span> <span class=k>$(</span>shell which vim<span class=k>)</span>
+</span></span></code></pre></div><p>Ref:</p><ul><li><a href=https://stackoverflow.com/q/2019989/6064933>https://stackoverflow.com/q/2019989/6064933</a></li></ul><h1 id=references>References</h1><ul><li><a href=https://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/>https://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/</a> (finished)</li><li><a href=https://web.mit.edu/gnu/doc/html/make_3.html>https://web.mit.edu/gnu/doc/html/make_3.html</a></li><li><a href=https://makefiletutorial.com/>https://makefiletutorial.com/</a></li><li><a href=https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_makefiles.html>https://www.cs.swarthmore.edu/~newhall/unixhelp/howto_makefiles.html</a></li><li><a href=https://www.ruanyifeng.com/blog/2015/02/make.html>https://www.ruanyifeng.com/blog/2015/02/make.html</a></li><li><a href=https://github.com/edhowland/Exploring_make_and_Makefiles>https://github.com/edhowland/Exploring_make_and_Makefiles</a></li><li><a href=https://github.com/unix-tools/tutorial-makefiles>https://github.com/unix-tools/tutorial-makefiles</a></li><li><a href=https://github.com/weetmuts/MakeTutorial>https://github.com/weetmuts/MakeTutorial</a></li><li><a href=https://github.com/vampy/Makefile>https://github.com/vampy/Makefile</a></li></ul><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>Technically, Make can also be used on Windows, see <a href=http://gnuwin32.sourceforge.net/packages/make.htm>here</a>.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
+<span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
+<span class=item-content>2021-12-23</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/Make/>Make</a></div><nav class=post-nav><a class=prev href=/2021/09/03/cpp_integer_overflow/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Integer Literal Type and Overflow In C++</span>
-<span class="prev-text nav-mobile">Prev</span>
-</a>
-<a class=next href=/2021/08/20/the_root_cause/>
-<span class="next-text nav-default">问题根源是什么？</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/2021/08/20/the_root_cause/><span class="next-text nav-default">问题根源是什么？</span>
 <span class="next-text nav-mobile">Next</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><script src=https://utteranc.es/client.js repo=jdhao/jdhao.github.io issue-term=pathname theme=github-light crossorigin=anonymous async></script><noscript>Please enable JavaScript to view the <a href=https://github.com/utterance>comments powered by utterances.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a>
 <a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a>
 <a href=https://github.com/jdhao class="iconfont icon-github" title=github></a>
-<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<span class=power-by>
-Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span>
+<a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a></span>
 <span class=division>|</span>
-<span class=theme-info>
-Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
-</span>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
+<span class=theme-info>Theme -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span></span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span> </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
 2017 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-<script type=text/javascript>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],tags:'ams'}}</script>
-<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-113395108-1','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
-</body>
-</html>
+<script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script>
+<script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script>
+<script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>

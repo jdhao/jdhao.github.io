@@ -53,13 +53,11 @@ LaTeX source, for example, &lt;a href="http://www.xm1math.net/texmaker/">Texmake
 user interface is a little dull. So I decided to give &lt;a href="https://www.sublimetext.com/">Sublime
 Text&lt;/a> a shot. In this post, I want to share the
 configurations necessary to write and compile LaTeX source code and to preview
-the produced PDF files.&lt;/p></description></item><item><title>LaTeX Equation Numbering Done Right in Hexo</title><link>https://jdhao.github.io/2018/01/25/hexo-mathjax-equation-number/</link><pubDate>Thu, 25 Jan 2018 23:19:00 +0800</pubDate><guid>https://jdhao.github.io/2018/01/25/hexo-mathjax-equation-number/</guid><description>&lt;p>Recently I plan to transplant one of my old post from other site to
-this new site (you can find the new post &lt;a
-href="https://jdhao.github.io/2016/01/19/back-propagation-in-mlp-explained/">here&lt;/a>).
-The old post contains quite a lot of equations in LaTeX format. With so
-much equations in one post, I find it really hard to refer to some
-equations without using proper numbering. So I decide to figure out how
-to use LaTeX equation numbering properly in my post.&lt;/p></description></item><item><title>纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件</title><link>https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/</link><pubDate>Sun, 10 Dec 2017 00:10:00 +0800</pubDate><guid>https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/</guid><description>&lt;p>&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/18-1-7/731510.jpg"
+the produced PDF files.&lt;/p></description></item><item><title>LaTeX Equation Numbering Done Right in Hexo</title><link>https://jdhao.github.io/2018/01/25/hexo-mathjax-equation-number/</link><pubDate>Thu, 25 Jan 2018 23:19:00 +0800</pubDate><guid>https://jdhao.github.io/2018/01/25/hexo-mathjax-equation-number/</guid><description>Recently I plan to transplant one of my old post from other site to this new
+site (you can find the new post [here](https://jdhao.github.io/2016/01/19/back-propagation-in-mlp-explained/)).
+The old post contains quite a lot of equations in LaTeX format.
+With so much equations in one post, I find it really hard to refer to some equations without using proper numbering.
+So I decide to figure out how to use LaTeX equation numbering properly in my post.</description></item><item><title>纯文本做笔记 --- 使用 Pandoc 把 Markdown 转为 PDF 文件</title><link>https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/</link><pubDate>Sun, 10 Dec 2017 00:10:00 +0800</pubDate><guid>https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/</guid><description>&lt;p>&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/18-1-7/731510.jpg"
 title="生成的 PDF 截图"
 style="float: middle;">&lt;/p>
 &lt;details>
