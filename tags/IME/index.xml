@@ -12,6 +12,12 @@ the width of a Chinese character.&lt;/p>
 &lt;p>&lt;font color="red">最近在做一些中文排版的工作，有一个需求是在中文字符之间插入空格，并且空格的宽度等于中文字符的宽度，在某些情况下这样排版显得更加美观。&lt;/font>&lt;/p></description></item><item><title>最新版 Rime 输入法使用 (2022 更新)</title><link>https://jdhao.github.io/2019/02/18/rime_configuration_intro/</link><pubDate>Mon, 18 Feb 2019 00:32:40 +0800</pubDate><guid>https://jdhao.github.io/2019/02/18/rime_configuration_intro/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190217233344.png" width="800">
 &lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="2" color="red">更新日志&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2022-11-06: 更新基本概念，以及一些不清楚的地方。&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
 &lt;p>之前一直听说过 &lt;a href="https://rime.im/">Rime&lt;/a> 这个神级输入法的大名，一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，造成 &lt;a href="https://www.v2ex.com/t/535393">Chrome 浏览器频频崩溃&lt;/a>，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。&lt;/p>
 &lt;p>值得注意，Rime 的官方文档并不是很详细，所以网上的很多配置不一定是正确的，注意自己分辨和试验。&lt;/p></description></item><item><title>Sublime Text 3 使用相关问题及解决办法</title><link>https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/</link><pubDate>Sun, 19 Mar 2017 19:01:00 +0800</pubDate><guid>https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/</guid><description>&lt;p>这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
 同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。&lt;/p></description></item></channel></rss>
