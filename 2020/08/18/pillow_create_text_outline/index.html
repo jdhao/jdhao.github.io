@@ -11,7 +11,7 @@ update log
 
 Sometimes, we may want to add outline color to text strokes with Pillow.
 Prior to version 6.2.0, we can not do this in Pillow.
-Fortunately, starting from version 6.2.0, pillow supports text outlines natively in its ImageDraw.text() method."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/08/18/pillow_create_text_outline/"><meta property="article:section" content="post"><meta property="article:published_time" content="2020-08-18T22:12:11+08:00"><meta property="article:modified_time" content="2022-04-12T01:10:52+08:00"><meta itemprop=name content="Create Outline Text in Python with Pillow"><meta itemprop=description content="
+Fortunately, starting from version 6.2.0, pillow supports text outlines natively in its ImageDraw.text() method."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2020/08/18/pillow_create_text_outline/"><meta property="article:section" content="post"><meta property="article:published_time" content="2020-08-18T22:12:11+08:00"><meta property="article:modified_time" content="2022-04-11T19:10:52+02:00"><meta itemprop=name content="Create Outline Text in Python with Pillow"><meta itemprop=description content="
 update log
 
 2022-04-12: add warning about dangers of omitting stroke_fill parameter.
@@ -22,7 +22,7 @@ update log
 
 Sometimes, we may want to add outline color to text strokes with Pillow.
 Prior to version 6.2.0, we can not do this in Pillow.
-Fortunately, starting from version 6.2.0, pillow supports text outlines natively in its ImageDraw.text() method."><meta itemprop=datePublished content="2020-08-18T22:12:11+08:00"><meta itemprop=dateModified content="2022-04-12T01:10:52+08:00"><meta itemprop=wordCount content="222"><meta itemprop=keywords content="PIL,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Create Outline Text in Python with Pillow"><meta name=twitter:description content="
+Fortunately, starting from version 6.2.0, pillow supports text outlines natively in its ImageDraw.text() method."><meta itemprop=datePublished content="2020-08-18T22:12:11+08:00"><meta itemprop=dateModified content="2022-04-11T19:10:52+02:00"><meta itemprop=wordCount content="222"><meta itemprop=keywords content="PIL,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Create Outline Text in Python with Pillow"><meta name=twitter:description content="
 update log
 
 2022-04-12: add warning about dangers of omitting stroke_fill parameter.
@@ -64,7 +64,7 @@ Fortunately, starting from version 6.2.0, pillow supports text outlines natively
 </span></span></code></pre></div><p>The parameter <code>stroke_width</code> controls the width of outline, and <code>stroke_fill</code> controls the outline color.</p><p>The above script will create an image like the title image.</p><p>Note that you must specify both <code>stroke_width</code> and <code>stroke_fill</code> when creating outline text.
 If <code>stroke_fill</code> is omitted, it will default to text fill color, which will create terrible and illegible text on the image.</p><h1 id=references>References</h1><ul><li><a href=https://stackoverflow.com/q/8049764/6064933>How can I draw text with different stroke and fill colors on images with python?</a></li><li><a href=https://github.com/python-pillow/Pillow/blob/ac4b7082c1990c8e1ab31da6945776a3cb1aefda/docs/releasenotes/6.2.0.rst>Pillow 6.2 release note</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
 <span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2022-04-12</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content>2022-04-11</span></p><p class=copyright-item><span class=item-title>License</span>
 <span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/PIL/>PIL</a></div><nav class=post-nav><a class=prev href=/2020/08/18/context_manager_for_measuring_runtime/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Measuring Code Running Time with contextmanager</span>
 <span class="prev-text nav-mobile">Prev</span></a>

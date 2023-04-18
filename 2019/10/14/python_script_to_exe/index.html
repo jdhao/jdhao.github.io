@@ -6,13 +6,13 @@ executable so that I do not need to type python before it to run the script.
 On Linux, it is easy to achieve with the help of
 shebang.
 However, on Windows, it does not work. Then I thought I might convert the
-script to Windows executable."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/10/14/python_script_to_exe/"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-10-14T21:46:55+08:00"><meta property="article:modified_time" content="2019-10-15T00:00:03+08:00"><meta itemprop=name content="Convert Python Script to Exe on Windows with Pyinstaller"><meta itemprop=description content="Introduction
+script to Windows executable."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2019/10/14/python_script_to_exe/"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-10-14T21:46:55+08:00"><meta property="article:modified_time" content="2019-10-14T18:00:03+02:00"><meta itemprop=name content="Convert Python Script to Exe on Windows with Pyinstaller"><meta itemprop=description content="Introduction
 I have a use case where I want to convert my Python script to standalone
 executable so that I do not need to type python before it to run the script.
 On Linux, it is easy to achieve with the help of
 shebang.
 However, on Windows, it does not work. Then I thought I might convert the
-script to Windows executable."><meta itemprop=datePublished content="2019-10-14T21:46:55+08:00"><meta itemprop=dateModified content="2019-10-15T00:00:03+08:00"><meta itemprop=wordCount content="433"><meta itemprop=keywords content="Windows,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Convert Python Script to Exe on Windows with Pyinstaller"><meta name=twitter:description content="Introduction
+script to Windows executable."><meta itemprop=datePublished content="2019-10-14T21:46:55+08:00"><meta itemprop=dateModified content="2019-10-14T18:00:03+02:00"><meta itemprop=wordCount content="433"><meta itemprop=keywords content="Windows,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Convert Python Script to Exe on Windows with Pyinstaller"><meta name=twitter:description content="Introduction
 I have a use case where I want to convert my Python script to standalone
 executable so that I do not need to type python before it to run the script.
 On Linux, it is easy to achieve with the help of
@@ -53,7 +53,7 @@ run the produced executable:</p><div class=highlight><pre tabindex=0 class=chrom
 options can be used multiple times to exclude several files. For example:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>pyinstaller.exe --onefile --console --upx-dir=upx-3.95-win64\upx-3.95-win64\ --upx-exclude=python36.dll --upx-exclude=vcruntime140.dll my_script.py
 </span></span></code></pre></div><p>After that, the executable file can run without errors.</p><h1 id=references>References</h1><ul><li><a href=https://github.com/pyinstaller/pyinstaller/issues/1694#issuecomment-384040050>Reduce executable size</a>.</li><li><a href=https://stackoverflow.com/questions/47730240/how-do-i-use-upx-with-pyinstaller>How to use upx with pyinstaller</a>.</li><li><a href=https://github.com/pyinstaller/pyinstaller/issues/3600#issuecomment-433895981>Error loading pythonxx.dll</a>.</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
 <span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2019-10-15</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content>2019-10-14</span></p><p class=copyright-item><span class=item-title>License</span>
 <span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/Windows/>Windows</a></div><nav class=post-nav><a class=prev href=/2019/10/15/tagbar_markdown_setup/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Generating Table of Contents for Markdown with Tagbar</span>
 <span class="prev-text nav-mobile">Prev</span></a>

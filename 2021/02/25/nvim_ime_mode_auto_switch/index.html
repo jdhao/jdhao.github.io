@@ -6,13 +6,13 @@
 2022-11-07：针对 macbook M1 CPU 设置添加说明，添加 smartim 插件使用。
 
 
-Vim/Neovim 下输入中文最大的痛就是需要频繁从中文模式切换到英文模式，来输入 Vim 的各种命令。本文总结几款插件，可以帮助我们在 macOS、Windows 下，离开 insert 模式的时候自动切换到英文输入。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2021/02/25/nvim_ime_mode_auto_switch/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-02-25T22:21:12+08:00"><meta property="article:modified_time" content="2022-11-07T01:26:09+08:00"><meta itemprop=name content="Neovim 输入法模式自动切换设置"><meta itemprop=description content="
+Vim/Neovim 下输入中文最大的痛就是需要频繁从中文模式切换到英文模式，来输入 Vim 的各种命令。本文总结几款插件，可以帮助我们在 macOS、Windows 下，离开 insert 模式的时候自动切换到英文输入。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2021/02/25/nvim_ime_mode_auto_switch/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-02-25T22:21:12+08:00"><meta property="article:modified_time" content="2022-11-06T18:26:09+01:00"><meta itemprop=name content="Neovim 输入法模式自动切换设置"><meta itemprop=description content="
 更新日志
 
 2022-11-07：针对 macbook M1 CPU 设置添加说明，添加 smartim 插件使用。
 
 
-Vim/Neovim 下输入中文最大的痛就是需要频繁从中文模式切换到英文模式，来输入 Vim 的各种命令。本文总结几款插件，可以帮助我们在 macOS、Windows 下，离开 insert 模式的时候自动切换到英文输入。"><meta itemprop=datePublished content="2021-02-25T22:21:12+08:00"><meta itemprop=dateModified content="2022-11-07T01:26:09+08:00"><meta itemprop=wordCount content="719"><meta itemprop=keywords content="IME,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Neovim 输入法模式自动切换设置"><meta name=twitter:description content="
+Vim/Neovim 下输入中文最大的痛就是需要频繁从中文模式切换到英文模式，来输入 Vim 的各种命令。本文总结几款插件，可以帮助我们在 macOS、Windows 下，离开 insert 模式的时候自动切换到英文输入。"><meta itemprop=datePublished content="2021-02-25T22:21:12+08:00"><meta itemprop=dateModified content="2022-11-06T18:26:09+01:00"><meta itemprop=wordCount content="719"><meta itemprop=keywords content="IME,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Neovim 输入法模式自动切换设置"><meta name=twitter:description content="
 更新日志
 
 2022-11-07：针对 macbook M1 CPU 设置添加说明，添加 smartim 插件使用。
@@ -43,7 +43,7 @@ We can run the <a href=https://github.com/ybian/smartim/blob/master/plugin/im-se
 </span></span></span><span class=line><span class=cl><span class=err></span><span class=k>endif</span><span class=err>
 </span></span></span></code></pre></div><p>然后使用命令 <code>IMSToggle</code> 打开这个插件的功能。打开功能以后，使用 <code>ESC</code> 离开插入模式，输入法会自动切换到 US keyboard 模式，重新按 i 进入插入模式，会切换到之前的输入法 (注意是切换到了输入法的默认状态，如果输入法默认状态是英文输入，在中文输入状态，按 ESC 离开插入模式，再进入插入模式，输入法处于英文输入状态，目前似乎还不支持切换到输入法上次使用的状态，不过这已经比较好了)。</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
 <span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2022-11-07</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content>2022-11-06</span></p><p class=copyright-item><span class=item-title>License</span>
 <span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/IME/>IME</a></div><nav class=post-nav><a class=prev href=/2021/02/26/IME_inside_vim/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Vim 实现的输入法体验</span>
 <span class="prev-text nav-mobile">Prev</span></a>

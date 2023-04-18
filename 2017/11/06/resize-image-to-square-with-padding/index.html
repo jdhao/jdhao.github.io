@@ -7,14 +7,14 @@ kept) and then crop a fixed size patch randomly from the resized image. This
 practice may work well for image classification where fine details may not be
 necessary. But for Image retrieval, we want to keep the image aspect ration
 unchanged. In this post, I will summarize ways to resize an image to square
-shape with padding and keep its aspect ratio."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2017/11/06/resize-image-to-square-with-padding/"><meta property="article:section" content="post"><meta property="article:published_time" content="2017-11-06T10:00:45+08:00"><meta property="article:modified_time" content="2020-03-21T00:19:36+08:00"><meta itemprop=name content="How to Resize, Pad Image to Square Shape and Keep Its Aspect Ratio in Python"><meta itemprop=description content="When we are using convolutional neural networks, most of the time, we need to
+shape with padding and keep its aspect ratio."><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2017/11/06/resize-image-to-square-with-padding/"><meta property="article:section" content="post"><meta property="article:published_time" content="2017-11-06T10:00:45+08:00"><meta property="article:modified_time" content="2020-03-20T17:19:36+01:00"><meta itemprop=name content="How to Resize, Pad Image to Square Shape and Keep Its Aspect Ratio in Python"><meta itemprop=description content="When we are using convolutional neural networks, most of the time, we need to
 fix the input image size to feed it to the network. The usual practice is to
 resize the input image to the given size (the image aspect ratio is no longer
 kept) and then crop a fixed size patch randomly from the resized image. This
 practice may work well for image classification where fine details may not be
 necessary. But for Image retrieval, we want to keep the image aspect ration
 unchanged. In this post, I will summarize ways to resize an image to square
-shape with padding and keep its aspect ratio."><meta itemprop=datePublished content="2017-11-06T10:00:45+08:00"><meta itemprop=dateModified content="2020-03-21T00:19:36+08:00"><meta itemprop=wordCount content="486"><meta itemprop=keywords content="OpenCV,PIL,"><meta name=twitter:card content="summary"><meta name=twitter:title content="How to Resize, Pad Image to Square Shape and Keep Its Aspect Ratio in Python"><meta name=twitter:description content="When we are using convolutional neural networks, most of the time, we need to
+shape with padding and keep its aspect ratio."><meta itemprop=datePublished content="2017-11-06T10:00:45+08:00"><meta itemprop=dateModified content="2020-03-20T17:19:36+01:00"><meta itemprop=wordCount content="486"><meta itemprop=keywords content="OpenCV,PIL,"><meta name=twitter:card content="summary"><meta name=twitter:title content="How to Resize, Pad Image to Square Shape and Keep Its Aspect Ratio in Python"><meta name=twitter:description content="When we are using convolutional neural networks, most of the time, we need to
 fix the input image size to feed it to the network. The usual practice is to
 resize the input image to the given size (the image aspect ratio is no longer
 kept) and then crop a fixed size patch randomly from the resized image. This
@@ -102,7 +102,7 @@ as follows:</p><div class=highlight><pre tabindex=0 class=chroma><code class=lan
 </span></span></code></pre></div><p>I have upload the whole script to GitHub and you can download it
 <a href=https://gist.github.com/jdhao/f8422980355301ba30b6774f610484f2>here</a>.</p><h1 id=references>References</h1><ul><li><a href=https://stackoverflow.com/questions/11142851/adding-borders-to-an-image-using-python/39321668#39321668>Stack Overflow post on how to add borders to an image.</a></li><li><a href=https://docs.opencv.org/3.1.0/d3/df2/tutorial_py_basic_ops.html>OpenCV copyMakeBorder() method usage</a></li><li><a href=https://stackoverflow.com/questions/273946/how-do-i-resize-an-image-using-pil-and-maintain-its-aspect-ratio>Resize an image using PIL</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
 <span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2020-03-21</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content>2020-03-20</span></p><p class=copyright-item><span class=item-title>License</span>
 <span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/OpenCV/>OpenCV</a>
 <a href=/tags/PIL/>PIL</a></div><nav class=post-nav><a class=prev href=/2017/11/12/pytorch-computation-graph/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Understanding Computational Graphs in PyTorch</span>

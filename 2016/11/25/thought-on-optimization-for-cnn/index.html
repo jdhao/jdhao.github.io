@@ -6,13 +6,13 @@ optimization (简称 SGD) 以及它的一些变种，如 SGD with momentum，Ada
 用二阶信息的优化方法，理论上优化速度更快，但是，SGD 反而是在深度学习的优化中使
 用的最多的优化方法，为什么其他类型的优化方法在深度学习中不经常使用呢？它们相比
 SGD 有什么缺点？或者说 SGD 有什么优点呢？ 这篇文章试图对这个问题给出自己的思考
-与总结。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2016/11/25/thought-on-optimization-for-cnn/"><meta property="article:section" content="post"><meta property="article:published_time" content="2016-11-25T00:00:00+00:00"><meta property="article:modified_time" content="2021-12-06T00:41:13+08:00"><meta itemprop=name content="关于神经网络优化的一些思考"><meta itemprop=description content="优化的方法有很多种，在深度学习中，占有绝对主导地位的还是 stochastic gradient
+与总结。"><meta property="og:type" content="article"><meta property="og:url" content="https://jdhao.github.io/2016/11/25/thought-on-optimization-for-cnn/"><meta property="article:section" content="post"><meta property="article:published_time" content="2016-11-25T00:00:00+00:00"><meta property="article:modified_time" content="2021-12-05T17:41:13+01:00"><meta itemprop=name content="关于神经网络优化的一些思考"><meta itemprop=description content="优化的方法有很多种，在深度学习中，占有绝对主导地位的还是 stochastic gradient
 optimization (简称 SGD) 以及它的一些变种，如 SGD with momentum，Adam 等。 SGD
 是一种基于一阶梯度信息的优化方法，仅从优化的速度上来讲，效率不是最高的，一些利
 用二阶信息的优化方法，理论上优化速度更快，但是，SGD 反而是在深度学习的优化中使
 用的最多的优化方法，为什么其他类型的优化方法在深度学习中不经常使用呢？它们相比
 SGD 有什么缺点？或者说 SGD 有什么优点呢？ 这篇文章试图对这个问题给出自己的思考
-与总结。"><meta itemprop=datePublished content="2016-11-25T00:00:00+00:00"><meta itemprop=dateModified content="2021-12-06T00:41:13+08:00"><meta itemprop=wordCount content="359"><meta itemprop=keywords content="optimization,"><meta name=twitter:card content="summary"><meta name=twitter:title content="关于神经网络优化的一些思考"><meta name=twitter:description content="优化的方法有很多种，在深度学习中，占有绝对主导地位的还是 stochastic gradient
+与总结。"><meta itemprop=datePublished content="2016-11-25T00:00:00+00:00"><meta itemprop=dateModified content="2021-12-05T17:41:13+01:00"><meta itemprop=wordCount content="359"><meta itemprop=keywords content="optimization,"><meta name=twitter:card content="summary"><meta name=twitter:title content="关于神经网络优化的一些思考"><meta name=twitter:description content="优化的方法有很多种，在深度学习中，占有绝对主导地位的还是 stochastic gradient
 optimization (简称 SGD) 以及它的一些变种，如 SGD with momentum，Adam 等。 SGD
 是一种基于一阶梯度信息的优化方法，仅从优化的速度上来讲，效率不是最高的，一些利
 用二阶信息的优化方法，理论上优化速度更快，但是，SGD 反而是在深度学习的优化中使
@@ -34,7 +34,7 @@ SGD 有什么缺点？或者说 SGD 有什么优点呢？ 这篇文章试图对�
 用中一些论文中常用的术语以及它们的区别进行了说明。由于文章有一部分公式，所以我
 采用了 LaTeX 书写本文，生成的 PDF 请<a href=/files/optimization-for-cnn.pdf>点击这里下载</a>。</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>Author</span>
 <span class=item-content>jdhao</span></p><p class=copyright-item><span class=item-title>LastMod</span>
-<span class=item-content>2021-12-06</span></p><p class=copyright-item><span class=item-title>License</span>
+<span class=item-content>2021-12-05</span></p><p class=copyright-item><span class=item-title>License</span>
 <span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/optimization/>optimization</a></div><nav class=post-nav><a class=prev href=/2017/01/05/thought_on_diginity/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">关于「尊严」</span>
 <span class="prev-text nav-mobile">Prev</span></a>
