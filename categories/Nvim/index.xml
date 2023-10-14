@@ -283,10 +283,9 @@ the &lt;a href="https://github.com/python-lsp/python-lsp-server">python-lsp-serv
 &lt;li>Series 2: &lt;a href="https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/">https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/&lt;/a>&lt;/li>
 &lt;li>Series 1: &lt;a href="https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/">https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;/details></description></item><item><title>Neovim Configuration for System-wide Use</title><link>https://jdhao.github.io/2019/11/10/install_config_neovim_system_wide/</link><pubDate>Sun, 10 Nov 2019 10:33:29 +0800</pubDate><guid>https://jdhao.github.io/2019/11/10/install_config_neovim_system_wide/</guid><description>&lt;p>I have been using Neovim for personal projects for over a year. Recently, I
-want to set up Neovim system wide so that other users in the server can also
-use my config if they want. In this post, I will describe the necessary
-configurations.&lt;/p></description></item><item><title>Building A Vim Statusline from Scratch</title><link>https://jdhao.github.io/2019/11/03/vim_custom_statusline/</link><pubDate>Sun, 03 Nov 2019 14:22:20 +0800</pubDate><guid>https://jdhao.github.io/2019/11/03/vim_custom_statusline/</guid><description>&lt;p align="center">
+&lt;/details></description></item><item><title>Neovim Configuration for System-wide Use</title><link>https://jdhao.github.io/2019/11/10/install_config_neovim_system_wide/</link><pubDate>Sun, 10 Nov 2019 10:33:29 +0800</pubDate><guid>https://jdhao.github.io/2019/11/10/install_config_neovim_system_wide/</guid><description>&lt;p>I have been using Neovim for personal projects for over a year.
+Recently, I want to set up Neovim system wide so that other users in the server can also use my config if they want.
+In this post, I will summarize the necessary configurations.&lt;/p></description></item><item><title>Building A Vim Statusline from Scratch</title><link>https://jdhao.github.io/2019/11/03/vim_custom_statusline/</link><pubDate>Sun, 03 Nov 2019 14:22:20 +0800</pubDate><guid>https://jdhao.github.io/2019/11/03/vim_custom_statusline/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20191103144006.png">
 &lt;/p>
 &lt;p>I have been using &lt;a href="https://github.com/vim-airline/vim-airline">vim-airline&lt;/a> to
