@@ -30,7 +30,7 @@ than the actual command history stored in <code>HISTFILE</code>. Why? According 
 -16 if the -l flag is given. If last is not specified, it will be set to first,
 or to -1 if the -l flag is given.</p></blockquote><p>So when we use command <code>history</code>, what we actually use is <code>fc -l -16 -1</code>, so
 the most recent 16 items in history are shown.</p><p>We can create an alias to change this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># show all the history stored.
-</span></span><span class=line><span class=cl>alias history=&#34;fc -l 1`
+</span></span><span class=line><span class=cl>alias history=&#34;fc -l 1&#34;
 </span></span></code></pre></div><p>Ref:</p><ul><li><a href=https://stackoverflow.com/q/26846738/6064933>zsh history is too short</a></li><li><a href=https://superuser.com/q/160342/736190>ZSH only displaying last 16 or so commands with history. HISTSIZE & SAVEHIST are 500</a></li><li><a href=https://superuser.com/q/232457/736190>ZSH - output whole history?</a></li></ul><h1 id=search-history-command-more-effectively>Search history command more effectively?</h1><p>As programmers, we sometimes use a command with long options and parameters.
 Later on, when we want to run that command again or modify it a bit, it would
 be time-consuming to type it all over. I know that we can use <code>Ctrl-R</code> to
