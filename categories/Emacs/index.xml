@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Emacs on jdhao's digital space</title><link>https://jdhao.github.io/categories/Emacs/</link><description>Recent content in Emacs on jdhao's digital space</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Tue, 08 Feb 2022 06:00:16 +0100</lastBuildDate><atom:link href="https://jdhao.github.io/categories/Emacs/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting up Yasnippet for Emacs</title><link>https://jdhao.github.io/2021/10/06/yasnippet_setup_emacs/</link><pubDate>Wed, 06 Oct 2021 15:15:05 +0800</pubDate><guid>https://jdhao.github.io/2021/10/06/yasnippet_setup_emacs/</guid><description>&lt;p>Unlike Vim/Neovim, where there are snippet engines like &lt;a href="https://github.com/SirVer/ultisnips">ultisnips&lt;/a> and &lt;a href="https://github.com/rockerBOO/awesome-neovim#snippet">other plugins&lt;/a>. In Emacs, the de facto snippet engine is &lt;a href="https://github.com/joaotavora/yasnippet">yasnippet&lt;/a>.&lt;/p></description></item><item><title>Customize Tabline in Emacs</title><link>https://jdhao.github.io/2021/09/30/emacs_custom_tabline/</link><pubDate>Thu, 30 Sep 2021 00:32:50 +0800</pubDate><guid>https://jdhao.github.io/2021/09/30/emacs_custom_tabline/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202109300037148.jpg" width="400">
+&lt;/p>
+&lt;p>A short note on how to set up a more beautiful tabline for Emacs.&lt;/p></description></item><item><title>Straight.el Bootstrap and Package Install Issue</title><link>https://jdhao.github.io/2021/09/15/emacs_straight-el_bootstrap_install_issue/</link><pubDate>Wed, 15 Sep 2021 22:38:38 +0800</pubDate><guid>https://jdhao.github.io/2021/09/15/emacs_straight-el_bootstrap_install_issue/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2022-02-08: update fastgit URL&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;p>I am using &lt;a href="https://github.com/raxod502/straight.el">straight.el&lt;/a> to manage my Emacs packages.
+However, due to GitHub access issues, the &lt;a href="https://github.com/raxod502/straight.el#getting-started">bootstrap snippet&lt;/a> can not be downloaded successfully and run.
+After staring Emacs, it hangs forever with high CPU usage.&lt;/p></description></item><item><title>Learning Emacs as A Nvimmer in One Day</title><link>https://jdhao.github.io/2021/09/12/learning_emacs_in_one_day/</link><pubDate>Sun, 12 Sep 2021 21:40:13 +0800</pubDate><guid>https://jdhao.github.io/2021/09/12/learning_emacs_in_one_day/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
+&lt;p>&lt;font color="blue">2021-11-24: Add more detailed instructions for installing doom-modeline.&lt;/font>&lt;/p>
+&lt;/details>
+&lt;p>I have been using &lt;a href="https://github.com/neovim/neovim">Neovim&lt;/a> for over three
+years and I have been constantly hearing the greatness of its rival editor
+&lt;a href="https://www.gnu.org/s/emacs/">Emacs&lt;/a>. So today I am gonna to try it and see if
+it is truly great.&lt;/p>
+&lt;p>&lt;strong>Edit: My final Emacs conf is &lt;a href="https://github.com/jdhao/emacs-conf">here&lt;/a>.&lt;/strong>&lt;/p></description></item></channel></rss>
