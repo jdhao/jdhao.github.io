@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Snippet on Blowfish</title><link>https://jdhao.github.io/tags/snippet/</link><description>Recent content in Snippet on Blowfish</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2017 - 2024 ❤️ jdhao</copyright><lastBuildDate>Wed, 06 Oct 2021 15:15:05 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/snippet/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting up Yasnippet for Emacs</title><link>https://jdhao.github.io/2021/10/06/yasnippet_setup_emacs/</link><pubDate>Wed, 06 Oct 2021 15:15:05 +0800</pubDate><guid>https://jdhao.github.io/2021/10/06/yasnippet_setup_emacs/</guid><description>&lt;p>Unlike Vim/Neovim, where there are snippet engines like &lt;a href="https://github.com/SirVer/ultisnips" target="_blank">
+ultisnips&lt;/a> and &lt;a href="https://github.com/rockerBOO/awesome-neovim#snippet" target="_blank">
+other plugins&lt;/a>. In Emacs, the de facto snippet engine is &lt;a href="https://github.com/joaotavora/yasnippet" target="_blank">
+yasnippet&lt;/a>.&lt;/p></description></item><item><title>Why You Should Use Snippets in Vim/Neovim</title><link>https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/</link><pubDate>Wed, 27 May 2020 22:46:19 +0800</pubDate><guid>https://jdhao.github.io/2020/05/27/why_you_should_use_snippets_in_vim/</guid><description>&lt;p>If you find yourself repeatedly type some similar-structured text in Vim/Nvim,
+you need to ask yourself if there is a better way to do it.&lt;/p></description></item><item><title>Regex Keyword and Python Interpolation in Ultisnips</title><link>https://jdhao.github.io/2020/01/05/ultisnips_python_interpolation/</link><pubDate>Sun, 05 Jan 2020 18:52:03 +0800</pubDate><guid>https://jdhao.github.io/2020/01/05/ultisnips_python_interpolation/</guid><description>&lt;p>&lt;a href="" >
+Vim-snippet&lt;/a> provides a lot of useful Ultisnips snippets for various
+filetypes. For example, for Markdown, to insert level 1 header, the snippet
+trigger is &lt;code>sec&lt;/code>, and for level 2 and 3 header, the triggers are &lt;code>ssec&lt;/code> and
+&lt;code>sssec&lt;/code> respectively. These triggers are non-intuitive and hard to remember and
+type.&lt;/p></description></item><item><title>Creating Markdown Front Matter with Ultisnips</title><link>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</link><pubDate>Sun, 22 Dec 2019 13:45:25 +0800</pubDate><guid>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</guid><description>&lt;h1 class="relative group">Introduction
+&lt;div id="introduction" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#introduction" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;p>Currently, I write my blog posts in Markdown and build the blog using
+&lt;a href="https://gohugo.io/" target="_blank">
+Hugo&lt;/a>. Hugo supports &lt;a href="https://gohugo.io/content-management/front-matter/" target="_blank">
+front matter&lt;/a> for Markdown so that you can
+attach metadata for a post, such as title, date, tags, categories, etc.&lt;/p></description></item><item><title>Setting up Ultisnips for Neovim</title><link>https://jdhao.github.io/2019/04/17/neovim_snippet_s1/</link><pubDate>Wed, 17 Apr 2019 00:28:45 +0800</pubDate><guid>https://jdhao.github.io/2019/04/17/neovim_snippet_s1/</guid><description>&lt;p>If you have used Sublime Text before, you may be familiar with its
+&lt;a href="http://sublimetext.info/docs/en/extensibility/snippets.html" target="_blank">
+snippet&lt;/a> feature.
+&lt;a href="https://en.wikipedia.org/wiki/Snippet_%28programming%29" target="_blank">
+Snippets&lt;/a> let us type a
+trigger word and expand it to some boilerplate code or texts that we do not
+want to repeat typing. We will increase our efficiency dramatically with the
+help of snippets.&lt;/p></description></item><item><title>Sublime Text 3 Markdown 写作设置</title><link>https://jdhao.github.io/2017/03/04/sublime-windows-markdown/</link><pubDate>Sat, 04 Mar 2017 14:35:00 +0800</pubDate><guid>https://jdhao.github.io/2017/03/04/sublime-windows-markdown/</guid><description>&lt;h1 class="relative group">引子
+&lt;div id="%E5%BC%95%E5%AD%90" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#%E5%BC%95%E5%AD%90" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;p>由于受不了 VSCode 打开文件的龟速，我决定换一个编辑器，以前就大致了解有三款评价不错的编辑器，分别是 &lt;a href="https://atom.io/" target="_blank">
+GitHub Atom&lt;/a>, &lt;a href="https://www.sublimetext.com/" target="_blank">
+Sublime Text 3&lt;/a> 以及微软的 &lt;a href="https://code.visualstudio.com/" target="_blank">
+VSCode&lt;/a>。&lt;/p></description></item></channel></rss>

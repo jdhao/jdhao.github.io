@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GitHub on Blowfish</title><link>https://jdhao.github.io/tags/github/</link><description>Recent content in GitHub on Blowfish</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2017 - 2024 ❤️ jdhao</copyright><lastBuildDate>Sat, 23 Apr 2022 14:30:06 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/github/index.xml" rel="self" type="application/rss+xml"/><item><title>Push to GitHub with Personal Access Token (PAT)</title><link>https://jdhao.github.io/2022/04/23/github_access_token/</link><pubDate>Sat, 23 Apr 2022 14:30:06 +0800</pubDate><guid>https://jdhao.github.io/2022/04/23/github_access_token/</guid><description>&lt;p>To promote security, starting from Aug. 2021, many GitHub operations require use of personal access tokens (PAT).&lt;/p></description></item><item><title>How to Make An Impressive and Beautiful GitHub Profile</title><link>https://jdhao.github.io/2022/01/03/github_profile_readme/</link><pubDate>Mon, 03 Jan 2022 13:13:03 +0800</pubDate><guid>https://jdhao.github.io/2022/01/03/github_profile_readme/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2022-08-21: add section on profile visitor stat&lt;/font>&lt;/li>
+&lt;li>&lt;font color="blue">2022-04-09: add section on Stack Overflow stats card.&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;p>In this post, I will share how to customize your GitHub profile page,
+and you can find the end result &lt;a href="https://github.com/jdhao" target="_blank">
+here&lt;/a>.&lt;/p></description></item><item><title>Is GitHub Down Today?</title><link>https://jdhao.github.io/2021/08/11/is_github_down/</link><pubDate>Wed, 11 Aug 2021 00:57:37 +0800</pubDate><guid>https://jdhao.github.io/2021/08/11/is_github_down/</guid><description>update:
+On 2021-11-28, we expericence another GitHub outage which lasts more than two hours, see here. On 2021-08-10 23:30 CST, I observed that I cannot push to my GitHub repo even with --force. After checking the GitHub status site, it seems that the GitHub API is down1.
+It is not the first time that GitHub is down. There has been several failure reports last year (2020), due to MySQL and other issues.</description></item><item><title>解决 GitHub 资源无法下载的问题</title><link>https://jdhao.github.io/2021/01/08/github_access_issue_in_china/</link><pubDate>Fri, 08 Jan 2021 23:38:43 +0800</pubDate><guid>https://jdhao.github.io/2021/01/08/github_access_issue_in_china/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">更新记录&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>2022-02-08： &lt;a href="https://t.me/fastgitchannel/81" target="_blank">
+fasgit hub 被 GFW 封了&lt;/a>，换一个地址。&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;p>GitHub 虽然没被封，但是阻断严重，下载 GitHub 资源速度奇慢无比，总结一些验证可行的方法。&lt;/p></description></item><item><title>How to Push Local Git Repo to Remote Repo in GitHub</title><link>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</link><pubDate>Wed, 16 May 2018 16:22:54 +0800</pubDate><guid>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</guid><description>There are two basic cases when we push our local repo to remote repo. These two cases differ in their settings. But sometimes, we are easily confused.
+First scenario # The first case is that you have created a local repo and want to store it on GitHub later. In this case, your usual work flow for local repo is:
+Initialize the local repo (git init) Write you code and document, etc.</description></item><item><title>A Tutorial on Creating GitHub Pull Requests</title><link>https://jdhao.github.io/2018/05/06/first-github-pull-request/</link><pubDate>Sun, 06 May 2018 15:23:00 +0800</pubDate><guid>https://jdhao.github.io/2018/05/06/first-github-pull-request/</guid><description>Today I make my first ever GitHub pull request to the great Hexo theme NexT. I will summarize how to make a pull request in following post.
+Creating a fork # According to GitHub documentation:
+If you don&amp;rsquo;t have write access to the repository where you&amp;rsquo;d like to create a pull request, you must create a fork, or copy, of the repository first.
+If you do not have write access to the repository you want to contribute to, the first step is to fork it.</description></item><item><title>A New Start</title><link>https://jdhao.github.io/2017/02/24/my_first_post/</link><pubDate>Fri, 24 Feb 2017 22:48:00 +0800</pubDate><guid>https://jdhao.github.io/2017/02/24/my_first_post/</guid><description>去年的时候还是前年，在谷歌上搜索东西，看到了很多人的博客都是用 GitHub 托管的，使用 GitHub 提供的 GitHub Pages 功能。我一看就喜欢上这种开源并且简洁的方式，却没有立即行动。
+以前用 cnblog 写过一些偏技术的东西，总觉得体验很不好。我从去年 3 月多开始使用微信公众平台写东西，零零星星写了几篇，起初还保持一定的频率，后面就没有怎么写过了。每次写公众号，我都用的是官方提供的网页版的操作界面，个人感觉相当难用，而且也不支持 Markdown。微信公众号的审查很严，经常能够看到自己关注的一些公众号因为犯忌，或者文章被删除，或者被禁一段时间，当然还有更严重的，投胎转世不知道多少回了，譬如王五四，“王阿姨”，“王红杏”，“王酥麻”&amp;hellip;所有的名字都让人想笑。每次投胎都会带着他那独具气质的头像，这头像也是他的认证，看到这头像你就知道他是谁了。
+虽然我不写那些所谓「犯忌」的东西，但是我讨厌这种蛮横的行为，随心所欲的删贴导致人们习惯于自我审查，并且引以为荣，当然闷声发大财是坠吼的。
+以后就在这里写博客了，这是一个更自由的空间，有时间的话也会把以前写的一些东西迁移过来，整理在一起。当然如果连 GitHub 也被墙了，我就没啥可说了嗷。自由万岁！</description></item></channel></rss>

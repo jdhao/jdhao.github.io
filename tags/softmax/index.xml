@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Softmax on Blowfish</title><link>https://jdhao.github.io/tags/softmax/</link><description>Recent content in Softmax on Blowfish</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2017 - 2024 ❤️ jdhao</copyright><lastBuildDate>Sun, 27 Feb 2022 12:47:02 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/softmax/index.xml" rel="self" type="application/rss+xml"/><item><title>Softmax with Temperature Explained</title><link>https://jdhao.github.io/2022/02/27/temperature_in_softmax/</link><pubDate>Sun, 27 Feb 2022 12:47:02 +0800</pubDate><guid>https://jdhao.github.io/2022/02/27/temperature_in_softmax/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202202271549378.jpg" width="800">
+&lt;/p>
+&lt;p>Softmax function is commonly used in classification tasks. Suppose
+that we have an input vector &lt;span class="math inline">\([z_1, z_2,
+\ldots, z_N]\)&lt;/span>, after softmax, each element becomes:&lt;/p></description></item><item><title>Why do We Use LogSumExp in Machine Learning?</title><link>https://jdhao.github.io/2022/01/09/log_sum_exp_in_machine_learning/</link><pubDate>Sun, 09 Jan 2022 20:39:52 +0800</pubDate><guid>https://jdhao.github.io/2022/01/09/log_sum_exp_in_machine_learning/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202201092324184.jpg" width="600">
+&lt;/p>
+&lt;p>LogSumExp is often used in machine learning. It has the following
+form:&lt;/p></description></item><item><title>Why Use Cross Entropy in Classification Task?</title><link>https://jdhao.github.io/2021/10/16/why_cross_entropy_in_classification/</link><pubDate>Sat, 16 Oct 2021 09:54:49 +0800</pubDate><guid>https://jdhao.github.io/2021/10/16/why_cross_entropy_in_classification/</guid><description>&lt;p>In classification tasks, the de facto loss to use is the &lt;a href="https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html" target="_blank">
+cross entropy loss&lt;/a>.&lt;/p></description></item><item><title>Some Loss Functions and Their Intuitive Explanations</title><link>https://jdhao.github.io/2017/03/13/some_loss_and_explanations/</link><pubDate>Mon, 13 Mar 2017 10:14:55 +0800</pubDate><guid>https://jdhao.github.io/2017/03/13/some_loss_and_explanations/</guid><description>&lt;p>Loss functions are frequently used in supervised machine learning to
+minimize the differences between the predicted output of the model and
+the ground truth labels. In other words, it is used to measure how good
+our model can predict the true class of a sample from the dataset. Here
+I would like to list some frequently-used loss functions and give my
+intuitive explanation.&lt;/p></description></item></channel></rss>

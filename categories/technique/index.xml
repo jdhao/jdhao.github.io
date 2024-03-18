@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Technique on Blowfish</title><link>https://jdhao.github.io/categories/technique/</link><description>Recent content in Technique on Blowfish</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2017 - 2024 ❤️ jdhao</copyright><lastBuildDate>Tue, 18 Apr 2023 22:55:03 +0200</lastBuildDate><atom:link href="https://jdhao.github.io/categories/technique/index.xml" rel="self" type="application/rss+xml"/><item><title>Add A Custom Search Engine for Vimium</title><link>https://jdhao.github.io/2023/04/18/vimium_custom_search_engine/</link><pubDate>Tue, 18 Apr 2023 22:55:03 +0200</pubDate><guid>https://jdhao.github.io/2023/04/18/vimium_custom_search_engine/</guid><description>&lt;p>&lt;a href="https://github.com/philc/vimium" target="_blank">
+Vimium&lt;/a> is a Chrome extension that lets us to browse the internet with our fingers, rather than using the mouse.
+In this post, I will going to share how to add a custom search engine for Vimium.&lt;/p></description></item><item><title>Find Which Font is Used in A PDF</title><link>https://jdhao.github.io/2021/10/20/find_font_used_in_pdf/</link><pubDate>Wed, 20 Oct 2021 23:26:59 +0800</pubDate><guid>https://jdhao.github.io/2021/10/20/find_font_used_in_pdf/</guid><description>&lt;p>Sometimes, we are interested in which font is used for the main text in a PDF.
+How do we find out?&lt;/p></description></item><item><title>Serving Concurrent Requests for LibreOffice Service</title><link>https://jdhao.github.io/2021/06/11/libreoffice_concurrent_requests/</link><pubDate>Fri, 11 Jun 2021 00:57:25 +0800</pubDate><guid>https://jdhao.github.io/2021/06/11/libreoffice_concurrent_requests/</guid><description>&lt;p>We have set up a server to convert pptx files to pdf files using LibreOffice
+(version: 6.0.7.3 ). Libreoffice is started using &lt;code>subprocess.run()&lt;/code> command in
+Python. The external command I use is something like the following&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>:&lt;/p></description></item><item><title>Note on font size</title><link>https://jdhao.github.io/2020/08/04/fontsize_point_pixel_relationship/</link><pubDate>Tue, 04 Aug 2020 23:01:55 +0800</pubDate><guid>https://jdhao.github.io/2020/08/04/fontsize_point_pixel_relationship/</guid><description>Relationship between point and pixel size # In digital typography, the size of text is commonly specified in points (pt). What is a point? A point is 1/72 of an inch (25.4 mm), i.e., 0.3528 mm (25.4/72). Therefor, point is a physical unit that has absolute value.
+Pixels are the smallest unit on screen to display images and graphics. It is not a physical unit. So there is no fixed relationship between point and pixel.</description></item><item><title>解决 Windows 下文件管理器中右键单击无响应问题</title><link>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</link><pubDate>Sun, 26 Apr 2020 22:44:37 +0800</pubDate><guid>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</guid><description>&lt;h1 class="relative group">引子
+&lt;div id="%E5%BC%95%E5%AD%90" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#%E5%BC%95%E5%AD%90" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;p>最近使用工作电脑的时候，不知道为什么，在文件资源管理器里面鼠标右键单击打开菜单(也叫&lt;a href="https://en.wikipedia.org/wiki/Context_menu" target="_blank">
+context menu&lt;/a>)的时候，系统很大概率会卡顿，鼠标指针开始转圈，文件管理器白屏，然后会提示&amp;quot;未响应&amp;quot;,过一会儿，右键菜单才会出现。以至于我每次点击右键之前，都很烦躁，希望不要出现卡顿的情况。&lt;/p></description></item><item><title>Converting PDF Pages to Images with Poppler</title><link>https://jdhao.github.io/2019/11/14/convert_pdf_to_images_pdftoppm/</link><pubDate>Thu, 14 Nov 2019 22:44:21 +0800</pubDate><guid>https://jdhao.github.io/2019/11/14/convert_pdf_to_images_pdftoppm/</guid><description>&lt;p>In this post, I want to share how to convert PDF to images using the command
+line tool &lt;a href="https://www.xpdfreader.com/pdftoppm-man.html" target="_blank">
+pdftoppm&lt;/a>.&lt;/p></description></item><item><title>Learning Expect Programming</title><link>https://jdhao.github.io/2019/10/29/expect_script_learning/</link><pubDate>Tue, 29 Oct 2019 01:42:59 +0800</pubDate><guid>https://jdhao.github.io/2019/10/29/expect_script_learning/</guid><description>&lt;p>In &lt;a href="https://jdhao.github.io/2018/10/08/server_autologin_with_expect/" target="_blank">
+my previous post&lt;/a>,
+I talked about how to automate the server login process with the help of Expect
+programming language. This post continues my learning process.&lt;/p></description></item><item><title>Essential Knowledge about SSH</title><link>https://jdhao.github.io/2019/10/27/ssh_essential_knowledge/</link><pubDate>Sun, 27 Oct 2019 22:43:12 +0800</pubDate><guid>https://jdhao.github.io/2019/10/27/ssh_essential_knowledge/</guid><description>&lt;p>Although I use SSH (secure shell) every day, I seem to know little about it
+except the fact that I can use &lt;code>ssh&lt;/code> command to log into my remote servers.
+Recently, I found myself some time to learn how does it work.&lt;/p></description></item><item><title>JPEG Image Orientation and Exif</title><link>https://jdhao.github.io/2019/07/31/image_rotation_exif_info/</link><pubDate>Wed, 31 Jul 2019 23:19:35 +0800</pubDate><guid>https://jdhao.github.io/2019/07/31/image_rotation_exif_info/</guid><description>&lt;p>The other day I came across a strange bug during work. My colleagues gave me
+some photographs taken with a smartphone. On their machines (Windows 7), all
+the photos were shown correctly in landscape mode. However, when I checked
+those photos, I found that some of those photos were shown in portrait mode
+(rotated 90 or 270 degrees) or upside-down (rotated 180 degrees).&lt;/p>
+&lt;p>I was curious what happened and learned about
+&lt;a href="https://en.wikipedia.org/wiki/Exif" target="_blank">
+Exif&lt;/a> and all its related stuff.&lt;/p></description></item><item><title>Sublime Text Regular Expression Cheat Sheet</title><link>https://jdhao.github.io/2019/02/28/sublime_text_regex_cheat_sheet/</link><pubDate>Thu, 28 Feb 2019 23:29:44 +0800</pubDate><guid>https://jdhao.github.io/2019/02/28/sublime_text_regex_cheat_sheet/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190304221654.png" width="800">
+&lt;/p>
+&lt;p>A cheat sheet about regular expressions used in &lt;a href="https://www.sublimetext.com/" target="_blank">
+Sublime Text&lt;/a>.&lt;/p></description></item><item><title>How Is Newline Handled in Python and Various Editors?</title><link>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</link><pubDate>Sat, 08 Dec 2018 22:30:50 +0800</pubDate><guid>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223253.png" width="800">
+&lt;/p>
+&lt;p>Every programmer knows newline character, but may be not so familiar. In this
+post, I want to share what I have learned about newline handling in various
+cases.&lt;/p></description></item><item><title>The Mathematics behind Font Shapes --- Bézier Curves and More</title><link>https://jdhao.github.io/2018/11/27/font_shape_mathematics_bezier_curves/</link><pubDate>Tue, 27 Nov 2018 16:14:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/27/font_shape_mathematics_bezier_curves/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20200223203853.png">
+&lt;/p></description></item><item><title>写给初学者的 Markdown 教程</title><link>https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/</link><pubDate>Fri, 21 Sep 2018 16:59:00 +0800</pubDate><guid>https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/</guid><description>&lt;p>这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown
+写出格式规范的文章了。&lt;/p></description></item><item><title>A Tutorial on Creating GitHub Pull Requests</title><link>https://jdhao.github.io/2018/05/06/first-github-pull-request/</link><pubDate>Sun, 06 May 2018 15:23:00 +0800</pubDate><guid>https://jdhao.github.io/2018/05/06/first-github-pull-request/</guid><description>Today I make my first ever GitHub pull request to the great Hexo theme NexT. I will summarize how to make a pull request in following post.
+Creating a fork # According to GitHub documentation:
+If you don&amp;rsquo;t have write access to the repository where you&amp;rsquo;d like to create a pull request, you must create a fork, or copy, of the repository first.
+If you do not have write access to the repository you want to contribute to, the first step is to fork it.</description></item><item><title>A Complete Guide on Writing and Building C++ Programs in Sublime Text</title><link>https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/</link><pubDate>Wed, 28 Mar 2018 21:54:23 +0800</pubDate><guid>https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/</guid><description>&lt;p>In this post, I will show how to write and run simple C++ programs in &lt;a href="https://www.sublimetext.com/" target="_blank">
+Sublime
+Text 3&lt;/a>.&lt;/p></description></item><item><title>Set up Sublime Text as Your Ultimate LaTeX Editor</title><link>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</link><pubDate>Sat, 10 Mar 2018 12:57:05 +0800</pubDate><guid>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</guid><description>&lt;p>There are a lot of &lt;a href="https://en.wikipedia.org/wiki/Comparison_of_TeX_editors" target="_blank">
+front-end
+editors&lt;/a> for writing
+LaTeX source, for example, &lt;a href="http://www.xm1math.net/texmaker/" target="_blank">
+Texmaker&lt;/a>,
+&lt;a href="https://github.com/texstudio-org/texstudio/releases" target="_blank">
+TeXstudio&lt;/a>,
+&lt;a href="http://www.winedt.com/" target="_blank">
+WinEdt&lt;/a>. I have used TeXstudio for a while, but its
+user interface is a little dull. So I decided to give &lt;a href="https://www.sublimetext.com/" target="_blank">
+Sublime
+Text&lt;/a> a shot. In this post, I want to share the
+configurations necessary to write and compile LaTeX source code and to preview
+the produced PDF files.&lt;/p></description></item><item><title>Set up X11 Forwarding with Git for Windows (git-bash)</title><link>https://jdhao.github.io/2018/03/02/windows-connect-server-x11-with-gitbash/</link><pubDate>Fri, 02 Mar 2018 00:05:00 +0800</pubDate><guid>https://jdhao.github.io/2018/03/02/windows-connect-server-x11-with-gitbash/</guid><description>&lt;p>&lt;a href="https://jdhao.github.io/2017/12/29/cmder-usage/" target="_blank">
+As I have posted earlier&lt;/a>,
+Cmder is a better option if you use Windows command line frequently. The full
+installation of Cmder comes with &lt;a href="https://gitforwindows.org/" target="_blank">
+&lt;em>Git for Windows&lt;/em>&lt;/a>, which is handy to provide a Linux-like
+environment. In this post, I will write about how to use Git for Windows to
+connect to a remote CentOS server and set up X11 forwarding to use the GUI
+applications on that server.&lt;/p></description></item><item><title>Character set, Encoding, Locale, Font and More...</title><link>https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/</link><pubDate>Sun, 28 Jan 2018 16:39:00 +0800</pubDate><guid>https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/</guid><description>&lt;p>It is almost destined that at some point of our programming years, we will meet
+the issue of character set, encoding and all the related stuff. There are tons
+of articles which explains the meaning of &lt;code>Unicode&lt;/code>, &lt;code>UTF-8&lt;/code>, &lt;code>UTF-16&lt;/code> etc. I
+am not going to repeat that here. In this post, I will write about what
+confused me when I tried to understand all this stuff.&lt;/p></description></item><item><title>Sublime Text 3 Markdown 写作设置</title><link>https://jdhao.github.io/2017/03/04/sublime-windows-markdown/</link><pubDate>Sat, 04 Mar 2017 14:35:00 +0800</pubDate><guid>https://jdhao.github.io/2017/03/04/sublime-windows-markdown/</guid><description>&lt;h1 class="relative group">引子
+&lt;div id="%E5%BC%95%E5%AD%90" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#%E5%BC%95%E5%AD%90" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;p>由于受不了 VSCode 打开文件的龟速，我决定换一个编辑器，以前就大致了解有三款评价不错的编辑器，分别是 &lt;a href="https://atom.io/" target="_blank">
+GitHub Atom&lt;/a>, &lt;a href="https://www.sublimetext.com/" target="_blank">
+Sublime Text 3&lt;/a> 以及微软的 &lt;a href="https://code.visualstudio.com/" target="_blank">
+VSCode&lt;/a>。&lt;/p></description></item></channel></rss>

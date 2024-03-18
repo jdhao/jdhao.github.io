@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Office on Blowfish</title><link>https://jdhao.github.io/tags/office/</link><description>Recent content in Office on Blowfish</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2017 - 2024 ❤️ jdhao</copyright><lastBuildDate>Mon, 30 Mar 2020 22:30:20 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/office/index.xml" rel="self" type="application/rss+xml"/><item><title>Convert PPTX Document to JPEG Images on Ubuntu</title><link>https://jdhao.github.io/2020/03/30/pptx_to_image/</link><pubDate>Mon, 30 Mar 2020 22:30:20 +0800</pubDate><guid>https://jdhao.github.io/2020/03/30/pptx_to_image/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">Changelog&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2020-12-24: Add how to convert pptx to pdf using unoconv.&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;p>In this post, I will share how to convert PPTX file to images. There are two steps.
+The first step is to convert PPTX to PDF, and the second step is to convert PDF to JPEG.&lt;/p></description></item><item><title>利用母版视图在 PowerPoint 中制作个性化页脚页眉</title><link>https://jdhao.github.io/2018/05/19/powerpoint-header-footer-master-view/</link><pubDate>Sat, 19 May 2018 18:28:40 +0800</pubDate><guid>https://jdhao.github.io/2018/05/19/powerpoint-header-footer-master-view/</guid><description>本文简要总结一下如何在 PowerPoint 中使用母版视图制作个性化的页脚页眉1，先上效果图：
+背景介绍 # 假如张三是哈佛（哈尔滨佛学院，简称「哈佛」）的一个学生，他要作一篇报告，题目为“论马克思主义在人工智能时代的指导作用”，除了 PPT 的首页之外，其余每张幻灯片（slide）页脚要标明作者，报告的题目，时间，以及当前幻灯片的编号和所有幻灯片的数目；在页眉部分，右边要有哈佛的一个标志。如何来实现上述要求？
+最简单的办法就是每插入一张幻灯片，人工在页眉、页脚部分分别插入上述要求的内容，进行调整，或者做好一张 slide，拷贝多次，然后进行简单修改。但是这样的方式，非常笨拙，有很多重复性劳动，因为这种格式上的要求很多都是不变的，譬如，页脚的作者姓名，题目，页眉的哈佛图标等。PowerPoint 中的「母版视图」中的「版式」就是为这种需求准备的。简单来说，版式就是一张实际幻灯片的模板，从某一版式新建的幻灯片初始内容都是一模一样的，我们可以在此基础上进行进一步的编辑。
+版式制作过程 # 进入母版视图 # 新建一个 PowerPoint 文件，打开，不要新建任何 slide，点击「视图」选项卡，然后点击「幻灯片母版」。这时，菜单栏会多出一个「幻灯片母版」选项卡，同时，你会看到一张母版，下面以树形结构展示了多个不同的版式。要想快速在普通视图和母版视图之间切换，可以按住 Shift 键，单击 PowerPoint 右下角的「普通视图」按钮。
+不同的版式就是一张幻灯片的不同模板，我们不需要这些版式，可以直接把所有版式都删掉（使用 Delete 删除）。
+制作标题幻灯片的版式 # 单击「幻灯片母版」选项卡下的「插入版式」，插入一个新的版式，右键单击该版式，可以重命名，我们把它命名为「标题」。
+这个版式默认会有一些元素(如果不需要，可以直接删掉)。版式编辑和普通幻灯片编辑区别不大，上述 PPT 第一页幻灯片的版式如下：
+如何正确插入幻灯片编号和所有幻灯片张数？ # 上述的「标题」版式非常简单，这里重点讲一下如何插入左下角的幻灯片编码。首先，插入一个矩形到版式的左下角（这里对矩形的填充颜色，边线颜色等设置不再赘述），右击该形状，编辑文字，确保鼠标光标现在位于矩形内。然后单击「插入」选项卡，找到「幻灯片编号」按钮并点击，这时，矩形框中就插入了幻灯片符号的占位符。我们继续编辑，在占位符后面加上 /NUM。NUM 表示 PPT 的 slide 页数，可以在做完幻灯片以后再添加上该数字，注意，增删了幻灯片，需要自己在模板中手动更新该数字。
+制作普通幻灯片页面版式 # 完成了标题幻灯片版式制作，我们来制作普通幻灯片页面的版式，同样地，插入新的版式，重命名为「普通页面」。这个版式略复杂，主要元素见下图说明：
+页眉制作 # 页眉使用矩形，并设置背景色制作，然后右上角插入哈佛图标，具体格式可以根据自己喜好制作。
+同时页眉还有一个重要的元素是标题占位符，它的作用是：如果一张幻灯片 以「普通页面」版式为模板，那么生成该页面的时候标题的样式（主要是字体和字号）已经设置好，我们只需要点击输入标题内容即可，不需要对每一张使用该版式的幻灯片 标题重新设置一遍字体字号，能够有效提升效率，有木有。下面介绍具体如何实现。
+首先，在编辑「普通页面」版式时，选中「标题」，
+会出现一个文本框，内有「单击此处编辑母版标题样式」字样，把文本框中的文字移动到合适位置，然后使用「开始」选项卡设置文字的字体以及字号等格式（见下图）。
+页脚制作 # 页脚由四个矩形拼接组成，前两个较普通，直接分别插入作者以及报告题目即可。第三个矩形框为当前日期，插入方法与插入幻灯片编号类似：首先编辑该矩形的文字，确保光标位于矩形内，然后在「插入」选项卡找到「日期和时间」按钮并点击，在弹出的窗口选择日期格式，注意勾选「自动更新」2选项，见下图，
+插入幻灯片编号的方法已经说过，不再赘述。这些矩形的大小，背景色，其中的文字字体以及格式可以根据自己需要调整。
+至此，这个版式就算完成了。完成了这些版式的制作以后，可以开始制作幻灯片了：在「幻灯片母版」选项卡下，点击「关闭母版视图」，回到正常的幻灯片制作界面。
+版式的使用 # 点击新建幻灯片，可以看到我们刚才做好的两个版式：「标题」和「普通页面」版式。首先插入标题页面，然后插入多张普通页面，进行具体的内容制作。
+这时如果再回到「母版视图」界面，点击不同的版式，PowerPoint 会自动提示哪些幻灯片使用该版式，见下图：
+为什么有的版式删不掉？ # 如果有基于某个版式的幻灯片存在，那么你不能删除该版式，要删除该版式，先删除所有基于该版式的幻灯片。
+参考 # 微软 Office 官方说明 为什么一些版式无法删除 **注意：**本文使用的 PowerPoint 为 Office 2016 版本，相关设定对于其他版本 Office 不一定适用。&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description></item><item><title>使用 Microsoft Word 撰写论文常见问题总结</title><link>https://jdhao.github.io/2018/05/10/write-paper-word-issues/</link><pubDate>Thu, 10 May 2018 21:04:00 +0800</pubDate><guid>https://jdhao.github.io/2018/05/10/write-paper-word-issues/</guid><description>本文总结一些使用 Microsoft Word 2016 撰写论文时遇到的一些问题以及解决办法。
+Word 如何插入分节符？ # 「分节符」是 Word 中一个非常重要概念，很多设置都会涉及到分节符。分节符，顾名思义，就是把文档从某处分节（节的英语为 section）的标志。常用的分节符类型有「下一页」（即从当前位置的下一页开始新的一节），「连续」（即从当前位置开始新的一节）。具体如何插入分节符见下图（以插入「下一页」分节符为例）：
+Word 中如何显示文中所有的控制符号，例如分页符，分节符等？ # 在 Word 中，默认情况下，分页符，分节符等控制符号，用户是看不到的，如果你不小心多插入了分节符，可能会造成意想不到的结果，但是很难找出原因，因此建议把显示控制符号的选项打开，帮助你了解文档中都有哪些字符。
+如何打开这个选项？点击「开始」选项卡，然后找到「段落」部分，打开「显示/隐藏编辑标记」选项，如下图：
+或者使用 Word 提供的快捷键，Ctrl+* 来开启或关闭这项功能。
+如何在目录部分不显示目录本身的页码 # 你可能会遇到这种情况：在目录部分，目录本身作为第一项显示在上面（如下图所示）。
+通常我们希望目录第一项能从摘要开始，不要包含目录自身。之所以出现目录自身，是因为目录也采用了一级标题的样式，因此生成目录的时候，Word 自动把目录本身也加入了进去。我们可以先清除目录的格式，然后再手动把目录设置为一级标题要求的字体以及字号，然后再更新目录，你会发现第一项从摘要开始了。
+清除目录格式很简单，首先选中目录，在「开始」选项卡下，找到「样式」，然后点击下拉菜单，找到「清除格式」，点击即可（见下图）。
+如何更新目录？点击「引用」选项卡，在目录部分，点击「更新目录」，然后选择「更新整个目录」即可，见下图：
+如何在 Word 左边显示当前文档的目录导航？ # 在 Word 文档左边显示当前文档的结构，可以方便跳转到某一部分，作用类似 PDF 文件中的书签功能。如何开启？在 Word 中点击「视图」选项卡，然后找到「显示」相关的选项，选中「导航窗口」，目录就会出现在文档的左边（前提是你已经正确设置了各级标题），如下图所示：
+如何从摘要部分开始文档的页码？ # 摘要之前一般为目录，把光标置于目录页最后一页（假设目录有多页），然后插入一个类型为「下一页」分节符，你会看到目录页最后一页多了一个「分节符」的标志：
+然后如果此时双击该页的页脚，Word 会提示文档每一页位于哪一节，你会发现目录页与正文的摘要处于不同的节，这正是我们需要的效果，见下图，
+然后把光标移到下一节页脚的位置，单击「设计」选项卡，找到「页眉与页脚」部分，点击「页码」下拉菜单，
+然后在菜单中选择「设置页码格式」，在弹出的窗口使用下面的设置，
+如果目录页以及目录页之前的部分有页码出现，直接把光标移动到目录页页脚，删掉那些页码即可，这样论文就是从摘要开始编码了，起始页码为 1。
+如何使得表格的宽度等于页面的宽度 # 在 Word 中，有的表格宽度很窄，如何使得表格的宽度等于当前 Word 页面的宽度呢？首先选中整个表格，然后单击「布局」选项卡，找到「单元格大小」栏目，点击「自动调整」下拉菜单，然后选择「根据窗口自动调整表格」选项，见下图
+如何插入公式 # Word 中自带的插入公式功能简直是噩梦，效率极其低下。一种解决的办法就是安装第三方的公式辅助插件，例如 MathType（国外），或者 AxMath（国内），这两款软件都是收费的，但是后者价格更低，并且看起来做的更美观，可以考虑购买。另外一个非常不错的免费插件，叫做 texsword，可以直接在其中书写 LaTeX 公式，生成图片，插入到 Word 中，具体安装使用参见 这里。
+如果对 LaTeX 比较熟悉1，还可以安装 Pandoc，</description></item><item><title>使用 Endnote 为论文每个章节制作单独的参考文献列表</title><link>https://jdhao.github.io/2018/03/24/separate-reference-with-endnote/</link><pubDate>Sat, 24 Mar 2018 15:18:00 +0800</pubDate><guid>https://jdhao.github.io/2018/03/24/separate-reference-with-endnote/</guid><description>&lt;p>毕业季到了，如果使用 Word 来写毕业论文，论文写作中的参考文献处理也是一个非常重要的问题，在 Word 管理参考的比较好的方式是通过 &lt;a href="http://www.ioa.cas.cn/xwzx/zhxw/201410/P020141013364219434960.pdf" target="_blank">
+Endnote&lt;/a>。Endnote 是一个非常方便的可视化管理参考文献的工具，本文介绍如何使用 Endnote 结合 Microsoft Word 给每个章节分别设置参考文献列表。&lt;/p></description></item><item><title>如何从 PowerPoint 幻灯片导出没有多余白边的图像或者 PDF 文件</title><link>https://jdhao.github.io/2018/02/06/export-borderless-img-pdf-from-powerpoint/</link><pubDate>Tue, 06 Feb 2018 16:20:00 +0800</pubDate><guid>https://jdhao.github.io/2018/02/06/export-borderless-img-pdf-from-powerpoint/</guid><description>&lt;p>PowerPoint 是一个方便的绘图工具，可以完成一些简单的绘图工作，并且支持将 slide
+导出为图片或者 PDF 格式，方便插入到其他文档中，但是默认导出的图片或者 PDF 文件
+通常会有大量冗余的白边。如何设置，才能使得导出的文件中的白边尽可能少呢？本文将
+给出一种办法。&lt;/p></description></item><item><title>How to Insert LaTeX Equations in Microsoft Office Word and PowerPoint</title><link>https://jdhao.github.io/2015/10/13/ms-office-latex-equation/</link><pubDate>Tue, 13 Oct 2015 20:04:00 +0800</pubDate><guid>https://jdhao.github.io/2015/10/13/ms-office-latex-equation/</guid><description>&lt;p>In this post, I would like to share how to insert beautiful latex equations
+into Microsoft Office Word and PowerPoint.&lt;/p></description></item></channel></rss>

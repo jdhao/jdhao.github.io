@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IME on Blowfish</title><link>https://jdhao.github.io/tags/ime/</link><description>Recent content in IME on Blowfish</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2017 - 2024 ❤️ jdhao</copyright><lastBuildDate>Fri, 26 Feb 2021 23:34:36 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/ime/index.xml" rel="self" type="application/rss+xml"/><item><title>Vim 实现的输入法体验</title><link>https://jdhao.github.io/2021/02/26/ime_inside_vim/</link><pubDate>Fri, 26 Feb 2021 23:34:36 +0800</pubDate><guid>https://jdhao.github.io/2021/02/26/ime_inside_vim/</guid><description>&lt;p>文接&lt;a href="https://jdhao.github.io/2021/02/25/nvim_ime_mode_auto_switch/" target="_blank">
+上回&lt;/a>，Vim 虽然贵为编辑器之神，有一个没有解决好的问题就是输入中文，以及中英文的切换问题。最近也尝试了一些试图利用 Vim 提供的功能，在 Vim 中实现输入法的插件。本文做一总结点评。&lt;/p></description></item><item><title>如何让 Neovim 中文输入时自动切换输入法</title><link>https://jdhao.github.io/2021/02/25/nvim_ime_mode_auto_switch/</link><pubDate>Thu, 25 Feb 2021 22:21:12 +0800</pubDate><guid>https://jdhao.github.io/2021/02/25/nvim_ime_mode_auto_switch/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">更新日志&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2023-06-18：增加 macism 以及 im-select.nvim 使用。&lt;/font>&lt;/li>
+&lt;li>&lt;font color="blue">2022-11-07：针对 macbook M1 CPU 设置添加说明，添加 smartim 插件使用。&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;p>Vim/Neovim 下输入中文最大的痛，就是在 Normal 模式下，需要频繁从中文模式切换到英文模式，来输入 Vim 的各种命令。本文总结几款插件，可以帮助我们在 macOS、Windows 下，进入 Normal 模式的时候自动切换到英文输入。&lt;/p></description></item><item><title>MIUI 12 输入法无法复制文本到剪切板</title><link>https://jdhao.github.io/2020/08/06/miui12_clipboard_issue/</link><pubDate>Thu, 06 Aug 2020 23:45:44 +0800</pubDate><guid>https://jdhao.github.io/2020/08/06/miui12_clipboard_issue/</guid><description>&lt;p>MIUI 12 更新以后，新增了更加细致的权限管理和隐私保护功能。&lt;/p>
+&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20200806235442.jpeg" width="200">
+&lt;/p></description></item><item><title>Space for CJK Languages (CJK 语言中的空格)</title><link>https://jdhao.github.io/2020/05/16/space_for_cjk/</link><pubDate>Sat, 16 May 2020 22:04:23 +0800</pubDate><guid>https://jdhao.github.io/2020/05/16/space_for_cjk/</guid><description>&lt;p>I was doing some typograph for Chinese text and want to insert a space equal to
+the width of a Chinese character.&lt;/p>
+&lt;p>&lt;font color="red">最近在做一些中文排版的工作，有一个需求是在中文字符之间插入空格，并且空格的宽度等于中文字符的宽度，在某些情况下这样排版显得更加美观。&lt;/font>&lt;/p></description></item><item><title>最新版 Rime 输入法使用 (2022 更新)</title><link>https://jdhao.github.io/2019/02/18/rime_configuration_intro/</link><pubDate>Mon, 18 Feb 2019 00:32:40 +0800</pubDate><guid>https://jdhao.github.io/2019/02/18/rime_configuration_intro/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190217233344.png" width="800">
+&lt;/p>
+&lt;details>
+&lt;summary>&lt;font size="2" color="red">更新日志&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2022-11-06: 更新基本概念，以及一些不清楚的地方。&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;p>之前一直听说过 &lt;a href="https://rime.im/" target="_blank">
+Rime&lt;/a> 这个神级输入法的大名，一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，造成 &lt;a href="https://www.v2ex.com/t/535393" target="_blank">
+Chrome 浏览器频频崩溃&lt;/a>，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。&lt;/p>
+&lt;p>值得注意，Rime 的官方文档并不是很详细，所以网上的很多配置不一定是正确的，注意自己分辨和试验。&lt;/p></description></item><item><title>Sublime Text 3 使用相关问题及解决办法</title><link>https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/</link><pubDate>Sun, 19 Mar 2017 19:01:00 +0800</pubDate><guid>https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/</guid><description>&lt;p>这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
+同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。&lt;/p></description></item></channel></rss>

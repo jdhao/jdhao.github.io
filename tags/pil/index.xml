@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PIL on Blowfish</title><link>https://jdhao.github.io/tags/pil/</link><description>Recent content in PIL on Blowfish</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2017 - 2024 ❤️ jdhao</copyright><lastBuildDate>Sun, 03 Apr 2022 11:52:55 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/pil/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Add Color Emoji to Image in Python</title><link>https://jdhao.github.io/2022/04/03/add_color_emoji_to_image_in_python/</link><pubDate>Sun, 03 Apr 2022 11:52:55 +0800</pubDate><guid>https://jdhao.github.io/2022/04/03/add_color_emoji_to_image_in_python/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202204031210116.png" width="500">
+&lt;/p>
+&lt;p>In this post, I would like to share how to add &lt;a href="https://en.wikipedia.org/wiki/Emoji" target="_blank">
+color emoji&lt;/a> to image with Python.&lt;/p></description></item><item><title>How to Do Image Alpha-compositing in Pillow</title><link>https://jdhao.github.io/2022/04/01/image_alpha_composite_pillow/</link><pubDate>Fri, 01 Apr 2022 23:40:04 +0800</pubDate><guid>https://jdhao.github.io/2022/04/01/image_alpha_composite_pillow/</guid><description>&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202204020034075.jpg" width="800">
+&lt;/p>
+&lt;h1 id="what-is-alpha-compositing">What is alpha-compositing&lt;/h1>
+&lt;p>If you have two images A and B, you &lt;a
+href="https://en.wikipedia.org/wiki/Alpha_compositing">alpha-composite&lt;/a>
+A over B, it will create an effect that you can see both image A and B
+in the resulting image, as if A has transparency and you can
+&lt;em>see&lt;/em> through A and also see B.&lt;/p></description></item><item><title>Pillow/PIL 缩放索引图像时的一个问题</title><link>https://jdhao.github.io/2020/11/18/pillow_image_resize_pitfall/</link><pubDate>Wed, 18 Nov 2020 23:38:02 +0800</pubDate><guid>https://jdhao.github.io/2020/11/18/pillow_image_resize_pitfall/</guid><description>&lt;p>今天遇到了&lt;a href="https://www.v2ex.com/t/726518" target="_blank">
+一个有趣的问题&lt;/a>，有人在 v2ex 上说自己的图片，经过 &lt;a href="https://python-pillow.org/" target="_blank">
+PIL&lt;/a> 缩放到 800x600 以后，非常模糊，有什么办法可以解决。&lt;/p></description></item><item><title>Create Outline Text in Python with Pillow</title><link>https://jdhao.github.io/2020/08/18/pillow_create_text_outline/</link><pubDate>Tue, 18 Aug 2020 22:12:11 +0800</pubDate><guid>https://jdhao.github.io/2020/08/18/pillow_create_text_outline/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
+&lt;ul>
+&lt;li>&lt;font color="blue">2022-04-12: add warning about dangers of omitting stroke_fill parameter.&lt;/font>&lt;/li>
+&lt;/ul>
+&lt;/details>
+&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20200818221311.png" width="400">
+&lt;/p>
+&lt;p>Sometimes, we may want to add outline color to text strokes with Pillow.
+Prior to version 6.2.0, we can not do this in Pillow.
+Fortunately, starting from version 6.2.0, pillow supports text outlines natively in its &lt;a href="https://pillow.readthedocs.io/en/stable/reference/ImageDraw.html#PIL.ImageDraw.ImageDraw.text" target="_blank">
+&lt;code>ImageDraw.text()&lt;/code>&lt;/a> method.&lt;/p></description></item><item><title>Conversion between base64 and OpenCV or PIL Image</title><link>https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/</link><pubDate>Tue, 17 Mar 2020 23:08:32 +0800</pubDate><guid>https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/</guid><description>&lt;p>When we are building web services using Python, we often send or receive images
+in &lt;a href="https://docs.python.org/3/library/base64.html" target="_blank">
+base64&lt;/a> encoded format.
+However, when we are doing image processing tasks, we need to use PIL or
+OpenCV. In this post, I will share how to convert between OpenCV or PIL image
+and base64 encoded image.&lt;/p></description></item><item><title>JPEG Image Orientation and Exif</title><link>https://jdhao.github.io/2019/07/31/image_rotation_exif_info/</link><pubDate>Wed, 31 Jul 2019 23:19:35 +0800</pubDate><guid>https://jdhao.github.io/2019/07/31/image_rotation_exif_info/</guid><description>&lt;p>The other day I came across a strange bug during work. My colleagues gave me
+some photographs taken with a smartphone. On their machines (Windows 7), all
+the photos were shown correctly in landscape mode. However, when I checked
+those photos, I found that some of those photos were shown in portrait mode
+(rotated 90 or 270 degrees) or upside-down (rotated 180 degrees).&lt;/p>
+&lt;p>I was curious what happened and learned about
+&lt;a href="https://en.wikipedia.org/wiki/Exif" target="_blank">
+Exif&lt;/a> and all its related stuff.&lt;/p></description></item><item><title>JPEG Image Quality in PIL</title><link>https://jdhao.github.io/2019/07/20/pil_jpeg_image_quality/</link><pubDate>Sat, 20 Jul 2019 21:19:39 +0800</pubDate><guid>https://jdhao.github.io/2019/07/20/pil_jpeg_image_quality/</guid><description>&lt;h1 class="relative group">Introduction
+&lt;div id="introduction" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#introduction" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;p>The other day, I was haunted by a bug and found that it was an issue with the
+image quality saved by &lt;a href="https://pillow.readthedocs.io/en/stable/" target="_blank">
+Pillow&lt;/a> after
+spending a few hours debugging the code.&lt;/p></description></item><item><title>Convert PIL or OpenCV Image to Bytes without Saving to Disk</title><link>https://jdhao.github.io/2019/07/06/python_opencv_pil_image_to_bytes/</link><pubDate>Sat, 06 Jul 2019 22:18:22 +0800</pubDate><guid>https://jdhao.github.io/2019/07/06/python_opencv_pil_image_to_bytes/</guid><description>&lt;h1 class="relative group">Introduction
+&lt;div id="introduction" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#introduction" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;p>Sometimes, we may want an in-memory jpg or png image that is represented as
+binary data. But often, what we have got is image in OpenCV (Numpy ndarray) or
+PIL Image format. In this post, I will share how to convert Numpy image or PIL
+Image object to binary data without saving the underlying image to disk.&lt;/p></description></item><item><title>Manipulating Images with Alpha Channels in Pillow</title><link>https://jdhao.github.io/2019/03/07/pillow_image_alpha_channel/</link><pubDate>Thu, 07 Mar 2019 16:21:57 +0800</pubDate><guid>https://jdhao.github.io/2019/03/07/pillow_image_alpha_channel/</guid><description>&lt;p>In image processing, &lt;a href="https://www.makeuseof.com/tag/alpha-channel-images-mean/" target="_blank">
+alpha channel&lt;/a> is usually used to control the transparency of an image.
+In itself, the alpha channel is just a gray level image&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>.
+In this post, I want to talk about how to add an alpha channel to RGB image and show it using the Pillow package.&lt;/p></description></item><item><title>Display Image with Pillow inside Ubuntu on Windows</title><link>https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/</link><pubDate>Sat, 16 Feb 2019 11:42:55 +0800</pubDate><guid>https://jdhao.github.io/2019/02/16/pillow_show_image_on_wls/</guid><description>&lt;p>With the help of &lt;a href="https://docs.microsoft.com/en-us/windows/wsl/about" target="_blank">
+Windows Subsystem for Linux (WSL, for
+short)&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>, we can use the
+&lt;em>nearly full&lt;/em> Linux environment on Windows system. In this post, I would like
+to share how to display images inside Ubuntu on Windows, which is one of the
+popular distrubtions.&lt;/p></description></item><item><title>Two Issues Related to ImageFont Module in PIL</title><link>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</link><pubDate>Tue, 04 Dec 2018 22:48:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/04/two_issues_related_to_imagefont_pillow/</guid><description>&lt;p>In this post, I want to write about two issues related to the
+&lt;a href="https://pillow.readthedocs.io/en/5.1.x/reference/ImageFont.html" target="_blank">
+ImageFont&lt;/a>
+module in the &lt;a href="https://github.com/python-pillow/Pillow" target="_blank">
+PIL&lt;/a> package.&lt;/p></description></item><item><title>How to Resize, Pad Image to Square Shape and Keep Its Aspect Ratio in Python</title><link>https://jdhao.github.io/2017/11/06/resize-image-to-square-with-padding/</link><pubDate>Mon, 06 Nov 2017 10:00:45 +0800</pubDate><guid>https://jdhao.github.io/2017/11/06/resize-image-to-square-with-padding/</guid><description>&lt;p>When we are using convolutional neural networks, most of the time, we need to
+fix the input image size to feed it to the network. The usual practice is to
+resize the input image to the given size (the image aspect ratio is no longer
+kept) and then crop a fixed size patch randomly from the resized image. This
+practice may work well for image classification where fine details may not be
+necessary. But for Image retrieval, we want to keep the image aspect ration
+unchanged. In this post, I will summarize ways to resize an image to square
+shape with padding and keep its aspect ratio.&lt;/p></description></item></channel></rss>
