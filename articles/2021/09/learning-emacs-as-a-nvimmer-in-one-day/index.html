@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Learning Emacs as A Nvimmer in One Day &middot; Blowfish</title>
+  <meta name="title" content="Learning Emacs as A Nvimmer in One Day &middot; Blowfish" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/articles/2021/09/learning-emacs-as-a-nvimmer-in-one-day/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.efe989cd11095eee5e026173915472c128b61ba8a106c22ead46741ec9255e7625dba193c53b8bb6fa5ea365248d4750e345dd71654234bdb04eadc42de91f30.css"
+    integrity="sha512-7&#43;mJzREJXu5eAmFzkVRywSi2G6ihBsIurUZ0HsklXnYl26GTxTuLtvpeo2UkjUdQ40XdcWVCNL2wTq3ELekfMA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.5200170cb3ed0adabce28870bf7ff061203bbefb075c90b7b76cc561cd376288fbd116092bd2e65b027908506b03f8fd15b5613608229bdc92f93ecf6d8faa64.js"
+    integrity="sha512-UgAXDLPtCtq84ohwv3/wYSA7vvsHXJC3t2zFYc03Yoj70RYJK9LmWwJ5CFBrA/j9FbVhNggim9yS&#43;T7PbY&#43;qZA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Learning Emacs as A Nvimmer in One Day" />
+<meta property="og:description" content="
+update log
+2021-11-24: Add more detailed instructions for installing doom-modeline.
+
+I have been using 
+    Neovim for over three
+years and I have been constantly hearing the greatness of its rival editor
+
+    Emacs. So today I am gonna to try it and see if
+it is truly great.
+Edit: My final Emacs conf is 
+    here." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/articles/2021/09/learning-emacs-as-a-nvimmer-in-one-day/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-09-12T21:40:13+08:00" />
+<meta property="article:modified_time" content="2021-11-24T16:10:50+01:00" />
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Learning Emacs as A Nvimmer in One Day"/>
+<meta name="twitter:description" content="
+update log
+2021-11-24: Add more detailed instructions for installing doom-modeline.
+
+I have been using 
+    Neovim for over three
+years and I have been constantly hearing the greatness of its rival editor
+
+    Emacs. So today I am gonna to try it and see if
+it is truly great.
+Edit: My final Emacs conf is 
+    here."/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Learning Emacs as A Nvimmer in One Day",
+    "headline": "Learning Emacs as A Nvimmer in One Day",
+    
+    "abstract": "\u003cdetails\u003e\n\u003csummary\u003e\u003cfont size=\u00222\u0022 color=\u0022red\u0022\u003eupdate log\u003c\/font\u003e\u003c\/summary\u003e\n\u003cp\u003e\u003cfont color=\u0022blue\u0022\u003e2021-11-24: Add more detailed instructions for installing doom-modeline.\u003c\/font\u003e\u003c\/p\u003e\n\u003c\/details\u003e\n\u003cp\u003eI have been using \u003ca href=\u0022https:\/\/github.com\/neovim\/neovim\u0022   target=\u0022_blank\u0022\u003e\n    Neovim\u003c\/a\u003e for over three\nyears and I have been constantly hearing the greatness of its rival editor\n\u003ca href=\u0022https:\/\/www.gnu.org\/s\/emacs\/\u0022   target=\u0022_blank\u0022\u003e\n    Emacs\u003c\/a\u003e. So today I am gonna to try it and see if\nit is truly great.\u003c\/p\u003e\n\u003cp\u003e\u003cstrong\u003eEdit: My final Emacs conf is \u003ca href=\u0022https:\/\/github.com\/jdhao\/emacs-conf\u0022   target=\u0022_blank\u0022\u003e\n    here\u003c\/a\u003e.\u003c\/strong\u003e\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/articles\/2021\/09\/learning-emacs-as-a-nvimmer-in-one-day\/",
+    "author" : {
+      "@type": "Person",
+      "name": "jdhao"
+    },
+    "copyrightYear": "2021",
+    "dateCreated": "2021-09-12T21:40:13\u002b08:00",
+    "datePublished": "2021-09-12T21:40:13\u002b08:00",
+    
+    "dateModified": "2021-11-24T16:10:50\u002b01:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1462"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="jdhao" />
+  
+  
+  
+  <link href="mailto:hello@your_domain.com" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Blowfish</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Home
+    </p>
+</a>
+
+
+            
+            
+  <a href="/post/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Archives
+    </p>
+</a>
+
+
+            
+            
+  <a href="/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Categories
+    </p>
+</a>
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Tags
+    </p>
+</a>
+
+
+            
+            
+  <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="About">
+        About
+    </p>
+</a>
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Home
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/post/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Archives
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Categories
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Tags
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="About">
+            About
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Blowfish</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/articles/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/articles/2021/09/learning-emacs-as-a-nvimmer-in-one-day/"
+      >Learning Emacs as A Nvimmer in One Day</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Learning Emacs as A Nvimmer in One Day
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2021-09-12 21:40:13 &#43;0800 &#43;0800">12 September 2021</time><span class="px-2 text-primary-500">&middot;</span><time datetime="2021-11-24 16:10:50.813962308 &#43;0100 CET">Updated: 24 November 2021</time><span class="px-2 text-primary-500">&middot;</span><span>1462 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">7 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+      
+      
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Author
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      jdhao
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">A little bit about you</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="mailto:hello@your_domain.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+    
+
+    
+
+    
+
+    
+    <div class="mb-5"></div>
+    
+  
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#install">Install</a></li>
+    <li><a href="#how-to-run">How to Run?</a></li>
+    <li><a href="#config-file">Config file</a></li>
+    <li><a href="#install-packages">Install packages</a>
+      <ul>
+        <li><a href="#the-built-in-way">The built-in way</a></li>
+        <li><a href="#using-3rd-party-package-manager">Using 3rd party package manager</a></li>
+      </ul>
+    </li>
+    <li><a href="#color-theme-modeline">Color, theme, modeline</a></li>
+    <li><a href="#file-editing">File editing</a>
+      <ul>
+        <li><a href="#evil-mode">Evil mode</a></li>
+      </ul>
+    </li>
+    <li><a href="#window-and-buffer">Window and buffer</a></li>
+    <li><a href="#help-system">Help system</a></li>
+    <li><a href="#tab-completion">Tab completion</a></li>
+    <li><a href="#ui">UI</a>
+      <ul>
+        <li><a href="#disable-toolbar-menu-bar-scrollbar">disable toolbar, menu bar, scrollbar</a></li>
+        <li><a href="#show-line-number-and-relative-number">Show line number and relative number</a></li>
+        <li><a href="#modeline">Modeline</a></li>
+        <li><a href="#tabline">Tabline</a></li>
+        <li><a href="#show-trailing-white-space">show trailing white space</a></li>
+      </ul>
+    </li>
+    <li><a href="#auto-completion">Auto-completion</a></li>
+    <li><a href="#fuzzy-search">fuzzy search</a></li>
+    <li><a href="#parentheses-highlight-and-insert">Parentheses: highlight and insert</a></li>
+    <li><a href="#issues">Issues</a>
+      <ul>
+        <li><a href="#custom-set-faces-is-added-automatically-to-initel">custom-set-faces is added automatically to <code>init.el</code></a></li>
+        <li><a href="#change-backup-directory">Change backup directory</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#install">Install</a></li>
+    <li><a href="#how-to-run">How to Run?</a></li>
+    <li><a href="#config-file">Config file</a></li>
+    <li><a href="#install-packages">Install packages</a>
+      <ul>
+        <li><a href="#the-built-in-way">The built-in way</a></li>
+        <li><a href="#using-3rd-party-package-manager">Using 3rd party package manager</a></li>
+      </ul>
+    </li>
+    <li><a href="#color-theme-modeline">Color, theme, modeline</a></li>
+    <li><a href="#file-editing">File editing</a>
+      <ul>
+        <li><a href="#evil-mode">Evil mode</a></li>
+      </ul>
+    </li>
+    <li><a href="#window-and-buffer">Window and buffer</a></li>
+    <li><a href="#help-system">Help system</a></li>
+    <li><a href="#tab-completion">Tab completion</a></li>
+    <li><a href="#ui">UI</a>
+      <ul>
+        <li><a href="#disable-toolbar-menu-bar-scrollbar">disable toolbar, menu bar, scrollbar</a></li>
+        <li><a href="#show-line-number-and-relative-number">Show line number and relative number</a></li>
+        <li><a href="#modeline">Modeline</a></li>
+        <li><a href="#tabline">Tabline</a></li>
+        <li><a href="#show-trailing-white-space">show trailing white space</a></li>
+      </ul>
+    </li>
+    <li><a href="#auto-completion">Auto-completion</a></li>
+    <li><a href="#fuzzy-search">fuzzy search</a></li>
+    <li><a href="#parentheses-highlight-and-insert">Parentheses: highlight and insert</a></li>
+    <li><a href="#issues">Issues</a>
+      <ul>
+        <li><a href="#custom-set-faces-is-added-automatically-to-initel">custom-set-faces is added automatically to <code>init.el</code></a></li>
+        <li><a href="#change-backup-directory">Change backup directory</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+ 
+<script>
+  (function () {
+    var $toc = $('#TableOfContents');
+    if ($toc.length > 0) {
+      var $window = $(window);
+
+      function onScroll() {
+        var currentScroll = $window.scrollTop();
+        var h = $('.anchor');
+        var id = "";
+        h.each(function (i, e) {
+          e = $(e);
+          if (e.offset().top - $(window).height()/3 <= currentScroll) {
+            id = e.attr('id');
+          }
+        });
+        var active = $toc.find('a.active');      
+        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+        active.each(function (i, e) {
+           
+            $(e).removeClass('active').siblings('ul').hide();
+          
+        });
+        $toc.find('a[href="#' + id + '"]').addClass('active')
+        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+          $(e).children('a').parents('ul').show();          
+        });
+      }
+
+      $window.on('scroll', onScroll);
+      $(document).ready(function () {
+         
+          $toc.find('a').parent('li').find('ul').hide();
+        
+        onScroll();
+      });
+    }
+  })();
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <details>
+<summary><font size="2" color="red">update log</font></summary>
+<p><font color="blue">2021-11-24: Add more detailed instructions for installing doom-modeline.</font></p>
+</details>
+<p>I have been using <a href="https://github.com/neovim/neovim"   target="_blank">
+    Neovim</a> for over three
+years and I have been constantly hearing the greatness of its rival editor
+<a href="https://www.gnu.org/s/emacs/"   target="_blank">
+    Emacs</a>. So today I am gonna to try it and see if
+it is truly great.</p>
+<p><strong>Edit: My final Emacs conf is <a href="https://github.com/jdhao/emacs-conf"   target="_blank">
+    here</a>.</strong></p>
+<h1 class="relative group">Install 
+    <div id="install" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#install" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Check here: <a href="https://www.gnu.org/software/emacs/download.html"   target="_blank">
+    https://www.gnu.org/software/emacs/download.html</a></p>
+<p>For Windows, go to <a href="http://ftpmirror.gnu.org/emacs/windows"   target="_blank">
+    this mirror site</a>,
+and download emacs-27.2-x86_64.zip and extract it.</p>
+<p>For macOS, use homebrew to install <a href="https://github.com/d12frosted/homebrew-emacs-plus"   target="_blank">
+    Emacs-plus</a><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
+<pre tabindex="0"><code class="language-basha" data-lang="basha">brew tap d12frosted/emacs-plus
+brew install emacs-plus
+</code></pre>
+
+<h1 class="relative group">How to Run? 
+    <div id="how-to-run" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#how-to-run" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>Windows: Go to extracted folder, run <code>bin/runemacs.exe</code>.</li>
+<li>macOS: Run <code>emacs</code> from command line or search <code>Emacs.app</code> and run it.</li>
+</ul>
+<p>Note to run emacs in maximized window, add following config to emacs config file:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#eceff4">(</span>add-to-list <span style="color:#a3be8c">&#39;initial-frame-alist</span> <span style="color:#81a1c1">&#39;</span><span style="color:#eceff4">(</span>fullscreen <span style="color:#81a1c1">.</span> maximized<span style="color:#eceff4">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ref:</p>
+<ul>
+<li>Run in maximized window: <a href="https://emacs.stackexchange.com/a/3017/23435"   target="_blank">
+    https://emacs.stackexchange.com/a/3017/23435</a></li>
+</ul>
+
+
+<h1 class="relative group">Config file 
+    <div id="config-file" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#config-file" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Emacs uses<code>~/.emacs.d/init.el</code> as its startup file
+(<code>~/.config/emacs/init.el</code> is also supported). Its configuration is
+written via a dialect of <a href="https://en.wikipedia.org/wiki/Lisp_%28programming_language%29"   target="_blank">
+    Lisp</a>
+language called <a href="https://www.gnu.org/software/emacs/manual/html_node/eintr/"   target="_blank">
+    Emacs Lisp</a>, or <a href="https://en.wikipedia.org/wiki/Emacs_Lisp"   target="_blank">
+    Elisp</a> in short.</p>
+<p>To check config file path, run <code>C-H v user-init-file RET</code> (<code>RET</code> is return key).</p>
+<p>Reload config: note that it is not possible to entirely reload config, the best
+way is to restart your emacs. Open <code>init.el</code>, and run <code>m-x eval-buffer</code>.</p>
+<p>Ref:</p>
+<ul>
+<li><a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Find-Init.html"   target="_blank">
+    https://www.gnu.org/software/emacs/manual/html_node/emacs/Find-Init.html</a></li>
+<li><a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html"   target="_blank">
+    https://www.gnu.org/software/emacs/manual/html_node/emacs/Init-File.html</a></li>
+<li>Show conf file path: <a href="https://stackoverflow.com/a/192097/6064933"   target="_blank">
+    https://stackoverflow.com/a/192097/6064933</a></li>
+<li>Reload config without quit: <a href="https://stackoverflow.com/a/167719/6064933"   target="_blank">
+    https://stackoverflow.com/a/167719/6064933</a></li>
+</ul>
+
+
+<h1 class="relative group">Install packages 
+    <div id="install-packages" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#install-packages" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>I am not a purist guy which only uses the built-in features of and editor and
+refuses to add plugins or packages.</p>
+<p>Package is to Emacs what plugin is to Vim.</p>
+
+
+<h2 class="relative group">The built-in way 
+    <div id="the-built-in-way" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-built-in-way" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>To install packages, run <code>M-x package-install</code>, we are prompted to type the
+package name we want to install. Type the package name, and the package shall
+be installed.</p>
+<p>Sometimes, due to bad network connection, emacs hangs forever when trying to
+connect to its package repo, and we see the following message:</p>
+<blockquote>
+<p>Contacting host: elpa.gnu.org:443</p>
+</blockquote>
+<p>In this case, we can <a href="https://emacs.stackexchange.com/a/41769/23435"   target="_blank">
+    change the package repo URL</a>
+(add it to <code>init.el</code>)</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">;; this is just an example</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">(</span><span style="color:#81a1c1;font-weight:bold">setq</span> package-archives <span style="color:#81a1c1">&#39;</span><span style="color:#eceff4">((</span><span style="color:#a3be8c">&#34;gnu&#34;</span>   <span style="color:#81a1c1">.</span> <span style="color:#a3be8c">&#34;http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/&#34;</span><span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#eceff4">(</span><span style="color:#a3be8c">&#34;melpa&#34;</span> <span style="color:#81a1c1">.</span> <span style="color:#a3be8c">&#34;http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/&#34;</span><span style="color:#eceff4">)))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>One disadvantage of using built-in package management is that it can not
+install a package automatically if its hasn&rsquo;t been installed. We need to write
+<a href="https://emacs.stackexchange.com/a/28933/23435"   target="_blank">
+    a few lines of code</a> in config file.</p>
+
+
+<h2 class="relative group">Using 3rd party package manager 
+    <div id="using-3rd-party-package-manager" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#using-3rd-party-package-manager" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Aside from the built-in way to install packages, we can also use 3rd
+party package managers, for example, <a href="https://github.com/raxod502/straight.el"   target="_blank">
+    straight.el</a>.</p>
+<p>To install straight.el, just put the following script to <code>init.el</code>:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1"> 1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-3-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2"> 2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-3-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-3"> 3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-3-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-4"> 4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-3-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-5"> 5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-3-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-6"> 6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-3-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-7"> 7</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-3-8"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-8"> 8</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-3-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-9"> 9</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-3-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-10">10</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-3-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-11">11</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-3-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-12">12</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#eceff4">(</span><span style="color:#81a1c1">defvar</span> bootstrap-version<span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">(</span><span style="color:#81a1c1;font-weight:bold">let</span> <span style="color:#eceff4">((</span>bootstrap-file
+</span></span><span style="display:flex;"><span>       <span style="color:#eceff4">(</span>expand-file-name <span style="color:#a3be8c">&#34;straight/repos/straight.el/bootstrap.el&#34;</span> user-emacs-directory<span style="color:#eceff4">))</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#eceff4">(</span>bootstrap-version <span style="color:#b48ead">5</span><span style="color:#eceff4">))</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#eceff4">(</span><span style="color:#81a1c1">unless</span> <span style="color:#eceff4">(</span>file-exists-p bootstrap-file<span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">(</span>with-current-buffer
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">(</span>url-retrieve-synchronously
+</span></span><span style="display:flex;"><span>         <span style="color:#a3be8c">&#34;https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#a3be8c">&#39;silent</span> <span style="color:#a3be8c">&#39;inhibit-cookies</span><span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#eceff4">(</span>goto-char <span style="color:#eceff4">(</span>point-max<span style="color:#eceff4">))</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#eceff4">(</span>eval-print-last-sexp<span style="color:#eceff4">)))</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#eceff4">(</span><span style="color:#88c0d0">load</span> bootstrap-file <span style="color:#8fbcbb">nil</span> <span style="color:#a3be8c">&#39;nomessage</span><span style="color:#eceff4">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To install a package, add the following statement to init.el:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#eceff4">(</span>straight-use-package <span style="color:#a3be8c">&#39;some-package</span><span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">;; for example, to install company-mode, use the following</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">(</span>straight-use-package <span style="color:#a3be8c">&#39;company</span><span style="color:#eceff4">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Straight.el will install a package if it has not been installed yet.</p>
+
+
+<h1 class="relative group">Color, theme, modeline 
+    <div id="color-theme-modeline" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#color-theme-modeline" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>We can surly customize the look of Emacs via handcraft, e.g., change background
+color and foreground color:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#eceff4">(</span>add-to-list <span style="color:#a3be8c">&#39;default-frame-alist</span> <span style="color:#81a1c1">&#39;</span><span style="color:#eceff4">(</span>foreground-color <span style="color:#81a1c1">.</span> <span style="color:#a3be8c">&#34;#E0DFDB&#34;</span><span style="color:#eceff4">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">(</span>add-to-list <span style="color:#a3be8c">&#39;default-frame-alist</span> <span style="color:#81a1c1">&#39;</span><span style="color:#eceff4">(</span>background-color <span style="color:#81a1c1">.</span> <span style="color:#a3be8c">&#34;#102372&#34;</span><span style="color:#eceff4">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>More advanced way to customize color is to use or install a color theme. Emacs
+comes with several built-in themes.</p>
+<p>To find good themes, <a href="https://github.com/melpa/melpa"   target="_blank">
+    MELPA</a> <a href="https://melpa.org/#/?q=theme&amp;sort=downloads&amp;asc=false"   target="_blank">
+    is a good place to start</a>.
+A good theme package is <a href="https://github.com/hlissner/emacs-doom-themes"   target="_blank">
+    doom-themes</a>. It comes with a lot of themes.</p>
+<p>To load a theme, type <code>A-x load-theme</code>, and then type a theme name, for example,
+<code>doom-one</code>, or we can add to config:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-6-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#eceff4">(</span>load-theme <span style="color:#a3be8c">&#39;doom-gruvbox</span> <span style="color:#8fbcbb">t</span> <span style="color:#8fbcbb">nil</span><span style="color:#eceff4">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To show currently enabled themes, run <code>c-h v</code> and type <code>custom-enabled-themes</code>
+to check.</p>
+
+
+<h1 class="relative group">File editing 
+    <div id="file-editing" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#file-editing" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>Delete a line: <code>C-S-Backspace</code>.</li>
+<li>Go to line beginning and end: <code>C-a</code> and <code>c-e</code>.</li>
+<li>Yank selected text and paste: <code>M-w</code> and <code>c-y</code>.</li>
+</ul>
+
+
+<h2 class="relative group">Evil mode 
+    <div id="evil-mode" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#evil-mode" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>I find the editing experience in Emacs highly inferior to that of Vim. So We
+can use <a href="https://github.com/emacs-evil/evil"   target="_blank">
+    emacs-evil</a>:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-7-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-7-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-7-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-7-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#eceff4">(</span>straight-use-package <span style="color:#a3be8c">&#39;evil</span><span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">;; enable evil mode</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">(</span>evil-mode <span style="color:#b48ead">1</span><span style="color:#eceff4">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>There is in fact a built-in <a href="https://www.gnu.org/software/emacs/manual/html_mono/viper.html"   target="_blank">
+    viper-mode</a> for Emacs, but <a href="https://www.reddit.com/r/emacs/comments/9jp61o/difference_between_vipermode_evil_and_spacemacs/"   target="_blank">
+    it is
+not complete as compared to evil</a>.</p>
+<p>Ref:</p>
+<ul>
+<li>Difference between viper, vimpulse, evil for emacs: <a href="https://stackoverflow.com/q/14291260/6064933"   target="_blank">
+    https://stackoverflow.com/q/14291260/6064933</a></li>
+<li>delete a line: <a href="https://stackoverflow.com/a/3958568/6064933"   target="_blank">
+    https://stackoverflow.com/a/3958568/6064933</a></li>
+<li>Emacs evil guide: <a href="https://github.com/noctuid/evil-guide"   target="_blank">
+    https://github.com/noctuid/evil-guide</a></li>
+</ul>
+
+
+<h1 class="relative group">Window and buffer 
+    <div id="window-and-buffer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#window-and-buffer" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>open a horizontal split: <code>c-x 2</code></li>
+<li>open a vertical split: <code>c-x 3</code></li>
+<li>close a buffer: <code>c-x k</code></li>
+<li>close a window: <code>c-x 0</code></li>
+<li>open a file: <code>c-x c-f</code></li>
+<li>create a new file: same as <code>c-x c-f</code></li>
+<li>save a file: <code>c-x c-s</code></li>
+<li>quit emacs: <code>c-x c-c</code></li>
+<li>Open a buffer: <code>c-x b</code></li>
+<li>To show config file path, run <code>M-:</code>, then type <code>(buffer-file-name)</code> to show config path.</li>
+</ul>
+<p>Ref:</p>
+<ul>
+<li>close buffer: <a href="https://stackoverflow.com/q/207510/6064933"   target="_blank">
+    https://stackoverflow.com/q/207510/6064933</a></li>
+<li>close a windows: <a href="https://stackoverflow.com/q/17961449/6064933"   target="_blank">
+    https://stackoverflow.com/q/17961449/6064933</a></li>
+<li>show file path: <a href="https://stackoverflow.com/a/17415557/6064933"   target="_blank">
+    https://stackoverflow.com/a/17415557/6064933</a></li>
+</ul>
+
+
+<h1 class="relative group">Help system 
+    <div id="help-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#help-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p><code>c-h ?</code> gives an overview of the help system.</p>
+<ul>
+<li>Check the value of a variable: <code>c-h v &lt;variable-name&gt;</code></li>
+<li>Check function doc: <code>c-h f</code></li>
+<li>Check which command a key binds to: <code>c-h c</code></li>
+</ul>
+<p>Ref:</p>
+<ul>
+<li><a href="https://www.gnu.org/software/emacs/manual/html_node/eintr/See-variable-current-value.html"   target="_blank">
+    https://www.gnu.org/software/emacs/manual/html_node/eintr/See-variable-current-value.html</a></li>
+<li><a href="https://nyk.ma/posts/emacs-intro/"   target="_blank">
+    https://nyk.ma/posts/emacs-intro/</a></li>
+</ul>
+
+
+<h1 class="relative group">Tab completion 
+    <div id="tab-completion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#tab-completion" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Add the following to your emacs conf:</p>
+<pre tabindex="0"><code class="language-list" data-lang="list">(setq completion-cycle-threshold 1)
+</code></pre><p>Ref:</p>
+<ul>
+<li><a href="https://emacs.stackexchange.com/a/17118/23435"   target="_blank">
+    https://emacs.stackexchange.com/a/17118/23435</a></li>
+</ul>
+
+
+<h1 class="relative group">UI 
+    <div id="ui" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ui" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">disable toolbar, menu bar, scrollbar 
+    <div id="disable-toolbar-menu-bar-scrollbar" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#disable-toolbar-menu-bar-scrollbar" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Toolbar, menu bar and scrollbar are ugly and take precious space. Let&rsquo;s
+disable them all together:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-9-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-9-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-9-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#eceff4">(</span>menu-bar-mode <span style="color:#b48ead">-1</span><span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">(</span>toggle-scroll-bar <span style="color:#b48ead">-1</span><span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">(</span>tool-bar-mode <span style="color:#b48ead">-1</span><span style="color:#eceff4">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ref:</p>
+<ul>
+<li><a href="http://kb.mit.edu/confluence/display/istcontrib/Disabling&#43;the&#43;Emacs&#43;menubar%2C&#43;toolbar%2C&#43;or&#43;scrollbar"   target="_blank">
+    http://kb.mit.edu/confluence/display/istcontrib/Disabling+the+Emacs+menubar%2C+toolbar%2C+or+scrollbar</a></li>
+</ul>
+
+
+<h2 class="relative group">Show line number and relative number 
+    <div id="show-line-number-and-relative-number" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#show-line-number-and-relative-number" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Like what vim does:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-10-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-10-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#eceff4">(</span>global-display-line-numbers-mode<span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">(</span><span style="color:#81a1c1;font-weight:bold">setq</span> display-line-numbers-type <span style="color:#a3be8c">&#39;relative</span><span style="color:#eceff4">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ref:</p>
+<ul>
+<li><a href="https://stackoverflow.com/q/6874516/6064933"   target="_blank">
+    https://stackoverflow.com/q/6874516/6064933</a></li>
+<li><a href="https://emacs.stackexchange.com/a/280/23435"   target="_blank">
+    https://emacs.stackexchange.com/a/280/23435</a></li>
+<li><a href="https://emacs.stackexchange.com/q/45604/23435"   target="_blank">
+    https://emacs.stackexchange.com/q/45604/23435</a></li>
+</ul>
+
+
+<h2 class="relative group">Modeline 
+    <div id="modeline" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#modeline" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>What we call statusline in Vim, they call it modeline in Emacs. IMO, they are
+very similar concepts. We can use <a href="https://github.com/seagle0128/doom-modeline"   target="_blank">
+    doom-modeline</a> to help use customize the modeline.</p>
+<p>First, we need to install some special icon that doom-modeline uses. We need to
+install package <a href="https://github.com/domtronn/all-the-icons.el"   target="_blank">
+    all-the-icons</a> to install the fonts needed:</p>
+<pre tabindex="0"><code>(straight-use-package &#39;all-the-icons)
+</code></pre><p>Run <code>M-x all-the-icons-install-fonts</code> to install the icon fonts.</p>
+<p>Then install doom-modeline:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-12-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#eceff4">(</span>straight-use-package <span style="color:#a3be8c">&#39;doom-modeline</span><span style="color:#eceff4">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ref:</p>
+<ul>
+<li><a href="https://stackoverflow.com/a/11419691/6064933"   target="_blank">
+    https://stackoverflow.com/a/11419691/6064933</a></li>
+<li>check current themes: <a href="https://superuser.com/a/320289/736190"   target="_blank">
+    https://superuser.com/a/320289/736190</a></li>
+</ul>
+
+
+<h2 class="relative group">Tabline 
+    <div id="tabline" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#tabline" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>For Emacs 27, add the following setting to <code>init.el</code>:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-13-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#eceff4">(</span>global-tab-line-mode <span style="color:#8fbcbb">t</span><span style="color:#eceff4">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h2 class="relative group">show trailing white space 
+    <div id="show-trailing-white-space" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#show-trailing-white-space" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Add following config:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-14-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#eceff4">(</span>setq-default show-trailing-whitespace <span style="color:#8fbcbb">t</span><span style="color:#eceff4">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ref:</p>
+<p><a href="https://stackoverflow.com/a/34589105/6064933"   target="_blank">
+    https://stackoverflow.com/a/34589105/6064933</a></p>
+
+
+<h1 class="relative group">Auto-completion 
+    <div id="auto-completion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#auto-completion" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>We can use package <a href="http://company-mode.github.io/"   target="_blank">
+    company</a> to enable
+auto-completion for functions and options etc. Add the following
+setting to <code>init.el</code>:</p>
+<pre tabindex="0"><code>;; enable company mode in all buffers
+(add-hook &#39;after-init-hook &#39;global-company-mode)
+
+;; use tab and s-tab to cycle forward and backward completion items
+(add-hook &#39;after-init-hook &#39;company-tng-mode)
+</code></pre><p>The <code>company-tng-mode</code> is used to make <code>Tab</code> and <code>SHIFT-Tab</code> to move
+forward and backward in the auto-completion menu, for more details see
+<a href="https://github.com/company-mode/company-mode/issues/526"   target="_blank">
+    issue here</a>
+and <a href="https://github.com/company-mode/company-mode/pull/706"   target="_blank">
+    PR here</a>.</p>
+
+
+<h1 class="relative group">fuzzy search 
+    <div id="fuzzy-search" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#fuzzy-search" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>If you have used Vim, you may be familiar with fzf.vim or LeaderF or
+telescope.nvim, depending which Vim distribution you are using. In
+Emacs, we can use <a href="https://oremacs.com/swiper/"   target="_blank">
+    ivy</a>.</p>
+<p>Here is a minimal config:</p>
+<pre tabindex="0"><code>(straight-use-package &#39;ivy)
+(straight-use-package &#39;counsel)
+
+;; enable ivy mode by default
+(ivy-mode 1)
+</code></pre><p>Then ivy will be automatically enabled when you open file/buffer or
+run commands. Note that the default fuzzy search behavior of ivy is
+different from that of LeaderF or fzf. For example, to search
+<code>package-install</code> in ivy, you can type <code>pac ins</code>, but not <code>pacins</code>,
+the space between is important.</p>
+
+
+<h1 class="relative group">Parentheses: highlight and insert 
+    <div id="parentheses-highlight-and-insert" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#parentheses-highlight-and-insert" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>To highlight matching parentheses, add the following config:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-17-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-17-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-17-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-17-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-4">4</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-17-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-5">5</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-17-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-6">6</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-17-7"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-7">7</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">;; show matching parentheses</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">(</span>show-paren-mode <span style="color:#8fbcbb">t</span><span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">;; the style for matching parentheses</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">(</span>set-face-background <span style="color:#a3be8c">&#39;show-paren-match</span> <span style="color:#a3be8c">&#34;#ff0000&#34;</span><span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">(</span>set-face-attribute <span style="color:#a3be8c">&#39;show-paren-match</span> <span style="color:#8fbcbb">nil</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a3be8c">:weight</span> <span style="color:#a3be8c">&#39;bold</span> <span style="color:#a3be8c">:underline</span> <span style="color:#8fbcbb">t</span> <span style="color:#a3be8c">:overline</span> <span style="color:#8fbcbb">nil</span> <span style="color:#a3be8c">:slant</span> <span style="color:#a3be8c">&#39;normal</span><span style="color:#eceff4">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To insert matching parentheses automatically, install package <a href="https://github.com/Fuco1/smartparens"   target="_blank">
+    smartparens</a>:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-18-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-18-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-18-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-18-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-18-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-18-3">3</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-18-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-18-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#eceff4">(</span>straight-use-package <span style="color:#a3be8c">&#39;smartparens</span><span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">;; enable smartparens mode</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">(</span>smartparens-global-mode <span style="color:#8fbcbb">t</span><span style="color:#eceff4">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To change, delete, add matching pairs easily, there is also
+<a href="https://github.com/emacs-evil/evil-surround"   target="_blank">
+    evil-surround</a>, mimicking
+the behavior of vim-surround by Tpope.</p>
+<p>Ref:</p>
+<ul>
+<li>show matching parentheses
+<ul>
+<li><a href="https://www.emacswiki.org/emacs/ShowParenMode"   target="_blank">
+    https://www.emacswiki.org/emacs/ShowParenMode</a></li>
+<li><a href="https://emacs.stackexchange.com/q/47795/23435"   target="_blank">
+    https://emacs.stackexchange.com/q/47795/23435</a></li>
+</ul>
+</li>
+</ul>
+
+
+<h1 class="relative group">Issues 
+    <div id="issues" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#issues" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">custom-set-faces is added automatically to <code>init.el</code> 
+    <div id="custom-set-faces-is-added-automatically-to-initel" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#custom-set-faces-is-added-automatically-to-initel" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>After installing packages, <code>init.el</code> is automatically updated and
+include <code>custom-set-faces</code>.  We can use the following setting to
+disable this behavior:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-19-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-19-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#eceff4">(</span><span style="color:#81a1c1;font-weight:bold">setq</span> custom-file <span style="color:#eceff4">(</span>locate-user-emacs-file <span style="color:#a3be8c">&#34;custom.el&#34;</span><span style="color:#eceff4">))</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">(</span><span style="color:#88c0d0">load</span> custom-file<span style="color:#eceff4">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ref:</p>
+<ul>
+<li><a href="https://stackoverflow.com/q/5052088/6064933"   target="_blank">
+    https://stackoverflow.com/q/5052088/6064933</a></li>
+</ul>
+
+
+<h2 class="relative group">Change backup directory 
+    <div id="change-backup-directory" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#change-backup-directory" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>By default, Emacs saves a backup file in the same directory as the current file,
+which pollutes the current working directory. We can move the backup directory
+to a centralized directory:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-20-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-20-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-2">2</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lisp" data-lang="lisp"><span style="display:flex;"><span><span style="color:#616e87;font-style:italic">;; change backup settings</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">(</span><span style="color:#81a1c1;font-weight:bold">setq</span> backup-directory-alist <span style="color:#81a1c1">&#39;</span><span style="color:#eceff4">((</span><span style="color:#a3be8c">&#34;.&#34;</span> <span style="color:#81a1c1">.</span> <span style="color:#a3be8c">&#34;~/.cache/emacs-backups&#34;</span><span style="color:#eceff4">)))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h1 class="relative group">Conclusion 
+    <div id="conclusion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conclusion" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>After learning and trying Emacs for one day, I would say that Emacs is truly a
+great GUI editor which has some really cool features. For example, in Emacs,
+you can set different font style (size, bold, italic, font family etc.) to
+different texts in the same buffer, which <a href="https://orgmode.org/"   target="_blank">
+    org-mode</a> used
+for beautiful type-setting inside Emacs<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. You can also get the vscode-like
+experience via <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Customization-Groups.html"   target="_blank">
+    customize groups</a>.</p>
+<p>However, when it comes to editting text and navigation, I think Vim/Nvim is
+still the king, the proof of which is apparent since we have got <a href="https://github.com/emacs-evil/evil"   target="_blank">
+    evil-mode</a>
+in Emacs.</p>
+
+
+<h1 class="relative group">References 
+    <div id="references" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#references" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li><a href="https://github.com/emacs-tw/emacs-101-beginner-survival-guide"   target="_blank">
+    https://github.com/emacs-tw/emacs-101-beginner-survival-guide</a></li>
+<li>awesome emacs: <a href="https://github.com/emacs-tw/awesome-emacs"   target="_blank">
+    https://github.com/emacs-tw/awesome-emacs</a></li>
+<li>Emacs 101: <a href="https://github.com/emacs-tw/emacs-101-beginner-survival-guide"   target="_blank">
+    https://github.com/emacs-tw/emacs-101-beginner-survival-guide</a></li>
+<li>Emacs for the rest of us: <a href="http://iqss.github.io/IQSS.emacs/"   target="_blank">
+    http://iqss.github.io/IQSS.emacs/</a></li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>For macOS, there is <a href="https://github.com/d12frosted/homebrew-emacs-plus"   target="_blank">
+    emacs-mac</a>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Sadly, I do not think any Nvim GUI can do this or come even close to org-mode.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+        </div>
+                
+        
+
+        
+
+          
+      </div>
+     
+    
+     <script>
+        var oid = "views_posts\/learning_emacs_in_one_day.md"
+        var oid_likes = "likes_posts\/learning_emacs_in_one_day.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.5b1bad196a6075a1e11bae1dc95f24f67b610948a00525e347566c5a62338ea78f1c7224ab9a53873dcdb2a1a7d7d391b8a8ef45561297f68806c01315b0c4f6.js" integrity="sha512-WxutGWpgdaHhG64dyV8k9nthCUigBSXjR1ZsWmIzjqePHHIkq5pThz3NsqGn19ORuKjvRVYSl/aIBsATFbDE9g=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/articles/2021/09/hands-on-with-three-git-tui-clients/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Hands on with Three Git TUI Clients</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2021-09-11 00:33:12 &#43;0800 &#43;0800">11 September 2021</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/articles/2021/09/straight.el-bootstrap-and-package-install-issue/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Straight.el Bootstrap and Package Install Issue</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2021-09-15 22:38:38 &#43;0800 &#43;0800">15 September 2021</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      jdhao
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

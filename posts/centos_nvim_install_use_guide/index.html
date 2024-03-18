@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Linux 下 Neovim 配置 Python 开发环境指南 &middot; Blowfish</title>
+  <meta name="title" content="Linux 下 Neovim 配置 Python 开发环境指南 &middot; Blowfish" />
+  
+  
+  <meta name="keywords" content="Python, Linux, font, 字体, pylint, " />
+  
+  
+  <link rel="canonical" href="http://localhost:1313/posts/centos_nvim_install_use_guide/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.efe989cd11095eee5e026173915472c128b61ba8a106c22ead46741ec9255e7625dba193c53b8bb6fa5ea365248d4750e345dd71654234bdb04eadc42de91f30.css"
+    integrity="sha512-7&#43;mJzREJXu5eAmFzkVRywSi2G6ihBsIurUZ0HsklXnYl26GTxTuLtvpeo2UkjUdQ40XdcWVCNL2wTq3ELekfMA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.5200170cb3ed0adabce28870bf7ff061203bbefb075c90b7b76cc561cd376288fbd116092bd2e65b027908506b03f8fd15b5613608229bdc92f93ecf6d8faa64.js"
+    integrity="sha512-UgAXDLPtCtq84ohwv3/wYSA7vvsHXJC3t2zFYc03Yoj70RYJK9LmWwJ5CFBrA/j9FbVhNggim9yS&#43;T7PbY&#43;qZA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Linux 下 Neovim 配置 Python 开发环境指南" />
+<meta property="og:description" content="
+
+
+我的完整 Neovim 配置可以点
+    这里查看。
+2022-01-29: 本文写于三年以前，其中提到的一些插件已经不再维护，或者对于 Neovim 不是最佳选择，甚至还有一些插件被 Nvim 自带的功能所替代，例如，
+    从 2020.05 开始，highlighted yank 开始内置。我在 
+     这篇博文 分享了一些插件迁移的事情。
+Vim 是一款主要流行于 *nix 系统上的强大的编辑器，另外一款可以与之媲美的编辑器是 Emacs，这两款编辑器广泛流行于程序员群体，
+    关于谁是编辑器之王的争论经久不息。Vim 的功能虽然强大，但是作为一款「古老」的编辑器1，也不是没有缺点：随着 Vim 代码量的增加，维护变得日益困难，不利于快速增加新功能；另外，它的主要开发者目前只有一个人，
+    Bram Moolenaar，也不符合当今开源社区多人协作的习惯。为了克服 Vim 的这些缺点，保留 Vim 的优点（最大程度兼容 Vim），让 Vim 的开发能有更快的迭代速度，
+    Neovim 项目诞生了。本文介绍如何安装 Neovim 并配置 Python 开发环境(在以下叙述中，Neovim 和 Nvim 含义相同，不再加以区分)2。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/centos_nvim_install_use_guide/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-09-05T20:34:00+08:00" />
+<meta property="article:modified_time" content="2022-01-29T14:55:49+01:00" />
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Linux 下 Neovim 配置 Python 开发环境指南"/>
+<meta name="twitter:description" content="
+
+
+我的完整 Neovim 配置可以点
+    这里查看。
+2022-01-29: 本文写于三年以前，其中提到的一些插件已经不再维护，或者对于 Neovim 不是最佳选择，甚至还有一些插件被 Nvim 自带的功能所替代，例如，
+    从 2020.05 开始，highlighted yank 开始内置。我在 
+     这篇博文 分享了一些插件迁移的事情。
+Vim 是一款主要流行于 *nix 系统上的强大的编辑器，另外一款可以与之媲美的编辑器是 Emacs，这两款编辑器广泛流行于程序员群体，
+    关于谁是编辑器之王的争论经久不息。Vim 的功能虽然强大，但是作为一款「古老」的编辑器1，也不是没有缺点：随着 Vim 代码量的增加，维护变得日益困难，不利于快速增加新功能；另外，它的主要开发者目前只有一个人，
+    Bram Moolenaar，也不符合当今开源社区多人协作的习惯。为了克服 Vim 的这些缺点，保留 Vim 的优点（最大程度兼容 Vim），让 Vim 的开发能有更快的迭代速度，
+    Neovim 项目诞生了。本文介绍如何安装 Neovim 并配置 Python 开发环境(在以下叙述中，Neovim 和 Nvim 含义相同，不再加以区分)2。"/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Linux 下 Neovim 配置 Python 开发环境指南",
+    "headline": "Linux 下 Neovim 配置 Python 开发环境指南",
+    
+    "abstract": "\u003cp align=\u0022center\u0022\u003e\n\u003cimg src=\u0022https:\/\/blog-resource-1257868508.file.myqcloud.com\/Xnip2020-04-04_21-39-49.jpg\u0022 width=\u0022800\u0022\u003e\n\u003c\/p\u003e\n\u003cp\u003e我的完整 Neovim 配置可以点\u003ca href=\u0022https:\/\/github.com\/jdhao\/nvim-config\u0022   target=\u0022_blank\u0022\u003e\n    这里\u003c\/a\u003e查看。\u003c\/p\u003e\n\u003cp\u003e\u003cstrong\u003e2022-01-29: 本文写于三年以前，其中提到的一些插件已经不再维护，或者对于 Neovim 不是最佳选择，甚至还有一些插件被 Nvim 自带的功能所替代，例如，\u003ca href=\u0022https:\/\/jdhao.github.io\/2020\/05\/22\/highlight_yank_region_nvim\/#neovim-only\u0022   target=\u0022_blank\u0022\u003e\n    从 2020.05 开始，highlighted yank 开始内置\u003c\/a\u003e。我在 \u003ca href=\u0022https:\/\/jdhao.github.io\/2021\/12\/31\/using_nvim_after_three_years\/#what-remains-what-has-changed-and-some-new-plugins\u0022   target=\u0022_blank\u0022\u003e\n     这篇博文\u003c\/a\u003e 分享了一些插件迁移的事情。\u003c\/strong\u003e\u003c\/p\u003e\n\u003cp\u003eVim 是一款主要流行于 *nix 系统上的强大的编辑器，另外一款可以与之媲美的编辑器是 Emacs，这两款编辑器广泛流行于程序员群体，\u003ca href=\u0022https:\/\/en.wikipedia.org\/wiki\/Editor_war\u0022   target=\u0022_blank\u0022\u003e\n    关于谁是编辑器之王的争论经久不息\u003c\/a\u003e。Vim 的功能虽然强大，但是作为一款「古老」的编辑器\u003csup id=\u0022fnref:1\u0022\u003e\u003ca href=\u0022#fn:1\u0022 class=\u0022footnote-ref\u0022 role=\u0022doc-noteref\u0022\u003e1\u003c\/a\u003e\u003c\/sup\u003e，也不是没有缺点：随着 Vim 代码量的增加，维护变得日益困难，不利于快速增加新功能；另外，它的主要开发者目前只有一个人，\u003ca href=\u0022https:\/\/en.wikipedia.org\/wiki\/Bram_Moolenaar\u0022   target=\u0022_blank\u0022\u003e\n    Bram Moolenaar\u003c\/a\u003e，也不符合当今开源社区多人协作的习惯。为了克服 Vim 的这些缺点，保留 Vim 的优点（最大程度兼容 Vim），让 Vim 的开发能有更快的迭代速度，\u003ca href=\u0022https:\/\/neovim.io\/\u0022   target=\u0022_blank\u0022\u003e\n    Neovim\u003c\/a\u003e 项目诞生了。本文介绍如何安装 Neovim 并配置 Python 开发环境(在以下叙述中，Neovim 和 Nvim 含义相同，不再加以区分)\u003csup id=\u0022fnref:2\u0022\u003e\u003ca href=\u0022#fn:2\u0022 class=\u0022footnote-ref\u0022 role=\u0022doc-noteref\u0022\u003e2\u003c\/a\u003e\u003c\/sup\u003e。\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/posts\/centos_nvim_install_use_guide\/",
+    "author" : {
+      "@type": "Person",
+      "name": "jdhao"
+    },
+    "copyrightYear": "2018",
+    "dateCreated": "2018-09-05T20:34:00\u002b08:00",
+    "datePublished": "2018-09-05T20:34:00\u002b08:00",
+    
+    "dateModified": "2022-01-29T14:55:49\u002b01:00",
+    
+    "keywords": ["Python","Linux","font","字体","pylint"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1029"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="jdhao" />
+  
+  
+  
+  <link href="mailto:hello@your_domain.com" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Blowfish</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Home
+    </p>
+</a>
+
+
+            
+            
+  <a href="/post/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Archives
+    </p>
+</a>
+
+
+            
+            
+  <a href="/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Categories
+    </p>
+</a>
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Tags
+    </p>
+</a>
+
+
+            
+            
+  <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="About">
+        About
+    </p>
+</a>
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Home
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/post/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Archives
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Categories
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Tags
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="About">
+            About
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Blowfish</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/articles/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/posts/centos_nvim_install_use_guide/"
+      >Linux 下 Neovim 配置 Python 开发环境指南</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Linux 下 Neovim 配置 Python 开发环境指南
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2018-09-05 20:34:00 &#43;0800 &#43;0800">5 September 2018</time><span class="px-2 text-primary-500">&middot;</span><time datetime="2022-01-29 14:55:49.696183008 &#43;0100 CET">Updated: 29 January 2022</time><span class="px-2 text-primary-500">&middot;</span><span>1029 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+      
+      
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Author
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      jdhao
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">A little bit about you</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="mailto:hello@your_domain.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+    
+
+    
+
+    
+
+    
+    <div class="mb-5"></div>
+    
+  
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-10">
+
+         <details open class="toc-right mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装-nvim">安装 Nvim</a></li>
+    <li><a href="#nvim-的配置文件">Nvim 的配置文件</a></li>
+    <li><a href="#使用插件管理器-vim-plug">使用插件管理器 vim-plug</a>
+      <ul>
+        <li><a href="#vim-plug-安装">vim-plug 安装</a></li>
+        <li><a href="#vim-plug-使用">vim-plug 使用</a>
+          <ul>
+            <li><a href="#暂时禁用某个插件">暂时禁用某个插件</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#常用插件安装与配置">常用插件安装与配置</a>
+      <ul>
+        <li><a href="#自动补全插件-deoplete">自动补全插件 deoplete</a>
+          <ul>
+            <li><a href="#安装-deoplete-jedi">安装 deoplete-jedi</a></li>
+            <li><a href="#deoplete-的使用">Deoplete 的使用</a></li>
+          </ul>
+        </li>
+        <li><a href="#状态栏插件-vim-airline">状态栏插件 vim-airline</a>
+          <ul>
+            <li><a href="#切换-vim-airline-主题">切换 vim-airline 主题</a></li>
+          </ul>
+        </li>
+        <li><a href="#自动引号括号补全">自动引号&amp;括号补全</a>
+          <ul>
+            <li><a href="#使用方法">使用方法</a></li>
+          </ul>
+        </li>
+        <li><a href="#注释插件">注释插件</a></li>
+        <li><a href="#代码自动-format-插件">代码自动 format 插件</a></li>
+        <li><a href="#代码跳转go-to插件">代码跳转(go-to)插件</a>
+          <ul>
+            <li><a href="#使用">使用</a></li>
+          </ul>
+        </li>
+        <li><a href="#文件管理器-nerdtree">文件管理器 nerdtree</a>
+          <ul>
+            <li><a href="#简单使用">简单使用</a></li>
+          </ul>
+        </li>
+        <li><a href="#代码检查工具">代码检查工具</a>
+          <ul>
+            <li><a href="#代码检查">代码检查</a></li>
+          </ul>
+        </li>
+        <li><a href="#多点编辑插件-vim-multiple-cursors">多点编辑插件 vim-multiple-cursors</a>
+          <ul>
+            <li><a href="#简单使用-1">简单使用</a></li>
+            <li><a href="#参考">参考</a></li>
+          </ul>
+        </li>
+        <li><a href="#高亮显示复制区域">高亮显示复制区域</a></li>
+        <li><a href="#代码折叠插件">代码折叠插件</a></li>
+        <li><a href="#简单使用-2">简单使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#主题安装与配置">主题安装与配置</a>
+      <ul>
+        <li><a href="#before-we-begin">Before we begin</a></li>
+        <li><a href="#主题安装介绍">主题安装介绍</a></li>
+      </ul>
+    </li>
+    <li><a href="#如何找到更多有用的插件">如何找到更多有用的插件？</a></li>
+    <li><a href="#更改显示字体">更改显示字体</a></li>
+    <li><a href="#内置-terminal">内置 terminal</a></li>
+    <li><a href="#neovim-与-vim-的不同">Neovim 与 Vim 的不同</a>
+      <ul>
+        <li><a href="#支持-bracketed-paste-mode">支持 bracketed paste mode</a></li>
+        <li><a href="#neovim-is-all-nocompatible">Neovim is all <code>nocompatible</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#一些小问题">一些小问题</a>
+      <ul>
+        <li><a href="#在-tmux-中nvim-的主题颜色显示有问题">在 Tmux 中，Nvim 的主题颜色显示有问题</a></li>
+        <li><a href="#如何记录-neovim-启动时候的-log">如何记录 Neovim 启动时候的 log</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装-nvim">安装 Nvim</a></li>
+    <li><a href="#nvim-的配置文件">Nvim 的配置文件</a></li>
+    <li><a href="#使用插件管理器-vim-plug">使用插件管理器 vim-plug</a>
+      <ul>
+        <li><a href="#vim-plug-安装">vim-plug 安装</a></li>
+        <li><a href="#vim-plug-使用">vim-plug 使用</a>
+          <ul>
+            <li><a href="#暂时禁用某个插件">暂时禁用某个插件</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#常用插件安装与配置">常用插件安装与配置</a>
+      <ul>
+        <li><a href="#自动补全插件-deoplete">自动补全插件 deoplete</a>
+          <ul>
+            <li><a href="#安装-deoplete-jedi">安装 deoplete-jedi</a></li>
+            <li><a href="#deoplete-的使用">Deoplete 的使用</a></li>
+          </ul>
+        </li>
+        <li><a href="#状态栏插件-vim-airline">状态栏插件 vim-airline</a>
+          <ul>
+            <li><a href="#切换-vim-airline-主题">切换 vim-airline 主题</a></li>
+          </ul>
+        </li>
+        <li><a href="#自动引号括号补全">自动引号&amp;括号补全</a>
+          <ul>
+            <li><a href="#使用方法">使用方法</a></li>
+          </ul>
+        </li>
+        <li><a href="#注释插件">注释插件</a></li>
+        <li><a href="#代码自动-format-插件">代码自动 format 插件</a></li>
+        <li><a href="#代码跳转go-to插件">代码跳转(go-to)插件</a>
+          <ul>
+            <li><a href="#使用">使用</a></li>
+          </ul>
+        </li>
+        <li><a href="#文件管理器-nerdtree">文件管理器 nerdtree</a>
+          <ul>
+            <li><a href="#简单使用">简单使用</a></li>
+          </ul>
+        </li>
+        <li><a href="#代码检查工具">代码检查工具</a>
+          <ul>
+            <li><a href="#代码检查">代码检查</a></li>
+          </ul>
+        </li>
+        <li><a href="#多点编辑插件-vim-multiple-cursors">多点编辑插件 vim-multiple-cursors</a>
+          <ul>
+            <li><a href="#简单使用-1">简单使用</a></li>
+            <li><a href="#参考">参考</a></li>
+          </ul>
+        </li>
+        <li><a href="#高亮显示复制区域">高亮显示复制区域</a></li>
+        <li><a href="#代码折叠插件">代码折叠插件</a></li>
+        <li><a href="#简单使用-2">简单使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#主题安装与配置">主题安装与配置</a>
+      <ul>
+        <li><a href="#before-we-begin">Before we begin</a></li>
+        <li><a href="#主题安装介绍">主题安装介绍</a></li>
+      </ul>
+    </li>
+    <li><a href="#如何找到更多有用的插件">如何找到更多有用的插件？</a></li>
+    <li><a href="#更改显示字体">更改显示字体</a></li>
+    <li><a href="#内置-terminal">内置 terminal</a></li>
+    <li><a href="#neovim-与-vim-的不同">Neovim 与 Vim 的不同</a>
+      <ul>
+        <li><a href="#支持-bracketed-paste-mode">支持 bracketed paste mode</a></li>
+        <li><a href="#neovim-is-all-nocompatible">Neovim is all <code>nocompatible</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#一些小问题">一些小问题</a>
+      <ul>
+        <li><a href="#在-tmux-中nvim-的主题颜色显示有问题">在 Tmux 中，Nvim 的主题颜色显示有问题</a></li>
+        <li><a href="#如何记录-neovim-启动时候的-log">如何记录 Neovim 启动时候的 log</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+ 
+<script>
+  (function () {
+    var $toc = $('#TableOfContents');
+    if ($toc.length > 0) {
+      var $window = $(window);
+
+      function onScroll() {
+        var currentScroll = $window.scrollTop();
+        var h = $('.anchor');
+        var id = "";
+        h.each(function (i, e) {
+          e = $(e);
+          if (e.offset().top - $(window).height()/3 <= currentScroll) {
+            id = e.attr('id');
+          }
+        });
+        var active = $toc.find('a.active');      
+        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+        active.each(function (i, e) {
+           
+            $(e).removeClass('active').siblings('ul').hide();
+          
+        });
+        $toc.find('a[href="#' + id + '"]').addClass('active')
+        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+          $(e).children('a').parents('ul').show();          
+        });
+      }
+
+      $window.on('scroll', onScroll);
+      $(document).ready(function () {
+         
+          $toc.find('a').parent('li').find('ul').hide();
+        
+        onScroll();
+      });
+    }
+  })();
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-39-49.jpg" width="800">
+</p>
+<p>我的完整 Neovim 配置可以点<a href="https://github.com/jdhao/nvim-config"   target="_blank">
+    这里</a>查看。</p>
+<p><strong>2022-01-29: 本文写于三年以前，其中提到的一些插件已经不再维护，或者对于 Neovim 不是最佳选择，甚至还有一些插件被 Nvim 自带的功能所替代，例如，<a href="https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/#neovim-only"   target="_blank">
+    从 2020.05 开始，highlighted yank 开始内置</a>。我在 <a href="https://jdhao.github.io/2021/12/31/using_nvim_after_three_years/#what-remains-what-has-changed-and-some-new-plugins"   target="_blank">
+     这篇博文</a> 分享了一些插件迁移的事情。</strong></p>
+<p>Vim 是一款主要流行于 *nix 系统上的强大的编辑器，另外一款可以与之媲美的编辑器是 Emacs，这两款编辑器广泛流行于程序员群体，<a href="https://en.wikipedia.org/wiki/Editor_war"   target="_blank">
+    关于谁是编辑器之王的争论经久不息</a>。Vim 的功能虽然强大，但是作为一款「古老」的编辑器<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>，也不是没有缺点：随着 Vim 代码量的增加，维护变得日益困难，不利于快速增加新功能；另外，它的主要开发者目前只有一个人，<a href="https://en.wikipedia.org/wiki/Bram_Moolenaar"   target="_blank">
+    Bram Moolenaar</a>，也不符合当今开源社区多人协作的习惯。为了克服 Vim 的这些缺点，保留 Vim 的优点（最大程度兼容 Vim），让 Vim 的开发能有更快的迭代速度，<a href="https://neovim.io/"   target="_blank">
+    Neovim</a> 项目诞生了。本文介绍如何安装 Neovim 并配置 Python 开发环境(在以下叙述中，Neovim 和 Nvim 含义相同，不再加以区分)<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
+<h1 class="relative group">安装 Nvim 
+    <div id="%E5%AE%89%E8%A3%85-nvim" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%89%E8%A3%85-nvim" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Neovim 有针对 Linux 系统的统一的 <a href="https://appimage.org/"   target="_blank">
+    appimage</a> 格式的可执行文件，可以直接从 Neovim <a href="https://github.com/neovim/neovim/releases"   target="_blank">
+    GitHub release 页面</a>下载。下载以后，先赋予文件可执行权限，</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod u+x nvim.appimage
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>为了方便使用，可以在 Neovim 的安装目录下建立软链接，用 <code>nvim</code> 来作为该可执行文件的外部名称：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ln -s nvim.appimage nvim
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>接下来，我们需要将 Neovim 的安装目录加入到系统的 <code>$PATH</code> 变量，编辑<code>.bash_profile</code> 文件，把 Neovim 的安装目录（假设为 <code>$HOME/tools/nvim</code>）加入到<code>$PATH</code>变量:</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#81a1c1">export</span> PATH<span style="color:#81a1c1">=</span>$HOME/tools/nvim:$PATH
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>保存文件，然后 <code>source .bash_profile</code>，使更改生效。</p>
+<p>至此，Neovim 安装完成。这样设置以后，在命令行使用 <code>nvim</code> 命令即可打开 Neovim。</p>
+
+
+<h1 class="relative group">Nvim 的配置文件 
+    <div id="nvim-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#nvim-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Neovim 使用的配置文件和 Vim 不同，需要在 <code>~/.config/nvim/</code> 目录下创建文件 <code>init.vim</code> ，该文件就是 Neovim 的配置文件，Neovim 所有的配置都可以放入其中。</p>
+<p>由于 Neovim 是基于 Vim 开发的，所以 Neovim 和 Vim 的绝大多数配置都是相同的，如果之前使用过 Vim，可以把之前的配置的大部分拷贝过来使用。关于 Neovim 和 Vim 的不同，可以参见<a href="https://neovim.io/doc/user/vim_diff.html"   target="_blank">
+    这里</a>。</p>
+
+
+<h1 class="relative group">使用插件管理器 vim-plug 
+    <div id="%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8-vim-plug" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8-vim-plug" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Vim 之所以强大，一个很重要的原因是存在很多插件，在 Vim 漫长的发展过程中，无数开发者为 Vim 贡献了插件，这些插件可以实现各种各样的功能。如果安装插件很多，插件管理成为一个麻烦的问题。Neovim 和 Vim 一样，并没有自带插件管理器，我们需要自己安装插件管理器。经过搜索和比较，发现有两款比较有名的插件管理器在 Nvim 用户中流行，分别是 <a href="https://github.com/Shougo/dein.vim"   target="_blank">
+    dein</a> 和 <a href="https://github.com/junegunn/vim-plug"   target="_blank">
+    vim-plug</a>. Vim-plug 的 user base 更大，最后我决定安装 vim-plug，以下为 vim-plug 安装以及简单的使用说明。</p>
+
+
+<h2 class="relative group">vim-plug 安装 
+    <div id="vim-plug-%E5%AE%89%E8%A3%85" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#vim-plug-%E5%AE%89%E8%A3%85" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ol>
+<li>安装 vim-plug 这个插件本身，运行以下命令安装：</li>
+</ol>
+<pre tabindex="0"><code>curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+</code></pre><p>安装 vim-plug 以后，可能需要退出 Nvim 重新进入。</p>
+<ol start="2">
+<li>编辑 <code>init.vim</code> 文件，在该文件中加入 vim-plug 配置部分，以下为一个示例配置（改编自 vim-plug GitHub 主页，见<a href="https://github.com/junegunn/vim-plug#usage"   target="_blank">
+    这里</a>）：</li>
+</ol>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>call plug#begin<span style="color:#81a1c1">(</span><span style="color:#a3be8c">&#39;~/.local/share/nvim/plugged&#39;</span><span style="color:#81a1c1">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>call plug#end<span style="color:#81a1c1">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>所有其它插件的安装都要放在两个 <code>call</code> 命令之间，下面不再赘述。</p>
+
+
+<h2 class="relative group">vim-plug 使用 
+    <div id="vim-plug-%E4%BD%BF%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#vim-plug-%E4%BD%BF%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>以下命令均在 Nvim 命令模式下使用</p>
+<ul>
+<li>安装插件：<code>:PlugInstall</code></li>
+<li>更新插件：<code>:PlugUpdate</code></li>
+<li>删除插件：<code>:PlugClean</code> （首先在 <code>init.vim</code> 中，注释掉该插件，然后打开 Nvim，使用 <code>:PlugClean</code> 命令清除该插件）</li>
+<li>查看插件状态：<code>:PlugStatus</code></li>
+<li>升级 vim-plug：<code>:PlugUpgrade</code></li>
+</ul>
+
+
+<h3 class="relative group">暂时禁用某个插件 
+    <div id="%E6%9A%82%E6%97%B6%E7%A6%81%E7%94%A8%E6%9F%90%E4%B8%AA%E6%8F%92%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9A%82%E6%97%B6%E7%A6%81%E7%94%A8%E6%9F%90%E4%B8%AA%E6%8F%92%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>如果想暂时禁用某个插件，但是不删除它，有两种方式。</p>
+<ol>
+<li>在 inti.vim 中注释掉该插件，重新打开 Nvim 即可</li>
+<li>参考<a href="https://github.com/junegunn/vim-plug/issues/369"   target="_blank">
+    这里</a>给出的解决方法，如果要禁用插件 <code>foo/bar</code>，使用如下设置</li>
+</ol>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Plug <span style="color:#a3be8c">&#39;foo/bar&#39;</span>, <span style="color:#81a1c1">{</span> <span style="color:#a3be8c">&#39;on&#39;</span>: <span style="color:#81a1c1">[]</span> <span style="color:#81a1c1">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h1 class="relative group">常用插件安装与配置 
+    <div id="%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">自动补全插件 deoplete 
+    <div id="%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%E6%8F%92%E4%BB%B6-deoplete" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8%E6%8F%92%E4%BB%B6-deoplete" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><a href="https://github.com/Shougo/deoplete.nvim"   target="_blank">
+    deoplete</a> 是一款和 YouCompleteMe 类似的自动补全插件，官方对它的描述为：</p>
+<blockquote>
+<p>Deoplete is the abbreviation of &ldquo;dark powered neo-completion&rdquo;. It provides an
+extensible and asynchronous completion framework for neovim/Vim8.</p>
+</blockquote>
+<p>准确来说，它其实是一款自动补全的引擎，具体对某种编程语言的自动补全支持，要安装对应的<a href="https://github.com/Shougo/deoplete.nvim/wiki/Completion-Sources"   target="_blank">
+    source</a> 才能真正工作.</p>
+<p>deoplete 安装相对简单，在 vim-plug 的设置里加入以下配置：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-6-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Plug <span style="color:#a3be8c">&#39;Shougo/deoplete.nvim&#39;</span>, <span style="color:#81a1c1">{</span> <span style="color:#a3be8c">&#39;do&#39;</span>: <span style="color:#a3be8c">&#39;:UpdateRemotePlugins&#39;</span> <span style="color:#81a1c1">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>关于 deoplete 的配置，官方并未在 GitHub 主页多说，只给出了一个配置选项：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-7-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#81a1c1">let</span> g:deoplete#enable_at_startup <span style="color:#81a1c1">=</span> <span style="color:#b48ead">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>更多选项以及对应的含义，可以在 Nvim 中输入 <code>:h deoplete-options</code> 查看。</p>
+<p>如前面所说，deoplete 对不同编程语言的支持需要安装不同的 source，下面给出 Python语言的 source 配置，供参考。</p>
+
+
+<h3 class="relative group">安装 deoplete-jedi 
+    <div id="%E5%AE%89%E8%A3%85-deoplete-jedi" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%89%E8%A3%85-deoplete-jedi" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Deoplete-jedi 是和 deoplete 配合使用的 Python source。安装以及配置步骤如下：</p>
+<ol>
+<li>需要安装的其他库</li>
+</ol>
+<p>首先，我们需要安装 <a href="https://github.com/neovim/pynvim"   target="_blank">
+    pynvim</a>，</p>
+<pre tabindex="0"><code>pip install pynvim
+</code></pre><p>接着，安装 <a href="https://github.com/davidhalter/jedi"   target="_blank">
+    jedi</a>. 如果你安装了最新的 Anaconda Python 发行版，jedi 已经安装了，否则，采用 pip 安装即可，</p>
+<pre tabindex="0"><code>pip install jedi
+</code></pre><ol start="2">
+<li>安装与配置 deoplete-jedi 插件</li>
+</ol>
+<p>编辑 Nvim 的配置文件 <code>init.vim</code>，在 vim-plugin 部分，加入以下命令：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-10-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Plug <span style="color:#a3be8c">&#39;zchee/deoplete-jedi&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后安装 deoplete-jedi，如果没有问题，现在你已经可以使用自动补全了！使用 Nvim打开一个 Python 源文件，试着编辑一下，你会看到类似下图的自动补全菜单：</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/18-9-20/62954414.jpg" width="800">
+</p>
+
+
+<h3 class="relative group">Deoplete 的使用 
+    <div id="deoplete-%E7%9A%84%E4%BD%BF%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#deoplete-%E7%9A%84%E4%BD%BF%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>如何在自动补全给出的函数或者类的列表中上下移动选择？</li>
+</ol>
+<p>参考<a href="https://stackoverflow.com/questions/3842543/vim-auto-complete-navigation"   target="_blank">
+    这里</a>的答案，可以使用 <code>Ctrl + N</code> 以及 <code>Ctrl + P</code> 在列表项目中进行切换。</p>
+<ol start="2">
+<li>函数方法 Preview 的窗口如何自动关闭？</li>
+</ol>
+<p>在自动补全给出的列表中移动的时候，Nvim 的上半部分会出现一个很小的窗口，提示当前方法的参数，但是该窗口在自动补全完成后并不能自动消失，参考<a href="https://github.com/Shougo/deoplete.nvim/issues/115"   target="_blank">
+    这里</a>，可以使用下面的设置使得窗口自动消失：</p>
+<pre tabindex="0"><code>autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+</code></pre><ol start="3">
+<li>Preview 窗口的可以设为在当前窗口下面打开吗？</li>
+</ol>
+<p>默认 preview 窗口在上面打开，可以通过 <code>set splitbelow</code> 使新建立的窗口位于当前窗口下面，参见<a href="https://github.com/Shougo/deoplete.nvim/issues/416"   target="_blank">
+    这里</a>。</p>
+<ol start="4">
+<li>如何设定为使用 <code>Tab</code> 键在自动补全的列表跳转？</li>
+</ol>
+<p>在 Nvim 的配置中，加入如下设置即可：</p>
+<pre tabindex="0"><code>inoremap &lt;expr&gt;&lt;tab&gt; pumvisible() ? &#34;\&lt;c-n&gt;&#34; : &#34;\&lt;tab&gt;&#34;
+</code></pre>
+
+<h2 class="relative group">状态栏插件 vim-airline 
+    <div id="%E7%8A%B6%E6%80%81%E6%A0%8F%E6%8F%92%E4%BB%B6-vim-airline" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%8A%B6%E6%80%81%E6%A0%8F%E6%8F%92%E4%BB%B6-vim-airline" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>原生的 Nvim 状态栏比较简单，不像 Sublime Text 那样，状态栏可以显示很多信息。有一款不错的插件 <a href="https://github.com/vim-airline/vim-airline"   target="_blank">
+    vim-airline</a> 可以实现类似 Sublime Text 的功能。在 vim-plugin 安装区加入以下命令：</p>
+<pre tabindex="0"><code>Plug &#39;vim-airline/vim-airline&#39;
+</code></pre><p>然后运行 <code>PlugInstall</code> 安装该插件，重启 Nvim 可以看到更新后的状态栏。</p>
+
+
+<h3 class="relative group">切换 vim-airline 主题 
+    <div id="%E5%88%87%E6%8D%A2-vim-airline-%E4%B8%BB%E9%A2%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%87%E6%8D%A2-vim-airline-%E4%B8%BB%E9%A2%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>vim-airline 提供了很多主题来个性化状态栏，不同主题的样子可以参见<a href="https://github.com/vim-airline/vim-airline/wiki/Screenshots"   target="_blank">
+    这里</a>。更改vim-airline 主题方式很简单，首先安装插件<a href="https://github.com/vim-airline/vim-airline-themes"   target="_blank">
+    vim-airlinetheme</a>:</p>
+<pre tabindex="0"><code>Plug &#39;vim-airline/vim-airline-themes&#39;
+</code></pre><p>然后，在 Nvim 配置文件中，加入以下设置，</p>
+<pre tabindex="0"><code>let g:airline_theme=&#39;&lt;theme&gt;&#39; &#34; &lt;theme&gt; 代表某个主题的名称
+</code></pre>
+
+<h2 class="relative group">自动引号&amp;括号补全 
+    <div id="%E8%87%AA%E5%8A%A8%E5%BC%95%E5%8F%B7%E6%8B%AC%E5%8F%B7%E8%A1%A5%E5%85%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%87%AA%E5%8A%A8%E5%BC%95%E5%8F%B7%E6%8B%AC%E5%8F%B7%E8%A1%A5%E5%85%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>输入引号，括号时，经常希望能够自动输入一对，原始的 Nvim 不支持这样的功能，可以使用 <a href="https://github.com/jiangmiao/auto-pairs"   target="_blank">
+    auto-paris</a> 插件帮助我们实现这样的功能。插件安装：</p>
+<pre tabindex="0"><code>Plug &#39;jiangmiao/auto-pairs&#39;
+</code></pre>
+
+<h3 class="relative group">使用方法 
+    <div id="%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>以引号输入为例，说明如何使用这个插件。按下 <code>&quot;</code>，会自动变成双引号<code>&quot;&quot;</code>，此时光标位于双引号的中间，等待插入文本，文本插入结束以后，通常我们希望把光标置于右边引号的后面继续输入，此时，再按一次 <code>&quot;</code>，光标就会跳转到右边引号的后面，等待我们继续输入文本。</p>
+
+
+<h2 class="relative group">注释插件 
+    <div id="%E6%B3%A8%E9%87%8A%E6%8F%92%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B3%A8%E9%87%8A%E6%8F%92%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>不同编程语言中注释的表示方法不尽相同，如果能够根据当前编辑文件对应的编程语言自动选择合适的注释符号，将是极好的。<a href="https://github.com/scrooloose/nerdcommenter"   target="_blank">
+    nerdcommenter</a> 就是这样一款插件。安装插件：</p>
+<pre tabindex="0"><code>Plug &#39;scrooloose/nerdcommenter&#39;
+</code></pre><p>注释单行，使用 <code>&lt;leader&gt;cc</code>，其中 <a href="https://stackoverflow.com/q/1764263/6064933"   target="_blank">
+    leader</a> 是在 Nvim 中设置的前导按键（Nvim 中默认为 <code>/</code>）；如果要反注释，使用 <code>&lt;leader&gt;cu</code>。更多具体使用方法可以参考<a href="https://github.com/scrooloose/nerdcommenter#default-mappings"   target="_blank">
+    插件的文档</a>。</p>
+
+
+<h2 class="relative group">代码自动 format 插件 
+    <div id="%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8-format-%E6%8F%92%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8-format-%E6%8F%92%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><a href="https://github.com/sbdchd/neoformat"   target="_blank">
+    neoformat</a> 可以对源代码自动 format。安装
+：</p>
+<pre tabindex="0"><code>Plug &#39;sbdchd/neoformat&#39;
+</code></pre><p>对于 Python 代码，neoformat 需要配合 Python 的自动格式化工具（称为 <code>formatter</code>）来使用，这里以 <a href="https://github.com/google/yapf#installation"   target="_blank">
+    yapf</a> 为例说明，首先安装该格式化工具：</p>
+<pre tabindex="0"><code>pip install yapf
+</code></pre><p>然后，neoformat 在格式化 Python 代码的时候就可以使用 <code>yapf</code> formatter 了。</p>
+<p>如何格式化代码？命令模式下，输入 <code>:Neoformat</code>，该插件会对源代码进行自动 format。还有一款 <a href="https://github.com/Chiel92/vim-autoformat"   target="_blank">
+    vim-autoformat</a>，也可以尝试一下。</p>
+<p>如果 neoformat 没有检测到文件类型，或者没有插件，也可以设置以下命令，让 neoformat 对文件做简单的 format：</p>
+<pre tabindex="0"><code>&#34; Enable alignment
+let g:neoformat_basic_format_align = 1
+
+&#34; Enable tab to spaces conversion
+let g:neoformat_basic_format_retab = 1
+
+&#34; Enable trimmming of trailing whitespace
+let g:neoformat_basic_format_trim = 1
+</code></pre>
+
+<h2 class="relative group">代码跳转(go-to)插件 
+    <div id="%E4%BB%A3%E7%A0%81%E8%B7%B3%E8%BD%ACgo-to%E6%8F%92%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BB%A3%E7%A0%81%E8%B7%B3%E8%BD%ACgo-to%E6%8F%92%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>我们经常需要跳转到类，方法等的定义，查看实现细节，可以使用 <a href="https://github.com/davidhalter/jedi-vim"   target="_blank">
+    jedi-vim</a> 实现，实际上，jedi-vim 还可以进行 Python 代码的自动补全，但是由于我们已经安装了 deoplete 和 deoplete-jedi进行自动补全，所以将 jedi-vim 的自动补全功能关闭，只使用代码跳转功能。</p>
+<p>安装：</p>
+<pre tabindex="0"><code>Plug &#39;davidhalter/jedi-vim&#39;
+</code></pre><p>jedi-vim 配置如下，</p>
+<pre tabindex="0"><code>&#34; disable autocompletion, cause we use deoplete for completion
+let g:jedi#completions_enabled = 0
+
+&#34; open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = &#34;right&#34;
+</code></pre>
+
+<h3 class="relative group">使用 
+    <div id="%E4%BD%BF%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BD%BF%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><code>&lt;leader&gt;d</code>: go to definition</li>
+<li><code>K</code>: check documentation of class or method</li>
+<li><code>&lt;leader&gt;n</code>: show the usage of a name in current file</li>
+<li><code>&lt;leader&gt;r</code>: rename a name</li>
+</ul>
+
+
+<h2 class="relative group">文件管理器 nerdtree 
+    <div id="%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8-nerdtree" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8-nerdtree" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20181223190958.png" width="800">
+</p>
+<p>使用过 GUI 代码编辑器的人都知道，编辑器左边一般是项目文件浏览窗口，在 Nvim 中如何实现这一功能呢？可以安装 <a href="https://github.com/scrooloose/nerdtree"   target="_blank">
+    nerdtree</a> 来实现。安装：</p>
+<pre tabindex="0"><code>Plug &#39;scrooloose/nerdtree&#39;
+</code></pre>
+
+<h3 class="relative group">简单使用 
+    <div id="%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>如何打开 nerdtree 文件浏览窗口？</li>
+</ol>
+<p>直接在命令模式输入<code>:NERDTree</code> 即可打开当前编辑文件所在的目录。</p>
+<ol start="2">
+<li>如何在文件窗口与 file explorer 窗口切换？</li>
+</ol>
+<p>按住 <code>Ctrl</code>, 双击 <code>w</code> 可以在两个窗口之间切换。</p>
+<ol start="3">
+<li>如何打开 file explorer 中某个文件？</li>
+</ol>
+<p>把光标移动到该文件，然后按 <code>o</code>，即可在右边窗口打开该文件。</p>
+<ol start="4">
+<li>如何退出 file explorer 窗口？</li>
+</ol>
+<p>在该窗口直接按 <code>q</code> 即可退出。</p>
+<p>更多个性化设置，可以参考<a href="https://jdhao.github.io/2018/09/10/nerdtree_usage/"   target="_blank">
+    这篇</a>。</p>
+
+
+<h2 class="relative group">代码检查工具 
+    <div id="%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><a href="https://github.com/neomake/neomake"   target="_blank">
+    Neomake</a> 是为 Nvim 做的一款代码语法检查和自动化 make 工具。安装：</p>
+<pre tabindex="0"><code>Plug &#39;neomake/neomake&#39;
+</code></pre><p>Neomake 对不同编程语言的检查依赖各种 linter，安装 Neomake 以后，针对要使用的编程语言，我们还需要安装对应的 linter。各种编程语言支持的 linter 列表见<a href="https://github.com/neomake/neomake/wiki/Makers"   target="_blank">
+    这里</a>。</p>
+<p>对于 Python，我们可以使用 <a href="https://www.pylint.org/"   target="_blank">
+    pylint</a> 作为 linter。直接使用 pip 或 conda 安装 pylint：</p>
+<pre tabindex="0"><code>conda install pylint
+</code></pre><p>安装 pylint 以后，在 init.vim 中指定使用它作为 Python 代码检查器</p>
+<pre tabindex="0"><code>let g:neomake_python_enabled_makers = [&#39;pylint&#39;]
+</code></pre>
+
+<h3 class="relative group">代码检查 
+    <div id="%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>命令模式下，使用 <code>:Neomake</code> 命令检查代码正确性。或者也可以<a href="https://github.com/neomake/neomake#setup"   target="_blank">
+    设置自动检查</a>，在 Nvim 配置文件中，加入以下设置：</p>
+<pre tabindex="0"><code>call neomake#configure#automake(&#39;nrwi&#39;, 500)
+</code></pre>
+
+<h2 class="relative group">多点编辑插件 vim-multiple-cursors 
+    <div id="%E5%A4%9A%E7%82%B9%E7%BC%96%E8%BE%91%E6%8F%92%E4%BB%B6-vim-multiple-cursors" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A4%9A%E7%82%B9%E7%BC%96%E8%BE%91%E6%8F%92%E4%BB%B6-vim-multiple-cursors" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>使用过 <a href="https://www.sublimetext.com/"   target="_blank">
+    Sublime Text</a> 的人应该都对 Sublime Text中多点编辑功能爱不释手，这个功能对于代码重构非常实用，如何在 Nvim 中使用类似的功能呢？可以借助于 <a href="https://github.com/terryma/vim-multiple-cursors"   target="_blank">
+    vim-multiple-cursors</a>。安装：</p>
+<pre tabindex="0"><code>Plug &#39;terryma/vim-multiple-cursors&#39;
+</code></pre>
+
+<h3 class="relative group">简单使用 
+    <div id="%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>命令模式下，首先把光标移动到要重命名的变量处，然后开始按 <code>Ctrl + N</code>，可以看到变量被高亮，继续按 <code>Ctrl + N</code>，变量下一个出现的地方被高亮显示，如果要跳过某个位置该变量的出现（例如，字符串中也可能包含与该变量名相同的子字符串），在该处被高亮以后，再按 <code>Ctrl + X</code> 取消高亮即可，不断选中变量的出现位置，直到所有想要选中的位置均选中完毕。</p>
+<p>此时，按下 <code>c</code>（<code>c</code> 在 Nvim 中代表 <em>change</em> ）,进入编辑模式，输入变量新的名称，保存即可。更多使用方法，请参考该插件的文档。</p>
+
+
+<h3 class="relative group">参考 
+    <div id="%E5%8F%82%E8%80%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%82%E8%80%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><a href="https://github.com/neovim/neovim/issues/3845"   target="_blank">
+    https://github.com/neovim/neovim/issues/3845</a></li>
+<li><a href="https://github.com/neovim/neovim/issues/211"   target="_blank">
+    https://github.com/neovim/neovim/issues/211</a></li>
+<li><a href="https://github.com/neovim/neovim/issues/7257"   target="_blank">
+    https://github.com/neovim/neovim/issues/7257</a></li>
+<li><a href="https://github.com/onivim/oni/issues/184"   target="_blank">
+    https://github.com/onivim/oni/issues/184</a></li>
+</ul>
+
+
+<h2 class="relative group">高亮显示复制区域 
+    <div id="%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA%E5%A4%8D%E5%88%B6%E5%8C%BA%E5%9F%9F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%AB%98%E4%BA%AE%E6%98%BE%E7%A4%BA%E5%A4%8D%E5%88%B6%E5%8C%BA%E5%9F%9F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Nvim 中，使用 <code>y</code> 复制文本以后，不会提示复制了哪些文本，除非使用者非常熟悉 Nvim按键，否则可能会多复制或少复制部分字符。<a href="https://github.com/machakann/vim-highlightedyank"   target="_blank">
+    vim-highlightedyank</a> 这款插件可以在复制（yank）文本以后高亮提示哪些文本被复制了，非常实用。安装：</p>
+<pre tabindex="0"><code>Plug &#39;machakann/vim-highlightedyank&#39;
+</code></pre><p>通常情况下，安装插件以后不需要做任何设置即可使用，但是对于某些主题，高亮的颜色可能看不清楚，可以在 Nvim 设置中加入以下命令：</p>
+<pre tabindex="0"><code>hi HighlightedyankRegion cterm=reverse gui=reverse
+</code></pre><p>如果觉得高亮显示的时间太短，可以设置增加高亮显示的时间（单位为毫秒）：</p>
+<pre tabindex="0"><code>let g:highlightedyank_highlight_duration = 1000 &#34; 高亮持续时间为 1000 毫秒
+</code></pre>
+
+<h2 class="relative group">代码折叠插件 
+    <div id="%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%8F%92%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BB%A3%E7%A0%81%E6%8A%98%E5%8F%A0%E6%8F%92%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>对于很长的代码，折叠代码有助于理清代码整体结构。<a href="https://github.com/tmhedberg/SimpylFold"   target="_blank">
+    SimplyFold</a> 是一款不错代码折叠插件。安装：</p>
+<pre tabindex="0"><code>Plug &#39;tmhedberg/SimpylFold&#39;
+</code></pre><p>安装以后不用进行设置，开箱即用。</p>
+
+
+<h2 class="relative group">简单使用 
+    <div id="%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><code>zo</code>： 打开光标处的 fold</li>
+<li><code>zO</code>： 递归打开光标处所有 fold</li>
+<li><code>zc</code>： 关闭光标处 fold</li>
+<li><code>zC</code>： 关闭光标处所有 fold</li>
+</ul>
+
+
+<h1 class="relative group">主题安装与配置 
+    <div id="%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Before we begin 
+    <div id="before-we-begin" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#before-we-begin" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Neovim 自带了几款主题（colorscheme），你可能不喜欢，想要安装个性化主题。安装主题相对比较简单，但是，某些 SSH 程序对颜色的支持似乎有问题，导致主题安装以后，并不能很好工作。经过试用多款 Windows 系统下的 SSH 软件，最终发现<a href="https://www.emtec.com/zoc/index.html"   target="_blank">
+    ZOC</a> 最好用，当然<a href="https://www.cygwin.com/"   target="_blank">
+    Cygwin</a> 也是不错的选择。更多的 SSH 软件，可以参考<a href="https://gist.github.com/XVilka/8346728#here-are-terminals-discussions"   target="_blank">
+    这里</a>给出的支持 true color 的 SSH 客户端。</p>
+
+
+<h2 class="relative group">主题安装介绍 
+    <div id="%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85%E4%BB%8B%E7%BB%8D" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85%E4%BB%8B%E7%BB%8D" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><a href="https://github.com/morhetz/gruvbox"   target="_blank">
+    gruvbox</a> 是一款 Vim 主题。在 vim-plug 安装插件部分，加入以下指令：</p>
+<pre tabindex="0"><code>Plug &#39;morhetz/gruvbox&#39;
+</code></pre><p>运行 <code>:PlugInstall</code> 安装该主题。</p>
+<p>在 Nvim 配置文件中加入</p>
+<pre tabindex="0"><code>colorscheme gruvbox
+</code></pre><p>即可启用该主题，主题有两个模式，分别为 <code>dark</code> 和 <code>light</code>，可以使用下面的命令进行切换:</p>
+<pre tabindex="0"><code>set background=dark &#34; 或者 set background=light
+</code></pre><p>重启 Nvim，你将会看到主题的变化。在我的 Mac 上，主题显示如下：</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-55-23.jpg" width="800">
+</p>
+
+
+<h1 class="relative group">如何找到更多有用的插件？ 
+    <div id="%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0%E6%9B%B4%E5%A4%9A%E6%9C%89%E7%94%A8%E7%9A%84%E6%8F%92%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0%E6%9B%B4%E5%A4%9A%E6%9C%89%E7%94%A8%E7%9A%84%E6%8F%92%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>有个叫做 <a href="https://vimawesome.com/"   target="_blank">
+    vimawesome</a> 的网站收集了很多不同类型 vim 插件的信息，可以在这个网站寻找合适的插件来尝试。另外，很多 Vim 插件都发布在GitHub 上，可以直接在 GitHub 上搜索 vim 和相关的关键词查找插件，例如，搜索 &ldquo;vim colorscheme&rdquo; 或 &ldquo;vim theme&quot;可以查找为 vim 设计的主题。</p>
+
+
+<h1 class="relative group">更改显示字体 
+    <div id="%E6%9B%B4%E6%94%B9%E6%98%BE%E7%A4%BA%E5%AD%97%E4%BD%93" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9B%B4%E6%94%B9%E6%98%BE%E7%A4%BA%E5%AD%97%E4%BD%93" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Nvim 会自动使用 ssh 客户端设置的字体，所以在客户端设置字体即可。一些比较不错的编程字体有：</p>
+<ul>
+<li><a href="https://github.com/tonsky/FiraCode"   target="_blank">
+    FiraCode</a></li>
+<li><a href="https://github.com/adobe-fonts/source-code-pro"   target="_blank">
+    Source Code Pro</a></li>
+<li><a href="https://github.com/source-foundry/Hack"   target="_blank">
+    Hack</a></li>
+</ul>
+
+
+<h1 class="relative group">内置 terminal 
+    <div id="%E5%86%85%E7%BD%AE-terminal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%86%85%E7%BD%AE-terminal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Neovim 原生支持 terminal，<a href="https://neovim.io/doc/user/nvim_terminal_emulator.html"   target="_blank">
+    内置了 terminal emulator</a>，可以直接在 Neovim 内运行 shell，对于一些临时的 shell 操作非常方便。打开的方式为在命令模式下输入 <code>:terminal</code> 或者输入 <code>vnew term://bash</code>(表示在水平方向再打开一个bash shell) 或者 <code>new term://bash</code>（在垂直方向打开一个 bash shell）。</p>
+<p>进入 terminal 后，默认是命令状态，不能输入文字，按 <code>i</code> 开始输入命令。如何退出terminal window 的插入状态？按<a href="https://vi.stackexchange.com/questions/4919/exit-from-terminal-mode-in-neovim"   target="_blank">
+    <code>&lt;Ctrl+\&gt;&lt;Ctrl+N&gt;</code></a>。</p>
+<p>要退出 terminal 窗口，输入 <code>exit</code> 即可，此时 terminal 的窗口将关闭。</p>
+
+
+<h1 class="relative group">Neovim 与 Vim 的不同 
+    <div id="neovim-%E4%B8%8E-vim-%E7%9A%84%E4%B8%8D%E5%90%8C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#neovim-%E4%B8%8E-vim-%E7%9A%84%E4%B8%8D%E5%90%8C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">支持 bracketed paste mode 
+    <div id="%E6%94%AF%E6%8C%81-bracketed-paste-mode" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%94%AF%E6%8C%81-bracketed-paste-mode" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Neovim 官方文档指出 Neovim 支持 <a href="https://cirw.in/blog/bracketed-paste"   target="_blank">
+    bracketed paste mode</a>，因此 Vim 中的 <code>paste</code> 选项已经过时了，在 Neovim 中使用 <code>:h paste</code>，可以看到如下的说明：</p>
+<blockquote>
+<p>This option is obsolete; bracketed-paste-mode is built-in.</p>
+</blockquote>
+
+
+<h2 class="relative group">Neovim is all <code>nocompatible</code> 
+    <div id="neovim-is-all-nocompatible" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#neovim-is-all-nocompatible" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>在 Neovim 界面，使用 <code>:h compatible</code>，给出的信息可以看到，</p>
+<blockquote>
+<p>Nvim is always &ldquo;nocompatible&rdquo;</p>
+</blockquote>
+
+
+<h1 class="relative group">一些小问题 
+    <div id="%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">在 Tmux 中，Nvim 的主题颜色显示有问题 
+    <div id="%E5%9C%A8-tmux-%E4%B8%ADnvim-%E7%9A%84%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA%E6%9C%89%E9%97%AE%E9%A2%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9C%A8-tmux-%E4%B8%ADnvim-%E7%9A%84%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E6%98%BE%E7%A4%BA%E6%9C%89%E9%97%AE%E9%A2%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>首先，如果你的终端模拟器支持真彩色，那么需要先安装最新版本的 tmux<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>。然后把如下配置加入到 tmux 配置文件 (<code>~/.tmux.conf</code>) 中 (参考 <a href="https://github.com/tmux/tmux/issues/699"   target="_blank">
+    这里</a>)：</p>
+<pre tabindex="0"><code class="language-tmux" data-lang="tmux">set -g default-terminal &#34;screen-256color&#34;
+set -ga terminal-overrides &#34;,xterm-256color*:Tc&#34;
+</code></pre><p>然后颜色显示应该会正常。如果你使用的终端不支持真彩色，那么就在 Neovim 的配置中加入下面的设置：</p>
+<div class="highlight"><div style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#6c6f74" id="hl-37-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-37-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">set</span> notermguicolors
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>更多的讨论参考<a href="https://stackoverflow.com/q/10158508/6064933"   target="_blank">
+    这里</a>.</p>
+
+
+<h2 class="relative group">如何记录 Neovim 启动时候的 log 
+    <div id="%E5%A6%82%E4%BD%95%E8%AE%B0%E5%BD%95-neovim-%E5%90%AF%E5%8A%A8%E6%97%B6%E5%80%99%E7%9A%84-log" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A6%82%E4%BD%95%E8%AE%B0%E5%BD%95-neovim-%E5%90%AF%E5%8A%A8%E6%97%B6%E5%80%99%E7%9A%84-log" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>参考<a href="https://stackoverflow.com/q/3025615/6064933"   target="_blank">
+    这里</a>。使用 <code>nvim -VNUMnvim.log</code> 来启动 Neovim。 <code>NUM</code> 用来指定 log 的 verbosity 等级，例如 <code>nvim -V10nvim.log</code> 将会生成一个 verbosity 等级为 10 的 log 文件。 另外在命令行运行 <code>nvim --help</code> 也有相关帮助信息.</p>
+<p>至此，Neovim 就算配置完成了，终于可以愉快码代码了。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Vim 最初于 1991 年发布，它的前身 Vi 诞生于 1978 年。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>关于如何在 Windows 上配置 Neovim，参考<a href="https://jdhao.github.io/2018/11/15/neovim_configuration_windows/"   target="_blank">
+    这里</a>.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>参考<a href="https://jdhao.github.io/2018/10/16/tmux_build_without_root_priviledge/"   target="_blank">
+    这里</a>，安装 Tmux 最新版。&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+        </div>
+                
+        
+
+        
+
+          
+      </div>
+     
+    
+     <script>
+        var oid = "views_posts\/centos_nvim_install_use_guide.md"
+        var oid_likes = "likes_posts\/centos_nvim_install_use_guide.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.5b1bad196a6075a1e11bae1dc95f24f67b610948a00525e347566c5a62338ea78f1c7224ab9a53873dcdb2a1a7d7d391b8a8ef45561297f68806c01315b0c4f6.js" integrity="sha512-WxutGWpgdaHhG64dyV8k9nthCUigBSXjR1ZsWmIzjqePHHIkq5pThz3NsqGn19ORuKjvRVYSl/aIBsATFbDE9g=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/posts/insert-image-page-to-pdf/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >How to Replace A Page of PDF File with Another PDF</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2018-06-04 14:18:34 &#43;0800 &#43;0800">4 June 2018</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/posts/login_interactive_shell_bash/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >为什么 .bash_profile 里面的设置不生效？</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2018-09-06 00:12:53 &#43;0800 &#43;0800">6 September 2018</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      jdhao
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

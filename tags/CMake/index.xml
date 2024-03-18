@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CMake on jdhao's digital space</title><link>https://jdhao.github.io/tags/CMake/</link><description>Recent content in CMake on jdhao's digital space</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>jdhao</copyright><lastBuildDate>Sat, 12 Dec 2020 06:01:42 +0100</lastBuildDate><atom:link href="https://jdhao.github.io/tags/CMake/index.xml" rel="self" type="application/rss+xml"/><item><title>Build C++ Project with CMake -- A Simple Example</title><link>https://jdhao.github.io/2020/12/12/build_opencv_project_with_cmake/</link><pubDate>Sat, 12 Dec 2020 11:07:21 +0800</pubDate><guid>https://jdhao.github.io/2020/12/12/build_opencv_project_with_cmake/</guid><description>&lt;p>For small projects, people tend to directly invoke the compiler with the
-suitable options to build the program. While it is feasible, it is tedious to
-type those compilation options and flags. For projects with multiple source
-files and header files, it becomes inefficient to build by hand. On Linux,
-people may write &lt;a href="http://web.mit.edu/gnu/doc/html/make_2.html">Makefile&lt;/a> and
-build with &lt;a href="https://www.gnu.org/software/make/">make&lt;/a>. On Windows, people may
-use Visual Studio for writing and build their project.&lt;/p></description></item></channel></rss>

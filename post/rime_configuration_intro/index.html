@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>最新版 Rime 输入法使用 (2022 更新) &middot; Blowfish</title>
+  <meta name="title" content="最新版 Rime 输入法使用 (2022 更新) &middot; Blowfish" />
+  
+  
+  <meta name="keywords" content="Windows, Mac, IME, " />
+  
+  
+  <link rel="canonical" href="//localhost:1313/post/rime_configuration_intro/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.efe989cd11095eee5e026173915472c128b61ba8a106c22ead46741ec9255e7625dba193c53b8bb6fa5ea365248d4750e345dd71654234bdb04eadc42de91f30.css"
+    integrity="sha512-7&#43;mJzREJXu5eAmFzkVRywSi2G6ihBsIurUZ0HsklXnYl26GTxTuLtvpeo2UkjUdQ40XdcWVCNL2wTq3ELekfMA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.5200170cb3ed0adabce28870bf7ff061203bbefb075c90b7b76cc561cd376288fbd116092bd2e65b027908506b03f8fd15b5613608229bdc92f93ecf6d8faa64.js"
+    integrity="sha512-UgAXDLPtCtq84ohwv3/wYSA7vvsHXJC3t2zFYc03Yoj70RYJK9LmWwJ5CFBrA/j9FbVhNggim9yS&#43;T7PbY&#43;qZA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="最新版 Rime 输入法使用 (2022 更新)" />
+<meta property="og:description" content="
+
+
+
+更新日志
+
+2022-11-06: 更新基本概念，以及一些不清楚的地方。
+
+
+之前一直听说过 
+    Rime 这个神级输入法的大名，一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，造成 
+    Chrome 浏览器频频崩溃，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。
+值得注意，Rime 的官方文档并不是很详细，所以网上的很多配置不一定是正确的，注意自己分辨和试验。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="//localhost:1313/post/rime_configuration_intro/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-02-18T00:32:40+08:00" />
+<meta property="article:modified_time" content="2019-02-18T00:32:40+08:00" />
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="最新版 Rime 输入法使用 (2022 更新)"/>
+<meta name="twitter:description" content="
+
+
+
+更新日志
+
+2022-11-06: 更新基本概念，以及一些不清楚的地方。
+
+
+之前一直听说过 
+    Rime 这个神级输入法的大名，一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，造成 
+    Chrome 浏览器频频崩溃，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。
+值得注意，Rime 的官方文档并不是很详细，所以网上的很多配置不一定是正确的，注意自己分辨和试验。"/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "最新版 Rime 输入法使用 (2022 更新)",
+    "headline": "最新版 Rime 输入法使用 (2022 更新)",
+    
+    "abstract": "\u003cp align=\u0022center\u0022\u003e\n\u003cimg src=\u0022https:\/\/blog-resource-1257868508.file.myqcloud.com\/20190217233344.png\u0022 width=\u0022800\u0022\u003e\n\u003c\/p\u003e\n\u003cdetails\u003e\n\u003csummary\u003e\u003cfont size=\u00222\u0022 color=\u0022red\u0022\u003e更新日志\u003c\/font\u003e\u003c\/summary\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cfont color=\u0022blue\u0022\u003e2022-11-06: 更新基本概念，以及一些不清楚的地方。\u003c\/font\u003e\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/details\u003e\n\u003cp\u003e之前一直听说过 \u003ca href=\u0022https:\/\/rime.im\/\u0022   target=\u0022_blank\u0022\u003e\n    Rime\u003c\/a\u003e 这个神级输入法的大名，一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，造成 \u003ca href=\u0022https:\/\/www.v2ex.com\/t\/535393\u0022   target=\u0022_blank\u0022\u003e\n    Chrome 浏览器频频崩溃\u003c\/a\u003e，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。\u003c\/p\u003e\n\u003cp\u003e值得注意，Rime 的官方文档并不是很详细，所以网上的很多配置不一定是正确的，注意自己分辨和试验。\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "\/\/localhost:1313\/post\/rime_configuration_intro\/",
+    "author" : {
+      "@type": "Person",
+      "name": ""
+    },
+    "copyrightYear": "2019",
+    "dateCreated": "2019-02-18T00:32:40\u002b08:00",
+    "datePublished": "2019-02-18T00:32:40\u002b08:00",
+    
+    "dateModified": "2019-02-18T00:32:40\u002b08:00",
+    
+    "keywords": ["Windows","Mac","IME"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "569"
+  }]
+  </script>
+
+
+  
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Blowfish</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="About">
+        About
+    </p>
+</a>
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="About">
+            About
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      最新版 Rime 输入法使用 (2022 更新)
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2019-02-18 00:32:40 &#43;0800 &#43;0800">18 February 2019</time><span class="px-2 text-primary-500">&middot;</span><span>569 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+      
+      
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+    
+
+    
+
+    
+
+    
+    <div class="mb-5"></div>
+    
+  
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+    
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20190217233344.png" width="800">
+</p>
+<details>
+<summary><font size="2" color="red">更新日志</font></summary>
+<ul>
+<li><font color="blue">2022-11-06: 更新基本概念，以及一些不清楚的地方。</font></li>
+</ul>
+</details>
+<p>之前一直听说过 <a href="https://rime.im/"   target="_blank">
+    Rime</a> 这个神级输入法的大名，一直迟迟没有试用，一方面现有的各种输入法用着可以，另外，对于 Rime 没有 GUI 界面的配置感觉发怵。之前一直使用的是 QQ 输入法，最近一次升级，造成 <a href="https://www.v2ex.com/t/535393"   target="_blank">
+    Chrome 浏览器频频崩溃</a>，是可忍孰不可忍，正好趁此机会卸载 QQ 输入法，试试 Rime 了。关于 Rime 的配置，网上能够找到的资料实在是过于丰富，为了使文章不过于冗长，一些简单的设置我将不再重复。</p>
+<p>值得注意，Rime 的官方文档并不是很详细，所以网上的很多配置不一定是正确的，注意自己分辨和试验。</p>
+<h1 class="relative group">基本概念 
+    <div id="%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Rime 是一款输入法，你也理解它是<a href="https://github.com/rime/librime"   target="_blank">
+    输入法内核</a>。同时针对不同的平台它又有不同的前端，这些前端又有自己的名字。</p>
+<ul>
+<li>Windows：<a href="https://github.com/rime/weasel"   target="_blank">
+    weasel</a>，中文也叫“小狼毫”。</li>
+<li>macOS：<a href="https://github.com/rime/squirrel"   target="_blank">
+    squirrel</a>，中文也叫“鼠须管”。</li>
+<li>Linux：<a href="https://github.com/rime/ibus-rime"   target="_blank">
+    ibus-rime</a>，中文也叫“中州韵”。</li>
+<li>Android：<a href="https://github.com/osfans/trime"   target="_blank">
+    link</a>，中文也叫“同文输入法”。</li>
+</ul>
+<p>这是用户初次接触的时候会感觉困惑的地方。</p>
+
+
+<h1 class="relative group">Rime 的配置方式与配置目录 
+    <div id="rime-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F%E4%B8%8E%E9%85%8D%E7%BD%AE%E7%9B%AE%E5%BD%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#rime-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F%E4%B8%8E%E9%85%8D%E7%BD%AE%E7%9B%AE%E5%BD%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Rime 没有 GUI 设置界面，必需通过配置文件进行设置，这点和 Vim/Neovim 类似，它的配置文件使用 YAML 格式。每次更改配置文件以后，<strong>都必需要重新部署</strong>，新的设置才能生效。</p>
+<p>Rime 配置都放在用户配置目录下，具体位置见 <a href="https://github.com/rime/home/wiki/UserData#%e7%94%a8%e6%88%b6%e6%96%87%e4%bb%b6%e5%a4%be"   target="_blank">
+    Rime wiki</a>。</p>
+
+
+<h1 class="relative group">用户文件夹下如何配置 
+    <div id="%E7%94%A8%E6%88%B7%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%94%A8%E6%88%B7%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>网上的很多教程教用户直接在用户文件夹的 build 目录下修改 <code>default.yaml</code> ,<code>输入方案.schema.yaml</code>（这里 <code>输入方案</code> 只是某种具体方案的代称）, <code>weasel.yaml</code> 等文件，这是不正确的方式，因为 Rime 升级时，这些文件会被覆盖。
+正确的方式是，在用户文件夹下建立 <code>default.custom.yaml</code> 和 <code>{输入方案}.custom.yaml</code> (<code>{输入方案}</code> 代表某种具体输入方案), <code>weasel.custom.yaml</code> 文件，这些文件相当于是补丁，部署以后会更新到默认的配置里面。<a href="https://github.com/rime/home/wiki/CustomizationGuide#%E5%AE%9A%E8%A3%BD%E6%8C%87%E5%8D%97"   target="_blank">
+    定制指南</a>里面也有明确提到。</p>
+
+
+<h1 class="relative group">主题使用以及添加新的颜色主题 
+    <div id="%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%9A%84%E9%A2%9C%E8%89%B2%E4%B8%BB%E9%A2%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8%E4%BB%A5%E5%8F%8A%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%9A%84%E9%A2%9C%E8%89%B2%E4%B8%BB%E9%A2%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Rime 中，输入法的显示效果称为「颜色主题」(color scheme)，它已经默认带了一些主题，默认的主题在 <a href="https://github.com/rime/squirrel/blob/ba9bbf1ea7e24ba04aee51b2c4de5e098b2155a3/data/squirrel.yaml#L48"   target="_blank">
+    这里</a>可以找到。要使用默认的主题，例如使用 <code>lost_temple</code>，只要在平台配置文件（例如 mac，就是 squirrle.custom.yaml) 中添加下面的配置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">patch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">&#34;style/color_scheme&#34;: </span><span class="l">lost_temple</span><span class="w">
+</span></span></span></code></pre></div><p>在网上看到一个有趣的主题，如何添加到 Rime 中使用呢？以 Windows 平台为例，假如我们要加入<a href="https://zhuanlan.zhihu.com/p/28516904"   target="_blank">
+    这里</a>提供的「丹青」主题，在系统 custom 设置文件 (即 <code>weasel.custom.yaml</code>) 中加入以下配置即可：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">&#34;preset_color_schemes/tantsing&#34;: </span><span class="w"> </span><span class="c"># 在配色方案列表裏加入標識爲 tantsing 的新方案</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="l">Mijiag</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">back_color</span><span class="p">:</span><span class="w"> </span><span class="l">0xE3E3E3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">border_color</span><span class="p">:</span><span class="w"> </span><span class="m">0x000000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">candidate_text_color</span><span class="p">:</span><span class="w"> </span><span class="m">0x000000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">comment_text_color</span><span class="p">:</span><span class="w"> </span><span class="m">0x474747</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hilited_back_color</span><span class="p">:</span><span class="w"> </span><span class="l">0x1A0791</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hilited_candidate_back_color</span><span class="p">:</span><span class="w"> </span><span class="l">0x6F0B73</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hilited_candidate_text_color</span><span class="p">:</span><span class="w"> </span><span class="l">0xE3E3E3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">hilited_text_color</span><span class="p">:</span><span class="w"> </span><span class="l">0xE3E3E3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;丹青／Tantsing&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">text_color</span><span class="p">:</span><span class="w"> </span><span class="m">0x000000</span><span class="w">
+</span></span></span></code></pre></div><p>引用该主题的时候，使用名字 <code>tantsing</code>，</p>
+<pre tabindex="0"><code>&#34;style/color_scheme&#34;: tantsing
+</code></pre><p>效果如下：</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20190217233503.png" width="200">
+</p>
+<p>如果要自己制作 Rime 主题，<a href="https://gjrobert.github.io/Rime-See-Me-squirrel/"   target="_blank">
+    「Rime 西米」</a>是一款网页端工具，可以辅助制作，实时渲染颜色，便于查看最终显示效果。<a href="https://github.com/rime-aca/color_schemes"   target="_blank">
+    这里</a>有一些预定义的主题可供使用。</p>
+
+
+<h1 class="relative group">符号自定义 
+    <div id="%E7%AC%A6%E5%8F%B7%E8%87%AA%E5%AE%9A%E4%B9%89" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AC%A6%E5%8F%B7%E8%87%AA%E5%AE%9A%E4%B9%89" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>首先从 Rime 安装根目录下的 <code>data</code> 子目录拷贝 <code>symbols.yaml</code> 文件到 Rime 用户目录<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>（安装 Rime 以后，我的用户目录并没有像网上教程所说的包含 <code>symbols.yaml</code>文件），并且把该文件重命名为 <code>symbols.custom.yaml</code>。</p>
+<p>然后仿照里面的例子，我们就可以自定义自己的符号了，例如，下面是我增加的一些符号：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># 个人常用信息</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">&#39;/gr&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">jdhao@hotmail.com, 132******68, jdhao]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 快速输入勾和叉</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">&#39;/gc&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">✓, 🗹, ✗, ☒]</span><span class="w">
+</span></span></span></code></pre></div><p>然后，在新建的 <code>luna_pinyin_simp.custom.yaml</code> (<code>luna_pinyin_simp</code> 是沧月简体输入方案的代号)里面，加入下面的设置即可：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">patch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># 引用 `symbols.custom` 文件里面的符号</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">&#39;punctuator/import_preset&#39;</span><span class="p">:</span><span class="w"> </span><span class="l">symbols.custom</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">&#39;recognizer/patterns/punct&#39;</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;^/([a-z]+|[0-9])$&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>然后在中文模式下，输入 <code>/gc</code>，就会显示出自定义的符号，输入对应的数字，符号就会上屏。</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20190217233600.png" width="200">
+</p>
+
+
+<h2 class="relative group">输入直角引号 
+    <div id="%E8%BE%93%E5%85%A5%E7%9B%B4%E8%A7%92%E5%BC%95%E5%8F%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BE%93%E5%85%A5%E7%9B%B4%E8%A7%92%E5%BC%95%E5%8F%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>有的人喜欢在写作的时候使用直角引号：<code>「」</code>和<code>『』</code>，Rime 在 <code>symbols.yaml</code> 里面，已经提供了这个功能，不过是在 <code>[</code> 和 <code>]</code> 按键上提供的，中文输入法状态下，按下<code>[</code> (<code>]</code>)，返回的结果中包含 <code>「</code> (<code>」</code>)，如果按住 <tab>Shift</tab> 键，按下 <code>[</code> (<code>]</code>)，返回的结果中包含 <code>『</code> (<code>』</code>)。</p>
+<p>但是因为这毕竟是引号，最好是按下引号的时候，能够输出直角引号，在<code>symbols.custom.yaml</code> 中，找到 <code>punctuator</code> 部分下的 <code>hafl_shape</code> (半角的意思)下面，</p>
+<p>把下面的映射</p>
+<pre tabindex="0"><code>    &#39;&#39;&#39;&#39; : { pair: [ &#39;‘&#39;, &#39;’&#39; ] }
+    &#39;&#34;&#39; : { pair: [ &#39;“&#39;, &#39;”&#39; ] }
+</code></pre><p>改成</p>
+<pre tabindex="0"><code>    &#39;&#39;&#39;&#39; : { pair: [ &#39;『&#39;, &#39;』&#39; ] }
+    &#39;&#34;&#39; : { pair: [ &#39;「&#39;, &#39;」&#39; ] }
+</code></pre><p>这样就可以直接输入直角引号了，另外一种方式就是后文将要提到的<a href="#vert_quote_char"  >
+    在词典中添加直角引号映射</a>。</p>
+
+
+<h1 class="relative group">给沧月简体增加词典 
+    <div id="%E7%BB%99%E6%B2%A7%E6%9C%88%E7%AE%80%E4%BD%93%E5%A2%9E%E5%8A%A0%E8%AF%8D%E5%85%B8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%BB%99%E6%B2%A7%E6%9C%88%E7%AE%80%E4%BD%93%E5%A2%9E%E5%8A%A0%E8%AF%8D%E5%85%B8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>在<a href="https://github.com/rime-aca/dictionaries"   target="_blank">
+    这里</a>可以下载用于沧月拼音方案的词库，只下载下面几个文件即可：</p>
+<ul>
+<li><code>luna_pinyin.cn_en.dict.yaml</code></li>
+<li><code>luna_pinyin.extended.dict.yaml</code></li>
+<li><code>luna_pinyin.hanyu.dict.yaml</code></li>
+<li><code>luna_pinyin.poetry.dict.yaml</code></li>
+</ul>
+<p>这几个文件都是一些词典文件，然后我们可以仿照这些词典文件建立自己额外的词典，增加自己的词汇。例如，建立名为 <code>jdhao.dict.yaml</code> 的文件，然后添加几个自己常用的词汇，文件内容如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># jdhao.dict.yaml 文件内容</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">jdhao</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;2019-02-16&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">sort</span><span class="p">:</span><span class="w"> </span><span class="l">by_weight</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">use_preset_vocabulary</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">import_tables</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">luna_pinyin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">luna_pinyin.extended</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">luna_pinyin.hanyu</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">luna_pinyin.poetry</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">luna_pinyin.cn_en</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">GitHub	github	100</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">Stack Overflow	so	1000</span><span class="w">
+</span></span></span></code></pre></div><p>上述文件中，我们通过 <code>import_tables</code> 把刚才下载的所有词典还有 luna 本身的词典都给包含进来了，然后在下面再加上我们自己建立的词汇。</p>
+
+
+<h2 class="relative group">词典的格式 
+    <div id="%E8%AF%8D%E5%85%B8%E7%9A%84%E6%A0%BC%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AF%8D%E5%85%B8%E7%9A%84%E6%A0%BC%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>词典的格式为: <code>词汇&lt;Tab&gt;编码&lt;Tab&gt;词频</code>，各个项目之间<strong>必须用 Tab（也就是制表符）分割</strong>，刚开始我不知道，结果使用了空格，自己添加的词汇总是不成功，需要注意。如果使用的是 Sublime Text 来编辑这个 YAML 文件一定要注意不要开启<code>translate_tabs_to_spaces</code> 选项。词频部分可以不要。</p>
+<p>一切添加妥当之后，重新部署。然后试着输入，<code>up</code>，候选列表会出现 <code>U盘</code>，输入 <code>yizhanghong</code>，出现 <code>一丈红</code>，说明词汇已经添加成功了！</p>
+
+
+<h2 class="relative group"><a name="vert_quote_char"></a>直角引号 
+    <div id="a-namevert_quote_chara%E7%9B%B4%E8%A7%92%E5%BC%95%E5%8F%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#a-namevert_quote_chara%E7%9B%B4%E8%A7%92%E5%BC%95%E5%8F%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>前面提到了修改自带的引号映射来输入直角引号的方式，但是修改以后，如果想要输入中文的单引号，双引号就不太方便了。利用词典的功能，我们也可以输入直角引号，在<code>jdhao.dict.yaml</code> 中加入下面的映射即可：</p>
+<pre tabindex="0"><code>「」	syh	1000
+『』	dyh	1000
+</code></pre><p>效果如下图所示</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20190217233924.png" width="400">
+</p>
+
+
+<h1 class="relative group">安装并启用小鹤双拼 
+    <div id="%E5%AE%89%E8%A3%85%E5%B9%B6%E5%90%AF%E7%94%A8%E5%B0%8F%E9%B9%A4%E5%8F%8C%E6%8B%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%89%E8%A3%85%E5%B9%B6%E5%90%AF%E7%94%A8%E5%B0%8F%E9%B9%A4%E5%8F%8C%E6%8B%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>最新版 weasel 并不带有小鹤双拼输入方案，需要自己下载，步骤如下：</p>
+<ul>
+<li>右键任务栏小狼毫的图标，打开菜单，选择「输入法设定」，进入输入法选择界面：</li>
+</ul>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20190217233952.png" width="400">
+</p>
+<p>然后点击「获取更多输入方案」，会打开一个 Cmd 窗口,内容如下：</p>
+<pre tabindex="0"><code>Rime package installer
+
+Working directory: d:\Program Files (x86)\Rime\weasel-0.13.0
+Package installer directory: d:\Program Files (x86)\Rime\weasel-0.13.0\
+Download cache directory: C:\Users\ADMINI~1\AppData\Local\Temp
+Rime user directory: C:\Users\Administrator\AppData\Roaming\Rime
+
+
+Enter package name, URL, user/repo or downloaded ZIP to install:
+</code></pre><ul>
+<li>输入要下载的输入法方案即可，双拼方案在<a href="https://github.com/rime/rime-double-pinyin"   target="_blank">
+    这里</a>可以找到，名称为 <code>double-pinyin</code>，在上面的对话框输入以后就可以下载 Rime 提供的双拼方案。</li>
+</ul>
+<p>然后在上图的输入方案选择界面，选择要启用的输入方案。在输入汉字的界面，按 <kbd>F4</kbd> 选择小鹤双拼，即可启用。</p>
+
+
+<h1 class="relative group">安装表情 emoji 
+    <div id="%E5%AE%89%E8%A3%85%E8%A1%A8%E6%83%85-emoji" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%89%E8%A3%85%E8%A1%A8%E6%83%85-emoji" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Rime 提供了很多表情，地址在 <a href="https://github.com/rime/rime-emoji"   target="_blank">
+    这里</a>，但是对如何安装这些表情却有点语焉不详。</p>
+<p>Rime 最新版提供了 <a href="https://github.com/rime/plum"   target="_blank">
+    东方破</a> 来安装输入方案，<a href="https://github.com/rime/plum#windows-bootstrap-script"   target="_blank">
+    这里</a> 也给出了 Windows 系统上使用的方法，但是下载安装以后，在 Cmd 使用如下命令安装 emoji，</p>
+<pre tabindex="0"><code>rime-install emoji
+</code></pre><p>或者使用</p>
+<pre tabindex="0"><code>rime-install.bat emoji
+</code></pre><p>都会输出下面的错误信息：</p>
+<pre tabindex="0"><code>Rime package installer
+
+Working directory: C:\Users\Administrator\AppData\Roaming\plum
+Package installer directory: C:\Users\Administrator\AppData\Roaming\plum\
+Download cache directory: C:\Users\ADMINI~1\AppData\Local\Temp
+Rime user directory: C:\Users\Administrator\AppData\Roaming\Rime
+
+rime-install: line 2: $&#39;\r&#39;: command not found
+rime-install: line 53: syntax error near unexpected token `$&#39;do\r&#39;&#39;
+&#39;ime-install: line 53: `for target in &#34;${targets[@]}&#34;; do
+</code></pre><p>这个脚本在 cmd 上运行不了。必须使用 bash 环境才能运行，可以安装 <a href="https://git-scm.com/download/win"   target="_blank">
+    git for Windows</a>。</p>
+<p>安装以后，cd 到刚才安装 plum 所在的目录，首先运行以下命令安装 emoji，</p>
+<pre tabindex="0"><code>bash rime-install emoji
+</code></pre><p>然后，使用下面的命令给输入方案打 patch，我使用的输入方案是 <code>luna_pinyin_simp</code>，所以参考 <a href="https://github.com/rime/rime-emoji"   target="_blank">
+    这里</a> 的命令：</p>
+<pre tabindex="0"><code>bash rime-install emoji:customize:schema=luna_pinyin_simp
+</code></pre><p>这样才会 patch 成功，这时，位于 <code>%appdata%/rime</code> 目录下的<code>luna_pinyin_simp.custom.yaml</code> 文件中会增加以下配置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">__patch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Rx: emoji:customize:schema=luna_pinyin_simp {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">patch/+</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">__include</span><span class="p">:</span><span class="w"> </span><span class="l">emoji_suggestion:/patch</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># }</span><span class="w">
+</span></span></span></code></pre></div><p>然后重新部署，emoji 添加成功了！</p>
+<p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/20200430135706.png" width="200">
+</p>
+
+
+<h1 class="relative group">沧月简体默认输出英文 
+    <div id="%E6%B2%A7%E6%9C%88%E7%AE%80%E4%BD%93%E9%BB%98%E8%AE%A4%E8%BE%93%E5%87%BA%E8%8B%B1%E6%96%87" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B2%A7%E6%9C%88%E7%AE%80%E4%BD%93%E9%BB%98%E8%AE%A4%E8%BE%93%E5%87%BA%E8%8B%B1%E6%96%87" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>如果经常和英语打交道，偶尔输入汉字，可以把沧月拼音初始状态设为英语，这样就不用在需要输入英文时切换输入状态了。参考 <a href="https://github.com/rime/home/wiki/CustomizationGuide#%E4%B8%80%E4%BE%8B%E9%BB%98%E8%AA%8D%E8%8B%B1%E6%96%87%E8%BC%B8%E5%87%BA"   target="_blank">
+    这里</a>给出的说明，在 <code>luna_pinyin_simp.custom.yaml</code> 文件中加入下面的设置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="line"><span class="cl"><span class="nt">patch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">&#34;switches/@0/reset&#34;: </span><span class="m">1</span><span class="w">  </span><span class="c"># 初始的 ascii mode 设置为「西文」</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h1 class="relative group">一些小问题 
+    <div id="%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%80%E4%BA%9B%E5%B0%8F%E9%97%AE%E9%A2%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">各种配置到底放在哪里啊？ 
+    <div id="%E5%90%84%E7%A7%8D%E9%85%8D%E7%BD%AE%E5%88%B0%E5%BA%95%E6%94%BE%E5%9C%A8%E5%93%AA%E9%87%8C%E5%95%8A" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%90%84%E7%A7%8D%E9%85%8D%E7%BD%AE%E5%88%B0%E5%BA%95%E6%94%BE%E5%9C%A8%E5%93%AA%E9%87%8C%E5%95%8A" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>有的配置是某个平台独有的，要放在平台相关的，有的配置只想某个输入方案独有，放在方案的配置里面，如果各个方案都想试用某个配置，就放在 <code>default.custom.yaml</code> 里面，参考<a href="https://github.com/rime/weasel/issues/6"   target="_blank">
+    这里</a>.</p>
+
+
+<h2 class="relative group">有的配置怎么不生效？ 
+    <div id="%E6%9C%89%E7%9A%84%E9%85%8D%E7%BD%AE%E6%80%8E%E4%B9%88%E4%B8%8D%E7%94%9F%E6%95%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9C%89%E7%9A%84%E9%85%8D%E7%BD%AE%E6%80%8E%E4%B9%88%E4%B8%8D%E7%94%9F%E6%95%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>很有可能是忘记部署了，任何更改，都必须在部署以后才能生效。当然，也可能是配置填写的时候没有按照格式规范书写，写错了，这时候部署就无法生效，我们可以查看 log 确认，Rime 的 log 文件地址：</p>
+<ul>
+<li>【中州韻】 <code>/tmp/rime.ibus.*</code></li>
+<li>【小狼毫】 <code>%TEMP%\rime.weasel.*</code></li>
+<li>【鼠鬚管】 <code>$TMPDIR/rime.squirrel.*</code></li>
+</ul>
+<p>通过查看最近的 log 文件，也许能发现具体错误在哪里。</p>
+
+
+<h2 class="relative group">为什么设置候选词竖排显示无效？ 
+    <div id="%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%BE%E7%BD%AE%E5%80%99%E9%80%89%E8%AF%8D%E7%AB%96%E6%8E%92%E6%98%BE%E7%A4%BA%E6%97%A0%E6%95%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%BE%E7%BD%AE%E5%80%99%E9%80%89%E8%AF%8D%E7%AB%96%E6%8E%92%E6%98%BE%E7%A4%BA%E6%97%A0%E6%95%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>很多教程中说到，在 <code>weasel.custom.yaml</code> 里面使用如下的设置，使候选词竖排显示：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">patch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">&#34;style/horizontal&#34;: </span><span class="kc">false</span><span class="w">
+</span></span></span></code></pre></div><p>但是部署以后，候选词还是横排显示，这是为何？可能是因为某些 color_scheme 本身把候选词设为了横排显示，主题设置的优先级更高，所以仍然横排显示，例如 Rime 鼠须管有多款主题都在主题设置中把候选词设置为横排<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>，可以查看主题的配置来确定。</p>
+
+
+<h1 class="relative group">参考 
+    <div id="%E5%8F%82%E8%80%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%82%E8%80%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>这个仓库的配置一直在更新，可以作为参考：https://github.com/ssnhd/rime</li>
+<li>教程&amp;指南
+<ul>
+<li><a href="https://github.com/rime/home/wiki/UserGuide"   target="_blank">
+    Rime 用户指南</a> (官方文档，需要认真研读)</li>
+<li><a href="https://www.zybuluo.com/eternity/note/81763"   target="_blank">
+    致第一次安装 Rime 的你</a></li>
+<li><a href="https://mogeko.github.io/2018/031/"   target="_blank">
+    https://mogeko.github.io/2018/031/</a></li>
+<li><a href="https://xinlu.ink/blog/2018/03/13/rime/"   target="_blank">
+    https://xinlu.ink/blog/2018/03/13/rime/</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>添加表情
+<ul>
+<li><a href="https://github.com/rime/rime-emoji/issues/6"   target="_blank">
+    https://github.com/rime/rime-emoji/issues/6</a></li>
+<li><a href="https://github.com/rime/rime-emoji/issues/4"   target="_blank">
+    https://github.com/rime/rime-emoji/issues/4</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>词典相关
+<ul>
+<li><a href="https://github.com/rime-aca/dictionaries"   target="_blank">
+    Rime 额外的词典（针对沧月输入方案）</a></li>
+<li><a href="https://github.com/xiaoTaoist/rime-dict"   target="_blank">
+    另外的一些做好的词典</a></li>
+<li><a href="https://www.jianshu.com/p/300bbe1602d4"   target="_blank">
+    Rime 添加词典</a></li>
+<li><a href="https://github.com/studyzy/imewlconverter"   target="_blank">
+    输入法词库转换程序 GitHub 仓库</a></li>
+<li><a href="https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md#dictyaml-%E8%A9%B3%E8%A7%A3"   target="_blank">
+    Rime 词典格式详解</a></li>
+<li><a href="http://tieba.baidu.com/p/2757690418"   target="_blank">
+    导入词库</a>(写在贴吧里面，格式不好，看着费劲)</li>
+</ul>
+</li>
+<li>排版
+<ul>
+<li><a href="https://juejin.im/entry/569da374d342d30053b4cd91"   target="_blank">
+    中文排版指南(关于直角引号使用)</a></li>
+<li><a href="https://sspai.com/post/45516"   target="_blank">
+    排版（少数派文章）</a></li>
+</ul>
+</li>
+</ul>
+<p>** 题图截取自 <a href="https://rime.im/"   target="_blank">
+    Rime 官方网站</a>。</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>在我的 Windows 系统上，根目录地址为 <code>D:\Program Files (x86)\Rime\weasel-0.13.0</code>，用户配置目录地址为 <code>C:\Users\Administrator\AppData\Roaming\Rime</code>。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Mac 上鼠须管默认提供的主题可以在<a href="https://github.com/rime/squirrel/blob/master/data/squirrel.yaml"   target="_blank">
+    这里</a>查看。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+        </div>
+                
+        
+
+        
+
+          
+      </div>
+     
+    
+     <script>
+        var oid = "views_post\/rime_configuration_intro.md"
+        var oid_likes = "likes_post\/rime_configuration_intro.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.5b1bad196a6075a1e11bae1dc95f24f67b610948a00525e347566c5a62338ea78f1c7224ab9a53873dcdb2a1a7d7d391b8a8ef45561297f68806c01315b0c4f6.js" integrity="sha512-WxutGWpgdaHhG64dyV8k9nthCUigBSXjR1ZsWmIzjqePHHIkq5pThz3NsqGn19ORuKjvRVYSl/aIBsATFbDE9g=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/post/pillow_show_image_on_wls/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Display Image with Pillow inside Ubuntu on Windows</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2019-02-16 11:42:55 &#43;0800 &#43;0800">16 February 2019</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/post/zsh_advanced_configuration/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Boosting Your Productivity on Terminal with Zsh and Plugins</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2019-02-19 00:27:53 &#43;0800 &#43;0800">19 February 2019</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="//localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

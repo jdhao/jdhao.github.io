@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>A Complete Guide on Writing LaTeX with Vimtex in Neovim &middot; Blowfish</title>
+  <meta name="title" content="A Complete Guide on Writing LaTeX with Vimtex in Neovim &middot; Blowfish" />
+  
+  
+  <meta name="keywords" content="LaTeX, PDF, text-object, plugin, " />
+  
+  
+  <link rel="canonical" href="//localhost:1313/post/nvim_latex_write_preview/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.efe989cd11095eee5e026173915472c128b61ba8a106c22ead46741ec9255e7625dba193c53b8bb6fa5ea365248d4750e345dd71654234bdb04eadc42de91f30.css"
+    integrity="sha512-7&#43;mJzREJXu5eAmFzkVRywSi2G6ihBsIurUZ0HsklXnYl26GTxTuLtvpeo2UkjUdQ40XdcWVCNL2wTq3ELekfMA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.5200170cb3ed0adabce28870bf7ff061203bbefb075c90b7b76cc561cd376288fbd116092bd2e65b027908506b03f8fd15b5613608229bdc92f93ecf6d8faa64.js"
+    integrity="sha512-UgAXDLPtCtq84ohwv3/wYSA7vvsHXJC3t2zFYc03Yoj70RYJK9LmWwJ5CFBrA/j9FbVhNggim9yS&#43;T7PbY&#43;qZA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="A Complete Guide on Writing LaTeX with Vimtex in Neovim" />
+<meta property="og:description" content="
+Update log
+
+2021-02-20: Add inverse search settings on Windows and macOS
+
+
+Previously, I have written 
+    a post
+on how to write and compile LaTeX source code in Sublime Text. Now that I am
+familiar with Neovim, I want to do everything related to text editing inside
+Neovim. In this post, I would like to share how to configure Neovim for LaTeX
+editing and previewing.
+My complete config for vimtex can be found 
+    here (search vimtex)
+on my nvim-config repo ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="//localhost:1313/post/nvim_latex_write_preview/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-03-26T22:54:43+08:00" />
+<meta property="article:modified_time" content="2019-03-26T22:54:43+08:00" />
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="A Complete Guide on Writing LaTeX with Vimtex in Neovim"/>
+<meta name="twitter:description" content="
+Update log
+
+2021-02-20: Add inverse search settings on Windows and macOS
+
+
+Previously, I have written 
+    a post
+on how to write and compile LaTeX source code in Sublime Text. Now that I am
+familiar with Neovim, I want to do everything related to text editing inside
+Neovim. In this post, I would like to share how to configure Neovim for LaTeX
+editing and previewing.
+My complete config for vimtex can be found 
+    here (search vimtex)
+on my nvim-config repo ."/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "A Complete Guide on Writing LaTeX with Vimtex in Neovim",
+    "headline": "A Complete Guide on Writing LaTeX with Vimtex in Neovim",
+    
+    "abstract": "\u003cdetails\u003e\n\u003csummary\u003e\u003cfont size=\u00222\u0022 color=\u0022red\u0022\u003eUpdate log\u003c\/font\u003e\u003c\/summary\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cfont color=\u0022blue\u0022\u003e2021-02-20: Add inverse search settings on Windows and macOS\u003c\/font\u003e\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/details\u003e\n\u003cp\u003ePreviously, I have written \u003ca href=\u0022https:\/\/jdhao.github.io\/2018\/03\/10\/sublime-text-latextools-setup\/\u0022   target=\u0022_blank\u0022\u003e\n    a post\u003c\/a\u003e\non how to write and compile LaTeX source code in Sublime Text. Now that I am\nfamiliar with Neovim, I want to do everything related to text editing inside\nNeovim. In this post, I would like to share how to configure Neovim for LaTeX\nediting and previewing.\u003c\/p\u003e\n\u003cp\u003eMy complete config for vimtex can be found \u003ca href=\u0022https:\/\/github.com\/jdhao\/nvim-config\/blob\/master\/core\/plugins.vim\u0022   target=\u0022_blank\u0022\u003e\n    here\u003c\/a\u003e (search vimtex)\non my nvim-config repo .\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "\/\/localhost:1313\/post\/nvim_latex_write_preview\/",
+    "author" : {
+      "@type": "Person",
+      "name": ""
+    },
+    "copyrightYear": "2019",
+    "dateCreated": "2019-03-26T22:54:43\u002b08:00",
+    "datePublished": "2019-03-26T22:54:43\u002b08:00",
+    
+    "dateModified": "2019-03-26T22:54:43\u002b08:00",
+    
+    "keywords": ["LaTeX","PDF","text-object","plugin"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1544"
+  }]
+  </script>
+
+
+  
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Blowfish</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="About">
+        About
+    </p>
+</a>
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="About">
+            About
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      A Complete Guide on Writing LaTeX with Vimtex in Neovim
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2019-03-26 22:54:43 &#43;0800 &#43;0800">26 March 2019</time><span class="px-2 text-primary-500">&middot;</span><span>1544 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">8 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+      
+      
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+    
+
+    
+
+    
+
+    
+    <div class="mb-5"></div>
+    
+  
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+    
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <details>
+<summary><font size="2" color="red">Update log</font></summary>
+<ul>
+<li><font color="blue">2021-02-20: Add inverse search settings on Windows and macOS</font></li>
+</ul>
+</details>
+<p>Previously, I have written <a href="https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/"   target="_blank">
+    a post</a>
+on how to write and compile LaTeX source code in Sublime Text. Now that I am
+familiar with Neovim, I want to do everything related to text editing inside
+Neovim. In this post, I would like to share how to configure Neovim for LaTeX
+editing and previewing.</p>
+<p>My complete config for vimtex can be found <a href="https://github.com/jdhao/nvim-config/blob/master/core/plugins.vim"   target="_blank">
+    here</a> (search vimtex)
+on my nvim-config repo .</p>
+<h1 class="relative group">Pre-requisite 
+    <div id="pre-requisite" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pre-requisite" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Before we begin, you should make sure that you have installed the following
+software and plugins.</p>
+<ul>
+<li>TeX Distribution: <a href="https://www.tug.org/texlive/"   target="_blank">
+    TeX Live</a> is preferred since it is bundled with the possible many tools you will ever need for writing LaTeX.</li>
+<li>Auto-complete plugin: Since I use Neovim, so I recommend using <a href="https://github.com/Shougo/deoplete.nvim"   target="_blank">
+    deoplete</a>.</li>
+<li>Snippet Engine and snippet plugin: I recommend <a href="https://github.com/SirVer/ultisnips"   target="_blank">
+    Ultisnips</a> along with the many snippets provided by plugin <a href="https://github.com/honza/vim-snippets"   target="_blank">
+    vim-snippets</a>.</li>
+</ul>
+<p>Then we need to install the LaTeX plugin for Neovim.
+<a href="https://github.com/lervag/vimtex"   target="_blank">
+    Vimtex</a> is a great choice. To install it, we
+can use <a href="https://github.com/junegunn/vim-plug"   target="_blank">
+    vim-plug</a>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="nx">Plug</span> <span class="s1">&#39;lervag/vimtex&#39;</span>
+</span></span></code></pre></div>
+
+<h1 class="relative group">Faster LaTeX source file editing 
+    <div id="faster-latex-source-file-editing" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#faster-latex-source-file-editing" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Auto-completion 
+    <div id="auto-completion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#auto-completion" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>In writing LaTeX source code, auto-completion is crucial for fast editing and
+improves our efficiency dramatically. Vimtex supports completion for citations,
+labels (for figure, equation, table, section, etc.), commands, environments,
+packages and document classes and more. For more documentation on completion,
+see <code>:h vimtex-completion</code>.</p>
+<p>Vimtex can work with several completion engines such as
+<a href="https://github.com/Shougo/deoplete.nvim"   target="_blank">
+    deoplete</a>,
+<a href="https://github.com/Valloric/YouCompleteMe"   target="_blank">
+    YouCompleteMe</a>,
+<a href="https://github.com/ncm2/ncm2"   target="_blank">
+    ncm2</a>. Since I use deoplete for completion, I
+will just introduce how to configure it for deoplete<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. To make vimtex work
+with deoplete, add the following setting to your <code>init.vim</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="c">&#34; This is new style</span>
+</span></span><span class="line"><span class="cl"><span class="nx">call</span> <span class="nx">deoplete</span>#<span class="nx">custom</span>#<span class="nx">var</span><span class="p">(</span><span class="s1">&#39;omni&#39;</span><span class="p">,</span> <span class="s1">&#39;input_patterns&#39;</span><span class="p">,</span> {
+</span></span><span class="line"><span class="cl">      \ <span class="s1">&#39;tex&#39;</span>: <span class="nx">g</span>:<span class="nx">vimtex</span>#<span class="nx">re</span>#<span class="nx">deoplete</span>
+</span></span><span class="line"><span class="cl">      \}<span class="p">)</span>
+</span></span></code></pre></div><p>After that, you should be able to use auto-completion.</p>
+
+
+<h2 class="relative group">How to quickly insert an environment? 
+    <div id="how-to-quickly-insert-an-environment" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#how-to-quickly-insert-an-environment" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Vimtex supports autocompletion through autocompletion engines such as deoplete.
+After configuring vimtex to use deoplete, you should be able to use the snippet
+provided by Ultisnips<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>.</p>
+<p>Ultisnips is a snippet engine, which uses
+<a href="https://github.com/honza/vim-snippets"   target="_blank">
+    vim-snippets</a> to provide the actual
+snippet for various file types. To insert an <code>figure</code> environment, type <code>fig</code>
+in insert mode and press <kbd>Tab</kbd>.</p>
+<p>To insert an <code>enumerate</code> environment, type <code>enum</code> in insert mode and press
+<kbd>Tab</kbd>. The complete list of snippets provided by vim-snippets can be
+found <a href="https://github.com/honza/vim-snippets/blob/master/UltiSnips/tex.snippets"   target="_blank">
+    here</a>.</p>
+
+
+<h2 class="relative group">How to close an environment? 
+    <div id="how-to-close-an-environment" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#how-to-close-an-environment" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>After typing <code>\begin{ENV}</code>, how do we automatically close it with <code>\end{ENV}</code>?
+With vimtex, you can press <code>]]</code> in insert mode to auto-close an environment.</p>
+
+
+<h2 class="relative group">Useful mappings and shortcuts 
+    <div id="useful-mappings-and-shortcuts" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#useful-mappings-and-shortcuts" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Vimtex provides the <code>e</code> text object to facilitate
+<a href="https://github.com/tpope/vim-surround"   target="_blank">
+    vim-surround</a> like features for
+manipulating an environment quickly:</p>
+<ul>
+<li><code>cse</code>: change an environment</li>
+<li><code>dse</code>: delete an environment</li>
+<li><code>tse</code>：toggle stared environment and no-star environment, e.g., change from
+<code>equation*</code> to <code>equation</code> and vice versa.</li>
+</ul>
+<p>You can also use the standard Vim motion with this object. For example, <code>vie</code>
+will select the <strong>inside</strong> an environment, and <code>vae</code> will select the entire
+environment (including the begin and end commands).</p>
+<p>There are other shortcuts provided:</p>
+<ul>
+<li><code>]]</code>: close an environment (<strong>only work in insert mode</strong>, in normal mode, it
+will bring cursor to next subsection instead). After you have typed
+<code>begin{ENV}</code>, use <code>]]</code> to auto-close it with <code>\end{ENV}</code></li>
+</ul>
+<p>For more mappings, see <code>:h vimtex-default-mappings</code>.</p>
+
+
+<h2 class="relative group">Jumping between references and the definition 
+    <div id="jumping-between-references-and-the-definition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#jumping-between-references-and-the-definition" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>It would be nice if we can jump to the definition of a label with the native
+Vim shortcut <a href="http://vimdoc.sourceforge.net/htmldoc/tagsrch.html#CTRL-]"   target="_blank">
+    <code>Ctrl-]</code></a>. You have to do several things.</p>
+<p>First, you need to install a ctags executable. See <a href="https://github.com/jdhao/nvim-config/blob/master/README.md#ctags"   target="_blank">
+    here</a> on how
+to install ctags.</p>
+<p>Second, you need to install a plugin to manage tags file for you.
+<a href="https://github.com/ludovicchabant/vim-gutentags"   target="_blank">
+    vim-gutentags</a> is a good
+option. It will update the tags file automatically once the source file has
+been changed. To make gutentags work, you need to tell it where your project
+root is. The easiest way is to <a href="https://kbroman.org/github_tutorial/pages/init.html"   target="_blank">
+    make your project a git repository</a>.</p>
+<p>Open the TeX source file again, the tags file should be created automatically.
+If the cursor is in <code>\ref{some_label}</code>, you can press <code>Ctrl + ]</code> to go the
+position where <code>some_label</code> is defined. BTW, to jump back, you can use
+<code>Ctrl-T</code>.</p>
+
+
+<h2 class="relative group">Useful command 
+    <div id="useful-command" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#useful-command" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><code>:VimtexInfo</code>: show all relevant info about current LaTeX project.</li>
+<li><code>:VimtexTocOpen</code>: show table of contents window</li>
+<li><code>:VimtexTocToggle</code>: toggle table of contents window</li>
+<li><code>:VimtexCompile</code>: Compile the current LaTeX source file and opens the viewer after successful compilation.</li>
+<li><code>:VimtexStop</code>: Stop compilation for the current project.</li>
+<li><code>:VimtexClean</code>: clean auxiliary files generated in compliation process.</li>
+</ul>
+
+
+<h1 class="relative group">Other settings 
+    <div id="other-settings" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#other-settings" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">PDF previewing 
+    <div id="pdf-previewing" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pdf-previewing" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Vimtex supports several PDF viewer based on the platform. On Windows,
+<a href="https://www.sumatrapdfreader.org/free-pdf-reader.html"   target="_blank">
+    SumatraPDF</a> is a good
+choice. Below is the settings needed for SumatraPDF to work as the default
+viewer for the compiled PDF files.</p>
+<pre tabindex="0"><code>&#34; settings for sumatraPDF
+let g:vimtex_view_general_viewer = &#39;SumatraPDF&#39;
+let g:vimtex_view_general_options
+    \ = &#39;-reuse-instance -forward-search @tex @line @pdf&#39;
+let g:vimtex_view_general_options_latexmk = &#39;-reuse-instance&#39;
+</code></pre><p>After the above settings, if you use <code>:VimtexCompile</code> command, the compiled PDF
+will be opened in sumatraPDF automatically. If it does not show up, you can
+also use <code>:VimtexView</code> to open the PDF manually.</p>
+<p>On Mac, you can install <a href="https://sourceforge.net/projects/skim-app/"   target="_blank">
+    Skim</a> and use it as a PDF viewer. My current settings
+for previewing PDF on Mac is:</p>
+<details>
+<summary><font color="red">Click to see the code.</font></summary>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="c">&#34; let g:vimtex_view_method = &#34;skim&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">let</span> <span class="nx">g</span>:<span class="nx">vimtex_view_general_viewer</span> <span class="p">=</span> <span class="s1">&#39;/Applications/Skim.app/Contents/SharedSupport/displayline&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">let</span> <span class="nx">g</span>:<span class="nx">vimtex_view_general_options</span> <span class="p">=</span> <span class="s1">&#39;-r @line @pdf @tex&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">augroup</span> <span class="nx">vimtex_mac</span>
+</span></span><span class="line"><span class="cl">    <span class="k">autocmd</span><span class="p">!</span>
+</span></span><span class="line"><span class="cl">    <span class="k">autocmd</span> <span class="nx">User</span> <span class="nx">VimtexEventCompileSuccess</span> <span class="nx">call</span> <span class="nx">UpdateSkim</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">augroup</span> <span class="nx">END</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">function</span><span class="p">!</span> <span class="nx">UpdateSkim</span><span class="p">()</span> <span class="nx">abort</span>
+</span></span><span class="line"><span class="cl">    <span class="k">let</span> <span class="nx">l</span>:<span class="nx">out</span> <span class="p">=</span> <span class="nx">b</span>:<span class="nx">vimtex</span>.<span class="nx">out</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">let</span> <span class="nx">l</span>:<span class="nx">src_file_path</span> <span class="p">=</span> <span class="nx">expand</span><span class="p">(</span><span class="s1">&#39;%:p&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">let</span> <span class="nx">l</span>:<span class="nx">cmd</span> <span class="p">=</span> [<span class="nx">g</span>:<span class="nx">vimtex_view_general_viewer</span><span class="p">,</span> <span class="s1">&#39;-r&#39;</span>]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">!</span><span class="nx">empty</span><span class="p">(</span><span class="nx">system</span><span class="p">(</span><span class="s1">&#39;pgrep Skim&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">call</span> <span class="nx">extend</span><span class="p">(</span><span class="nx">l</span>:<span class="nx">cmd</span><span class="p">,</span> [<span class="s1">&#39;-g&#39;</span>]<span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">endif</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">call</span> <span class="nx">jobstart</span><span class="p">(</span><span class="nx">l</span>:<span class="nx">cmd</span> <span class="p">+</span> [<span class="nx">line</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">),</span> <span class="nx">l</span>:<span class="nx">out</span><span class="p">,</span> <span class="nx">l</span>:<span class="nx">src_file_path</span>]<span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">endfunction</span>
+</span></span></code></pre></div></details>
+
+
+<h2 class="relative group">Inverse search 
+    <div id="inverse-search" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inverse-search" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><font color="red">Note the below settings are not updated anymore, see <a href="https://jdhao.github.io/2021/02/20/inverse_search_setup_neovim_vimtex/"   target="_blank">
+    this post</a>
+for a better and up-to-date config without much manual labor.</font></p>
+<p>First, we need to install <a href="https://github.com/mhinz/neovim-remote"   target="_blank">
+    neovim-remote</a>:</p>
+<pre tabindex="0"><code>pip install -U neovim-remote
+</code></pre><p>Second, we start nvim with a listen address so that nvim can listen for RPC
+calls.</p>
+<pre tabindex="0"><code>nvim --listen localhost:12345 test.tex
+</code></pre><p>The port number does not matter as long as it is not taken by other
+applications. If you use nvim-qt, you can use the following command instead:</p>
+<pre tabindex="0"><code>nvim-qt -- --listen localhost:12345 test.tex
+</code></pre><p>Now the settings will differ for the PDF viewer you use on different platforms.</p>
+
+
+<h3 class="relative group">Inverse search for Sumatra PDF on Windows 
+    <div id="inverse-search-for-sumatra-pdf-on-windows" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inverse-search-for-sumatra-pdf-on-windows" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Open Sumatra PDF, go to <code>Settings --&gt; Options</code>, in the bottom part, there is a
+section <em>Set inverse search command-line</em>, put the following command there:</p>
+<pre tabindex="0"><code>nvr --servername localhost:12345 +&#34;%l&#34; &#34;%f&#34;
+</code></pre><ul>
+<li><code>%f</code>: it means the tex source file path corresponding to the current pdf.</li>
+<li><code>%l</code>: it means the line in the original tex file.</li>
+</ul>
+<p>Double click somewhere in the PDF file, your cursor in nvim/nvim-qt should go
+to the corresponding line in the file buffer.</p>
+
+
+<h3 class="relative group">Inverse search for Skim on macOS 
+    <div id="inverse-search-for-skim-on-macos" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inverse-search-for-skim-on-macos" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Open Skim PDF viewer, open the <code>Preferences</code> menu and go to <code>Sync</code> page. Set
+the part <code>PDF-Tex Sync support</code>, use the following settings:</p>
+<ul>
+<li>Preset: <code>Custom</code></li>
+<li>Command: <code>nvr</code></li>
+<li>Arguments: <code>--servername localhost:12345 +&quot;%line&quot; &quot;%file&quot;</code></li>
+</ul>
+<p>Based on <a href="https://github.com/lervag/vimtex/issues/1576#issuecomment-586754119"   target="_blank">
+    discussion here</a>, we can also
+start nvim without the <code>--listen</code> option (<code>nvim test.tex</code>). When we open a tex
+file in nvim, we can write the nvim server address to a file and read it when
+running the <code>nvr</code> command in Skim.</p>
+<p>Inside the Nvim config, add the following setting:</p>
+<pre tabindex="0"><code>augroup vimtex_mac
+  autocmd!
+  autocmd FileType tex call SetServerName()
+augroup END
+
+function! SetServerName()
+  call system(&#39;echo &#39; . v:servername . &#39; &gt; /tmp/curvimserver&#39;)
+endfunction
+</code></pre><p>For skim, we change the <code>Arguments</code> in <code>Sync</code> page to the following:</p>
+<ul>
+<li>Arguments: <code>--servername `cat /tmp/curvimserver` +&quot;%line&quot; &quot;%file&quot; </code></li>
+</ul>
+<p>To start inverse search, press Shift and Command key, then click the text you
+want to inv-search.</p>
+
+
+<h2 class="relative group">Linting and syntax checking 
+    <div id="linting-and-syntax-checking" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#linting-and-syntax-checking" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>I use <a href="https://github.com/neomake/neomake"   target="_blank">
+    neomake</a> for syntax checking. For LaTeX source file, neomake provides
+<a href="https://github.com/neomake/neomake/wiki/Makers"   target="_blank">
+    several makers</a>:</p>
+<ul>
+<li><a href="https://ctan.org/pkg/lacheck?lang=en"   target="_blank">
+    lacheck</a></li>
+<li><a href="https://ctan.org/pkg/chktex?lang=en"   target="_blank">
+    chktex</a></li>
+<li><a href="https://github.com/amperser/proselint"   target="_blank">
+    Proselint</a></li>
+</ul>
+<p>Among the makers, lacheck and chktex are installed if you have installed Tex
+Live. Proselint can be installed via pip:</p>
+<pre tabindex="0"><code>pip install proselint
+</code></pre>
+
+<h2 class="relative group">Setting up table of contents 
+    <div id="setting-up-table-of-contents" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#setting-up-table-of-contents" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Vimtex can show a nice little table of contents window on the left side if you
+use command <code>VimtexTocOpen</code>. By default, the lables in each section is also
+shown, which makes the TOC clutter with texts. We can customize TOC with
+following settings:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="c">&#34; TOC settings</span>
+</span></span><span class="line"><span class="cl"><span class="k">let</span> <span class="nx">g</span>:<span class="nx">vimtex_toc_config</span> <span class="p">=</span> {
+</span></span><span class="line"><span class="cl">      \ <span class="s1">&#39;name&#39;</span> : <span class="s1">&#39;TOC&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      \ <span class="s1">&#39;layers&#39;</span> : [<span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;todo&#39;</span><span class="p">,</span> <span class="s1">&#39;include&#39;</span>]<span class="p">,</span>
+</span></span><span class="line"><span class="cl">      \ <span class="s1">&#39;resize&#39;</span> : <span class="m">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      \ <span class="s1">&#39;split_width&#39;</span> : <span class="m">50</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      \ <span class="s1">&#39;todo_sorted&#39;</span> : <span class="m">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      \ <span class="s1">&#39;show_help&#39;</span> : <span class="m">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      \ <span class="s1">&#39;show_numbers&#39;</span> : <span class="m">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      \ <span class="s1">&#39;mode&#39;</span> : <span class="m">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      \}
+</span></span></code></pre></div><p>For detailed meaning of the keys in the above dictionary, refer to <code>:h g:vimtex_toc_config</code>.</p>
+
+
+<h2 class="relative group">TeX directives 
+    <div id="tex-directives" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#tex-directives" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>If you are compiling a LaTeX source file written in non-English character, you
+may want to use the TeX directive to specify the compiling program. Vimtex
+supports two TeX directives: <code>TeX root</code> and <code>TeX program</code>. <code>TeX program</code>
+directive is useful when we want to compile the LaTeX source code with
+<code>xelatex</code> instead of <code>pdflatex</code>. In order to compile your LaTeX source file
+with <code>xelatex</code>, add the following directive to the first line of the source
+code:</p>
+<pre tabindex="0"><code>%!TeX program = xelatex
+</code></pre>
+
+<h1 class="relative group">References 
+    <div id="references" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#references" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li><a href="https://yufanlu.net/2018/09/03/neovim-latex/"   target="_blank">
+    https://yufanlu.net/2018/09/03/neovim-latex/</a></li>
+<li><a href="https://github.com/lervag/vimtex/issues/1036"   target="_blank">
+    vimtex: Create environment with shortcut</a></li>
+<li><a href="https://tex.stackexchange.com/a/266242/114857"   target="_blank">
+    Auto-close environment in LaTeX</a></li>
+<li><a href="https://gist.github.com/skulumani/7ea00478c63193a832a6d3f2e661a536"   target="_blank">
+    Setting up PDF viewer for Mac</a>.</li>
+<li>Set up inverse search
+<ul>
+<li><a href="https://www.sumatrapdfreader.org/docs/Use-Sumatra-as-a-pre-viewer-for-LaTeX-editors.html"   target="_blank">
+    https://www.sumatrapdfreader.org/docs/Use-Sumatra-as-a-pre-viewer-for-LaTeX-editors.html</a></li>
+<li><a href="https://forum.sumatrapdfreader.org/t/can-not-use-the-inverse-search-with-sumatrapdf-and-sublime/1786"   target="_blank">
+    https://forum.sumatrapdfreader.org/t/can-not-use-the-inverse-search-with-sumatrapdf-and-sublime/1786</a></li>
+<li><a href="https://tex.stackexchange.com/q/460971/114857"   target="_blank">
+    https://tex.stackexchange.com/q/460971/114857</a></li>
+<li><a href="https://github.com/mhinz/neovim-remote/issues/132"   target="_blank">
+    https://github.com/mhinz/neovim-remote/issues/132</a></li>
+<li><a href="https://github.com/lervag/vimtex/issues/262"   target="_blank">
+    https://github.com/lervag/vimtex/issues/262</a></li>
+<li><a href="https://github.com/lervag/vimtex/issues/877"   target="_blank">
+    https://github.com/lervag/vimtex/issues/877</a></li>
+<li><a href="https://chiyosuke.blogspot.com/2019/04/neovimvimtextexlive2018tex.html"   target="_blank">
+    https://chiyosuke.blogspot.com/2019/04/neovimvimtextexlive2018tex.html</a></li>
+<li><a href="https://tex.stackexchange.com/q/129335/114857"   target="_blank">
+    How do I jump from line in Skim to the same line in my text editor?</a></li>
+</ul>
+</li>
+<li>Go to label
+<ul>
+<li><a href="https://github.com/lervag/vimtex/issues/348"   target="_blank">
+    https://github.com/lervag/vimtex/issues/348</a></li>
+<li><a href="https://github.com/lervag/vimtex/issues/853"   target="_blank">
+    https://github.com/lervag/vimtex/issues/853</a></li>
+</ul>
+</li>
+<li><a href="https://tex.stackexchange.com/q/78101/114857"   target="_blank">
+    TeX directives provided by different programs</a>.</li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>For configuring vimtex to work with other completion engines, please refer to <code>:h vimtex-complete-auto</code>.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>See <a href="https://jdhao.github.io/2019/04/17/neovim_snippet_s1/"   target="_blank">
+    this post</a> on how to configure Ultisnips for Neovim.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+        </div>
+                
+        
+
+        
+
+          
+      </div>
+     
+    
+     <script>
+        var oid = "views_post\/nvim_latex_write_preview.md"
+        var oid_likes = "likes_post\/nvim_latex_write_preview.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.5b1bad196a6075a1e11bae1dc95f24f67b610948a00525e347566c5a62338ea78f1c7224ab9a53873dcdb2a1a7d7d391b8a8ef45561297f68806c01315b0c4f6.js" integrity="sha512-WxutGWpgdaHhG64dyV8k9nthCUigBSXjR1ZsWmIzjqePHHIkq5pThz3NsqGn19ORuKjvRVYSl/aIBsATFbDE9g=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/post/pillow_image_alpha_channel/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Manipulating Images with Alpha Channels in Pillow</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2019-03-07 16:21:57 &#43;0800 &#43;0800">7 March 2019</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/post/nifty_nvim_techniques_s1/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Nifty Little Nvim Techniques to Make My Life Easier -- Series 1</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2019-03-28 00:24:33 &#43;0800 &#43;0800">28 March 2019</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="//localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

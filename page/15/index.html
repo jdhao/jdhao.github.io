@@ -1,38 +1,986 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>jdhao's digital space</title>
-<meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=Cache-Control content="no-transform"><meta http-equiv=Cache-Control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="jdhao"><meta name=description content="A blog for the patient and curious people"><meta name=keywords content="Hugo,theme,even"><meta name=google-site-verification content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw"><meta name=generator content="Hugo 0.123.8 with theme even"><link rel=canonical href=https://jdhao.github.io/><link href=https://jdhao.github.io/index.xml rel=alternate type=application/rss+xml title="jdhao's digital space"><link href=https://jdhao.github.io/index.xml rel=feed type=application/rss+xml title="jdhao's digital space"><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><meta name=referrer content="no-referrer-when-downgrade"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-6058871559165202",enable_page_level_ads:!0})</script><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="jdhao's digital space"><meta property="og:description" content="A blog for the patient and curious people"><meta property="og:type" content="website"><meta property="og:url" content="https://jdhao.github.io/"><meta itemprop=name content="jdhao's digital space"><meta itemprop=description content="A blog for the patient and curious people"><meta name=twitter:card content="summary"><meta name=twitter:title content="jdhao's digital space"><meta name=twitter:description content="A blog for the patient and curious people"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>jdhao's digital space</a></div><div class=mobile-navbar-icon><span></span>
-<span></span>
-<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>jdhao's digital space</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><section id=posts class=posts><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/02/23/point_to_line_dist_2d/>Point to Line Distance in 2D Plane</a></h1><div class=post-meta><span class=post-time>2020-02-23</span><div class=post-category><a href=/categories/Note/>Note</a></div><span class=more-meta>492 words </span><span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>Suppose that we have a straight line formed by point B and C, and we
-have another point A. What is the distance from point A to line BC?</p></div><div class=read-more><a href=/2020/02/23/point_to_line_dist_2d/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/02/22/guide-on-how-to-use-chinese-with-matplotlib_zh/>解决 Matplotlib 使用中文乱码问题</a></h1><div class=post-meta><span class=post-time>2020-02-22</span><div class=post-category><a href=/categories/Python/>Python</a></div><span class=more-meta>1322 words </span><span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>注：这是一篇<a href=https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/>旧文</a>的中文翻译版本。</p><p>前不久，我在使用 Matplotlib 画图的时候，发现一些 Unicode 字符(例如，汉字) 无法正常显示：在生成的图片中，汉字是乱码的，显示为一个方框。经过大量的查找和阅读，我终于明白了如何在使用 Matplotlib 时，正确渲染 Unicode 字符<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>。</p></div><div class=read-more><a href=/2020/02/22/guide-on-how-to-use-chinese-with-matplotlib_zh/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/02/21/food_during_SARS-CoV-2/>疫情时期的食物</a></h1><div class=post-meta><span class=post-time>2020-02-21</span><div class=post-category><a href=/categories/life/>life</a></div><span class=more-meta>1511 words </span><span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>新型冠状病毒疫情已经持续了差不多一个月，一切还没有恢复正常，3 号从家里回到深圳，正是疫情严重的时刻，大家都如临大敌。住处附近的餐馆都关了门，想在外面吃饭也不行了。为了减少外出，降低感染的风险，于是尽量从网上买菜。疫情之前，已经开始用<a href=http://www.dingdongmc.com/>叮咚买菜</a>和<a href=https://www.pupumall.com/>朴朴超市</a>，不过用的频率不高，疫情来了，更依赖这些在线服务，感谢这些疫情期间仍然开张的在线服务和送菜的小哥们。</p></div><div class=read-more><a href=/2020/02/21/food_during_SARS-CoV-2/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/02/16/ripgrep_cheat_sheet/>Ripgrep Searching CheatSheet</a></h1><div class=post-meta><span class=post-time>2020-02-16</span><div class=post-category><a href=/categories/tools/>tools</a></div><span class=more-meta>328 words </span><span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p><a href=https://github.com/BurntSushi/ripgrep>Ripgrep</a> is a command line tools that searches patterns under your current directory, like the good old <a href=https://en.wikipedia.org/wiki/Grep>grep</a>, but <a href=https://blog.burntsushi.net/ripgrep/>with faster speed</a>. In this post, I list some of the commonly-used flags for ripgrep.</p></div><div class=read-more><a href=/2020/02/16/ripgrep_cheat_sheet/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/02/09/mac_connect_windows_remotely/>Mac 系统如何远程连接控制 Windows 电脑</a></h1><div class=post-meta><span class=post-time>2020-02-09</span><div class=post-category><a href=/categories/Mac/>Mac</a></div><span class=more-meta>1033 words </span><span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>本文简单总结 macOS 系统远程连接 Windows 系统需要的工具以及简单设置。</p></div><div class=read-more><a href=/2020/02/09/mac_connect_windows_remotely/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/22/why_use_english_and_google/>为什么要用英语以及谷歌？</a></h1><div class=post-meta><span class=post-time>2020-01-22</span><div class=post-category><a href=/categories/thought/>thought</a></div><span class=more-meta>910 words </span><span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p><a href=https://www.v2ex.com/>V2ex</a> 是一个程序员聚集的论坛，也是我经常访问的一个论坛，经常有人在论坛上提问技术问题。前两天遇到<a href=https://v2ex.com/t/637584>一个帖子</a>，问的是 vscode 如何取消按下点以后自动补全第一个候选项。</p></div><div class=read-more><a href=/2020/01/22/why_use_english_and_google/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/19/hugo_toc_header_missing/>Missing Level 1 Header in TOC in Latest Hugo</a></h1><div class=post-meta><span class=post-time>2020-01-19</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>109 words </span><span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>After updating Hugo to the latest version (v0.62), apart from the issue of
-<a href=https://jdhao.github.io/2019/12/29/hugo_html_not_shown/>missing HTML code</a>, I
-have also observed that level 1 header written in Markdown is not rendered in
-the generated <abbr title="Table of Content">TOC</abbr>.</p></div><div class=read-more><a href=/2020/01/19/hugo_toc_header_missing/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/12/vim_nvim_history_development/>Vim 和 Neovim 的前世今生</a></h1><div class=post-meta><span class=post-time>2020-01-12</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>3259 words </span><span class=more-meta>7 mins read</span></div></header><div class=post-content><div class=post-summary><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/202202021242998.jpg width=800></p><h1 id=引子>引子</h1><p>从完全使用 <a href=https://neovim.io/>Neovim</a> 进行日常<a href=https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/>项目开发</a>与<a href=https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/>文档写作</a>到现在，已经过去大约一年半的时间。一年半以前，我对 Vim 的了解还处在非常初级的阶段，甚至还不知道 Neovim，经过长时间的<a href=https://jdhao.github.io/categories/Nvim/>使用与学习</a>，目前已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。</p><p>在使用 Neovim 的过程中，我对 Neovim 和 Vim 的历史以及它们之间的<em>恩怨情仇</em>也产生了兴趣，散布在互联网上各处的博客、视频以及论坛讨论让我对过去的历史有了一定了解。</p><p>P.S., 我建立了一个 <a href=https://t.me/nvim_zh>nvim 中文用户 tg 群</a>，有兴趣可以加入。</p></div><div class=read-more><a href=/2020/01/12/vim_nvim_history_development/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/11/hugo_post_missing/>Hugo Post Missing (Hugo 博客文章缺失问题)</a></h1><div class=post-meta><span class=post-time>2020-01-11</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>701 words </span><span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>Recently, when I was trying to generate my blog site using <a href=https://gohugo.io/>Hugo</a>,
-I found that all my posts were successfully rendered, except for one new post.
-This was rather strange.</p><p><font color=red>最近在使用 <a href=https://gohugo.io/>Hugo</a> 生成博客文章的时候，发现有一篇新写的文章无法生成，而其他博文都可以成功渲染，非常奇怪。</font></p></div><div class=read-more><a href=/2020/01/11/hugo_post_missing/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/11/my_reading_list_2019/>我的 2019 阅读清单</a></h1><div class=post-meta><span class=post-time>2020-01-11</span><div class=post-category><a href=/categories/reading/>reading</a></div><span class=more-meta>713 words </span><span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p>2019 年年末的这三个月过得很快，最近一个月都在紧张忙碌中度过，以至于错过了年末的时间，没有写一篇 2019 年的阅读总结。</p></div><div class=read-more><a href=/2020/01/11/my_reading_list_2019/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/10/nvim_number_arithmetic_in_substitute/>Doing Number Arithmetics in Vim/Neovim Substitutions</a></h1><div class=post-meta><span class=post-time>2020-01-10</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>743 words </span><span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>In this post, I want to share how to do number arithmetic quickly and get what
-you want in specified format. More specifically, the topic is:</p><blockquote><p>How do we add, subtract, multiply or divide a value to each number in a
-range?</p></blockquote></div><div class=read-more><a href=/2020/01/10/nvim_number_arithmetic_in_substitute/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/05/ultisnips_python_interpolation/>Regex Keyword and Python Interpolation in Ultisnips</a></h1><div class=post-meta><span class=post-time>2020-01-05</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>481 words </span><span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p><a href>Vim-snippet</a> provides a lot of useful Ultisnips snippets for various
-filetypes. For example, for Markdown, to insert level 1 header, the snippet
-trigger is <code>sec</code>, and for level 2 and 3 header, the triggers are <code>ssec</code> and
-<code>sssec</code> respectively. These triggers are non-intuitive and hard to remember and
-type.</p></div><div class=read-more><a href=/2020/01/05/ultisnips_python_interpolation/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2020/01/01/firenvim_nvim_inside_browser/>Firenvim: Neovim inside Your Browser</a></h1><div class=post-meta><span class=post-time>2020-01-01</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>423 words </span><span class=more-meta>2 mins read</span></div></header><div class=post-content><div class=post-summary><p align=center><img src=https://blog-resource-1257868508.file.myqcloud.com/firenvim.gif></p><details><summary><font size=2 color=red>Update log</font></summary><p><font color=blue>2022-08-15: update firenvim conf; add install setting for packer.nvim</font></p></details><h1 id=introduction>Introduction</h1><p>Last year, I have written <a href=https://jdhao.github.io/2019/05/11/nvim_text_input_browser/>a post</a> on how to edit texts inside the browser
-using Vim/Nvim or browser extensions that have Vim emulations.
-However, none of them is good enough, since they are either not convenient to use
-or lacking features compared to real Neovim empowered by various plugins.</p></div><div class=read-more><a href=/2020/01/01/firenvim_nvim_inside_browser/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/12/29/hugo_html_not_shown/>Content inside HTML tags missing in Latest Hugo?</a></h1><div class=post-meta><span class=post-time>2019-12-29</span><div class=post-category><a href=/categories/Blog/>Blog</a></div><span class=more-meta>500 words </span><span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>Due to Markdown&rsquo;s inability to center and resize image properly,
-I use the raw HTML tags inside markdown file to include images:</p><p><font color=red>由于 Markdown 格式无法很好居中和设定图像尺寸，我使用 HTML tags 来添加图像(图像可以很好居中以及设定显示大小):</font></p></div><div class=read-more><a href=/2019/12/29/hugo_html_not_shown/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/12/22/ultisnips_avoid_content_update/>Creating Markdown Front Matter with Ultisnips</a></h1><div class=post-meta><span class=post-time>2019-12-22</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>561 words </span><span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><h1 id=introduction>Introduction</h1><p>Currently, I write my blog posts in Markdown and build the blog using
-<a href=https://gohugo.io/>Hugo</a>. Hugo supports <a href=https://gohugo.io/content-management/front-matter/>front matter</a> for Markdown so that you can
-attach metadata for a post, such as title, date, tags, categories, etc.</p></div><div class=read-more><a href=/2019/12/22/ultisnips_avoid_content_update/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/12/21/labelme_json_to_voc_xml/>Labelme JSON 标注格式转 voc XML 格式</a></h1><div class=post-meta><span class=post-time>2019-12-21</span><div class=post-category><a href=/categories/machine-learning/>machine-learning</a></div><span class=more-meta>398 words </span><span class=more-meta>1 min read</span></div></header><div class=post-content><div class=post-summary><p>Labelme 是一款常用的计算机视觉任务标注工具，可以用来标注分类，检测，分割等任务的数据。对于检测任务，labelme 生成的标注文件是 json 格式，每个图像对应一个相应的 json 文件。但是很多任务都使用 PASCAL VOC 的 xml 格式标注，例如 <a href=https://github.com/facebookresearch/maskrcnn-benchmark>maskrcnn-benchmark</a> 任务中的 <a href=https://github.com/facebookresearch/maskrcnn-benchmark/blob/master/maskrcnn_benchmark/data/datasets/voc.py>voc 数据集</a>。</p></div><div class=read-more><a href=/2019/12/21/labelme_json_to_voc_xml/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/12/21/nifty_nvim_techniques_s6/>Nifty Nvim Techniques That Make My Life Easier -- Series 6</a></h1><div class=post-meta><span class=post-time>2019-12-21</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>646 words </span><span class=more-meta>4 mins read</span></div></header><div class=post-content><div class=post-summary><p>This is the 6th post of my post series on nifty Nvim/Vim techniques that will make my editing experience easier.</p><details><summary><font size=3 color=red>Click here to check other posts in this series.</font></summary><ul><li>Series 11: <a href=https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/>https://jdhao.github.io/2021/11/22/nifty_nvim_techniques_s11/</a></li><li>Series 10: <a href=https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/>https://jdhao.github.io/2021/06/17/nifty_nvim_techniques_s10/</a></li><li>Series 9: <a href=https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/>https://jdhao.github.io/2021/01/07/nifty_nvim_techniques_s9/</a></li><li>Series 8: <a href=https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/>https://jdhao.github.io/2020/11/11/nifty_nvim_techniques_s8/</a></li><li>Series 7: <a href=https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/>https://jdhao.github.io/2020/09/22/nifty_nvim_techniques_s7/</a></li><li>Series 5: <a href=https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/>https://jdhao.github.io/2019/11/11/nifty_nvim_techniques_s5/</a></li><li>Series 4: <a href=https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/>https://jdhao.github.io/2019/09/17/nifty_nvim_techniques_s4/</a></li><li>Series 3: <a href=https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/>https://jdhao.github.io/2019/05/14/nifty_nvim_techniques_s3/</a></li><li>Series 2: <a href=https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/>https://jdhao.github.io/2019/04/17/nifty_nvim_techniques_s2/</a></li><li>Series 1: <a href=https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/>https://jdhao.github.io/2019/03/28/nifty_nvim_techniques_s1/</a></li></ul></details></div><div class=read-more><a href=/2019/12/21/nifty_nvim_techniques_s6/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/12/15/mac_video_subtitle_make/>macOS 下如何为视频制作字幕</a></h1><div class=post-meta><span class=post-time>2019-12-15</span><div class=post-category><a href=/categories/Mac/>Mac</a></div><span class=more-meta>1316 words </span><span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>几周之前，在 YouTube 上看到了 Vim 创始人 Bram Moolenaar 在 <a href=https://vimconf.org/2018/>Vim Conf 2018</a> 上的<a href="https://www.youtube.com/watch?v=ES1L2SPgIDI">主题报告</a>，介绍了 Vim 的历史以及可能要添加的一些新特性，萌生了给这个视频配字幕的想法。</p></div><div class=read-more><a href=/2019/12/15/mac_video_subtitle_make/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/12/09/vim_asynchronous_command_run/>Running Command Asynchronously inside Neovim</a></h1><div class=post-meta><span class=post-time>2019-12-09</span><div class=post-category><a href=/categories/Nvim/>Nvim</a></div><span class=more-meta>515 words </span><span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><h1 id=introduction>Introduction</h1><p>When I am writing some prototyping code inside Neovim, I want to run the script
-without going to the terminal and typing <code>python toy_script.py</code>. Of course, we
-can use <code>:!python %</code> in the command line to run the script (see <code>:h :!</code>). The
-problem is that running external command will block Nvim/Vim, and we can not
-move the cursor until the script finishes running.</p></div><div class=read-more><a href=/2019/12/09/vim_asynchronous_command_run/ class=read-more-link>Read more...</a></div></div></article><article class=post><header class=post-header><h1 class=post-title><a class=post-link href=/2019/12/03/git_stash_merge_conflict_handling/>Resolving Merge Conflict after Git Stash Pop</a></h1><div class=post-meta><span class=post-time>2019-12-03</span><div class=post-category><a href=/categories/Git/>Git</a></div><span class=more-meta>637 words </span><span class=more-meta>3 mins read</span></div></header><div class=post-content><div class=post-summary><p>Sometimes, when we are working with our local changes in a Git repo, we may
-want to pull the latest updates from the remote repository. To avoid code
-conflict between remote files and local files. We can use <code>git stash</code> to store
-the unfinished local work temporarily.</p></div><div class=read-more><a href=/2019/12/03/git_stash_merge_conflict_handling/ class=read-more-link>Read more...</a></div></div></article></section><nav class=pagination><a class=prev href=/page/14/><i class="iconfont icon-left"></i>
-<span class=prev-text>Prev</span>
-</a><a class=next href=/page/16/><span class=next-text>Next</span>
-<i class="iconfont icon-right"></i></a></nav></div></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:jdhao@hotmail.com class="iconfont icon-email" title=email></a><a href="https://stackoverflow.com/users/6064933/jdhao?tab=profile" class="iconfont icon-stack-overflow" title=stack-overflow></a><a href=https://github.com/jdhao class="iconfont icon-github" title=github></a><a href=https://jdhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>Powered by <a class=hexo-link href=https://gohugo.io>Hugo</a>
-</span><span class=division>|</span>
-<span class=theme-info>Theme -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>site pv: <span id=busuanzi_value_site_pv><img src=/img/spinner.svg alt=spinner.svg></span> </span><span class=division>|</span>
-<span id=busuanzi_container_site_uv>site uv: <span id=busuanzi_value_site_uv><img src=/img/spinner.svg alt=spinner.svg></span></span></div><span class=copyright-year>&copy;
-2017 -
-2024<span class=heart><i class="iconfont icon-heart"></i></span><span>jdhao</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script><script>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-113395108-1","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script><script id=baidu_push>(function(){if(window.location.hostname==="localhost")return;var t,n,e=document.createElement("script");e.async=!0,n=window.location.protocol.split(":")[0],n==="https"?e.src="https://zz.bdstatic.com/linksubmit/push.js":e.src="http://push.zhanzhang.baidu.com/push.js",t=document.getElementsByTagName("script")[0],t.parentNode.insertBefore(e,t)})()</script></body></html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head>
+	<meta name="generator" content="Hugo 0.123.8"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Blowfish</title>
+  <meta name="title" content="Blowfish" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/" />
+  
+  <link rel="alternate" type="application/rss+xml" href="/index.xml" title="Blowfish" />
+  
+  <link rel="alternate" type="application/json" href="/index.json" title="Blowfish" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.efe989cd11095eee5e026173915472c128b61ba8a106c22ead46741ec9255e7625dba193c53b8bb6fa5ea365248d4750e345dd71654234bdb04eadc42de91f30.css"
+    integrity="sha512-7&#43;mJzREJXu5eAmFzkVRywSi2G6ihBsIurUZ0HsklXnYl26GTxTuLtvpeo2UkjUdQ40XdcWVCNL2wTq3ELekfMA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.447fa6723e45b14dd799293ce1f73c943400f0cd304e2dd6ccea0838024db59e8663389376147b5b5234ef959a5d51df04278c002fd4f1b84eb0fdfc75c7cbcc.js"
+    integrity="sha512-RH&#43;mcj5FsU3XmSk84fc8lDQA8M0wTi3WzOoIOAJNtZ6GYziTdhR7W1I075WaXVHfBCeMAC/U8bhOsP38dcfLzA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  <meta name="google-site-verification" content="HTz0VHxqny_b0FfS774dICLBzHGBZCb_S11j_akF1Tw" />
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Blowfish" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/" />
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Blowfish"/>
+<meta name="twitter:description" content=""/>
+
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "http:\/\/localhost:1313\/",
+    "name": "Blowfish",
+    
+    "inLanguage": "en",
+    "url": "http:\/\/localhost:1313\/",
+    
+    "publisher" : {
+      "@type": "Person",
+      "name": "jdhao"
+    }
+  }
+  </script>
+
+
+  
+  
+  <meta name="author" content="jdhao" />
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6058871559165202",
+      enable_page_level_ads: true
+    });
+  </script>
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Blowfish</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Home
+    </p>
+</a>
+
+
+            
+            
+  <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Archives
+    </p>
+</a>
+
+
+            
+            
+  <a href="/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Categories
+    </p>
+</a>
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Tags
+    </p>
+</a>
+
+
+            
+            
+  <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="About">
+        About
+    </p>
+</a>
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Home
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Archives
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Categories
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Tags
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="About">
+            About
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+  
+  
+    <div class="relative pt-16 pb-32">
+    <div aria-hidden="true" class="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-gray-100"></div>
+    <div class="relative">
+        <div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24 lg:px-8">
+            <div class="mx-auto max-w-xl px-4 sm:px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-0">
+                <article class="max-w-full prose dark:prose-invert">
+                    
+                      <header>
+                        <h1>Blowfish</h1>
+                      </header>
+                    
+                    <section></section>
+                  </article>
+            </div>
+            <div class="mt-6 sm:mt-16 lg:mt-0 mx-auto max-w-xl px-4 sm:px-6 lg:mx-0 lg:max-w-none lg:py-16 lg:px-0">
+                <div class="-mr-48 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0" style="width:100%">
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    
+
+
+
+
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Recent</h2>
+
+
+  
+
+
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/2021/07/20/py_redis_cluster_delete_key_with_pattern/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/2021/07/20/py_redis_cluster_delete_key_with_pattern/">Delete Keys Matching A Pattern with py-redis-cluster</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2021-07-20 23:59:30 &#43;0800 &#43;0800">20 July 2021</time><span class="px-2 text-primary-500">&middot;</span><span>179 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+  
+  
+
+  <a href="/2021/07/11/from_vim_plug_to_packer/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/2021/07/11/from_vim_plug_to_packer/">Migrating from vim-plug to Packer.nvim</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2021-07-11 23:05:22 &#43;0800 &#43;0800">11 July 2021</time><span class="px-2 text-primary-500">&middot;</span><time datetime="2022-08-21 06:43:39.997794477 &#43;0200 CEST">Updated: 21 August 2022</time><span class="px-2 text-primary-500">&middot;</span><span>1072 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+  
+  
+
+  <a href="/2021/07/10/quick_sort_impl/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/2021/07/10/quick_sort_impl/">快排(quick sort) C++ 实现</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2021-07-10 12:19:38 &#43;0800 &#43;0800">10 July 2021</time><span class="px-2 text-primary-500">&middot;</span><time datetime="2021-10-01 09:11:21.656959886 &#43;0200 CEST">Updated: 1 October 2021</time><span class="px-2 text-primary-500">&middot;</span><span>481 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+  
+  
+
+  <a href="/2021/07/04/cpp_container_cheatsheet/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/2021/07/04/cpp_container_cheatsheet/">A CheatSheet of C++ Container/Adapter and Common Structure</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2021-07-04 19:02:50 &#43;0800 &#43;0800">4 July 2021</time><span class="px-2 text-primary-500">&middot;</span><time datetime="2022-05-12 14:41:30.182014336 &#43;0200 CEST">Updated: 12 May 2022</time><span class="px-2 text-primary-500">&middot;</span><span>830 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+  
+  
+
+  <a href="/2021/07/04/static_and_dynamic_linking_cpp/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/2021/07/04/static_and_dynamic_linking_cpp/">Static and Dynamic Linkage in C++</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2021-07-04 01:02:33 &#43;0800 &#43;0800">4 July 2021</time><span class="px-2 text-primary-500">&middot;</span><span>387 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+  
+</section>
+
+
+
+
+
+
+<div class="mt-10 flex justify-center">
+  <a href="/posts">
+    <button
+      class="bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded">
+      Show More
+    </button>
+  </a>
+</div>
+
+
+</section>
+  
+
+      
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      ©  2017 - 2024 ❤️ jdhao
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

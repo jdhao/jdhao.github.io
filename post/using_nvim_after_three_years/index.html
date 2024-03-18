@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Using Neovim after Three Years -- A Retrospect &middot; Blowfish</title>
+  <meta name="title" content="Using Neovim after Three Years -- A Retrospect &middot; Blowfish" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="//localhost:1313/post/using_nvim_after_three_years/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.efe989cd11095eee5e026173915472c128b61ba8a106c22ead46741ec9255e7625dba193c53b8bb6fa5ea365248d4750e345dd71654234bdb04eadc42de91f30.css"
+    integrity="sha512-7&#43;mJzREJXu5eAmFzkVRywSi2G6ihBsIurUZ0HsklXnYl26GTxTuLtvpeo2UkjUdQ40XdcWVCNL2wTq3ELekfMA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.5200170cb3ed0adabce28870bf7ff061203bbefb075c90b7b76cc561cd376288fbd116092bd2e65b027908506b03f8fd15b5613608229bdc92f93ecf6d8faa64.js"
+    integrity="sha512-UgAXDLPtCtq84ohwv3/wYSA7vvsHXJC3t2zFYc03Yoj70RYJK9LmWwJ5CFBrA/j9FbVhNggim9yS&#43;T7PbY&#43;qZA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Using Neovim after Three Years -- A Retrospect" />
+<meta property="og:description" content="
+
+
+I started using 
+    Neovim (nvim for short) about three years ago, in Sep. 2018.
+At that time, nvim had just released 
+    v0.3.1. Over the years, I have been a staunch nvim user,
+constantly learning new knowledge, and sharing tips, tricks and interesting plugins in 
+    my blog posts." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="//localhost:1313/post/using_nvim_after_three_years/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-31T14:54:38+08:00" />
+<meta property="article:modified_time" content="2021-12-31T14:54:38+08:00" />
+
+
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Using Neovim after Three Years -- A Retrospect"/>
+<meta name="twitter:description" content="
+
+
+I started using 
+    Neovim (nvim for short) about three years ago, in Sep. 2018.
+At that time, nvim had just released 
+    v0.3.1. Over the years, I have been a staunch nvim user,
+constantly learning new knowledge, and sharing tips, tricks and interesting plugins in 
+    my blog posts."/>
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Using Neovim after Three Years -- A Retrospect",
+    "headline": "Using Neovim after Three Years -- A Retrospect",
+    
+    "abstract": "\u003cp align=\u0022center\u0022\u003e\n\u003cimg src=\u0022https:\/\/blog-resource-1257868508.file.myqcloud.com\/202202031428905.jpg\u0022 width=\u0022800\u0022\u003e\n\u003c\/p\u003e\n\u003cp\u003eI started using \u003ca href=\u0022https:\/\/neovim.io\/\u0022   target=\u0022_blank\u0022\u003e\n    Neovim\u003c\/a\u003e (nvim for short) about three years ago, in Sep. 2018.\nAt that time, nvim had just released \u003ca href=\u0022https:\/\/github.com\/neovim\/neovim\/releases\/tag\/v0.3.1\u0022   target=\u0022_blank\u0022\u003e\n    v0.3.1\u003c\/a\u003e. Over the years, I have been a staunch nvim user,\nconstantly learning new knowledge, and sharing tips, tricks and interesting plugins in \u003ca href=\u0022https:\/\/jdhao.github.io\/categories\/Nvim\/\u0022   target=\u0022_blank\u0022\u003e\n    my blog posts\u003c\/a\u003e.\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "\/\/localhost:1313\/post\/using_nvim_after_three_years\/",
+    "author" : {
+      "@type": "Person",
+      "name": ""
+    },
+    "copyrightYear": "2021",
+    "dateCreated": "2021-12-31T14:54:38\u002b08:00",
+    "datePublished": "2021-12-31T14:54:38\u002b08:00",
+    
+    "dateModified": "2021-12-31T14:54:38\u002b08:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2403"
+  }]
+  </script>
+
+
+  
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Blowfish</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="About">
+        About
+    </p>
+</a>
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="About">
+            About
+        </p>
+    </a>
+</li>
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      Using Neovim after Three Years -- A Retrospect
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2021-12-31 14:54:38 &#43;0800 &#43;0800">31 December 2021</time><span class="px-2 text-primary-500">&middot;</span><span>2403 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">12 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+      
+      
+<div class="flex author">
+  
+  <div class="place-self-center">
+    
+    
+    <div class="text-2xl sm:text-lg">
+</div>
+  </div>
+</div>
+    
+
+    
+
+    
+
+    
+    <div class="mb-5"></div>
+    
+  
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+    
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <p align="center">
+<img src="https://blog-resource-1257868508.file.myqcloud.com/202202031428905.jpg" width="800">
+</p>
+<p>I started using <a href="https://neovim.io/"   target="_blank">
+    Neovim</a> (nvim for short) about three years ago, in Sep. 2018.
+At that time, nvim had just released <a href="https://github.com/neovim/neovim/releases/tag/v0.3.1"   target="_blank">
+    v0.3.1</a>. Over the years, I have been a staunch nvim user,
+constantly learning new knowledge, and sharing tips, tricks and interesting plugins in <a href="https://jdhao.github.io/categories/Nvim/"   target="_blank">
+    my blog posts</a>.</p>
+<h1 class="relative group">How I started with Neovim 
+    <div id="how-i-started-with-neovim" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#how-i-started-with-neovim" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Back when I was still in university, I had dabbled in Vim a little bit.
+I remember that in those days, most posts on the Internet recommended a plugin manager called <a href="https://github.com/VundleVim/Vundle.vim"   target="_blank">
+    vundle</a>.
+As for auto-completion, <a href="https://github.com/ycm-core/YouCompleteMe"   target="_blank">
+    ycm</a> was the most popular plugin at the time.
+However, it is difficult to install and configure, and I never succeeded in installing it.
+I copied some basic config from various posts and did not really know what they mean.
+Vim script seemed weird and hard to understand. So my first trial of Vim didn&rsquo;t really take off.
+I learned the basic motions and know how to save and quit a file, but no fancy and advanced features such as text objects.
+I was still using <a href="https://www.jetbrains.com/pycharm/"   target="_blank">
+    PyCharm</a> and <a href="https://www.sublimetext.com/"   target="_blank">
+    Sublime Text</a> for serious project development.</p>
+<p>After I graduated and started working, since we need to run the code on a remote server with no GUI support,
+I was forced to make choices:</p>
+<ol>
+<li>Develop on the server without GUI, which implies using a TUI editor. Vim is apparently the choice.</li>
+<li>Develop on my local PC and sync the code to remote via Git or other tools.</li>
+</ol>
+<p>I find choice one more elegant, since I do not need to set up dev environment on my local machine,
+and I can run my code directly on the server (running the code requires GPU and there is no GPU on my local machine).
+At the time, I came to know the Neovim project. I choose Nvim because it is easily installable.
+It provides <a href="https://github.com/neovim/neovim/releases"   target="_blank">
+    binary releases</a>, so I do not need to compile from source myself.
+I also like its development model more than Vim&rsquo;s. Nvim uses GitHub and other modern dev tools for better collaboration,
+while Vim is still using <a href="https://groups.google.com/g/vim_dev"   target="_blank">
+    google groups</a><sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> for dev communications.</p>
+<p>Finally, I was on the Neovim boat and started my journey.</p>
+
+
+<h1 class="relative group">My learning story 
+    <div id="my-learning-story" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#my-learning-story" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>The initial learning curve of nvim was indeed quite steep.
+I needed to constantly check the documentation or search on the Internet, then tweak the config to do what I want.
+Sometimes, a small setting may waste a lot of time, since I needed to understand what it does and how it works.
+I also spent a lot time tweaking the settings of various plugins to fit my need.</p>
+<p>My way of learning Nvim is to add the features and plugins I need incrementally.
+At the start, I only added the settings I wanted most, like autocompletion, linting, file explorer etc.
+I searched intensively on the Internet for the state of the art plugins for a particular need.
+I will try several similar plugins, and only keep the one that best suits me.
+The most important point to remember is that never rush to master Vim in a few days.
+Vim has so many hidden features and settings, and it is impossible to master it quickly.</p>
+<p>After about three or four months of rapid learning process, I was at ease using Nvim for my development work.
+I published <a href="https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/"   target="_blank">
+    a post</a> on how to configure Nvim for Python development.</p>
+<p>After building a usable config, when I want to do something, I always check if there is a better way to do it.
+I searched on the Internet and learned new tricks, and perfected those skills through practicing.
+Notice that not all tricks on the Internet are good and written by advanced Vim users.
+We need to constantly learn new Vim knowledge and update our existing settings.</p>
+<p>Another great learning resource is the configurations of other people.
+We can find numerous dotfile repos on GitHub and learn from them little tips and tricks that we do not know yet.
+I have always advised <strong>against</strong> copying the config of others without knowing what you are doing.
+At the very least, we should read the documentation and understand what a particular setting does.
+If we copy other&rsquo;s config blindly, it may cause endless pains afterwards when we spend hours debugging misbehaving Nvim.</p>
+<p>As I became more proficient in Vim, I started learning more advanced features such as text objects.
+I also <a href="https://jdhao.github.io/2020/11/15/nvim_text_objects/"   target="_blank">
+    created some custom text objects</a> for my own use.
+I have always wanted to write my own plugin and contribute to the Vim community.
+After learning enough about Vim script, I <a href="https://jdhao.github.io/2020/12/18/my_first_vim_plugin/"   target="_blank">
+    wrote a plugin called better-escape.vim</a> in Dec. 2020.
+The goal is to help users escape insert mode quicker without lagging caused by <code>timeoutlen</code> option.</p>
+<p>This year (2021), I have been learning Lua and migrating some of my config to pure Lua.</p>
+
+
+<h1 class="relative group">Evolution of my configuration 
+    <div id="evolution-of-my-configuration" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#evolution-of-my-configuration" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>I didn&rsquo;t create a repo to store my nvim config at first. I just stored it <a href="https://gist.github.com/jdhao/d592ba03a8862628f31cba5144ea04c2/2caf723de20e486acfb0a24adc1c4d520b3146d4"   target="_blank">
+    in a gist</a>.
+It wasn&rsquo;t until April 2019 that I <a href="https://github.com/jdhao/nvim-config/commit/154958e50cc322ed157a545860eb36826dc9a37f"   target="_blank">
+    created a repo for my nvim config</a>.</p>
+<p>Initially, all my config is stored in a single file <code>init.vim</code>, which in its peak exceeded 2000 lines.
+Later, as I learned more about how Vim works (<a href="https://learnvimscriptthehardway.stevelosh.com/chapters/53.html"   target="_blank">
+    autoload</a>, <a href="https://learnvimscriptthehardway.stevelosh.com/chapters/42.html#vimftplugin"   target="_blank">
+    ftplugin</a>, <a href="https://vi.stackexchange.com/a/12735/15292"   target="_blank">
+    after folder</a> etc.)<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>,
+I <a href="https://github.com/jdhao/nvim-config/commit/460ec98052e07bbf16d8143d8f242280662582a6"   target="_blank">
+    started splitting</a> my config into different directories and files for better maintainability.</p>
+<p>My config has been all vim script for a long time.
+Since nvim is adding more lua support and using lua to implement its <a href="https://neovim.io/doc/user/lsp.html"   target="_blank">
+    builtin LSP support</a>,
+I have also been updating my config and adding a little lua.
+I have <a href="https://github.com/jdhao/nvim-config/commit/50c761119a86cd12676e550e93f615e1fce0c3f9"   target="_blank">
+    slowly moved</a> my completion system to the builtin LSP<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.
+After that, part of my configuration is <a href="https://github.com/jdhao/nvim-config/commit/2933d7da625d96907b077e5ad7258bd5e8785dc6"   target="_blank">
+    moved to <code>lua/</code> directory</a>。</p>
+<p>With the <a href="https://lwn.net/Articles/864712/"   target="_blank">
+    release of Nvim v0.5</a>, there has been a burst of lua-based plugins.
+I have also replaced some of the viml plugins to their lua-based counterparts<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup> this year.</p>
+
+
+<h1 class="relative group">What remains, what has changed, and some new plugins 
+    <div id="what-remains-what-has-changed-and-some-new-plugins" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#what-remains-what-has-changed-and-some-new-plugins" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>I am not a Vim purist<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>, so plugins have always been an essential part in using Vim/Nvim.
+Since there is no central plugin marketplace like <a href="https://melpa.org/"   target="_blank">
+    Emacs MELPA</a>, finding good plugins is not always easy.</p>
+<p>That a plugin is popular and has more stars does not mean that it is better or it suits you<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>.
+Over the course of three years, I have always tried to find better alternatives for my existing plugins.
+Admittedly, trying a new plugin and adapting to it is a time-consuming process,
+especially when a plugin does not work out of the box and requires some degree of customization.
+However, the efficiency boost brought by a well-designed plugin can be huge.</p>
+
+
+<h2 class="relative group">What remains 
+    <div id="what-remains" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#what-remains" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>A few plugins still remain:</p>
+<ul>
+<li>git gutter plugin: I still use <a href="https://github.com/mhinz/vim-signify"   target="_blank">
+    vim-signify</a>, but <a href="https://github.com/lewis6991/gitsigns.nvim"   target="_blank">
+    gitsigns.nvim</a> seems more powerful and promising.</li>
+<li>snippet plugin: I am still using <a href="https://github.com/SirVer/ultisnips"   target="_blank">
+    ultisnips</a> due to its powerful interpolation features.
+There are also many <a href="https://github.com/rockerBOO/awesome-neovim#snippet"   target="_blank">
+    lua-based snippet engines</a> worth trying.</li>
+<li>git plugins: still use <a href="https://github.com/tpope/vim-fugitive"   target="_blank">
+    vim-fugitive</a>. I have also tried <a href="https://github.com/lambdalisue/gina.vim"   target="_blank">
+    gina</a>, but find it too complicated.
+There are also lua-based git plugins such as <a href="https://github.com/TimUntersberger/neogit"   target="_blank">
+    neogit</a>, which aims to replicate the functionality of <a href="https://github.com/magit/magit"   target="_blank">
+    magit</a>.</li>
+<li>markdown plugins: <a href="https://github.com/plasticboy/vim-markdown"   target="_blank">
+    vim-markdown</a> for editing and <a href="https://github.com/iamcco/markdown-preview.nvim"   target="_blank">
+    markdown-preview.nvim</a> for preview.</li>
+</ul>
+
+
+<h2 class="relative group">What has changed 
+    <div id="what-has-changed" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#what-has-changed" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>I have also updated a large part of my plugins during the process:</p>
+<ul>
+<li>plugin manager: from <a href="https://github.com/junegunn/vim-plug"   target="_blank">
+    vim-plug</a> to <a href="https://github.com/wbthomason/packer.nvim"   target="_blank">
+    packer.nvim</a>. I switched to packer.nvim middle this year,
+because it allows all sort of crazy lazy loading and brings package management to a whole new level.</li>
+<li>autocompletion plugins: from <a href="https://github.com/Shougo/deoplete.nvim"   target="_blank">
+    deoplete</a> + <a href="https://github.com/deoplete-plugins/deoplete-jedi"   target="_blank">
+    deoplete-jedi</a> to <a href="https://github.com/prabirshrestha/vim-lsp"   target="_blank">
+    vim-lsp</a> + deoplete to nvim-lsp + <a href="https://github.com/hrsh7th/nvim-compe"   target="_blank">
+    nvim-compe</a> to nvim-lsp + <a href="https://github.com/hrsh7th/nvim-cmp"   target="_blank">
+    nvim-cmp</a>. Nvim-cmp is light-weight, well-designed and awesome.</li>
+<li>pair management: from <a href="https://github.com/tpope/vim-surround"   target="_blank">
+    vim-surround</a> to <a href="https://github.com/machakann/vim-sandwich"   target="_blank">
+    vim-sandwich</a>.
+Vim-sandwich is well-designed and has better UX than vim-surround, though it is less popular than vim-surround.</li>
+<li>comment plugin: from <a href="https://github.com/preservim/nerdcommenter"   target="_blank">
+    nerdcommenter</a> to <a href="https://github.com/tpope/vim-commentary"   target="_blank">
+    commentary.vim</a>. I like commentary&rsquo;s feature of commenting code via motion.</li>
+<li>file explorer: from <a href="https://github.com/preservim/nerdtree"   target="_blank">
+    nerdtree</a> to none. I use fuzzy file finder instead.
+If I need to explore a project, I check it in another tmux pane.</li>
+<li>statusline plugin: from <a href="https://github.com/vim-airline/vim-airline"   target="_blank">
+    vim-airline</a> to <a href="https://github.com/nvim-lualine/lualine.nvim"   target="_blank">
+    lualine</a>. Vim-airline is great,
+but it is also bloated with too many 3rd-party plugin integrations. Lualine is simple, faster, and easy to customize.</li>
+<li>change of linting: from <a href="https://github.com/neomake/neomake"   target="_blank">
+    Neomake</a> to <a href="https://github.com/dense-analysis/ale"   target="_blank">
+    ALE</a> to nvim-lsp</li>
+<li>auto-pair plugin: from <a href="https://github.com/jiangmiao/auto-pairs"   target="_blank">
+    auto-pairs</a> to <a href="https://github.com/Raimondi/delimitMate"   target="_blank">
+    delimitMate</a>. DelimitMate has saner behaviour for pair insertion than auto-pairs.</li>
+<li>in-buffer jump: from <a href="https://github.com/justinmk/vim-sneak"   target="_blank">
+    vim-sneak</a> to <a href="https://github.com/phaazon/hop.nvim"   target="_blank">
+    hop.nvim</a>. Vim-sneak has been a great plugin.
+I changed to hop.nvim because it may support jumping via <a href="https://en.wikipedia.org/wiki/Pinyin"   target="_blank">
+    pinyin</a> (<a href="https://github.com/phaazon/hop.nvim/pull/133"   target="_blank">
+    PR here</a>), which is convenient for Chinese users.</li>
+<li>search item indexing: from <a href="https://github.com/osyo-manga/vim-anzu"   target="_blank">
+    vim-anzu</a> to <a href="https://github.com/kevinhwang91/nvim-hlslens"   target="_blank">
+    nvim-hlslens</a>.
+Nvim-hlslens is a lua plugin that provides better UX for search indexing using <a href="https://jdhao.github.io/2021/09/09/nvim_use_virtual_text/"   target="_blank">
+    virtual text feature</a> of Nvim.</li>
+<li>clear search highlight automatically: from <a href="https://github.com/romainl/vim-cool"   target="_blank">
+    vim-cool</a> to nvim-hlslens</li>
+<li>format plugin: from <a href="https://github.com/sbdchd/neoformat"   target="_blank">
+    Neoformat</a> to none (using LSP for formatting).</li>
+<li>multiple cursors: from <a href="https://github.com/terryma/vim-multiple-cursors"   target="_blank">
+    vim-multiple-cursors</a> to none. I now use <a href="http://vimcasts.org/episodes/operating-on-search-matches-using-gn/"   target="_blank">
+    <code>gn</code></a> mostly.
+<a href="https://github.com/mg979/vim-visual-multi"   target="_blank">
+    vim-visual-multi</a> may be a good replacement (also recommended by author of vim-multiple-cursors).</li>
+<li>yank highlight: from <a href="https://github.com/machakann/vim-highlightedyank"   target="_blank">
+    vim-highlightedyank</a> to nvim builtin, see <a href="https://jdhao.github.io/2020/05/22/highlight_yank_region_nvim/#neovim-only"   target="_blank">
+    this post</a> for the detail.</li>
+<li>fuzzy finder: from <a href="https://github.com/junegunn/fzf.vim"   target="_blank">
+    fzf.vim</a> to <a href="https://github.com/Yggdroot/LeaderF"   target="_blank">
+    LeaderF</a>. LeaderF works fast and reliably across different systems.</li>
+<li>startup screen: from <a href="https://github.com/mhinz/vim-startify"   target="_blank">
+    vim-startify</a> to <a href="https://github.com/goolord/alpha-nvim"   target="_blank">
+    alpha-nvim</a>.</li>
+<li>tabline plugin: from vim-airline to <a href="https://github.com/akinsho/bufferline.nvim"   target="_blank">
+    bufferline.nvim</a>.</li>
+<li>indent line plugin: from <a href="https://github.com/Yggdroot/indentLine"   target="_blank">
+    indentLine</a> to <a href="https://github.com/lukas-reineke/indent-blankline.nvim"   target="_blank">
+    indent-blankline.nvim</a>.
+Indent-blankline uses the virtual text feature to make indent line flawless even on blank lines.</li>
+<li>auto save plugin: from <a href="https://github.com/907th/vim-auto-save"   target="_blank">
+    vim-auto-save</a> to <a href="https://github.com/Pocco81/AutoSave.nvim"   target="_blank">
+    AutoSave.nvim</a>.</li>
+<li>showing tags: from <a href="https://github.com/preservim/tagbar"   target="_blank">
+    tagbar</a> to <a href="https://github.com/liuchengxu/vista.vim"   target="_blank">
+    vista</a>. Vista is better at displaying symbols.</li>
+</ul>
+
+
+<h2 class="relative group">New plugins 
+    <div id="new-plugins" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#new-plugins" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>I have also added some new and interesting plugins:</p>
+<ul>
+<li><a href="https://github.com/nvim-treesitter/nvim-treesitter"   target="_blank">
+    nvim-treesitter</a>: more accurate syntax highlighting, text object and more.</li>
+<li><a href="https://github.com/rcarriga/nvim-notify"   target="_blank">
+    nvim-notify</a>: show notifications via floating windows.</li>
+<li><a href="https://github.com/chrisbra/unicode.vim"   target="_blank">
+    unicode.vim</a>: check, search and insert unicode characters.</li>
+<li><a href="https://github.com/skywind3000/asyncrun.vim"   target="_blank">
+    asyncrun.vim</a>: run code asynchronously in the background and show results in quick fix window.</li>
+<li><a href="https://github.com/glacambre/firenvim"   target="_blank">
+    firenvim</a>: run neovim inside text area in the browser and use it for quicker editing.</li>
+<li><a href="https://github.com/ojroques/vim-oscyank"   target="_blank">
+    vim-oscyank</a>: yank text from remote server directly to the clipboard of your local machine.</li>
+<li><a href="https://github.com/gelguy/wilder.nvim"   target="_blank">
+    wilder.nvim</a>: fancy autocompletion in command line for Nvim.</li>
+<li><a href="https://github.com/folke/which-key.nvim"   target="_blank">
+    whichkey.nvim</a>: show key mappings and register contents etc. automatically for you.</li>
+</ul>
+
+
+<h1 class="relative group">My thoughts on several topics 
+    <div id="my-thoughts-on-several-topics" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#my-thoughts-on-several-topics" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Vim or Neovim? 
+    <div id="vim-or-neovim" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#vim-or-neovim" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>This is a question that gets asked almost monthly by mainly beginners (e.g., see <a href="https://vi.stackexchange.com/q/34/15292"   target="_blank">
+    this post</a>).
+The short and unbiased answer is that it does not really matter for novice.</p>
+<p>Since Nvim is a fork of Vim and merges patches from Vim regularly, the basic features are almost the same.
+There are some subtle differences (see <a href="https://neovim.io/doc/user/vim_diff.html#vim-differences"   target="_blank">
+    vim-differences</a>), but that is largely irrelevant for beginners.
+If you are a beginner, you can pick either one and learn the basics<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>.
+Later when you become a proficient user, you can choose a side, or make your config compatible with both Vim and Nvim.</p>
+<p>It is a sad truth that Vim and Nvim are going on quite different paths:
+Neovim is investing more on Lua, and its Lua plugin system is thriving,
+while Vim is <a href="https://github.com/vim/vim/search?o=asc&amp;q=Vim9&amp;s=committer-date&amp;type=commits"   target="_blank">
+    trying hard implement the vim9 script</a>, a completely new and incompatible version of viml.
+There might be more incompatible changes happening on both sides.
+It might be getting harder to port Vim patches to Neovim.
+Personally, I doubt whether the amount of effort put into building vim9 script will ever pay off.
+Considering that a lot of vim plugins are still trying to support Vim 7.xxx,
+I doubt how many of these plugin authors are willing to rewrite their plugins in vim9 script,
+especially when their plugins have very large code bases.</p>
+<p>Personally, I will stick to Neovim and migrate to all-lua config some day.</p>
+
+
+<h2 class="relative group">init.vim vs init.lua? 
+    <div id="initvim-vs-initlua" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#initvim-vs-initlua" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Since nvim has added <a href="https://github.com/neovim/neovim/commit/767cd8b17b71f78bdd4c2e0dd8d3f4f0f1551381"   target="_blank">
+    support for init.lua</a>, many users have moved from viml-based to lua-based config completely.
+Currently, my config is still a mix of vim script and lua script due to several reasons:</p>
+<ul>
+<li>Lua support in Nvim is still not complete and mature enough. For example, sometimes we still need to use <code>vim.cmd()</code> to run vim command.
+We still need to learn how to use Vim script.</li>
+<li>Some viml command is more concise to write, and lua tends to be more verbose, e.g., when defining mappings or setting an option.</li>
+<li>I am still using quite a few vim script plugins, and it makes sense to configure these plugins in vim script.</li>
+</ul>
+
+
+<h2 class="relative group">Should I use a pre-made config distribution? 
+    <div id="should-i-use-a-pre-made-config-distribution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#should-i-use-a-pre-made-config-distribution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>There are several Vim/Nvim distributions, which aim at providing IDE-like and out-of-the-box experience.
+Some of the most popular distributions are <a href="https://github.com/LunarVim/LunarVim"   target="_blank">
+    LunarVim</a> and <a href="https://github.com/NvChad/NvChad"   target="_blank">
+    NvChad</a>, <a href="https://github.com/AstroNvim/AstroNvim"   target="_blank">
+    AstroNvim</a>.</p>
+<p>People ask frequently on r/neovim and r/vim whether they should use a vim/Nvim distribution.
+If you are serious about Vim and want to learn how to use it properly and eventually master it,
+I think it is better to avoid those distributions and build your own config from scratch:</p>
+<ul>
+<li>Those distributions may add their own configuration layer and complicate things.
+Users end up learning too much distribution-specific config without learning real Vim stuff.</li>
+<li>Even if you use those distributions, when you want to customize certain things,
+you still need to learn how Vim/Nvim works under the hood.
+Otherwise, you can only count on other developers to implement the feature for you.</li>
+<li>When you meet issues with those distributions, you may have a hard time debugging it,
+since they all include various configurations.</li>
+</ul>
+<p>However, this does not mean that you can not learn from these distributions, e.g., how they configure,
+how they organize their directory structure. You can even <em>steal</em> some configs for your own use.</p>
+
+
+<h1 class="relative group">Concluding remarks 
+    <div id="concluding-remarks" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#concluding-remarks" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Looking back, I think I have made the right choice to learn Vim/Nvim.
+It has been a rewarding journey for me. I am so used to vim&rsquo;s style editing that Vim becomes second nature.</p>
+<p>I am thankful to all the contributors of Vim/Nvim for building and maintaining such a great editor.
+I am grateful for the efforts that plugin authors put into in building those great plugins.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>I am not saying that Vim&rsquo;s development model is worse, I just like Nvim&rsquo;s development model more.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>An excellent article on how to split your config is <a href="https://vimways.org/2018/from-vimrc-to-vim/"   target="_blank">
+    from .vimrc to .vim</a>.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>I used deoplete with deoplete-jedi for over two years. Then I moved to <a href="https://github.com/prabirshrestha/vim-lsp"   target="_blank">
+    vim-lsp</a> + deoplete for several month, before moving to nvim-lsp.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>A good resource for finding lua plugins is <a href="https://github.com/rockerBOO/awesome-neovim"   target="_blank">
+    awesome neovim</a>. <a href="https://neovimcraft.com/"   target="_blank">
+    Neovimcraft</a> also collects some lua-based neovim plugins and config distributions.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>Vim purist refers to people who use little or no external plugins.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>One such example is <a href="https://github.com/tpope/vim-surround"   target="_blank">
+    vim-surround</a> vs <a href="https://github.com/machakann/vim-sandwich"   target="_blank">
+    vim-sandwich</a>. Vim-sandwich has much lesser stars than vim-surround, but I find it more user-friendly and switched to it in 2020.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>If you decide to go all Lua and use <code>init.lua</code>, then you should definitely use Neovim.&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+        </div>
+                
+        
+
+        
+
+          
+      </div>
+     
+    
+     <script>
+        var oid = "views_post\/using_nvim_after_three_years.md"
+        var oid_likes = "likes_post\/using_nvim_after_three_years.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.5b1bad196a6075a1e11bae1dc95f24f67b610948a00525e347566c5a62338ea78f1c7224ab9a53873dcdb2a1a7d7d391b8a8ef45561297f68806c01315b0c4f6.js" integrity="sha512-WxutGWpgdaHhG64dyV8k9nthCUigBSXjR1ZsWmIzjqePHHIkq5pThz3NsqGn19ORuKjvRVYSl/aIBsATFbDE9g=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/post/ffmpeg-extract-key-frame-video/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >How to Extract Key Frames from A Video with FFmpeg</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2021-12-25 17:58:47 &#43;0800 &#43;0800">25 December 2021</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/post/github_profile_readme/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >How to Make An Impressive and Beautiful GitHub Profile</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2022-01-03 13:13:03 &#43;0800 &#43;0800">3 January 2022</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.62060bb247f4de2b6dde45903668fefb68d792f365587605177b1227c0cf43588701edaca0cb40e2c8e2789bd5ce67c1d2a215b9fb258c3496a7cd25e7cb5fdf.js" integrity="sha512-YgYLskf03itt3kWQNmj&#43;&#43;2jXkvNlWHYFF3sSJ8DPQ1iHAe2soMtA4sjieJvVzmfB0qIVufsljDSWp80l58tf3w=="></script>
+  
+  
+</footer><div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="//localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>
