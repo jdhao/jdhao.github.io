@@ -2,16 +2,11 @@
 suitable options to build the program. While it is feasible, it is tedious to
 type those compilation options and flags. For projects with multiple source
 files and header files, it becomes inefficient to build by hand. On Linux,
-people may write &lt;a href="http://web.mit.edu/gnu/doc/html/make_2.html" target="_blank">
-Makefile&lt;/a> and
-build with &lt;a href="https://www.gnu.org/software/make/" target="_blank">
-make&lt;/a>. On Windows, people may
+people may write &lt;a href="http://web.mit.edu/gnu/doc/html/make_2.html" target="_blank">Makefile&lt;/a> and
+build with &lt;a href="https://www.gnu.org/software/make/" target="_blank">make&lt;/a>. On Windows, people may
 use Visual Studio for writing and build their project.&lt;/p></description></item><item><title>Building OpenCV from Source on Linux</title><link>https://jdhao.github.io/2020/12/07/build_opencv_cpp_library_linux/</link><pubDate>Mon, 07 Dec 2020 23:25:18 +0800</pubDate><guid>https://jdhao.github.io/2020/12/07/build_opencv_cpp_library_linux/</guid><description>&lt;p>In this post, I will summarize how to build OpenCV from source, and introduce
-how to use it when writing C++ programs.&lt;/p></description></item><item><title>Pillow/PIL 缩放索引图像时的一个问题</title><link>https://jdhao.github.io/2020/11/18/pillow_image_resize_pitfall/</link><pubDate>Wed, 18 Nov 2020 23:38:02 +0800</pubDate><guid>https://jdhao.github.io/2020/11/18/pillow_image_resize_pitfall/</guid><description>&lt;p>今天遇到了&lt;a href="https://www.v2ex.com/t/726518" target="_blank">
-一个有趣的问题&lt;/a>，有人在 v2ex 上说自己的图片，经过 &lt;a href="https://python-pillow.org/" target="_blank">
-PIL&lt;/a> 缩放到 800x600 以后，非常模糊，有什么办法可以解决。&lt;/p></description></item><item><title>Conversion between base64 and OpenCV or PIL Image</title><link>https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/</link><pubDate>Tue, 17 Mar 2020 23:08:32 +0800</pubDate><guid>https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/</guid><description>&lt;p>When we are building web services using Python, we often send or receive images
-in &lt;a href="https://docs.python.org/3/library/base64.html" target="_blank">
-base64&lt;/a> encoded format.
+how to use it when writing C++ programs.&lt;/p></description></item><item><title>Pillow/PIL 缩放索引图像时的一个问题</title><link>https://jdhao.github.io/2020/11/18/pillow_image_resize_pitfall/</link><pubDate>Wed, 18 Nov 2020 23:38:02 +0800</pubDate><guid>https://jdhao.github.io/2020/11/18/pillow_image_resize_pitfall/</guid><description>&lt;p>今天遇到了&lt;a href="https://www.v2ex.com/t/726518" target="_blank">一个有趣的问题&lt;/a>，有人在 v2ex 上说自己的图片，经过 &lt;a href="https://python-pillow.org/" target="_blank">PIL&lt;/a> 缩放到 800x600 以后，非常模糊，有什么办法可以解决。&lt;/p></description></item><item><title>Conversion between base64 and OpenCV or PIL Image</title><link>https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/</link><pubDate>Tue, 17 Mar 2020 23:08:32 +0800</pubDate><guid>https://jdhao.github.io/2020/03/17/base64_opencv_pil_image_conversion/</guid><description>&lt;p>When we are building web services using Python, we often send or receive images
+in &lt;a href="https://docs.python.org/3/library/base64.html" target="_blank">base64&lt;/a> encoded format.
 However, when we are doing image processing tasks, we need to use PIL or
 OpenCV. In this post, I will share how to convert between OpenCV or PIL image
 and base64 encoded image.&lt;/p></description></item><item><title>How to Read and Write Images with Unicode Paths in OpenCV</title><link>https://jdhao.github.io/2019/09/11/opencv_unicode_image_path/</link><pubDate>Wed, 11 Sep 2019 00:23:41 +0800</pubDate><guid>https://jdhao.github.io/2019/09/11/opencv_unicode_image_path/</guid><description>&lt;p>The other day, when I was using OpenCV to read some images and print the image

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LaTeX on Blowfish</title><link>https://jdhao.github.io/tags/latex/</link><description>Recent content in LaTeX on Blowfish</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2017 - 2024 ❤️ jdhao</copyright><lastBuildDate>Sat, 20 Feb 2021 22:31:34 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml"/><item><title>Set up Inverse Search for LaTeX with VimTeX and Neovim</title><link>https://jdhao.github.io/2021/02/20/inverse_search_setup_neovim_vimtex/</link><pubDate>Sat, 20 Feb 2021 22:31:34 +0800</pubDate><guid>https://jdhao.github.io/2021/02/20/inverse_search_setup_neovim_vimtex/</guid><description>&lt;p>&lt;font size="5" color="red">2022-01-19: With the release of &lt;a href="https://github.com/lervag/vimtex/releases/tag/v2.8" target="_blank">
-VimTeX v2.8&lt;/a>, all the hack here may not be needed anymore.&lt;/font>&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LaTeX on Blowfish</title><link>https://jdhao.github.io/tags/latex/</link><description>Recent content in LaTeX on Blowfish</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2017 - 2024 ❤️ jdhao</copyright><lastBuildDate>Sat, 20 Feb 2021 22:31:34 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/latex/index.xml" rel="self" type="application/rss+xml"/><item><title>Set up Inverse Search for LaTeX with VimTeX and Neovim</title><link>https://jdhao.github.io/2021/02/20/inverse_search_setup_neovim_vimtex/</link><pubDate>Sat, 20 Feb 2021 22:31:34 +0800</pubDate><guid>https://jdhao.github.io/2021/02/20/inverse_search_setup_neovim_vimtex/</guid><description>&lt;p>&lt;font size="5" color="red">2022-01-19: With the release of &lt;a href="https://github.com/lervag/vimtex/releases/tag/v2.8" target="_blank">VimTeX v2.8&lt;/a>, all the hack here may not be needed anymore.&lt;/font>&lt;/p>
 &lt;details>
 &lt;summary>&lt;font size="2" color="red">Update log&lt;/font>&lt;/summary>
 &lt;ul>
@@ -7,14 +6,11 @@ VimTeX v2.8&lt;/a>, all the hack here may not be needed anymore.&lt;/font>&lt;/p
 &lt;li>&lt;font color="blue">2021-10-10: Fix typo and minor tweak.&lt;/font>&lt;/li>
 &lt;/ul>
 &lt;/details>
-&lt;p>Since &lt;a href="https://github.com/neovim/neovim/issues/1750" target="_blank">
-&lt;code>--remote&lt;/code> option hasn&amp;rsquo;t been restored by Neovim&lt;/a>, it is actually not very
+&lt;p>Since &lt;a href="https://github.com/neovim/neovim/issues/1750" target="_blank">&lt;code>--remote&lt;/code> option hasn&amp;rsquo;t been restored by Neovim&lt;/a>, it is actually not very
 straightforward to set up inverse search for PDF files when we are editing
-large LaTeX files with the help of &lt;a href="https://github.com/lervag/vimtex" target="_blank">
-VimTeX&lt;/a>.&lt;/p>
+large LaTeX files with the help of &lt;a href="https://github.com/lervag/vimtex" target="_blank">VimTeX&lt;/a>.&lt;/p>
 &lt;p>I spend some time figuring out how to do it on both Windows and macOS and
-succeed. I thought it would be helpful for people looking for the solution.&lt;/p></description></item><item><title>Change Table Column Width in LaTeX</title><link>https://jdhao.github.io/2020/03/08/change_table_column_width_latex/</link><pubDate>Sun, 08 Mar 2020 12:05:37 +0800</pubDate><guid>https://jdhao.github.io/2020/03/08/change_table_column_width_latex/</guid><description>&lt;p>When we &lt;a href="https://jdhao.github.io/2019/08/27/latex_table_with_booktabs/" target="_blank">
-create tables in LaTeX&lt;/a>,
+succeed. I thought it would be helpful for people looking for the solution.&lt;/p></description></item><item><title>Change Table Column Width in LaTeX</title><link>https://jdhao.github.io/2020/03/08/change_table_column_width_latex/</link><pubDate>Sun, 08 Mar 2020 12:05:37 +0800</pubDate><guid>https://jdhao.github.io/2020/03/08/change_table_column_width_latex/</guid><description>&lt;p>When we &lt;a href="https://jdhao.github.io/2019/08/27/latex_table_with_booktabs/" target="_blank">create tables in LaTeX&lt;/a>,
 the table column width will be automatically decided based on the content in
 the table cell. Sometimes, maybe we are not satisfied with the default column
 width and want to customize the column width. In this post, we will explain how
@@ -24,16 +20,14 @@ I summarize several methods to achieve that.&lt;/p></description></item><item><t
 &lt;/p>
 &lt;p>The default table style provided by LaTeX is not good-looking and professional.
 In this post, I would like to talk about how to create professional table with
-the help of &lt;a href="https://ctan.org/pkg/booktabs?lang=en" target="_blank">
-booktabs&lt;/a> package. We will
+the help of &lt;a href="https://ctan.org/pkg/booktabs?lang=en" target="_blank">booktabs&lt;/a> package. We will
 create the table shown in the title image.&lt;/p></description></item><item><title>Converting Markdown to Beautiful PDF with Pandoc</title><link>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</link><pubDate>Thu, 30 May 2019 17:02:57 +0800</pubDate><guid>https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/</guid><description>&lt;details>
 &lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
 &lt;ul>
 &lt;li>&lt;font color="blue">2022-07-19: Add build method via neovim&lt;/font>&lt;/li>
 &lt;/ul>
 &lt;/details>
-&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/" target="_blank">
-这里&lt;/a>。&lt;/p>
+&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/" target="_blank">这里&lt;/a>。&lt;/p>
 &lt;p>Over the past few years, I have been using some dedicated note-taking software to manage my notes.
 However, all these tools I have tried are unsatisfactory: they are either slow or cumbersome in terms of note searching.
 Finally, I decided to take my notes in Markdown and convert them to PDF using Pandoc for reading.
@@ -43,31 +37,20 @@ In this post, I will summarize how I do it.&lt;/p></description></item><item><ti
 &lt;li>&lt;font color="blue">2021-02-20: Add inverse search settings on Windows and macOS&lt;/font>&lt;/li>
 &lt;/ul>
 &lt;/details>
-&lt;p>Previously, I have written &lt;a href="https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/" target="_blank">
-a post&lt;/a>
+&lt;p>Previously, I have written &lt;a href="https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/" target="_blank">a post&lt;/a>
 on how to write and compile LaTeX source code in Sublime Text. Now that I am
 familiar with Neovim, I want to do everything related to text editing inside
 Neovim. In this post, I would like to share how to configure Neovim for LaTeX
 editing and previewing.&lt;/p>
-&lt;p>My complete config for vimtex can be found &lt;a href="https://github.com/jdhao/nvim-config/blob/master/core/plugins.vim" target="_blank">
-here&lt;/a> (search vimtex)
-on my nvim-config repo .&lt;/p></description></item><item><title>把博客从 Hexo 迁移到 Hugo</title><link>https://jdhao.github.io/2018/10/10/hexo_to_hugo/</link><pubDate>Wed, 10 Oct 2018 23:09:57 +0800</pubDate><guid>https://jdhao.github.io/2018/10/10/hexo_to_hugo/</guid><description>&lt;p>这个博客于 2017 年 2 月开始搭建运行，最初使用的是 &lt;a href="https://hexo.io/zh-cn/" target="_blank">
-Hexo&lt;/a> 搭建，配合精美的 &lt;a href="https://github.com/theme-next/hexo-theme-next" target="_blank">
-NexT&lt;/a> 主题，经过&lt;a href="https://jdhao.github.io/tags/Hexo/" target="_blank">
-鼓捣&lt;/a>，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 &lt;a href="https://gohugo.io/" target="_blank">
-Hugo&lt;/a>。&lt;/p></description></item><item><title>How to Use Chinese with LaTeX</title><link>https://jdhao.github.io/2018/03/29/latex-chinese/</link><pubDate>Thu, 29 Mar 2018 17:54:13 +0800</pubDate><guid>https://jdhao.github.io/2018/03/29/latex-chinese/</guid><description>&lt;p>The original LaTeX do not have good support for Chinese. With the development
+&lt;p>My complete config for vimtex can be found &lt;a href="https://github.com/jdhao/nvim-config/blob/master/core/plugins.vim" target="_blank">here&lt;/a> (search vimtex)
+on my nvim-config repo .&lt;/p></description></item><item><title>把博客从 Hexo 迁移到 Hugo</title><link>https://jdhao.github.io/2018/10/10/hexo_to_hugo/</link><pubDate>Wed, 10 Oct 2018 23:09:57 +0800</pubDate><guid>https://jdhao.github.io/2018/10/10/hexo_to_hugo/</guid><description>&lt;p>这个博客于 2017 年 2 月开始搭建运行，最初使用的是 &lt;a href="https://hexo.io/zh-cn/" target="_blank">Hexo&lt;/a> 搭建，配合精美的 &lt;a href="https://github.com/theme-next/hexo-theme-next" target="_blank">NexT&lt;/a> 主题，经过&lt;a href="https://jdhao.github.io/tags/Hexo/" target="_blank">鼓捣&lt;/a>，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 &lt;a href="https://gohugo.io/" target="_blank">Hugo&lt;/a>。&lt;/p></description></item><item><title>How to Use Chinese with LaTeX</title><link>https://jdhao.github.io/2018/03/29/latex-chinese/</link><pubDate>Thu, 29 Mar 2018 17:54:13 +0800</pubDate><guid>https://jdhao.github.io/2018/03/29/latex-chinese/</guid><description>&lt;p>The original LaTeX do not have good support for Chinese. With the development
 of LaTeX, we can now easily use Chinese in LaTeX document. In this post, I
-would like to introduce several ways to work with Chinese in LaTeX.&lt;/p></description></item><item><title>全面总结如何在 LaTeX 中使用中文 (2020 最新版)</title><link>https://jdhao.github.io/2018/03/29/latex-chinese.zh/</link><pubDate>Thu, 29 Mar 2018 17:54:13 +0800</pubDate><guid>https://jdhao.github.io/2018/03/29/latex-chinese.zh/</guid><description>&lt;p>LaTeX 最初对中文的支持并不友好，只支持 ASCII 字符，后来才逐渐变得好起来，加入了对 Unicode 字符的支持。本文总结一下几种在 LaTeX 中使用中文的方法，以期能够帮助读者快速使用 LaTeX 对中文内容进行排版。&lt;/p></description></item><item><title>Set up Sublime Text as Your Ultimate LaTeX Editor</title><link>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</link><pubDate>Sat, 10 Mar 2018 12:57:05 +0800</pubDate><guid>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</guid><description>&lt;p>There are a lot of &lt;a href="https://en.wikipedia.org/wiki/Comparison_of_TeX_editors" target="_blank">
-front-end
+would like to introduce several ways to work with Chinese in LaTeX.&lt;/p></description></item><item><title>全面总结如何在 LaTeX 中使用中文 (2020 最新版)</title><link>https://jdhao.github.io/2018/03/29/latex-chinese.zh/</link><pubDate>Thu, 29 Mar 2018 17:54:13 +0800</pubDate><guid>https://jdhao.github.io/2018/03/29/latex-chinese.zh/</guid><description>&lt;p>LaTeX 最初对中文的支持并不友好，只支持 ASCII 字符，后来才逐渐变得好起来，加入了对 Unicode 字符的支持。本文总结一下几种在 LaTeX 中使用中文的方法，以期能够帮助读者快速使用 LaTeX 对中文内容进行排版。&lt;/p></description></item><item><title>Set up Sublime Text as Your Ultimate LaTeX Editor</title><link>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</link><pubDate>Sat, 10 Mar 2018 12:57:05 +0800</pubDate><guid>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</guid><description>&lt;p>There are a lot of &lt;a href="https://en.wikipedia.org/wiki/Comparison_of_TeX_editors" target="_blank">front-end
 editors&lt;/a> for writing
-LaTeX source, for example, &lt;a href="http://www.xm1math.net/texmaker/" target="_blank">
-Texmaker&lt;/a>,
-&lt;a href="https://github.com/texstudio-org/texstudio/releases" target="_blank">
-TeXstudio&lt;/a>,
-&lt;a href="http://www.winedt.com/" target="_blank">
-WinEdt&lt;/a>. I have used TeXstudio for a while, but its
-user interface is a little dull. So I decided to give &lt;a href="https://www.sublimetext.com/" target="_blank">
-Sublime
+LaTeX source, for example, &lt;a href="http://www.xm1math.net/texmaker/" target="_blank">Texmaker&lt;/a>,
+&lt;a href="https://github.com/texstudio-org/texstudio/releases" target="_blank">TeXstudio&lt;/a>,
+&lt;a href="http://www.winedt.com/" target="_blank">WinEdt&lt;/a>. I have used TeXstudio for a while, but its
+user interface is a little dull. So I decided to give &lt;a href="https://www.sublimetext.com/" target="_blank">Sublime
 Text&lt;/a> a shot. In this post, I want to share the
 configurations necessary to write and compile LaTeX source code and to preview
 the produced PDF files.&lt;/p></description></item><item><title>LaTeX Equation Numbering Done Right in Hexo</title><link>https://jdhao.github.io/2018/01/25/hexo-mathjax-equation-number/</link><pubDate>Thu, 25 Jan 2018 23:19:00 +0800</pubDate><guid>https://jdhao.github.io/2018/01/25/hexo-mathjax-equation-number/</guid><description>&lt;p>Recently I plan to transplant one of my old post from other site to
@@ -85,12 +68,10 @@ style="float: middle;">&lt;/p>
 &lt;li>&lt;font color="blue">2021-06-27: 补充标题如何生成的说明。&lt;/font>&lt;/li>
 &lt;/ul>
 &lt;/details>
-&lt;p>For English version of this post, click &lt;a href="https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/" target="_blank">
-here&lt;/a>.&lt;/p>
+&lt;p>For English version of this post, click &lt;a href="https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/" target="_blank">here&lt;/a>.&lt;/p>
 &lt;p>本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。&lt;/p></description></item><item><title>Hexo 书写 LaTeX 公式时的一些问题及解决方法</title><link>https://jdhao.github.io/2017/10/06/hexo-markdown-latex-equation/</link><pubDate>Fri, 06 Oct 2017 23:59:00 +0800</pubDate><guid>https://jdhao.github.io/2017/10/06/hexo-markdown-latex-equation/</guid><description>&lt;p>在写作博文的时候，有时候需要输入一些数学公式，如果公式过长，我们通常希望把方程分成多行显示，在 LaTeX 中，我们可以使用 &lt;code>aligned&lt;/code> 环境来书写多行公式，但是写出来的 Markdown 经过 Hexo 的处理以后显示不正确，原因何在？原来这与 Hexo 的渲染引擎有关系。&lt;/p></description></item><item><title>Why Did XeLaTeX Suddenly Run Insanely Slow?</title><link>https://jdhao.github.io/2017/03/06/windows-xelatex-slow/</link><pubDate>Mon, 06 Mar 2017 18:43:24 +0800</pubDate><guid>https://jdhao.github.io/2017/03/06/windows-xelatex-slow/</guid><description>&lt;p>Today I found that compiling LaTeX source is insanely slow(took me several
 minutes to compile a simple file). After a lot of trial and error, I found the
-reason.&lt;/p></description></item><item><title>Hexo 使用，博客写作相关问题及解决方法</title><link>https://jdhao.github.io/2017/02/26/hexo-use-markdown-writing-issue/</link><pubDate>Sun, 26 Feb 2017 15:52:00 +0800</pubDate><guid>https://jdhao.github.io/2017/02/26/hexo-use-markdown-writing-issue/</guid><description>&lt;p>本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考&lt;a href="https://jdhao.github.io/2017/02/26/hexo-install-use-issue/" target="_blank">
-这篇文章&lt;/a>。&lt;/p></description></item><item><title>How to Install Hexo and Theme NexT from Scratch on Windows</title><link>https://jdhao.github.io/2017/02/26/hexo-install-use-issue/</link><pubDate>Sun, 26 Feb 2017 15:52:00 +0800</pubDate><guid>https://jdhao.github.io/2017/02/26/hexo-install-use-issue/</guid><description>In this post, I will describe the complete step to install both Hexo and theme NexT on Windows.
+reason.&lt;/p></description></item><item><title>Hexo 使用，博客写作相关问题及解决方法</title><link>https://jdhao.github.io/2017/02/26/hexo-use-markdown-writing-issue/</link><pubDate>Sun, 26 Feb 2017 15:52:00 +0800</pubDate><guid>https://jdhao.github.io/2017/02/26/hexo-use-markdown-writing-issue/</guid><description>&lt;p>本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考&lt;a href="https://jdhao.github.io/2017/02/26/hexo-install-use-issue/" target="_blank">这篇文章&lt;/a>。&lt;/p></description></item><item><title>How to Install Hexo and Theme NexT from Scratch on Windows</title><link>https://jdhao.github.io/2017/02/26/hexo-install-use-issue/</link><pubDate>Sun, 26 Feb 2017 15:52:00 +0800</pubDate><guid>https://jdhao.github.io/2017/02/26/hexo-install-use-issue/</guid><description>In this post, I will describe the complete step to install both Hexo and theme NexT on Windows.
 Install Hexo and deploy your post # First, we need to install the Hexo framework. The main steps are as follows:
 Install Node.js and Cmder # We need to install Node.js and git for Windows. You can skip installing git for Windows if you choose to install Cmder(highly recommended on Windows). Choose the Full package if you decide to install Cmder (only the full package contains git for Windows).</description></item><item><title>LaTeX 中参考文献管理以及注意事项</title><link>https://jdhao.github.io/2015/10/16/latex-reference-bibtex/</link><pubDate>Fri, 16 Oct 2015 14:56:00 +0800</pubDate><guid>https://jdhao.github.io/2015/10/16/latex-reference-bibtex/</guid><description>&lt;p>LaTeX 写作中，参考文献一般单独放在一个 &lt;code>*.bib&lt;/code> 文件中，每个文章对应该文件的一个
 条目，每个文章有一个独一无二的 Key，在文章中使用 key 来引用对应的文章。

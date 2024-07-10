@@ -4,33 +4,25 @@
 &lt;li>&lt;font color="blue">2022-07-19: Add build method via neovim&lt;/font>&lt;/li>
 &lt;/ul>
 &lt;/details>
-&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/" target="_blank">
-这里&lt;/a>。&lt;/p>
+&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/" target="_blank">这里&lt;/a>。&lt;/p>
 &lt;p>Over the past few years, I have been using some dedicated note-taking software to manage my notes.
 However, all these tools I have tried are unsatisfactory: they are either slow or cumbersome in terms of note searching.
 Finally, I decided to take my notes in Markdown and convert them to PDF using Pandoc for reading.
 In this post, I will summarize how I do it.&lt;/p></description></item><item><title>Sublime Text Regular Expression Cheat Sheet</title><link>https://jdhao.github.io/2019/02/28/sublime_text_regex_cheat_sheet/</link><pubDate>Thu, 28 Feb 2019 23:29:44 +0800</pubDate><guid>https://jdhao.github.io/2019/02/28/sublime_text_regex_cheat_sheet/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190304221654.png" width="800">
 &lt;/p>
-&lt;p>A cheat sheet about regular expressions used in &lt;a href="https://www.sublimetext.com/" target="_blank">
-Sublime Text&lt;/a>.&lt;/p></description></item><item><title>How Is Newline Handled in Python and Various Editors?</title><link>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</link><pubDate>Sat, 08 Dec 2018 22:30:50 +0800</pubDate><guid>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</guid><description>&lt;p align="center">
+&lt;p>A cheat sheet about regular expressions used in &lt;a href="https://www.sublimetext.com/" target="_blank">Sublime Text&lt;/a>.&lt;/p></description></item><item><title>How Is Newline Handled in Python and Various Editors?</title><link>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</link><pubDate>Sat, 08 Dec 2018 22:30:50 +0800</pubDate><guid>https://jdhao.github.io/2018/12/08/newline_vim_python_sublime_notepad/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20181208223253.png" width="800">
 &lt;/p>
 &lt;p>Every programmer knows newline character, but may be not so familiar. In this
 post, I want to share what I have learned about newline handling in various
-cases.&lt;/p></description></item><item><title>A Complete Guide on Writing and Building C++ Programs in Sublime Text</title><link>https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/</link><pubDate>Wed, 28 Mar 2018 21:54:23 +0800</pubDate><guid>https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/</guid><description>&lt;p>In this post, I will show how to write and run simple C++ programs in &lt;a href="https://www.sublimetext.com/" target="_blank">
-Sublime
-Text 3&lt;/a>.&lt;/p></description></item><item><title>Set up Sublime Text as Your Ultimate LaTeX Editor</title><link>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</link><pubDate>Sat, 10 Mar 2018 12:57:05 +0800</pubDate><guid>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</guid><description>&lt;p>There are a lot of &lt;a href="https://en.wikipedia.org/wiki/Comparison_of_TeX_editors" target="_blank">
-front-end
+cases.&lt;/p></description></item><item><title>A Complete Guide on Writing and Building C++ Programs in Sublime Text</title><link>https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/</link><pubDate>Wed, 28 Mar 2018 21:54:23 +0800</pubDate><guid>https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/</guid><description>&lt;p>In this post, I will show how to write and run simple C++ programs in &lt;a href="https://www.sublimetext.com/" target="_blank">Sublime
+Text 3&lt;/a>.&lt;/p></description></item><item><title>Set up Sublime Text as Your Ultimate LaTeX Editor</title><link>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</link><pubDate>Sat, 10 Mar 2018 12:57:05 +0800</pubDate><guid>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</guid><description>&lt;p>There are a lot of &lt;a href="https://en.wikipedia.org/wiki/Comparison_of_TeX_editors" target="_blank">front-end
 editors&lt;/a> for writing
-LaTeX source, for example, &lt;a href="http://www.xm1math.net/texmaker/" target="_blank">
-Texmaker&lt;/a>,
-&lt;a href="https://github.com/texstudio-org/texstudio/releases" target="_blank">
-TeXstudio&lt;/a>,
-&lt;a href="http://www.winedt.com/" target="_blank">
-WinEdt&lt;/a>. I have used TeXstudio for a while, but its
-user interface is a little dull. So I decided to give &lt;a href="https://www.sublimetext.com/" target="_blank">
-Sublime
+LaTeX source, for example, &lt;a href="http://www.xm1math.net/texmaker/" target="_blank">Texmaker&lt;/a>,
+&lt;a href="https://github.com/texstudio-org/texstudio/releases" target="_blank">TeXstudio&lt;/a>,
+&lt;a href="http://www.winedt.com/" target="_blank">WinEdt&lt;/a>. I have used TeXstudio for a while, but its
+user interface is a little dull. So I decided to give &lt;a href="https://www.sublimetext.com/" target="_blank">Sublime
 Text&lt;/a> a shot. In this post, I want to share the
 configurations necessary to write and compile LaTeX source code and to preview
 the produced PDF files.&lt;/p></description></item><item><title>Character set, Encoding, Locale, Font and More...</title><link>https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/</link><pubDate>Sun, 28 Jan 2018 16:39:00 +0800</pubDate><guid>https://jdhao.github.io/2018/01/28/unicodede-utf8-gbk/</guid><description>&lt;p>It is almost destined that at some point of our programming years, we will meet
@@ -46,8 +38,7 @@ style="float: middle;">&lt;/p>
 &lt;li>&lt;font color="blue">2021-06-27: 补充标题如何生成的说明。&lt;/font>&lt;/li>
 &lt;/ul>
 &lt;/details>
-&lt;p>For English version of this post, click &lt;a href="https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/" target="_blank">
-here&lt;/a>.&lt;/p>
+&lt;p>For English version of this post, click &lt;a href="https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/" target="_blank">here&lt;/a>.&lt;/p>
 &lt;p>本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。&lt;/p></description></item><item><title>Sublime Text Tips and Tricks That Will Make Your Life Easier</title><link>https://jdhao.github.io/2017/10/21/useful-sublime-shortcut-and-plugin/</link><pubDate>Sat, 21 Oct 2017 17:34:00 +0800</pubDate><guid>https://jdhao.github.io/2017/10/21/useful-sublime-shortcut-and-plugin/</guid><description>&lt;p>In this post I will share some tips on how to use Sublime Text on Windows.
 These tips are collected over time and will be updated frequently
 (hopefully).&lt;/p></description></item><item><title>Sublime Text 3 使用相关问题及解决办法</title><link>https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/</link><pubDate>Sun, 19 Mar 2017 19:01:00 +0800</pubDate><guid>https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/</guid><description>&lt;p>这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
@@ -59,7 +50,4 @@ class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 
 style="text-decoration-line: none !important;" href="#%E5%BC%95%E5%AD%90" aria-label="Anchor">#&lt;/a>
 &lt;/span>
 &lt;/h1>
-&lt;p>由于受不了 VSCode 打开文件的龟速，我决定换一个编辑器，以前就大致了解有三款评价不错的编辑器，分别是 &lt;a href="https://atom.io/" target="_blank">
-GitHub Atom&lt;/a>, &lt;a href="https://www.sublimetext.com/" target="_blank">
-Sublime Text 3&lt;/a> 以及微软的 &lt;a href="https://code.visualstudio.com/" target="_blank">
-VSCode&lt;/a>。&lt;/p></description></item></channel></rss>
+&lt;p>由于受不了 VSCode 打开文件的龟速，我决定换一个编辑器，以前就大致了解有三款评价不错的编辑器，分别是 &lt;a href="https://atom.io/" target="_blank">GitHub Atom&lt;/a>, &lt;a href="https://www.sublimetext.com/" target="_blank">Sublime Text 3&lt;/a> 以及微软的 &lt;a href="https://code.visualstudio.com/" target="_blank">VSCode&lt;/a>。&lt;/p></description></item></channel></rss>

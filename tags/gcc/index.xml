@@ -8,10 +8,8 @@ to mess up with the system-wide packages and just want to experiment with a
 package locally. On these ocassions, we may want to install the package to a
 custom location.&lt;/p></description></item><item><title>How to Compile and Install Latest Version of GCC on CentOS 7</title><link>https://jdhao.github.io/2017/09/04/install-gcc-newer-version-on-centos/</link><pubDate>Mon, 04 Sep 2017 22:41:10 +0800</pubDate><guid>https://jdhao.github.io/2017/09/04/install-gcc-newer-version-on-centos/</guid><description>&lt;p>The default GCC that comes with the CentOS 7.2 is GCC 4.8.5, which does not
 support the complete C++11 standard, for example, it does not fully support
-&lt;a href="http://en.cppreference.com/w/cpp/regex" target="_blank">
-regular expressions&lt;/a>. In order to use
-regular expression functions, &lt;a href="https://stackoverflow.com/a/8061172/6064933" target="_blank">
-we need to install at least GCC
+&lt;a href="http://en.cppreference.com/w/cpp/regex" target="_blank">regular expressions&lt;/a>. In order to use
+regular expression functions, &lt;a href="https://stackoverflow.com/a/8061172/6064933" target="_blank">we need to install at least GCC
 4.9.0&lt;/a>. The following installation
 procedure is applicable to CentOS 7 and are not tested on other Linux systems.
 Also you have to make sure that you have root privelege.&lt;/p></description></item></channel></rss>

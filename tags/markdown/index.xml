@@ -5,8 +5,7 @@
 &lt;/ul>
 &lt;/details>
 &lt;p>In this post, I share some of the tricks that will Make the Markdown file better and more beautiful.&lt;/p></description></item><item><title>Missing Level 1 Header in TOC in Latest Hugo</title><link>https://jdhao.github.io/2020/01/19/hugo_toc_header_missing/</link><pubDate>Sun, 19 Jan 2020 21:56:34 +0800</pubDate><guid>https://jdhao.github.io/2020/01/19/hugo_toc_header_missing/</guid><description>&lt;p>After updating Hugo to the latest version (v0.62), apart from the issue of
-&lt;a href="https://jdhao.github.io/2019/12/29/hugo_html_not_shown/" target="_blank">
-missing HTML code&lt;/a>, I
+&lt;a href="https://jdhao.github.io/2019/12/29/hugo_html_not_shown/" target="_blank">missing HTML code&lt;/a>, I
 have also observed that level 1 header written in Markdown is not rendered in
 the generated &lt;abbr title="Table of Content">TOC&lt;/abbr>.&lt;/p></description></item><item><title>Content inside HTML tags missing in Latest Hugo?</title><link>https://jdhao.github.io/2019/12/29/hugo_html_not_shown/</link><pubDate>Sun, 29 Dec 2019 17:57:05 +0800</pubDate><guid>https://jdhao.github.io/2019/12/29/hugo_html_not_shown/</guid><description>&lt;p>Due to Markdown&amp;rsquo;s inability to center and resize image properly,
 I use the raw HTML tags inside markdown file to include images:&lt;/p>
@@ -19,9 +18,7 @@ style="text-decoration-line: none !important;" href="#introduction" aria-label="
 &lt;/span>
 &lt;/h1>
 &lt;p>Currently, I write my blog posts in Markdown and build the blog using
-&lt;a href="https://gohugo.io/" target="_blank">
-Hugo&lt;/a>. Hugo supports &lt;a href="https://gohugo.io/content-management/front-matter/" target="_blank">
-front matter&lt;/a> for Markdown so that you can
+&lt;a href="https://gohugo.io/" target="_blank">Hugo&lt;/a>. Hugo supports &lt;a href="https://gohugo.io/content-management/front-matter/" target="_blank">front matter&lt;/a> for Markdown so that you can
 attach metadata for a post, such as title, date, tags, categories, etc.&lt;/p></description></item><item><title>Generating Table of Contents for Markdown with Tagbar</title><link>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</link><pubDate>Tue, 15 Oct 2019 01:01:01 +0800</pubDate><guid>https://jdhao.github.io/2019/10/15/tagbar_markdown_setup/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20191015001602.png">
 &lt;/p>
@@ -34,20 +31,13 @@ Markdown.&lt;/p></description></item><item><title>Converting Markdown to Beautif
 &lt;li>&lt;font color="blue">2022-07-19: Add build method via neovim&lt;/font>&lt;/li>
 &lt;/ul>
 &lt;/details>
-&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/" target="_blank">
-这里&lt;/a>。&lt;/p>
+&lt;p>本文的中文版本参见 &lt;a href="https://jdhao.github.io/2017/12/10/pandoc-markdown-with-chinese/" target="_blank">这里&lt;/a>。&lt;/p>
 &lt;p>Over the past few years, I have been using some dedicated note-taking software to manage my notes.
 However, all these tools I have tried are unsatisfactory: they are either slow or cumbersome in terms of note searching.
 Finally, I decided to take my notes in Markdown and convert them to PDF using Pandoc for reading.
-In this post, I will summarize how I do it.&lt;/p></description></item><item><title>Markdown 生成 HTML 时汉字之间出现多余空格问题</title><link>https://jdhao.github.io/2019/05/04/markdown_extra_space/</link><pubDate>Sat, 04 May 2019 23:26:14 +0800</pubDate><guid>https://jdhao.github.io/2019/05/04/markdown_extra_space/</guid><description>&lt;p>在过去很长一段时间，我都在&lt;a href="https://jdhao.github.io/2017/03/04/Sublime-Windows-Markdown/" target="_blank">
-使用 Sublime Text 来编辑 Markdown 文件&lt;/a>，Sublime Text有一个非常实用的功能，&lt;a href="https://stackoverflow.com/q/25900954/6064933" target="_blank">
-可以设定 &lt;code>wrap_width&lt;/code> 和 &lt;code>word_wrap&lt;/code> 选项&lt;/a>，自动在设定的 80个字符长度处 softwrap 文本。所以即使一个段落写成一行，编辑起来或者看起来都不违和。&lt;/p></description></item><item><title>Markdown Writing and Previewing in Neovim -- A Complete Guide</title><link>https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/</link><pubDate>Tue, 15 Jan 2019 15:27:57 +0800</pubDate><guid>https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/</guid><description>&lt;p align="center">
+In this post, I will summarize how I do it.&lt;/p></description></item><item><title>Markdown 生成 HTML 时汉字之间出现多余空格问题</title><link>https://jdhao.github.io/2019/05/04/markdown_extra_space/</link><pubDate>Sat, 04 May 2019 23:26:14 +0800</pubDate><guid>https://jdhao.github.io/2019/05/04/markdown_extra_space/</guid><description>&lt;p>在过去很长一段时间，我都在&lt;a href="https://jdhao.github.io/2017/03/04/Sublime-Windows-Markdown/" target="_blank">使用 Sublime Text 来编辑 Markdown 文件&lt;/a>，Sublime Text有一个非常实用的功能，&lt;a href="https://stackoverflow.com/q/25900954/6064933" target="_blank">可以设定 &lt;code>wrap_width&lt;/code> 和 &lt;code>word_wrap&lt;/code> 选项&lt;/a>，自动在设定的 80个字符长度处 softwrap 文本。所以即使一个段落写成一行，编辑起来或者看起来都不违和。&lt;/p></description></item><item><title>Markdown Writing and Previewing in Neovim -- A Complete Guide</title><link>https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/</link><pubDate>Tue, 15 Jan 2019 15:27:57 +0800</pubDate><guid>https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20200214144759.png" width="600">
-&lt;/p></description></item><item><title>把博客从 Hexo 迁移到 Hugo</title><link>https://jdhao.github.io/2018/10/10/hexo_to_hugo/</link><pubDate>Wed, 10 Oct 2018 23:09:57 +0800</pubDate><guid>https://jdhao.github.io/2018/10/10/hexo_to_hugo/</guid><description>&lt;p>这个博客于 2017 年 2 月开始搭建运行，最初使用的是 &lt;a href="https://hexo.io/zh-cn/" target="_blank">
-Hexo&lt;/a> 搭建，配合精美的 &lt;a href="https://github.com/theme-next/hexo-theme-next" target="_blank">
-NexT&lt;/a> 主题，经过&lt;a href="https://jdhao.github.io/tags/Hexo/" target="_blank">
-鼓捣&lt;/a>，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 &lt;a href="https://gohugo.io/" target="_blank">
-Hugo&lt;/a>。&lt;/p></description></item><item><title>写给初学者的 Markdown 教程</title><link>https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/</link><pubDate>Fri, 21 Sep 2018 16:59:00 +0800</pubDate><guid>https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/</guid><description>&lt;p>这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown
+&lt;/p></description></item><item><title>把博客从 Hexo 迁移到 Hugo</title><link>https://jdhao.github.io/2018/10/10/hexo_to_hugo/</link><pubDate>Wed, 10 Oct 2018 23:09:57 +0800</pubDate><guid>https://jdhao.github.io/2018/10/10/hexo_to_hugo/</guid><description>&lt;p>这个博客于 2017 年 2 月开始搭建运行，最初使用的是 &lt;a href="https://hexo.io/zh-cn/" target="_blank">Hexo&lt;/a> 搭建，配合精美的 &lt;a href="https://github.com/theme-next/hexo-theme-next" target="_blank">NexT&lt;/a> 主题，经过&lt;a href="https://jdhao.github.io/tags/Hexo/" target="_blank">鼓捣&lt;/a>，差不多算是做出了让自己满意的博客。不过每次安装 Hexo，要配置的东西太多了，总觉得不是很简洁，另外，随着文章数量的增加，Hexo 生成博客的速度也慢了下来。怀着尝鲜的心态，我把 Hexo 博客迁移到了 &lt;a href="https://gohugo.io/" target="_blank">Hugo&lt;/a>。&lt;/p></description></item><item><title>写给初学者的 Markdown 教程</title><link>https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/</link><pubDate>Fri, 21 Sep 2018 16:59:00 +0800</pubDate><guid>https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/</guid><description>&lt;p>这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown
 写出格式规范的文章了。&lt;/p></description></item><item><title>LaTeX Equation Numbering Done Right in Hexo</title><link>https://jdhao.github.io/2018/01/25/hexo-mathjax-equation-number/</link><pubDate>Thu, 25 Jan 2018 23:19:00 +0800</pubDate><guid>https://jdhao.github.io/2018/01/25/hexo-mathjax-equation-number/</guid><description>&lt;p>Recently I plan to transplant one of my old post from other site to
 this new site (you can find the new post &lt;a
 href="https://jdhao.github.io/2016/01/19/back-propagation-in-mlp-explained/">here&lt;/a>).
@@ -63,8 +53,7 @@ style="float: middle;">&lt;/p>
 &lt;li>&lt;font color="blue">2021-06-27: 补充标题如何生成的说明。&lt;/font>&lt;/li>
 &lt;/ul>
 &lt;/details>
-&lt;p>For English version of this post, click &lt;a href="https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/" target="_blank">
-here&lt;/a>.&lt;/p>
+&lt;p>For English version of this post, click &lt;a href="https://jdhao.github.io/2019/05/30/markdown2pdf_pandoc/" target="_blank">here&lt;/a>.&lt;/p>
 &lt;p>本文主要写如何使用 Pandoc 从 Markdown 文件生成格式精美的 PDF 文件，也包含了一些遇到的问题的解决办法。&lt;/p></description></item><item><title>Hexo 书写 LaTeX 公式时的一些问题及解决方法</title><link>https://jdhao.github.io/2017/10/06/hexo-markdown-latex-equation/</link><pubDate>Fri, 06 Oct 2017 23:59:00 +0800</pubDate><guid>https://jdhao.github.io/2017/10/06/hexo-markdown-latex-equation/</guid><description>&lt;p>在写作博文的时候，有时候需要输入一些数学公式，如果公式过长，我们通常希望把方程分成多行显示，在 LaTeX 中，我们可以使用 &lt;code>aligned&lt;/code> 环境来书写多行公式，但是写出来的 Markdown 经过 Hexo 的处理以后显示不正确，原因何在？原来这与 Hexo 的渲染引擎有关系。&lt;/p></description></item><item><title>Sublime Text 3 Markdown 写作设置</title><link>https://jdhao.github.io/2017/03/04/sublime-windows-markdown/</link><pubDate>Sat, 04 Mar 2017 14:35:00 +0800</pubDate><guid>https://jdhao.github.io/2017/03/04/sublime-windows-markdown/</guid><description>&lt;h1 class="relative group">引子
 &lt;div id="%E5%BC%95%E5%AD%90" class="anchor">&lt;/div>
 &lt;span
@@ -73,13 +62,9 @@ class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 
 style="text-decoration-line: none !important;" href="#%E5%BC%95%E5%AD%90" aria-label="Anchor">#&lt;/a>
 &lt;/span>
 &lt;/h1>
-&lt;p>由于受不了 VSCode 打开文件的龟速，我决定换一个编辑器，以前就大致了解有三款评价不错的编辑器，分别是 &lt;a href="https://atom.io/" target="_blank">
-GitHub Atom&lt;/a>, &lt;a href="https://www.sublimetext.com/" target="_blank">
-Sublime Text 3&lt;/a> 以及微软的 &lt;a href="https://code.visualstudio.com/" target="_blank">
-VSCode&lt;/a>。&lt;/p></description></item><item><title>Hexo 使用，博客写作相关问题及解决方法</title><link>https://jdhao.github.io/2017/02/26/hexo-use-markdown-writing-issue/</link><pubDate>Sun, 26 Feb 2017 15:52:00 +0800</pubDate><guid>https://jdhao.github.io/2017/02/26/hexo-use-markdown-writing-issue/</guid><description>&lt;p>本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考&lt;a href="https://jdhao.github.io/2017/02/26/hexo-install-use-issue/" target="_blank">
-这篇文章&lt;/a>。&lt;/p></description></item><item><title>How to Install Hexo and Theme NexT from Scratch on Windows</title><link>https://jdhao.github.io/2017/02/26/hexo-install-use-issue/</link><pubDate>Sun, 26 Feb 2017 15:52:00 +0800</pubDate><guid>https://jdhao.github.io/2017/02/26/hexo-install-use-issue/</guid><description>In this post, I will describe the complete step to install both Hexo and theme NexT on Windows.
+&lt;p>由于受不了 VSCode 打开文件的龟速，我决定换一个编辑器，以前就大致了解有三款评价不错的编辑器，分别是 &lt;a href="https://atom.io/" target="_blank">GitHub Atom&lt;/a>, &lt;a href="https://www.sublimetext.com/" target="_blank">Sublime Text 3&lt;/a> 以及微软的 &lt;a href="https://code.visualstudio.com/" target="_blank">VSCode&lt;/a>。&lt;/p></description></item><item><title>Hexo 使用，博客写作相关问题及解决方法</title><link>https://jdhao.github.io/2017/02/26/hexo-use-markdown-writing-issue/</link><pubDate>Sun, 26 Feb 2017 15:52:00 +0800</pubDate><guid>https://jdhao.github.io/2017/02/26/hexo-use-markdown-writing-issue/</guid><description>&lt;p>本文主要总结 Hexo 博客使用，博客写作以及更新 Hexo 和 NexT 主题的内容。关于如何安装配置 Hexo 和 NexT 主题，可以参考&lt;a href="https://jdhao.github.io/2017/02/26/hexo-install-use-issue/" target="_blank">这篇文章&lt;/a>。&lt;/p></description></item><item><title>How to Install Hexo and Theme NexT from Scratch on Windows</title><link>https://jdhao.github.io/2017/02/26/hexo-install-use-issue/</link><pubDate>Sun, 26 Feb 2017 15:52:00 +0800</pubDate><guid>https://jdhao.github.io/2017/02/26/hexo-install-use-issue/</guid><description>In this post, I will describe the complete step to install both Hexo and theme NexT on Windows.
 Install Hexo and deploy your post # First, we need to install the Hexo framework. The main steps are as follows:
 Install Node.js and Cmder # We need to install Node.js and git for Windows. You can skip installing git for Windows if you choose to install Cmder(highly recommended on Windows). Choose the Full package if you decide to install Cmder (only the full package contains git for Windows).</description></item><item><title>A New Start</title><link>https://jdhao.github.io/2017/02/24/my_first_post/</link><pubDate>Fri, 24 Feb 2017 22:48:00 +0800</pubDate><guid>https://jdhao.github.io/2017/02/24/my_first_post/</guid><description>去年的时候还是前年，在谷歌上搜索东西，看到了很多人的博客都是用 GitHub 托管的，使用 GitHub 提供的 GitHub Pages 功能。我一看就喜欢上这种开源并且简洁的方式，却没有立即行动。
-以前用 cnblog 写过一些偏技术的东西，总觉得体验很不好。我从去年 3 月多开始使用微信公众平台写东西，零零星星写了几篇，起初还保持一定的频率，后面就没有怎么写过了。每次写公众号，我都用的是官方提供的网页版的操作界面，个人感觉相当难用，而且也不支持 Markdown。微信公众号的审查很严，经常能够看到自己关注的一些公众号因为犯忌，或者文章被删除，或者被禁一段时间，当然还有更严重的，投胎转世不知道多少回了，譬如王五四，“王阿姨”，“王红杏”，“王酥麻”&amp;hellip;所有的名字都让人想笑。每次投胎都会带着他那独具气质的头像，这头像也是他的认证，看到这头像你就知道他是谁了。
+以前用 cnblog 写过一些偏技术的东西，总觉得体验很不好。我从去年 3 月多开始使用微信公众平台写东西，零零星星写了几篇，起初还保持一定的频率，后面就没有怎么写过了。每次写公众号，我都用的是官方提供的网页版的操作界面，个人感觉相当难用，而且也不支持Markdown。微信公众号的审查很严，经常能够看到自己关注的一些公众号因为犯忌，或者文章被删除，或者被禁一段时间，当然还有更严重的，投胎转世不知道多少回了，譬如王五四，“王阿姨”，“王红杏”，“王酥麻”&amp;hellip;所有的名字都让人想笑。每次投胎都会带着他那独具气质的头像，这头像也是他的认证，看到这头像你就知道他是谁了。
 虽然我不写那些所谓「犯忌」的东西，但是我讨厌这种蛮横的行为，随心所欲的删贴导致人们习惯于自我审查，并且引以为荣，当然闷声发大财是坠吼的。
 以后就在这里写博客了，这是一个更自由的空间，有时间的话也会把以前写的一些东西迁移过来，整理在一起。当然如果连 GitHub 也被墙了，我就没啥可说了嗷。自由万岁！</description></item></channel></rss>

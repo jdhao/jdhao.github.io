@@ -5,31 +5,22 @@ After open a tmux session, the &lt;code>PATH&lt;/code> variable is changed and i
 &lt;p>This post summarize how to change the Bash shell prompt to a better look. The
 end result is shown in the title image.&lt;/p></description></item><item><title>使用代理加速 Mac 终端下载速度</title><link>https://jdhao.github.io/2019/10/10/mac_proxy_in_terminal/</link><pubDate>Thu, 10 Oct 2019 23:17:29 +0800</pubDate><guid>https://jdhao.github.io/2019/10/10/mac_proxy_in_terminal/</guid><description>&lt;p>在 Mac 的终端 (terminal) 下载文件或者 clone git 仓库的时候，明显感觉速度特别慢，即使把梯子的全局模式打开也无济于事，需要在终端设置代理才能加快下载速度，本文简要总结需要的配置。&lt;/p></description></item><item><title>How to Install zplug inside Docker Container</title><link>https://jdhao.github.io/2019/10/01/zplug_install_docker_container/</link><pubDate>Tue, 01 Oct 2019 00:01:25 +0800</pubDate><guid>https://jdhao.github.io/2019/10/01/zplug_install_docker_container/</guid><description>&lt;p>In the past few days, I tried to dockerize my development environment and put
 my daily programming tools inside
-&lt;a href="https://www.docker.com/resources/what-container" target="_blank">
-container&lt;/a>. I tried to
+&lt;a href="https://www.docker.com/resources/what-container" target="_blank">container&lt;/a>. I tried to
 install zplug inside docker container and met some issues. In this post, I want
-to share how to install &lt;a href="https://github.com/zplug/zplug" target="_blank">
-zplug&lt;/a> and other
+to share how to install &lt;a href="https://github.com/zplug/zplug" target="_blank">zplug&lt;/a> and other
 plugins inside the Docker container.&lt;/p></description></item><item><title>Why don't settings inside bashrc or bash_profile take effect?</title><link>https://jdhao.github.io/2019/09/29/linux_login_setup/</link><pubDate>Sun, 29 Sep 2019 21:40:28 +0800</pubDate><guid>https://jdhao.github.io/2019/09/29/linux_login_setup/</guid><description>&lt;p>In this post, I would like to share causes and solutions to a few issues
-related to login shell.&lt;/p></description></item><item><title>Boosting Your Productivity on Terminal with Zsh and Plugins</title><link>https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/</link><pubDate>Tue, 19 Feb 2019 00:27:53 +0800</pubDate><guid>https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/</guid><description>&lt;p>In my &lt;a href="https://jdhao.github.io/2018/10/13/centos_zsh_install_use/" target="_blank">
-previous
+related to login shell.&lt;/p></description></item><item><title>Boosting Your Productivity on Terminal with Zsh and Plugins</title><link>https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/</link><pubDate>Tue, 19 Feb 2019 00:27:53 +0800</pubDate><guid>https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/</guid><description>&lt;p>In my &lt;a href="https://jdhao.github.io/2018/10/13/centos_zsh_install_use/" target="_blank">previous
 post&lt;/a>, I have
 introduced how to build Zsh from source and install
-&lt;a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank">
-oh-my-zsh&lt;/a> to enhance your terminal
+&lt;a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank">oh-my-zsh&lt;/a> to enhance your terminal
 experience. In this post, I&amp;rsquo;d like to show you how to manage plugins with
-&lt;a href="https://github.com/zplug/zplug" target="_blank">
-zplug&lt;/a> and a few more plugins to boost your
+&lt;a href="https://github.com/zplug/zplug" target="_blank">zplug&lt;/a> and a few more plugins to boost your
 productivity.&lt;/p></description></item><item><title>Faster Directory Navigation with z.lua</title><link>https://jdhao.github.io/2019/02/14/fast_dir_navigation_zlua/</link><pubDate>Thu, 14 Feb 2019 18:35:05 +0800</pubDate><guid>https://jdhao.github.io/2019/02/14/fast_dir_navigation_zlua/</guid><description>&lt;p>If you work with terminals extensively, you may be tired of typing &lt;code>cd&lt;/code> to go
 to directories, especially when directory names are very long.
-&lt;a href="https://github.com/skywind3000/z.lua" target="_blank">
-z.lua&lt;/a> is such a tool to make your life
+&lt;a href="https://github.com/skywind3000/z.lua" target="_blank">z.lua&lt;/a> is such a tool to make your life
 easier by jumping to the desired directory &lt;em>smartly&lt;/em>.&lt;/p></description></item><item><title>Fzf Installation and Usage</title><link>https://jdhao.github.io/2018/11/05/fzf_install_use/</link><pubDate>Mon, 05 Nov 2018 23:54:29 +0800</pubDate><guid>https://jdhao.github.io/2018/11/05/fzf_install_use/</guid><description>&lt;script id="asciicast-218493" src="https://asciinema.org/a/218493.js" async>&lt;/script></description></item><item><title>Building Zsh from Source and Configuring It on CentOS</title><link>https://jdhao.github.io/2018/10/13/centos_zsh_install_use/</link><pubDate>Sat, 13 Oct 2018 18:29:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/13/centos_zsh_install_use/</guid><description>&lt;p>&lt;strong>Update&lt;/strong>: this is my first post on Zsh install and configuration. For a list
-of useful plugins I use to boost my productivity, see &lt;a href="https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/" target="_blank">
-this post&lt;/a>.&lt;/p>
-&lt;p>&lt;a href="http://www.zsh.org/" target="_blank">
-Zsh&lt;/a> is a powerful shell with better auto-completion and
+of useful plugins I use to boost my productivity, see &lt;a href="https://jdhao.github.io/2019/02/19/zsh_advanced_configuration/" target="_blank">this post&lt;/a>.&lt;/p>
+&lt;p>&lt;a href="http://www.zsh.org/" target="_blank">Zsh&lt;/a> is a powerful shell with better auto-completion and
 richer features. There are also various plugins to enrich your experience of
 using Zsh. In this post, I will give a brief summary on how to install and set
-up zsh.&lt;/p></description></item><item><title>为什么 .bash_profile 里面的设置不生效？</title><link>https://jdhao.github.io/2018/09/06/login_interactive_shell_bash/</link><pubDate>Thu, 06 Sep 2018 00:12:53 +0800</pubDate><guid>https://jdhao.github.io/2018/09/06/login_interactive_shell_bash/</guid><description>&lt;p>最近安装了 &lt;a href="https://github.com/neovim/neovim" target="_blank">
-Neovim&lt;/a>，并且在 HOME 目录下的 &lt;code>.bash_profile&lt;/code> 中设置好了 Neovim 可执行程序对应的 PATH 变量。奇怪的是，每次在 SSH 客户端打开一个新的服务器连接 session，登录服务器，进入自己账号以后，位于 &lt;code>.bash_profile&lt;/code> 中的 PATH 设置命令没有生效，导致我无法启动安装的 Neovim，每次登录以后，我还必须手动 source 一下 &lt;code>.bash_profile&lt;/code> 文件，然后才能使用 nvim 命令，非常让人恼火。本文记录我排查问题的过程以及最终的解决方案。&lt;/p></description></item></channel></rss>
+up zsh.&lt;/p></description></item><item><title>为什么 .bash_profile 里面的设置不生效？</title><link>https://jdhao.github.io/2018/09/06/login_interactive_shell_bash/</link><pubDate>Thu, 06 Sep 2018 00:12:53 +0800</pubDate><guid>https://jdhao.github.io/2018/09/06/login_interactive_shell_bash/</guid><description>&lt;p>最近安装了 &lt;a href="https://github.com/neovim/neovim" target="_blank">Neovim&lt;/a>，并且在 HOME 目录下的 &lt;code>.bash_profile&lt;/code> 中设置好了 Neovim 可执行程序对应的 PATH 变量。奇怪的是，每次在 SSH 客户端打开一个新的服务器连接 session，登录服务器，进入自己账号以后，位于 &lt;code>.bash_profile&lt;/code> 中的 PATH 设置命令没有生效，导致我无法启动安装的 Neovim，每次登录以后，我还必须手动 source 一下 &lt;code>.bash_profile&lt;/code> 文件，然后才能使用 nvim 命令，非常让人恼火。本文记录我排查问题的过程以及最终的解决方案。&lt;/p></description></item></channel></rss>
