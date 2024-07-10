@@ -32,10 +32,4 @@ minutes to compile a simple file). After a lot of trial and error, I found the
 reason.&lt;/p></description></item><item><title>LaTeX 中参考文献管理以及注意事项</title><link>https://jdhao.github.io/2015/10/16/latex-reference-bibtex/</link><pubDate>Fri, 16 Oct 2015 14:56:00 +0800</pubDate><guid>https://jdhao.github.io/2015/10/16/latex-reference-bibtex/</guid><description>&lt;p>LaTeX 写作中，参考文献一般单独放在一个 &lt;code>*.bib&lt;/code> 文件中，每个文章对应该文件的一个
 条目，每个文章有一个独一无二的 Key，在文章中使用 key 来引用对应的文章。
 &lt;code>bibtex&lt;/code> 可以根据 &lt;code>*.bib&lt;/code> 文件产生 LaTeX 可以识别的引用条目，然后我们才可以在
-LaTeX 中引用相关的文献。 本文主要写一些和文献管理以及引用相关的注意事项。&lt;/p></description></item><item><title>Windows 下 LaTeX 手动安装宏包（package）以及生成帮助文档整套流程</title><link>https://jdhao.github.io/2015/09/23/latex_install_package_manually/</link><pubDate>Wed, 23 Sep 2015 14:09:00 +0800</pubDate><guid>https://jdhao.github.io/2015/09/23/latex_install_package_manually/</guid><description>本文简单介绍如何手动安装一个 LaTeX 宏包。
-一般来说，下载的 TeX 发行版已经自带了很多宏包，可以满足绝大部分需求，但是偶尔我们也可能碰到需要使用的宏包碰巧没有安装的情况，这时我们就需要自己下载安装宏包了。
-下载 package 可以从 CTAN（Comprehensive TeX Archive Network）下载。下载下来的宏包，有的直接包含 .sty 文件（.sty 文件就是 package 的最终形式）;有的下载下来只包含了 .ins, .dtx，以及一个 readme 文件，这时需要自己编译生成 .sty 文件，以及生成相应的 manual。下面详细介绍生成 sty 文件以及帮助文档的步骤。
-生成 package 的步骤 # 以下步骤的前提是你已经安装好了 TeX 发行版，本文以 MikTeX 为例，请确保 MikTeX 的可执行程序已经加入了系统的环境变量中（PATH）。另外我的系统的 Win 8.1，win 7 应该也是一样的。
-第一步：下载宏包，解压，不赘述，下载地址 https://www.ctan.org/pkg，我下载的一个宏包名称是 qrcode，是用来生成二维码的，以这个宏包的编译为例来讲解。
-第二步：找到宏包解压后安装包地址，在我的电脑上是 E:\LaTeX_package\qrcode， 然后打开电脑的命令提示符界面，把当前的路径改到这个 package 所在的文件夹，也就是 E:\LaTeX_package\qrcode
-第三步：生成 qrcode.sty，在命令提示符界面输入 latex qrcode.ins, 经过一段时间编译，qrcode.sty 就生成了；然后接着生成帮助文档 manual, 在命令提示符界面输入 latex qrcode.dtx,编译完成以后，会生成一个叫做 qrcode.dvi 的文件，这个文件也可以用 ctex 自带的 yap 程序打开，不过不是很方便，所以最好还是把它转为 PDF，需要两步操作，先输入 dvips qrcode.dvi，生成 qrcode.</description></item></channel></rss>
+LaTeX 中引用相关的文献。 本文主要写一些和文献管理以及引用相关的注意事项。&lt;/p></description></item><item><title>Windows 下 LaTeX 手动安装宏包（package）以及生成帮助文档整套流程</title><link>https://jdhao.github.io/2015/09/23/latex_install_package_manually/</link><pubDate>Wed, 23 Sep 2015 14:09:00 +0800</pubDate><guid>https://jdhao.github.io/2015/09/23/latex_install_package_manually/</guid><description>本文简单介绍如何手动安装一个 LaTeX 宏包。 一般来说，下载的 TeX 发行版已经自带了很多宏包，可以满足绝大部分需求，但是偶尔我们也可能碰到需要使用的宏包碰</description></item></channel></rss>
