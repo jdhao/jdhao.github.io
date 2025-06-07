@@ -2,13 +2,25 @@
 In this post, I will going to share how to add a custom search engine for Vimium.&lt;/p></description></item><item><title>Find Which Font is Used in A PDF</title><link>https://jdhao.github.io/2021/10/20/find_font_used_in_pdf/</link><pubDate>Wed, 20 Oct 2021 23:26:59 +0800</pubDate><guid>https://jdhao.github.io/2021/10/20/find_font_used_in_pdf/</guid><description>&lt;p>Sometimes, we are interested in which font is used for the main text in a PDF.
 How do we find out?&lt;/p></description></item><item><title>Serving Concurrent Requests for LibreOffice Service</title><link>https://jdhao.github.io/2021/06/11/libreoffice_concurrent_requests/</link><pubDate>Fri, 11 Jun 2021 00:57:25 +0800</pubDate><guid>https://jdhao.github.io/2021/06/11/libreoffice_concurrent_requests/</guid><description>&lt;p>We have set up a server to convert pptx files to pdf files using LibreOffice
 (version: 6.0.7.3 ). Libreoffice is started using &lt;code>subprocess.run()&lt;/code> command in
-Python. The external command I use is something like the following&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>:&lt;/p></description></item><item><title>Note on font size</title><link>https://jdhao.github.io/2020/08/04/fontsize_point_pixel_relationship/</link><pubDate>Tue, 04 Aug 2020 23:01:55 +0800</pubDate><guid>https://jdhao.github.io/2020/08/04/fontsize_point_pixel_relationship/</guid><description>Relationship between point and pixel size # In digital typography, the size of text is commonly specified in points (pt). What is a point? A point is 1/72 of an inch (25.4 mm), i.e., 0.3528 mm (25.4/72). Therefor, point is a physical unit that has absolute value.
-Pixels are the smallest unit on screen to display images and graphics. It is not a physical unit. So there is no fixed relationship between point and pixel.</description></item><item><title>解决 Windows 下文件管理器中右键单击无响应问题</title><link>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</link><pubDate>Sun, 26 Apr 2020 22:44:37 +0800</pubDate><guid>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</guid><description>&lt;h1 class="relative group">引子
-&lt;div id="%E5%BC%95%E5%AD%90" class="anchor">&lt;/div>
+Python. The external command I use is something like the following&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>:&lt;/p></description></item><item><title>Note on font size</title><link>https://jdhao.github.io/2020/08/04/fontsize_point_pixel_relationship/</link><pubDate>Tue, 04 Aug 2020 23:01:55 +0800</pubDate><guid>https://jdhao.github.io/2020/08/04/fontsize_point_pixel_relationship/</guid><description>&lt;h1 class="relative group">Relationship between point and pixel size
+&lt;div id="relationship-between-point-and-pixel-size" class="anchor">&lt;/div>
 &lt;span
 class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
 &lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#%E5%BC%95%E5%AD%90" aria-label="Anchor">#&lt;/a>
+style="text-decoration-line: none !important;" href="#relationship-between-point-and-pixel-size" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;p>In digital typography, the size of text is commonly specified in points (pt).
+What is a point? A point is 1/72 of an inch (25.4 mm), i.e., 0.3528 mm
+(25.4/72). Therefor, point is a physical unit that has absolute value.&lt;/p>
+&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Pixel" target="_blank">Pixels&lt;/a> are the smallest unit on screen
+to display images and graphics. It is not a physical unit. So there is no fixed
+relationship between point and pixel.&lt;/p></description></item><item><title>解决 Windows 下文件管理器中右键单击无响应问题</title><link>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</link><pubDate>Sun, 26 Apr 2020 22:44:37 +0800</pubDate><guid>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</guid><description>&lt;h1 class="relative group">引子
+&lt;div id="引子" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#%e5%bc%95%e5%ad%90" aria-label="Anchor">#&lt;/a>
 &lt;/span>
 &lt;/h1>
 &lt;p>最近使用工作电脑的时候，不知道为什么，在文件资源管理器里面鼠标右键单击打开菜单(也叫&lt;a href="https://en.wikipedia.org/wiki/Context_menu" target="_blank">context menu&lt;/a>)的时候，系统很大概率会卡顿，鼠标指针开始转圈，文件管理器白屏，然后会提示&amp;quot;未响应&amp;quot;,过一会儿，右键菜单才会出现。以至于我每次点击右键之前，都很烦躁，希望不要出现卡顿的情况。&lt;/p></description></item><item><title>Converting PDF Pages to Images with Poppler</title><link>https://jdhao.github.io/2019/11/14/convert_pdf_to_images_pdftoppm/</link><pubDate>Thu, 14 Nov 2019 22:44:21 +0800</pubDate><guid>https://jdhao.github.io/2019/11/14/convert_pdf_to_images_pdftoppm/</guid><description>&lt;p>In this post, I want to share how to convert PDF to images using the command
@@ -33,10 +45,22 @@ post, I want to share what I have learned about newline handling in various
 cases.&lt;/p></description></item><item><title>The Mathematics behind Font Shapes --- Bézier Curves and More</title><link>https://jdhao.github.io/2018/11/27/font_shape_mathematics_bezier_curves/</link><pubDate>Tue, 27 Nov 2018 16:14:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/27/font_shape_mathematics_bezier_curves/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20200223203853.png">
 &lt;/p></description></item><item><title>写给初学者的 Markdown 教程</title><link>https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/</link><pubDate>Fri, 21 Sep 2018 16:59:00 +0800</pubDate><guid>https://jdhao.github.io/2018/09/21/markdown_tutorial_for_beginners/</guid><description>&lt;p>这是一篇帮助初学者快速入门 Markdown 的文章，看完此篇，你应该就可以使用 Markdown
-写出格式规范的文章了。&lt;/p></description></item><item><title>A Tutorial on Creating GitHub Pull Requests</title><link>https://jdhao.github.io/2018/05/06/first-github-pull-request/</link><pubDate>Sun, 06 May 2018 15:23:00 +0800</pubDate><guid>https://jdhao.github.io/2018/05/06/first-github-pull-request/</guid><description>Today I make my first ever GitHub pull request to the great Hexo theme NexT. I will summarize how to make a pull request in following post.
-Creating a fork # According to GitHub documentation:
-If you don&amp;rsquo;t have write access to the repository where you&amp;rsquo;d like to create a pull request, you must create a fork, or copy, of the repository first.
-If you do not have write access to the repository you want to contribute to, the first step is to fork it.</description></item><item><title>A Complete Guide on Writing and Building C++ Programs in Sublime Text</title><link>https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/</link><pubDate>Wed, 28 Mar 2018 21:54:23 +0800</pubDate><guid>https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/</guid><description>&lt;p>In this post, I will show how to write and run simple C++ programs in &lt;a href="https://www.sublimetext.com/" target="_blank">Sublime
+写出格式规范的文章了。&lt;/p></description></item><item><title>A Tutorial on Creating GitHub Pull Requests</title><link>https://jdhao.github.io/2018/05/06/first-github-pull-request/</link><pubDate>Sun, 06 May 2018 15:23:00 +0800</pubDate><guid>https://jdhao.github.io/2018/05/06/first-github-pull-request/</guid><description>&lt;p>Today I make &lt;a href="https://github.com/theme-next/hexo-theme-next/pull/275" target="_blank">my first ever GitHub pull request&lt;/a>
+to the great &lt;a href="https://github.com/hexojs/hexo" target="_blank">Hexo&lt;/a> theme &lt;a href="https://github.com/theme-next/hexo-theme-next" target="_blank">NexT&lt;/a>.
+I will summarize how to make a pull request in following post.&lt;/p>
+&lt;!-- more -->
+&lt;h1 class="relative group">Creating a fork
+&lt;div id="creating-a-fork" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#creating-a-fork" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;p>According to GitHub documentation:&lt;/p>
+&lt;blockquote>
+&lt;p>If you don&amp;rsquo;t have write access to the repository where you&amp;rsquo;d like to create a
+pull request, you must create a fork, or copy, of the repository first.&lt;/p></description></item><item><title>A Complete Guide on Writing and Building C++ Programs in Sublime Text</title><link>https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/</link><pubDate>Wed, 28 Mar 2018 21:54:23 +0800</pubDate><guid>https://jdhao.github.io/2018/03/28/sublime-cpp-build-system/</guid><description>&lt;p>In this post, I will show how to write and run simple C++ programs in &lt;a href="https://www.sublimetext.com/" target="_blank">Sublime
 Text 3&lt;/a>.&lt;/p></description></item><item><title>Set up Sublime Text as Your Ultimate LaTeX Editor</title><link>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</link><pubDate>Sat, 10 Mar 2018 12:57:05 +0800</pubDate><guid>https://jdhao.github.io/2018/03/10/sublime-text-latextools-setup/</guid><description>&lt;p>There are a lot of &lt;a href="https://en.wikipedia.org/wiki/Comparison_of_TeX_editors" target="_blank">front-end
 editors&lt;/a> for writing
 LaTeX source, for example, &lt;a href="http://www.xm1math.net/texmaker/" target="_blank">Texmaker&lt;/a>,
@@ -55,11 +79,11 @@ the issue of character set, encoding and all the related stuff. There are tons
 of articles which explains the meaning of &lt;code>Unicode&lt;/code>, &lt;code>UTF-8&lt;/code>, &lt;code>UTF-16&lt;/code> etc. I
 am not going to repeat that here. In this post, I will write about what
 confused me when I tried to understand all this stuff.&lt;/p></description></item><item><title>Sublime Text 3 Markdown 写作设置</title><link>https://jdhao.github.io/2017/03/04/sublime-windows-markdown/</link><pubDate>Sat, 04 Mar 2017 14:35:00 +0800</pubDate><guid>https://jdhao.github.io/2017/03/04/sublime-windows-markdown/</guid><description>&lt;h1 class="relative group">引子
-&lt;div id="%E5%BC%95%E5%AD%90" class="anchor">&lt;/div>
+&lt;div id="引子" class="anchor">&lt;/div>
 &lt;span
 class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
 &lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#%E5%BC%95%E5%AD%90" aria-label="Anchor">#&lt;/a>
+style="text-decoration-line: none !important;" href="#%e5%bc%95%e5%ad%90" aria-label="Anchor">#&lt;/a>
 &lt;/span>
 &lt;/h1>
 &lt;p>由于受不了 VSCode 打开文件的龟速，我决定换一个编辑器，以前就大致了解有三款评价不错的编辑器，分别是 &lt;a href="https://atom.io/" target="_blank">GitHub Atom&lt;/a>, &lt;a href="https://www.sublimetext.com/" target="_blank">Sublime Text 3&lt;/a> 以及微软的 &lt;a href="https://code.visualstudio.com/" target="_blank">VSCode&lt;/a>。&lt;/p></description></item></channel></rss>

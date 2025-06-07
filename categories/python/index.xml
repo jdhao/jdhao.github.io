@@ -74,9 +74,30 @@ when I use pip, I am seeing the following error:&lt;/p></description></item><ite
 execute tasks in different cores of the CPU to reduce the total processing
 time. Python provides the &lt;a href="https://docs.python.org/3/library/multiprocessing.html" target="_blank">multiprocessing&lt;/a> package to facilitate this.&lt;/p>
 &lt;p>This post summarizes some of the questions I have when I learn to use
-multiprocessing in Python.&lt;/p></description></item><item><title>Note on Using requests package</title><link>https://jdhao.github.io/2020/07/09/requests_notes/</link><pubDate>Thu, 09 Jul 2020 23:30:14 +0800</pubDate><guid>https://jdhao.github.io/2020/07/09/requests_notes/</guid><description>How to check request header and body? # When making requests, we may want to see exactly what are being requested. With requests, it is easy do access the request header and request body:
-import requests url = &amp;#34;http://httpbin.org/post&amp;#34; payload = {&amp;#34;apple&amp;#34;: 10, &amp;#34;pear&amp;#34;: [20, 30], &amp;#34;img&amp;#34;: &amp;#34;http://example.com/demo.jpg&amp;#34;} r = requests.post(url, json=payload) print(f&amp;#34;request headers: {r.request.headers}&amp;#34;) print(f&amp;#34;request body: {r.request.body}&amp;#34;) A sample output is:
-request headers: {&amp;#39;User-Agent&amp;#39;: &amp;#39;python-requests/2.19.1&amp;#39;, &amp;#39;Accept-Encoding&amp;#39;: &amp;#39;gzip, deflate&amp;#39;, &amp;#39;Accept&amp;#39;: &amp;#39;*/*&amp;#39;, &amp;#39;Connection&amp;#39;: &amp;#39;keep-alive&amp;#39;, &amp;#39;Content-Length&amp;#39;: &amp;#39;69&amp;#39;, &amp;#39;Content-Type&amp;#39;: &amp;#39;application/json&amp;#39;} request body: b&amp;#39;{&amp;#34;apple&amp;#34;: 10, &amp;#34;pear&amp;#34;: [20, 30], &amp;#34;img&amp;#34;: &amp;#34;http://example.</description></item><item><title>uWSGI Install and Use Issues</title><link>https://jdhao.github.io/2020/07/02/uwsgi_install_use_issue/</link><pubDate>Thu, 02 Jul 2020 01:02:17 +0800</pubDate><guid>https://jdhao.github.io/2020/07/02/uwsgi_install_use_issue/</guid><description>&lt;p>My notes on several issues when installing and running &lt;a href="https://uwsgi-docs.readthedocs.io/en/latest/" target="_blank">uWSGI&lt;/a>.&lt;/p></description></item><item><title>Downloading Images Faster with requests Sessions</title><link>https://jdhao.github.io/2020/06/21/faster_im_download_with_requests/</link><pubDate>Sun, 21 Jun 2020 22:13:05 +0800</pubDate><guid>https://jdhao.github.io/2020/06/21/faster_im_download_with_requests/</guid><description>&lt;p>In my &lt;a href="https://jdhao.github.io/2020/06/17/download_image_from_url_python/" target="_blank">previous post&lt;/a>,
+multiprocessing in Python.&lt;/p></description></item><item><title>Note on Using requests package</title><link>https://jdhao.github.io/2020/07/09/requests_notes/</link><pubDate>Thu, 09 Jul 2020 23:30:14 +0800</pubDate><guid>https://jdhao.github.io/2020/07/09/requests_notes/</guid><description>&lt;h1 class="relative group">How to check request header and body?
+&lt;div id="how-to-check-request-header-and-body" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#how-to-check-request-header-and-body" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;p>When making requests, we may want to see exactly what are being requested. With
+requests, it is easy do access the request header and request body:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">requests&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">url&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;http://httpbin.org/post&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">payload&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="s2">&amp;#34;apple&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;pear&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="mi">20&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">30&lt;/span>&lt;span class="p">],&lt;/span> &lt;span class="s2">&amp;#34;img&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;http://example.com/demo.jpg&amp;#34;&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">r&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">requests&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">post&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">url&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">json&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">payload&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">f&lt;/span>&lt;span class="s2">&amp;#34;request headers: &lt;/span>&lt;span class="si">{&lt;/span>&lt;span class="n">r&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">headers&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">f&lt;/span>&lt;span class="s2">&amp;#34;request body: &lt;/span>&lt;span class="si">{&lt;/span>&lt;span class="n">r&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">request&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">body&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>A sample output is:&lt;/p>
+&lt;pre tabindex="0">&lt;code>request headers: {&amp;#39;User-Agent&amp;#39;: &amp;#39;python-requests/2.19.1&amp;#39;, &amp;#39;Accept-Encoding&amp;#39;:
+&amp;#39;gzip, deflate&amp;#39;, &amp;#39;Accept&amp;#39;: &amp;#39;*/*&amp;#39;, &amp;#39;Connection&amp;#39;: &amp;#39;keep-alive&amp;#39;, &amp;#39;Content-Length&amp;#39;:
+&amp;#39;69&amp;#39;, &amp;#39;Content-Type&amp;#39;: &amp;#39;application/json&amp;#39;}
+request body: b&amp;#39;{&amp;#34;apple&amp;#34;: 10, &amp;#34;pear&amp;#34;: [20, 30], &amp;#34;img&amp;#34;: &amp;#34;http://example.com/demo.jpg&amp;#34;}&amp;#39;
+&lt;/code>&lt;/pre>&lt;p>Ref:&lt;/p></description></item><item><title>uWSGI Install and Use Issues</title><link>https://jdhao.github.io/2020/07/02/uwsgi_install_use_issue/</link><pubDate>Thu, 02 Jul 2020 01:02:17 +0800</pubDate><guid>https://jdhao.github.io/2020/07/02/uwsgi_install_use_issue/</guid><description>&lt;p>My notes on several issues when installing and running &lt;a href="https://uwsgi-docs.readthedocs.io/en/latest/" target="_blank">uWSGI&lt;/a>.&lt;/p></description></item><item><title>Downloading Images Faster with requests Sessions</title><link>https://jdhao.github.io/2020/06/21/faster_im_download_with_requests/</link><pubDate>Sun, 21 Jun 2020 22:13:05 +0800</pubDate><guid>https://jdhao.github.io/2020/06/21/faster_im_download_with_requests/</guid><description>&lt;p>In my &lt;a href="https://jdhao.github.io/2020/06/17/download_image_from_url_python/" target="_blank">previous post&lt;/a>,
 I write about how to download an image from URL using &lt;a href="https://github.com/psf/requests" target="_blank">requests&lt;/a>.
 In this post, I want to share ways to make the download speed faster.&lt;/p></description></item><item><title>Duplicate Logging Messages in Python</title><link>https://jdhao.github.io/2020/06/20/python_duplicate_logging_messages/</link><pubDate>Sat, 20 Jun 2020 00:45:12 +0800</pubDate><guid>https://jdhao.github.io/2020/06/20/python_duplicate_logging_messages/</guid><description>&lt;p>When I am working on a project, I find that the same message is printed twice.
 The following minimal code can reproduce this issue:&lt;/p></description></item><item><title>How to Download Image from URL using Python</title><link>https://jdhao.github.io/2020/06/17/download_image_from_url_python/</link><pubDate>Wed, 17 Jun 2020 09:19:30 +0800</pubDate><guid>https://jdhao.github.io/2020/06/17/download_image_from_url_python/</guid><description>&lt;p>Recently, I want to download some images using Python.
@@ -124,8 +145,7 @@ However, on Windows, it does not work. Then I thought I might convert the
 script to Windows executable.&lt;/p></description></item><item><title>How to Read and Write Images with Unicode Paths in OpenCV</title><link>https://jdhao.github.io/2019/09/11/opencv_unicode_image_path/</link><pubDate>Wed, 11 Sep 2019 00:23:41 +0800</pubDate><guid>https://jdhao.github.io/2019/09/11/opencv_unicode_image_path/</guid><description>&lt;p>The other day, when I was using OpenCV to read some images and print the image
 shape, I got an error:&lt;/p>
 &lt;blockquote>
-&lt;p>&amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;.&lt;/p>
-&lt;/blockquote>
+&lt;p>&amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;.&lt;/p>&lt;/blockquote>
 &lt;p>I was confused and do not know why since the image path is valid. It tooks me a
 while to understand the cause.&lt;/p></description></item><item><title>JPEG Image Quality in PIL</title><link>https://jdhao.github.io/2019/07/20/pil_jpeg_image_quality/</link><pubDate>Sat, 20 Jul 2019 21:19:39 +0800</pubDate><guid>https://jdhao.github.io/2019/07/20/pil_jpeg_image_quality/</guid><description>&lt;h1 class="relative group">Introduction
 &lt;div id="introduction" class="anchor">&lt;/div>
@@ -161,8 +181,7 @@ like to introduce how to do this in OpenCV.&lt;/p></description></item><item><ti
 module in the &lt;a href="https://github.com/python-pillow/Pillow" target="_blank">PIL&lt;/a> package.&lt;/p></description></item><item><title>Reading and Writing Text Files on Windows</title><link>https://jdhao.github.io/2018/12/03/text_file_read_write_on_windows/</link><pubDate>Mon, 03 Dec 2018 13:06:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/03/text_file_read_write_on_windows/</guid><description>&lt;p>If you are using Python 3 on Windows, you may have seen a Unicode decoding
 error when opening files in UTF-8 format:&lt;/p>
 &lt;blockquote>
-&lt;p>UnicodeDecodeError: &amp;lsquo;gbk&amp;rsquo; codec can&amp;rsquo;t decode byte 0xaf in position 5: illegal multibyte sequence&lt;/p>
-&lt;/blockquote>
+&lt;p>UnicodeDecodeError: &amp;lsquo;gbk&amp;rsquo; codec can&amp;rsquo;t decode byte 0xaf in position 5: illegal multibyte sequence&lt;/p>&lt;/blockquote>
 &lt;p>If you read the same file on Linux or macOS, you will find that this file can
 be opened without any error. Why is there a difference? It has something to do
 with the default encoding Python chooses to use on different platforms.&lt;/p></description></item><item><title>A Simple Guide on How to Use the Python Logging Module</title><link>https://jdhao.github.io/2018/10/12/python_logging_module/</link><pubDate>Fri, 12 Oct 2018 22:13:00 +0800</pubDate><guid>https://jdhao.github.io/2018/10/12/python_logging_module/</guid><description>&lt;p>In the past, I use plain &lt;code>print()&lt;/code> to display some statistics during training process of my models.
@@ -176,11 +195,46 @@ So I decided to give &lt;a href="https://docs.python.org/3/library/logging.html"
 &lt;pre tabindex="0">&lt;code>parser.add_argument(&amp;#39;--param&amp;#39;, action=&amp;#39;store_false&amp;#39;)
 &lt;/code>&lt;/pre>&lt;p>Otherwise, use&lt;/p>
 &lt;pre tabindex="0">&lt;code>parser.add_argument(&amp;#39;--param&amp;#39;, action=&amp;#39;store_true&amp;#39;)
-&lt;/code>&lt;/pre></description></item><item><title>How to Change Intersection Point of X and Y Axis in Matplotlib</title><link>https://jdhao.github.io/2018/05/21/matplotlib-change-axis-intersection-point/</link><pubDate>Mon, 21 May 2018 11:02:09 +0800</pubDate><guid>https://jdhao.github.io/2018/05/21/matplotlib-change-axis-intersection-point/</guid><description>In this post, I will share how to position the intersection of x and y axis at a specific point using Matplotlib.
-The spines # In order to re-position x and y axis, we need to understand an important concept in Matplotlib &amp;mdash;spines. According to Matplotlib documentation:
-Spines are the lines connecting the axis tick marks and noting the boundaries of the data area. They can be placed at arbitrary positions.</description></item><item><title>How to Read and Write CSV Files in Python</title><link>https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/</link><pubDate>Sun, 13 May 2018 21:24:42 +0800</pubDate><guid>https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/</guid><description>update log 2022-09-30: change order of read and write section; other small fixes.
-In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.
-Read CSV files # Use the builtin CSV module # Python has a built-in CSV module that deals with CSV files. CSV module provides a CSV reader, which we can use to read CSV files.</description></item><item><title>How to Plot Unicode Characters with Matplotlib</title><link>https://jdhao.github.io/2018/04/08/matplotlib-unicode-character/</link><pubDate>Sun, 08 Apr 2018 22:33:46 +0800</pubDate><guid>https://jdhao.github.io/2018/04/08/matplotlib-unicode-character/</guid><description>&lt;p>This is a post which follows up my previous post on &lt;a href="https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/" target="_blank">how to use Chinese
+&lt;/code>&lt;/pre></description></item><item><title>How to Change Intersection Point of X and Y Axis in Matplotlib</title><link>https://jdhao.github.io/2018/05/21/matplotlib-change-axis-intersection-point/</link><pubDate>Mon, 21 May 2018 11:02:09 +0800</pubDate><guid>https://jdhao.github.io/2018/05/21/matplotlib-change-axis-intersection-point/</guid><description>&lt;p>In this post, I will share how to position the intersection of x and y axis at a specific point using Matplotlib.&lt;/p>
+&lt;!-- more -->
+&lt;h1 class="relative group">The spines
+&lt;div id="the-spines" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#the-spines" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;p>In order to re-position x and y axis, we need to understand an important concept in Matplotlib &amp;mdash;&lt;a href="https://matplotlib.org/api/spines_api.html#module-matplotlib.spines" target="_blank">spines&lt;/a>.
+According to Matplotlib documentation:&lt;/p>
+&lt;blockquote>
+&lt;p>Spines are the lines connecting the axis tick marks and noting the boundaries
+of the data area. They can be placed at arbitrary positions. See
+function:set_position for more information.&lt;/p></description></item><item><title>How to Read and Write CSV Files in Python</title><link>https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/</link><pubDate>Sun, 13 May 2018 21:24:42 +0800</pubDate><guid>https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/</guid><description>&lt;details>
+&lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
+&lt;p>&lt;font color="blue">2022-09-30: change order of read and write section; other small fixes.&lt;/font>&lt;/p>
+&lt;/details>
+&lt;p>In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.&lt;/p>
+&lt;!-- more -->
+&lt;h1 class="relative group">Read CSV files
+&lt;div id="read-csv-files" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#read-csv-files" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;h2 class="relative group">Use the builtin CSV module
+&lt;div id="use-the-builtin-csv-module" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#use-the-builtin-csv-module" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;p>Python has a built-in &lt;a href="https://docs.python.org/3/library/csv.html#module-csv" target="_blank">CSV module&lt;/a> that deals with CSV files.
+CSV module provides &lt;a href="https://docs.python.org/3/library/csv.html#reader-objects" target="_blank">a CSV reader&lt;/a>, which we can use to read CSV files.
+The CSV reader is an iterable object. We can use the following snippet to read CSV files:&lt;/p></description></item><item><title>How to Plot Unicode Characters with Matplotlib</title><link>https://jdhao.github.io/2018/04/08/matplotlib-unicode-character/</link><pubDate>Sun, 08 Apr 2018 22:33:46 +0800</pubDate><guid>https://jdhao.github.io/2018/04/08/matplotlib-unicode-character/</guid><description>&lt;p>This is a post which follows up my previous post on &lt;a href="https://jdhao.github.io/2017/05/13/guide-on-how-to-use-chinese-with-matplotlib/" target="_blank">how to use Chinese
 characters with
 Matplotlib&lt;/a>.&lt;/p></description></item><item><title>How To Put Legend outside of Axes Properly in Matplotlib?</title><link>https://jdhao.github.io/2018/01/23/matplotlib-legend-outside-of-axes/</link><pubDate>Tue, 23 Jan 2018 14:51:45 +0800</pubDate><guid>https://jdhao.github.io/2018/01/23/matplotlib-legend-outside-of-axes/</guid><description>&lt;p>When we want to put legend somewhere in a figure using Matplotlib, most of the
 time, the option &lt;code>loc='best'&lt;/code> will produce the desired results. However,

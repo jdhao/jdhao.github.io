@@ -17,16 +17,23 @@ you need to ask yourself if there is a better way to do it.&lt;/p></description>
 changes in API.&lt;/strong>&lt;/p>
 &lt;p>In Vim or Neovim, showing the yanked region in color gives use visual feedback
 on what we have copied. Here is how you can highlight yanked region in Vim or
-Neovim.&lt;/p></description></item><item><title>Git Learning Notes (2)</title><link>https://jdhao.github.io/2020/05/07/git_learning_notes_s2/</link><pubDate>Thu, 07 May 2020 00:35:45 +0800</pubDate><guid>https://jdhao.github.io/2020/05/07/git_learning_notes_s2/</guid><description>&lt;p>My Git learning notes.&lt;/p></description></item><item><title>Search and Replace in Multiple Files in Vim/Neovim</title><link>https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/</link><pubDate>Sat, 14 Mar 2020 23:20:06 +0800</pubDate><guid>https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/</guid><description>In Sublime-Text and other editors, we can press Ctrl-Shift-F to invoke the search and replace UI. We can also accomplish this task easily in Vim or Neovim with the built-in features. Here is how.
-There are two steps involved in this task. The first step is to find the files containing the search pattern under the current project or directory. The second step is to perform replacement for each file found in 1st step.</description></item><item><title>Vim 和 Neovim 的前世今生</title><link>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</link><pubDate>Sun, 12 Jan 2020 11:48:43 +0800</pubDate><guid>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</guid><description>&lt;p align="center">
+Neovim.&lt;/p></description></item><item><title>Git Learning Notes (2)</title><link>https://jdhao.github.io/2020/05/07/git_learning_notes_s2/</link><pubDate>Thu, 07 May 2020 00:35:45 +0800</pubDate><guid>https://jdhao.github.io/2020/05/07/git_learning_notes_s2/</guid><description>&lt;p>My Git learning notes.&lt;/p></description></item><item><title>Search and Replace in Multiple Files in Vim/Neovim</title><link>https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/</link><pubDate>Sat, 14 Mar 2020 23:20:06 +0800</pubDate><guid>https://jdhao.github.io/2020/03/14/nvim_search_replace_multiple_file/</guid><description>&lt;p>In Sublime-Text and other editors, we can press &lt;code>Ctrl-Shift-F&lt;/code> to invoke the
+search and replace UI. We can also accomplish this task easily in Vim or Neovim
+with the built-in features. Here is how.&lt;/p>
+&lt;p align="center">
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/8KSiBq.png" width="800">
+&lt;/p>
+&lt;p>There are two steps involved in this task. The first step is to find the files
+containing the search pattern under the current project or directory. The
+second step is to perform replacement for each file found in 1st step.&lt;/p></description></item><item><title>Vim 和 Neovim 的前世今生</title><link>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</link><pubDate>Sun, 12 Jan 2020 11:48:43 +0800</pubDate><guid>https://jdhao.github.io/2020/01/12/vim_nvim_history_development/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202202021242998.jpg" width="800">
 &lt;/p>
 &lt;h1 class="relative group">引子
-&lt;div id="%E5%BC%95%E5%AD%90" class="anchor">&lt;/div>
+&lt;div id="引子" class="anchor">&lt;/div>
 &lt;span
 class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
 &lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#%E5%BC%95%E5%AD%90" aria-label="Anchor">#&lt;/a>
+style="text-decoration-line: none !important;" href="#%e5%bc%95%e5%ad%90" aria-label="Anchor">#&lt;/a>
 &lt;/span>
 &lt;/h1>
 &lt;p>从完全使用 &lt;a href="https://neovim.io/" target="_blank">Neovim&lt;/a> 进行日常&lt;a href="https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/" target="_blank">项目开发&lt;/a>与&lt;a href="https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/" target="_blank">文档写作&lt;/a>到现在，已经过去大约一年半的时间。一年半以前，我对 Vim 的了解还处在非常初级的阶段，甚至还不知道 Neovim，经过长时间的&lt;a href="https://jdhao.github.io/categories/Nvim/" target="_blank">使用与学习&lt;/a>，目前已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。&lt;/p>
@@ -35,8 +42,7 @@ style="text-decoration-line: none !important;" href="#%E5%BC%95%E5%AD%90" aria-l
 you want in specified format. More specifically, the topic is:&lt;/p>
 &lt;blockquote>
 &lt;p>How do we add, subtract, multiply or divide a value to each number in a
-range?&lt;/p>
-&lt;/blockquote></description></item><item><title>Creating Markdown Front Matter with Ultisnips</title><link>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</link><pubDate>Sun, 22 Dec 2019 13:45:25 +0800</pubDate><guid>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</guid><description>&lt;h1 class="relative group">Introduction
+range?&lt;/p>&lt;/blockquote></description></item><item><title>Creating Markdown Front Matter with Ultisnips</title><link>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</link><pubDate>Sun, 22 Dec 2019 13:45:25 +0800</pubDate><guid>https://jdhao.github.io/2019/12/22/ultisnips_avoid_content_update/</guid><description>&lt;h1 class="relative group">Introduction
 &lt;div id="introduction" class="anchor">&lt;/div>
 &lt;span
 class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
@@ -104,7 +110,7 @@ Markdown.&lt;/p></description></item><item><title>Nifty Nvim Techniques That Mak
 &lt;/ul>
 &lt;/details></description></item><item><title>How to Create Proper Folding for Vim/Nvim Configuration</title><link>https://jdhao.github.io/2019/08/16/nvim_config_folding/</link><pubDate>Fri, 16 Aug 2019 22:56:20 +0800</pubDate><guid>https://jdhao.github.io/2019/08/16/nvim_config_folding/</guid><description>&lt;p>
 &lt;figure>
-&lt;img class="my-0 rounded-md" loading="lazy" src="https://blog-resource-1257868508.file.myqcloud.com/20190817223054.png" alt="Folded config" />
+&lt;img class="my-0 rounded-md" loading="lazy" alt="Folded config" src="https://blog-resource-1257868508.file.myqcloud.com/20190817223054.png" />
 &lt;/figure>
 &lt;/p></description></item><item><title>How Do I Show the Current File Path In Neovim?</title><link>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</link><pubDate>Wed, 31 Jul 2019 23:10:27 +0800</pubDate><guid>https://jdhao.github.io/2019/07/31/nvim_show_file_path/</guid><description>&lt;p>I saw on &lt;a href="https://vi.stackexchange.com/questions/104/how-can-i-see-the-full-path-of-the-current-file/20768#20768" target="_blank">StackExchange&lt;/a>
 that someone asked about how to see the full path of current file in Vim. I

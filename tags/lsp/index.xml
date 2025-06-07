@@ -36,11 +36,11 @@ the &lt;a href="https://langserver.org/" target="_blank">Language Server Protoco
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202202021242998.jpg" width="800">
 &lt;/p>
 &lt;h1 class="relative group">引子
-&lt;div id="%E5%BC%95%E5%AD%90" class="anchor">&lt;/div>
+&lt;div id="引子" class="anchor">&lt;/div>
 &lt;span
 class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
 &lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#%E5%BC%95%E5%AD%90" aria-label="Anchor">#&lt;/a>
+style="text-decoration-line: none !important;" href="#%e5%bc%95%e5%ad%90" aria-label="Anchor">#&lt;/a>
 &lt;/span>
 &lt;/h1>
 &lt;p>从完全使用 &lt;a href="https://neovim.io/" target="_blank">Neovim&lt;/a> 进行日常&lt;a href="https://jdhao.github.io/2018/12/24/centos_nvim_install_use_guide_en/" target="_blank">项目开发&lt;/a>与&lt;a href="https://jdhao.github.io/2019/01/15/markdown_edit_preview_nvim/" target="_blank">文档写作&lt;/a>到现在，已经过去大约一年半的时间。一年半以前，我对 Vim 的了解还处在非常初级的阶段，甚至还不知道 Neovim，经过长时间的&lt;a href="https://jdhao.github.io/categories/Nvim/" target="_blank">使用与学习&lt;/a>，目前已经达到了熟练使用的程度。当然，Vim 的知识过于庞大，即便我已经使用了一年半的时间，还有很多 Vim/Neovim 的特性或者知识仍然有待了解与发掘。&lt;/p>

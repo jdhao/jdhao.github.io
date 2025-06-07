@@ -51,8 +51,7 @@ arises, is there any difference if I use &lt;code>pip install PACKAGE&lt;/code> 
 &lt;a href="https://docs.python.org/3/library/shutil.html#shutil.move" target="_blank">&lt;code>shutil.move()&lt;/code>&lt;/a> on
 my Windows machine, I encounter an error message:&lt;/p>
 &lt;blockquote>
-&lt;p>PermissionError: [WinError 32] The process cannot access the file because it is being used by another process&lt;/p>
-&lt;/blockquote>
+&lt;p>PermissionError: [WinError 32] The process cannot access the file because it is being used by another process&lt;/p>&lt;/blockquote>
 &lt;p>In this post, I will write about what I have learned from this error.&lt;/p></description></item><item><title>Linux 下 Neovim 配置 Python 开发环境指南</title><link>https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/</link><pubDate>Wed, 05 Sep 2018 20:34:00 +0800</pubDate><guid>https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/Xnip2020-04-04_21-39-49.jpg" width="800">
 &lt;/p>

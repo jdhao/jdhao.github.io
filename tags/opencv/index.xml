@@ -12,8 +12,7 @@ OpenCV. In this post, I will share how to convert between OpenCV or PIL image
 and base64 encoded image.&lt;/p></description></item><item><title>How to Read and Write Images with Unicode Paths in OpenCV</title><link>https://jdhao.github.io/2019/09/11/opencv_unicode_image_path/</link><pubDate>Wed, 11 Sep 2019 00:23:41 +0800</pubDate><guid>https://jdhao.github.io/2019/09/11/opencv_unicode_image_path/</guid><description>&lt;p>The other day, when I was using OpenCV to read some images and print the image
 shape, I got an error:&lt;/p>
 &lt;blockquote>
-&lt;p>&amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;.&lt;/p>
-&lt;/blockquote>
+&lt;p>&amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;.&lt;/p>&lt;/blockquote>
 &lt;p>I was confused and do not know why since the image path is valid. It tooks me a
 while to understand the cause.&lt;/p></description></item><item><title>Convert PIL or OpenCV Image to Bytes without Saving to Disk</title><link>https://jdhao.github.io/2019/07/06/python_opencv_pil_image_to_bytes/</link><pubDate>Sat, 06 Jul 2019 22:18:22 +0800</pubDate><guid>https://jdhao.github.io/2019/07/06/python_opencv_pil_image_to_bytes/</guid><description>&lt;h1 class="relative group">Introduction
 &lt;div id="introduction" class="anchor">&lt;/div>

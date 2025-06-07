@@ -18,8 +18,7 @@ disaster which wastes me several hours.&lt;/p></description></item><item><title>
 &lt;a href="https://docs.python.org/3/library/shutil.html#shutil.move" target="_blank">&lt;code>shutil.move()&lt;/code>&lt;/a> on
 my Windows machine, I encounter an error message:&lt;/p>
 &lt;blockquote>
-&lt;p>PermissionError: [WinError 32] The process cannot access the file because it is being used by another process&lt;/p>
-&lt;/blockquote>
+&lt;p>PermissionError: [WinError 32] The process cannot access the file because it is being used by another process&lt;/p>&lt;/blockquote>
 &lt;p>In this post, I will write about what I have learned from this error.&lt;/p></description></item><item><title>Why Doesn't Visdom Work Fine on CentOS?</title><link>https://jdhao.github.io/2017/10/16/fuck-my-great-country/</link><pubDate>Mon, 16 Oct 2017 23:37:33 +0800</pubDate><guid>https://jdhao.github.io/2017/10/16/fuck-my-great-country/</guid><description>&lt;p>Today, I came across the open source project
 &lt;a href="https://github.com/facebookresearch/visdom" target="_blank">visdom&lt;/a> and hope to use it in my
 future &lt;a href="http://pytorch.org/" target="_blank">PyTorch&lt;/a> project. I installed it on my Linux

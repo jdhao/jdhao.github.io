@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows on jdhao's digital space</title><link>https://jdhao.github.io/tags/windows/</link><description>Recent content in Windows on jdhao's digital space</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2017 - 2025 ❤️ jdhao</copyright><lastBuildDate>Sun, 26 Apr 2020 22:44:37 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml"/><item><title>解决 Windows 下文件管理器中右键单击无响应问题</title><link>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</link><pubDate>Sun, 26 Apr 2020 22:44:37 +0800</pubDate><guid>https://jdhao.github.io/2020/04/26/windows_context_menu_hang_solution/</guid><description>&lt;h1 class="relative group">引子
-&lt;div id="%E5%BC%95%E5%AD%90" class="anchor">&lt;/div>
+&lt;div id="引子" class="anchor">&lt;/div>
 &lt;span
 class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
 &lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#%E5%BC%95%E5%AD%90" aria-label="Anchor">#&lt;/a>
+style="text-decoration-line: none !important;" href="#%e5%bc%95%e5%ad%90" aria-label="Anchor">#&lt;/a>
 &lt;/span>
 &lt;/h1>
 &lt;p>最近使用工作电脑的时候，不知道为什么，在文件资源管理器里面鼠标右键单击打开菜单(也叫&lt;a href="https://en.wikipedia.org/wiki/Context_menu" target="_blank">context menu&lt;/a>)的时候，系统很大概率会卡顿，鼠标指针开始转圈，文件管理器白屏，然后会提示&amp;quot;未响应&amp;quot;,过一会儿，右键菜单才会出现。以至于我每次点击右键之前，都很烦躁，希望不要出现卡顿的情况。&lt;/p></description></item><item><title>Convert Python Script to Exe on Windows with Pyinstaller</title><link>https://jdhao.github.io/2019/10/14/python_script_to_exe/</link><pubDate>Mon, 14 Oct 2019 21:46:55 +0800</pubDate><guid>https://jdhao.github.io/2019/10/14/python_script_to_exe/</guid><description>&lt;h1 class="relative group">Introduction
@@ -57,8 +57,7 @@ cases.&lt;/p></description></item><item><title>Two Issues Related to ImageFont M
 module in the &lt;a href="https://github.com/python-pillow/Pillow" target="_blank">PIL&lt;/a> package.&lt;/p></description></item><item><title>在 Listary 中调用 GoldenDict 或欧路词典查单词</title><link>https://jdhao.github.io/2018/12/04/golden_dict_install_usage/</link><pubDate>Tue, 04 Dec 2018 15:03:38 +0800</pubDate><guid>https://jdhao.github.io/2018/12/04/golden_dict_install_usage/</guid><description>&lt;p>&lt;a href="https://github.com/goldendict/goldendict" target="_blank">GoldenDict&lt;/a> 是一款开源字典应用，功能强大，支持多种字典格式，同时也支持网络资源。&lt;a href="https://www.eudic.net/v4/en/app/eudic" target="_blank">欧路词典&lt;/a> 是一款国产的查词软件，产品做得也很不错，同样支持多种字典格式。本文介绍 GoldenDict 以及欧路词典的配置, 以及如何在Listary 中调用它们实现查词功能。&lt;/p></description></item><item><title>Reading and Writing Text Files on Windows</title><link>https://jdhao.github.io/2018/12/03/text_file_read_write_on_windows/</link><pubDate>Mon, 03 Dec 2018 13:06:00 +0800</pubDate><guid>https://jdhao.github.io/2018/12/03/text_file_read_write_on_windows/</guid><description>&lt;p>If you are using Python 3 on Windows, you may have seen a Unicode decoding
 error when opening files in UTF-8 format:&lt;/p>
 &lt;blockquote>
-&lt;p>UnicodeDecodeError: &amp;lsquo;gbk&amp;rsquo; codec can&amp;rsquo;t decode byte 0xaf in position 5: illegal multibyte sequence&lt;/p>
-&lt;/blockquote>
+&lt;p>UnicodeDecodeError: &amp;lsquo;gbk&amp;rsquo; codec can&amp;rsquo;t decode byte 0xaf in position 5: illegal multibyte sequence&lt;/p>&lt;/blockquote>
 &lt;p>If you read the same file on Linux or macOS, you will find that this file can
 be opened without any error. Why is there a difference? It has something to do
 with the default encoding Python chooses to use on different platforms.&lt;/p></description></item><item><title>Deoplete Failed to Load at Startup after Updating Python neovim Package</title><link>https://jdhao.github.io/2018/11/19/deoplete_failed_to_load_neovim/</link><pubDate>Mon, 19 Nov 2018 18:18:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/19/deoplete_failed_to_load_neovim/</guid><description>&lt;p>Today when I use &lt;code>:checkhealth&lt;/code> to check if there are anything wrong with my
@@ -76,8 +75,7 @@ arises, is there any difference if I use &lt;code>pip install PACKAGE&lt;/code> 
 &lt;a href="https://docs.python.org/3/library/shutil.html#shutil.move" target="_blank">&lt;code>shutil.move()&lt;/code>&lt;/a> on
 my Windows machine, I encounter an error message:&lt;/p>
 &lt;blockquote>
-&lt;p>PermissionError: [WinError 32] The process cannot access the file because it is being used by another process&lt;/p>
-&lt;/blockquote>
+&lt;p>PermissionError: [WinError 32] The process cannot access the file because it is being used by another process&lt;/p>&lt;/blockquote>
 &lt;p>In this post, I will write about what I have learned from this error.&lt;/p></description></item><item><title>Neovim configuration on Windows 10</title><link>https://jdhao.github.io/2018/11/15/neovim_configuration_windows/</link><pubDate>Thu, 15 Nov 2018 18:08:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/15/neovim_configuration_windows/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20190119221237.png" width="600">
 &lt;/p>
@@ -112,4 +110,6 @@ connect to a remote CentOS server and set up X11 forwarding to use the GUI
 applications on that server.&lt;/p></description></item><item><title>Cmder --- The Ultimate Command Line Tool for Windows</title><link>https://jdhao.github.io/2017/12/29/cmder-usage/</link><pubDate>Fri, 29 Dec 2017 20:04:00 +0800</pubDate><guid>https://jdhao.github.io/2017/12/29/cmder-usage/</guid><description>&lt;p align="center">
 &lt;img src="https://blog-resource-1257868508.file.myqcloud.com/18-1-1/79824514.jpg"
 title="A glimpse of Cmder">
-&lt;/p></description></item><item><title>Windows 系统下 Python 以及 Pip 的安装和使用</title><link>https://jdhao.github.io/2015/10/21/python-pip-install/</link><pubDate>Wed, 21 Oct 2015 14:29:00 +0800</pubDate><guid>https://jdhao.github.io/2015/10/21/python-pip-install/</guid><description>&lt;p>本文主要介绍在 Windows 系统下，如何安装 Python 和 Pip, 以及 Pip 的简单使用。&lt;/p></description></item><item><title>Windows 下 LaTeX 手动安装宏包（package）以及生成帮助文档整套流程</title><link>https://jdhao.github.io/2015/09/23/latex_install_package_manually/</link><pubDate>Wed, 23 Sep 2015 14:09:00 +0800</pubDate><guid>https://jdhao.github.io/2015/09/23/latex_install_package_manually/</guid><description>本文简单介绍如何手动安装一个 LaTeX 宏包。 一般来说，下载的 TeX 发行版已经自带了很多宏包，可以满足绝大部分需求，但是偶尔我们也可能碰到需要使用的宏包碰</description></item></channel></rss>
+&lt;/p></description></item><item><title>Windows 系统下 Python 以及 Pip 的安装和使用</title><link>https://jdhao.github.io/2015/10/21/python-pip-install/</link><pubDate>Wed, 21 Oct 2015 14:29:00 +0800</pubDate><guid>https://jdhao.github.io/2015/10/21/python-pip-install/</guid><description>&lt;p>本文主要介绍在 Windows 系统下，如何安装 Python 和 Pip, 以及 Pip 的简单使用。&lt;/p></description></item><item><title>Windows 下 LaTeX 手动安装宏包（package）以及生成帮助文档整套流程</title><link>https://jdhao.github.io/2015/09/23/latex_install_package_manually/</link><pubDate>Wed, 23 Sep 2015 14:09:00 +0800</pubDate><guid>https://jdhao.github.io/2015/09/23/latex_install_package_manually/</guid><description>&lt;p>本文简单介绍如何手动安装一个 LaTeX 宏包。&lt;/p>
+&lt;!-- more -->
+&lt;p>一般来说，下载的 TeX 发行版已经自带了很多宏包，可以满足绝大部分需求，但是偶尔我们也可能碰到需要使用的宏包碰巧没有安装的情况，这时我们就需要自己下载安装宏包了。&lt;/p></description></item></channel></rss>

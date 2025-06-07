@@ -43,11 +43,11 @@ style="float: middle;">&lt;/p>
 These tips are collected over time and will be updated frequently
 (hopefully).&lt;/p></description></item><item><title>Sublime Text 3 使用相关问题及解决办法</title><link>https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/</link><pubDate>Sun, 19 Mar 2017 19:01:00 +0800</pubDate><guid>https://jdhao.github.io/2017/03/19/windows-sublime-usage-related-issue/</guid><description>&lt;p>这篇文章集中写一些在使用 Sublime Text 3 时遇到的问题以及解决办法，某些问题在不
 同系统的解决办法可能都是一样的，但是未经测试，所以使用的时候请先验证。&lt;/p></description></item><item><title>Sublime Text 3 Markdown 写作设置</title><link>https://jdhao.github.io/2017/03/04/sublime-windows-markdown/</link><pubDate>Sat, 04 Mar 2017 14:35:00 +0800</pubDate><guid>https://jdhao.github.io/2017/03/04/sublime-windows-markdown/</guid><description>&lt;h1 class="relative group">引子
-&lt;div id="%E5%BC%95%E5%AD%90" class="anchor">&lt;/div>
+&lt;div id="引子" class="anchor">&lt;/div>
 &lt;span
 class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
 &lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#%E5%BC%95%E5%AD%90" aria-label="Anchor">#&lt;/a>
+style="text-decoration-line: none !important;" href="#%e5%bc%95%e5%ad%90" aria-label="Anchor">#&lt;/a>
 &lt;/span>
 &lt;/h1>
 &lt;p>由于受不了 VSCode 打开文件的龟速，我决定换一个编辑器，以前就大致了解有三款评价不错的编辑器，分别是 &lt;a href="https://atom.io/" target="_blank">GitHub Atom&lt;/a>, &lt;a href="https://www.sublimetext.com/" target="_blank">Sublime Text 3&lt;/a> 以及微软的 &lt;a href="https://code.visualstudio.com/" target="_blank">VSCode&lt;/a>。&lt;/p></description></item></channel></rss>
