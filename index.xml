@@ -12,7 +12,7 @@ style="text-decoration-line: none !important;" href="#who-am-i" aria-label="Anch
 I am experienced in tools like NumPy, &lt;a href="https://jdhao.github.io/tags/OpenCV/" target="_blank">OpenCV&lt;/a>, and &lt;a href="https://jdhao.github.io/tags/PIL/" target="_blank">PIL&lt;/a>,
 and also in data visualization tools like &lt;a href="https://jdhao.github.io/tags/Matplotlib/" target="_blank">Matplotlib&lt;/a>.
 I have broad experiences working on various vision-related projects, ranging from image retrieval, OCR,
-document image analysis and reconstruction, to video deduplication.&lt;/p></description></item><item><title>Check_trailing_white_spaces</title><link>https://jdhao.github.io/2025/12/19/check_trailing_white_spaces/</link><pubDate>Fri, 19 Dec 2025 18:19:30 +0100</pubDate><guid>https://jdhao.github.io/2025/12/19/check_trailing_white_spaces/</guid><description>&lt;p>When I am working on a Python project, I am using &lt;a href="https://github.com/psf/black" target="_blank">black&lt;/a> to format the code,
+document image analysis and reconstruction, to video deduplication.&lt;/p></description></item><item><title>Check Trailing White Spaces in Your Project</title><link>https://jdhao.github.io/2025/12/19/check_trailing_white_spaces/</link><pubDate>Fri, 19 Dec 2025 18:19:30 +0100</pubDate><guid>https://jdhao.github.io/2025/12/19/check_trailing_white_spaces/</guid><description>&lt;p>When I am working on a Python project, I am using &lt;a href="https://github.com/psf/black" target="_blank">black&lt;/a> to format the code,
 so that we have a unified format across the code base.&lt;/p>
 &lt;p>One pain point, however, is the super annoying trailing white spaces:&lt;/p>
 &lt;ol>
