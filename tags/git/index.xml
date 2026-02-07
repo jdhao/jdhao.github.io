@@ -1,56 +1,59 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on jdhao's digital space</title><link>https://jdhao.github.io/tags/git/</link><description>Recent content in Git on jdhao's digital space</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2017 - 2025 ❤️ jdhao</copyright><lastBuildDate>Fri, 19 Dec 2025 18:19:30 +0100</lastBuildDate><atom:link href="https://jdhao.github.io/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Check Trailing White Spaces in Your Project</title><link>https://jdhao.github.io/2025/12/19/check_trailing_white_spaces/</link><pubDate>Fri, 19 Dec 2025 18:19:30 +0100</pubDate><guid>https://jdhao.github.io/2025/12/19/check_trailing_white_spaces/</guid><description>&lt;p>When I am working on a Python project, I am using &lt;a href="https://github.com/psf/black" target="_blank">black&lt;/a> to format the code,
-so that we have a unified format across the code base.&lt;/p>
-&lt;p>One pain point, however, is the super annoying trailing white spaces:&lt;/p>
-&lt;ol>
-&lt;li>black can remove trailing spaces for doc string, code and comment, but it will not
-touch trailing spaces in, e.g., multi-line strings.&lt;/li>
-&lt;/ol></description></item><item><title>Git line ending config</title><link>https://jdhao.github.io/2024/02/21/git_line_ending_config/</link><pubDate>Wed, 21 Feb 2024 23:11:43 +0100</pubDate><guid>https://jdhao.github.io/2024/02/21/git_line_ending_config/</guid><description>&lt;p>This post is about how to set up Git so that people using different operating systems can work in the same repository,
-without messing up the line ending of source files.&lt;/p></description></item><item><title>How to Use The Git-tag Feature</title><link>https://jdhao.github.io/2021/05/08/git_tag_notes/</link><pubDate>Sat, 08 May 2021 00:16:06 +0800</pubDate><guid>https://jdhao.github.io/2021/05/08/git_tag_notes/</guid><description>&lt;p>My notes on using tag feature of Git.&lt;/p></description></item><item><title>How To Install Latest Version of Git on Linux</title><link>https://jdhao.github.io/2021/03/27/upgrade_git_on_linux/</link><pubDate>Sat, 27 Mar 2021 21:48:34 +0800</pubDate><guid>https://jdhao.github.io/2021/03/27/upgrade_git_on_linux/</guid><description>&lt;details>
-&lt;summary>&lt;font size="3" color="red">Update log&lt;/font>&lt;/summary>
-&lt;p>&lt;font color="blue">2021-12-10: update endpoint rpm link for git&lt;/font>&lt;/p>
-&lt;/details>
-&lt;p>The version of the default git bundled with the Linux system is often too old,
-and lacks certain features, which may &lt;a href="https://github.com/lewis6991/gitsigns.nvim/issues/103" target="_blank">break some tools&lt;/a>.
-This post summarizes how to install newer versions of Git on Linux.&lt;/p></description></item><item><title>Git Learning Notes (3)</title><link>https://jdhao.github.io/2021/02/17/git_notes_s3/</link><pubDate>Wed, 17 Feb 2021 15:24:46 +0800</pubDate><guid>https://jdhao.github.io/2021/02/17/git_notes_s3/</guid><description>&lt;p>Git learning notes.&lt;/p></description></item><item><title>Better Git log</title><link>https://jdhao.github.io/2021/01/25/better_git_log/</link><pubDate>Mon, 25 Jan 2021 23:04:12 +0800</pubDate><guid>https://jdhao.github.io/2021/01/25/better_git_log/</guid><description>&lt;p align="center">
-&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20210125233412.png" width="600">
-&lt;/p>
-&lt;p>Some of the settings to make &lt;code>git log&lt;/code> better.&lt;/p></description></item><item><title>Git Directory and Work-Tree Explained</title><link>https://jdhao.github.io/2020/12/25/git_directory_work-tree_explained/</link><pubDate>Fri, 25 Dec 2020 22:39:22 +0800</pubDate><guid>https://jdhao.github.io/2020/12/25/git_directory_work-tree_explained/</guid><description>&lt;p>Git has two option &lt;code>--git-dir&lt;/code> and &lt;code>--work-tree&lt;/code>. What is the use for them?&lt;/p></description></item><item><title>Find Line History in Git</title><link>https://jdhao.github.io/2020/09/14/git_find_line_history/</link><pubDate>Mon, 14 Sep 2020 23:57:01 +0800</pubDate><guid>https://jdhao.github.io/2020/09/14/git_find_line_history/</guid><description>&lt;p>When we are working on a real project, we may want to know from which commit a particular line is introduced.&lt;/p></description></item><item><title>A List of Common Git-branch Operations</title><link>https://jdhao.github.io/2020/09/03/git_branch_operations/</link><pubDate>Thu, 03 Sep 2020 23:41:00 +0800</pubDate><guid>https://jdhao.github.io/2020/09/03/git_branch_operations/</guid><description>&lt;p align="center">
-&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202202021114754.jpg" width="800">
-&lt;/p>
-&lt;details>
-&lt;summary>&lt;font size="2" color="red">Update log&lt;/font>&lt;/summary>
-&lt;ul>
-&lt;li>&lt;font color="blue">2022-08-20: Add how to remove remote tracking branches that does not exist anymore&lt;/font>&lt;/li>
-&lt;/ul>
-&lt;/details>
-&lt;p>This post summarizes some commonly used Git commands related to branch operations.&lt;/p></description></item><item><title>Git Learning Notes (2)</title><link>https://jdhao.github.io/2020/05/07/git_learning_notes_s2/</link><pubDate>Thu, 07 May 2020 00:35:45 +0800</pubDate><guid>https://jdhao.github.io/2020/05/07/git_learning_notes_s2/</guid><description>&lt;p>My Git learning notes.&lt;/p></description></item><item><title>Git Learning Notes (1)</title><link>https://jdhao.github.io/2020/04/23/git_learning_notes_s1/</link><pubDate>Thu, 23 Apr 2020 00:05:20 +0800</pubDate><guid>https://jdhao.github.io/2020/04/23/git_learning_notes_s1/</guid><description>&lt;p>This is my personal note on learning Git.&lt;/p></description></item><item><title>Resolving Merge Conflict after Git Stash Pop</title><link>https://jdhao.github.io/2019/12/03/git_stash_merge_conflict_handling/</link><pubDate>Tue, 03 Dec 2019 00:57:11 +0800</pubDate><guid>https://jdhao.github.io/2019/12/03/git_stash_merge_conflict_handling/</guid><description>&lt;p>Sometimes, when we are working with our local changes in a Git repo, we may
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on jdhao's digital space</title><link>https://jdhao.github.io/tags/git/</link><description>Recent content in Git on jdhao's digital space</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2017 - 2026 ❤️ jdhao</copyright><lastBuildDate>Fri, 19 Dec 2025 18:27:03 +0100</lastBuildDate><atom:link href="https://jdhao.github.io/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Check Trailing White Spaces in Your Project</title><link>https://jdhao.github.io/2025/12/19/check_trailing_white_spaces/</link><pubDate>Fri, 19 Dec 2025 18:19:30 +0100</pubDate><guid>https://jdhao.github.io/2025/12/19/check_trailing_white_spaces/</guid><description>&lt;p&gt;When I am working on a Python project, I am using &lt;a href="https://github.com/psf/black" target="_blank" rel="noreferrer"&gt;black&lt;/a&gt; to format the code,
+so that we have a unified format across the code base.&lt;/p&gt;
+&lt;p&gt;One pain point, however, is the super annoying trailing white spaces:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;black can remove trailing spaces for doc string, code and comment, but it will not
+touch trailing spaces in, e.g., multi-line strings.&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>Git line ending config</title><link>https://jdhao.github.io/2024/02/21/git_line_ending_config/</link><pubDate>Wed, 21 Feb 2024 23:11:43 +0100</pubDate><guid>https://jdhao.github.io/2024/02/21/git_line_ending_config/</guid><description>&lt;p&gt;This post is about how to set up Git so that people using different operating systems can work in the same repository,
+without messing up the line ending of source files.&lt;/p&gt;</description></item><item><title>How to Use The Git-tag Feature</title><link>https://jdhao.github.io/2021/05/08/git_tag_notes/</link><pubDate>Sat, 08 May 2021 00:16:06 +0800</pubDate><guid>https://jdhao.github.io/2021/05/08/git_tag_notes/</guid><description>&lt;p&gt;My notes on using tag feature of Git.&lt;/p&gt;</description></item><item><title>How To Install Latest Version of Git on Linux</title><link>https://jdhao.github.io/2021/03/27/upgrade_git_on_linux/</link><pubDate>Sat, 27 Mar 2021 21:48:34 +0800</pubDate><guid>https://jdhao.github.io/2021/03/27/upgrade_git_on_linux/</guid><description>&lt;details&gt;
+&lt;summary&gt;&lt;font size="3" color="red"&gt;Update log&lt;/font&gt;&lt;/summary&gt;
+&lt;p&gt;&lt;font color="blue"&gt;2021-12-10: update endpoint rpm link for git&lt;/font&gt;&lt;/p&gt;
+&lt;/details&gt;
+&lt;p&gt;The version of the default git bundled with the Linux system is often too old,
+and lacks certain features, which may &lt;a href="https://github.com/lewis6991/gitsigns.nvim/issues/103" target="_blank" rel="noreferrer"&gt;break some tools&lt;/a&gt;.
+This post summarizes how to install newer versions of Git on Linux.&lt;/p&gt;</description></item><item><title>Git Learning Notes (3)</title><link>https://jdhao.github.io/2021/02/17/git_notes_s3/</link><pubDate>Wed, 17 Feb 2021 15:24:46 +0800</pubDate><guid>https://jdhao.github.io/2021/02/17/git_notes_s3/</guid><description>&lt;p&gt;Git learning notes.&lt;/p&gt;</description></item><item><title>Better Git log</title><link>https://jdhao.github.io/2021/01/25/better_git_log/</link><pubDate>Mon, 25 Jan 2021 23:04:12 +0800</pubDate><guid>https://jdhao.github.io/2021/01/25/better_git_log/</guid><description>&lt;p align="center"&gt;
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/20210125233412.png" width="600"&gt;
+&lt;/p&gt;
+&lt;p&gt;Some of the settings to make &lt;code&gt;git log&lt;/code&gt; better.&lt;/p&gt;</description></item><item><title>Git Directory and Work-Tree Explained</title><link>https://jdhao.github.io/2020/12/25/git_directory_work-tree_explained/</link><pubDate>Fri, 25 Dec 2020 22:39:22 +0800</pubDate><guid>https://jdhao.github.io/2020/12/25/git_directory_work-tree_explained/</guid><description>&lt;p&gt;Git has two option &lt;code&gt;--git-dir&lt;/code&gt; and &lt;code&gt;--work-tree&lt;/code&gt;. What is the use for them?&lt;/p&gt;</description></item><item><title>Find Line History in Git</title><link>https://jdhao.github.io/2020/09/14/git_find_line_history/</link><pubDate>Mon, 14 Sep 2020 23:57:01 +0800</pubDate><guid>https://jdhao.github.io/2020/09/14/git_find_line_history/</guid><description>&lt;p&gt;When we are working on a real project, we may want to know from which commit a particular line is introduced.&lt;/p&gt;</description></item><item><title>A List of Common Git-branch Operations</title><link>https://jdhao.github.io/2020/09/03/git_branch_operations/</link><pubDate>Thu, 03 Sep 2020 23:41:00 +0800</pubDate><guid>https://jdhao.github.io/2020/09/03/git_branch_operations/</guid><description>&lt;p align="center"&gt;
+&lt;img src="https://blog-resource-1257868508.file.myqcloud.com/202202021114754.jpg" width="800"&gt;
+&lt;/p&gt;
+&lt;details&gt;
+&lt;summary&gt;&lt;font size="2" color="red"&gt;Update log&lt;/font&gt;&lt;/summary&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;font color="blue"&gt;2022-08-20: Add how to remove remote tracking branches that does not exist anymore&lt;/font&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/details&gt;
+&lt;p&gt;This post summarizes some commonly used Git commands related to branch operations.&lt;/p&gt;</description></item><item><title>Git Learning Notes (2)</title><link>https://jdhao.github.io/2020/05/07/git_learning_notes_s2/</link><pubDate>Thu, 07 May 2020 00:35:45 +0800</pubDate><guid>https://jdhao.github.io/2020/05/07/git_learning_notes_s2/</guid><description>&lt;p&gt;My Git learning notes.&lt;/p&gt;</description></item><item><title>Git Learning Notes (1)</title><link>https://jdhao.github.io/2020/04/23/git_learning_notes_s1/</link><pubDate>Thu, 23 Apr 2020 00:05:20 +0800</pubDate><guid>https://jdhao.github.io/2020/04/23/git_learning_notes_s1/</guid><description>&lt;p&gt;This is my personal note on learning Git.&lt;/p&gt;</description></item><item><title>Resolving Merge Conflict after Git Stash Pop</title><link>https://jdhao.github.io/2019/12/03/git_stash_merge_conflict_handling/</link><pubDate>Tue, 03 Dec 2019 00:57:11 +0800</pubDate><guid>https://jdhao.github.io/2019/12/03/git_stash_merge_conflict_handling/</guid><description>&lt;p&gt;Sometimes, when we are working with our local changes in a Git repo, we may
 want to pull the latest updates from the remote repository. To avoid code
-conflict between remote files and local files. We can use &lt;code>git stash&lt;/code> to store
-the unfinished local work temporarily.&lt;/p></description></item><item><title>How to Push Local Git Repo to Remote Repo in GitHub</title><link>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</link><pubDate>Wed, 16 May 2018 16:22:54 +0800</pubDate><guid>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</guid><description>&lt;p>There are two basic cases when we push our local repo to remote repo. These two
-cases differ in their settings. But sometimes, we are easily confused.&lt;/p>
-&lt;!-- more -->
-&lt;h1 class="relative group">First scenario
-&lt;div id="first-scenario" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#first-scenario" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h1>
-&lt;p>The first case is that you have created a local repo and want to store it on
-GitHub later. In this case, your usual work flow for local repo is:&lt;/p></description></item><item><title>A Tutorial on Creating GitHub Pull Requests</title><link>https://jdhao.github.io/2018/05/06/first-github-pull-request/</link><pubDate>Sun, 06 May 2018 15:23:00 +0800</pubDate><guid>https://jdhao.github.io/2018/05/06/first-github-pull-request/</guid><description>&lt;p>Today I make &lt;a href="https://github.com/theme-next/hexo-theme-next/pull/275" target="_blank">my first ever GitHub pull request&lt;/a>
-to the great &lt;a href="https://github.com/hexojs/hexo" target="_blank">Hexo&lt;/a> theme &lt;a href="https://github.com/theme-next/hexo-theme-next" target="_blank">NexT&lt;/a>.
-I will summarize how to make a pull request in following post.&lt;/p>
-&lt;!-- more -->
-&lt;h1 class="relative group">Creating a fork
-&lt;div id="creating-a-fork" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#creating-a-fork" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h1>
-&lt;p>According to GitHub documentation:&lt;/p>
-&lt;blockquote>
-&lt;p>If you don&amp;rsquo;t have write access to the repository where you&amp;rsquo;d like to create a
-pull request, you must create a fork, or copy, of the repository first.&lt;/p></description></item></channel></rss>
+conflict between remote files and local files. We can use &lt;code&gt;git stash&lt;/code&gt; to store
+the unfinished local work temporarily.&lt;/p&gt;</description></item><item><title>How to Push Local Git Repo to Remote Repo in GitHub</title><link>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</link><pubDate>Wed, 16 May 2018 16:22:54 +0800</pubDate><guid>https://jdhao.github.io/2018/05/16/git-push-local-to-remote/</guid><description>&lt;p&gt;There are two basic cases when we push our local repo to remote repo. These two
+cases differ in their settings. But sometimes, we are easily confused.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h1 class="relative group"&gt;First scenario
+ &lt;div id="first-scenario" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#first-scenario" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h1&gt;
+&lt;p&gt;The first case is that you have created a local repo and want to store it on
+GitHub later. In this case, your usual work flow for local repo is:&lt;/p&gt;</description></item><item><title>A Tutorial on Creating GitHub Pull Requests</title><link>https://jdhao.github.io/2018/05/06/first-github-pull-request/</link><pubDate>Sun, 06 May 2018 15:23:00 +0800</pubDate><guid>https://jdhao.github.io/2018/05/06/first-github-pull-request/</guid><description>&lt;p&gt;Today I make &lt;a href="https://github.com/theme-next/hexo-theme-next/pull/275" target="_blank" rel="noreferrer"&gt;my first ever GitHub pull request&lt;/a&gt;
+to the great &lt;a href="https://github.com/hexojs/hexo" target="_blank" rel="noreferrer"&gt;Hexo&lt;/a&gt; theme &lt;a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noreferrer"&gt;NexT&lt;/a&gt;.
+I will summarize how to make a pull request in following post.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h1 class="relative group"&gt;Creating a fork
+ &lt;div id="creating-a-fork" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#creating-a-fork" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h1&gt;
+&lt;p&gt;According to GitHub documentation:&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;If you don&amp;rsquo;t have write access to the repository where you&amp;rsquo;d like to create a
+pull request, you must create a fork, or copy, of the repository first.&lt;/p&gt;</description></item></channel></rss>

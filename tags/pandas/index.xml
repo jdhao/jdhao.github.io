@@ -1,25 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pandas on jdhao's digital space</title><link>https://jdhao.github.io/tags/pandas/</link><description>Recent content in Pandas on jdhao's digital space</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2017 - 2025 ❤️ jdhao</copyright><lastBuildDate>Fri, 11 Jun 2021 00:48:23 +0800</lastBuildDate><atom:link href="https://jdhao.github.io/tags/pandas/index.xml" rel="self" type="application/rss+xml"/><item><title>Excel Processing using Pandas</title><link>https://jdhao.github.io/2021/06/11/pandas_read_write_excel/</link><pubDate>Fri, 11 Jun 2021 00:48:23 +0800</pubDate><guid>https://jdhao.github.io/2021/06/11/pandas_read_write_excel/</guid><description>&lt;p>A brief summary of how to read and write excel files using Pandas package.&lt;/p></description></item><item><title>How to Read and Write CSV Files in Python</title><link>https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/</link><pubDate>Sun, 13 May 2018 21:24:42 +0800</pubDate><guid>https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/</guid><description>&lt;details>
-&lt;summary>&lt;font size="2" color="red">update log&lt;/font>&lt;/summary>
-&lt;p>&lt;font color="blue">2022-09-30: change order of read and write section; other small fixes.&lt;/font>&lt;/p>
-&lt;/details>
-&lt;p>In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.&lt;/p>
-&lt;!-- more -->
-&lt;h1 class="relative group">Read CSV files
-&lt;div id="read-csv-files" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#read-csv-files" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h1>
-&lt;h2 class="relative group">Use the builtin CSV module
-&lt;div id="use-the-builtin-csv-module" class="anchor">&lt;/div>
-&lt;span
-class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-style="text-decoration-line: none !important;" href="#use-the-builtin-csv-module" aria-label="Anchor">#&lt;/a>
-&lt;/span>
-&lt;/h2>
-&lt;p>Python has a built-in &lt;a href="https://docs.python.org/3/library/csv.html#module-csv" target="_blank">CSV module&lt;/a> that deals with CSV files.
-CSV module provides &lt;a href="https://docs.python.org/3/library/csv.html#reader-objects" target="_blank">a CSV reader&lt;/a>, which we can use to read CSV files.
-The CSV reader is an iterable object. We can use the following snippet to read CSV files:&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pandas on jdhao's digital space</title><link>https://jdhao.github.io/tags/pandas/</link><description>Recent content in Pandas on jdhao's digital space</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2017 - 2026 ❤️ jdhao</copyright><lastBuildDate>Thu, 29 Sep 2022 18:24:30 +0200</lastBuildDate><atom:link href="https://jdhao.github.io/tags/pandas/index.xml" rel="self" type="application/rss+xml"/><item><title>Excel Processing using Pandas</title><link>https://jdhao.github.io/2021/06/11/pandas_read_write_excel/</link><pubDate>Fri, 11 Jun 2021 00:48:23 +0800</pubDate><guid>https://jdhao.github.io/2021/06/11/pandas_read_write_excel/</guid><description>&lt;p&gt;A brief summary of how to read and write excel files using Pandas package.&lt;/p&gt;</description></item><item><title>How to Read and Write CSV Files in Python</title><link>https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/</link><pubDate>Sun, 13 May 2018 21:24:42 +0800</pubDate><guid>https://jdhao.github.io/2018/05/13/read-write-csv-file-with-header/</guid><description>&lt;details&gt;
+&lt;summary&gt;&lt;font size="2" color="red"&gt;update log&lt;/font&gt;&lt;/summary&gt;
+&lt;p&gt;&lt;font color="blue"&gt;2022-09-30: change order of read and write section; other small fixes.&lt;/font&gt;&lt;/p&gt;
+&lt;/details&gt;
+&lt;p&gt;In this post, I will share the most convenient way to read and write CSV files (with or w/o headers) in Python.&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h1 class="relative group"&gt;Read CSV files
+ &lt;div id="read-csv-files" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#read-csv-files" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h1&gt;
+
+&lt;h2 class="relative group"&gt;Use the builtin CSV module
+ &lt;div id="use-the-builtin-csv-module" class="anchor"&gt;&lt;/div&gt;
+ 
+ &lt;span
+ class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none"&gt;
+ &lt;a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#use-the-builtin-csv-module" aria-label="Anchor"&gt;#&lt;/a&gt;
+ &lt;/span&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;Python has a built-in &lt;a href="https://docs.python.org/3/library/csv.html#module-csv" target="_blank" rel="noreferrer"&gt;CSV module&lt;/a&gt; that deals with CSV files.
+CSV module provides &lt;a href="https://docs.python.org/3/library/csv.html#reader-objects" target="_blank" rel="noreferrer"&gt;a CSV reader&lt;/a&gt;, which we can use to read CSV files.
+The CSV reader is an iterable object. We can use the following snippet to read CSV files:&lt;/p&gt;</description></item></channel></rss>
