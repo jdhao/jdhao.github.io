@@ -71,11 +71,7 @@ Window and then quit silently.&lt;/p&gt;</description></item><item><title>Displa
 short)&lt;/a&gt;&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;, we can use the
 &lt;em&gt;nearly full&lt;/em&gt; Linux environment on Windows system. In this post, I would like
 to share how to display images inside Ubuntu on Windows, which is one of the
-popular distrubtions.&lt;/p&gt;</description></item><item><title>Deoplete Failed to Load at Startup after Updating Python neovim Package</title><link>https://jdhao.github.io/2018/11/19/deoplete_failed_to_load_neovim/</link><pubDate>Mon, 19 Nov 2018 18:18:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/19/deoplete_failed_to_load_neovim/</guid><description>&lt;p&gt;Today when I use &lt;code&gt;:checkhealth&lt;/code&gt; to check if there are anything wrong with my
-Neovim and related packages. I got an info that &lt;a href="https://github.com/neovim/pynvim" target="_blank" rel="noreferrer"&gt;Python &lt;code&gt;neovim&lt;/code&gt;
-package&lt;/a&gt; is not up to date. So I tried to
-update neovim with &lt;code&gt;pip install --upgrade neovim&lt;/code&gt;. This is the start of a
-disaster which wastes me several hours.&lt;/p&gt;</description></item><item><title>What Is The Difference between pip, pip3 and pip3.6 Shipped with Anaconda3?</title><link>https://jdhao.github.io/2018/11/19/anaconda3_windows_difference_between_pip_pip3/</link><pubDate>Mon, 19 Nov 2018 16:30:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/19/anaconda3_windows_difference_between_pip_pip3/</guid><description>&lt;p&gt;On Windows system, if you install Python3 via
+popular distrubtions.&lt;/p&gt;</description></item><item><title>What Is The Difference between pip, pip3 and pip3.6 Shipped with Anaconda3?</title><link>https://jdhao.github.io/2018/11/19/anaconda3_windows_difference_between_pip_pip3/</link><pubDate>Mon, 19 Nov 2018 16:30:00 +0800</pubDate><guid>https://jdhao.github.io/2018/11/19/anaconda3_windows_difference_between_pip_pip3/</guid><description>&lt;p&gt;On Windows system, if you install Python3 via
 &lt;a href="https://www.anaconda.com/download/#windows" target="_blank" rel="noreferrer"&gt;Anaconda&lt;/a&gt;. Under Anaconda root directory,
 there is a directory named &lt;code&gt;Scripts&lt;/code&gt;, in which &lt;code&gt;pip.exe&lt;/code&gt;, &lt;code&gt;pip3.exe&lt;/code&gt; and
 &lt;code&gt;pip3.6.exe&lt;/code&gt; all exist. When we want to install a package, a natural question
