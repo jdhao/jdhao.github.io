@@ -45,10 +45,10 @@ out.</p><h1 id=the-meaning-of-aspect-ratio-in-matplotlib>The meaning of aspect
 ratio in Matplotlib</h1><p>Before we get into <strong><em>aspect ratio</em></strong>, we should
 first know that there are four different <a href=https://matplotlib.org/users/transforms_tutorial.html>coordinate
 systems in Matplotlib</a>, which you are dealing with implicitly. Below
-is a brief description:</p><table><col style=width:12%><col style=width:87%><thead><tr class=header><th style=text-align:left>Coordinate system</th><th style=text-align:left>Description</th></tr></thead><tbody><tr class=odd><td style=text-align:left>data</td><td style=text-align:left>The userland data coordinate system,
-controlled by the xlim and ylim</td></tr><tr class=even><td style=text-align:left>axes</td><td style=text-align:left>The coordinate system of the Axes; (0,0)
-is bottom left of the axes, and (1,1) is top right of the axes.</td></tr><tr class=odd><td style=text-align:left>figure</td><td style=text-align:left>The coordinate system of the Figure; (0,0)
-is bottom left of the figure, and (1,1) is top right of the figure.</td></tr><tr class=even><td style=text-align:left>display</td><td style=text-align:left>This is the pixel coordinate system of the
+is a brief description:</p><table><col style=width:12%><col style=width:87%><thead><tr><th style=text-align:left>Coordinate system</th><th style=text-align:left>Description</th></tr></thead><tbody><tr><td style=text-align:left>data</td><td style=text-align:left>The userland data coordinate system,
+controlled by the xlim and ylim</td></tr><tr><td style=text-align:left>axes</td><td style=text-align:left>The coordinate system of the Axes; (0,0)
+is bottom left of the axes, and (1,1) is top right of the axes.</td></tr><tr><td style=text-align:left>figure</td><td style=text-align:left>The coordinate system of the Figure; (0,0)
+is bottom left of the figure, and (1,1) is top right of the figure.</td></tr><tr><td style=text-align:left>display</td><td style=text-align:left>This is the pixel coordinate system of the
 display; (0,0) is the bottom left of the display, and (width, height) is
 the top right of the display in pixels.</td></tr></tbody></table><p>Usually, these coordinate systems will work under the hood and you
 can hardly notice their existence. In our case, what we really want to

@@ -69,11 +69,10 @@ sees input windows at different locations on the input. In that
 scenario, the “fully connected layers” really act as 1x1
 convolutions.</p></blockquote><p>That is, we can interpret fully-connected layers as <span class="math inline">\(1\times 1\)</span> convolutions. For example, in
 VGG-16 network, the input image size is <span class="math inline">\(224\times 224\)</span>, the output is a
-classification score for 1000 classes, whose size is <span class="math inline">\(1000\times 1\times 1\)</span>. If the input images
-have bigger size than <span class="math inline">\(224\times
-224\)</span>, we can interpret the fully-connected layers as
-convolutions in a sliding windows fashion so that the output of the
-network is a classification map of size <span class="math inline">\(1000\times W\times H\)</span>, where <span class="math inline">\(W>1\)</span> and <span class="math inline">\(H>1\)</span>. Each point in each classification
+classification score for 1000 classes, whose size is <span class="math inline">\(1000\times
+1\times 1\)</span>. If the input images have bigger size than <span class="math inline">\(224\times 224\)</span>, we can interpret the
+fully-connected layers as convolutions in a sliding windows fashion so
+that the output of the network is a classification map of size <span class="math inline">\(1000\times W\times H\)</span>, where <span class="math inline">\(W>1\)</span> and <span class="math inline">\(H>1\)</span>. Each point in each classification
 map represent the probability of the corresponding receptive field in
 the original image belonging to that specific class.</p><h1 id=conclusions>Conclusions</h1><p>In summary, <span class="math inline">\(1\times 1\)</span>
 convolutions are used for 2 purposes: ones is to reduce dimensions in

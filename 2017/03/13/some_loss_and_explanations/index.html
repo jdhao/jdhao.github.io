@@ -29,11 +29,10 @@ single sample in the dataset is expressed as:</p><p><span class="math display">\
 sample, and <span class="math inline">\(p\)</span> is the predicted
 probability of the sample belonging to class 1.</p><p>For <span class="math inline">\(K\)</span>-class (<span class="math inline">\(K >2\)</span> ) classification problems, the
 predicted probablity output for a single sample is a vector of length
-<span class="math inline">\(K\)</span>: <span class="math inline">\([p_0, p_1, \ldots, p_{K-1}]\)</span>. The Cross
-Entropy Loss is extended as: <span class="math display">\[-log (p_k)\
-,\]</span> where <span class="math inline">\(k\)</span> is the ground
-truth label for the sample. If <span class="math inline">\(p_k\)</span>
-equals 1, then there is no loss incurred for that sample.</p><p>We often see the term “Softmax Loss” in literature or blog post. In
+<span class="math inline">\(K\)</span>: <span class="math inline">\([p_0, p_1, \ldots,
+p_{K-1}]\)</span>. The Cross Entropy Loss is extended as: <span class="math display">\[-log (p_k)\ ,\]</span> where <span class="math inline">\(k\)</span> is the ground truth label for the
+sample. If <span class="math inline">\(p_k\)</span> equals 1, then there
+is no loss incurred for that sample.</p><p>We often see the term “Softmax Loss” in literature or blog post. In
 fact, there is no such thing as “Softmax Loss”, as is discussed <a href=https://www.quora.com/Is-the-softmax-loss-the-same-as-the-cross-entropy-loss>on
 this Quora post</a>. Suppose the original prediction for a sample is
 <span class="math inline">\([x_0, x_1, \ldots, x_{K-1}]\)</span>, we can
